@@ -3,6 +3,8 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+require('./env').loadEnv(); // DATABASE_URL din .env.local (scris de `neon deploy`)
+const { handler: api } = require('../lib/api');
 
 const PUBLIC = path.join(__dirname, '..', 'public');
 const PORT = Number(process.env.PORT) || 3000;
@@ -14,6 +16,7 @@ const MIME = {
 };
 
 http.createServer((req, res) => {
+  if (req.url.startsWith('/api/')) return api(req, res);
   let rel;
   try {
     rel = decodeURIComponent(new URL(req.url, 'http://x').pathname);
@@ -27,4 +30,4 @@ http.createServer((req, res) => {
     if (err) return res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Negăsit');
     res.writeHead(200, { 'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream' }).end(buf);
   });
-}).listen(PORT, () => console.log(`edudigi rulează pe http://localhost:${PORT}`));
+}).listen(PORT, () => console.log(`edudigi rulează pe http://localhost:${PORT}${process.env.DATABASE_URL ? '' : ' (fără bază de date: conturile nu funcționează)'}`));

@@ -3,4 +3,7 @@ public/date/
 public/fisiere/
 *.tmp
 .env
+.env.local
+.env.*.local
 .vercel/
+.neon

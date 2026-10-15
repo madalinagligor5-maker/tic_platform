@@ -1,0 +1,141 @@
+'use strict';
+// Rulare: npm test – testează API-ul cap-coadă pe un Postgres real (PGlite), prin același driver `pg` ca în producție.
+const test = require('node:test');
+const assert = require('node:assert');
+const http = require('http');
+
+let server, base, pgServer;
+
+test.before(async () => {
+  const { PGlite } = await import('@electric-sql/pglite');
+  const { PGLiteSocketServer } = await import('@electric-sql/pglite-socket');
+  const db = await PGlite.create();
+  pgServer = new PGLiteSocketServer({ db, port: 0, host: '127.0.0.1', maxConnections: 10 });
+  await pgServer.start();
+  const conn = pgServer.getServerConn(); // host:port
+  process.env.DATABASE_URL = `postgres://postgres:postgres@${conn}/postgres?sslmode=disable`;
+  process.env.PG_POOL_MAX = '1';
+  delete process.env.TEACHER_SIGNUP_CODE;
+  await require('../scripts/migrate').migrate(process.env.DATABASE_URL);
+  await require('../scripts/migrate').migrate(process.env.DATABASE_URL); // a doua rulare nu strică nimic
+  const { handler } = require('../lib/api');
+  server = http.createServer(handler);
+  await new Promise((r) => server.listen(0, r));
+  base = `http://127.0.0.1:${server.address().port}`;
+});
+
+test.after(async () => {
+  server.close();
+  await require('../lib/db').closePool();
+  await pgServer.stop();
+});
+
+async function call(method, url, body, token) {
+  const res = await fetch(base + url, {
+    method,
+    headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  return { status: res.status, body: await res.json() };
+}
+
+test('baza de date răspunde', async () => {
+  const r = await call('GET', '/api/stare');
+  assert.deepStrictEqual(r.body, { ok: true, bazaDeDate: 'conectată' });
+});
+
+test('flux complet: profesor → clasă → elev → progres → panou', async () => {
+  const p = await call('POST', '/api/profesor/inregistrare', { nume: 'Ana Popescu', utilizator: 'ana', parola: 'parola-sigura' });
+  assert.strictEqual(p.status, 200);
+  const tp = p.body.token;
+  assert.strictEqual((await call('POST', '/api/profesor/inregistrare', { nume: 'Alt', utilizator: 'ana', parola: 'parola-sigura' })).status, 409);
+
+  const k = await call('POST', '/api/profesor/clase', { nume: '5B', clasa: 5 }, tp);
+  assert.match(k.body.cod, /^TIC5-[A-Z2-9]{4}$/);
+
+  // Elevul se înscrie o dată cu codul, apoi intră cu cod + pseudonim + PIN.
+  const e = await call('POST', '/api/elev/inscriere', { cod: k.body.cod.toLowerCase(), pseudonim: 'Ana M.', pin: '1234' });
+  assert.strictEqual(e.status, 200);
+  assert.strictEqual(e.body.clasa, 5);
+  assert.strictEqual((await call('POST', '/api/elev/inscriere', { cod: k.body.cod, pseudonim: 'ana m.', pin: '9999' })).status, 409);
+  const login = await call('POST', '/api/elev/login', { cod: k.body.cod, pseudonim: 'ANA M.', pin: '1234' });
+  assert.strictEqual(login.status, 200);
+  const te = login.body.token;
+
+  // Deschide lecția, rezolvă 2 aplicații (una din prima), apoi pe toate 3.
+  await call('POST', '/api/elev/progres', { materialId: 'tic-5-u1-l1-norme-ergonomie-siguranta', total: 3 }, te);
+  await call('POST', '/api/elev/progres', { materialId: 'tic-5-u1-l1-norme-ergonomie-siguranta', total: 3, rezolvate: 2, dinPrima: 1, incercari: 3, secunde: 120 }, te);
+  const fin = await call('POST', '/api/elev/progres', { materialId: 'tic-5-u1-l1-norme-ergonomie-siguranta', total: 3, rezolvate: 3, dinPrima: 2, incercari: 1, secunde: 60 }, te);
+  assert.deepStrictEqual(
+    { stare: fin.body.stare, rezolvate: fin.body.rezolvate, din_prima: fin.body.din_prima, incercari: fin.body.incercari, secunde: fin.body.secunde },
+    { stare: 'terminat', rezolvate: 3, din_prima: 2, incercari: 4, secunde: 180 },
+  );
+  // După finalizare, punctajul nu mai poate fi „umflat” refăcând lecția.
+  const din2 = await call('POST', '/api/elev/progres', { materialId: 'tic-5-u1-l1-norme-ergonomie-siguranta', total: 3, rezolvate: 3, dinPrima: 3 }, te);
+  assert.strictEqual(din2.body.din_prima, 2);
+  // Valori imposibile sunt limitate: dinPrima nu poate depăși rezolvate, rezolvate nu poate depăși total.
+  const lim = await call('POST', '/api/elev/progres', { materialId: 'info-5-u5-l1-notiunea-de-algoritm', total: 2, rezolvate: 9, dinPrima: 9 }, te);
+  assert.strictEqual(lim.body.rezolvate, 2);
+  assert.strictEqual((await call('POST', '/api/elev/progres', { materialId: '../hack', total: 1 }, te)).status, 400);
+
+  const mine = await call('GET', '/api/elev/progres', null, te);
+  assert.strictEqual(mine.body.length, 2);
+
+  // Panoul profesorului.
+  const panou = await call('GET', `/api/profesor/clase/${k.body.id}`, null, tp);
+  assert.strictEqual(panou.body.elevi.length, 1);
+  assert.strictEqual(panou.body.elevi[0].pseudonim, 'Ana M.');
+  const rand = panou.body.progres.find((x) => x.material_id === 'tic-5-u1-l1-norme-ergonomie-siguranta');
+  assert.strictEqual(rand.stare, 'terminat');
+
+  // Resetarea unei teme.
+  const sid = panou.body.elevi[0].id;
+  await call('DELETE', `/api/profesor/elevi/${sid}/progres/tic-5-u1-l1-norme-ergonomie-siguranta`, null, tp);
+  assert.strictEqual((await call('GET', '/api/elev/progres', null, te)).body.length, 1);
+
+  // Resetarea PIN-ului închide sesiunile elevului.
+  const pin = await call('POST', `/api/profesor/elevi/${sid}/pin`, null, tp);
+  assert.match(pin.body.pin, /^\d{4}$/);
+  assert.strictEqual((await call('GET', '/api/elev/progres', null, te)).status, 401);
+  assert.strictEqual((await call('POST', '/api/elev/login', { cod: k.body.cod, pseudonim: 'Ana M.', pin: pin.body.pin })).status, 200);
+
+  // Cod regenerat și înscriere închisă.
+  const cod2 = await call('POST', `/api/profesor/clase/${k.body.id}/cod`, null, tp);
+  assert.notStrictEqual(cod2.body.cod, k.body.cod);
+  await call('POST', `/api/profesor/clase/${k.body.id}/inscriere`, { deschisa: false }, tp);
+  assert.strictEqual((await call('POST', '/api/elev/inscriere', { cod: cod2.body.cod, pseudonim: 'Nou', pin: '1111' })).status, 403);
+
+  // Ștergerea elevului șterge și progresul.
+  await call('DELETE', `/api/profesor/elevi/${sid}`, null, tp);
+  const gol = await call('GET', `/api/profesor/clase/${k.body.id}`, null, tp);
+  assert.strictEqual(gol.body.elevi.length, 0);
+  assert.strictEqual(gol.body.progres.length, 0);
+});
+
+test('izolare: profesorul nu vede clasa altui profesor; elevul nu poate folosi rute de profesor', async () => {
+  const a = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof A', utilizator: 'profa', parola: 'parola-sigura' })).body.token;
+  const b = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof B', utilizator: 'profb', parola: 'parola-sigura' })).body.token;
+  const k = (await call('POST', '/api/profesor/clase', { nume: '6A', clasa: 6 }, a)).body;
+  assert.strictEqual((await call('GET', `/api/profesor/clase/${k.id}`, null, b)).status, 404);
+  const te = (await call('POST', '/api/elev/inscriere', { cod: k.cod, pseudonim: 'Lup', pin: '4321' })).body.token;
+  assert.strictEqual((await call('GET', `/api/profesor/clase/${k.id}`, null, te)).status, 401);
+  assert.strictEqual((await call('GET', '/api/profesor/clase', null, te)).status, 401);
+});
+
+test('blocare după 5 PIN-uri greșite', async () => {
+  const t = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof C', utilizator: 'profc', parola: 'parola-sigura' })).body.token;
+  const k = (await call('POST', '/api/profesor/clase', { nume: '7C', clasa: 7 }, t)).body;
+  await call('POST', '/api/elev/inscriere', { cod: k.cod, pseudonim: 'Bufnița', pin: '2468' });
+  for (let i = 0; i < 5; i++) assert.strictEqual((await call('POST', '/api/elev/login', { cod: k.cod, pseudonim: 'Bufnița', pin: '0000' })).status, 401);
+  assert.strictEqual((await call('POST', '/api/elev/login', { cod: k.cod, pseudonim: 'Bufnița', pin: '2468' })).status, 429);
+});
+
+test('cod de invitație pentru profesori, dacă este setat', async () => {
+  process.env.TEACHER_SIGNUP_CODE = 'SCOALA2026';
+  try {
+    assert.strictEqual((await call('POST', '/api/profesor/inregistrare', { nume: 'Intrus', utilizator: 'intrus', parola: 'parola-sigura' })).status, 403);
+    assert.strictEqual((await call('POST', '/api/profesor/inregistrare', { nume: 'Prof D', utilizator: 'profd', parola: 'parola-sigura', codInvitatie: 'SCOALA2026' })).status, 200);
+  } finally {
+    delete process.env.TEACHER_SIGNUP_CODE;
+  }
+});

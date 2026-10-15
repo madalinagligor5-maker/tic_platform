@@ -171,22 +171,28 @@
     const status = h('p', { class: 'act-status', role: 'status', 'aria-live': 'polite' });
     const box = h('div', { class: `activity act-${block.type}` });
     let solved = false;
+    // „Din prima” = rezolvată la prima verificare, fără „Încearcă din nou”. Folosit pentru punctaj.
+    let checks = 0, resetUsed = false;
     const api = {
       box,
       status(text, kind) {
         status.textContent = text;
         status.className = `act-status ${kind || ''}`;
       },
+      // O încercare (o verificare); evenimentul e folosit pentru salvarea progresului.
+      attempt() {
+        if (!solved) box.dispatchEvent(new CustomEvent('activitate-incercare', { bubbles: true }));
+      },
       solve() {
         if (solved) return;
         solved = true;
         box.classList.add('solved');
-        box.dispatchEvent(new CustomEvent('activitate-rezolvata', { bubbles: true }));
+        box.dispatchEvent(new CustomEvent('activitate-rezolvata', { bubbles: true, detail: { dinPrima: !resetUsed && checks <= 1, tip: block.type } }));
       },
     };
     const actions = h('div', { class: 'act-actions' },
-      onCheck ? h('button', { class: 'btn small', type: 'button', onclick: () => onCheck(api) }, checkLabel) : null,
-      onReset ? h('button', { class: 'btn small ghost', type: 'button', onclick: () => { api.status(''); onReset(api); } }, 'Încearcă din nou') : null);
+      onCheck ? h('button', { class: 'btn small', type: 'button', onclick: () => { if (!solved) checks++; api.attempt(); onCheck(api); } }, checkLabel) : null,
+      onReset ? h('button', { class: 'btn small ghost', type: 'button', onclick: () => { if (!solved) resetUsed = true; api.status(''); onReset(api); } }, 'Încearcă din nou') : null);
     box.append(
       h('div', { class: 'act-head' }, h('span', { class: 'act-type' }, TYPES[block.type]), block.title ? h('h4', {}, block.title) : null),
       body, actions, status);
@@ -256,6 +262,7 @@
         fb.hidden = false;
         fb.replaceChildren(ok ? '✓ Corect! ' : `✗ Afirmația este ${it.answer ? 'adevărată' : 'falsă'}. `, it.explain ? inline(it.explain) : '');
         if (answered === items.length) {
+          api.attempt();
           if (good === items.length) api.status('Excelent! Ai răspuns corect la toate.', 'ok'), api.solve();
           else api.status(`${good} din ${items.length} corecte. Poți încerca din nou.`, 'bad');
         }

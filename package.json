@@ -1,15 +1,26 @@
 {
   "name": "edudigi",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "edudigi – resurse gratuite pentru Informatică și TIC, clasele V–XII.",
   "private": true,
   "engines": {
     "node": ">=18"
   },
   "scripts": {
-    "build": "node scripts/build.js",
+    "build": "node scripts/build.js && node scripts/migrate.js --if-configured",
     "start": "node scripts/build.js && node scripts/serve.js",
+    "db:migrate": "node scripts/migrate.js",
     "test": "node --test test/*.test.js"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@neon/config": "^1.9.1",
+    "@neon/env": "^1.6.2",
+    "@vercel/functions": "^3.10.1",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.10",
+    "@electric-sql/pglite-socket": "^0.2.13"
+  }
 }

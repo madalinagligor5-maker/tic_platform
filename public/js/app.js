@@ -4,6 +4,8 @@
   const main = document.getElementById('continut');
   const ROMAN = { 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII', 9: 'IX', 10: 'X', 11: 'XI', 12: 'XII' };
   const GRADES = [5, 6, 7, 8, 9, 10, 11, 12];
+  const hooks = {};
+  const routes = [];
 
   // ---------- Iconițe (SVG static, de încredere) ----------
   const SVG = (inner, vb = '0 0 24 24') => `<svg viewBox="${vb}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
@@ -202,7 +204,8 @@
           h('span', { class: 'tag' }, clasaLabel(m.clasa)),
           h('span', { class: 'tag' }, D.tipuri[m.tip]),
           m.fisier ? h('span', { class: 'tag' }, m.fisier.ext.toUpperCase()) : null,
-          m.aplicatii ? h('span', { class: 'tag interactiv' }, `${m.aplicatii} ${m.aplicatii === 1 ? 'aplicație' : 'aplicații'}`) : null)));
+          m.aplicatii ? h('span', { class: 'tag interactiv' }, `${m.aplicatii} ${m.aplicatii === 1 ? 'aplicație' : 'aplicații'}`) : null,
+          hooks.cardTag ? hooks.cardTag(m) : null)));
   }
   const CAT_DESC = { programare: 'Limbaje, proiecte, exerciții', tic: 'Calculatorul, internetul, siguranța', algoritmi: 'Gândire algoritmică, probleme', aplicatii: 'Text, prezentări, calcul tabelar' };
   function catCard(key, D) {
@@ -387,6 +390,7 @@
           related.length ? h('div', { class: 'box' }, h('h3', {}, 'Din același domeniu'),
             h('div', { class: 'related' }, related.map((r) => h('a', { href: `#/m/${r.id}` }, r.titlu)))) : null,
           h('a', { class: 'btn ghost', href: `#/materiale?c=${m.clasa[0]}` }, `Vezi toată clasa a ${ROMAN[m.clasa[0]]}-a`)))));
+    if (hooks.material) hooks.material(m);
   }
 
   let onSolved = null; // setat de pagina curentă; un singur ascultător pentru tot site-ul
@@ -435,7 +439,9 @@
     if (document.activeElement !== q) q.value = params.get('q') || '';
     try {
       let m;
-      if (pathPart === '/' || pathPart === '') await pageHome();
+      const extra = routes.find((r) => r.pattern.test(pathPart));
+      if (extra) await extra.handler(pathPart.match(extra.pattern), params);
+      else if (pathPart === '/' || pathPart === '') await pageHome();
       else if (pathPart === '/materiale') await pageList(params);
       else if (pathPart === '/clase') await pageClase();
       else if ((m = /^\/m\/([a-z0-9-]+)$/.exec(pathPart))) await pageMaterial(m[1]);
@@ -461,6 +467,10 @@
     const q = document.getElementById('q').value.trim();
     location.hash = q ? `#/materiale?q=${encodeURIComponent(q)}` : '#/materiale';
   });
+  // Extensii (conturi.js): rute în plus și cârlige pentru carduri și pagina materialului.
+  window.EduApp = { h, show, data, markdown, ROMAN, GRADES, ICONS, clasaLabel, fileSize, hooks, routes, render };
   window.addEventListener('hashchange', render);
-  render();
+  // Pornim după ce s-au încărcat toate scripturile, ca extensiile să-și poată înregistra rutele.
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
+  else render();
 })();
