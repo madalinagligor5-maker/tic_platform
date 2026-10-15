@@ -38,6 +38,10 @@ data: 2026-10-15               # opțional: materialele noi apar primele
 
 Conținutul lecției, în Markdown: titluri, liste, **bold**, `cod`, blocuri de cod,
 tabele, citate, linkuri și imagini (![descriere](fisiere/imagine.png)).
+
+## Aplicații interactive
+
+(vezi mai jos: quiz, adevărat/fals, categorii, ordonare, completare, cartonașe)
 ```
 
 - Un material poate avea doar conținut, doar atașament, sau ambele.
@@ -45,13 +49,43 @@ tabele, citate, linkuri și imagini (![descriere](fisiere/imagine.png)).
 - PDF-urile se văd direct în pagină; celelalte fișiere au butoane **Descarcă** / **Deschide**.
 - Dacă antetul are o greșeală, construirea se oprește și spune exact ce fișier și ce câmp trebuie corectat. Site-ul publicat rămâne cel de dinainte.
 
+## Aplicații interactive
+
+**Fiecare lecție (`tip: lectie`) trebuie să aibă cel puțin o aplicație interactivă**; altfel construirea se oprește și spune ce lecție o lipsește. Aplicațiile se scriu direct în textul lecției, ca blocuri de cod cu numele tipului. Prima linie `# ...` este instrucțiunea (opțională).
+
+| Tip | Ce face elevul | Cum se scrie |
+|---|---|---|
+| `quiz` | alege răspunsul (sau răspunsurile) corecte | `- greșit`, `* corect`, `Explicație: ...`; întrebările se separă cu un rând gol |
+| `adevarat-fals` | apasă Adevărat / Fals, primește explicația imediat | `A: afirmație` sau `F: afirmație \| explicație` |
+| `categorii` | sortează elementele în categorii | `Categorie: element, element` (cel puțin 2 categorii) |
+| `ordonare` | pune pașii în ordine cu săgeți | pașii în ordinea **corectă**, câte unul pe rând |
+| `completare` | completează spațiile libere | `Text cu [răspuns] sau [variantă\|altă variantă]` |
+| `cartonase` | întoarce cartonașe | `Termen = Definiție` |
+
+Exemplu:
+
+````markdown
+```quiz
+# Alege răspunsul corect.
+Ce fel de dispozitiv este ecranul tactil?
+- Doar de intrare
+* Și de intrare, și de ieșire
+Explicație: Îl atingi (intrare) și îți arată imaginea (ieșire).
+```
+````
+
+- Răspunsurile de la `completare` sunt acceptate și fără diacritice sau cu majuscule.
+- În pagina lecției, caseta **Aplicații interactive** arată câte aplicații a rezolvat elevul.
+- Totul funcționează prin atingere și de la tastatură, inclusiv pe telefon.
+- Exemple complete sunt în lecțiile din `materiale/`. Promptul din `docs/` generează lecții care includ deja aplicațiile.
+
 ## Pornire locală
 
 Ai nevoie de [Node.js](https://nodejs.org) 18 sau mai nou. Nu e nevoie de `npm install`.
 
 ```bash
 npm start     # construiește și pornește pe http://localhost:3000
-npm test      # testele scriptului de construire
+npm test      # testele construirii și ale aplicațiilor interactive
 ```
 
 ## Publicare pe Vercel

@@ -37,6 +37,7 @@ PRINCIPII PEDAGOGICE
 
 FORMATUL DE IEȘIRE
 Respectă structura formatului ales (mai jos). Scrie în Markdown simplu: titluri ##/###, liste, **bold**, `cod` și blocuri de cod. Fără HTML, fără tabele complexe, fără imagini externe.
+Fiecare lecție are obligatoriu o secțiune „Aplicații interactive”, cu 3–5 aplicații scrise exact după sintaxa din documentul atașat.
 ```
 
 ---
@@ -51,10 +52,51 @@ Respectă structura formatului ales (mai jos). Scrie în Markdown simplu: titlur
 ## Lecția pe scurt          (explicația, în pași mici)
 ## Exemplu rezolvat         (cel puțin unul, pas cu pas)
 ## Exersează                (3–5 sarcini, de la ușor la mai greu)
+## Aplicații interactive    (OBLIGATORIU: 3–5 aplicații de tipuri diferite, vezi mai jos)
 ## Verifică-te              (2–3 întrebări de autoevaluare)
 ## Pe scurt                 (rezumat în 2–3 rânduri)
 ```
 Lungime: cât se parcurge în ~35 de minute din ora de 50.
+
+**Aplicațiile interactive** se scriu ca blocuri de cod cu numele tipului; platforma le transformă în exerciții cu feedback imediat. Prima linie `# ...` (opțională) este instrucțiunea. Folosește 3–5 tipuri diferite, legate strict de conținutul lecției:
+
+````
+```quiz
+# Alege răspunsul corect.
+Întrebarea?
+- variantă greșită
+* variantă corectă        (* = corect; mai multe * = mai multe răspunsuri corecte)
+Explicație: de ce e corect.
+
+A doua întrebare (separată printr-un rând gol)?
+- ...
+* ...
+```
+
+```adevarat-fals
+A: Afirmație adevărată.
+F: Afirmație falsă. | Explicația corectă.
+```
+
+```categorii
+Categoria 1: element, element, element
+Categoria 2: element, element
+```
+
+```ordonare
+Primul pas
+Al doilea pas
+Al treilea pas            (scrie pașii în ordinea CORECTĂ; platforma îi amestecă)
+```
+
+```completare
+Un sistem de calcul [primește] date și oferă [rezultate|rezultatele].   ([a|b] = răspunsuri acceptate)
+```
+
+```cartonase
+Termen = Definiție
+```
+````
 
 ### 2. Fișă de lucru
 
@@ -105,7 +147,7 @@ Resurse (materiale, digitale, timp)
 
 **Lecție rapidă**
 ```
-Folosind harta atașată și principiile Rosenshine, scrie lecția completă {{ID}} pentru Platforma TIC Gimnaziu, în formatul „Lecție completă” (Ce vei învăța azi / Să ne amintim / Lecția pe scurt / Exemplu rezolvat / Exersează / Verifică-te / Pe scurt). Elevi de {{vârstă}} ani. Markdown simplu, română cu diacritice.
+Folosind harta atașată și principiile Rosenshine, scrie lecția completă {{ID}} pentru Platforma TIC Gimnaziu, în formatul „Lecție completă” (Ce vei învăța azi / Să ne amintim / Lecția pe scurt / Exemplu rezolvat / Exersează / Aplicații interactive / Verifică-te / Pe scurt), cu 3–5 aplicații interactive de tipuri diferite, scrise după sintaxa din acest document. Elevi de {{vârstă}} ani. Markdown simplu, română cu diacritice.
 ```
 
 **Tot modulul deodată**

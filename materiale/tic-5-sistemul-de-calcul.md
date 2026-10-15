@@ -45,6 +45,50 @@ Tastele și ecranul sunt hardware; „regulile” după care face calculul sunt 
 2. Pentru fiecare, dă un exemplu de hardware și unul de software.
 3. Adevărat sau fals? „Un joc instalat pe telefon este hardware.” Explică.
 
+## Aplicații interactive
+
+```categorii
+# Hardware sau software? Sortează fiecare element.
+Hardware: tastatura, monitorul, placa de bază, mouse-ul
+Software: browserul, sistemul de operare, un joc, aplicația de mesaje
+```
+
+```adevarat-fals
+# Adevărat sau fals?
+F: Un joc instalat pe telefon este hardware. | Jocul este un program, deci este software.
+A: Ecranul tabletei este hardware. | Îl poți atinge, deci face parte din hardware.
+A: Fără software, hardware-ul nu știe ce să facă.
+F: Ceasul inteligent nu este un sistem de calcul. | Primește date, le prelucrează și afișează rezultate, deci este un sistem de calcul.
+```
+
+```quiz
+# Alege răspunsul corect.
+Ce face orice sistem de calcul?
+- Doar afișează imagini
+* Primește date, le prelucrează și oferă rezultate
+- Doar păstrează fișiere
+Explicație: Acestea sunt cele trei lucruri pe care le face orice sistem de calcul.
+
+Care dintre acestea sunt sisteme de calcul?
+* Telefonul
+* Consola de jocuri
+- Creionul
+* Laptopul
+Explicație: Creionul nu prelucrează date, deci nu este un sistem de calcul.
+```
+
+```completare
+# Completează rezumatul lecției.
+Un sistem de calcul [primește] date, le [prelucrează] și oferă [rezultate]. Partea pe care o poți atinge se numește [hardware], iar programele formează [software|softul]-ul.
+```
+
+```cartonase
+# Recapitulează termenii-cheie.
+Sistem de calcul = Primește date, le prelucrează și oferă rezultate
+Hardware = Partea fizică, pe care o poți atinge
+Software = Programele care îi spun hardware-ului ce să facă
+```
+
 ## Verifică-te
 
 - Care sunt cele trei lucruri pe care le face orice sistem de calcul?

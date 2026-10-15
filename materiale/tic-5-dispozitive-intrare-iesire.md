@@ -39,6 +39,44 @@ Unele dispozitive sunt și de intrare, și de ieșire. Exemplu: **ecranul tactil
 
 Completează un tabel cu trei coloane (Intrare / Ieșire / Stocare) folosind: imprimantă, stick USB, joystick, căști, cameră web, card de memorie, monitor, tastatură.
 
+## Aplicații interactive
+
+```categorii
+# Unde se încadrează fiecare dispozitiv?
+Intrare: tastatura, mouse-ul, microfonul, camera web
+Ieșire: monitorul, boxele, imprimanta, căștile
+Stocare: stick-ul USB, cardul de memorie, hard disk-ul
+```
+
+```ordonare
+# Ce se întâmplă când înregistrezi și asculți un mesaj vocal? Pune pașii în ordine.
+Microfonul preia vocea
+Procesorul transformă sunetul în fișier
+Fișierul se salvează în memoria telefonului
+Difuzorul redă mesajul
+```
+
+```quiz
+# Gândește-te bine!
+Ce fel de dispozitiv este ecranul tactil?
+- Doar de intrare
+- Doar de ieșire
+* Și de intrare, și de ieșire
+Explicație: Îl atingi (intrare) și îți arată imaginea (ieșire).
+
+Unde rămâne o fotografie după ce închizi telefonul?
+- În difuzor
+* În memoria de stocare
+- Pe ecran
+Explicație: Dispozitivele de stocare păstrează datele și după oprire.
+```
+
+```adevarat-fals
+A: Imprimanta este un dispozitiv de ieșire.
+F: Microfonul este un dispozitiv de ieșire. | Microfonul trimite sunetul către calculator, deci este de intrare.
+A: Stocarea în cloud păstrează datele pe internet.
+```
+
 ## Verifică-te
 
 - De ce este ecranul tactil un caz special?

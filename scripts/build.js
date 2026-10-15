@@ -9,6 +9,7 @@
 // Rulare: npm run build. La orice greșeală în antet, oprește construirea și spune ce e de corectat.
 const fs = require('fs');
 const path = require('path');
+const { extract, TYPES: ACTIVITATI } = require('../public/js/interactive');
 
 const DISCIPLINE = { informatica: 'Informatică', tic: 'TIC' };
 const CATEGORII = { programare: 'Programare', tic: 'TIC', algoritmi: 'Algoritmi', aplicatii: 'Aplicații' };
@@ -59,6 +60,13 @@ function readMaterial(dir, file) {
   }
   if (!body && !meta.fisier) err('materialul nu are nici conținut, nici atașament („fisier”)');
 
+  // Aplicațiile interactive (blocuri ```quiz, ```categorii etc.) se verifică aici, ca greșelile să apară la construire.
+  const activitati = extract(body);
+  activitati.forEach((a, i) => {
+    for (const e of a.errors) err(`aplicația ${i + 1} (${ACTIVITATI[a.type]}, rândul ${a.line} din conținut): ${e}`);
+  });
+  if (tip === 'lectie' && !activitati.length) err('fiecare lecție trebuie să aibă cel puțin o aplicație interactivă (ex. un bloc ```quiz)');
+
   return {
     errors,
     material: {
@@ -72,6 +80,7 @@ function readMaterial(dir, file) {
       data: meta.data || '',
       fisier,
       areContinut: Boolean(body),
+      aplicatii: activitati.length,
     },
     body,
   };

@@ -133,7 +133,9 @@
         flush();
         const code = [];
         while (++i < lines.length && !lines[i].startsWith('```')) code.push(lines[i]);
-        root.append(h('pre', {}, h('code', {}, code.join('\n'))));
+        const type = EduInteractiv.typeOf(line.slice(3));
+        if (type) root.append(EduInteractiv.render(EduInteractiv.parse(type, code.join('\n')), inline));
+        else root.append(h('pre', {}, h('code', {}, code.join('\n'))));
       } else if (/^#{1,4} /.test(line)) {
         flush();
         const level = Math.max(2, Math.min(line.indexOf(' '), 4));
@@ -186,7 +188,8 @@
           h('span', { class: `tag ${m.categorie}` }, D.categorii[m.categorie]),
           h('span', { class: 'tag' }, clasaLabel(m.clasa)),
           h('span', { class: 'tag' }, D.tipuri[m.tip]),
-          m.fisier ? h('span', { class: 'tag' }, m.fisier.ext.toUpperCase()) : null)));
+          m.fisier ? h('span', { class: 'tag' }, m.fisier.ext.toUpperCase()) : null,
+          m.aplicatii ? h('span', { class: 'tag interactiv' }, `${m.aplicatii} ${m.aplicatii === 1 ? 'aplicație' : 'aplicații'}`) : null)));
   }
   const CAT_DESC = { programare: 'Limbaje, proiecte, exerciții', tic: 'Calculatorul, internetul, siguranța', algoritmi: 'Gândire algoritmică, probleme', aplicatii: 'Text, prezentări, calcul tabelar' };
   function catCard(key, D) {
@@ -327,6 +330,7 @@
           body ? h('div', { class: 'paper' }, body) : null,
           preview),
         h('aside', { class: 'aside' },
+          m.aplicatii ? progressBox(m.aplicatii) : null,
           f ? h('div', { class: 'box' },
             h('h3', {}, 'Material de descărcat'),
             h('div', { class: 'file-card' }, h('span', { class: 'ext' }, f.ext), h('div', {}, h('b', {}, f.nume), h('span', {}, fileSize(f.marime)))),
@@ -336,6 +340,31 @@
           related.length ? h('div', { class: 'box' }, h('h3', {}, 'Din același domeniu'),
             h('div', { class: 'related' }, related.map((r) => h('a', { href: `#/m/${r.id}` }, r.titlu)))) : null,
           h('a', { class: 'btn ghost', href: `#/materiale?c=${m.clasa[0]}` }, `Vezi toată clasa a ${ROMAN[m.clasa[0]]}-a`)))));
+  }
+
+  let onSolved = null; // setat de pagina curentă; un singur ascultător pentru tot site-ul
+  main.addEventListener('activitate-rezolvata', () => onSolved && onSolved());
+
+  // Caseta „Aplicații interactive”: numără aplicațiile rezolvate în pagina curentă.
+  function progressBox(total) {
+    let done = 0;
+    const fill = h('span');
+    const label = h('p', { class: 'muted', 'aria-live': 'polite' }, `0 din ${total} rezolvate`);
+    const first = h('a', { class: 'btn small', href: '#', onclick: (e) => {
+      e.preventDefault();
+      const next = document.querySelector('.activity:not(.solved)') || document.querySelector('.activity');
+      next?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      next?.querySelector('button, input')?.focus({ preventScroll: true });
+    } }, 'Mergi la aplicații');
+    const box = h('div', { class: 'box progress-box' }, h('h3', {}, 'Aplicații interactive'), h('div', { class: 'bar' }, fill), label, first);
+    onSolved = () => {
+      done = Math.min(total, done + 1);
+      fill.style.width = `${(100 * done) / total}%`;
+      label.textContent = done === total ? `Bravo! Ai rezolvat toate cele ${total} aplicații.` : `${done} din ${total} rezolvate`;
+      first.textContent = done === total ? 'Revezi aplicațiile' : 'Următoarea aplicație';
+    };
+    fill.style.width = '0%';
+    return box;
   }
 
   function pageNotFound() {
@@ -349,6 +378,7 @@
     const [pathPart, query] = raw.split('?');
     const params = new URLSearchParams(query || '');
     document.title = 'edudigi – Informatică și TIC, clasele V–XII';
+    onSolved = null;
     for (const a of document.querySelectorAll('.main-nav a')) a.removeAttribute('aria-current');
     const navMatch = pathPart === '/clase' ? '#/clase' : pathPart === '/materiale' && params.get('d') ? `#/materiale?d=${params.get('d')}` : null;
     if (navMatch) document.querySelector(`.main-nav a[href="${navMatch}"]`)?.setAttribute('aria-current', 'page');
