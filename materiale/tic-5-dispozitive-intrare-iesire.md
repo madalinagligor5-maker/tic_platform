@@ -1,3 +1,13 @@
+---
+titlu: Dispozitive de intrare, ieșire și stocare
+disciplina: tic
+clasa: 5
+categorie: tic
+tip: lectie
+descriere: Cum intră, ies și se păstrează datele într-un calculator: tastatură, monitor, stick USB și altele.
+data: 2026-10-14
+---
+
 ## Ce vei învăța azi
 
 - să recunoști dispozitivele de **intrare**, **ieșire** și **stocare**;

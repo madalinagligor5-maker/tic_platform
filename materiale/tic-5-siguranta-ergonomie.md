@@ -1,3 +1,13 @@
+---
+titlu: Reguli de siguranță și ergonomie în laborator
+disciplina: tic
+clasa: 5
+categorie: tic
+tip: lectie
+descriere: Regulile laboratorului de informatică, poziția corectă la calculator și regula 20-20-20.
+data: 2026-10-13
+---
+
 ## Ce vei învăța azi
 
 - regulile de siguranță din laboratorul de informatică;

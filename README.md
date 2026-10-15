@@ -1,76 +1,67 @@
-# Platforma TIC Gimnaziu (clasele V–VIII)
+# edudigi
 
-Platformă de învățare pentru *Informatică și TIC* la gimnaziu, construită pe programa școlară (OMEN 3393/2017).
+Resurse gratuite pentru **Informatică** și **TIC**, clasele **V–XII**: lecții, fișe de lucru, teste, prezentări și proiecte. Fără conturi: oricine deschide site-ul vede materialele.
 
-- **Profesorul** creează clase, primește un cod de clasă, deblochează unitățile pe rând și urmărește progresul elevilor.
-- **Elevul** intră **fără e-mail**: cod de clasă + pseudonim + PIN de 4 cifre. Vede harta lecțiilor clasei lui (Unitate → Modul → Lecție), citește lecțiile deblocate și își marchează progresul.
+**Înveți. Creezi. Progresezi.**
 
-Nu are nicio dependență externă: folosește doar Node.js (module `http`, `crypto`, `fs`). Nu e nevoie de `npm install`. Rulează local (calculator, laborator, VPS) sau pe Vercel.
+## Cum funcționează
 
-## Pornire
+Site-ul este static: nu are bază de date și nici server. Fiecare material e un fișier în folderul `materiale/`. La fiecare push pe GitHub, Vercel rulează `npm run build`, care verifică materialele și generează site-ul.
 
-Ai nevoie de [Node.js](https://nodejs.org) 18 sau mai nou.
-
-```bash
-npm start          # pornește pe http://localhost:3000
-npm test           # rulează testele automate
-npm run harta      # regenerează harta conținutului din docs/
+```
+materiale/
+  tic-5-sistemul-de-calcul.md     un material (antet + conținut)
+  fisiere/                        atașamente: PDF, PPTX, DOCX, imagini
+public/                           interfața (HTML, CSS, JS, fonturi, logo)
+scripts/build.js                  verifică materialele și generează public/date/
+scripts/serve.js                  server local pentru previzualizare
+docs/                             harta conținutului și promptul generator
 ```
 
-Portul și locul bazei de date se pot schimba: `PORT=8080 DATA_FILE=/cale/db.json npm start`.
+## Adăugarea unui material
+
+Creează în `materiale/` un fișier `.md`. Numele lui devine adresa materialului, așa că folosește doar litere mici fără diacritice, cifre și cratime (ex. `info-9-variabile-python.md`).
+
+```markdown
+---
+titlu: Variabile în Python
+disciplina: informatica        # informatica | tic
+clasa: 9                       # 5–12; mai multe: 9, 10
+categorie: programare          # programare | tic | algoritmi | aplicatii
+tip: lectie                    # lectie | fisa | test | prezentare | proiect | resursa
+descriere: O frază care apare pe card.
+fisier: fisiere/variabile.pdf  # opțional: atașament din materiale/fisiere/
+data: 2026-10-15               # opțional: materialele noi apar primele
+---
+
+## Ce vei învăța azi
+
+Conținutul lecției, în Markdown: titluri, liste, **bold**, `cod`, blocuri de cod,
+tabele, citate, linkuri și imagini (![descriere](fisiere/imagine.png)).
+```
+
+- Un material poate avea doar conținut, doar atașament, sau ambele.
+- Diacriticele și majusculele sunt acceptate în antet („Informatică”, „Fișă de lucru”).
+- PDF-urile se văd direct în pagină; celelalte fișiere au butoane **Descarcă** / **Deschide**.
+- Dacă antetul are o greșeală, construirea se oprește și spune exact ce fișier și ce câmp trebuie corectat. Site-ul publicat rămâne cel de dinainte.
+
+## Pornire locală
+
+Ai nevoie de [Node.js](https://nodejs.org) 18 sau mai nou. Nu e nevoie de `npm install`.
+
+```bash
+npm start     # construiește și pornește pe http://localhost:3000
+npm test      # testele scriptului de construire
+```
 
 ## Publicare pe Vercel
 
-Vercel nu păstrează fișiere pe disc între cereri, așa că pe Vercel datele se salvează într-o bază Redis (Upstash, plan gratuit). Pași:
+Proiectul e gata configurat (`vercel.json`). Importă repository-ul în Vercel și apasă **Deploy**: nu trebuie setat nimic altceva și nu e nevoie de bază de date. După aceea, fiecare push pe ramura `main` republică automat site-ul.
 
-1. Pe [vercel.com](https://vercel.com): **Add New → Project** → importă repository-ul `tic_platform`. La *Framework Preset* lasă **Other**, fără alte setări. Apasă **Deploy**.
-2. În proiectul creat: tab-ul **Storage** → **Create Database** → **Upstash for Redis** (plan gratuit) → **Connect** la proiect. Vercel adaugă singur variabilele `KV_REST_API_URL` și `KV_REST_API_TOKEN`.
-3. Tab-ul **Deployments** → la ultimul deployment, meniul **⋯** → **Redeploy** (ca să preia variabilele noi).
+## Identitate vizuală
 
-Dacă pasul 2 lipsește, platforma se deschide, dar la logare apare mesajul „Baza de date nu este configurată…”.
+Culori: roșu edudigi `#F21F4B`, charcoal `#171416`, warm white `#FFF7EE`, learning blue `#3EC6E0`. Fonturi: Montserrat (titluri și text) și JetBrains Mono (cod), găzduite local în `public/fonts/` (licență SIL OFL), ca vizitatorii să nu fie urmăriți de servicii externe.
 
-Local (`npm start`) nu e nevoie de Redis: datele stau în `data/db.json`.
+## Versiunea cu conturi
 
-## Cum se folosește
-
-1. Profesorul deschide platforma → **Sunt profesor** → *Creează cont*.
-2. Creează o clasă (ex. „5A 2026”, nivel clasa a V-a) și primește codul clasei (ex. `WRPC67`).
-3. Elevii intră cu codul, își aleg un pseudonim și un PIN. Când s-au înscris toți, profesorul apasă **Închide înscrierea**.
-4. Prima unitate e deblocată automat; restul le deblochează profesorul când ajunge la ele. Fiecare unitate are și un cod propriu, pe care profesorul îl poate da doar unor elevi.
-5. Dacă un elev își uită PIN-ul: **Resetează PIN** din pagina clasei.
-
-## Structura proiectului
-
-```
-server.js                  pornirea locală (npm start)
-api/index.js               funcția serverless pentru Vercel
-lib/app.js                 API-ul (comun pentru local și Vercel)
-lib/kv.js                  stocarea: fișier local sau Upstash Redis
-vercel.json                configurarea pentru Vercel
-public/                    interfața (HTML, CSS, JS, fără framework)
-content/curriculum.js      harta: clase, unități, module, lecții, competențe
-content/lectii/<ID>.md     conținutul lecțiilor (ex. 5.1.1.1.md)
-docs/                      harta conținutului, promptul generator, note tehnice
-test/                      teste automate (node:test)
-data/db.json               baza de date locală (creată la prima pornire, nu se urcă pe GitHub)
-```
-
-## Adăugarea conținutului
-
-1. Folosește promptul din [`docs/Prompt_generator_continut_Platforma_TIC_Gimnaziu.md`](docs/Prompt_generator_continut_Platforma_TIC_Gimnaziu.md) cu harta atașată.
-2. Salvează rezultatul ca `content/lectii/<ID>.md` (ex. `content/lectii/5.1.2.1.md`). Local apare imediat, fără repornire; pe Vercel apare după ce faci push pe GitHub (Vercel republică automat).
-3. Rulează `npm run harta` ca lecția să fie marcată cu ✅ în hartă.
-
-Deocamdată au conținut lecțiile modulului **5.1.1** (Sistemul de calcul), ca exemplu.
-
-## Documente
-
-- [Harta conținutului V–VIII](docs/Harta_Continut_TIC_Gimnaziu_V-VIII.md): lecțiile, competențele, orele, plus autentificarea, protecția datelor și variantele de găzduire.
-- [Promptul generator de conținut](docs/Prompt_generator_continut_Platforma_TIC_Gimnaziu.md): 4 formate (lecție, fișă de lucru, test, plan de lecție) și 3 variante scurte.
-
-## Securitate și date personale
-
-- PIN-urile și parolele sunt salvate doar ca hash (scrypt cu sare). După 5 încercări greșite, contul se blochează 15 minute.
-- Se stochează doar pseudonimul și progresul; profesorul poate șterge un elev cu tot progresul lui.
-- Fără cookie-uri de urmărire și fără resurse de pe alte domenii.
-- În producție, rulează în spatele unui proxy HTTPS (ex. Caddy). Detalii în [note tehnice](docs/note-tehnice.md).
+Prima versiune a platformei (conturi de profesor, clase cu cod, logare elevi cu pseudonim + PIN, progres) este păstrată pe ramura [`platforma-cu-conturi`](https://github.com/madalinagligor5-maker/tic_platform/tree/platforma-cu-conturi), pentru când va fi nevoie de ea.

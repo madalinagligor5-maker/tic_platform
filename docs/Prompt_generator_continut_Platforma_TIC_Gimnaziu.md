@@ -2,7 +2,7 @@
 
 Schelet de prompt pentru generarea conținutului lecțiilor (orice domeniu din programă, nu doar programare). Copiază promptul de mai jos într-o conversație cu Claude, completează câmpurile dintre `{{ }}` și atașează `Harta_Continut_TIC_Gimnaziu_V-VIII.md`.
 
-Rezultatul pentru formatul **Lecție completă** se salvează ca `content/lectii/<ID>.md` (ex. `content/lectii/5.2.1.1.md`) și apare automat pe platformă. Apoi rulează `npm run harta` ca harta să marcheze lecția cu ✅.
+Rezultatul se salvează ca material edudigi: un fișier în `materiale/` (ex. `materiale/tic-5-internet.md`), cu antetul descris în README (titlu, disciplina, clasa, categorie, tip). După push pe GitHub apare automat pe site.
 
 ---
 
@@ -110,7 +110,7 @@ Folosind harta atașată și principiile Rosenshine, scrie lecția completă {{I
 
 **Tot modulul deodată**
 ```
-Folosind harta atașată, scrie pe rând toate lecțiile din modulul {{ID modul}}, în formatul „Lecție completă”. Fiecare lecție începe cu o linie `=== <ID lecție> ===` ca să le pot salva separat în content/lectii/<ID>.md. Continuă firul de la o lecție la alta, fără repetiții.
+Folosind harta atașată, scrie pe rând toate lecțiile din modulul {{ID modul}}, în formatul „Lecție completă”. Fiecare lecție începe cu o linie `=== <ID lecție> ===` ca să le pot salva separat ca materiale edudigi (câte un fișier în materiale/). Continuă firul de la o lecție la alta, fără repetiții.
 ```
 
 **Test de unitate**

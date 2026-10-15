@@ -1,12 +1,12 @@
 # Harta conținutului – TIC, gimnaziu (clasele V–VIII)
 
-> Generat automat din `content/curriculum.js` cu `npm run harta`. Nu edita manual: modifică `curriculum.js` și regenerează.
+> Document de referință pentru planificarea materialelor. (Generatorul automat și secțiunea despre conturi aparțin versiunii cu conturi, păstrată pe ramura `platforma-cu-conturi`.)
 
 Bază: programa școlară pentru disciplina *Informatică și TIC*, clasele V–VIII (OMEN nr. 3393/2017). Buget: 1 oră/săptămână, 34 ore/an. Orele rămase după lecțiile de mai jos sunt rezervă pentru evaluări, recuperare și activități de proiect.
 
 **Structură:** Clasă → Unitate (domeniu de conținut din programă) → Modul → Lecție (1 lecție = 1 oră). ID-urile sunt stabile (`clasă.unitate.modul.lecție`) și sunt folosite de platformă și de promptul generator.
 
-**Legenda:** ✅ = lecția are conținut în `content/lectii/`; ⬜ = de generat.
+**Legenda:** ✅ = lecția are deja conținut (publicată pe edudigi); ⬜ = de generat.
 
 ## Clasa a V-a (30 lecții + 4 ore de rezervă)
 

@@ -1,3 +1,13 @@
+---
+titlu: Ce este un sistem de calcul? Hardware și software
+disciplina: tic
+clasa: 5
+categorie: tic
+tip: lectie
+descriere: Ce face un sistem de calcul și diferența dintre hardware și software, cu exemple din viața de zi cu zi.
+data: 2026-10-15
+---
+
 ## Ce vei învăța azi
 
 - să explici ce este un sistem de calcul;

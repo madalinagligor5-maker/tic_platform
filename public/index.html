@@ -3,16 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Platforma TIC Gimnaziu</title>
-  <link rel="stylesheet" href="/style.css">
+  <title>edudigi – Informatică și TIC, clasele V–XII</title>
+  <meta name="description" content="Resurse gratuite pentru Informatică și TIC, clasele V–XII: lecții, fișe de lucru, teste și prezentări.">
+  <meta name="theme-color" content="#F21F4B">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <header class="top">
-    <a href="#/" class="brand">TIC Gimnaziu</a>
-    <span id="who"></span>
-    <button id="logout" class="link" hidden>Ieșire</button>
+  <a class="skip" href="#continut">Sari la conținut</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a href="#/" class="logo" aria-label="edudigi – pagina principală"><span class="logo-word" data-logo></span></a>
+      <button class="icon-btn menu-btn" type="button" aria-label="Meniu" aria-expanded="false" aria-controls="nav" data-icon="menu"></button>
+      <nav id="nav" class="main-nav" aria-label="Navigare principală">
+        <a href="#/materiale?d=informatica">Informatică</a>
+        <a href="#/materiale?d=tic">TIC</a>
+        <a href="#/clase">Clasele V–XII</a>
+      </nav>
+      <form class="search" role="search" data-search>
+        <label class="sr-only" for="q">Caută materiale</label>
+        <input id="q" name="q" type="search" placeholder="Caută o lecție, o fișă…" autocomplete="off">
+        <button class="icon-btn" type="submit" aria-label="Caută" data-icon="search"></button>
+      </form>
+    </div>
   </header>
-  <main id="app"></main>
-  <script src="/app.js"></script>
+
+  <main id="continut" tabindex="-1"></main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <span class="logo-word small" data-logo></span>
+      <p class="kicker">Informatică &nbsp;•&nbsp; TIC &nbsp;•&nbsp; Clasele V–XII</p>
+      <p class="muted">Resurse gratuite, fără cont. Materialele pot fi folosite la clasă.</p>
+    </div>
+  </footer>
+  <script src="/js/app.js"></script>
 </body>
 </html>
