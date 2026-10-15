@@ -122,6 +122,19 @@ test('izolare: profesorul nu vede clasa altui profesor; elevul nu poate folosi r
   assert.strictEqual((await call('GET', '/api/profesor/clase', null, te)).status, 401);
 });
 
+test('ștergerea unui profesor șterge și sesiunile lui și ale elevilor lui', async () => {
+  const { query } = require('../lib/db');
+  const t = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof E', utilizator: 'profe', parola: 'parola-sigura' })).body.token;
+  const k = (await call('POST', '/api/profesor/clase', { nume: '8E', clasa: 8 }, t)).body;
+  await call('POST', '/api/elev/inscriere', { cod: k.cod, pseudonim: 'Vulpe', pin: '1357' });
+  const [{ id }] = await query("SELECT id FROM profesori WHERE utilizator = 'profe'");
+  const ids = `SELECT $1::uuid UNION SELECT e.id FROM elevi e JOIN clase c ON c.id = e.clasa_id WHERE c.profesor_id = $1`;
+  assert.strictEqual((await query(`SELECT count(*)::int n FROM sesiuni WHERE utilizator_id IN (${ids})`, [id]))[0].n, 2);
+  await query('DELETE FROM profesori WHERE id = $1', [id]);
+  assert.strictEqual((await query('SELECT count(*)::int n FROM sesiuni s WHERE NOT EXISTS (SELECT 1 FROM profesori p WHERE p.id = s.utilizator_id) AND NOT EXISTS (SELECT 1 FROM elevi e WHERE e.id = s.utilizator_id)'))[0].n, 0);
+  assert.strictEqual((await call('GET', '/api/profesor/clase', null, t)).status, 401);
+});
+
 test('blocare după 5 PIN-uri greșite', async () => {
   const t = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof C', utilizator: 'profc', parola: 'parola-sigura' })).body.token;
   const k = (await call('POST', '/api/profesor/clase', { nume: '7C', clasa: 7 }, t)).body;
