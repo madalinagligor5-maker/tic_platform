@@ -292,8 +292,35 @@
         chipRow('Domeniu', 'cat', Object.entries(D.categorii)),
         chipRow('Tip', 't', Object.entries(D.tipuri))),
       h('p', { class: 'result-count', 'aria-live': 'polite' }, `${list.length} ${list.length === 1 ? 'material' : 'materiale'}`),
-      list.length ? h('div', { class: 'mat-grid' }, list.map((m) => matCard(m, D)))
+      list.length ? groupedList(list, D, Boolean(f.c))
         : emptyState(D.materiale.length ? 'Încearcă alte filtre sau alt cuvânt de căutare.' : 'Primele materiale vor apărea aici în curând.')));
+  }
+
+  // Lecția anterioară / următoare, după „ordine”, în aceeași clasă.
+  function prevNext(m, D) {
+    if (m.ordine == null) return null;
+    const seq = D.materiale.filter((x) => x.ordine != null && x.clasa.includes(m.clasa[0])).sort((a, b) => a.ordine - b.ordine);
+    const i = seq.findIndex((x) => x.id === m.id);
+    const prev = seq[i - 1], next = seq[i + 1];
+    if (!prev && !next) return null;
+    return h('nav', { class: 'prev-next', 'aria-label': 'Lecții' },
+      prev ? h('a', { class: 'pn prev', href: `#/m/${prev.id}` }, h('span', { class: 'kicker' }, '← Anterior'), h('b', {}, prev.titlu)) : h('span'),
+      next ? h('a', { class: 'pn next', href: `#/m/${next.id}` }, h('span', { class: 'kicker' }, 'Următor →'), h('b', {}, next.titlu)) : h('span'));
+  }
+
+  // Când e aleasă o clasă, materialele cu „unitate” se grupează pe unități, în ordinea din manual.
+  function groupedList(list, D, byUnit) {
+    if (!byUnit || !list.some((m) => m.unitate)) return h('div', { class: 'mat-grid' }, list.map((m) => matCard(m, D)));
+    const sorted = list.slice().sort((a, b) => (a.ordine ?? 1e9) - (b.ordine ?? 1e9) || a.titlu.localeCompare(b.titlu, 'ro'));
+    const groups = new Map();
+    for (const m of sorted) {
+      const key = m.unitate || 'Alte materiale';
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(m);
+    }
+    return h('div', { class: 'unit-groups' }, [...groups].map(([name, items]) => h('section', { class: 'unit-group' },
+      h('h2', {}, name, h('span', { class: 'unit-count' }, `${items.length} ${items.length === 1 ? 'material' : 'materiale'}`)),
+      h('div', { class: 'mat-grid' }, items.map((m) => matCard(m, D))))));
   }
 
   async function pageMaterial(id) {
@@ -317,7 +344,8 @@
       h('nav', { class: 'crumbs', 'aria-label': 'Navigare' },
         h('a', { href: '#/' }, 'Acasă'), '/',
         h('a', { href: `#/materiale?d=${m.disciplina}` }, D.discipline[m.disciplina]), '/',
-        h('a', { href: `#/materiale?c=${m.clasa[0]}` }, clasaLabel(m.clasa))),
+        h('a', { href: `#/materiale?c=${m.clasa[0]}` }, clasaLabel(m.clasa)),
+        m.unitate ? ['/', h('span', {}, m.unitate)] : null),
       h('div', { class: 'mat-layout' },
         h('article', {},
           h('header', { class: 'mat-head' },
@@ -328,7 +356,8 @@
             h('h1', {}, m.titlu),
             m.descriere ? h('p', {}, m.descriere) : null),
           body ? h('div', { class: 'paper' }, body) : null,
-          preview),
+          preview,
+          prevNext(m, D)),
         h('aside', { class: 'aside' },
           m.aplicatii ? progressBox(m.aplicatii) : null,
           f ? h('div', { class: 'box' },

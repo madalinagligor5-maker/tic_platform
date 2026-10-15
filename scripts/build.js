@@ -50,6 +50,7 @@ function readMaterial(dir, file) {
   const tip = norm(meta.tip);
   if (!TIPURI[tip]) err(`„tip” trebuie să fie unul din: ${Object.keys(TIPURI).join(', ')}`);
   if (meta.data && !/^\d{4}-\d{2}-\d{2}$/.test(meta.data)) err('„data” se scrie AAAA-LL-ZZ (ex. 2026-10-15)');
+  if (meta.ordine && !/^\d+$/.test(meta.ordine)) err('„ordine” trebuie să fie un număr (ex. 101 = unitatea 1, lecția 1)');
 
   let fisier = null;
   if (meta.fisier) {
@@ -78,6 +79,8 @@ function readMaterial(dir, file) {
       categorie,
       tip,
       data: meta.data || '',
+      unitate: meta.unitate || '',
+      ordine: meta.ordine ? Number(meta.ordine) : null,
       fisier,
       areContinut: Boolean(body),
       aplicatii: activitati.length,

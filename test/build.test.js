@@ -33,7 +33,7 @@ test('acceptă diacritice și majuscule în antet; generează lista și conținu
   const json = JSON.parse(fs.readFileSync(path.join(p.out, 'date', 'materiale.json'), 'utf8'));
   assert.deepStrictEqual(json.materiale[0], {
     id: 'info-9-variabile', titlu: 'Variabile în Python', descriere: '', disciplina: 'informatica',
-    clasa: [9, 10], categorie: 'programare', tip: 'fisa', data: '2026-10-01', fisier: null, areContinut: true, aplicatii: 0,
+    clasa: [9, 10], categorie: 'programare', tip: 'fisa', data: '2026-10-01', unitate: '', ordine: null, fisier: null, areContinut: true, aplicatii: 0,
   });
   assert.match(fs.readFileSync(path.join(p.out, 'date', 'm', 'info-9-variabile.md'), 'utf8'), /Ce sunt variabilele/);
 });

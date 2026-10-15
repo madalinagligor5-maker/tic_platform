@@ -331,3 +331,14 @@ section { padding: 56px 0; }
   .prose .activity { padding: 14px; margin-inline: -4px; }
   .buckets { grid-template-columns: 1fr; }
 }
+
+/* Grupare pe unități și navigare între lecții */
+.unit-group { padding: 0 0 28px; }
+.unit-group h2 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; font-size: 1.25rem; font-weight: 800; margin: 8px 0 14px; padding-top: 14px; border-top: 3px solid var(--charcoal); }
+.unit-count { font: 500 .75rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.prev-next { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.pn { display: grid; gap: 4px; padding: 16px 18px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; }
+.pn:hover { border-color: var(--red); }
+.pn.next { text-align: right; }
+.pn b { font-size: .95rem; line-height: 1.3; }
+@media (max-width: 600px) { .prev-next { grid-template-columns: 1fr; } .pn.next { text-align: left; } }
