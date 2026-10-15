@@ -65,11 +65,12 @@ Alege definiția corectă:
 
 ```quiz
 # 2. Cu ce se poate întoarce Vlad de la magazin?
-Mama îi spune lui Vlad: „Te rog, cumpără pâine. Dacă au ouă, ia șase.” Cu ce se poate întoarce Vlad?
-* cu pâine și șase ouă, dacă au ouă, sau doar cu pâine, dacă nu au
+Mama îi spune lui Vlad: „Te rog, cumpără pâine. Dacă au ouă, ia șase.” Dacă magazinul are ouă, cu ce se poate întoarce Vlad? (alege toate variantele posibile)
+* cu o pâine și șase ouă
+* cu șase pâini
 - doar cu șase ouă
-- cu șase pâini, dacă au ouă
-Explicație: În limbaj natural, „ia șase” se poate înțelege și ca „șase pâini”. De aceea algoritmii trebuie formulați fără ambiguități!
+- fără nimic
+Explicație: Nu se spune clar ce să ia „șase”: ouă sau pâini. Formularea este ambiguă, de aceea algoritmii trebuie scriși fără ambiguități!
 ```
 
 ```completare

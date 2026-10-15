@@ -352,7 +352,12 @@
     if (f && f.ext === 'pdf') preview = h('iframe', { class: 'preview', src: fileUrl, title: `Previzualizare: ${f.nume}` });
     else if (f && ['png', 'jpg', 'jpeg', 'webp', 'gif', 'svg'].includes(f.ext)) preview = h('img', { class: 'preview-img', src: fileUrl, alt: m.titlu });
 
-    const related = D.materiale.filter((x) => x.id !== m.id && x.categorie === m.categorie && x.clasa.some((c) => m.clasa.includes(c))).slice(0, 5);
+    // Întâi materialele din aceeași unitate, apoi cele mai apropiate în ordinea din manual.
+    const dist = (x) => (x.unitate && x.unitate === m.unitate ? 0 : 1e6) + Math.abs((x.ordine ?? 1e5) - (m.ordine ?? 1e5));
+    const related = D.materiale
+      .filter((x) => x.id !== m.id && x.categorie === m.categorie && x.clasa.some((c) => m.clasa.includes(c)))
+      .sort((a, b) => dist(a) - dist(b))
+      .slice(0, 5);
     show(h('div', { class: 'wrap' },
       h('nav', { class: 'crumbs', 'aria-label': 'Navigare' },
         h('a', { href: '#/' }, 'Acasă'), '/',
