@@ -161,11 +161,24 @@
       } else if (/^\s*([-*]|\d+\.) /.test(line)) {
         if (para.length) flush();
         const ordered = /^\s*\d+\./.test(line);
-        if (!list || list.tagName !== (ordered ? 'OL' : 'UL')) {
-          list = h(ordered ? 'ol' : 'ul');
-          root.append(list);
+        const tag = ordered ? 'OL' : 'UL';
+        const nested = /^\s{2,}/.test(line) && list && list.lastElementChild;
+        // Sub-listă (rând indentat cu cel puțin 2 spații): se pune în ultimul element al listei principale.
+        let target;
+        if (nested) {
+          const parentLi = list.lastElementChild;
+          target = [...parentLi.children].find((c) => c.tagName === tag);
+          if (!target) parentLi.append((target = h(tag.toLowerCase())));
+        } else {
+          if (!list || list.tagName !== tag) {
+            list = h(tag.toLowerCase());
+            const n = ordered ? parseInt(line, 10) : 1;
+            if (n > 1) list.setAttribute('start', n);
+            root.append(list);
+          }
+          target = list;
         }
-        list.append(h('li', {}, inline(line.replace(/^\s*([-*]|\d+\.) /, ''))));
+        target.append(h('li', {}, inline(line.replace(/^\s*([-*]|\d+\.) /, ''))));
       } else if (!line.trim()) {
         flush();
       } else {
