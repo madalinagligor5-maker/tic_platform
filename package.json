@@ -1,0 +1,16 @@
+{
+  "name": "tic-gimnaziu-platforma",
+  "version": "1.0.0",
+  "description": "Platformă de învățare TIC pentru gimnaziu (clasele V–VIII), cu autentificare fără e-mail pentru elevi.",
+  "main": "server.js",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js",
+    "harta": "node scripts/genereaza-harta.js"
+  },
+  "license": "MIT"
+}
