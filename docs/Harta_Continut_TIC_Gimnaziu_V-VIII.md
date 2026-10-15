@@ -325,9 +325,10 @@ Bază: programa școlară pentru disciplina *Informatică și TIC*, clasele V–
 | Variantă | Cost | Potrivită pentru | Observații |
 |---|---|---|---|
 | **A. Serverul inclus (Node.js) pe un VPS mic** (Hetzner, Contabo, DigitalOcean etc.) | ~4–6 €/lună | control total, mai multe clase | Pornești cu `npm start` în spatele unui proxy HTTPS (Caddy face certificatul automat). Datele stau în `data/db.json`; fă backup periodic al fișierului. |
+| **V. Vercel + Upstash Redis** | 0 € (planuri gratuite) | cel mai simplu de publicat | Gata configurat (`vercel.json`, `api/index.js`). Importă repo-ul în Vercel, adaugă din Storage „Upstash for Redis”, apoi Redeploy. Pașii sunt în README. |
 | **B. Serverul inclus pe un PaaS cu plan gratuit/ieftin** (Render, Railway, Fly.io) | 0–5 $/lună | pornire rapidă, fără administrare | Atenție: pe planurile gratuite discul poate fi șters la repornire – atașează un volum persistent sau folosește varianta C. |
 | **C. Frontend static + Supabase** (Postgres + Row Level Security) | 0 € (plan gratuit) | dacă vrei bază de date gestionată | Frontend-ul pe GitHub Pages / Netlify / Cloudflare Pages; logica de login cu cod+pseudonim+PIN se mută într-o funcție Edge. Necesită rescrierea stratului de date. |
 | **D. Frontend static + Firebase** (Firestore + Cloud Functions) | 0 € (plan Spark) pentru volum mic | ecosistem Google | Similar cu C; regulile de securitate Firestore trebuie scrise atent pentru date de minori. |
 | **E. Pe un calculator din școală, în rețeaua locală** | 0 € | laborator fără internet stabil | `npm start` pe calculatorul profesorului; elevii intră la `http://IP-ul-calculatorului:3000`. |
 
-Recomandare pentru început: **A** sau **E** – nu necesită nicio modificare de cod.
+Recomandare pentru început: **V** (Vercel), **A** sau **E** – niciuna nu necesită modificări de cod.

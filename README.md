@@ -5,7 +5,7 @@ Platformă de învățare pentru *Informatică și TIC* la gimnaziu, construită
 - **Profesorul** creează clase, primește un cod de clasă, deblochează unitățile pe rând și urmărește progresul elevilor.
 - **Elevul** intră **fără e-mail**: cod de clasă + pseudonim + PIN de 4 cifre. Vede harta lecțiilor clasei lui (Unitate → Modul → Lecție), citește lecțiile deblocate și își marchează progresul.
 
-Nu are nicio dependență externă: folosește doar Node.js (module `http`, `crypto`, `fs`). Nu e nevoie de `npm install`.
+Nu are nicio dependență externă: folosește doar Node.js (module `http`, `crypto`, `fs`). Nu e nevoie de `npm install`. Rulează local (calculator, laborator, VPS) sau pe Vercel.
 
 ## Pornire
 
@@ -19,6 +19,18 @@ npm run harta      # regenerează harta conținutului din docs/
 
 Portul și locul bazei de date se pot schimba: `PORT=8080 DATA_FILE=/cale/db.json npm start`.
 
+## Publicare pe Vercel
+
+Vercel nu păstrează fișiere pe disc între cereri, așa că pe Vercel datele se salvează într-o bază Redis (Upstash, plan gratuit). Pași:
+
+1. Pe [vercel.com](https://vercel.com): **Add New → Project** → importă repository-ul `tic_platform`. La *Framework Preset* lasă **Other**, fără alte setări. Apasă **Deploy**.
+2. În proiectul creat: tab-ul **Storage** → **Create Database** → **Upstash for Redis** (plan gratuit) → **Connect** la proiect. Vercel adaugă singur variabilele `KV_REST_API_URL` și `KV_REST_API_TOKEN`.
+3. Tab-ul **Deployments** → la ultimul deployment, meniul **⋯** → **Redeploy** (ca să preia variabilele noi).
+
+Dacă pasul 2 lipsește, platforma se deschide, dar la logare apare mesajul „Baza de date nu este configurată…”.
+
+Local (`npm start`) nu e nevoie de Redis: datele stau în `data/db.json`.
+
 ## Cum se folosește
 
 1. Profesorul deschide platforma → **Sunt profesor** → *Creează cont*.
@@ -30,19 +42,23 @@ Portul și locul bazei de date se pot schimba: `PORT=8080 DATA_FILE=/cale/db.jso
 ## Structura proiectului
 
 ```
-server.js                  serverul și API-ul
+server.js                  pornirea locală (npm start)
+api/index.js               funcția serverless pentru Vercel
+lib/app.js                 API-ul (comun pentru local și Vercel)
+lib/kv.js                  stocarea: fișier local sau Upstash Redis
+vercel.json                configurarea pentru Vercel
 public/                    interfața (HTML, CSS, JS, fără framework)
 content/curriculum.js      harta: clase, unități, module, lecții, competențe
 content/lectii/<ID>.md     conținutul lecțiilor (ex. 5.1.1.1.md)
 docs/                      harta conținutului, promptul generator, note tehnice
 test/                      teste automate (node:test)
-data/db.json               baza de date (creată la prima pornire, nu se urcă pe GitHub)
+data/db.json               baza de date locală (creată la prima pornire, nu se urcă pe GitHub)
 ```
 
 ## Adăugarea conținutului
 
 1. Folosește promptul din [`docs/Prompt_generator_continut_Platforma_TIC_Gimnaziu.md`](docs/Prompt_generator_continut_Platforma_TIC_Gimnaziu.md) cu harta atașată.
-2. Salvează rezultatul ca `content/lectii/<ID>.md` (ex. `content/lectii/5.1.2.1.md`). Apare imediat pe platformă, fără repornire.
+2. Salvează rezultatul ca `content/lectii/<ID>.md` (ex. `content/lectii/5.1.2.1.md`). Local apare imediat, fără repornire; pe Vercel apare după ce faci push pe GitHub (Vercel republică automat).
 3. Rulează `npm run harta` ca lecția să fie marcată cu ✅ în hartă.
 
 Deocamdată au conținut lecțiile modulului **5.1.1** (Sistemul de calcul), ca exemplu.
