@@ -74,3 +74,14 @@ CREATE TABLE IF NOT EXISTS progres (
   terminat_la    timestamptz,
   PRIMARY KEY (elev_id, material_id)
 );
+
+-- Prezentările făcute de elevi în Atelier. Conținutul (diapozitive, imagini mici) e verificat de API înainte de salvare.
+CREATE TABLE IF NOT EXISTS prezentari (
+  id             uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  elev_id        uuid NOT NULL REFERENCES elevi(id) ON DELETE CASCADE,
+  titlu          text NOT NULL,
+  continut       jsonb NOT NULL,
+  creat_la       timestamptz NOT NULL DEFAULT now(),
+  actualizat_la  timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS prezentari_elev_idx ON prezentari (elev_id);
