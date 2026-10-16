@@ -83,6 +83,43 @@ Explicație: Îl atingi (intrare) și îți arată imaginea (ieșire).
 - Totul funcționează prin atingere și de la tastatură, inclusiv pe telefon.
 - Exemple complete sunt în lecțiile din `materiale/`. Promptul din `docs/` generează lecții care includ deja aplicațiile.
 
+## Prezentări edudigi (fără PowerPoint)
+
+Orice material poate conține o **prezentare** care se parcurge direct pe site: diapozitive 16:9, butoane înainte/înapoi, săgețile de la tastatură, glisare pe telefon, **ecran complet** (tasta F) pentru videoproiector și **note ale vorbitorului**. Se scrie ca un bloc `diapozitive`; diapozitivele se despart printr-un rând cu `---`:
+
+````markdown
+```diapozitive
+# Tipuri de prezentări          (opțional: titlul prezentării)
+tema: albastru                  (opțional: rosu, albastru, verde, portocaliu, intunecat)
+## Tipuri de prezentări
+Clasa a VI-a · Unitatea 1
+Note: ce spune prezentatorul (se vede doar la butonul „Note”)
+---
+## Electronice
+- **diapozitive** cu text, imagini, video
+- se proiectează cu videoproiectorul
+---
+## Mulțumesc!
+```
+````
+
+- Primul diapozitiv se afișează ca **pagină de titlu**, centrat.
+- Pe diapozitive merg titluri, liste, **bold**, `cod`, tabele, citate și imagini (`![descriere](fisiere/imagine.png)`).
+- Pentru un material care este doar o prezentare, folosește `tip: prezentare`. O prezentare poate fi pusă și în mijlocul unei lecții.
+- Prezentările nu se numără la aplicațiile interactive. Greșelile (o temă inexistentă, un diapozitiv gol) opresc construirea, cu mesaj clar.
+
+## Atelierul de prezentări (pentru elevi)
+
+Din meniul **Atelier**, elevii își fac singuri prezentări, fără PowerPoint:
+
+- aleg o **temă** și, pentru fiecare diapozitiv, un **aspect** (pagină de titlu, titlu și text, text și imagine, imagine mare);
+- scriu titlul și textul (un rând care începe cu `- ` devine listă, `**text**` devine îngroșat), încarcă **imagini** (micșorate automat) și scriu **note pentru prezentator**;
+- adaugă, dublează, mută și șterg diapozitive și văd imediat cum arată;
+- primesc **sfaturi de design** din lecție (cel mult 40 de cuvinte și 6–7 rânduri pe diapozitiv, fără majuscule peste tot, prima pagină să fie de titlu);
+- apasă **▶ Prezintă** pentru ecran complet (ieșire cu Esc) și pot **descărca** prezentarea ca fișier `.json`, pe care o pot deschide din nou oriunde.
+
+Elevii intrați în cont își salvează prezentările **în cont** (cel mult 30, fiecare cu cel mult 40 de diapozitive și 3 MB de imagini), iar profesorul le vede în panou, pe pagina fiecărui elev. Fără cont, prezentările se salvează doar în browserul respectiv. Tabelul `prezentari` se creează automat la migrare.
+
 ## Conturi și panoul profesorului
 
 Conturile sunt opționale: lecțiile se citesc și fără cont.
@@ -110,7 +147,7 @@ npm start                 # http://localhost:3000, cu conturi
 
 Pe **Vercel**: în proiect → **Settings → Environment Variables** adaugă `DATABASE_URL` (conexiunea *pooled* de la Neon) și, opțional, `DATABASE_URL_UNPOOLED` (conexiunea directă, folosită la migrare). Sau instalează integrarea Neon din Vercel Marketplace, care le adaugă singură. Apoi fă **Redeploy**: la build, tabelele se creează automat. Fără `DATABASE_URL`, site-ul merge în continuare, doar fără conturi.
 
-Tabele: `profesori`, `clase` (cu codul de înscriere), `elevi`, `sesiuni`, `progres`. Lecțiile și aplicațiile rămân fișiere în `materiale/`.
+Tabele: `profesori`, `clase` (cu codul de înscriere), `elevi`, `sesiuni`, `progres`, `prezentari` (Atelierul). Lecțiile și aplicațiile rămân fișiere în `materiale/`.
 
 **Protecția datelor (GDPR):** se păstrează doar pseudonimul, hash-ul PIN-ului și progresul agregat. Nu se cer nume complete, e-mail, CNP sau adresă. Stabiliți cu școala perioada de păstrare a datelor; la final de an poți șterge elevii (progresul se șterge odată cu ei).
 

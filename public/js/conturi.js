@@ -224,6 +224,7 @@
     }
     show(h('div', { class: 'wrap list-page' },
       h('div', { class: 'page-head' }, h('p', { class: 'kicker' }, `${sesiune.numeClasa || ''} · ${clasaLabel([sesiune.clasa])}`), h('h1', {}, 'Progresul meu')),
+      h('div', { class: 'row-actions' }, h('a', { class: 'btn ghost small', href: '#/atelier' }, 'Prezentările mele din Atelier')),
       h('div', { class: 'stat-grid' },
         stat(`${term}/${lectii.length}`, 'lecții terminate'),
         stat(`${procent(term, lectii.length) ?? 0}%`, 'din lecțiile clasei'),
@@ -451,6 +452,7 @@
           location.hash = `#/profesor/clasa/${id}`;
         } }, 'Șterge elevul')),
       nota,
+      prezentariElev(id, sid),
       [...grupuri].map(([nume, items]) => h('section', { class: 'unit-group' },
         h('h2', {}, nume),
         h('div', { class: 'table-scroll' }, h('table', { class: 'data-table' },
@@ -472,6 +474,20 @@
               } }, 'Resetează') : null));
           }))))))));
   } });
+
+  // Prezentările unui elev din Atelier, în pagina elevului din panoul profesorului.
+  function prezentariElev(cid, sid) {
+    const lista = h('div', {}, h('p', { class: 'muted' }, 'Se încarcă…'));
+    api('GET', `/api/profesor/elevi/${sid}/prezentari`).then((rows) => umple(lista, rows.length
+      ? h('ul', { class: 'prez-list' }, rows.map((r) => h('li', {},
+          h('a', { href: `#/profesor/clasa/${cid}/elev/${sid}/prezentare/${r.id}` }, r.titlu),
+          h('span', { class: 'muted' }, ` · ${r.diapozitive} ${r.diapozitive === 1 ? 'diapozitiv' : 'diapozitive'} · ${cand(r.actualizat_la)}`))))
+      : h('p', { class: 'muted' }, 'Elevul nu a făcut încă nicio prezentare în Atelier.'))).catch((e) => umple(lista, h('p', { class: 'error' }, e.message)));
+    return h('section', { class: 'unit-group' }, h('h2', {}, 'Prezentări din Atelier'), lista);
+  }
+
+  // Atelierul de prezentări (atelier.js) folosește aceeași sesiune și același API.
+  window.EduCont = { sesiune: () => sesiune, api, cand, tag };
 
   // ---------- Pornire ----------
   zonaCont();

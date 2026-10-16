@@ -68,6 +68,36 @@ Exemple:
 - **LibreOffice Impress**: gratuit;
 - **Google Slides**: gratuit, online, ușor de partajat.
 
+### O prezentare făcută chiar pe edudigi
+
+Mai jos este o prezentare electronică. Treci prin diapozitive cu săgețile, glisând sau cu un clic. Observă cele trei etape ale unei prezentări: **titlul**, **cuprinsul** și **încheierea**. Butonul **Note** îți arată notele vorbitorului, iar **Ecran complet** o arată ca la videoproiector.
+
+```diapozitive
+# Tipuri de prezentări
+tema: albastru
+## Tipuri de prezentări
+Clasa a VI-a · Unitatea 1
+Note: Pagina de titlu are titlul, autorul și data. Aici autorul este clasa.
+---
+## Pe folii transparente
+- foi transparente, scrise sau tipărite
+- le proiectează **retroproiectorul**
+Note: Întreabă dacă a văzut cineva un retroproiector.
+---
+## Pe hârtie
+- foi mari, tipărite sau scrise de mână
+- se prind pe un **flipchart**
+---
+## Electronice
+- **diapozitive** cu text, imagini, sunete, video
+- se proiectează cu **videoproiectorul**
+- au cel mai mare **impact**
+Note: Aceasta este o prezentare electronică. Puteți vedea notele mele doar dacă apăsați Note.
+---
+## Mulțumesc!
+Care tip de prezentare ți se pare cel mai potrivit pentru clasa ta?
+```
+
 ## Exemplu rezolvat
 
 **Sarcina:** trebuie să le explici colegilor de la clasa a V-a cum se folosește biblioteca școlii. Ce tip de prezentare alegi?

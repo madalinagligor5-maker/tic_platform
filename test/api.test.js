@@ -152,3 +152,49 @@ test('cod de invitație pentru profesori, dacă este setat', async () => {
     delete process.env.TEACHER_SIGNUP_CODE;
   }
 });
+
+test('atelier: elevul își face prezentări, profesorul lui le vede, alții nu', async () => {
+  const tp = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof F', utilizator: 'proff', parola: 'parola-sigura' })).body.token;
+  const tAlt = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof G', utilizator: 'profg', parola: 'parola-sigura' })).body.token;
+  const k = (await call('POST', '/api/profesor/clase', { nume: '6F', clasa: 6 }, tp)).body;
+  const te = (await call('POST', '/api/elev/inscriere', { cod: k.cod, pseudonim: 'Pix', pin: '1122' })).body.token;
+  const te2 = (await call('POST', '/api/elev/inscriere', { cod: k.cod, pseudonim: 'Radieră', pin: '3344' })).body.token;
+  const img = 'data:image/png;base64,iVBORw0KGgo=';
+  const prez = { titlu: 'Apa', tema: 'albastru', diapozitive: [
+    { aspect: 'titlu', titlu: 'Circuitul apei', text: 'Pix, 6F' },
+    { aspect: 'text-imagine', titlu: 'Evaporarea', text: '- soarele\n- vaporii', imagine: img, note: 'încet', extra: 'ignorat' },
+  ] };
+
+  const c = await call('POST', '/api/elev/prezentari', { prezentare: prez }, te);
+  assert.strictEqual(c.status, 200);
+  assert.strictEqual(c.body.diapozitive, 2);
+  const id = c.body.id;
+  const g = await call('GET', `/api/elev/prezentari/${id}`, null, te);
+  assert.strictEqual(g.body.prezentare.diapozitive[1].imagine, img);
+  assert.strictEqual(g.body.prezentare.diapozitive[1].extra, undefined);
+
+  prez.diapozitive.push({ aspect: 'text', titlu: 'Mulțumesc!' });
+  assert.strictEqual((await call('PUT', `/api/elev/prezentari/${id}`, { prezentare: prez }, te)).body.diapozitive, 3);
+  assert.strictEqual((await call('GET', '/api/elev/prezentari', null, te)).body.length, 1);
+
+  // Validare: imagine nepermisă, prezentare goală.
+  const rea = await call('POST', '/api/elev/prezentari', { prezentare: { titlu: 'X', diapozitive: [{ imagine: 'javascript:alert(1)' }] } }, te);
+  assert.strictEqual(rea.status, 400);
+  assert.match(rea.body.error, /Imaginea/);
+  assert.strictEqual((await call('POST', '/api/elev/prezentari', { prezentare: { titlu: 'Gol', diapozitive: [] } }, te)).status, 400);
+
+  // Alt elev nu o vede și nu o poate modifica.
+  assert.strictEqual((await call('GET', `/api/elev/prezentari/${id}`, null, te2)).status, 404);
+  assert.strictEqual((await call('PUT', `/api/elev/prezentari/${id}`, { prezentare: prez }, te2)).status, 404);
+  assert.strictEqual((await call('GET', '/api/elev/prezentari', null, te2)).body.length, 0);
+
+  // Profesorul clasei o vede; alt profesor nu.
+  const sid = (await call('GET', `/api/profesor/clase/${k.id}`, null, tp)).body.elevi.find((e) => e.pseudonim === 'Pix').id;
+  assert.strictEqual((await call('GET', `/api/profesor/elevi/${sid}/prezentari`, null, tp)).body[0].titlu, 'Apa');
+  assert.strictEqual((await call('GET', `/api/profesor/elevi/${sid}/prezentari/${id}`, null, tp)).body.prezentare.tema, 'albastru');
+  assert.strictEqual((await call('GET', `/api/profesor/elevi/${sid}/prezentari`, null, tAlt)).status, 404);
+
+  // Ștergerea.
+  await call('DELETE', `/api/elev/prezentari/${id}`, null, te);
+  assert.strictEqual((await call('GET', '/api/elev/prezentari', null, te)).body.length, 0);
+});
