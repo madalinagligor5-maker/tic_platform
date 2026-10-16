@@ -45,5 +45,12 @@
       "source": "/api/(.*)",
       "destination": "/api/index"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/atelier",
+      "destination": "/#/atelier",
+      "permanent": false
+    }
   ]
 }
