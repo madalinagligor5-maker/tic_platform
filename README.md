@@ -110,13 +110,22 @@ Note: ce spune prezentatorul (se vede doar la butonul „Note”)
 
 ## Atelierul de prezentări (pentru elevi)
 
-Din meniul **Atelier**, elevii își fac singuri prezentări, fără PowerPoint:
+Din meniul **Atelier** (sau la adresa scurtă `/atelier`), elevii își fac prezentări într-un editor care arată și se folosește ca PowerPoint:
 
-- aleg o **temă** și, pentru fiecare diapozitiv, un **aspect** (pagină de titlu, titlu și text, text și imagine, imagine mare);
-- scriu titlul și textul (un rând care începe cu `- ` devine listă, `**text**` devine îngroșat), încarcă **imagini** (micșorate automat) și scriu **note pentru prezentator**;
-- adaugă, dublează, mută și șterg diapozitive și văd imediat cum arată;
-- primesc **sfaturi de design** din lecție (cel mult 40 de cuvinte și 6–7 rânduri pe diapozitiv, fără majuscule peste tot, prima pagină să fie de titlu);
-- apasă **▶ Prezintă** pentru ecran complet (ieșire cu Esc) și pot **descărca** prezentarea ca fișier `.json`, pe care o pot deschide din nou oriunde.
+- **Ecranul de start:** „Nou” cu șabloane pe teme (Edudigi, Ocean, Natură, Toamnă, Lavandă, Clasic, Noapte, Cosmos, plus prezentare necompletată) și „Recente”.
+- **Bara de titlu:** Salvare, Anulare/Refacere (Ctrl+Z / Ctrl+Y), pornirea expunerii, numele prezentării și starea salvării.
+- **Panglica cu file:**
+  - **Fișier:** Informații, Nou, Deschidere, Salvare, Imprimare (și PDF, cu sau fără note), Export `.json`, Închidere.
+  - **Pornire:** Diapozitiv nou (cu galerie de aspecte), Aspect, Dublare, Ștergere; mărimea fontului, Aldin/Cursiv/Subliniat, culoarea textului; marcatori și aliniere; Imagine.
+  - **Inserare:** diapozitiv, imagine, listă.
+  - **Proiectare:** teme și dimensiunea diapozitivului (16:9 sau 4:3).
+  - **Tranziții:** Estompare, Împingere, Ștergere, Zoom, Răsucire, cu previzualizare și „Se aplică la toate”.
+  - **Animații:** textul apare pe rând, la clic (Apariție, Estompare, Zbor spre interior, Zoom, Săritură).
+  - **Expunere diapozitive:** de la început (F5) sau de la diapozitivul curent (Shift+F5).
+  - **Revizuire:** verifică regulile de design din lecție (cel mult 40 de cuvinte și 6–7 rânduri, fără majuscule peste tot, diapozitiv de titlu la început, imagini lipsă).
+  - **Vizualizare:** Normal, Sortare diapozitive, note și panoramare.
+- **Diapozitivul se editează direct**, în casete punctate („Faceți clic pentru a adăuga un titlu”). Miniaturile din stânga se mută prin tragere și au meniu la clic dreapta. Sub diapozitiv sunt **notele**, iar jos **bara de stare** (diapozitivul curent, design, vizualizări, zoom).
+- **Comenzi rapide:** Ctrl+M (diapozitiv nou), Ctrl+D (dublare), Ctrl+S, Ctrl+P, Delete (pe miniatură), F5.
 
 Elevii intrați în cont își salvează prezentările **în cont** (cel mult 30, fiecare cu cel mult 40 de diapozitive și 3 MB de imagini), iar profesorul le vede în panou, pe pagina fiecărui elev. Fără cont, prezentările se salvează doar în browserul respectiv. Tabelul `prezentari` se creează automat la migrare.
 
