@@ -1,11 +1,11 @@
 ---
-titlu: Calcul tabelar. Formule și funcții
+titlu: Aplicație practică: formule și funcții
 disciplina: tic
-clasa: 7, 8
+clasa: 8
 categorie: aplicatii
 tip: lectie
-unitate: Calcul tabelar
-ordine: 801
+unitate: Unitatea 1 · Calcul tabelar
+ordine: 107
 descriere: Lucrezi direct în pagină, într-o foaie de calcul ca Excel: adrese de celule, formule, funcțiile SUM, AVERAGE, MIN, MAX și formatare.
 data: 2026-10-22
 ---

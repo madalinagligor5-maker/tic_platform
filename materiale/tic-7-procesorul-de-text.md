@@ -1,11 +1,11 @@
 ---
-titlu: Procesorul de text. Formatarea unui document
+titlu: Aplicație practică: formatarea unui document
 disciplina: tic
-clasa: 6, 7
+clasa: 7
 categorie: aplicatii
 tip: lectie
-unitate: Procesorul de text
-ordine: 701
+unitate: Unitatea 1 · Editorul de texte
+ordine: 106
 descriere: Lucrezi direct în pagină, într-un procesor de text ca Word: formatezi caractere și paragrafe, aliniezi textul și faci liste.
 data: 2026-10-22
 ---

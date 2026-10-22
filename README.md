@@ -152,6 +152,52 @@ timp: 40             # minute (opțional)
 - **Lansarea**: în pagina clasei, secțiunea **Teste** → alegi testul, timpul și dacă elevii își văd nota → **Lansează testul**. Elevii îl găsesc în **Testele mele**. Răspunsurile se salvează automat; la expirarea timpului, testul se predă singur. Profesorul vede cine a predat, punctajele pe itemi, răspunsurile fiecărui elev (inclusiv documentul formatat), punctează eseurile, poate permite reluarea, oprește testul și exportă CSV.
 - Testele `mod: profesor` nu ajung în site: la construire sunt copiate în `lib/generated/teste.json`, folosit doar de API. **Atenție:** fișierele din `materiale/` sunt vizibile pe GitHub dacă depozitul este public; pentru teste secrete, fă depozitul privat.
 
+## Prezentări edudigi (fără PowerPoint)
+
+Orice material poate conține o **prezentare** care se parcurge direct pe site: diapozitive 16:9, butoane înainte/înapoi, săgețile de la tastatură, glisare pe telefon, **ecran complet** (tasta F) pentru videoproiector și **note ale vorbitorului**. Se scrie ca un bloc `diapozitive`; diapozitivele se despart printr-un rând cu `---`:
+
+````markdown
+```diapozitive
+# Tipuri de prezentări          (opțional: titlul prezentării)
+tema: albastru                  (opțional: rosu, albastru, verde, portocaliu, intunecat)
+## Tipuri de prezentări
+Clasa a VI-a · Unitatea 1
+Note: ce spune prezentatorul (se vede doar la butonul „Note”)
+---
+## Electronice
+- **diapozitive** cu text, imagini, video
+- se proiectează cu videoproiectorul
+---
+## Mulțumesc!
+```
+````
+
+- Primul diapozitiv se afișează ca **pagină de titlu**, centrat.
+- Pe diapozitive merg titluri, liste, **bold**, `cod`, tabele, citate și imagini (`![descriere](fisiere/imagine.png)`).
+- Pentru un material care este doar o prezentare, folosește `tip: prezentare`. O prezentare poate fi pusă și în mijlocul unei lecții.
+- Prezentările nu se numără la aplicațiile interactive. Greșelile (o temă inexistentă, un diapozitiv gol) opresc construirea, cu mesaj clar.
+
+## Atelierul de prezentări (pentru elevi)
+
+Din meniul **Atelier** (sau la adresa scurtă `/atelier`), elevii își fac prezentări într-un editor care arată și se folosește ca PowerPoint:
+
+- **Ecranul de start:** „Nou” cu șabloane pe teme (Edudigi, Ocean, Natură, Toamnă, Lavandă, Clasic, Noapte, Cosmos, plus prezentare necompletată) și „Recente”.
+- **Bara de titlu:** Salvare, Anulare/Refacere (Ctrl+Z / Ctrl+Y), pornirea expunerii, numele prezentării și starea salvării.
+- **Panglica cu file:**
+  - **Fișier:** Informații, Nou, Deschidere, Salvare, Imprimare (și PDF, cu sau fără note), Export `.json`, Închidere.
+  - **Pornire:** Diapozitiv nou (cu galerie de aspecte), Aspect, Dublare, Ștergere; mărimea fontului, Aldin/Cursiv/Subliniat, culoarea textului; marcatori și aliniere; Imagine.
+  - **Inserare:** diapozitiv, imagine, listă.
+  - **Proiectare:** teme și dimensiunea diapozitivului (16:9 sau 4:3).
+  - **Tranziții:** Estompare, Împingere, Ștergere, Zoom, Răsucire, cu previzualizare și „Se aplică la toate”.
+  - **Animații:** textul apare pe rând, la clic (Apariție, Estompare, Zbor spre interior, Zoom, Săritură).
+  - **Expunere diapozitive:** de la început (F5) sau de la diapozitivul curent (Shift+F5).
+  - **Revizuire:** verifică regulile de design din lecție (cel mult 40 de cuvinte și 6–7 rânduri, fără majuscule peste tot, diapozitiv de titlu la început, imagini lipsă).
+  - **Vizualizare:** Normal, Sortare diapozitive, note și panoramare.
+- **Diapozitivul se editează direct**, în casete punctate („Faceți clic pentru a adăuga un titlu”). Miniaturile din stânga se mută prin tragere și au meniu la clic dreapta. Sub diapozitiv sunt **notele**, iar jos **bara de stare** (diapozitivul curent, design, vizualizări, zoom).
+- **Comenzi rapide:** Ctrl+M (diapozitiv nou), Ctrl+D (dublare), Ctrl+S, Ctrl+P, Delete (pe miniatură), F5.
+
+Elevii intrați în cont își salvează prezentările **în cont** (cel mult 30, fiecare cu cel mult 40 de diapozitive și 3 MB de imagini), iar profesorul le vede în panou, pe pagina fiecărui elev. Fără cont, prezentările se salvează doar în browserul respectiv. Tabelul `prezentari` se creează automat la migrare.
+
 ## Conturi și panoul profesorului
 
 Conturile sunt opționale: lecțiile se citesc și fără cont.
@@ -179,7 +225,7 @@ npm start                 # http://localhost:3000, cu conturi
 
 Pe **Vercel**: în proiect → **Settings → Environment Variables** adaugă `DATABASE_URL` (conexiunea *pooled* de la Neon) și, opțional, `DATABASE_URL_UNPOOLED` (conexiunea directă, folosită la migrare). Sau instalează integrarea Neon din Vercel Marketplace, care le adaugă singură. Apoi fă **Redeploy**: la build, tabelele se creează automat. Fără `DATABASE_URL`, site-ul merge în continuare, doar fără conturi.
 
-Tabele: `profesori`, `clase` (cu codul de înscriere), `elevi`, `sesiuni`, `progres`, `lansari` (testele lansate) și `rezultate` (răspunsurile și punctajele). Lecțiile și aplicațiile rămân fișiere în `materiale/`.
+Tabele: `profesori`, `clase` (cu codul de înscriere), `elevi`, `sesiuni`, `progres`, `lansari` (testele lansate), `rezultate` (răspunsurile și punctajele) și `prezentari` (Atelierul). Lecțiile și aplicațiile rămân fișiere în `materiale/`.
 
 **Protecția datelor (GDPR):** se păstrează doar pseudonimul, hash-ul PIN-ului și progresul agregat. Nu se cer nume complete, e-mail, CNP sau adresă. Stabiliți cu școala perioada de păstrare a datelor; la final de an poți șterge elevii (progresul se șterge odată cu ei).
 

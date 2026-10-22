@@ -143,6 +143,10 @@ Resurse (materiale, digitale, timp)
 
 ---
 
+### Prezentare (opțional, într-o lecție sau ca material separat)
+
+Platforma afișează prezentări proprii, scrise ca bloc `diapozitive` (vezi README). Cere-i lui Claude: „Adaugă la lecție o prezentare de 5–8 diapozitive în format edudigi: bloc ```diapozitive, diapozitivele despărțite prin ---, primul fiind pagina de titlu, cu cel mult 40 de cuvinte pe diapozitiv și note pentru profesor pe rânduri care încep cu Note:”.
+
 ## Variante scurte (pentru folosire rapidă)
 
 **Lecție rapidă**

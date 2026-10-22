@@ -13,6 +13,7 @@ const path = require('path');
 const { extract, TYPES: ACTIVITATI } = require('../public/js/interactive');
 require('../public/js/office'); // înregistrează procesor-text și calcul-tabelar
 const Teste = require('../public/js/teste-core'); // înregistrează eseu
+const { extract: extractDecks } = require('../public/js/diapozitive');
 
 const DISCIPLINE = { informatica: 'Informatică', tic: 'TIC' };
 const CATEGORII = { programare: 'Programare', tic: 'TIC', algoritmi: 'Algoritmi', aplicatii: 'Aplicații' };
@@ -90,6 +91,13 @@ function readMaterial(dir, file) {
   }
   const info = mod ? Teste.infoTest(activitati) : null;
 
+  // Prezentările edudigi (blocuri ```diapozitive) se verifică la fel.
+  const prezentari = extractDecks(body);
+  prezentari.forEach((d, i) => {
+    for (const e of d.errors) err(`prezentarea ${i + 1} (rândul ${d.line} din conținut): ${e}`);
+  });
+  if (tip === 'prezentare' && !prezentari.length && !meta.fisier) err('o prezentare are nevoie de un bloc ```diapozitive sau de un atașament („fisier”)');
+
   return {
     errors,
     material: {
@@ -107,6 +115,7 @@ function readMaterial(dir, file) {
       areContinut: Boolean(body),
       aplicatii: activitati.length,
       ...(mod ? { mod, timp, puncte: info.puncte, nrItemi: info.nrItemi } : {}),
+      diapozitive: prezentari.reduce((n, d) => n + d.slides.length, 0),
     },
     body,
     activitati,

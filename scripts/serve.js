@@ -19,6 +19,8 @@ const MIME = {
 
 http.createServer((req, res) => {
   if (req.url.startsWith('/api/')) return api(req, res);
+  // Adrese scurte, la fel ca „redirects” din vercel.json.
+  if (req.url === '/atelier') return res.writeHead(302, { Location: '/#/atelier' }).end();
   let rel;
   try {
     rel = decodeURIComponent(new URL(req.url, 'http://x').pathname);

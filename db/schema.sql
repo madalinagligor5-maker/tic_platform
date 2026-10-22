@@ -44,6 +44,21 @@ CREATE TABLE IF NOT EXISTS sesiuni (
 CREATE INDEX IF NOT EXISTS sesiuni_utilizator_idx ON sesiuni (utilizator_id);
 CREATE INDEX IF NOT EXISTS sesiuni_expira_idx ON sesiuni (expira_la);
 
+-- Sesiunile se șterg odată cu profesorul sau elevul lor (și când profesorul e șters, prin clase → elevi).
+-- utilizator_id indică fie un profesor, fie un elev, așa că cheile străine stau pe două coloane generate din rol.
+-- Mai întâi se șterg sesiunile rămase fără utilizator, altfel cheile străine nu s-ar putea adăuga.
+DELETE FROM sesiuni s
+WHERE (s.rol = 'profesor' AND NOT EXISTS (SELECT 1 FROM profesori p WHERE p.id = s.utilizator_id))
+   OR (s.rol = 'elev' AND NOT EXISTS (SELECT 1 FROM elevi e WHERE e.id = s.utilizator_id));
+ALTER TABLE sesiuni ADD COLUMN IF NOT EXISTS profesor_id uuid
+  GENERATED ALWAYS AS (CASE WHEN rol = 'profesor' THEN utilizator_id END) STORED
+  REFERENCES profesori(id) ON DELETE CASCADE;
+ALTER TABLE sesiuni ADD COLUMN IF NOT EXISTS elev_id uuid
+  GENERATED ALWAYS AS (CASE WHEN rol = 'elev' THEN utilizator_id END) STORED
+  REFERENCES elevi(id) ON DELETE CASCADE;
+CREATE INDEX IF NOT EXISTS sesiuni_profesor_idx ON sesiuni (profesor_id);
+CREATE INDEX IF NOT EXISTS sesiuni_elev_idx ON sesiuni (elev_id);
+
 -- Un singur rând pe elev și material: progresul agregat, nu fiecare clic.
 CREATE TABLE IF NOT EXISTS progres (
   elev_id        uuid NOT NULL REFERENCES elevi(id) ON DELETE CASCADE,
@@ -87,3 +102,14 @@ CREATE TABLE IF NOT EXISTS rezultate (
   total        numeric,
   PRIMARY KEY (lansare_id, elev_id)
 );
+
+-- Prezentările făcute de elevi în Atelier. Conținutul (diapozitive, imagini mici) e verificat de API înainte de salvare.
+CREATE TABLE IF NOT EXISTS prezentari (
+  id             uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  elev_id        uuid NOT NULL REFERENCES elevi(id) ON DELETE CASCADE,
+  titlu          text NOT NULL,
+  continut       jsonb NOT NULL,
+  creat_la       timestamptz NOT NULL DEFAULT now(),
+  actualizat_la  timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS prezentari_elev_idx ON prezentari (elev_id);

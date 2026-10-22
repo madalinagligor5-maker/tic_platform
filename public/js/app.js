@@ -137,6 +137,7 @@
         while (++i < lines.length && !lines[i].startsWith('```')) code.push(lines[i]);
         const type = EduInteractiv.typeOf(line.slice(3));
         if (type) root.append(EduInteractiv.render({ ...EduInteractiv.parse(type, code.join('\n')), attrs: EduInteractiv.parseAttrs(line.slice(3)) }, inline));
+        else if (EduDiapozitive.isDeck(line.slice(3))) root.append(EduDiapozitive.render(EduDiapozitive.parse(code.join('\n')), markdown));
         else root.append(h('pre', {}, h('code', {}, code.join('\n'))));
       } else if (/^#{1,4} /.test(line)) {
         flush();
@@ -205,6 +206,7 @@
           h('span', { class: 'tag' }, D.tipuri[m.tip]),
           m.fisier ? h('span', { class: 'tag' }, m.fisier.ext.toUpperCase()) : null,
           m.aplicatii ? h('span', { class: 'tag interactiv' }, `${m.aplicatii} ${m.aplicatii === 1 ? 'aplicație' : 'aplicații'}`) : null,
+          m.diapozitive ? h('span', { class: 'tag' }, `${m.diapozitive} ${m.diapozitive === 1 ? 'diapozitiv' : 'diapozitive'}`) : null,
           hooks.cardTag ? hooks.cardTag(m) : null)));
   }
   const CAT_DESC = { programare: 'Limbaje, proiecte, exerciții', tic: 'Calculatorul, internetul, siguranța', algoritmi: 'Gândire algoritmică, probleme', aplicatii: 'Text, prezentări, calcul tabelar' };
@@ -434,7 +436,7 @@
     document.title = 'edudigi – Informatică și TIC, clasele V–XII';
     onSolved = null;
     for (const a of document.querySelectorAll('.main-nav a')) a.removeAttribute('aria-current');
-    const navMatch = pathPart === '/clase' ? '#/clase' : pathPart.startsWith('/laborator') ? '#/laborator' : pathPart === '/materiale' && params.get('d') ? `#/materiale?d=${params.get('d')}` : null;
+    const navMatch = pathPart === '/clase' ? '#/clase' : pathPart.startsWith('/laborator') ? '#/laborator' : pathPart.startsWith('/atelier') ? '#/atelier' : pathPart === '/materiale' && params.get('d') ? `#/materiale?d=${params.get('d')}` : null;
     if (navMatch) document.querySelector(`.main-nav a[href="${navMatch}"]`)?.setAttribute('aria-current', 'page');
     document.getElementById('nav').classList.remove('open');
     document.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');

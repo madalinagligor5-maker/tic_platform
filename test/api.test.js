@@ -122,6 +122,19 @@ test('izolare: profesorul nu vede clasa altui profesor; elevul nu poate folosi r
   assert.strictEqual((await call('GET', '/api/profesor/clase', null, te)).status, 401);
 });
 
+test('ștergerea unui profesor șterge și sesiunile lui și ale elevilor lui', async () => {
+  const { query } = require('../lib/db');
+  const t = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof E', utilizator: 'profe', parola: 'parola-sigura' })).body.token;
+  const k = (await call('POST', '/api/profesor/clase', { nume: '8E', clasa: 8 }, t)).body;
+  await call('POST', '/api/elev/inscriere', { cod: k.cod, pseudonim: 'Vulpe', pin: '1357' });
+  const [{ id }] = await query("SELECT id FROM profesori WHERE utilizator = 'profe'");
+  const ids = `SELECT $1::uuid UNION SELECT e.id FROM elevi e JOIN clase c ON c.id = e.clasa_id WHERE c.profesor_id = $1`;
+  assert.strictEqual((await query(`SELECT count(*)::int n FROM sesiuni WHERE utilizator_id IN (${ids})`, [id]))[0].n, 2);
+  await query('DELETE FROM profesori WHERE id = $1', [id]);
+  assert.strictEqual((await query('SELECT count(*)::int n FROM sesiuni s WHERE NOT EXISTS (SELECT 1 FROM profesori p WHERE p.id = s.utilizator_id) AND NOT EXISTS (SELECT 1 FROM elevi e WHERE e.id = s.utilizator_id)'))[0].n, 0);
+  assert.strictEqual((await call('GET', '/api/profesor/clase', null, t)).status, 401);
+});
+
 test('blocare după 5 PIN-uri greșite', async () => {
   const t = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof C', utilizator: 'profc', parola: 'parola-sigura' })).body.token;
   const k = (await call('POST', '/api/profesor/clase', { nume: '7C', clasa: 7 }, t)).body;
@@ -207,4 +220,50 @@ test('teste lansate de profesor: lansare → rezolvare → corectare → eseu', 
   assert.strictEqual((await call('POST', `/api/elev/teste/${lid}/start`, {}, te)).status, 200);
   assert.strictEqual((await call('DELETE', `/api/profesor/lansari/${lid}`, null, tp)).status, 200);
   assert.deepStrictEqual((await call('GET', '/api/elev/teste', null, te)).body, []);
+});
+
+test('atelier: elevul își face prezentări, profesorul lui le vede, alții nu', async () => {
+  const tp = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof F', utilizator: 'proff', parola: 'parola-sigura' })).body.token;
+  const tAlt = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof G', utilizator: 'profg', parola: 'parola-sigura' })).body.token;
+  const k = (await call('POST', '/api/profesor/clase', { nume: '6F', clasa: 6 }, tp)).body;
+  const te = (await call('POST', '/api/elev/inscriere', { cod: k.cod, pseudonim: 'Pix', pin: '1122' })).body.token;
+  const te2 = (await call('POST', '/api/elev/inscriere', { cod: k.cod, pseudonim: 'Radieră', pin: '3344' })).body.token;
+  const img = 'data:image/png;base64,iVBORw0KGgo=';
+  const prez = { titlu: 'Apa', tema: 'albastru', diapozitive: [
+    { aspect: 'titlu', titlu: 'Circuitul apei', text: 'Pix, 6F' },
+    { aspect: 'text-imagine', titlu: 'Evaporarea', text: '- soarele\n- vaporii', imagine: img, note: 'încet', extra: 'ignorat' },
+  ] };
+
+  const c = await call('POST', '/api/elev/prezentari', { prezentare: prez }, te);
+  assert.strictEqual(c.status, 200);
+  assert.strictEqual(c.body.diapozitive, 2);
+  const id = c.body.id;
+  const g = await call('GET', `/api/elev/prezentari/${id}`, null, te);
+  assert.strictEqual(g.body.prezentare.diapozitive[1].imagine, img);
+  assert.strictEqual(g.body.prezentare.diapozitive[1].extra, undefined);
+
+  prez.diapozitive.push({ aspect: 'text', titlu: 'Mulțumesc!' });
+  assert.strictEqual((await call('PUT', `/api/elev/prezentari/${id}`, { prezentare: prez }, te)).body.diapozitive, 3);
+  assert.strictEqual((await call('GET', '/api/elev/prezentari', null, te)).body.length, 1);
+
+  // Validare: imagine nepermisă, prezentare goală.
+  const rea = await call('POST', '/api/elev/prezentari', { prezentare: { titlu: 'X', diapozitive: [{ imagine: 'javascript:alert(1)' }] } }, te);
+  assert.strictEqual(rea.status, 400);
+  assert.match(rea.body.error, /Imaginea/);
+  assert.strictEqual((await call('POST', '/api/elev/prezentari', { prezentare: { titlu: 'Gol', diapozitive: [] } }, te)).status, 400);
+
+  // Alt elev nu o vede și nu o poate modifica.
+  assert.strictEqual((await call('GET', `/api/elev/prezentari/${id}`, null, te2)).status, 404);
+  assert.strictEqual((await call('PUT', `/api/elev/prezentari/${id}`, { prezentare: prez }, te2)).status, 404);
+  assert.strictEqual((await call('GET', '/api/elev/prezentari', null, te2)).body.length, 0);
+
+  // Profesorul clasei o vede; alt profesor nu.
+  const sid = (await call('GET', `/api/profesor/clase/${k.id}`, null, tp)).body.elevi.find((e) => e.pseudonim === 'Pix').id;
+  assert.strictEqual((await call('GET', `/api/profesor/elevi/${sid}/prezentari`, null, tp)).body[0].titlu, 'Apa');
+  assert.strictEqual((await call('GET', `/api/profesor/elevi/${sid}/prezentari/${id}`, null, tp)).body.prezentare.tema, 'albastru');
+  assert.strictEqual((await call('GET', `/api/profesor/elevi/${sid}/prezentari`, null, tAlt)).status, 404);
+
+  // Ștergerea.
+  await call('DELETE', `/api/elev/prezentari/${id}`, null, te);
+  assert.strictEqual((await call('GET', '/api/elev/prezentari', null, te)).body.length, 0);
 });
