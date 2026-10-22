@@ -7,3 +7,4 @@ public/fisiere/
 .env.*.local
 .vercel/
 .neon
+lib/generated

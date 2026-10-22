@@ -25,10 +25,24 @@
     cartonase: 'Cartonașe',
   };
   const ALIASES = { 'adevărat-fals': 'adevarat-fals', 'cartonașe': 'cartonase', 'ordine': 'ordonare' };
+  // Tipuri adăugate din alte fișiere (office.js, teste-core.js): { label, parse(text), render(block, inline) }.
+  const EXTRA = {};
+  function register(type, def) {
+    TYPES[type] = def.label;
+    EXTRA[type] = def;
+    for (const a of def.aliases || []) ALIASES[a] = type;
+  }
+  // Primul cuvânt din antetul blocului (```quiz puncte=10 → quiz).
   const typeOf = (lang) => {
-    const t = (lang || '').trim().toLowerCase();
+    const t = (lang || '').trim().split(/\s+/)[0].toLowerCase();
     return TYPES[t] ? t : ALIASES[t] || null;
   };
+  // Atributele din antetul blocului: ```quiz puncte=10 → { puncte: '10' }.
+  function parseAttrs(lang) {
+    const attrs = {};
+    for (const m of (lang || '').matchAll(/([\p{L}\w-]+)=("[^"]*"|\S+)/gu)) attrs[m[1].toLowerCase()] = m[2].replace(/^"|"$/g, '');
+    return attrs;
+  }
 
   // ---------- Parsare (comună Node + browser) ----------
   function parse(type, text) {
@@ -42,6 +56,10 @@
     }
     const nonEmpty = lines.map((l) => l.trim()).filter(Boolean);
     let data;
+    if (EXTRA[type]) {
+      const r = EXTRA[type].parse(lines.join('\n'));
+      return { type, title, data: r.data, errors: r.errors };
+    }
 
     if (type === 'quiz') {
       const groups = [];
@@ -132,13 +150,13 @@
     const blocks = [];
     const lines = markdown.replace(/\r/g, '').split('\n');
     for (let i = 0; i < lines.length; i++) {
-      const m = /^```\s*(\S+)\s*$/.exec(lines[i]);
+      const m = /^```\s*(\S+)(.*)$/.exec(lines[i]);
       if (!m) continue;
       const body = [];
       let j = i + 1;
       while (j < lines.length && !lines[j].startsWith('```')) body.push(lines[j++]);
       const type = typeOf(m[1]);
-      if (type) blocks.push({ ...parse(type, body.join('\n')), line: i + 1 });
+      if (type) blocks.push({ ...parse(type, body.join('\n')), attrs: parseAttrs(m[2]), line: i + 1 });
       i = j;
     }
     return blocks;
@@ -459,10 +477,11 @@
   // inline: funcția din app.js care formatează textul (bold, cod...) în siguranță.
   function render(block, inline = (t) => t) {
     if (block.errors.length) return h('div', { class: 'activity act-error' }, h('b', {}, 'Aplicația nu poate fi afișată: '), block.errors.join('; '));
+    if (EXTRA[block.type]) return EXTRA[block.type].render(block, inline, { frame, h });
     return RENDER[block.type](block, inline);
   }
 
-  const api = { TYPES, typeOf, parse, extract, render };
+  const api = { TYPES, typeOf, parse, parseAttrs, extract, render, register, isExtra: (t) => Boolean(EXTRA[t]) };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.EduInteractiv = api;
 })(typeof window !== 'undefined' ? window : globalThis);

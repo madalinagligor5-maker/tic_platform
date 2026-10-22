@@ -8,6 +8,8 @@ const { handler: api } = require('../lib/api');
 
 const PUBLIC = path.join(__dirname, '..', 'public');
 const PORT = Number(process.env.PORT) || 3000;
+// Aceleași antete de securitate ca pe Vercel (inclusiv CSP), ca problemele să apară și local.
+const ANTETE = Object.fromEntries(require('../vercel.json').headers.find((x) => x.source === '/(.*)').headers.map((x) => [x.key, x.value]));
 const MIME = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
   '.json': 'application/json; charset=utf-8', '.md': 'text/markdown; charset=utf-8', '.svg': 'image/svg+xml',
@@ -28,6 +30,6 @@ http.createServer((req, res) => {
   if (!file.startsWith(PUBLIC + path.sep)) return res.writeHead(403).end();
   fs.readFile(file, (err, buf) => {
     if (err) return res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Negăsit');
-    res.writeHead(200, { 'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream' }).end(buf);
+    res.writeHead(200, { ...ANTETE, 'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream' }).end(buf);
   });
 }).listen(PORT, () => console.log(`edudigi rulează pe http://localhost:${PORT}${process.env.DATABASE_URL ? '' : ' (fără bază de date: conturile nu funcționează)'}`));

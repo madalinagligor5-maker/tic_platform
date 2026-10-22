@@ -59,3 +59,31 @@ CREATE TABLE IF NOT EXISTS progres (
   terminat_la    timestamptz,
   PRIMARY KEY (elev_id, material_id)
 );
+
+-- Teste lansate de profesor unei clase. Testul (cu răspunsuri) stă în lib/generated/teste.json, nu în bază.
+CREATE TABLE IF NOT EXISTS lansari (
+  id                uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  clasa_id          uuid NOT NULL REFERENCES clase(id) ON DELETE CASCADE,
+  test_id           text NOT NULL,
+  titlu             text NOT NULL,
+  timp_minute       int,                          -- NULL = fără limită de timp
+  arata_rezultate   boolean NOT NULL DEFAULT true, -- elevul își vede punctajul după predare
+  deschisa          boolean NOT NULL DEFAULT true,
+  creat_la          timestamptz NOT NULL DEFAULT now(),
+  oprit_la          timestamptz
+);
+CREATE INDEX IF NOT EXISTS lansari_clasa_idx ON lansari (clasa_id);
+
+-- Un rând pe elev și lansare: răspunsurile și punctajul.
+CREATE TABLE IF NOT EXISTS rezultate (
+  lansare_id   uuid NOT NULL REFERENCES lansari(id) ON DELETE CASCADE,
+  elev_id      uuid NOT NULL REFERENCES elevi(id) ON DELETE CASCADE,
+  inceput_la   timestamptz NOT NULL DEFAULT now(),
+  predat_la    timestamptz,
+  raspunsuri   jsonb,
+  manual       jsonb NOT NULL DEFAULT '{}',        -- punctajele date de profesor (eseu): { "indexItem": puncte }
+  detalii      jsonb,
+  punctaj      numeric,
+  total        numeric,
+  PRIMARY KEY (lansare_id, elev_id)
+);

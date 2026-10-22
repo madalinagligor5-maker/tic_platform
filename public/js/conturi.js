@@ -86,7 +86,7 @@
     } }, 'Ieșire');
     if (!sesiune) z.replaceChildren(h('a', { class: 'chip small red', href: '#/intra' }, 'Intră în cont'));
     else if (sesiune.rol === 'profesor') z.replaceChildren(h('a', { class: 'chip small', href: '#/profesor' }, 'Panoul profesorului'), iesire);
-    else z.replaceChildren(h('a', { class: 'chip small', href: '#/elev', title: 'Progresul meu' }, `👤 ${sesiune.nume}`), iesire);
+    else z.replaceChildren(h('a', { class: 'chip small', href: '#/teste' }, 'Testele mele'), h('a', { class: 'chip small', href: '#/elev', title: 'Progresul meu' }, `👤 ${sesiune.nume}`), iesire);
   }
 
   // ---------- Progresul elevului (cache pentru carduri) ----------
@@ -407,6 +407,7 @@
             k.clasa.cod = (await api('POST', `/api/profesor/clase/${id}/cod`)).cod;
             codEl.textContent = k.clasa.cod;
           } }, 'Generează alt cod'))),
+      hooks.panouClasa ? hooks.panouClasa(k, id) : null,
       zona));
   } });
   const bara = (p) => h('span', { class: 'mini-bar' }, h('i', { style: null, 'data-w': p ?? 0 }));
@@ -472,6 +473,9 @@
               } }, 'Resetează') : null));
           }))))))));
   } });
+
+  // Pentru teste.js: aceleași cereri autentificate și aceleași componente.
+  window.EduConturi = { api, sesiune: () => sesiune, umple, tag, stat, cand, durata, descarcaCSV, formular, camp };
 
   // ---------- Pornire ----------
   zonaCont();

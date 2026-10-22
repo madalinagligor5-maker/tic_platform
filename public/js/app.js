@@ -136,7 +136,7 @@
         const code = [];
         while (++i < lines.length && !lines[i].startsWith('```')) code.push(lines[i]);
         const type = EduInteractiv.typeOf(line.slice(3));
-        if (type) root.append(EduInteractiv.render(EduInteractiv.parse(type, code.join('\n')), inline));
+        if (type) root.append(EduInteractiv.render({ ...EduInteractiv.parse(type, code.join('\n')), attrs: EduInteractiv.parseAttrs(line.slice(3)) }, inline));
         else root.append(h('pre', {}, h('code', {}, code.join('\n'))));
       } else if (/^#{1,4} /.test(line)) {
         flush();
@@ -347,7 +347,9 @@
     let body = null;
     if (m.areContinut) {
       const res = await fetch(`/date/m/${encodeURIComponent(m.id)}.md`, { cache: 'no-cache' });
-      body = res.ok ? markdown(await res.text()) : h('p', { class: 'muted' }, 'Conținutul nu a putut fi încărcat.');
+      const src = res.ok ? await res.text() : null;
+      // Testele de antrenament au propria afișare (teste.js): itemi, „Predă testul”, notă și corectură.
+      body = src == null ? h('p', { class: 'muted' }, 'Conținutul nu a putut fi încărcat.') : m.mod && hooks.renderTest ? hooks.renderTest(m, src) : markdown(src);
     }
     const f = m.fisier;
     const fileUrl = f && `/${f.url}`;
@@ -380,7 +382,8 @@
           preview,
           prevNext(m, D)),
         h('aside', { class: 'aside' },
-          m.aplicatii ? progressBox(m.aplicatii) : null,
+          m.aplicatii && !m.mod ? progressBox(m.aplicatii) : null,
+          m.mod && hooks.testAside ? hooks.testAside(m) : null,
           f ? h('div', { class: 'box' },
             h('h3', {}, 'Material de descărcat'),
             h('div', { class: 'file-card' }, h('span', { class: 'ext' }, f.ext), h('div', {}, h('b', {}, f.nume), h('span', {}, fileSize(f.marime)))),
@@ -431,7 +434,7 @@
     document.title = 'edudigi – Informatică și TIC, clasele V–XII';
     onSolved = null;
     for (const a of document.querySelectorAll('.main-nav a')) a.removeAttribute('aria-current');
-    const navMatch = pathPart === '/clase' ? '#/clase' : pathPart === '/materiale' && params.get('d') ? `#/materiale?d=${params.get('d')}` : null;
+    const navMatch = pathPart === '/clase' ? '#/clase' : pathPart.startsWith('/laborator') ? '#/laborator' : pathPart === '/materiale' && params.get('d') ? `#/materiale?d=${params.get('d')}` : null;
     if (navMatch) document.querySelector(`.main-nav a[href="${navMatch}"]`)?.setAttribute('aria-current', 'page');
     document.getElementById('nav').classList.remove('open');
     document.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');
@@ -468,7 +471,7 @@
     location.hash = q ? `#/materiale?q=${encodeURIComponent(q)}` : '#/materiale';
   });
   // Extensii (conturi.js): rute în plus și cârlige pentru carduri și pagina materialului.
-  window.EduApp = { h, show, data, markdown, ROMAN, GRADES, ICONS, clasaLabel, fileSize, hooks, routes, render };
+  window.EduApp = { h, show, data, markdown, inline, ROMAN, GRADES, ICONS, clasaLabel, fileSize, hooks, routes, render };
   window.addEventListener('hashchange', render);
   // Pornim după ce s-au încărcat toate scripturile, ca extensiile să-și poată înregistra rutele.
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);

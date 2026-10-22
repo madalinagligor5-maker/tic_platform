@@ -139,3 +139,72 @@ test('cod de invitație pentru profesori, dacă este setat', async () => {
     delete process.env.TEACHER_SIGNUP_CODE;
   }
 });
+
+test('teste lansate de profesor: lansare → rezolvare → corectare → eseu', async () => {
+  const os = require('os');
+  const path = require('path');
+  const { build } = require('../scripts/build');
+  const out = require('fs').mkdtempSync(path.join(os.tmpdir(), 'edudigi-'));
+  const { teste } = build({ src: path.join(__dirname, '..', 'materiale'), out });
+  require('../lib/api').setTeste(teste);
+  const tp = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof Teste', utilizator: 'prof.teste', parola: 'parola-sigura' })).body.token;
+  const k = (await call('POST', '/api/profesor/clase', { nume: '5T', clasa: 5 }, tp)).body;
+  const te = (await call('POST', '/api/elev/inscriere', { cod: k.cod, pseudonim: 'Elev T', pin: '4321' })).body.token;
+
+  const lista = await call('GET', '/api/profesor/teste', null, tp);
+  assert.ok(lista.body.some((t) => t.id === 'tic-5-evaluare-profesor' && t.puncte === 100));
+  assert.strictEqual((await call('GET', '/api/profesor/teste', null, te)).status, 401);
+  // Elevul nu vede testele nelansate.
+  assert.deepStrictEqual((await call('GET', '/api/elev/teste', null, te)).body, []);
+
+  const l = await call('POST', `/api/profesor/clase/${k.id}/lansari`, { testId: 'tic-5-evaluare-profesor' }, tp);
+  assert.strictEqual(l.status, 200);
+  assert.strictEqual(l.body.timp, 40);
+  const lid = l.body.id;
+  const vazut = await call('GET', '/api/elev/teste', null, te);
+  assert.strictEqual(vazut.body[0].stare, 'nou');
+
+  const start = await call('POST', `/api/elev/teste/${lid}/start`, {}, te);
+  assert.strictEqual(start.status, 200);
+  assert.strictEqual(start.body.itemi.length, 8);
+  assert.ok(!/"correct"|"answer"|Barem|barem/.test(JSON.stringify(start.body.itemi)));
+  assert.ok(new Date(start.body.termen) > new Date());
+
+  // Răspunsuri: itemii 1, 3 corecți; restul parțial; eseul se corectează manual.
+  const t = teste['tic-5-evaluare-profesor'].itemi;
+  const quiz1 = t[0].data.questions.map((q) => q.options.map((o, i) => (o.correct ? i : -1)).filter((i) => i >= 0));
+  const tf = t[2].data.items.map((x) => x.answer);
+  const raspunsuri = [quiz1, [], tf, {}, [], ['hardware', 'software', 'browser'], { verificari: [true, true, false] }, 'Un fișier are date, un folder grupează fișiere.'];
+  assert.strictEqual((await call('POST', `/api/elev/teste/${lid}/salvare`, { raspunsuri }, te)).status, 200);
+  const pred = await call('POST', `/api/elev/teste/${lid}/predare`, { raspunsuri }, te);
+  assert.strictEqual(pred.status, 200);
+  assert.strictEqual(pred.body.punctaj, 10 + 10 + 10 + 10);
+  assert.strictEqual(pred.body.inAsteptare, 1);
+  assert.strictEqual((await call('POST', `/api/elev/teste/${lid}/predare`, { raspunsuri }, te)).status, 409);
+  assert.strictEqual((await call('POST', `/api/elev/teste/${lid}/start`, {}, te)).status, 409);
+
+  // Profesorul vede rezultatele și punctează eseul.
+  const rez = await call('GET', `/api/profesor/lansari/${lid}`, null, tp);
+  const eu = rez.body.elevi.find((e) => e.pseudonim === 'Elev T');
+  assert.strictEqual(eu.punctaj, 40);
+  assert.strictEqual(eu.raspunsuri[7], raspunsuri[7]);
+  assert.strictEqual((await call('POST', `/api/profesor/lansari/${lid}/elevi/${eu.id}/punctaj`, { index: 7, puncte: 25 }, tp)).status, 400);
+  const p = await call('POST', `/api/profesor/lansari/${lid}/elevi/${eu.id}/punctaj`, { index: 7, puncte: 15 }, tp);
+  assert.strictEqual(p.body.punctaj, 55);
+  assert.strictEqual(p.body.nota, 5.95);
+  const lans = await call('GET', `/api/profesor/clase/${k.id}/lansari`, null, tp);
+  assert.strictEqual(lans.body[0].predate, 1);
+
+  // Alt profesor nu are acces.
+  const alt = (await call('POST', '/api/profesor/inregistrare', { nume: 'Alt Prof', utilizator: 'alt.prof', parola: 'parola-sigura' })).body.token;
+  assert.strictEqual((await call('GET', `/api/profesor/lansari/${lid}`, null, alt)).status, 404);
+
+  // Oprit: elevul nu mai poate începe; profesorul permite reluarea, apoi redeschide.
+  await call('POST', `/api/profesor/lansari/${lid}/stare`, { deschisa: false }, tp);
+  assert.strictEqual((await call('DELETE', `/api/profesor/lansari/${lid}/elevi/${eu.id}`, null, tp)).status, 200);
+  assert.strictEqual((await call('POST', `/api/elev/teste/${lid}/start`, {}, te)).status, 403);
+  await call('POST', `/api/profesor/lansari/${lid}/stare`, { deschisa: true }, tp);
+  assert.strictEqual((await call('POST', `/api/elev/teste/${lid}/start`, {}, te)).status, 200);
+  assert.strictEqual((await call('DELETE', `/api/profesor/lansari/${lid}`, null, tp)).status, 200);
+  assert.deepStrictEqual((await call('GET', '/api/elev/teste', null, te)).body, []);
+});

@@ -6,14 +6,19 @@
 //   public/date/materiale.json  lista materialelor (fără conținut)
 //   public/date/m/<id>.md       conținutul fiecărui material
 //   public/fisiere/             copia atașamentelor
+//   lib/generated/teste.json    testele cu `mod: profesor` (cu răspunsuri): nu se publică, le folosește doar API-ul
 // Rulare: npm run build. La orice greșeală în antet, oprește construirea și spune ce e de corectat.
 const fs = require('fs');
 const path = require('path');
 const { extract, TYPES: ACTIVITATI } = require('../public/js/interactive');
+require('../public/js/office'); // înregistrează procesor-text și calcul-tabelar
+const Teste = require('../public/js/teste-core'); // înregistrează eseu
 
 const DISCIPLINE = { informatica: 'Informatică', tic: 'TIC' };
 const CATEGORII = { programare: 'Programare', tic: 'TIC', algoritmi: 'Algoritmi', aplicatii: 'Aplicații' };
 const TIPURI = { lectie: 'Lecție', fisa: 'Fișă de lucru', test: 'Test', prezentare: 'Prezentare', proiect: 'Proiect', resursa: 'Resursă' };
+// Testele interactive: de antrenament (publice, corectate în browser) sau lansate de profesor (corectate pe server).
+const MODURI = { antrenament: 'Test de antrenament', profesor: 'Test lansat de profesor' };
 
 function parseFrontMatter(text) {
   const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/.exec(text);
@@ -68,6 +73,23 @@ function readMaterial(dir, file) {
   });
   if (tip === 'lectie' && !activitati.length) err('fiecare lecție trebuie să aibă cel puțin o aplicație interactivă (ex. un bloc ```quiz)');
 
+  const mod = meta.mod ? norm(meta.mod) : '';
+  let timp = null;
+  if (mod) {
+    if (!MODURI[mod]) err(`„mod” trebuie să fie unul din: ${Object.keys(MODURI).join(', ')}`);
+    if (tip !== 'test') err('„mod” se folosește doar la materialele cu „tip: test”');
+    if (!Teste.itemi(activitati).length) err('testul nu are niciun item (ex. un bloc ```quiz puncte=10)');
+    activitati.forEach((a, i) => {
+      if (!Teste.NOTABILE.includes(a.type)) err(`aplicația ${i + 1} (${ACTIVITATI[a.type]}) nu se poate nota; într-un test folosește: ${Teste.NOTABILE.join(', ')}`);
+      if (a.attrs.puncte !== undefined && !(Number(String(a.attrs.puncte).replace(',', '.')) > 0)) err(`aplicația ${i + 1}: „puncte=${a.attrs.puncte}” trebuie să fie un număr pozitiv`);
+    });
+  }
+  if (meta.timp) {
+    if (!/^\d+$/.test(meta.timp) || Number(meta.timp) < 1 || Number(meta.timp) > 240) err('„timp” este durata testului în minute (1–240)');
+    else timp = Number(meta.timp);
+  }
+  const info = mod ? Teste.infoTest(activitati) : null;
+
   return {
     errors,
     material: {
@@ -84,20 +106,26 @@ function readMaterial(dir, file) {
       fisier,
       areContinut: Boolean(body),
       aplicatii: activitati.length,
+      ...(mod ? { mod, timp, puncte: info.puncte, nrItemi: info.nrItemi } : {}),
     },
     body,
+    activitati,
   };
 }
 
-function build({ src, out }) {
+function build({ src, out, teste: testeOut }) {
   const files = fs.existsSync(src) ? fs.readdirSync(src).filter((f) => f.endsWith('.md')).sort() : [];
   const errors = [];
   const materials = [];
   const bodies = {};
+  const testeProfesor = {};
   for (const f of files) {
     const r = readMaterial(src, f);
     errors.push(...r.errors);
-    if (!r.errors.length) materials.push(r.material), (bodies[r.material.id] = r.body);
+    if (r.errors.length) continue;
+    // Testele profesorului nu ajung în site: doar API-ul le are, cu tot cu răspunsuri.
+    if (r.material.mod === 'profesor') testeProfesor[r.material.id] = { ...r.material, itemi: Teste.itemi(r.activitati) };
+    else materials.push(r.material), (bodies[r.material.id] = r.body);
   }
   if (errors.length) return { errors, materials: [] };
 
@@ -110,17 +138,21 @@ function build({ src, out }) {
   fs.writeFileSync(path.join(dateDir, 'materiale.json'), JSON.stringify({ discipline: DISCIPLINE, categorii: CATEGORII, tipuri: TIPURI, materiale: materials }));
   for (const [id, body] of Object.entries(bodies)) if (body) fs.writeFileSync(path.join(dateDir, 'm', `${id}.md`), body);
   if (fs.existsSync(path.join(src, 'fisiere'))) fs.cpSync(path.join(src, 'fisiere'), fisDir, { recursive: true, filter: (p) => !path.basename(p).startsWith('.') });
-  return { errors: [], materials };
+  if (testeOut) {
+    fs.mkdirSync(path.dirname(testeOut), { recursive: true });
+    fs.writeFileSync(testeOut, JSON.stringify(testeProfesor));
+  }
+  return { errors: [], materials, teste: testeProfesor };
 }
 
 module.exports = { build, parseFrontMatter };
 
 if (require.main === module) {
   const root = path.join(__dirname, '..');
-  const { errors, materials } = build({ src: path.join(root, 'materiale'), out: path.join(root, 'public') });
+  const { errors, materials, teste } = build({ src: path.join(root, 'materiale'), out: path.join(root, 'public'), teste: path.join(root, 'lib', 'generated', 'teste.json') });
   if (errors.length) {
     console.error('Construirea a eșuat. De corectat:\n' + errors.map((e) => `  - ${e}`).join('\n'));
     process.exit(1);
   }
-  console.log(`Gata: ${materials.length} materiale.`);
+  console.log(`Gata: ${materials.length} materiale, ${Object.keys(teste).length} teste pentru profesor.`);
 }

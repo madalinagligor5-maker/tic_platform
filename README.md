@@ -6,17 +6,19 @@ Resurse gratuite pentru **Informatică** și **TIC**, clasele **V–XII**: lecț
 
 ## Cum funcționează
 
-Site-ul este static: nu are bază de date și nici server. Fiecare material e un fișier în folderul `materiale/`. La fiecare push pe GitHub, Vercel rulează `npm run build`, care verifică materialele și generează site-ul.
+Site-ul este static; doar conturile și testele lansate folosesc API-ul și baza de date. Fiecare material e un fișier în folderul `materiale/`. La fiecare push pe GitHub, Vercel rulează `npm run build`, care verifică materialele și generează site-ul.
 
 ```
 materiale/
   tic-5-sistemul-de-calcul.md     un material (antet + conținut)
   fisiere/                        atașamente: PDF, PPTX, DOCX, imagini
 public/                           interfața (HTML, CSS, JS, fonturi, logo)
-scripts/build.js                  verifică materialele și generează public/date/
+scripts/build.js                  verifică materialele și generează public/date/ (și lib/generated/teste.json)
 scripts/serve.js                  server local (site + API)
 scripts/migrate.js                aplică db/schema.sql pe Neon
-lib/api.js, lib/db.js             API-ul (conturi, clase, progres) și conexiunea Postgres (pg)
+lib/api.js, lib/db.js             API-ul (conturi, clase, progres, teste) și conexiunea Postgres (pg)
+public/js/office.js               procesorul de text și foaia de calcul (cu motorul de formule)
+public/js/teste-core.js           notarea testelor (aceeași în browser și pe server)
 api/index.js                      funcția Vercel pentru /api/*
 neon.ts                           configurația Neon
 docs/                             harta conținutului și promptul generator
@@ -65,6 +67,9 @@ tabele, citate, linkuri și imagini (![descriere](fisiere/imagine.png)).
 | `ordonare` | pune pașii în ordine cu săgeți | pașii în ordinea **corectă**, câte unul pe rând |
 | `completare` | completează spațiile libere | `Text cu [răspuns] sau [variantă\|altă variantă]` |
 | `cartonase` | întoarce cartonașe | `Termen = Definiție` |
+| `procesor-text` | formatează un document într-un editor tip Word; butonul **Verifică** controlează formatarea | secțiunile `Text:` și `Cerințe:` (vezi mai jos) |
+| `calcul-tabelar` | completează o foaie de calcul tip Excel, cu formule și funcții | secțiunile `Date:` și `Cerințe:` (vezi mai jos) |
+| `eseu` | scrie un răspuns deschis, apoi îl compară cu baremul | cerința, opțional `Cuvinte: 30-80` și `Barem: ...` |
 
 Exemplu:
 
@@ -78,10 +83,74 @@ Explicație: Îl atingi (intrare) și îți arată imaginea (ieșire).
 ```
 ````
 
+### Procesor de text și calcul tabelar
+
+````markdown
+```procesor-text
+# Formatează invitația.
+Text:
+Invitație la Ziua Școlii
+Dragi colegi, vă invităm vineri, la ora 12.
+Cerințe:
+- titlul: aldin, centrat, mărime 18 | Titlul este aldin, centrat, mărimea 18
+- „vineri, la ora 12”: subliniat, culoare roșie
+- paragraful 2: stânga-dreapta, font Arial
+- tot textul: font Verdana
+```
+
+```calcul-tabelar
+# Calculează totalul.
+Date:
+Produs;Preț;Cantitate;Total
+Caiet;4,5;6
+Pix;3;4
+Cerințe:
+- D2:D3: =B2*C2 | În D2:D3, totalul fiecărui produs, cu formulă
+- D4: =SUM(D2:D3) | În D4, suma, cu funcția SUM
+- A1:D1: aldin
+- A1:D1: fundal galben
+```
+````
+
+- **Procesor de text** – ținte: `titlul` (primul paragraf), `paragraful N`, `tot textul` sau un text între ghilimele („...”). Formatări: aldin, cursiv, subliniat, centrat, la stânga, la dreapta, stânga-dreapta, `mărime N`, `culoare` (negru, roșu, albastru, verde, portocaliu, mov), `font` (Arial, Times New Roman, Courier New, Verdana, Georgia, Calibri), listă cu buline, listă numerotată.
+- **Calcul tabelar** – rândurile din `Date:` au celulele separate prin `;` (zecimale cu virgulă). O cerință `=formulă` verifică dacă în celulă există o formulă, cu aceleași funcții, și cu rezultatul corect (pentru o zonă, formula se „copiază” pe fiecare rând). Altele: `aldin`, `centrat`, `fundal galben|verde|albastru|rosu|portocaliu|gri`, `2 zecimale` sau o valoare. Funcții: SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, IF, ROUND, ABS, AND, OR, NOT, CONCAT (și SUMA, MEDIE, DACA...).
+- Textul de după ` | ` este cerința afișată elevului.
+- **Laboratorul** (`Laborator` din meniu) are un procesor de text și o foaie de calcul goale, de folosit liber; lucrul se salvează pe calculator și se descarcă pentru Word (.doc) sau Excel (.csv).
+
 - Răspunsurile de la `completare` sunt acceptate și fără diacritice sau cu majuscule.
 - În pagina lecției, caseta **Aplicații interactive** arată câte aplicații a rezolvat elevul.
 - Totul funcționează prin atingere și de la tastatură, inclusiv pe telefon.
 - Exemple complete sunt în lecțiile din `materiale/`. Promptul din `docs/` generează lecții care includ deja aplicațiile.
+
+## Teste cu notă
+
+Un test este un material cu `tip: test` și un `mod`:
+
+| `mod` | Cine îl vede | Corectare |
+|---|---|---|
+| `antrenament` | oricine, în lista de materiale | în browser: elevul apasă **Predă testul** și primește nota, punctajul pe itemi și corectura; îl poate relua oricând |
+| `profesor` | **nimeni**, până când profesorul îl lansează unei clase | pe server; elevul nu primește niciodată răspunsurile corecte |
+
+````markdown
+---
+titlu: Evaluare – Sisteme de calcul
+disciplina: tic
+clasa: 5
+categorie: tic
+tip: test
+mod: profesor        # sau antrenament
+timp: 40             # minute (opțional)
+---
+
+```quiz puncte=10
+...
+```
+````
+
+- Itemii sunt aplicațiile de mai sus (fără `cartonase`), fiecare cu `puncte=N` în antet (implicit 10). Nota = 1 + 9 × punctaj / total.
+- Corectarea e parțială: de exemplu, 3 din 5 afirmații corecte = 60% din punctajul itemului. Itemii `eseu` îi punctează profesorul.
+- **Lansarea**: în pagina clasei, secțiunea **Teste** → alegi testul, timpul și dacă elevii își văd nota → **Lansează testul**. Elevii îl găsesc în **Testele mele**. Răspunsurile se salvează automat; la expirarea timpului, testul se predă singur. Profesorul vede cine a predat, punctajele pe itemi, răspunsurile fiecărui elev (inclusiv documentul formatat), punctează eseurile, poate permite reluarea, oprește testul și exportă CSV.
+- Testele `mod: profesor` nu ajung în site: la construire sunt copiate în `lib/generated/teste.json`, folosit doar de API. **Atenție:** fișierele din `materiale/` sunt vizibile pe GitHub dacă depozitul este public; pentru teste secrete, fă depozitul privat.
 
 ## Conturi și panoul profesorului
 
@@ -110,7 +179,7 @@ npm start                 # http://localhost:3000, cu conturi
 
 Pe **Vercel**: în proiect → **Settings → Environment Variables** adaugă `DATABASE_URL` (conexiunea *pooled* de la Neon) și, opțional, `DATABASE_URL_UNPOOLED` (conexiunea directă, folosită la migrare). Sau instalează integrarea Neon din Vercel Marketplace, care le adaugă singură. Apoi fă **Redeploy**: la build, tabelele se creează automat. Fără `DATABASE_URL`, site-ul merge în continuare, doar fără conturi.
 
-Tabele: `profesori`, `clase` (cu codul de înscriere), `elevi`, `sesiuni`, `progres`. Lecțiile și aplicațiile rămân fișiere în `materiale/`.
+Tabele: `profesori`, `clase` (cu codul de înscriere), `elevi`, `sesiuni`, `progres`, `lansari` (testele lansate) și `rezultate` (răspunsurile și punctajele). Lecțiile și aplicațiile rămân fișiere în `materiale/`.
 
 **Protecția datelor (GDPR):** se păstrează doar pseudonimul, hash-ul PIN-ului și progresul agregat. Nu se cer nume complete, e-mail, CNP sau adresă. Stabiliți cu școala perioada de păstrare a datelor; la final de an poți șterge elevii (progresul se șterge odată cu ei).
 
