@@ -142,8 +142,13 @@
       out[ref] = {
         raw: String(c.raw ?? '').slice(0, 500),
         bold: Boolean(c.bold),
-        align: c.align === 'center' ? 'center' : undefined,
+        italic: Boolean(c.italic) || undefined,
+        underline: Boolean(c.underline) || undefined,
+        align: ['left', 'center', 'right'].includes(c.align) ? c.align : undefined,
         fill: typeof c.fill === 'string' && O.FILLS[c.fill] ? c.fill : undefined,
+        color: typeof c.color === 'string' && /^#[0-9a-f]{6}$/i.test(c.color) ? c.color : undefined,
+        fmt: ['num', 'pct', 'lei'].includes(c.fmt) ? c.fmt : undefined,
+        bd: typeof c.bd === 'string' && /^[tblr]{1,4}$/.test(c.bd) ? c.bd : undefined,
         decimals: Number.isInteger(c.decimals) && c.decimals >= 0 && c.decimals <= 6 ? c.decimals : undefined,
       };
     }

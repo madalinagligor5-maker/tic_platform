@@ -110,10 +110,9 @@
   function incarcaImagine(file) {
     return new Promise((resolve, reject) => {
       if (!/^image\/(jpeg|png|webp|gif|bmp)$/.test(file.type)) return reject(new Error('Alege o imagine JPG, PNG, WebP, GIF sau BMP.'));
-      const url = URL.createObjectURL(file);
+      // data: URL (nu blob:), pentru că CSP-ul site-ului permite doar imagini 'self' și data:
       const img = new Image();
       img.onload = () => {
-        URL.revokeObjectURL(url);
         let max = 1280;
         for (let pas = 0; pas < 6; pas++) {
           const k = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
@@ -132,8 +131,11 @@
         }
         reject(new Error('Imaginea este prea mare. Încearcă alta.'));
       };
-      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Imaginea nu a putut fi citită.')); };
-      img.src = url;
+      img.onerror = () => reject(new Error('Imaginea nu a putut fi citită.'));
+      const fr = new FileReader();
+      fr.onload = () => { img.src = fr.result; };
+      fr.onerror = () => reject(new Error('Imaginea nu a putut fi citită.'));
+      fr.readAsDataURL(file);
     });
   }
 
@@ -447,19 +449,22 @@
     }
     const imgInput = h('input', { type: 'file', accept: 'image/*', hidden: true });
     let tintaImagine = null;
-    imgInput.addEventListener('change', async () => {
-      const f = imgInput.files[0];
-      imgInput.value = '';
-      if (!f) return;
+    async function puneImagine(f, i = sel) {
       try {
-        const i = tintaImagine ?? sel;
-        tintaImagine = null;
         const d = p.diapozitive[i];
         d.imagine = await incarcaImagine(f);
         if (d.aspect === 'text' || d.aspect === 'titlu' || d.aspect === 'antet') d.aspect = 'text-imagine';
         alege(i);
         schimbat();
       } catch (e) { alert(e.message); }
+    }
+    imgInput.addEventListener('change', async () => {
+      const f = imgInput.files[0];
+      imgInput.value = '';
+      if (!f) return;
+      const i = tintaImagine ?? sel;
+      tintaImagine = null;
+      puneImagine(f, i);
     });
     const insereazaImagine = (i = sel) => { tintaImagine = i; imgInput.click(); };
 
@@ -718,6 +723,16 @@
 
     // ---- Diapozitivul editat (centru) ----
     const canvas = h('div', { class: 'pp-canvas' });
+    // O imagine trasă din calculator pe diapozitiv intră direct în el.
+    canvas.addEventListener('dragover', (e) => { if ([...e.dataTransfer.items].some((x) => x.kind === 'file')) { e.preventDefault(); canvas.classList.add('pp-drop'); } });
+    canvas.addEventListener('dragleave', () => canvas.classList.remove('pp-drop'));
+    canvas.addEventListener('drop', (e) => {
+      canvas.classList.remove('pp-drop');
+      const img = [...e.dataTransfer.files].find((f) => f.type.startsWith('image/'));
+      if (!img) return;
+      e.preventDefault();
+      puneImagine(img);
+    });
     const canvasZona = h('div', { class: 'pp-canvas-zona' }, canvas);
     function normalizeazaCorp(corp) {
       // Textul scris direct în casetă (fără rând) se mută într-un <div>, ca fiecare rând să fie un bloc.
@@ -733,17 +748,23 @@
     function deseneazaCanvas() {
       const d = cur();
       const st = d.stil;
-      const titlu = editabil(h('h2', { class: 'pp-titlu pp-ed', 'data-ph': d.aspect === 'titlu' ? 'Faceți clic pentru a adăuga titlul' : 'Faceți clic pentru a adăuga un titlu', 'aria-label': 'Titlu' }, d.titlu), true);
+      const titlu = editabil(h('h2', { class: 'pp-titlu pp-ed', 'data-ph': d.aspect === 'titlu' ? 'Titlul prezentării' : 'Scrie titlul', 'aria-label': 'Titlu' }, d.titlu), true);
       titlu.addEventListener('input', () => { d.titlu = titlu.textContent.replace(/\n/g, ' '); marcheazaGol(titlu); schimbat({ tastare: true }); });
       titlu.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); corp.focus(); } });
       const corp = editabil(h('div', {
         class: 'pp-corp pp-ed', 'aria-label': 'Text', role: 'textbox', 'aria-multiline': 'true',
-        'data-ph': d.aspect === 'titlu' || d.aspect === 'antet' ? 'Faceți clic pentru a adăuga un subtitlu' : 'Faceți clic pentru a adăuga text',
+        'data-ph': d.aspect === 'titlu' || d.aspect === 'antet' ? 'Scrie un subtitlu' : 'Scrie textul aici',
       }, textInEditor(d.text)), false);
       corp.addEventListener('input', () => { d.text = textDinEditor(corp); marcheazaGol(corp); schimbat({ tastare: true }); });
       corp.addEventListener('paste', (e) => {
         e.preventDefault();
+        const img = [...(e.clipboardData?.files || [])].find((f) => f.type.startsWith('image/'));
+        if (img) return void puneImagine(img);
         document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text/plain'));
+      });
+      titlu.addEventListener('paste', (e) => {
+        const img = [...(e.clipboardData?.files || [])].find((f) => f.type.startsWith('image/'));
+        if (img) { e.preventDefault(); puneImagine(img); }
       });
       for (const el of [titlu, corp]) {
         marcheazaGol(el);

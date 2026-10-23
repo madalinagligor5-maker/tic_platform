@@ -273,7 +273,7 @@
   // =====================================================================
   // Sarcini pentru foaia de calcul
   // =====================================================================
-  const FILLS = { galben: '#FFF3A3', verde: '#C8F0D2', albastru: '#CDEBFA', rosu: '#FFD3DA', portocaliu: '#FFE0B8', gri: '#E6E6E6' };
+  const FILLS = { galben: '#FFF3A3', verde: '#C8F0D2', albastru: '#CDEBFA', rosu: '#FFD3DA', portocaliu: '#FFE0B8', gri: '#E6E6E6', mov: '#E1D0F2', roz: '#F8C8DC', turcoaz: '#B9EBEF', crem: '#FFF8E7' };
 
   function parseSheetTask(text) {
     const errors = [];
@@ -501,303 +501,14 @@
     for (const c of children.flat()) if (c != null && c !== false) el.append(c instanceof Node ? c : String(c));
     return el;
   }
-  const ICON = {
-    bold: 'B', italic: 'I', underline: 'U',
-    left: '⯇≡', center: '≡', right: '≡⯈', justify: '☰',
-  };
-
-  // ---- Procesorul de text ----
-  function createDocEditor({ paragrafe = [''], titlu = 'Document1' } = {}) {
-    const editor = h('div', { class: 'doc-page', contenteditable: 'true', spellcheck: 'true', role: 'textbox', 'aria-multiline': 'true', 'aria-label': 'Documentul tău' });
-    const initial = () => editor.replaceChildren(...(paragrafe.length ? paragrafe : ['']).map((t) => h('p', {}, t || h('br'))));
-    initial();
-    // CSP-ul site-ului (style-src 'self') blochează atributele style scrise de execCommand.
-    // Le reaplicăm prin CSSOM (el.style.cssText), care este permis, ca formatarea să se vadă și să poată fi verificată.
-    const aplicate = new WeakMap();
-    new MutationObserver(() => {
-      for (const el of editor.querySelectorAll('[style]')) {
-        const v = el.getAttribute('style');
-        if (aplicate.get(el) === v) continue;
-        el.style.cssText = v;
-        aplicate.set(el, el.getAttribute('style'));
-      }
-    }).observe(editor, { subtree: true, childList: true, attributes: true, attributeFilter: ['style'] });
-    let saved = null;
-    document.addEventListener('selectionchange', () => {
-      const s = document.getSelection();
-      if (s.rangeCount && editor.contains(s.anchorNode)) saved = s.getRangeAt(0).cloneRange();
-    });
-    const restore = () => {
-      editor.focus();
-      if (saved) { const s = document.getSelection(); s.removeAllRanges(); s.addRange(saved); }
-    };
-    const exec = (cmd, val = null, css = false) => {
-      restore();
-      document.execCommand('styleWithCSS', false, css);
-      document.execCommand(cmd, false, val);
-      editor.dispatchEvent(new Event('input'));
-      stare();
-    };
-    function marime(pt) {
-      restore();
-      document.execCommand('styleWithCSS', false, false);
-      document.execCommand('fontSize', false, '7');
-      for (const f of editor.querySelectorAll('font[size="7"]')) {
-        const span = h('span');
-        span.style.fontSize = `${pt}pt`;
-        span.append(...f.childNodes);
-        f.replaceWith(span);
-      }
-      editor.dispatchEvent(new Event('input'));
-    }
-    // Lipire doar ca text simplu.
-    editor.addEventListener('paste', (e) => {
-      e.preventDefault();
-      document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text/plain'));
-    });
-    // Enter creează paragrafe <p>.
-    document.execCommand('defaultParagraphSeparator', false, 'p');
-    const btn = (label, title, onclick, cls = '') => h('button', { class: `tb-btn ${cls}`, type: 'button', title, 'aria-label': title, onmousedown: (e) => e.preventDefault(), onclick }, label);
-    const fontSel = h('select', { class: 'tb-select', title: 'Font', 'aria-label': 'Font', onchange: (e) => { exec('fontName', e.target.value, true); } },
-      FONTS.map((f) => h('option', { value: f }, f)));
-    fontSel.value = 'Calibri';
-    const sizeSel = h('select', { class: 'tb-select small', title: 'Mărimea fontului', 'aria-label': 'Mărimea fontului', onchange: (e) => marime(Number(e.target.value)) },
-      SIZES.map((s) => h('option', { value: s }, String(s))));
-    sizeSel.value = '11';
-    const culori = h('div', { class: 'tb-colors', role: 'group', 'aria-label': 'Culoarea textului' },
-      Object.entries(COLORS).map(([nume, cod]) => {
-        const b = btn('', `Culoare: ${nume}`, () => exec('foreColor', cod, true), 'swatch');
-        b.style.background = cod;
-        return b;
-      }));
-    const status = h('span', { class: 'doc-status' });
-    function stare() {
-      const cuvinte = (editor.textContent.trim().match(/\S+/g) || []).length;
-      status.textContent = `Cuvinte: ${cuvinte}`;
-      for (const [cmd, el] of Object.entries(toggles)) el.setAttribute('aria-pressed', String(document.queryCommandState(cmd)));
-    }
-    const toggles = {
-      bold: btn(h('b', {}, 'B'), 'Aldin (Ctrl+B)', () => exec('bold')),
-      italic: btn(h('i', {}, 'I'), 'Cursiv (Ctrl+I)', () => exec('italic')),
-      underline: btn(h('u', {}, 'U'), 'Subliniat (Ctrl+U)', () => exec('underline')),
-    };
-    const bara = h('div', { class: 'doc-toolbar', role: 'toolbar', 'aria-label': 'Formatare' },
-      h('div', { class: 'tb-group' }, btn('↶', 'Anulare (Ctrl+Z)', () => exec('undo')), btn('↷', 'Refacere (Ctrl+Y)', () => exec('redo'))),
-      h('div', { class: 'tb-group' }, fontSel, sizeSel),
-      h('div', { class: 'tb-group' }, toggles.bold, toggles.italic, toggles.underline),
-      h('div', { class: 'tb-group' }, culori),
-      h('div', { class: 'tb-group' },
-        btn(alignIcon('left'), 'Aliniere la stânga', () => exec('justifyLeft')),
-        btn(alignIcon('center'), 'Centrare', () => exec('justifyCenter')),
-        btn(alignIcon('right'), 'Aliniere la dreapta', () => exec('justifyRight')),
-        btn(alignIcon('justify'), 'Aliniere stânga-dreapta', () => exec('justifyFull'))),
-      h('div', { class: 'tb-group' },
-        btn('• ≡', 'Listă cu marcatori', () => exec('insertUnorderedList')),
-        btn('1. ≡', 'Listă numerotată', () => exec('insertOrderedList')),
-        btn('⌫A', 'Golește formatarea', () => exec('removeFormat'))));
-    editor.addEventListener('input', stare);
-    editor.addEventListener('keyup', stare);
-    editor.addEventListener('mouseup', stare);
-    const el = h('div', { class: 'office doc-app' },
-      h('div', { class: 'office-title' }, h('span', { class: 'office-badge word' }, 'W'), h('span', {}, titlu)),
-      bara,
-      h('div', { class: 'doc-canvas' }, editor),
-      h('div', { class: 'office-status' }, status, h('span', {}, 'Română')));
-    setTimeout(stare, 0);
-    return { el, editor, reset: () => { initial(); stare(); }, html: () => editor.innerHTML };
-  }
-  function alignIcon(kind) {
-    const lines = { left: [14, 10, 14, 8], center: [14, 10, 14, 10], right: [14, 10, 14, 8], justify: [14, 14, 14, 14] }[kind];
-    const svgNS = 'http://www.w3.org/2000/svg';
-    const svg = document.createElementNS(svgNS, 'svg');
-    svg.setAttribute('viewBox', '0 0 16 14');
-    svg.setAttribute('width', '16');
-    svg.setAttribute('height', '14');
-    lines.forEach((w, i) => {
-      const x = kind === 'right' ? 16 - w : kind === 'center' ? (16 - w) / 2 : 1;
-      const r = document.createElementNS(svgNS, 'rect');
-      r.setAttribute('x', x); r.setAttribute('y', 1 + i * 3.4); r.setAttribute('width', w); r.setAttribute('height', 1.8); r.setAttribute('rx', 0.9);
-      r.setAttribute('fill', 'currentColor');
-      svg.append(r);
-    });
-    return svg;
-  }
-
-  // ---- Foaia de calcul ----
-  function createSheet({ grid = [], cols = 8, rows = 15, titlu = 'Registru1' } = {}) {
-    let cells = cellsFromGrid(grid);
-    const initialCells = JSON.parse(JSON.stringify(cells));
-    let sel = { c: 0, r: 0 }, anchor = { c: 0, r: 0 };
-    let editing = null;
-    const nameBox = h('input', { class: 'name-box', 'aria-label': 'Celula selectată', readonly: true });
-    const fx = h('input', { class: 'formula-input', 'aria-label': 'Bara de formule', placeholder: 'Scrie o valoare sau o formulă, ex. =SUM(B2:B4)' });
-    const table = h('table', { class: 'sheet-grid', role: 'grid' });
-    const tds = {};
-    const head = h('tr', {}, h('th', { class: 'corner' }), Array.from({ length: cols }, (_, c) => h('th', { scope: 'col' }, colName(c))));
-    table.append(h('thead', {}, head));
-    const body = h('tbody');
-    for (let r = 0; r < rows; r++) {
-      const tr = h('tr', {}, h('th', { scope: 'row' }, String(r + 1)));
-      for (let c = 0; c < cols; c++) {
-        const ref = refName(c, r);
-        const td = h('td', { 'data-ref': ref, role: 'gridcell', tabindex: '-1' });
-        td.addEventListener('mousedown', (e) => {
-          if (editing && editing.ref === ref) return;
-          commit();
-          if (e.shiftKey) sel = { c, r }; else { sel = anchor = { c, r }; }
-          refresh();
-          e.preventDefault();
-          wrap.focus();
-        });
-        td.addEventListener('dblclick', () => startEdit(false));
-        tds[ref] = td;
-        tr.append(td);
-      }
-      body.append(tr);
-    }
-    table.append(body);
-    const range = () => {
-      const out = [];
-      for (let r = Math.min(sel.r, anchor.r); r <= Math.max(sel.r, anchor.r); r++) for (let c = Math.min(sel.c, anchor.c); c <= Math.max(sel.c, anchor.c); c++) out.push(refName(c, r));
-      return out;
-    };
-    function refresh() {
-      const sheet = new Sheet(cells);
-      const inRange = new Set(range());
-      for (const [ref, td] of Object.entries(tds)) {
-        if (editing && editing.ref === ref) continue;
-        const cell = cells[ref] || {};
-        const v = sheet.value(ref);
-        td.textContent = formatValue(v, cell.decimals);
-        td.className = [
-          typeof v === 'number' ? 'num' : '', isErr(v) ? 'err' : '', cell.bold ? 'bold' : '',
-          cell.align === 'center' ? 'center' : '', cell.fill ? `fill-${cell.fill}` : '',
-          inRange.has(ref) ? 'in-range' : '', ref === refName(sel.c, sel.r) ? 'active' : '',
-        ].filter(Boolean).join(' ');
-      }
-      const ref = refName(sel.c, sel.r);
-      nameBox.value = range().length > 1 ? `${range()[0]}:${range()[range().length - 1]}` : ref;
-      if (document.activeElement !== fx) fx.value = cells[ref]?.raw ?? '';
-      for (const [k, b] of Object.entries(fmtBtns)) b.setAttribute('aria-pressed', String(k === 'bold' ? Boolean(cells[ref]?.bold) : k === 'center' ? cells[ref]?.align === 'center' : cells[ref]?.decimals === 2));
-    }
-    function setRaw(ref, raw) {
-      const cell = { ...(cells[ref] || {}), raw };
-      if (raw === '' && !cell.bold && !cell.align && !cell.fill && cell.decimals == null) delete cells[ref];
-      else cells[ref] = cell;
-      wrap.dispatchEvent(new Event('change'));
-    }
-    function startEdit(replace, firstChar = '') {
-      const ref = refName(sel.c, sel.r);
-      const td = tds[ref];
-      const input = h('input', { class: 'cell-input', value: replace ? firstChar : cells[ref]?.raw ?? '', 'aria-label': `Editare ${ref}` });
-      editing = { ref, input };
-      td.replaceChildren(input);
-      input.focus();
-      input.setSelectionRange(input.value.length, input.value.length);
-      input.addEventListener('input', () => { fx.value = input.value; });
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') { e.preventDefault(); commit(); move(0, e.shiftKey ? -1 : 1); }
-        else if (e.key === 'Tab') { e.preventDefault(); commit(); move(e.shiftKey ? -1 : 1, 0); }
-        else if (e.key === 'Escape') { editing = null; refresh(); wrap.focus(); }
-        e.stopPropagation();
-      });
-      input.addEventListener('blur', () => setTimeout(() => { if (editing && editing.input === input) { commit(); } }, 0));
-    }
-    function commit() {
-      if (!editing) return;
-      const { ref, input } = editing;
-      editing = null;
-      setRaw(ref, input.value.trim());
-      refresh();
-    }
-    function move(dc, dr, extend = false) {
-      sel = { c: Math.min(cols - 1, Math.max(0, sel.c + dc)), r: Math.min(rows - 1, Math.max(0, sel.r + dr)) };
-      if (!extend) anchor = { ...sel };
-      refresh();
-      tds[refName(sel.c, sel.r)].scrollIntoView({ block: 'nearest', inline: 'nearest' });
-    }
-    const wrap = h('div', { class: 'sheet-wrap', tabindex: '0', 'aria-label': 'Foaia de calcul. Folosește săgețile; scrie pentru a edita; Enter confirmă.' }, table);
-    wrap.addEventListener('keydown', (e) => {
-      if (editing) return;
-      const k = e.key;
-      if (k === 'ArrowDown') { e.preventDefault(); move(0, 1, e.shiftKey); }
-      else if (k === 'ArrowUp') { e.preventDefault(); move(0, -1, e.shiftKey); }
-      else if (k === 'ArrowLeft') { e.preventDefault(); move(-1, 0, e.shiftKey); }
-      else if (k === 'ArrowRight' || k === 'Tab') { e.preventDefault(); move(1, 0, e.shiftKey && k !== 'Tab'); }
-      else if (k === 'Enter' || k === 'F2') { e.preventDefault(); startEdit(false); }
-      else if (k === 'Delete' || k === 'Backspace') { e.preventDefault(); for (const ref of range()) setRaw(ref, ''); refresh(); }
-      else if ((e.ctrlKey || e.metaKey) && k.toLowerCase() === 'b') { e.preventDefault(); format('bold'); }
-      else if (k.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); startEdit(true, k); }
-    });
-    fx.addEventListener('focus', () => commit());
-    fx.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') { e.preventDefault(); setRaw(refName(sel.c, sel.r), fx.value.trim()); fx.blur(); move(0, 1); wrap.focus(); }
-      if (e.key === 'Escape') { fx.blur(); refresh(); wrap.focus(); }
-    });
-    function format(kind, value) {
-      const refs = range();
-      const cur = cells[refs[0]] || {};
-      for (const ref of refs) {
-        const cell = { raw: '', ...(cells[ref] || {}) };
-        if (kind === 'bold') cell.bold = !cur.bold;
-        if (kind === 'center') cell.align = cur.align === 'center' ? '' : 'center';
-        if (kind === 'fill') cell.fill = value;
-        if (kind === 'decimals') cell.decimals = cur.decimals === 2 ? null : 2;
-        cells[ref] = cell;
-      }
-      wrap.dispatchEvent(new Event('change'));
-      refresh();
-      wrap.focus();
-    }
-    function autosum() {
-      // Σ: adună celulele numerice de deasupra celulei selectate.
-      let r = sel.r - 1;
-      const sheet = new Sheet(cells);
-      while (r >= 0 && typeof sheet.value(refName(sel.c, r)) !== 'number') r--;
-      const end = r;
-      while (r >= 0 && typeof sheet.value(refName(sel.c, r)) === 'number') r--;
-      if (end < 0) return;
-      setRaw(refName(sel.c, sel.r), `=SUM(${refName(sel.c, r + 1)}:${refName(sel.c, end)})`);
-      refresh();
-      wrap.focus();
-    }
-    const tbtn = (label, title, onclick, cls = '') => h('button', { class: `tb-btn ${cls}`, type: 'button', title, 'aria-label': title, onmousedown: (e) => e.preventDefault(), onclick }, label);
-    const fmtBtns = {
-      bold: tbtn(h('b', {}, 'B'), 'Aldin (Ctrl+B)', () => format('bold')),
-      center: tbtn(alignIcon('center'), 'Centrare', () => format('center')),
-      decimals: tbtn(',00', 'Două zecimale', () => format('decimals')),
-    };
-    const fills = h('div', { class: 'tb-colors', role: 'group', 'aria-label': 'Culoarea de fundal' },
-      tbtn('∅', 'Fără fundal', () => format('fill', ''), 'swatch none'),
-      Object.entries(FILLS).map(([nume, cod]) => { const b = tbtn('', `Fundal ${nume}`, () => format('fill', nume), 'swatch'); b.style.background = cod; return b; }));
-    const el = h('div', { class: 'office sheet-app' },
-      h('div', { class: 'office-title' }, h('span', { class: 'office-badge excel' }, 'X'), h('span', {}, titlu)),
-      h('div', { class: 'doc-toolbar', role: 'toolbar', 'aria-label': 'Formatare' },
-        h('div', { class: 'tb-group' }, fmtBtns.bold, fmtBtns.center, fmtBtns.decimals),
-        h('div', { class: 'tb-group' }, fills),
-        h('div', { class: 'tb-group' }, tbtn('Σ', 'Însumare automată (SUM)', autosum, 'wide'))),
-      h('div', { class: 'formula-bar' }, nameBox, h('span', { class: 'fx' }, 'fx'), fx),
-      wrap);
-    refresh();
-    return {
-      el,
-      getCells: () => { commit(); return JSON.parse(JSON.stringify(cells)); },
-      setCells: (c) => { cells = JSON.parse(JSON.stringify(c)); refresh(); },
-      reset: () => { cells = JSON.parse(JSON.stringify(initialCells)); refresh(); },
-      onChange: (fn) => wrap.addEventListener('change', fn),
-      csv: () => {
-        const sheet = new Sheet(cells);
-        let lastR = 0, lastC = 0;
-        for (const ref of Object.keys(cells)) { const p = parseRef(ref); lastR = Math.max(lastR, p.r); lastC = Math.max(lastC, p.c); }
-        return Array.from({ length: lastR + 1 }, (_, r) => Array.from({ length: lastC + 1 }, (_, c) => `"${sheet.display(refName(c, r)).replace(/"/g, '""')}"`).join(';')).join('\r\n');
-      },
-    };
-  }
-
-  // HTML de document (scris de elev) refăcut sigur: doar etichete de text și câteva stiluri de formatare,
-  // aplicate prin CSSOM (permis de CSP). Folosit la restaurarea documentelor și în rezultatele profesorului.
-  const PERMISE = new Set(['P', 'DIV', 'BR', 'B', 'STRONG', 'I', 'EM', 'U', 'SPAN', 'FONT', 'UL', 'OL', 'LI', 'H1', 'H2', 'H3']);
-  const STILURI = ['color', 'font-size', 'font-family', 'text-align', 'font-weight', 'font-style', 'text-decoration', 'text-decoration-line'];
+  // HTML de document (scris de elev) refăcut sigur: doar etichete de text, tabele, imagini data: și câteva stiluri,
+  // aplicate prin CSSOM (permis de CSP). Folosit la deschiderea documentelor, la lipire și în rezultatele profesorului.
+  const PERMISE = new Set(['P', 'DIV', 'BR', 'B', 'STRONG', 'I', 'EM', 'U', 'S', 'STRIKE', 'SUB', 'SUP', 'SPAN', 'FONT', 'UL', 'OL', 'LI', 'H1', 'H2', 'H3', 'H4', 'BLOCKQUOTE',
+    'TABLE', 'THEAD', 'TBODY', 'TR', 'TD', 'TH', 'IMG', 'HR', 'A']);
+  const GOALE = new Set(['BR', 'IMG', 'HR']);
+  const STILURI = ['color', 'background-color', 'font-size', 'font-family', 'text-align', 'font-weight', 'font-style', 'text-decoration', 'text-decoration-line', 'line-height', 'margin-left', 'padding-left', 'width', 'height', 'vertical-align'];
+  const CLASE = new Set(['img-linie', 'img-stanga', 'img-dreapta', 'img-centru', 'img-chenar', 'img-umbra', 'img-rotunjit', 'tb-simplu', 'tb-antet', 'tb-dungi', 'tb-fara', 'page-break']);
+  const IMG_SRC = /^data:image\/(png|jpe?g|gif|webp);base64,[A-Za-z0-9+/=\s]+$/;
   function docSigur(html) {
     const src = new DOMParser().parseFromString(`<body>${String(html || '')}</body>`, 'text/html').body;
     const frag = document.createDocumentFragment();
@@ -805,20 +516,30 @@
       for (const n of node.childNodes) {
         if (n.nodeType === 3) into.append(n.textContent);
         if (n.nodeType !== 1) continue;
+        if (/^(SCRIPT|STYLE|TEMPLATE|IFRAME|OBJECT|EMBED|NOSCRIPT|TITLE|META|LINK|HEAD)$/.test(n.tagName)) continue;
         if (!PERMISE.has(n.tagName)) { copiaza(n, into); continue; }
-        const el = document.createElement(n.tagName === 'FONT' ? 'span' : n.tagName.toLowerCase());
+        if (n.tagName === 'IMG' && !IMG_SRC.test(n.getAttribute('src') || '')) continue;
+        const el = document.createElement(n.tagName === 'FONT' ? 'span' : n.tagName === 'STRIKE' ? 's' : n.tagName.toLowerCase());
         for (const decl of (n.getAttribute('style') || '').split(';')) {
           const i = decl.indexOf(':');
           const k = decl.slice(0, i).trim().toLowerCase(), v = decl.slice(i + 1).trim();
           if (i > 0 && STILURI.includes(k) && /^[\w\s#(),.%"'-]+$/.test(v)) el.style.setProperty(k, v);
         }
+        for (const c of (n.getAttribute('class') || '').split(/\s+/)) if (CLASE.has(c)) el.classList.add(c);
         if (n.tagName === 'FONT') {
           if (/^#?\w+$/.test(n.getAttribute('color') || '')) el.style.color = n.getAttribute('color');
           if (/^[\w\s,"'-]+$/.test(n.getAttribute('face') || '')) el.style.fontFamily = n.getAttribute('face');
         }
+        if (n.tagName === 'IMG') { el.setAttribute('src', n.getAttribute('src')); el.setAttribute('alt', (n.getAttribute('alt') || '').slice(0, 300)); }
+        if (n.tagName === 'A') {
+          const href = n.getAttribute('href') || '';
+          if (/^https?:\/\/[^\s"<>]+$/i.test(href)) { el.setAttribute('href', href); el.setAttribute('target', '_blank'); el.setAttribute('rel', 'noopener noreferrer'); }
+        }
+        if ((n.tagName === 'TD' || n.tagName === 'TH') && /^\d{1,2}$/.test(n.getAttribute('colspan') || '')) el.setAttribute('colspan', n.getAttribute('colspan'));
+        if ((n.tagName === 'TD' || n.tagName === 'TH') && /^\d{1,2}$/.test(n.getAttribute('rowspan') || '')) el.setAttribute('rowspan', n.getAttribute('rowspan'));
         const al = n.getAttribute('align');
         if (/^(left|right|center|justify)$/i.test(al || '')) el.style.textAlign = al.toLowerCase();
-        copiaza(n, el);
+        if (!GOALE.has(n.tagName)) copiaza(n, el);
         into.append(el);
       }
     };
@@ -840,7 +561,7 @@
       aliases: ['word', 'editor-text'],
       parse: parseDocTask,
       render(block, inline, { frame }) {
-        const doc = createDocEditor({ paragrafe: block.data.paragrafe });
+        const doc = root.EduOffice.createDocEditor({ paragrafe: block.data.paragrafe });
         const rez = h('div', { class: 'task-box' }, h('b', {}, 'Cerințe:'), cerinteInitiale(block.data.cerinte));
         const api = frame(block, h('div', { class: 'act-body' }, rez, doc.el), {
           onCheck(a) {
@@ -860,7 +581,7 @@
       aliases: ['excel', 'foaie-de-calcul'],
       parse: parseSheetTask,
       render(block, inline, { frame }) {
-        const sh = createSheet(block.data);
+        const sh = root.EduOffice.createSheet(block.data);
         const rez = h('div', { class: 'task-box' }, h('b', {}, 'Cerințe:'), cerinteInitiale(block.data.cerinte));
         const api = frame(block, h('div', { class: 'act-body' }, rez, sh.el), {
           onCheck(a) {
@@ -879,7 +600,8 @@
 
   const api = {
     Sheet, parseFormula, functionsUsed, shiftFormula, formatValue, parseRef, refName, colName, expandRange, cellsFromGrid,
-    parseSheetTask, checkSheet, parseDocTask, checkDoc, createDocEditor, createSheet, listaVerificari, cerinteInitiale, docSigur, FONTS, COLORS, FILLS,
+    parseSheetTask, checkSheet, parseDocTask, checkDoc, listaVerificari, cerinteInitiale, docSigur, FONTS, COLORS, FILLS,
+    createDocEditor: null, createSheet: null, // completate de office-ui.js (browser)
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.EduOffice = api;

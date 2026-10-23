@@ -115,7 +115,12 @@ Cerințe:
 - **Procesor de text** – ținte: `titlul` (primul paragraf), `paragraful N`, `tot textul` sau un text între ghilimele („...”). Formatări: aldin, cursiv, subliniat, centrat, la stânga, la dreapta, stânga-dreapta, `mărime N`, `culoare` (negru, roșu, albastru, verde, portocaliu, mov), `font` (Arial, Times New Roman, Courier New, Verdana, Georgia, Calibri), listă cu buline, listă numerotată.
 - **Calcul tabelar** – rândurile din `Date:` au celulele separate prin `;` (zecimale cu virgulă). O cerință `=formulă` verifică dacă în celulă există o formulă, cu aceleași funcții, și cu rezultatul corect (pentru o zonă, formula se „copiază” pe fiecare rând). Altele: `aldin`, `centrat`, `fundal galben|verde|albastru|rosu|portocaliu|gri`, `2 zecimale` sau o valoare. Funcții: SUM, AVERAGE, MIN, MAX, COUNT, COUNTA, IF, ROUND, ABS, AND, OR, NOT, CONCAT (și SUMA, MEDIE, DACA...).
 - Textul de după ` | ` este cerința afișată elevului.
-- **Laboratorul** (`Laborator` din meniu) are un procesor de text și o foaie de calcul goale, de folosit liber; lucrul se salvează pe calculator și se descarcă pentru Word (.doc) sau Excel (.csv).
+- **Laboratorul** (`Laborator` din meniu) are aplicații de birou complete, cu panglică (ribbon) ca în Office:
+  - **Document** (procesor de text): fonturi, mărimi, culori, evidențiere, liste, aliniere, spațiere, stiluri de titlu, **tabele**, **imagini** (din calculator, lipite cu Ctrl+V sau trase în pagină; se redimensionează din colțuri, se aliniază cu text în jur, chenar/umbră), simboluri, emoji, link-uri, margini, orientare, culoarea paginii, găsire și înlocuire, anulare/refacere.
+  - **Registru** (foaie de calcul): formule cu indicarea celulelor prin clic, funcții, completare automată prin tragere, copiere/lipire, formatare (aldin, culori, borduri, lei, procent, zecimale), inserare/ștergere de rânduri și coloane, sortare, **diagrame** (coloane, bare, linie, radială) și **imagini**.
+  - Șabloane gata făcute (invitație, scrisoare, referat, afiș, orar; listă de cumpărături, catalog, buget, temperaturi cu diagramă).
+  - Fișierele se salvează automat în browser (IndexedDB) și se descarcă în format **.docx** (Word, LibreOffice, Google Docs) și **.xlsx** (Excel), sau PDF/CSV/TXT. Se pot deschide și fișiere .docx, .xlsx și .csv aduse de pe calculator.
+  - Aceleași aplicații apar, în variantă compactă, în sarcinile din lecții și în teste.
 
 - Răspunsurile de la `completare` sunt acceptate și fără diacritice sau cu majuscule.
 - În pagina lecției, caseta **Aplicații interactive** arată câte aplicații a rezolvat elevul.
