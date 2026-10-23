@@ -186,6 +186,16 @@
       );
     }
     function desenProf() {
+      if (modProf === 'resetare') {
+        return umple(cutieProf,
+          h('p', { class: 'muted small' }, 'Alege o parolă nouă folosind codul de resetare. Codul este valoarea variabilei ADMIN_RESET_CODE, setată de administratorul site-ului în Vercel (Settings → Environment Variables).'),
+          formular([
+            camp('Utilizator', 'utilizator', { autocomplete: 'username' }),
+            camp('Cod de resetare', 'codResetare', { type: 'password', autocomplete: 'off' }),
+            camp('Parolă nouă (minimum 8 caractere)', 'parolaNoua', { type: 'password', minlength: 8, autocomplete: 'new-password' }),
+          ], 'Schimbă parola', async (d) => dupaIntrare(await api('POST', '/api/profesor/resetare-parola', d))),
+          h('button', { class: 'link-btn', type: 'button', onclick: () => { modProf = 'login'; desenProf(); } }, '← Înapoi la intrare'));
+      }
       const campuri = modProf === 'login'
         ? [camp('Utilizator', 'utilizator', { autocomplete: 'username' }), camp('Parolă', 'parola', { type: 'password', autocomplete: 'current-password' })]
         : [
@@ -197,6 +207,7 @@
       umple(cutieProf, 
         comutator(modProf, (v) => { modProf = v; desenProf(); }, [['login', 'Intră'], ['inregistrare', 'Cont nou']]),
         formular(campuri, modProf === 'login' ? 'Intră' : 'Creează contul', async (d) => dupaIntrare(await api('POST', modProf === 'login' ? '/api/profesor/login' : '/api/profesor/inregistrare', d))),
+        modProf === 'login' ? h('button', { class: 'link-btn', type: 'button', onclick: () => { modProf = 'resetare'; desenProf(); } }, 'Am uitat parola') : null,
       );
     }
     desenElev();

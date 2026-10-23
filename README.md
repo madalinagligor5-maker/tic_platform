@@ -208,6 +208,7 @@ Conturile sunt opționale: lecțiile se citesc și fără cont.
 - **Panoul profesorului** (`Panoul profesorului` din antet): tabel cu lecții terminate, aplicații, punctaj, timp și ultima activitate; elevii **rămași în urmă** sunt evidențiați (inactivi de 7 zile sau sub jumătate din progresul median); filtrare pe unitate; vedere pe o singură lecție; pagina fiecărui elev; **resetarea unei teme**; resetarea PIN-ului; ștergerea elevului; **export CSV** pentru Excel.
 - Profesorul vede doar clasele lui; elevul vede doar propriul progres. Nu există clasament între elevi.
 - Opțional: variabila `TEACHER_SIGNUP_CODE` cere un cod de invitație la crearea conturilor de profesor.
+- **Parolă uitată (profesor):** adaugă în Vercel variabila `ADMIN_RESET_CODE` (un cod secret, minimum 8 caractere) și fă Redeploy. Pe pagina „Intră în cont” → „Am uitat parola”, introduci utilizatorul, acest cod și parola nouă. Fără variabilă, resetarea este dezactivată. Elevilor, PIN-ul îl resetează profesorul din panou.
 
 ### Baza de date: Neon Postgres
 

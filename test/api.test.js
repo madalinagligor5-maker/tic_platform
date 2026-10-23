@@ -267,3 +267,22 @@ test('atelier: elevul își face prezentări, profesorul lui le vede, alții nu'
   await call('DELETE', `/api/elev/prezentari/${id}`, null, te);
   assert.strictEqual((await call('GET', '/api/elev/prezentari', null, te)).body.length, 0);
 });
+
+test('parolă uitată: resetare cu ADMIN_RESET_CODE', async () => {
+  const p = await call('POST', '/api/profesor/inregistrare', { nume: 'Prof R', utilizator: 'prof.reset', parola: 'parola-veche-1' });
+  const vechi = p.body.token;
+  const date = { utilizator: 'prof.reset', codResetare: 'COD-SECRET-2026', parolaNoua: 'parola-noua-2' };
+  delete process.env.ADMIN_RESET_CODE;
+  assert.strictEqual((await call('POST', '/api/profesor/resetare-parola', date)).status, 403);
+  process.env.ADMIN_RESET_CODE = 'COD-SECRET-2026';
+  try {
+    assert.strictEqual((await call('POST', '/api/profesor/resetare-parola', { ...date, codResetare: 'gresit' })).status, 401);
+    const r = await call('POST', '/api/profesor/resetare-parola', date);
+    assert.strictEqual(r.status, 200);
+    assert.strictEqual((await call('GET', '/api/profesor/clase', null, vechi)).status, 401); // sesiunile vechi s-au închis
+    assert.strictEqual((await call('POST', '/api/profesor/login', { utilizator: 'prof.reset', parola: 'parola-veche-1' })).status, 401);
+    assert.strictEqual((await call('POST', '/api/profesor/login', { utilizator: 'prof.reset', parola: 'parola-noua-2' })).status, 200);
+  } finally {
+    delete process.env.ADMIN_RESET_CODE;
+  }
+});
