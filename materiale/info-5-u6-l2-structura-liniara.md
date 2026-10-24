@@ -71,6 +71,8 @@ Salvezi proiectul ca `Prezentare RoboTIC.sb3`. Apeși **steagul verde**, apoi **
 
 > **Fundalul transparent:** RoboTIC a fost desenat pe fundal alb. Pe un cer albastru s-ar vedea dreptunghiul alb din jurul lui. De aceea personajele au de obicei **fundal transparent**.
 
+![Scriptul 1 pornește la steagul verde, scriptul 2 la tasta Spațiu; blocurile se execută pe rând: RoboTIC alunecă, vorbește, apoi scoate un sunet.](fisiere/imagini/info-5-u6-l2-structura-liniara.svg)
+
 ### Sunetul tău
 
 Dacă ai microfon: **fila Sunete → Înregistrare**, apeși **Înregistrează**, apoi **Oprește** și **Salvează**. Sunetul apare în lista personajului.

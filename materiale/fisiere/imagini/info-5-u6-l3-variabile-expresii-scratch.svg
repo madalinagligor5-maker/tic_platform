@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Atribuirea și modificarea unei variabile în Scratch și expresii construite din blocuri puse unul în altul</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Variabile și expresii în Scratch</text>
+
+    <!-- variabile -->
+    <rect x="30" y="76" width="420" height="430" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="240" y="108" text-anchor="middle" font-size="18" font-weight="800">Variabila a</text>
+
+    <rect x="56" y="136" width="200" height="40" rx="6" fill="#F29A1F"/>
+    <text x="70" y="162" font-size="15" font-weight="700" fill="#FFFFFF">setează</text>
+    <rect x="136" y="144" width="32" height="24" rx="5" fill="#FFF0DB"/><text x="152" y="161" text-anchor="middle" font-size="14" font-weight="800">a</text>
+    <text x="176" y="162" font-size="15" font-weight="700" fill="#FFFFFF">la</text>
+    <rect x="200" y="144" width="40" height="24" rx="12" fill="#FFFFFF"/><text x="220" y="161" text-anchor="middle" font-size="14" font-weight="700">10</text>
+    <path d="M264 156H316" stroke="#171416" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="326" y="136" width="100" height="40" rx="8" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="376" y="162" text-anchor="middle" font-size="17" font-weight="800">a = 10</text>
+    <text x="56" y="206" font-size="14" fill="#6B6460">atribuire: a primește valoarea 10</text>
+
+    <rect x="56" y="250" width="200" height="40" rx="6" fill="#F29A1F"/>
+    <text x="70" y="276" font-size="15" font-weight="700" fill="#FFFFFF">modifică</text>
+    <rect x="146" y="258" width="32" height="24" rx="5" fill="#FFF0DB"/><text x="162" y="275" text-anchor="middle" font-size="14" font-weight="800">a</text>
+    <text x="184" y="276" font-size="15" font-weight="700" fill="#FFFFFF">cu</text>
+    <rect x="212" y="258" width="32" height="24" rx="12" fill="#FFFFFF"/><text x="228" y="275" text-anchor="middle" font-size="14" font-weight="700">1</text>
+    <path d="M264 270H316" stroke="#171416" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="326" y="250" width="100" height="40" rx="8" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="376" y="276" text-anchor="middle" font-size="17" font-weight="800">a = 11</text>
+    <text x="56" y="320" font-size="14" fill="#6B6460">adună 1 la valoarea lui a: 10 + 1 = 11</text>
+
+    <rect x="56" y="370" width="370" height="104" rx="12" fill="#FFF7EE"/>
+    <text x="74" y="400" font-size="15" font-weight="800">Pe scenă (căsuța bifată):</text>
+    <rect x="74" y="418" width="120" height="36" rx="8" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="2"/>
+    <text x="88" y="442" font-size="15" font-weight="700">a</text>
+    <rect x="130" y="424" width="52" height="24" rx="6" fill="#F29A1F"/>
+    <text x="156" y="442" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">11</text>
+
+    <!-- expresii -->
+    <rect x="480" y="76" width="450" height="430" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="705" y="108" text-anchor="middle" font-size="18" font-weight="800">Blocuri puse unul în altul</text>
+
+    <rect x="510" y="146" width="390" height="64" rx="32" fill="#14A39A"/>
+    <rect x="524" y="156" width="250" height="44" rx="22" fill="#0B6F68"/>
+    <rect x="542" y="164" width="70" height="28" rx="14" fill="#F29A1F"/><text x="577" y="184" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">a</text>
+    <text x="640" y="185" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">+</text>
+    <rect x="668" y="164" width="88" height="28" rx="14" fill="#FFFFFF"/><text x="712" y="184" text-anchor="middle" font-size="15" font-weight="700">5</text>
+    <text x="800" y="186" text-anchor="middle" font-size="22" font-weight="800" fill="#FFFFFF">*</text>
+    <rect x="826" y="164" width="60" height="28" rx="14" fill="#FFFFFF"/><text x="856" y="184" text-anchor="middle" font-size="15" font-weight="700">10</text>
+    <text x="649" y="232" text-anchor="middle" font-size="13" fill="#6B6460">blocul interior: a + 5</text>
+    <text x="705" y="266" text-anchor="middle" font-size="16">a = 10:  (10 + 5) * 10 = <tspan font-weight="800" fill="#C8133A">150</tspan></text>
+
+    <path d="M534 334L554 310H856L876 334L856 358H554Z" fill="#14A39A"/>
+    <path d="M566 334L578 320H676L688 334L676 348H578Z" fill="#0B6F68"/>
+    <text x="627" y="339" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">60 &gt; 50</text>
+    <text x="705" y="339" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">și</text>
+    <path d="M722 334L734 320H832L844 334L832 348H734Z" fill="#0B6F68"/>
+    <text x="783" y="339" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">10 &lt; 50</text>
+    <text x="705" y="392" text-anchor="middle" font-size="16">valoarea: <tspan font-weight="800" fill="#C8133A">Adevărat</tspan></text>
+    <text x="705" y="440" text-anchor="middle" font-size="14" fill="#6B6460">Blocurile rotunde dau numere.</text>
+    <text x="705" y="464" text-anchor="middle" font-size="14" fill="#6B6460">Blocurile cu vârfuri dau Adevărat sau Fals.</text>
+  </g>
+</svg>

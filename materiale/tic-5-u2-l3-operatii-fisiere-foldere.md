@@ -51,6 +51,8 @@ Selectezi fișierul sau folderul → **clic dreapta** → **Proprietăți (Prope
 
 > **Copiere** = fișierul rămâne și în locul vechi, și apare în cel nou. **Mutare** = fișierul pleacă din locul vechi.
 
+![La copiere fișierul rămâne și în folderul vechi, la mutare pleacă de acolo; un fișier șters ajunge în Coșul de reciclare, de unde poate fi restaurat.](fisiere/imagini/tic-5-u2-l3-operatii-fisiere-foldere.svg)
+
 ### Coșul de reciclare
 
 Un fișier șters ajunge în **Coșul de reciclare (Recycle Bin)**, de unde îl poți **recupera**: deschizi Coșul de reciclare → clic dreapta pe fișier → **Restaurare (Restore)**. Dacă îl ștergi și din Coșul de reciclare, este **șters definitiv**.

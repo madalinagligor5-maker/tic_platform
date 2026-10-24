@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Sistemul de operare face legătura dintre utilizator, aplicații și hardware</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Sistemul de operare: legătura dintre om și calculator</text>
+
+    <!-- utilizator -->
+    <circle cx="200" cy="90" r="14" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+    <path d="M176 128a24 20 0 0 1 48 0z" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+    <text x="244" y="114" font-size="17" font-weight="800">Utilizatorul</text>
+
+    <!-- aplicații -->
+    <rect x="40" y="156" width="420" height="78" rx="14" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="250" y="186" text-anchor="middle" font-size="17" font-weight="800" fill="#0E7F96">Programele (aplicațiile)</text>
+    <text x="250" y="214" text-anchor="middle" font-size="14">Paint · Notepad · WordPad · jocuri</text>
+
+    <!-- SO -->
+    <rect x="40" y="264" width="420" height="96" rx="14" fill="#F21F4B"/>
+    <text x="250" y="302" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">Sistemul de operare</text>
+    <text x="250" y="330" text-anchor="middle" font-size="14" fill="#FFFFFF">Windows · Linux · macOS · Android · iOS</text>
+
+    <!-- hardware -->
+    <rect x="40" y="390" width="420" height="110" rx="14" fill="#F1E9DF" stroke="#6B6460" stroke-width="3"/>
+    <text x="250" y="420" text-anchor="middle" font-size="17" font-weight="800">Hardware (partea fizică)</text>
+    <rect x="96" y="440" width="58" height="40" rx="5" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <rect x="186" y="434" width="34" height="52" rx="5" fill="#171416"/>
+    <rect x="250" y="452" width="70" height="24" rx="4" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <rect x="350" y="440" width="28" height="42" rx="14" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+
+    <g stroke="#171416" stroke-width="3">
+      <path d="M200 136V152" marker-end="url(#a)" marker-start="url(#a)"/>
+      <path d="M250 238V260" marker-end="url(#a)" marker-start="url(#a)"/>
+      <path d="M250 364V386" marker-end="url(#a)" marker-start="url(#a)"/>
+    </g>
+
+    <!-- funcții -->
+    <rect x="500" y="76" width="420" height="250" rx="16" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <text x="520" y="108" font-size="17" font-weight="800" fill="#C8133A">Cele patru funcții ale SO</text>
+    <g font-size="15">
+      <circle cx="534" cy="145" r="13" fill="#F21F4B"/><text x="534" y="150" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">1</text>
+      <text x="558" y="150">controlează accesul la hardware</text>
+      <circle cx="534" cy="191" r="13" fill="#F21F4B"/><text x="534" y="196" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">2</text>
+      <text x="558" y="196">oferă o interfață pentru comenzi</text>
+      <circle cx="534" cy="237" r="13" fill="#F21F4B"/><text x="534" y="242" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">3</text>
+      <text x="558" y="242">administrează datele</text>
+      <circle cx="534" cy="283" r="13" fill="#F21F4B"/><text x="534" y="288" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">4</text>
+      <text x="558" y="288">gestionează aplicațiile instalate</text>
+    </g>
+
+    <!-- tipuri -->
+    <rect x="500" y="346" width="200" height="154" rx="16" fill="#171416"/>
+    <text x="520" y="376" font-size="15" font-weight="800" fill="#FFF7EE">Interfață text</text>
+    <text x="520" y="408" font-size="14" fill="#3EC6E0">C:\&gt; dir_</text>
+    <text x="520" y="444" font-size="13" fill="#FFF7EE">comenzile se scriu</text>
+    <text x="520" y="474" font-size="13" fill="#FFF7EE">MS-DOS, FreeDOS</text>
+    <rect x="720" y="346" width="200" height="154" rx="16" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="740" y="376" font-size="15" font-weight="800" fill="#0B6F68">Interfață grafică</text>
+    <rect x="740" y="390" width="70" height="40" rx="4" fill="#FFFFFF" stroke="#14A39A" stroke-width="2"/>
+    <path d="M740 400h70" stroke="#14A39A" stroke-width="2"/>
+    <rect x="826" y="396" width="20" height="20" rx="3" fill="#F29A1F"/><rect x="856" y="396" width="20" height="20" rx="3" fill="#3EC6E0"/>
+    <text x="740" y="452" font-size="13">ferestre și pictograme</text>
+    <text x="740" y="474" font-size="13">Windows, Linux, macOS</text>
+  </g>
+</svg>

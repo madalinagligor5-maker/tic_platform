@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="t">
+  <title id="t">Schema logică pentru cel mai mare dintre două numere și blocurile unei scheme logice</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="600" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Schema logică: cel mai mare dintre două numere</text>
+
+    <!-- schema -->
+    <rect x="270" y="72" width="120" height="34" rx="17" fill="#171416"/>
+    <text x="330" y="94" text-anchor="middle" font-size="15" font-weight="800" fill="#FFF7EE">START</text>
+    <path d="M250 124H430L410 166H230Z" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3" stroke-linejoin="round"/>
+    <text x="330" y="151" text-anchor="middle" font-size="16" font-weight="700">citește a, b</text>
+    <path d="M330 186L440 240L330 294L220 240Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3" stroke-linejoin="round"/>
+    <text x="330" y="246" text-anchor="middle" font-size="18" font-weight="800">a &gt;= b ?</text>
+    <rect x="70" y="318" width="140" height="44" rx="6" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="140" y="346" text-anchor="middle" font-size="17" font-weight="700">mx ← a</text>
+    <rect x="450" y="318" width="140" height="44" rx="6" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="520" y="346" text-anchor="middle" font-size="17" font-weight="700">mx ← b</text>
+    <text x="176" y="228" font-size="16" font-weight="800" fill="#0B6F68">Da</text>
+    <text x="458" y="228" font-size="16" font-weight="800" fill="#C8133A">Nu</text>
+    <path d="M250 430H430L410 472H230Z" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3" stroke-linejoin="round"/>
+    <text x="330" y="457" text-anchor="middle" font-size="16" font-weight="700">scrie mx</text>
+    <rect x="270" y="496" width="120" height="34" rx="17" fill="#171416"/>
+    <text x="330" y="518" text-anchor="middle" font-size="15" font-weight="800" fill="#FFF7EE">STOP</text>
+    <g stroke="#171416" stroke-width="3" fill="none">
+      <path d="M330 106V120" marker-end="url(#a)"/>
+      <path d="M330 166V182" marker-end="url(#a)"/>
+      <path d="M220 240H140V314" marker-end="url(#a)"/>
+      <path d="M440 240H520V314" marker-end="url(#a)"/>
+      <path d="M140 362V398H520V362"/>
+      <path d="M330 398V426" marker-end="url(#a)"/>
+      <path d="M330 472V492" marker-end="url(#a)"/>
+    </g>
+
+    <!-- legenda blocurilor -->
+    <rect x="640" y="72" width="290" height="320" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="785" y="102" text-anchor="middle" font-size="17" font-weight="800">Blocurile schemei</text>
+    <rect x="660" y="124" width="70" height="26" rx="13" fill="#171416"/>
+    <text x="746" y="136" font-size="14" font-weight="700">terminator</text>
+    <text x="746" y="154" font-size="13" fill="#6B6460">START / STOP</text>
+    <path d="M668 190H730L722 214H660Z" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3" stroke-linejoin="round"/>
+    <text x="746" y="200" font-size="14" font-weight="700">citire / scriere</text>
+    <text x="746" y="218" font-size="13" fill="#6B6460">date de intrare, rezultate</text>
+    <rect x="660" y="252" width="70" height="28" rx="4" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="746" y="264" font-size="14" font-weight="700">calcul</text>
+    <text x="746" y="282" font-size="13" fill="#6B6460">dă o valoare unei variabile</text>
+    <path d="M695 314L730 336L695 358L660 336Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3" stroke-linejoin="round"/>
+    <text x="746" y="332" font-size="14" font-weight="700">decizie</text>
+    <text x="746" y="350" font-size="13" fill="#6B6460">două ieșiri: Da și Nu</text>
+
+    <!-- traseul datelor -->
+    <rect x="640" y="410" width="290" height="120" rx="16" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="785" y="438" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">Traseul datelor</text>
+    <text x="660" y="466" font-size="14">a = 12, b = 23 → Nu → scrie 23</text>
+    <text x="660" y="492" font-size="14">a = 33, b = 17 → Da → scrie 33</text>
+    <text x="660" y="518" font-size="14">a = 34, b = 34 → Da → scrie 34</text>
+  </g>
+</svg>

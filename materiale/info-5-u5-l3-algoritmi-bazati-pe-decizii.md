@@ -56,6 +56,8 @@ Pasul 2: Dacă semaforul pietonilor este roșu,
 Stop
 ```
 
+![Schema traversării străzii: dacă semaforul pietonilor este roșu, ramura Da duce la „aștept”, iar ramura Nu duce la „traversez”.](fisiere/imagini/info-5-u5-l3-algoritmi-bazati-pe-decizii.svg)
+
 ### B. Labirintul
 
 - **La o bifurcație** cu ambele drumuri libere: *Dacă* ambele drumuri sunt accesibile, *Atunci* merg la stânga, *Altfel* merg la dreapta.

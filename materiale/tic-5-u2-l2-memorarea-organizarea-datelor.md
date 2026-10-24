@@ -69,6 +69,8 @@ Exemplu: fișierul `jazz.mp3` se află în folderul `MUZICA`, care e în folderu
 C:\Lucru\MUZICA\jazz.mp3
 ```
 
+![Structura arborescentă pornește de la rădăcina C:; calea arată drumul prin foldere până la fișier, iar extensia .mp3 arată că fișierul este audio.](fisiere/imagini/tic-5-u2-l2-memorarea-organizarea-datelor.svg)
+
 **Câte fișiere încap?** Depinde de mărimea fișierelor și de capacitatea dispozitivului.
 
 ## Exemplu rezolvat

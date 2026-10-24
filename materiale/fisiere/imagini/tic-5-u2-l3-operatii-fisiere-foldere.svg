@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="t">
+  <title id="t">Diferența dintre copierea și mutarea unui fișier și recuperarea lui din Coșul de reciclare</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+    <g id="fold"><path d="M0 0h50l10 12h110v104h-170z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3" stroke-linejoin="round"/></g>
+    <g id="file"><path d="M0 0h30l10 10v40h-40z" fill="#FFFFFF" stroke="#171416" stroke-width="3" stroke-linejoin="round"/><path d="M8 22h22M8 30h22M8 38h14" stroke="#6B6460" stroke-width="2"/></g>
+  </defs>
+  <rect width="960" height="560" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Copiere sau mutare?</text>
+
+    <!-- copiere -->
+    <rect x="30" y="70" width="900" height="180" rx="16" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="50" y="108" font-size="20" font-weight="800" fill="#0B6F68">Copiere</text>
+    <text x="50" y="136" font-size="14">fișierul rămâne</text>
+    <text x="50" y="156" font-size="14">în locul vechi și</text>
+    <text x="50" y="176" font-size="14">apare și în cel nou</text>
+    <use href="#fold" x="230" y="98"/><text x="315" y="236" text-anchor="middle" font-size="14" font-weight="700">Aplic1</text>
+    <use href="#file" x="295" y="138"/><text x="315" y="206" text-anchor="middle" font-size="13">test.txt</text>
+    <use href="#fold" x="690" y="98"/><text x="775" y="236" text-anchor="middle" font-size="14" font-weight="700">Aplic2</text>
+    <use href="#file" x="755" y="138"/><text x="775" y="206" text-anchor="middle" font-size="13">test.txt</text>
+    <path d="M420 160H676" stroke="#171416" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="446" y="118" width="90" height="30" rx="8" fill="#171416"/><text x="491" y="138" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">Ctrl + C</text>
+    <rect x="560" y="118" width="90" height="30" rx="8" fill="#171416"/><text x="605" y="138" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">Ctrl + V</text>
+    <text x="548" y="190" text-anchor="middle" font-size="13" fill="#6B6460">sau trag cu Ctrl apăsat</text>
+
+    <!-- mutare -->
+    <rect x="30" y="266" width="900" height="180" rx="16" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <text x="50" y="304" font-size="20" font-weight="800" fill="#C8133A">Mutare</text>
+    <text x="50" y="332" font-size="14">fișierul pleacă</text>
+    <text x="50" y="352" font-size="14">din locul vechi</text>
+    <text x="50" y="372" font-size="14">și ajunge în cel nou</text>
+    <use href="#fold" x="230" y="294"/><text x="315" y="432" text-anchor="middle" font-size="14" font-weight="700">Aplic1</text>
+    <path d="M295 334h30l10 10v40h-40z" fill="none" stroke="#6B6460" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <text x="315" y="402" text-anchor="middle" font-size="13" fill="#6B6460">(gol)</text>
+    <use href="#fold" x="690" y="294"/><text x="775" y="432" text-anchor="middle" font-size="14" font-weight="700">Aplic2</text>
+    <use href="#file" x="755" y="334"/><text x="775" y="402" text-anchor="middle" font-size="13">test.txt</text>
+    <path d="M420 356H676" stroke="#171416" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="446" y="314" width="90" height="30" rx="8" fill="#171416"/><text x="491" y="334" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">Ctrl + X</text>
+    <rect x="560" y="314" width="90" height="30" rx="8" fill="#171416"/><text x="605" y="334" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">Ctrl + V</text>
+    <text x="548" y="386" text-anchor="middle" font-size="13" fill="#6B6460">sau trag fișierul în alt folder</text>
+
+    <!-- coș -->
+    <rect x="30" y="462" width="900" height="68" rx="16" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <path d="M60 480h28l-4 36h-20z" fill="#FFFFFF" stroke="#0E7F96" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M56 480h36" stroke="#0E7F96" stroke-width="3" stroke-linecap="round"/>
+    <text x="110" y="502" font-size="15"><tspan font-weight="800">Delete</tspan> → fișierul ajunge în <tspan font-weight="800">Coșul de reciclare</tspan> → clic dreapta, <tspan font-weight="800">Restaurare</tspan>: revine</text>
+  </g>
+</svg>

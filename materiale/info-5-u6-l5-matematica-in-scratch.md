@@ -51,6 +51,8 @@ altfel
    arată prod timp de 3 secunde
 ```
 
+![Jocul alege x și y la întâmplare, calculează produsul, îl compară cu răspunsul jucătorului și, la un răspuns corect, crește scorul.](fisiere/imagini/info-5-u6-l5-matematica-in-scratch.svg)
+
 ### Traseul datelor
 
 | x | y | prod | răspuns | prod = răspuns | Ce se întâmplă |

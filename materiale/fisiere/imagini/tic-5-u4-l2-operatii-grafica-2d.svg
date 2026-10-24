@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Copacii gemeni: selectare și copiere, redimensionare la 85% și 70%, răsturnare orizontală</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+    <g id="cr"><rect width="90" height="70" rx="30" fill="#14A39A"/><rect x="8" y="6" width="50" height="36" rx="18" fill="#0B6F68"/></g>
+    <g id="tree"><rect x="38" y="60" width="14" height="60" rx="4" fill="#6B6460"/><use href="#cr"/><circle cx="70" cy="48" r="8" fill="#F21F4B"/></g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">„Copacii gemeni”: operații cu părți din desen</text>
+
+    <!-- 1 -->
+    <rect x="30" y="76" width="280" height="370" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="170" y="110" text-anchor="middle" font-size="16" font-weight="800">1. Selectare și copiere</text>
+    <use href="#cr" x="56" y="170"/>
+    <rect x="48" y="162" width="106" height="86" fill="none" stroke="#171416" stroke-width="2" stroke-dasharray="6 4"/>
+    <path d="M162 205H186" stroke="#171416" stroke-width="3" marker-end="url(#a)"/>
+    <use href="#cr" x="196" y="170"/>
+    <rect x="62" y="282" width="92" height="30" rx="8" fill="#171416"/><text x="108" y="302" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">Ctrl + C</text>
+    <rect x="186" y="282" width="92" height="30" rx="8" fill="#171416"/><text x="232" y="302" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">Ctrl + V</text>
+    <text x="170" y="364" text-anchor="middle" font-size="14">selecție dreptunghiulară,</text>
+    <text x="170" y="386" text-anchor="middle" font-size="14">apoi copiezi și lipești</text>
+
+    <!-- 2 -->
+    <rect x="340" y="76" width="280" height="370" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="480" y="110" text-anchor="middle" font-size="16" font-weight="800">2. Redimensionare</text>
+    <use href="#cr" x="354" y="170"/>
+    <use href="#cr" transform="translate(456 180.5) scale(0.85)"/>
+    <use href="#cr" transform="translate(545 191) scale(0.7)"/>
+    <path d="M354 254H608" stroke="#E8DFD3" stroke-width="2"/>
+    <g text-anchor="middle" font-size="15" font-weight="800">
+      <text x="399" y="278">100%</text><text x="494" y="278">85%</text><text x="577" y="278">70%</text>
+    </g>
+    <text x="480" y="364" text-anchor="middle" font-size="14">cu „Menținere raport aspect”</text>
+    <text x="480" y="386" text-anchor="middle" font-size="14">forma nu se deformează</text>
+
+    <!-- 3 -->
+    <rect x="650" y="76" width="280" height="370" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="790" y="110" text-anchor="middle" font-size="16" font-weight="800">3. Răsturnare orizontală</text>
+    <use href="#tree" x="672" y="150"/>
+    <path d="M790 140V300" stroke="#F21F4B" stroke-width="2.5" stroke-dasharray="7 5"/>
+    <use href="#tree" transform="translate(908 150) scale(-1 1)"/>
+    <text x="790" y="324" text-anchor="middle" font-size="13" fill="#C8133A" font-weight="700">oglinda</text>
+    <text x="790" y="364" text-anchor="middle" font-size="14">desenul se întoarce</text>
+    <text x="790" y="386" text-anchor="middle" font-size="14">ca în oglindă</text>
+
+    <text x="480" y="490" text-anchor="middle" font-size="15" fill="#6B6460">Comenzile sunt în fila Pornire → grupul Imagine.</text>
+  </g>
+</svg>

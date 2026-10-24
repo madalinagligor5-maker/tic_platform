@@ -39,6 +39,8 @@ Folosim calculatorul, tableta și telefonul la teme, la calcule, ca să comunic�
 | 1994 | **IBM Simon**, primul telefon inteligent |
 | 1996 | **Palm Pilot**, primul PDA (asistent digital personal) al firmei Palm |
 
+![Axa timpului: de la Pascalina (1642) și ENIAC (1946) la calculatorul personal, prima tabletă, primul telefon inteligent și primul PDA.](fisiere/imagini/tic-5-u1-l2-istoria-sistemelor-de-calcul.svg)
+
 ### Evoluția comunicațiilor
 
 De la **focuri și semnale de fum**, oamenii au ajuns la **telegraf**, **telefon** (cu fir și fără fir), **radio** și **televiziune**, iar apoi la **internet**. Azi comunicăm prin e-mail, mesaje text și video și aplicații de mesagerie. Calculatoarele și comunicațiile au evoluat împreună și au devenit **un singur sistem**, folosit de toată lumea.

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Axa timpului cu momentele importante din istoria sistemelor de calcul, de la Pascalina la Palm Pilot</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Evoluția sistemelor de calcul</text>
+
+    <!-- axa -->
+    <path d="M40 290H160M190 290H920" stroke="#171416" stroke-width="4" stroke-linecap="round"/>
+    <path d="M160 302l8-24M180 302l8-24" stroke="#171416" stroke-width="3"/>
+    <g stroke="#6B6460" stroke-width="2">
+      <path d="M110 270V250M370 270V250M630 270V250M860 270V250"/>
+      <path d="M240 310V330M500 310V330M750 310V330"/>
+    </g>
+    <g fill="#F21F4B" stroke="#FFF7EE" stroke-width="3">
+      <circle cx="110" cy="290" r="10"/><circle cx="240" cy="290" r="10"/><circle cx="370" cy="290" r="10"/>
+      <circle cx="500" cy="290" r="10"/><circle cx="630" cy="290" r="10"/><circle cx="750" cy="290" r="10"/><circle cx="860" cy="290" r="10"/>
+    </g>
+
+    <!-- deasupra -->
+    <g text-anchor="middle">
+      <rect x="30" y="120" width="200" height="130" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="130" y="150" font-size="20" font-weight="800" fill="#C8133A">1642</text>
+      <text x="130" y="176" font-size="16" font-weight="800">Pascalina</text>
+      <text x="130" y="202" font-size="13">primul calculator</text>
+      <text x="130" y="222" font-size="13">mecanic (Blaise Pascal)</text>
+
+      <rect x="270" y="120" width="200" height="130" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="370" y="150" font-size="20" font-weight="800" fill="#C8133A">1981</text>
+      <text x="370" y="176" font-size="16" font-weight="800">IBM PC</text>
+      <text x="370" y="202" font-size="13">calculator personal;</text>
+      <text x="370" y="222" font-size="13">Osborne 1, portabil</text>
+
+      <rect x="530" y="120" width="200" height="130" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="630" y="150" font-size="20" font-weight="800" fill="#C8133A">1993</text>
+      <text x="630" y="176" font-size="16" font-weight="800">Intel Pentium</text>
+      <text x="630" y="202" font-size="13">PC cu procesor Pentium;</text>
+      <text x="630" y="222" font-size="13">prima tabletă Apple</text>
+
+      <rect x="770" y="120" width="160" height="130" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="850" y="150" font-size="20" font-weight="800" fill="#C8133A">1996</text>
+      <text x="850" y="176" font-size="16" font-weight="800">Palm Pilot</text>
+      <text x="850" y="202" font-size="13">primul PDA</text>
+      <text x="850" y="222" font-size="13">al firmei Palm</text>
+
+      <!-- dedesubt -->
+      <rect x="140" y="330" width="200" height="130" rx="14" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+      <text x="240" y="360" font-size="20" font-weight="800" fill="#0E7F96">1946</text>
+      <text x="240" y="386" font-size="16" font-weight="800">ENIAC</text>
+      <text x="240" y="412" font-size="13">primul calculator</text>
+      <text x="240" y="432" font-size="13">electronic, digital</text>
+
+      <rect x="400" y="330" width="200" height="130" rx="14" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+      <text x="500" y="360" font-size="20" font-weight="800" fill="#0E7F96">1984</text>
+      <text x="500" y="386" font-size="16" font-weight="800">Macintosh 128K</text>
+      <text x="500" y="412" font-size="13">primul calculator Apple</text>
+      <text x="500" y="432" font-size="13">din seria Macintosh</text>
+
+      <rect x="650" y="330" width="200" height="130" rx="14" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+      <text x="750" y="360" font-size="20" font-weight="800" fill="#0E7F96">1994</text>
+      <text x="750" y="386" font-size="16" font-weight="800">IBM Simon</text>
+      <text x="750" y="412" font-size="13">primul telefon</text>
+      <text x="750" y="432" font-size="13">inteligent</text>
+    </g>
+    <text x="480" y="80" text-anchor="middle" font-size="14" fill="#6B6460">Axa nu este la scară: între 1642 și 1946 au trecut peste 300 de ani.</text>
+    <text x="480" y="500" text-anchor="middle" font-size="15" font-weight="700" fill="#0B6F68">De la calculatoare cât o cameră la calculatoare de buzunar</text>
+  </g>
+</svg>

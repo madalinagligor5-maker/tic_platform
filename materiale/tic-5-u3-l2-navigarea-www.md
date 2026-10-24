@@ -61,6 +61,8 @@ http://www.edu.ro/invatamant-gimnazial
 - **Favorite (☆)**: adaugi pagina la paginile tale favorite.
 - **Bara de adrese**: aici scrii sau vezi adresa URL.
 
+![Butoanele browserului, un hiperlink într-o pagină web și părțile adresei URL http://www.edu.ro/invatamant-gimnazial.](fisiere/imagini/tic-5-u3-l2-navigarea-www.svg)
+
 ### Siguranța pe internet
 
 | Pericol | Ce este | Cum te protejezi |
@@ -73,6 +75,8 @@ http://www.edu.ro/invatamant-gimnazial
 ## Exemplu rezolvat
 
 **Care este cel mai mic număr de pagini?** Un site are pagina de start A. Din A ai link spre B și C, iar din C ai link spre D. Ca să ajungi la D: **A → C → D**. Parcurgi **3 pagini**, inclusiv cea de start. Drumul prin B nu ajută, pentru că din B nu ai link spre D.
+
+![Pagina de start A are linkuri spre B și C, iar C are link spre D; drumul cel mai scurt spre D este A → C → D, adică 3 pagini.](fisiere/imagini/tic-5-u3-l2-navigarea-www-2.svg)
 
 ## Aplicații interactive
 

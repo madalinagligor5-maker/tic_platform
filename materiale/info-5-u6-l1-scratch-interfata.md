@@ -50,6 +50,8 @@ Cu butonul cu **globul pământesc** alegi **limba română**. Personajul care a
 7. **Fila Sunete**;
 8. **Rucsacul**: muți personaje, sunete și scripturi dintr-un proiect în altul.
 
+![Interfața Scratch, simplificată: paleta de blocuri, zona de program, scena, zonele personajelor și decorurilor, filele Costume și Sunete, rucsacul.](fisiere/imagini/info-5-u6-l1-scratch-interfata.svg)
+
 ### Categoriile de blocuri
 
 | Categorie | La ce folosește |
@@ -70,6 +72,8 @@ Cu butonul cu **globul pământesc** alegi **limba română**. Personajul care a
 - Scena este un dreptunghi de **480 × 360 pixeli**. Un **pixel (px)** este un punct mic dintr-o imagine (*PICture ELement*).
 - Poziția unui personaj se dă prin **coordonatele x** (pe orizontală) și **y** (pe verticală), măsurate față de **mijlocul scenei**, unde x = 0 și y = 0.
 - **Steagul verde** pornește programul, iar **bulina roșie** îl oprește.
+
+![Scena are 480 × 360 pixeli; poziția unui personaj se dă prin x (pe orizontală) și y (pe verticală), măsurate față de mijlocul scenei.](fisiere/imagini/info-5-u6-l1-scratch-interfata-2.svg)
 
 ### Personaje, costume, decoruri
 

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="t">
+  <title id="t">Cum funcționează jocul Învățăm tabla înmulțirii: numere aleatorii, produs, răspuns, verificare și scor</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="560" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Jocul „Învățăm tabla înmulțirii”, pas cu pas</text>
+
+    <rect x="40" y="76" width="260" height="120" rx="14" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="170" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#0E7F96">1. Numere la întâmplare</text>
+    <text x="56" y="136" font-size="14">x ← aleatoriu între 4 și 10</text>
+    <text x="56" y="160" font-size="14">y ← aleatoriu între 3 și 10</text>
+    <text x="56" y="184" font-size="13" fill="#6B6460">de exemplu: x = 5, y = 7</text>
+
+    <rect x="350" y="76" width="260" height="120" rx="14" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="480" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">2. Programul calculează</text>
+    <text x="480" y="140" text-anchor="middle" font-size="18" font-weight="800">prod ← x * y</text>
+    <text x="480" y="174" text-anchor="middle" font-size="14" fill="#6B6460">5 * 7 = 35</text>
+
+    <rect x="660" y="76" width="260" height="120" rx="14" fill="#FFFFFF" stroke="#F29A1F" stroke-width="3"/>
+    <text x="790" y="104" text-anchor="middle" font-size="15" font-weight="800">3. Jucătorul răspunde</text>
+    <text x="790" y="138" text-anchor="middle" font-size="14">întreabă „Cât face x × y?”</text>
+    <text x="790" y="170" text-anchor="middle" font-size="14">și așteaptă → <tspan font-weight="800">răspuns</tspan></text>
+
+    <path d="M480 236L620 296L480 356L340 296Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3" stroke-linejoin="round"/>
+    <text x="480" y="302" text-anchor="middle" font-size="17" font-weight="800">prod = răspuns ?</text>
+    <text x="300" y="284" font-size="16" font-weight="800" fill="#0B6F68">Da</text>
+    <text x="634" y="284" font-size="16" font-weight="800" fill="#C8133A">Nu</text>
+
+    <rect x="40" y="384" width="260" height="128" rx="14" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="56" y="414" font-size="15" font-weight="800" fill="#0B6F68">„Bravo! Ești tare!”</text>
+    <text x="56" y="442" font-size="14">pornește sunetul Cheer</text>
+    <text x="56" y="468" font-size="14">modifică rezultat cu 1</text>
+    <text x="56" y="494" font-size="13" fill="#6B6460">scorul crește</text>
+
+    <rect x="660" y="384" width="260" height="128" rx="14" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="676" y="414" font-size="14" font-weight="800" fill="#C8133A">„Fii mai atent! Știu că poți!”</text>
+    <text x="676" y="442" font-size="14">pornește sunetul Crowd Gasp</text>
+    <text x="676" y="468" font-size="14">arată prod 3 secunde</text>
+    <text x="676" y="494" font-size="13" fill="#6B6460">scorul rămâne la fel</text>
+
+    <rect x="384" y="420" width="192" height="56" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="404" y="454" font-size="15" font-weight="700">rezultat</text>
+    <rect x="496" y="434" width="60" height="28" rx="6" fill="#F29A1F"/>
+    <text x="526" y="454" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">2</text>
+    <text x="480" y="500" text-anchor="middle" font-size="13" fill="#6B6460">variabila pentru scor</text>
+
+    <g stroke="#171416" stroke-width="3" fill="none">
+      <path d="M304 136H342" marker-end="url(#a)"/>
+      <path d="M614 136H652" marker-end="url(#a)"/>
+      <path d="M790 196V216H480V230" marker-end="url(#a)"/>
+      <path d="M340 296H170V378" marker-end="url(#a)"/>
+      <path d="M620 296H790V378" marker-end="url(#a)"/>
+    </g>
+  </g>
+</svg>

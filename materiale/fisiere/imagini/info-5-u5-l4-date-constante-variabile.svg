@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Datele de intrare, de manevră și de ieșire ale unui algoritm și cele trei tipuri de date</title>
+  <defs>
+    <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="48" text-anchor="middle" font-size="22" font-weight="800">Datele unui algoritm: cumpărăm trei produse</text>
+
+    <!-- intrare -->
+    <rect x="40" y="86" width="240" height="210" rx="16" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="160" y="118" text-anchor="middle" font-size="18" font-weight="800" fill="#0E7F96">Date de intrare</text>
+    <text x="160" y="140" text-anchor="middle" font-size="13" fill="#6B6460">vin din exterior</text>
+    <text x="60" y="180" font-size="15">suma deținută: 50 lei</text>
+    <text x="60" y="210" font-size="15">prețul 1: 12 lei</text>
+    <text x="60" y="240" font-size="15">prețul 2: 15 lei</text>
+    <text x="60" y="270" font-size="15">prețul 3: 8 lei</text>
+
+    <!-- algoritm -->
+    <rect x="350" y="86" width="260" height="210" rx="16" fill="#171416"/>
+    <text x="480" y="118" text-anchor="middle" font-size="18" font-weight="800" fill="#FFF7EE">Algoritmul</text>
+    <rect x="372" y="136" width="216" height="140" rx="12" fill="#F1E9DF"/>
+    <text x="480" y="162" text-anchor="middle" font-size="15" font-weight="800">Dată de manevră</text>
+    <text x="480" y="182" text-anchor="middle" font-size="13" fill="#6B6460">(temporară, ajutătoare)</text>
+    <text x="480" y="214" text-anchor="middle" font-size="15">suma prețurilor</text>
+    <text x="480" y="246" text-anchor="middle" font-size="16" font-weight="800">12 + 15 + 8 = 35</text>
+
+    <!-- ieșire -->
+    <rect x="680" y="86" width="240" height="210" rx="16" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="800" y="118" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">Date de ieșire</text>
+    <text x="800" y="140" text-anchor="middle" font-size="13" fill="#6B6460">rezultatele, la final</text>
+    <text x="800" y="190" text-anchor="middle" font-size="15">restul:</text>
+    <text x="800" y="224" text-anchor="middle" font-size="18" font-weight="800">50 – 35 = 15 lei</text>
+
+    <g stroke="#171416" stroke-width="3" fill="none">
+      <path d="M286 191H342" marker-end="url(#b)"/>
+      <path d="M616 191H672" marker-end="url(#b)"/>
+    </g>
+
+    <!-- tipuri de date -->
+    <text x="40" y="350" font-size="18" font-weight="800">Tipuri de date</text>
+    <rect x="40" y="368" width="280" height="120" rx="14" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="60" y="400" font-size="17" font-weight="800" fill="#0E7F96">numerice</text>
+    <text x="60" y="428" font-size="14">valorile sunt numere</text>
+    <text x="60" y="456" font-size="14" fill="#6B6460">exemple: 50, 12, 35</text>
+    <rect x="340" y="368" width="280" height="120" rx="14" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="360" y="400" font-size="17" font-weight="800" fill="#0B6F68">de tip text</text>
+    <text x="360" y="428" font-size="14">valorile sunt texte</text>
+    <text x="360" y="456" font-size="14" fill="#6B6460">exemple: „Ana”, „Bună!”</text>
+    <rect x="640" y="368" width="280" height="120" rx="14" fill="#FFFFFF" stroke="#F29A1F" stroke-width="3"/>
+    <text x="660" y="400" font-size="17" font-weight="800" fill="#171416">logice</text>
+    <text x="660" y="428" font-size="14">valorile sunt doar</text>
+    <text x="660" y="456" font-size="14" fill="#6B6460">Adevărat sau Fals</text>
+  </g>
+</svg>

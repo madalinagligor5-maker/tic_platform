@@ -29,6 +29,8 @@ La matematică ai lucrat cu operații (+, –, ×, :) și cu comparații (=, ≠
 - O **expresie** este o combinație finită de operanzi și operatori.
 - **Evaluarea expresiei** înseamnă calcularea rezultatului, iar rezultatul se numește **valoarea expresiei**.
 
+![Expresia (a + b) * 3 are operanzi și operatori; pentru a = 10 și b = 30, valoarea ei este 120. Jos sunt cele trei tipuri de operatori.](fisiere/imagini/info-5-u5-l5-operatori-expresii.svg)
+
 ### Operatorii aritmetici
 
 | Operator | Înseamnă | Exemplu | Valoare |

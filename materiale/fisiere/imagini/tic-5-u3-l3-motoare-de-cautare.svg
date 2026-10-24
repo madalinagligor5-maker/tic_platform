@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">O căutare cu cuvinte-cheie, lista de rezultate și regulile pentru o căutare mai bună</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Cum cauți cu un motor de căutare</text>
+
+    <!-- căutare -->
+    <rect x="40" y="72" width="490" height="430" rx="14" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <rect x="60" y="92" width="360" height="42" rx="21" fill="#FFF7EE" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="82" y="119" font-size="16" font-weight="700">jaguar -mașină -car</text>
+    <rect x="432" y="92" width="80" height="42" rx="21" fill="#0E7F96"/>
+    <circle cx="466" cy="110" r="8" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+    <path d="M472 116l7 7" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+    <text x="80" y="160" font-size="13" fill="#6B6460">cuvintele-cheie</text>
+
+    <g font-size="13">
+      <circle cx="80" cy="196" r="12" fill="#F21F4B"/><text x="80" y="201" text-anchor="middle" font-weight="800" fill="#FFFFFF">1</text>
+      <text x="102" y="200" font-size="15" font-weight="800" fill="#0E7F96">Jaguarul, cea mai mare felină din America</text>
+      <text x="102" y="220" fill="#0B6F68">animale.exemplu.ro/jaguar</text>
+      <text x="102" y="240" fill="#6B6460">Jaguarul trăiește în pădurile tropicale…</text>
+
+      <circle cx="80" cy="282" r="12" fill="#171416"/><text x="80" y="287" text-anchor="middle" font-weight="800" fill="#FFFFFF">2</text>
+      <text x="102" y="286" font-size="15" font-weight="800" fill="#0E7F96">Ce mănâncă jaguarul</text>
+      <text x="102" y="306" fill="#0B6F68">natura.exemplu.ro/feline</text>
+      <text x="102" y="326" fill="#6B6460">Jaguarul vânează pe uscat și în apă…</text>
+
+      <circle cx="80" cy="368" r="12" fill="#171416"/><text x="80" y="373" text-anchor="middle" font-weight="800" fill="#FFFFFF">3</text>
+      <text x="102" y="372" font-size="15" font-weight="800" fill="#0E7F96">Imagini cu jaguari în natură</text>
+      <text x="102" y="392" fill="#0B6F68">foto.exemplu.ro/jaguari</text>
+      <text x="102" y="412" fill="#6B6460">Fotografii din parcuri naturale…</text>
+    </g>
+    <rect x="60" y="440" width="450" height="44" rx="10" fill="#E2F6FA"/>
+    <text x="285" y="467" text-anchor="middle" font-size="14" font-weight="700">Primele rezultate sunt cele mai relevante.</text>
+
+    <!-- reguli -->
+    <text x="560" y="88" font-size="18" font-weight="800">Reguli utile</text>
+    <rect x="560" y="102" width="360" height="100" rx="14" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <text x="600" y="152" text-anchor="middle" font-size="34" font-weight="800" fill="#C8133A">-</text>
+    <text x="640" y="134" font-size="15" font-weight="800">elimină un cuvânt</text>
+    <text x="640" y="158" font-size="14">jaguar -mașină</text>
+    <text x="640" y="182" font-size="13" fill="#6B6460">fără pagini despre mașini</text>
+
+    <rect x="560" y="214" width="360" height="100" rx="14" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="600" y="270" text-anchor="middle" font-size="34" font-weight="800" fill="#0E7F96">" "</text>
+    <text x="640" y="246" font-size="15" font-weight="800">caută exact textul</text>
+    <text x="640" y="270" font-size="14">"O furnică poetă"</text>
+    <text x="640" y="294" font-size="13" fill="#6B6460">cuvintele, întocmai și în ordine</text>
+
+    <rect x="560" y="326" width="360" height="100" rx="14" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="600" y="384" text-anchor="middle" font-size="34" font-weight="800" fill="#0B6F68">*</text>
+    <text x="640" y="358" font-size="15" font-weight="800">ține locul oricăror cuvinte</text>
+    <text x="640" y="382" font-size="14">software * copii</text>
+    <text x="640" y="406" font-size="13" fill="#6B6460">„software educațional pentru copii”</text>
+
+    <!-- download / upload -->
+    <rect x="560" y="438" width="360" height="64" rx="14" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <path d="M586 452v28M577 471l9 9l9-9" fill="none" stroke="#171416" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="604" y="466" font-size="13" font-weight="800">Descărcare</text>
+    <text x="604" y="486" font-size="13">pe calculatorul tău</text>
+    <path d="M756 480v-28M747 461l9-9l9 9" fill="none" stroke="#171416" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="774" y="466" font-size="13" font-weight="800">Încărcare</text>
+    <text x="774" y="486" font-size="13">spre alt calculator</text>
+  </g>
+</svg>

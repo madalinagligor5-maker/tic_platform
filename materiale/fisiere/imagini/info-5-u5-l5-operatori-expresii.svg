@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Operanzii și operatorii unei expresii, evaluarea ei și cele trei tipuri de operatori</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="48" text-anchor="middle" font-size="22" font-weight="800">Expresia = operanzi + operatori</text>
+
+    <!-- expresia -->
+    <rect x="40" y="78" width="500" height="170" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <g font-size="50" font-weight="800" text-anchor="middle">
+      <text x="110" y="160" fill="#6B6460">(</text>
+      <text x="155" y="160" fill="#0E7F96">a</text>
+      <text x="215" y="160" fill="#C8133A">+</text>
+      <text x="275" y="160" fill="#0E7F96">b</text>
+      <text x="320" y="160" fill="#6B6460">)</text>
+      <text x="380" y="160" fill="#C8133A">*</text>
+      <text x="440" y="160" fill="#0E7F96">3</text>
+    </g>
+    <g stroke-width="4" stroke-linecap="round">
+      <path d="M140 176h30M260 176h30M425 176h30" stroke="#3EC6E0"/>
+      <path d="M200 176h30M365 176h30" stroke="#F21F4B"/>
+    </g>
+    <rect x="96" y="198" width="20" height="20" rx="4" fill="#3EC6E0"/>
+    <text x="124" y="214" font-size="15" font-weight="700">operanzi (datele)</text>
+    <rect x="306" y="198" width="20" height="20" rx="4" fill="#F21F4B"/>
+    <text x="334" y="214" font-size="15" font-weight="700">operatori</text>
+
+    <!-- evaluare -->
+    <rect x="570" y="78" width="350" height="170" rx="16" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="745" y="108" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">Evaluare pentru a = 10, b = 30</text>
+    <text x="745" y="146" text-anchor="middle" font-size="20">(10 + 30) * 3</text>
+    <text x="745" y="178" text-anchor="middle" font-size="20">= 40 * 3</text>
+    <text x="745" y="212" text-anchor="middle" font-size="22" font-weight="800" fill="#C8133A">= 120</text>
+    <text x="745" y="236" text-anchor="middle" font-size="13" fill="#6B6460">valoarea expresiei</text>
+
+    <!-- tipuri de operatori -->
+    <rect x="40" y="280" width="280" height="220" rx="16" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="180" y="314" text-anchor="middle" font-size="18" font-weight="800" fill="#0E7F96">aritmetici</text>
+    <text x="180" y="362" text-anchor="middle" font-size="28" font-weight="800" word-spacing="12">+  -  *  /  %</text>
+    <text x="180" y="406" text-anchor="middle" font-size="15">15 / 2 = 7 (câtul)</text>
+    <text x="180" y="432" text-anchor="middle" font-size="15">15 % 2 = 1 (restul)</text>
+    <text x="180" y="474" text-anchor="middle" font-size="14" fill="#6B6460">rezultatul este un număr</text>
+
+    <rect x="340" y="280" width="280" height="220" rx="16" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <text x="480" y="314" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">relaționali</text>
+    <text x="480" y="362" text-anchor="middle" font-size="24" font-weight="800" word-spacing="8">=  &lt;&gt;  &lt;  &gt;  &lt;=  &gt;=</text>
+    <text x="480" y="406" text-anchor="middle" font-size="15">7 &lt;&gt; 4 → Adevărat</text>
+    <text x="480" y="432" text-anchor="middle" font-size="15">4 = 5 → Fals</text>
+    <text x="480" y="474" text-anchor="middle" font-size="14" fill="#6B6460">rezultatul: Adevărat sau Fals</text>
+
+    <rect x="640" y="280" width="280" height="220" rx="16" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="780" y="314" text-anchor="middle" font-size="18" font-weight="800" fill="#0B6F68">logici</text>
+    <text x="780" y="362" text-anchor="middle" font-size="26" font-weight="800" word-spacing="14">și   sau   nu</text>
+    <text x="780" y="406" text-anchor="middle" font-size="15">A și F → Fals</text>
+    <text x="780" y="432" text-anchor="middle" font-size="15">A sau F → Adevărat</text>
+    <text x="780" y="474" text-anchor="middle" font-size="14" fill="#6B6460">rezultatul: Adevărat sau Fals</text>
+  </g>
+</svg>

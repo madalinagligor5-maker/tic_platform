@@ -39,6 +39,8 @@ Oamenii au vrut să ajungă la cât mai multe informații, așa că au legat cal
 4. **Telnet**: te conectezi de la calculatorul tău la **un calculator aflat la distanță** și îi folosești serviciile.
 5. **IRC (Internet Relay Chat)**: oameni din toată lumea își trimit **mesaje în timp real**.
 
+![Internetul leagă între ele rețele de calculatoare prin standardul TCP/IP; în dreapta sunt cele cinci servicii importante ale lui.](fisiere/imagini/tic-5-u3-l1-servicii-internet.svg)
+
 ### Știai că?
 
 - Prima rețea de calculatoare, **ARPANET**, a apărut în **1969**, în SUA, la Agenția pentru Proiecte de Cercetare Avansată (ARPA).

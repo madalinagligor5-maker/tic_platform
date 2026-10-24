@@ -50,6 +50,8 @@ scrie mx
 5. Pui structura **„dacă… atunci… altfel”**: pe *atunci* „setează [mx] la (a)”, pe *altfel* „setează [mx] la (b)”.
 6. Afișezi: **„spune (alătură „Nr. maxim este ” (mx))”** și pornești un sunet de felicitare.
 
+![Blocul „dacă… atunci… altfel” pentru maximul a două numere: condiția stă în spațiul hexagonal, iar ea decide care ramură se execută.](fisiere/imagini/info-5-u6-l4-structura-de-decizie-scratch.svg)
+
 ### B. Deplasarea printr-un labirint
 
 Drumurile labirintului sunt desenate cu **negru**, iar ieșirea este marcată cu **roșu**. Personajul se mișcă cu **săgețile**, câte **5 pixeli**.

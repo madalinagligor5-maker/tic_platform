@@ -52,6 +52,8 @@ Calculatorul folosește doar cifrele 0 și 1, de aceea multiplii byte-ului se ob
 
 > Atenție: 1 km = **1000** m, dar 1 KB = **1024** B.
 
+![Spre unități mai mari împarți la 1024 (la 8 între bit și byte), spre unități mai mici înmulțești; jos sunt exemple și capacități obișnuite.](fisiere/imagini/tic-5-u1-l4-dispozitive-de-stocare.svg)
+
 ### Capacități obișnuite
 
 - **CD**: 700 MB

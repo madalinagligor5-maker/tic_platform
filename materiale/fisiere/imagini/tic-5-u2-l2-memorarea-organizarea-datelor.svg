@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Structura arborescentă de foldere și fișiere, calea către un fișier și părțile numelui unui fișier</title>
+  <defs>
+    <g id="fd"><path d="M0 0h14l5 6h21v26h-40z" fill="#F29A1F"/></g>
+    <g id="fi"><path d="M0 0h20l8 8v26h-28z" fill="#FFFFFF" stroke="#171416" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 0v8h8" fill="none" stroke="#171416" stroke-width="2.5"/></g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Foldere, fișiere și calea către un fișier</text>
+
+    <!-- arbore -->
+    <rect x="30" y="72" width="410" height="430" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <g fill="none" stroke-width="3">
+      <path d="M70 128V176H96" stroke="#F21F4B"/>
+      <path d="M120 194V238H146" stroke="#F21F4B"/>
+      <path d="M170 256V300H196" stroke="#F21F4B"/>
+      <path d="M120 238V362H146" stroke="#6B6460"/>
+      <path d="M170 380V424H196" stroke="#6B6460"/>
+      <path d="M220 442V470H246" stroke="#6B6460"/>
+    </g>
+    <rect x="50" y="94" width="40" height="32" rx="6" fill="#171416"/>
+    <text x="70" y="116" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">C:</text>
+    <text x="104" y="116" font-size="14" fill="#6B6460">rădăcina (unitatea de disc)</text>
+    <use href="#fd" x="100" y="160"/><text x="150" y="182" font-size="15" font-weight="700">Lucru</text>
+    <use href="#fd" x="150" y="222"/><text x="200" y="244" font-size="15" font-weight="700">MUZICA</text>
+    <use href="#fi" x="200" y="283"/><text x="238" y="306" font-size="15" font-weight="700" fill="#0B6F68">jazz.mp3</text>
+    <use href="#fd" x="150" y="346"/><text x="200" y="368" font-size="15" font-weight="700">FOTO</text>
+    <use href="#fd" x="200" y="408"/><text x="250" y="430" font-size="15" font-weight="700">PRIMAVARA</text>
+    <use href="#fi" x="250" y="453"/><text x="288" y="476" font-size="15" font-weight="700" fill="#0B6F68">InParc.jpg</text>
+    <text x="236" y="182" font-size="13" fill="#6B6460">părinte</text>
+    <text x="290" y="244" font-size="13" fill="#6B6460">copil al lui Lucru</text>
+
+    <!-- calea -->
+    <rect x="470" y="72" width="460" height="200" rx="16" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="490" y="104" font-size="17" font-weight="800" fill="#C8133A">Calea (path) către jazz.mp3</text>
+    <text x="700" y="156" text-anchor="middle" font-size="24" font-weight="800">C:<tspan fill="#C8133A">\</tspan>Lucru<tspan fill="#C8133A">\</tspan>MUZICA<tspan fill="#C8133A">\</tspan><tspan fill="#0B6F68">jazz.mp3</tspan></text>
+    <text x="490" y="200" font-size="14">pornește de la rădăcină, trece prin foldere</text>
+    <text x="490" y="222" font-size="14">și se termină cu fișierul</text>
+    <text x="490" y="252" font-size="14"><tspan font-weight="800" fill="#C8133A">\</tspan> (backslash) desparte pașii</text>
+
+    <!-- numele -->
+    <rect x="470" y="292" width="460" height="210" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="490" y="324" font-size="17" font-weight="800">Numele unui fișier</text>
+    <rect x="530" y="346" width="150" height="50" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="605" y="379" text-anchor="middle" font-size="22" font-weight="800">jazz</text>
+    <text x="700" y="381" text-anchor="middle" font-size="30" font-weight="800" fill="#C8133A">.</text>
+    <rect x="720" y="346" width="120" height="50" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="780" y="379" text-anchor="middle" font-size="22" font-weight="800">mp3</text>
+    <text x="605" y="424" text-anchor="middle" font-size="14" font-weight="700">nume propriu-zis</text>
+    <text x="605" y="444" text-anchor="middle" font-size="13" fill="#6B6460">max. 255 de caractere</text>
+    <text x="780" y="424" text-anchor="middle" font-size="14" font-weight="700">extensia</text>
+    <text x="780" y="444" text-anchor="middle" font-size="13" fill="#6B6460">tipul: audio</text>
+    <text x="700" y="482" text-anchor="middle" font-size="13" fill="#6B6460">.txt text · .jpg imagine · .mp3 audio · .mp4 video</text>
+  </g>
+</svg>

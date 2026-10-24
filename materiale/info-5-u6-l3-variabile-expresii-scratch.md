@@ -47,6 +47,8 @@ Blocurile se pot **pune unul în altul**: tragi al doilea bloc în locul unui op
 | (60 > 50) și (10 < 50) | Adevărat |
 | nu (a < 5) | Adevărat |
 
+![Blocul „setează” dă o valoare variabilei, „modifică” o schimbă; blocurile de operatori puse unul în altul formează expresii, ca (a + 5) * 10.](fisiere/imagini/info-5-u6-l3-variabile-expresii-scratch.svg)
+
 ### Programul „RoboOperații”
 
 Variabilelor **a** și **b** li se dau valori la început, iar RoboTIC spune suma, diferența, produsul, câtul și restul.

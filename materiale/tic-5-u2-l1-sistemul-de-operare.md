@@ -40,6 +40,8 @@ Partea **software** a unui sistem de calcul este formată din **sistemul de oper
 - **cu interfață text** (comenzile se scriu): DOS, MS-DOS, FreeDOS;
 - **cu interfață grafică** (lucrezi mai ușor, cu ferestre și pictograme): Windows, Linux, Unix, macOS, Android, iOS.
 
+![Sistemul de operare face legătura dintre utilizator, aplicații și hardware; are patru funcții și poate avea interfață text sau grafică.](fisiere/imagini/tic-5-u2-l1-sistemul-de-operare.svg)
+
 ### Interfața Windows 10
 
 1. **Suprafața de lucru (desktopul)**: ecranul principal al sistemului de operare.
@@ -66,6 +68,8 @@ Elementele unei ferestre:
 - **butonul de control**: deschide un **meniu**, adică o listă de comenzi pentru fereastră;
 - **bara de meniuri** (sau **panglica / ribbon**, la unele aplicații);
 - **barele de derulare** orizontală și verticală.
+
+![Desktopul cu pictograme, bara de activități și butonul Start, plus părțile unei ferestre: bara de titlu, butoanele, bara de meniuri, barele de derulare.](fisiere/imagini/tic-5-u2-l1-sistemul-de-operare-2.svg)
 
 **Redimensionare:** dacă fereastra nu e minimizată sau maximizată, pui cursorul pe o margine și, când își schimbă forma, tragi ținând apăsat butonul stâng al mouse-ului. Dacă tragi de colț, se schimbă ambele dimensiuni.
 

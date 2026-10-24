@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Butoanele unui browser, un hiperlink și părțile unei adrese URL</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="22" font-weight="800">Browserul și adresa URL</text>
+
+    <!-- browser -->
+    <rect x="40" y="66" width="880" height="270" rx="12" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <path d="M43 69h874v30h-874z" fill="#F1E9DF"/>
+    <rect x="56" y="74" width="180" height="25" rx="6" fill="#FFFFFF"/>
+    <text x="70" y="92" font-size="13" font-weight="700">Învățământ gimnazial</text>
+    <path d="M43 99h874" stroke="#E8DFD3" stroke-width="2"/>
+    <g fill="none" stroke="#171416" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M80 122H60M68 114l-8 8l8 8"/>
+      <path d="M100 122H120M112 114l8 8l-8 8"/>
+      <path d="M158 116a10 10 0 1 0 2 9M160 110v7h-7"/>
+    </g>
+    <rect x="186" y="108" width="660" height="30" rx="15" fill="#FFF7EE" stroke="#E8DFD3" stroke-width="2"/>
+    <text x="206" y="128" font-size="14">http://www.edu.ro/invatamant-gimnazial</text>
+    <path d="M880 110l4 9l10 1l-7 7l2 10l-9-5l-9 5l2-10l-7-7l10-1z" fill="#F29A1F"/>
+    <path d="M43 148h874" stroke="#E8DFD3" stroke-width="2"/>
+
+    <g stroke="#6B6460" stroke-width="1.5">
+      <path d="M70 138V180M110 138V200M150 138V220M510 140V160M885 140V180"/>
+    </g>
+    <g font-size="13" font-weight="700" text-anchor="middle">
+      <text x="70" y="194">Înapoi</text>
+      <text x="110" y="214">Înainte</text>
+      <text x="152" y="234">Reîncărcare</text>
+      <text x="510" y="176">Bara de adrese: aici scrii adresa URL</text>
+      <text x="885" y="194">Favorite</text>
+    </g>
+
+    <!-- pagina -->
+    <rect x="240" y="196" width="220" height="14" rx="7" fill="#E8DFD3"/>
+    <text x="240" y="244" font-size="15">Vezi și</text>
+    <text x="300" y="244" font-size="15" font-weight="700" fill="#0E7F96" text-decoration="underline">orarul claselor a V-a</text>
+    <rect x="240" y="262" width="400" height="10" rx="5" fill="#F1E9DF"/>
+    <rect x="240" y="282" width="340" height="10" rx="5" fill="#F1E9DF"/>
+    <rect x="660" y="222" width="240" height="64" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2"/>
+    <text x="676" y="246" font-size="14" font-weight="800" fill="#0E7F96">← hiperlink</text>
+    <text x="676" y="270" font-size="13">un clic te duce la alt document</text>
+
+    <!-- URL -->
+    <text x="40" y="378" font-size="18" font-weight="800">Părțile adresei URL</text>
+    <g font-size="20" font-weight="800" text-anchor="middle">
+      <rect x="40" y="396" width="110" height="48" rx="10" fill="#F1E9DF"/><text x="95" y="427" fill="#6B6460">http://</text>
+      <rect x="156" y="396" width="90" height="48" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="201" y="427">www</text>
+      <text x="256" y="427">.</text>
+      <rect x="266" y="396" width="90" height="48" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="311" y="427">edu</text>
+      <rect x="362" y="396" width="80" height="48" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="402" y="427">.ro</text>
+      <rect x="448" y="396" width="300" height="48" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="598" y="427">/invatamant-gimnazial</text>
+    </g>
+    <g font-size="13" text-anchor="middle">
+      <text x="201" y="468" font-weight="800" fill="#C8133A">www</text><text x="201" y="488">site web</text>
+      <text x="311" y="468" font-weight="800" fill="#0E7F96">numele</text><text x="311" y="488">site-ului</text>
+      <text x="402" y="468" font-weight="800" fill="#0B6F68">țara</text><text x="402" y="488">România</text>
+      <text x="598" y="468" font-weight="800">pagina din site</text><text x="598" y="488">pe care te afli</text>
+    </g>
+    <rect x="770" y="396" width="150" height="100" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="845" y="422" text-anchor="middle" font-size="13" font-weight="800">Alte terminații</text>
+    <text x="845" y="446" text-anchor="middle" font-size="13">.edu educațional</text>
+    <text x="845" y="470" text-anchor="middle" font-size="13">.com comercial</text>
+  </g>
+</svg>

@@ -49,6 +49,8 @@ Imaginile se salvează în **fișiere grafice**. Din Paint poți salva cu extens
 4. **Suprafața de desenare**: foaia pe care desenezi.
 5. **Bara de stare**: are **panoramarea (zoom)**, cu care mărești sau micșorezi imaginea cu **+ / –**.
 
+![Interfața Paint: bara de acces rapid, bara de titlu, panglica, suprafața de desenare și bara de stare; alături, diferența dintre 2D și 3D.](fisiere/imagini/tic-5-u4-l1-editor-grafic-interfata.svg)
+
 ### Filele panglicii
 
 **Fișier (File):** creezi un fișier nou, deschizi unul existent, **Salvezi**, **Salvezi ca** (în alt fișier), **Tipărești** și stabilești **Proprietățile** imaginii (dimensiuni, culori).

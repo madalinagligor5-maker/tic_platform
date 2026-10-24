@@ -44,6 +44,8 @@ Dimensiunea desenului se stabilește din **Fișier → Proprietăți** (de exemp
 
 Toate culorile se obțin din trei culori de bază: **Roșu (Red)**, **Verde (Green)** și **Albastru (Blue)**, fiecare în cantități de la **0 la 255**. Combinația se numește **RGB**. O culoare nouă o creezi din **Pornire → Culori → Editare culori**: scrii valorile R, G, B, apoi apeși **Adăugare la culori particularizate**.
 
+![Culoarea 1 desenează linii, contururi și text; Culoarea 2 umple formele și este culoarea urmei lăsate de radieră.](fisiere/imagini/tic-5-u4-l2-operatii-grafica-2d-2.svg)
+
 ### Formele
 
 - Alegi forma din **Pornire → Forme**, apoi o desenezi ținând apăsat butonul stâng al mouse-ului.
@@ -59,6 +61,8 @@ Toate culorile se obțin din trei culori de bază: **Roșu (Red)**, **Verde (Gre
 - **Redimensionare**: în **procente** sau **pixeli**; cu **Menținere raport aspect** forma nu se deformează. Tot aici poți **înclina** imaginea.
 - **Trunchiere**: selectezi ce vrei să **rămână**, apoi **Trunchiere**.
 - **Rotire**: alegi direcția și unghiul. **Răsturnare orizontală** întoarce desenul ca **în oglindă**.
+
+![Din exemplul „Copacii gemeni”: selectezi și copiezi frunzișul, îl redimensionezi la 85% și 70%, apoi răstorni copacul ca în oglindă.](fisiere/imagini/tic-5-u4-l2-operatii-grafica-2d.svg)
 
 ### Textul
 

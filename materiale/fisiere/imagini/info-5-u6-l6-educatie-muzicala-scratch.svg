@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="t">
+  <title id="t">Notele gamei Do major cu numerele lor din Scratch și durata notelor în bătăi</title>
+  <rect width="960" height="620" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Gama Do major în Scratch: fiecare notă are un număr</text>
+
+    <!-- claviatura -->
+    <g fill="#FFFFFF" stroke="#171416" stroke-width="3">
+      <rect x="120" y="76" width="90" height="210" rx="6"/>
+      <rect x="210" y="76" width="90" height="210" rx="6"/>
+      <rect x="300" y="76" width="90" height="210" rx="6"/>
+      <rect x="390" y="76" width="90" height="210" rx="6"/>
+      <rect x="480" y="76" width="90" height="210" rx="6"/>
+      <rect x="570" y="76" width="90" height="210" rx="6"/>
+      <rect x="660" y="76" width="90" height="210" rx="6"/>
+      <rect x="750" y="76" width="90" height="210" rx="6" fill="#E0F4F2"/>
+    </g>
+    <g fill="#171416">
+      <rect x="183" y="74" width="54" height="132" rx="4"/>
+      <rect x="273" y="74" width="54" height="132" rx="4"/>
+      <rect x="453" y="74" width="54" height="132" rx="4"/>
+      <rect x="543" y="74" width="54" height="132" rx="4"/>
+      <rect x="633" y="74" width="54" height="132" rx="4"/>
+    </g>
+    <rect x="120" y="76" width="90" height="210" rx="6" fill="#E0F4F2" stroke="#171416" stroke-width="3"/>
+    <rect x="183" y="74" width="54" height="132" rx="4" fill="#171416"/>
+    <g text-anchor="middle">
+      <g font-size="17" font-weight="800">
+        <text x="165" y="238">Do</text><text x="255" y="238">Re</text><text x="345" y="238">Mi</text><text x="435" y="238">Fa</text>
+        <text x="525" y="238">Sol</text><text x="615" y="238">La</text><text x="705" y="238">Si</text><text x="795" y="238">Do</text>
+      </g>
+      <g font-size="16" font-weight="700" fill="#C8133A">
+        <text x="165" y="266">60</text><text x="255" y="266">62</text><text x="345" y="266">64</text><text x="435" y="266">65</text>
+        <text x="525" y="266">67</text><text x="615" y="266">69</text><text x="705" y="266">71</text><text x="795" y="266">72</text>
+      </g>
+    </g>
+    <text x="480" y="318" text-anchor="middle" font-size="15">Bloc: <tspan font-weight="800">cântă nota (60) pentru (0.25) bătăi</tspan> · notele cântate pe rând formează gama</text>
+
+    <!-- durate -->
+    <text x="40" y="362" font-size="18" font-weight="800">Durata notelor și a pauzelor (în bătăi)</text>
+    <g font-size="15">
+      <text x="40" y="398"><tspan font-weight="800">4</tspan> · întreagă</text>
+      <rect x="250" y="378" width="600" height="28" rx="8" fill="#3EC6E0"/>
+      <text x="40" y="440"><tspan font-weight="800">2</tspan> · doime</text>
+      <rect x="250" y="420" width="300" height="28" rx="8" fill="#14A39A"/>
+      <text x="40" y="482"><tspan font-weight="800">1</tspan> · pătrime</text>
+      <rect x="250" y="462" width="150" height="28" rx="8" fill="#F29A1F"/>
+      <text x="40" y="524"><tspan font-weight="800">0,5</tspan> · optime</text>
+      <rect x="250" y="504" width="75" height="28" rx="8" fill="#F21F4B"/>
+      <text x="40" y="566"><tspan font-weight="800">0,25</tspan> · șaisprezecime</text>
+      <rect x="250" y="546" width="37.5" height="28" rx="8" fill="#C8133A"/>
+    </g>
+    <text x="580" y="482" font-size="14" fill="#6B6460">Cu cât sunt mai multe bătăi,</text>
+    <text x="580" y="504" font-size="14" fill="#6B6460">cu atât nota ține mai mult.</text>
+  </g>
+</svg>

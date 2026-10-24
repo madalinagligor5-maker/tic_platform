@@ -47,6 +47,8 @@ data: 2026-10-15
 - ții **spatele drept, sprijinit de spătar**, și **picioarele pe podea** (sau pe un suport);
 - monitorul stă la **45–70 cm** de ochi, cu **marginea de sus a ecranului la nivelul ochilor**.
 
+![Poziția corectă la calculator: ecranul la 45–70 cm, cu marginea de sus la nivelul ochilor, tastatura la nivelul cotului, spatele drept, picioarele pe podea.](fisiere/imagini/tic-5-u1-l1-norme-ergonomie-siguranta.svg)
+
 **La tabletă și telefon:**
 
 - schimbi din când în când felul în care ții dispozitivul, ca mâinile să nu obosească;

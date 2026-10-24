@@ -46,6 +46,8 @@ Când dai clic pe numărul notei, apare o **claviatură de pian** din care alegi
 |---|---|---|---|---|---|
 | Nota / pauza | întreagă | doime | pătrime | optime | șaisprezecime |
 
+![Notele gamei Do major au în Scratch numerele de la 60 la 72; durata unei note se dă în bătăi, de la 4 (întreagă) la 0,25 (șaisprezecime).](fisiere/imagini/info-5-u6-l6-educatie-muzicala-scratch.svg)
+
 ### Gama Do major la pian
 
 ```

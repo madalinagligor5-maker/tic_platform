@@ -48,6 +48,8 @@ Google îți permite:
 | **ghilimele** „ ” | caută **exact** acel text, întreg | `"O furnică poetă"` găsește poezia Anei Blandiana |
 | semnul `*` | ține locul **oricăror cuvinte** | `software * copii` găsește „software educațional pentru copii” |
 
+![O căutare cu cuvinte-cheie: primele rezultate sunt cele mai relevante, iar semnul -, ghilimelele și * fac căutarea mai precisă.](fisiere/imagini/tic-5-u3-l3-motoare-de-cautare.svg)
+
 ### Descărcare și încărcare
 
 - **Descărcarea (download)**: salvezi **pe calculatorul tău** fișiere găsite pe internet.

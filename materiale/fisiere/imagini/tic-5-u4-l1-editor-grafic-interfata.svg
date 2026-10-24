@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Interfața simplificată a unui editor grafic de tip Paint, cu cele cinci zone numerotate, și diferența dintre 2D și 3D</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="22" font-weight="800">Interfața programului Paint</text>
+
+    <!-- fereastra -->
+    <rect x="30" y="66" width="660" height="440" rx="10" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <!-- titlu + acces rapid -->
+    <rect x="46" y="76" width="16" height="16" rx="3" fill="#3EC6E0"/>
+    <rect x="70" y="76" width="16" height="16" rx="3" fill="#6B6460"/>
+    <rect x="94" y="76" width="16" height="16" rx="3" fill="#6B6460"/>
+    <text x="360" y="90" text-anchor="middle" font-size="14" font-weight="700">Fără titlu – Paint</text>
+    <path d="M590 88h14" stroke="#171416" stroke-width="3"/>
+    <rect x="620" y="78" width="14" height="13" fill="none" stroke="#171416" stroke-width="2.5"/>
+    <path d="M652 78l12 13M664 78l-12 13" stroke="#F21F4B" stroke-width="3"/>
+    <!-- file -->
+    <path d="M33 102h654v28h-654z" fill="#F1E9DF"/>
+    <rect x="40" y="105" width="64" height="25" rx="4" fill="#0E7F96"/>
+    <text x="72" y="122" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">Fișier</text>
+    <rect x="110" y="105" width="74" height="25" rx="4" fill="#FFFFFF"/>
+    <text x="147" y="122" text-anchor="middle" font-size="13" font-weight="800">Pornire</text>
+    <text x="236" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">Vizualizare</text>
+    <!-- panglica -->
+    <path d="M33 130h654v84h-654z" fill="#FFFFFF"/>
+    <g stroke="#E8DFD3" stroke-width="2"><path d="M33 214h654M136 136v70M246 136v70M386 136v70M486 136v70"/></g>
+    <g font-size="13" text-anchor="middle" fill="#6B6460">
+      <text x="85" y="204">Clipboard</text><text x="191" y="204">Imagine</text><text x="316" y="204">Instrumente</text><text x="436" y="204">Forme</text><text x="586" y="204">Culori</text>
+    </g>
+    <rect x="62" y="142" width="46" height="40" rx="5" fill="#F1E9DF"/>
+    <rect x="152" y="144" width="30" height="30" fill="none" stroke="#171416" stroke-width="2" stroke-dasharray="4 3"/>
+    <path d="M206 170l12-26l12 26" fill="none" stroke="#171416" stroke-width="2.5"/>
+    <path d="M262 170l18-22l6 5l-18 22l-8 2z" fill="#F29A1F"/>
+    <path d="M302 152h22l-4 20h-14z" fill="#3EC6E0"/>
+    <text x="346" y="170" text-anchor="middle" font-size="20" font-weight="800">A</text>
+    <rect x="360" y="152" width="18" height="16" rx="3" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2"/>
+    <rect x="400" y="146" width="28" height="20" rx="3" fill="none" stroke="#171416" stroke-width="2.5"/>
+    <circle cx="452" cy="156" r="11" fill="none" stroke="#171416" stroke-width="2.5"/>
+    <path d="M466 168l14-22" stroke="#171416" stroke-width="2.5"/>
+    <rect x="500" y="144" width="26" height="26" rx="3" fill="#F21F4B" stroke="#171416" stroke-width="2"/>
+    <rect x="514" y="158" width="20" height="20" rx="3" fill="#FFFFFF" stroke="#171416" stroke-width="2"/>
+    <g>
+      <rect x="548" y="144" width="14" height="14" rx="2" fill="#171416"/><rect x="566" y="144" width="14" height="14" rx="2" fill="#F21F4B"/><rect x="584" y="144" width="14" height="14" rx="2" fill="#F29A1F"/><rect x="602" y="144" width="14" height="14" rx="2" fill="#14A39A"/><rect x="620" y="144" width="14" height="14" rx="2" fill="#3EC6E0"/><rect x="638" y="144" width="14" height="14" rx="2" fill="#0E7F96"/>
+      <rect x="548" y="162" width="14" height="14" rx="2" fill="#6B6460"/><rect x="566" y="162" width="14" height="14" rx="2" fill="#FDE7EC"/><rect x="584" y="162" width="14" height="14" rx="2" fill="#FFF0DB"/><rect x="602" y="162" width="14" height="14" rx="2" fill="#E0F4F2"/><rect x="620" y="162" width="14" height="14" rx="2" fill="#E2F6FA"/><rect x="638" y="162" width="14" height="14" rx="2" fill="#F1E9DF"/>
+    </g>
+    <!-- suprafața -->
+    <path d="M33 216h654v256h-654z" fill="#F1E9DF"/>
+    <rect x="52" y="230" width="430" height="226" fill="#FFFFFF"/>
+    <rect x="120" y="340" width="120" height="90" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <path d="M108 342l72-58l72 58z" fill="#F21F4B"/>
+    <rect x="166" y="380" width="28" height="50" fill="#F29A1F"/>
+    <circle cx="400" cy="280" r="26" fill="#F29A1F"/>
+    <path d="M300 430h160" stroke="#14A39A" stroke-width="6" stroke-linecap="round"/>
+    <!-- bara de stare -->
+    <path d="M33 472h654v22a10 10 0 0 1-10 10h-634a10 10 0 0 1-10-10z" fill="#F1E9DF"/>
+    <path d="M33 472h654" stroke="#E8DFD3" stroke-width="2"/>
+    <text x="50" y="494" font-size="13" fill="#6B6460">640 × 480 px</text>
+    <text x="470" y="494" font-size="13" font-weight="700">100%</text>
+    <text x="520" y="495" font-size="16" font-weight="800">–</text>
+    <path d="M538 489h100" stroke="#6B6460" stroke-width="3"/><rect x="582" y="481" width="8" height="16" rx="2" fill="#171416"/>
+    <text x="648" y="495" font-size="16" font-weight="800">+</text>
+
+    <!-- numere -->
+    <g font-size="14" font-weight="800" text-anchor="middle" fill="#FFFFFF">
+      <circle cx="132" cy="84" r="12" fill="#C8133A"/><text x="132" y="89">1</text>
+      <circle cx="460" cy="84" r="12" fill="#C8133A"/><text x="460" y="89">2</text>
+      <circle cx="662" cy="118" r="12" fill="#C8133A"/><text x="662" y="123">3</text>
+      <circle cx="520" cy="250" r="14" fill="#C8133A"/><text x="520" y="255">4</text>
+      <circle cx="420" cy="489" r="12" fill="#C8133A"/><text x="420" y="494">5</text>
+    </g>
+
+    <!-- legendă -->
+    <rect x="710" y="66" width="220" height="260" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <g font-size="14">
+      <text x="726" y="98"><tspan font-weight="800" fill="#C8133A">1</tspan>  Bara de acces rapid</text>
+      <text x="726" y="140"><tspan font-weight="800" fill="#C8133A">2</tspan>  Bara de titlu</text>
+      <text x="726" y="182"><tspan font-weight="800" fill="#C8133A">3</tspan>  Panglica, cu file</text>
+      <text x="744" y="202" font-size="13" fill="#6B6460">Fișier, Pornire, Vizualizare</text>
+      <text x="726" y="244"><tspan font-weight="800" fill="#C8133A">4</tspan>  Suprafața de desenare</text>
+      <text x="726" y="286"><tspan font-weight="800" fill="#C8133A">5</tspan>  Bara de stare</text>
+      <text x="744" y="306" font-size="13" fill="#6B6460">panoramare (zoom) + / –</text>
+    </g>
+
+    <!-- 2D / 3D -->
+    <rect x="710" y="342" width="220" height="164" rx="16" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="736" y="372" width="56" height="56" fill="#FFFFFF" stroke="#0E7F96" stroke-width="3"/>
+    <text x="764" y="452" text-anchor="middle" font-size="16" font-weight="800">2D</text>
+    <text x="764" y="472" text-anchor="middle" font-size="13">lățime,</text>
+    <text x="764" y="490" text-anchor="middle" font-size="13">înălțime</text>
+    <path d="M842 382h46v46h-46zM842 382l14-12h46l-14 12M888 428l14-12v-46" fill="#FFFFFF" stroke="#0E7F96" stroke-width="3" stroke-linejoin="round"/>
+    <text x="872" y="452" text-anchor="middle" font-size="16" font-weight="800">3D</text>
+    <text x="872" y="472" text-anchor="middle" font-size="13">+ adâncime</text>
+  </g>
+</svg>

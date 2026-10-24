@@ -50,6 +50,8 @@ Pasul 3: Dacă suma deținută < suma prețurilor,
 Stop
 ```
 
+![Datele de intrare, de manevră și de ieșire la cumpărarea a trei produse și cele trei tipuri de date: numerice, de tip text și logice.](fisiere/imagini/info-5-u5-l4-date-constante-variabile.svg)
+
 ### Constante și variabile
 
 **Exemplu: bancomatul.** Comisionul de retragere este **mereu 5 lei**.

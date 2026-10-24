@@ -41,6 +41,8 @@ Paharul A are suc, paharul B are apă. Vrei să schimbi conținutul între ele. 
 
 Algoritmul este clar, funcționează pentru orice lichide, are **numărul minim de pași (3)** și dă mereu același rezultat.
 
+![Regula celor 3 pahare: cu ajutorul paharului gol C, conținutul paharelor A și B se schimbă în trei pași executați unul după altul.](fisiere/imagini/info-5-u5-l2-algoritmi-secventiali.svg)
+
 ### B. Criptarea unui mesaj
 
 Codificăm literele: a = 01, b = 02, c = 03, d = 04... iar spațiul = 00. Mesajul „da” devine **0401**:

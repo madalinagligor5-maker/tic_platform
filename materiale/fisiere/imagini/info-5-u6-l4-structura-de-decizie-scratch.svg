@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Blocul dacă… atunci… altfel din Scratch, folosit pentru maximul dintre două numere</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Blocul „dacă… atunci… altfel”: maximul a două numere</text>
+
+    <!-- bloc C -->
+    <path d="M50 90h500v54h-460v52h460v36h-460v52h460v34h-500z" fill="#F29A1F"/>
+    <text x="66" y="124" font-size="16" font-weight="800" fill="#FFFFFF">dacă</text>
+    <path d="M130 117L146 100H424L440 117L424 134H146Z" fill="#14A39A"/>
+    <text x="285" y="123" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">(a &gt; b) sau (a = b)</text>
+    <text x="456" y="124" font-size="16" font-weight="800" fill="#FFFFFF">atunci</text>
+    <rect x="90" y="152" width="260" height="36" rx="5" fill="#F21F4B"/>
+    <text x="104" y="176" font-size="15" font-weight="700" fill="#FFFFFF">setează mx la a</text>
+    <text x="66" y="220" font-size="16" font-weight="800" fill="#FFFFFF">altfel</text>
+    <rect x="90" y="240" width="260" height="36" rx="5" fill="#F21F4B"/>
+    <text x="104" y="264" font-size="15" font-weight="700" fill="#FFFFFF">setează mx la b</text>
+    <rect x="50" y="318" width="500" height="38" rx="5" fill="#0E7F96"/>
+    <text x="66" y="343" font-size="15" font-weight="700" fill="#FFFFFF">spune (alătură „Nr. maxim este ” mx)</text>
+
+    <!-- explicații -->
+    <g stroke="#171416" stroke-width="2.5" stroke-dasharray="5 5" fill="none">
+      <path d="M520 112H600"/>
+      <path d="M356 170H600"/>
+      <path d="M356 258H600"/>
+    </g>
+    <rect x="606" y="82" width="324" height="62" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="622" y="108" font-size="15" font-weight="800" fill="#0B6F68">Condiția</text>
+    <text x="622" y="130" font-size="13">în spațiul hexagonal, din Operatori</text>
+    <rect x="606" y="150" width="324" height="62" rx="12" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <text x="622" y="176" font-size="15" font-weight="800" fill="#C8133A">Ramura „atunci”</text>
+    <text x="622" y="198" font-size="13">se execută dacă condiția e adevărată</text>
+    <rect x="606" y="232" width="324" height="62" rx="12" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <text x="622" y="258" font-size="15" font-weight="800" fill="#C8133A">Ramura „altfel”</text>
+    <text x="622" y="280" font-size="13">se execută dacă condiția e falsă</text>
+    <rect x="606" y="306" width="324" height="56" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="622" y="330" font-size="13">În Scratch nu există blocul &gt;=,</text>
+    <text x="622" y="350" font-size="13">de aceea scriem (a &gt; b) sau (a = b).</text>
+
+    <!-- traseul datelor -->
+    <text x="50" y="408" font-size="17" font-weight="800">Traseul datelor</text>
+    <g font-size="15">
+      <rect x="50" y="424" width="270" height="76" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="66" y="452">a = 12, b = 23 → <tspan font-weight="800">Fals</tspan></text>
+      <text x="66" y="480">mx = <tspan font-weight="800" fill="#C8133A">23</tspan></text>
+      <rect x="345" y="424" width="270" height="76" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="361" y="452">a = 33, b = 17 → <tspan font-weight="800">Adevărat</tspan></text>
+      <text x="361" y="480">mx = <tspan font-weight="800" fill="#C8133A">33</tspan></text>
+      <rect x="640" y="424" width="270" height="76" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="656" y="452">a = 34, b = 34 → <tspan font-weight="800">Adevărat</tspan></text>
+      <text x="656" y="480">mx = <tspan font-weight="800" fill="#C8133A">34</tspan></text>
+    </g>
+  </g>
+</svg>

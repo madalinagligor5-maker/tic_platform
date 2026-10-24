@@ -50,6 +50,8 @@ Stop
 
 > Un **algoritm** este o succesiune de operații, într-o ordine bine precizată, prin care rezolvi o problemă sau îndeplinești o sarcină.
 
+![Un algoritm transformă datele de pornire în rezultat prin pași clari, făcuți în ordine; dedesubt sunt cele șase proprietăți ale algoritmilor.](fisiere/imagini/info-5-u5-l1-notiunea-de-algoritm.svg)
+
 ### Proprietățile algoritmilor
 
 1. **Claritatea**: pașii sunt descriși exact, fără să poată fi înțeleși în mai multe feluri (fără **ambiguități**).

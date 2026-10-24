@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Regula celor 3 pahare: interschimbarea conținutului a două pahare în trei pași</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+    <marker id="p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#C8133A"/></marker>
+    <g id="gol"><path d="M0 0h44l-4 70h-36z" fill="#FFFFFF" stroke="#171416" stroke-width="3" stroke-linejoin="round"/></g>
+    <g id="suc"><path d="M0 0h44l-4 70h-36z" fill="#FFFFFF"/><path d="M1.4 22h41.2l-2.9 46h-35.4z" fill="#F29A1F"/><path d="M0 0h44l-4 70h-36z" fill="none" stroke="#171416" stroke-width="3" stroke-linejoin="round"/></g>
+    <g id="apa"><path d="M0 0h44l-4 70h-36z" fill="#FFFFFF"/><path d="M1.4 22h41.2l-2.9 46h-35.4z" fill="#3EC6E0"/><path d="M0 0h44l-4 70h-36z" fill="none" stroke="#171416" stroke-width="3" stroke-linejoin="round"/></g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="56" text-anchor="middle" font-size="22" font-weight="800">Regula celor 3 pahare: pașii se execută unul după altul</text>
+    <text x="480" y="84" text-anchor="middle" font-size="15" fill="#6B6460">Paharul C, gol la început, ne ajută să nu amestecăm lichidele.</text>
+
+    <!-- panou start -->
+    <g transform="translate(34 0)">
+      <rect width="196" height="290" y="110" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="98" y="144" text-anchor="middle" font-size="18" font-weight="800">Start</text>
+      <use href="#suc" x="18" y="190"/><use href="#apa" x="76" y="190"/><use href="#gol" x="134" y="190"/>
+      <g text-anchor="middle"><text x="40" y="286" font-size="16" font-weight="800">A</text><text x="98" y="286" font-size="16" font-weight="800">B</text><text x="156" y="286" font-size="16" font-weight="800">C</text>
+      <text x="40" y="306" font-size="13">suc</text><text x="98" y="306" font-size="13">apă</text><text x="156" y="306" font-size="13">gol</text>
+      <text x="98" y="352" font-size="14" fill="#6B6460">situația inițială</text></g>
+    </g>
+    <!-- pasul 1 -->
+    <g transform="translate(266 0)">
+      <rect width="196" height="290" y="110" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="98" y="144" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">Pasul 1</text>
+      <path d="M40 184Q98 150 152 182" fill="none" stroke="#C8133A" stroke-width="3" marker-end="url(#p)"/>
+      <use href="#gol" x="18" y="190"/><use href="#apa" x="76" y="190"/><use href="#suc" x="134" y="190"/>
+      <g text-anchor="middle"><text x="40" y="286" font-size="16" font-weight="800">A</text><text x="98" y="286" font-size="16" font-weight="800">B</text><text x="156" y="286" font-size="16" font-weight="800">C</text>
+      <text x="40" y="306" font-size="13">gol</text><text x="98" y="306" font-size="13">apă</text><text x="156" y="306" font-size="13">suc</text>
+      <text x="98" y="344" font-size="14">torni în C</text><text x="98" y="364" font-size="14">ce e în A</text></g>
+    </g>
+    <!-- pasul 2 -->
+    <g transform="translate(498 0)">
+      <rect width="196" height="290" y="110" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="98" y="144" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">Pasul 2</text>
+      <path d="M98 184Q70 158 44 182" fill="none" stroke="#C8133A" stroke-width="3" marker-end="url(#p)"/>
+      <use href="#apa" x="18" y="190"/><use href="#gol" x="76" y="190"/><use href="#suc" x="134" y="190"/>
+      <g text-anchor="middle"><text x="40" y="286" font-size="16" font-weight="800">A</text><text x="98" y="286" font-size="16" font-weight="800">B</text><text x="156" y="286" font-size="16" font-weight="800">C</text>
+      <text x="40" y="306" font-size="13">apă</text><text x="98" y="306" font-size="13">gol</text><text x="156" y="306" font-size="13">suc</text>
+      <text x="98" y="344" font-size="14">torni în A</text><text x="98" y="364" font-size="14">ce e în B</text></g>
+    </g>
+    <!-- pasul 3 -->
+    <g transform="translate(730 0)">
+      <rect width="196" height="290" y="110" rx="16" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+      <text x="98" y="144" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">Pasul 3</text>
+      <path d="M156 184Q128 158 102 182" fill="none" stroke="#C8133A" stroke-width="3" marker-end="url(#p)"/>
+      <use href="#apa" x="18" y="190"/><use href="#suc" x="76" y="190"/><use href="#gol" x="134" y="190"/>
+      <g text-anchor="middle"><text x="40" y="286" font-size="16" font-weight="800">A</text><text x="98" y="286" font-size="16" font-weight="800">B</text><text x="156" y="286" font-size="16" font-weight="800">C</text>
+      <text x="40" y="306" font-size="13">apă</text><text x="98" y="306" font-size="13">suc</text><text x="156" y="306" font-size="13">gol</text>
+      <text x="98" y="344" font-size="14">torni în B</text><text x="98" y="364" font-size="14">ce e în C</text></g>
+    </g>
+    <!-- săgeți între panouri -->
+    <g stroke="#171416" stroke-width="3" fill="none">
+      <path d="M233 255H260" marker-end="url(#a)"/>
+      <path d="M465 255H492" marker-end="url(#a)"/>
+      <path d="M697 255H724" marker-end="url(#a)"/>
+    </g>
+
+    <!-- legendă -->
+    <rect x="200" y="436" width="560" height="64" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <rect x="228" y="458" width="20" height="20" rx="4" fill="#F29A1F"/><text x="258" y="474" font-size="15">suc</text>
+    <rect x="318" y="458" width="20" height="20" rx="4" fill="#3EC6E0"/><text x="348" y="474" font-size="15">apă</text>
+    <text x="408" y="474" font-size="15" font-weight="800" fill="#0B6F68">La final: A are apă, B are suc.</text>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Scena Scratch de 480 pe 360 pixeli și coordonatele x și y măsurate față de mijlocul ei</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6B6460"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Scena: un dreptunghi de 480 × 360 pixeli</text>
+
+    <!-- scena -->
+    <rect x="288" y="100" width="384" height="288" rx="6" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <path d="M288 244H672" stroke="#6B6460" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+    <path d="M480 100V388" stroke="#6B6460" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+    <path d="M600 164V244M480 164H600" stroke="#F21F4B" stroke-width="2" stroke-dasharray="6 5" fill="none"/>
+    <circle cx="480" cy="244" r="7" fill="#171416"/>
+    <text x="490" y="268" font-size="14" font-weight="800">(0, 0)</text>
+    <text x="660" y="236" text-anchor="end" font-size="15" font-weight="800" fill="#0E7F96">x</text>
+    <text x="492" y="122" font-size="15" font-weight="800" fill="#0E7F96">y</text>
+    <!-- personaj -->
+    <circle cx="600" cy="164" r="20" fill="#F29A1F"/>
+    <circle cx="593" cy="160" r="3" fill="#171416"/><circle cx="607" cy="160" r="3" fill="#171416"/>
+    <path d="M593 171q7 6 14 0" stroke="#171416" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <rect x="533" y="110" width="134" height="26" rx="8" fill="#FFFFFF" stroke="#F21F4B" stroke-width="2"/>
+    <text x="600" y="128" text-anchor="middle" font-size="14" font-weight="800" fill="#C8133A">x: 150, y: 100</text>
+
+    <!-- etichete margini -->
+    <text x="278" y="250" text-anchor="end" font-size="15" font-weight="700">x = –240</text>
+    <text x="682" y="250" font-size="15" font-weight="700">x = 240</text>
+    <text x="480" y="90" text-anchor="middle" font-size="15" font-weight="700">y = 180</text>
+    <text x="480" y="410" text-anchor="middle" font-size="15" font-weight="700">y = –180</text>
+
+    <!-- explicații -->
+    <rect x="30" y="100" width="170" height="150" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="46" y="128" font-size="15" font-weight="800" fill="#0E7F96">x</text>
+    <text x="64" y="128" font-size="14">pe orizontală</text>
+    <text x="46" y="152" font-size="13" fill="#6B6460">spre dreapta crește</text>
+    <text x="46" y="190" font-size="15" font-weight="800" fill="#0E7F96">y</text>
+    <text x="64" y="190" font-size="14">pe verticală</text>
+    <text x="46" y="214" font-size="13" fill="#6B6460">în sus crește</text>
+
+    <rect x="760" y="100" width="170" height="150" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="776" y="128" font-size="15" font-weight="800">Mijlocul scenei</text>
+    <text x="776" y="156" font-size="14">x = 0</text>
+    <text x="776" y="180" font-size="14">y = 0</text>
+    <text x="776" y="214" font-size="13" fill="#6B6460">de aici se măsoară</text>
+    <text x="776" y="234" font-size="13" fill="#6B6460">pozițiile</text>
+
+    <!-- steag / stop -->
+    <rect x="190" y="440" width="580" height="64" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <path d="M220 460v26" stroke="#0B6F68" stroke-width="3"/><path d="M221 461h18l-5 6l5 6h-18z" fill="#14A39A"/>
+    <text x="252" y="478" font-size="15"><tspan font-weight="800">Steagul verde</tspan> pornește programul</text>
+    <circle cx="560" cy="472" r="11" fill="#F21F4B"/>
+    <text x="580" y="478" font-size="15"><tspan font-weight="800">Bulina roșie</tspan> îl oprește</text>
+  </g>
+</svg>

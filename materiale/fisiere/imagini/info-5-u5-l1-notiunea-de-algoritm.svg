@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Algoritmul pentru prepararea unui ceai și cele șase proprietăți ale unui algoritm</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="22" font-weight="800">Un algoritm: pași clari, într-o ordine stabilită</text>
+
+    <!-- date de pornire -->
+    <rect x="40" y="96" width="200" height="200" rx="16" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="140" y="126" text-anchor="middle" font-size="16" font-weight="800" fill="#0E7F96">Ce avem la început</text>
+    <text x="62" y="164" font-size="15">• 250 ml de apă</text>
+    <text x="62" y="194" font-size="15">• un plic de ceai</text>
+    <text x="62" y="224" font-size="15">• un plic de zahăr</text>
+    <text x="62" y="254" font-size="15">• o cană</text>
+
+    <!-- pașii -->
+    <rect x="410" y="60" width="140" height="32" rx="16" fill="#171416"/>
+    <text x="480" y="81" text-anchor="middle" font-size="15" font-weight="800" fill="#FFF7EE">Start</text>
+    <g font-size="15" text-anchor="middle">
+      <rect x="290" y="108" width="380" height="38" rx="10" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+      <text x="480" y="132"><tspan font-weight="800">Pasul 1:</tspan> Fierbem 250 ml de apă.</text>
+      <rect x="290" y="162" width="380" height="38" rx="10" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+      <text x="480" y="186"><tspan font-weight="800">Pasul 2:</tspan> Punem în cană ceaiul și zahărul.</text>
+      <rect x="290" y="216" width="380" height="38" rx="10" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+      <text x="480" y="240"><tspan font-weight="800">Pasul 3:</tspan> Turnăm apa fierbinte în cană.</text>
+      <rect x="290" y="270" width="380" height="38" rx="10" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+      <text x="480" y="294"><tspan font-weight="800">Pasul 4:</tspan> Amestecăm, așteptăm 4 minute.</text>
+    </g>
+    <rect x="410" y="324" width="140" height="32" rx="16" fill="#171416"/>
+    <text x="480" y="345" text-anchor="middle" font-size="15" font-weight="800" fill="#FFF7EE">Stop</text>
+    <g stroke="#171416" stroke-width="3" fill="none">
+      <path d="M480 92V106" marker-end="url(#a)"/>
+      <path d="M480 146V160" marker-end="url(#a)"/>
+      <path d="M480 200V214" marker-end="url(#a)"/>
+      <path d="M480 254V268" marker-end="url(#a)"/>
+      <path d="M480 308V322" marker-end="url(#a)"/>
+      <path d="M246 200H282" marker-end="url(#b)"/>
+      <path d="M678 200H716" marker-end="url(#b)"/>
+    </g>
+
+    <!-- rezultat -->
+    <path d="M760 150h110l-10 100a14 14 0 0 1-14 12h-62a14 14 0 0 1-14-12z" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <path d="M764 172h102l-7 76a10 10 0 0 1-10 9h-68a10 10 0 0 1-10-9z" fill="#F29A1F"/>
+    <path d="M868 170a22 22 0 0 1 0 44" fill="none" stroke="#F21F4B" stroke-width="5"/>
+    <path d="M790 136c-8-10 8-16 0-28M815 136c-8-10 8-16 0-28M840 136c-8-10 8-16 0-28" fill="none" stroke="#6B6460" stroke-width="3" stroke-linecap="round"/>
+    <text x="815" y="292" text-anchor="middle" font-size="16" font-weight="800" fill="#C8133A">Rezultatul:</text>
+    <text x="815" y="314" text-anchor="middle" font-size="15">ceaiul este gata</text>
+
+    <!-- proprietăți -->
+    <g font-size="13">
+      <rect x="30" y="376" width="290" height="58" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="46" y="400" font-size="15" font-weight="800" fill="#C8133A">1. Claritatea</text>
+      <text x="46" y="422" fill="#6B6460">pași exacți, fără ambiguități</text>
+      <rect x="335" y="376" width="290" height="58" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="351" y="400" font-size="15" font-weight="800" fill="#C8133A">2. Generalitatea</text>
+      <text x="351" y="422" fill="#6B6460">rezolvă o întreagă clasă de probleme</text>
+      <rect x="640" y="376" width="290" height="58" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="656" y="400" font-size="15" font-weight="800" fill="#C8133A">3. Finitudinea</text>
+      <text x="656" y="422" fill="#6B6460">se termină după un număr finit de pași</text>
+      <rect x="30" y="446" width="290" height="58" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="46" y="470" font-size="15" font-weight="800" fill="#C8133A">4. Succesiunea determinată</text>
+      <text x="46" y="492" fill="#6B6460">pașii se execută în ordinea dată</text>
+      <rect x="335" y="446" width="290" height="58" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="351" y="470" font-size="15" font-weight="800" fill="#C8133A">5. Unicitatea</text>
+      <text x="351" y="492" fill="#6B6460">aceleași date dau același rezultat</text>
+      <rect x="640" y="446" width="290" height="58" rx="12" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="656" y="470" font-size="15" font-weight="800" fill="#C8133A">6. Eficiența</text>
+      <text x="656" y="492" fill="#6B6460">cât mai puțini pași</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Internetul ca rețea de rețele de calculatoare și cele cinci servicii importante ale lui</title>
+  <defs>
+    <g id="pc"><rect x="0" y="0" width="30" height="22" rx="3" fill="#FFFFFF" stroke="#171416" stroke-width="2.5"/><path d="M15 22v6M7 29h16" stroke="#171416" stroke-width="2.5" stroke-linecap="round"/></g>
+    <g id="net">
+      <rect width="160" height="80" rx="14" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+      <path d="M35 34H125" stroke="#14A39A" stroke-width="3"/>
+      <use href="#pc" x="20" y="20"/><use href="#pc" x="65" y="20"/><use href="#pc" x="110" y="20"/>
+    </g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Internetul: o rețea de rețele și serviciile lui</text>
+
+    <!-- legături -->
+    <g stroke="#14A39A" stroke-width="4" stroke-linecap="round">
+      <path d="M200 150L232 240M360 150L328 240M280 400V364"/>
+    </g>
+    <use href="#net" x="40" y="90"/>
+    <use href="#net" x="360" y="90"/>
+    <use href="#net" x="200" y="400"/>
+    <text x="120" y="194" text-anchor="middle" font-size="13" fill="#0B6F68" font-weight="700">rețea de calculatoare</text>
+    <text x="440" y="194" text-anchor="middle" font-size="13" fill="#0B6F68" font-weight="700">rețea de calculatoare</text>
+    <text x="280" y="504" text-anchor="middle" font-size="13" fill="#0B6F68" font-weight="700">rețea de calculatoare</text>
+
+    <!-- glob -->
+    <circle cx="280" cy="292" r="72" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <ellipse cx="280" cy="292" rx="32" ry="72" fill="none" stroke="#3EC6E0" stroke-width="2"/>
+    <path d="M212 268h136M212 316h136" stroke="#3EC6E0" stroke-width="2"/>
+    <rect x="216" y="270" width="128" height="44" rx="10" fill="#FFFFFF"/>
+    <text x="280" y="289" text-anchor="middle" font-size="16" font-weight="800" fill="#0E7F96">Internetul</text>
+    <text x="280" y="307" text-anchor="middle" font-size="13">standard TCP/IP</text>
+
+    <!-- servicii -->
+    <g font-size="13">
+      <rect x="540" y="72" width="380" height="74" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <circle cx="580" cy="109" r="22" fill="#FDE7EC"/>
+      <rect x="566" y="99" width="28" height="20" rx="3" fill="#FFFFFF" stroke="#C8133A" stroke-width="2.5"/><path d="M566 100l14 10l14-10" fill="none" stroke="#C8133A" stroke-width="2.5"/>
+      <text x="616" y="104" font-size="16" font-weight="800">E-mail</text>
+      <text x="616" y="126">poșta electronică: mesaje oriunde în lume</text>
+
+      <rect x="540" y="156" width="380" height="74" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <circle cx="580" cy="193" r="22" fill="#E2F6FA"/>
+      <circle cx="580" cy="193" r="13" fill="none" stroke="#0E7F96" stroke-width="2.5"/><path d="M567 193h26M580 180c-7 8-7 18 0 26M580 180c7 8 7 18 0 26" fill="none" stroke="#0E7F96" stroke-width="2"/>
+      <text x="616" y="188" font-size="16" font-weight="800">WWW (web)</text>
+      <text x="616" y="210">documente legate între ele</text>
+
+      <rect x="540" y="240" width="380" height="74" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <circle cx="580" cy="277" r="22" fill="#E0F4F2"/>
+      <path d="M573 288v-20M567 274l6-7l6 7M587 266v20M581 280l6 7l6-7" fill="none" stroke="#0B6F68" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="616" y="272" font-size="16" font-weight="800">FTP</text>
+      <text x="616" y="294">transferul de fișiere între calculatoare</text>
+
+      <rect x="540" y="324" width="380" height="74" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <circle cx="580" cy="361" r="22" fill="#FFF0DB"/>
+      <use href="#pc" x="565" y="347"/>
+      <text x="616" y="356" font-size="16" font-weight="800">Telnet</text>
+      <text x="616" y="378">folosești un calculator aflat la distanță</text>
+
+      <rect x="540" y="408" width="380" height="74" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <circle cx="580" cy="445" r="22" fill="#F1E9DF"/>
+      <path d="M568 435h24a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-14l-7 6v-6h-3a3 3 0 0 1-3-3v-12a3 3 0 0 1 3-3z" fill="#FFFFFF" stroke="#171416" stroke-width="2.5" stroke-linejoin="round"/>
+      <text x="616" y="440" font-size="16" font-weight="800">IRC (chat)</text>
+      <text x="616" y="462">mesaje în timp real</text>
+    </g>
+    <text x="730" y="510" text-anchor="middle" font-size="13" fill="#6B6460">1969: ARPANET, prima rețea · 1971: primul e-mail</text>
+  </g>
+</svg>
