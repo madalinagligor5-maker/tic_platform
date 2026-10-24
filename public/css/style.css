@@ -1170,3 +1170,8 @@ body:has(.lab-ecran) { overflow: hidden; }
 .prose figure.fig { margin: 1.6em 0; padding: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; text-align: center; }
 .prose figure.fig img { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; border-radius: 10px; }
 .prose figure.fig figcaption { margin-top: 10px; font-size: .88rem; color: var(--muted); line-height: 1.4; }
+/* Textul de cod din paragrafe (de exemplu adrese lungi) se rupe pe rânduri pe ecranele mici. */
+.prose :not(pre) > code { overflow-wrap: anywhere; }
+.prose pre { max-width: 100%; overflow-x: auto; }
+.prose figure.fig a { display: block; cursor: zoom-in; }
+@media (max-width: 600px) { .prose figure.fig { padding: 6px; margin-inline: -8px; } .prose figure.fig figcaption { padding: 0 6px 4px; } }
