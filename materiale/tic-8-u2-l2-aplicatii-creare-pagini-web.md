@@ -49,6 +49,8 @@ Intri în Google Drive → **+ Nou → Mai multe → Google Sites** (sau sites.g
    - **Pagini**: lista paginilor; butonul **+** adaugă o pagină nouă sau o subpagină;
    - **Teme**: culori și fonturi pentru tot site-ul.
 
+![Interfața unui constructor de site-uri (bara de sus, pagina, panoul Inserare/Pagini/Teme) și comparația dintre scrierea codului și editarea WYSIWYG.](fisiere/imagini/tic-8-u2-l2-aplicatii-creare-pagini-web.svg)
+
 ### Facilități
 
 - **șabloane** și **teme**: aspect unitar, profesionist;

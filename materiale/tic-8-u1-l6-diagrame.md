@@ -37,6 +37,8 @@ O **diagramă** (*grafic*) arată datele **vizual**: compari mai ușor valorile 
 | **Radială** (*plăcintă*) | părțile unui întreg (procente) | cum îți împarți ziua |
 | **Prin puncte** (XY) | legătura dintre două mărimi | înălțime și greutate |
 
+![Cinci tipuri de diagrame și când le folosești: coloană și bară pentru comparații, linie pentru evoluție în timp, radială pentru părți, XY pentru legături.](fisiere/imagini/tic-8-u1-l6-diagrame.svg)
+
 ### Inserarea unei diagrame
 
 1. Selectezi datele, **împreună cu capul de tabel** (etichetele).

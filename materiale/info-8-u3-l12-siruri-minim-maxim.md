@@ -109,6 +109,8 @@ int main()
 
 Pentru `6` și `72 85 64 91 88 91`: cel mai bun **91 (concursul 4)**, cel mai slab **64**, diferența **27**.
 
+![Punctajele 72 85 64 91 88 91: maximul și minimul pornesc de la primul element și se schimbă doar când apare un „campion” nou.](fisiere/imagini/info-8-u3-l12-siruri-minim-maxim.svg)
+
 ## Aplicații interactive
 
 ```quiz

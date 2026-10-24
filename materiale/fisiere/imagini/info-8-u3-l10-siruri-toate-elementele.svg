@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="t">
+  <title id="t">Variabila-indicator ok: un singur contraexemplu arată că nu toate elementele au proprietatea</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="560" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="50" text-anchor="middle" font-size="22" font-weight="800">Sunt toate notele de trecere?</text>
+    <text x="40" y="112" font-size="16" font-weight="800">nota</text>
+    <text x="40" y="168" font-size="14" font-weight="700">nota &gt;= 5?</text>
+    <text x="40" y="250" font-size="16" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">ok</text>
+    <rect x="176" y="226" width="92" height="40" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="222" y="252" text-anchor="middle" font-size="15" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">ok=1</text>
+    <text x="222" y="212" text-anchor="middle" font-size="13" fill="#6B6460">la început</text>
+    <rect x="300" y="86" width="64" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="332" y="115" text-anchor="middle" font-size="18" font-weight="800">7</text>
+    <circle cx="332" cy="163" r="15" fill="#14A39A"/><path d="M325 163 l5 5 l10 -11" stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M268 246 H298" stroke="#171416" stroke-width="2" marker-end="url(#sag)"/>
+    <rect x="304" y="226" width="56" height="40" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="332" y="252" text-anchor="middle" font-size="16" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">1</text>
+    <rect x="420" y="86" width="64" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="452" y="115" text-anchor="middle" font-size="18" font-weight="800">9</text>
+    <circle cx="452" cy="163" r="15" fill="#14A39A"/><path d="M445 163 l5 5 l10 -11" stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M360 246 H418" stroke="#171416" stroke-width="2" marker-end="url(#sag)"/>
+    <rect x="424" y="226" width="56" height="40" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="452" y="252" text-anchor="middle" font-size="16" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">1</text>
+    <rect x="540" y="86" width="64" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="572" y="115" text-anchor="middle" font-size="18" font-weight="800">4</text>
+    <circle cx="572" cy="163" r="15" fill="#F21F4B"/><path d="M567 158 l10 10 M577 158 l-10 10" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <path d="M480 246 H538" stroke="#171416" stroke-width="2" marker-end="url(#sag)"/>
+    <rect x="544" y="226" width="56" height="40" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="572" y="252" text-anchor="middle" font-size="16" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">0</text>
+    <rect x="660" y="86" width="64" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="692" y="115" text-anchor="middle" font-size="18" font-weight="800">10</text>
+    <circle cx="692" cy="163" r="15" fill="#14A39A"/><path d="M685 163 l5 5 l10 -11" stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M600 246 H658" stroke="#171416" stroke-width="2" marker-end="url(#sag)"/>
+    <rect x="664" y="226" width="56" height="40" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="692" y="252" text-anchor="middle" font-size="16" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">0</text>
+    <rect x="780" y="86" width="64" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="812" y="115" text-anchor="middle" font-size="18" font-weight="800">3</text>
+    <circle cx="812" cy="163" r="15" fill="#F21F4B"/><path d="M807 158 l10 10 M817 158 l-10 10" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <path d="M720 246 H778" stroke="#171416" stroke-width="2" marker-end="url(#sag)"/>
+    <rect x="784" y="226" width="56" height="40" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="812" y="252" text-anchor="middle" font-size="16" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">0</text>
+    <text x="572" y="296" text-anchor="middle" font-size="14" font-weight="800" fill="#C8133A">contraexemplu: 4 &lt; 5</text>
+    <text x="572" y="314" text-anchor="middle" font-size="13" fill="#C8133A">ok devine 0</text>
+    <text x="762" y="296" text-anchor="middle" font-size="14" font-weight="700" fill="#6B6460">ok rămâne 0</text><text x="762" y="314" text-anchor="middle" font-size="13" fill="#6B6460">până la final</text>
+    <text x="480" y="350" text-anchor="middle" font-size="16" font-weight="800">La final ok = 0, deci răspunsul este NU.</text>
+
+    <rect x="30" y="378" width="440" height="150" rx="16" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="250" y="412" text-anchor="middle" font-size="17" font-weight="800" fill="#0B6F68">„Toate” au proprietatea?</text>
+    <text x="54" y="448" font-size="15">pornești cu <tspan font-weight="800" font-family="JetBrains Mono, Consolas, monospace">ok = 1</tspan></text>
+    <text x="54" y="478" font-size="15">găsești un element care NU o are</text>
+    <text x="54" y="504" font-size="15">→ <tspan font-weight="800" font-family="JetBrains Mono, Consolas, monospace">ok = 0</tspan></text>
+
+    <rect x="490" y="378" width="440" height="150" rx="16" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="710" y="412" text-anchor="middle" font-size="17" font-weight="800" fill="#0E7F96">„Cel puțin unul” o are?</text>
+    <text x="514" y="448" font-size="15">pornești cu <tspan font-weight="800" font-family="JetBrains Mono, Consolas, monospace">gasit = 0</tspan></text>
+    <text x="514" y="478" font-size="15">găsești un element care O ARE</text>
+    <text x="514" y="504" font-size="15">→ <tspan font-weight="800" font-family="JetBrains Mono, Consolas, monospace">gasit = 1</tspan></text>
+  </g>
+</svg>

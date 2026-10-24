@@ -49,6 +49,8 @@ repetă la nesfârșit
 
 Așa funcționează, în mare, un **robot aspirator**: merge până întâlnește ceva, apoi își schimbă direcția.
 
+![Robotul repetă ciclul percepe – decide – acționează; la ocolirea obstacolelor, dacă distanța din față e sub 100 mm, se rotește la dreapta.](fisiere/imagini/info-8-u3-l3-algoritmi-robotica.svg)
+
 ### Algoritmul 2: urmărirea unei linii (un senzor)
 
 Robotul merge pe **marginea** unei linii negre. Senzorul de culoare (sau de lumină) de sub el vede **negru** sau **alb**:

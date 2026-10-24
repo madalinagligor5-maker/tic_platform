@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Etapele creării și publicării unei pagini web: planifici, construiești, verifici, publici</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="22" font-weight="800">De la idee la pagina publicată</text>
+    <rect x="30" y="70" width="210" height="300" rx="16" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <circle cx="58" cy="98" r="15" fill="#3EC6E0"/><text x="58" y="104" text-anchor="middle" font-size="16" font-weight="800" fill="#FFFFFF">1</text>
+    <rect x="50" y="124" width="170" height="110" rx="10" fill="#E2F6FA"/>
+    <text x="135" y="268" text-anchor="middle" font-size="18" font-weight="800" fill="#0E7F96">Planifici</text>
+    <text x="135" y="296" text-anchor="middle" font-size="13">scop și public</text>
+    <text x="135" y="316" text-anchor="middle" font-size="13">conținut: 3–4 secțiuni</text>
+    <text x="135" y="336" text-anchor="middle" font-size="13">schiță pe hârtie</text>
+    <path d="M242 180 H256" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="260" y="70" width="210" height="300" rx="16" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="288" cy="98" r="15" fill="#14A39A"/><text x="288" y="104" text-anchor="middle" font-size="16" font-weight="800" fill="#FFFFFF">2</text>
+    <rect x="280" y="124" width="170" height="110" rx="10" fill="#E0F4F2"/>
+    <text x="365" y="268" text-anchor="middle" font-size="18" font-weight="800" fill="#0B6F68">Construiești</text>
+    <text x="365" y="296" text-anchor="middle" font-size="13">antet, casete text</text>
+    <text x="365" y="316" text-anchor="middle" font-size="13">imagini, aspecte</text>
+    <text x="365" y="336" text-anchor="middle" font-size="13">butoane și legături</text>
+    <path d="M472 180 H486" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="490" y="70" width="210" height="300" rx="16" fill="#FFFFFF" stroke="#F29A1F" stroke-width="3"/>
+    <circle cx="518" cy="98" r="15" fill="#F29A1F"/><text x="518" y="104" text-anchor="middle" font-size="16" font-weight="800" fill="#FFFFFF">3</text>
+    <rect x="510" y="124" width="170" height="110" rx="10" fill="#FFF0DB"/>
+    <text x="595" y="268" text-anchor="middle" font-size="18" font-weight="800" fill="#171416">Verifici</text>
+    <text x="595" y="296" text-anchor="middle" font-size="13">Previzualizare pe</text>
+    <text x="595" y="316" text-anchor="middle" font-size="13">calculator, tabletă, telefon</text>
+    <text x="595" y="336" text-anchor="middle" font-size="13">dai clic pe legături</text>
+    <path d="M702 180 H716" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="720" y="70" width="210" height="300" rx="16" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="748" cy="98" r="15" fill="#F21F4B"/><text x="748" y="104" text-anchor="middle" font-size="16" font-weight="800" fill="#FFFFFF">4</text>
+    <rect x="740" y="124" width="170" height="110" rx="10" fill="#FDE7EC"/>
+    <text x="825" y="268" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">Publici</text>
+    <text x="825" y="296" text-anchor="middle" font-size="13">alegi adresa web</text>
+    <text x="825" y="316" text-anchor="middle" font-size="13">și cine vede site-ul</text>
+    <text x="825" y="336" text-anchor="middle" font-size="13">apoi copiezi linkul</text>
+    <rect x="80" y="134" width="80" height="92" rx="4" fill="#FFFFFF" stroke="#0E7F96" stroke-width="2.5"/><rect x="88" y="142" width="64" height="16" rx="2" fill="#3EC6E0"/><rect x="88" y="164" width="28" height="22" rx="2" fill="none" stroke="#0E7F96" stroke-width="2"/><path d="M122 168 h28 M122 178 h22 M88 196 h62 M88 206 h50" stroke="#0E7F96" stroke-width="2"/>
+    <path d="M168 214 l14 -40 l8 3 l-14 40z" fill="#F29A1F"/><path d="M168 214 l2 8 l6 -5z" fill="#171416"/>
+    <rect x="290" y="134" width="90" height="92" rx="4" fill="#FFFFFF" stroke="#0B6F68" stroke-width="2.5"/><rect x="298" y="142" width="74" height="22" rx="2" fill="#14A39A"/><rect x="298" y="170" width="34" height="24" rx="2" fill="#E0F4F2" stroke="#14A39A" stroke-width="2"/><path d="M338 176 h34 M338 186 h28" stroke="#14A39A" stroke-width="3"/><rect x="316" y="202" width="38" height="14" rx="7" fill="#0B6F68"/>
+    <rect x="392" y="168" width="34" height="24" rx="3" fill="#14A39A" opacity="0.9"/><path d="M390 180 h-4" stroke="#0B6F68" stroke-width="2"/>
+    <g transform="translate(26,0)">
+    <rect x="490" y="140" width="84" height="56" rx="4" fill="#FFFFFF" stroke="#171416" stroke-width="2.5"/><path d="M520 196 v10 h24 v-10 M512 210 h40" stroke="#171416" stroke-width="2.5" fill="none"/>
+    <rect x="584" y="150" width="40" height="56" rx="5" fill="#FFFFFF" stroke="#171416" stroke-width="2.5"/><rect x="630" y="168" width="20" height="40" rx="4" fill="#FFFFFF" stroke="#171416" stroke-width="2.5"/>
+    <path d="M550 222 q14 -10 28 0 q-14 10 -28 0z" fill="none" stroke="#F29A1F" stroke-width="2.5"/><circle cx="564" cy="222" r="3.5" fill="#F29A1F"/>
+    </g>
+    <g transform="translate(30,0)">
+    <circle cx="795" cy="166" r="30" fill="#FFFFFF" stroke="#C8133A" stroke-width="2.5"/><ellipse cx="795" cy="166" rx="13" ry="30" fill="none" stroke="#C8133A" stroke-width="2"/><path d="M765 166 h60 M770 151 h50 M770 181 h50" stroke="#C8133A" stroke-width="2"/>
+    <text x="795" y="214" text-anchor="middle" font-size="12" font-family="JetBrains Mono, Consolas, monospace">sites.google.com/view/</text><text x="795" y="228" text-anchor="middle" font-size="12" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">castelul-bran-8a</text>
+    </g>
+    <path d="M825 372 V390 H595 V376" stroke="#C8133A" stroke-width="2.5" fill="none" stroke-dasharray="6 5" marker-end="url(#sag)"/>
+    <text x="710" y="410" text-anchor="middle" font-size="13" font-weight="700" fill="#C8133A">Ai modificat ceva? Verifici și apeși din nou Publicați.</text>
+    <rect x="30" y="428" width="440" height="82" rx="14" fill="#FFF0DB"/>
+    <text x="50" y="456" font-size="15" font-weight="800">Drepturi de autor</text><text x="50" y="478" font-size="13">imagini proprii sau libere de drepturi,</text><text x="50" y="496" font-size="13">cu sursa scrisă; citatele între ghilimele</text>
+    <rect x="490" y="428" width="440" height="82" rx="14" fill="#E0F4F2"/>
+    <text x="510" y="456" font-size="15" font-weight="800">Siguranță</text><text x="510" y="478" font-size="13">nu publici adresa, telefonul sau fotografii</text><text x="510" y="496" font-size="13">cu colegii fără acordul lor</text>
+  </g>
+</svg>

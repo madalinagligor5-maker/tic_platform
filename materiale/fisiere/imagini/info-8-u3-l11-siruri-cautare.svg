@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Căutarea secvențială a valorii 4 în șirul 3 4 8 4 1 4 9: prima și ultima apariție, numărul de apariții</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="48" text-anchor="middle" font-size="22" font-weight="800">Căutarea secvențială</text>
+    <rect x="36" y="126" width="112" height="52" rx="12" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="92" y="159" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">v = 4</text>
+    <path d="M200 98 H862" stroke="#6B6460" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#sag)"/>
+    <text x="531" y="86" text-anchor="middle" font-size="14" font-weight="700" fill="#6B6460">compari fiecare element cu v, pe rând, de la primul</text>
+    <rect x="200" y="126" width="70" height="52" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="235" y="160" text-anchor="middle" font-size="20" font-weight="800" fill="#171416">3</text><text x="235" y="200" text-anchor="middle" font-size="13" fill="#6B6460">poz. 1</text>
+    <rect x="300" y="126" width="70" height="52" rx="12" fill="#14A39A" stroke="#0B6F68" stroke-width="3"/><text x="335" y="160" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">4</text><text x="335" y="200" text-anchor="middle" font-size="13" fill="#6B6460">poz. 2</text>
+    <text x="335" y="226" text-anchor="middle" font-size="14" font-weight="800" fill="#0B6F68">găsit</text>
+    <rect x="400" y="126" width="70" height="52" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="435" y="160" text-anchor="middle" font-size="20" font-weight="800" fill="#171416">8</text><text x="435" y="200" text-anchor="middle" font-size="13" fill="#6B6460">poz. 3</text>
+    <rect x="500" y="126" width="70" height="52" rx="12" fill="#14A39A" stroke="#0B6F68" stroke-width="3"/><text x="535" y="160" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">4</text><text x="535" y="200" text-anchor="middle" font-size="13" fill="#6B6460">poz. 4</text>
+    <text x="535" y="226" text-anchor="middle" font-size="14" font-weight="800" fill="#0B6F68">găsit</text>
+    <rect x="600" y="126" width="70" height="52" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="635" y="160" text-anchor="middle" font-size="20" font-weight="800" fill="#171416">1</text><text x="635" y="200" text-anchor="middle" font-size="13" fill="#6B6460">poz. 5</text>
+    <rect x="700" y="126" width="70" height="52" rx="12" fill="#14A39A" stroke="#0B6F68" stroke-width="3"/><text x="735" y="160" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">4</text><text x="735" y="200" text-anchor="middle" font-size="13" fill="#6B6460">poz. 6</text>
+    <text x="735" y="226" text-anchor="middle" font-size="14" font-weight="800" fill="#0B6F68">găsit</text>
+    <rect x="800" y="126" width="70" height="52" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="835" y="160" text-anchor="middle" font-size="20" font-weight="800" fill="#171416">9</text><text x="835" y="200" text-anchor="middle" font-size="13" fill="#6B6460">poz. 7</text>
+    <path d="M335 290 V242" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="245" y="294" width="180" height="46" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="335" y="323" text-anchor="middle" font-size="16" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">prima = 2</text>
+    <path d="M735 290 V242" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="645" y="294" width="180" height="46" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="735" y="323" text-anchor="middle" font-size="16" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">ultima = 6</text>
+    <rect x="455" y="294" width="160" height="46" rx="12" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="535" y="323" text-anchor="middle" font-size="16" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">k = 3</text>
+    <rect x="30" y="368" width="900" height="136" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="56" y="404" font-size="15" font-weight="800">prima apariție</text><text x="270" y="404" font-size="15" font-family="JetBrains Mono, Consolas, monospace">if (x == v &amp;&amp; poz == 0) poz = i;</text>
+    <text x="56" y="440" font-size="15" font-weight="800">ultima apariție</text><text x="270" y="440" font-size="15" font-family="JetBrains Mono, Consolas, monospace">if (x == v) poz = i;</text>
+    <text x="56" y="476" font-size="15" font-weight="800">numărul de apariții</text><text x="270" y="476" font-size="15" font-family="JetBrains Mono, Consolas, monospace">if (x == v) k++;</text>
+  </g>
+</svg>

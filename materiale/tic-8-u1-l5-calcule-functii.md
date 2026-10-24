@@ -51,6 +51,8 @@ O **funcție** este o formulă gata făcută, cu un **nume** și **argumente** �
 
 Exemplu: `=IF(E2>=5;"Promovat";"Corigent")`. Textele se scriu între **ghilimele**. Condiția folosește `=`, `<>` (diferit), `<`, `<=`, `>`, `>=`.
 
+![O funcție are nume și argumente între paranteze: SUM primește o zonă, iar IF primește o condiție și două valori, despărțite prin punct și virgulă.](fisiere/imagini/tic-8-u1-l5-calcule-functii.svg)
+
 ### Cum inserezi o funcție
 
 - butonul **AutoSum** (Σ, din **Pornire** sau **Formule**): Excel propune singur zona; săgeata de lângă el oferă **Medie**, **Contorizare numere**, **Max**, **Min**;

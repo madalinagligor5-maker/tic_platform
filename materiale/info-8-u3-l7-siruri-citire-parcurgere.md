@@ -109,6 +109,8 @@ int main()
 
 Pentru `5` și `12 15 15 9 11`: Ziua 2: **3**, Ziua 3: **0**, Ziua 4: **-6**, Ziua 5: **2**.
 
+![Cele două moduri de citire a unui șir (cu n dat sau până la santinela 0) și diferențele de temperatură calculate cu elementul anterior ant.](fisiere/imagini/info-8-u3-l7-siruri-citire-parcurgere.svg)
+
 ## Aplicații interactive
 
 ```categorii

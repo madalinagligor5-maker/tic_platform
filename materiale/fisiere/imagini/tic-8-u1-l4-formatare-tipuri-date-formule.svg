@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Formulele copiate în jos: adresele relative se schimbă, adresa absolută $F$1 rămâne fixă</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Copierea formulelor: adrese relative și absolute</text>
+    <rect x="46" y="96" width="646" height="236" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="2"/>
+    <rect x="46" y="96" width="646" height="26" fill="#F1E9DF"/>
+    <rect x="46" y="96" width="36" height="236" fill="#F1E9DF"/>
+    <path d="M82 96V332 M186 96V332 M266 96V332 M362 96V332 M482 96V332 M622 96V332 M46 122H692 M46 164H692 M46 206H692 M46 248H692 M46 290H692 M46 332H692" stroke="#E8DFD3" stroke-width="1.5"/>
+    <text x="134" y="114" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">A</text>
+    <text x="226" y="114" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">B</text>
+    <text x="314" y="114" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">C</text>
+    <text x="422" y="114" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">D</text>
+    <text x="552" y="114" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">E</text>
+    <text x="657" y="114" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">F</text>
+    <text x="64" y="148" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">1</text>
+    <text x="64" y="190" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">2</text>
+    <text x="64" y="232" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">3</text>
+    <text x="64" y="274" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">4</text>
+    <text x="64" y="316" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">5</text>
+    <text x="90" y="148" text-anchor="start" font-size="14" font-weight="800">Produs</text>
+    <text x="194" y="148" text-anchor="start" font-size="14" font-weight="800">Preț</text>
+    <text x="274" y="148" text-anchor="start" font-size="14" font-weight="800">Cantitate</text>
+    <text x="370" y="148" text-anchor="start" font-size="14" font-weight="800">Valoare</text>
+    <text x="490" y="148" text-anchor="start" font-size="14" font-weight="800">TVA</text>
+    <text x="684" y="148" text-anchor="end" font-size="14" font-weight="800">21%</text>
+    <text x="90" y="190" text-anchor="start" font-size="14" >Caiet</text>
+    <text x="258" y="190" text-anchor="end" font-size="14" >4,50</text>
+    <text x="354" y="190" text-anchor="end" font-size="14" >10</text>
+    <text x="90" y="232" text-anchor="start" font-size="14" >Pix</text>
+    <text x="258" y="232" text-anchor="end" font-size="14" >2,00</text>
+    <text x="354" y="232" text-anchor="end" font-size="14" >5</text>
+    <text x="90" y="274" text-anchor="start" font-size="14" >Rucsac</text>
+    <text x="258" y="274" text-anchor="end" font-size="14" >120,00</text>
+    <text x="354" y="274" text-anchor="end" font-size="14" >1</text>
+    <text x="370" y="190" text-anchor="start" font-size="14" font-family="JetBrains Mono, Consolas, monospace">=B<tspan fill="#0B6F68" font-weight="800">2</tspan>*C<tspan fill="#0B6F68" font-weight="800">2</tspan></text>
+    <text x="490" y="190" text-anchor="start" font-size="14" font-family="JetBrains Mono, Consolas, monospace">=D<tspan fill="#0B6F68" font-weight="800">2</tspan>*<tspan fill="#C8133A" font-weight="800">$F$1</tspan></text>
+    <text x="370" y="232" text-anchor="start" font-size="14" font-family="JetBrains Mono, Consolas, monospace">=B<tspan fill="#0B6F68" font-weight="800">3</tspan>*C<tspan fill="#0B6F68" font-weight="800">3</tspan></text>
+    <text x="490" y="232" text-anchor="start" font-size="14" font-family="JetBrains Mono, Consolas, monospace">=D<tspan fill="#0B6F68" font-weight="800">3</tspan>*<tspan fill="#C8133A" font-weight="800">$F$1</tspan></text>
+    <text x="370" y="274" text-anchor="start" font-size="14" font-family="JetBrains Mono, Consolas, monospace">=B<tspan fill="#0B6F68" font-weight="800">4</tspan>*C<tspan fill="#0B6F68" font-weight="800">4</tspan></text>
+    <text x="490" y="274" text-anchor="start" font-size="14" font-family="JetBrains Mono, Consolas, monospace">=D<tspan fill="#0B6F68" font-weight="800">4</tspan>*<tspan fill="#C8133A" font-weight="800">$F$1</tspan></text>
+    <rect x="622" y="122" width="70" height="42" fill="none" stroke="#F21F4B" stroke-width="3"/>
+    <path d="M730 160 V292" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="750" y="214" font-size="15" font-weight="800">copiere în jos</text><text x="750" y="234" font-size="13" fill="#6B6460">cu mânerul</text><text x="750" y="252" font-size="13" fill="#6B6460">de umplere</text>
+    <text x="46" y="380" font-size="14" fill="#6B6460">Scrii formula în D2 și E2, apoi o tragi cu mânerul de umplere până la rândul 4.</text>
+    <rect x="46" y="404" width="420" height="104" rx="14" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="66" y="434" font-size="17" font-weight="800" fill="#0B6F68">Adresă relativă: B2, C2</text>
+    <text x="66" y="460" font-size="14">se adaptează rândului: =B2*C2 devine</text>
+    <text x="66" y="484" font-size="14">=B3*C3, apoi =B4*C4</text>
+    <rect x="490" y="404" width="424" height="104" rx="14" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="510" y="434" font-size="17" font-weight="800" fill="#C8133A">Adresă absolută: $F$1</text>
+    <text x="510" y="460" font-size="14">rămâne fixă la copiere (cota de TVA);</text>
+    <text x="510" y="484" font-size="14">tasta F4 adaugă semnele $ automat</text>
+  </g>
+</svg>

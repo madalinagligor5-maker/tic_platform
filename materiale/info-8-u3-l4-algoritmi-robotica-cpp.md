@@ -54,6 +54,8 @@ Un robot real nu se mută „spre nord” direct, ci se **rotește** și merge *
 
 Operatorul `%` face ca după vest (3) să urmeze din nou nordul (0).
 
+![Drumul robotului pe grilă pentru comenzile 1 1 2 2 2 3, de la (0, 0) la (3, 1), și codificarea direcției dir cu rotiri calculate cu % 4.](fisiere/imagini/info-8-u3-l4-algoritmi-robotica-cpp.svg)
+
 ### Marginile și bateria
 
 Terenul are o mărime, de exemplu de la 0 la 9 pe fiecare axă. Înainte de mutare verificăm că robotul **nu iese** de pe teren. Fiecare pas consumă **baterie**; când bateria se termină, robotul se oprește.

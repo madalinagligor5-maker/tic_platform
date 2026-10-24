@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="t">
+  <title id="t">Părțile unei adrese URL, zonele unei pagini web și drumul paginii de la server la browser</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="600" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="22" font-weight="800">Adresa URL și structura unei pagini web</text>
+    <rect x="237" y="68" width="112" height="40" rx="8" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="293" y="94" text-anchor="middle" font-size="19" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">https://</text>
+    <text x="293" y="132" text-anchor="middle" font-size="15" font-weight="800" fill="#C8133A">protocolul</text>
+    <text x="293" y="150" text-anchor="middle" font-size="13" fill="#6B6460">s = securizat</text>
+    <rect x="355" y="68" width="181" height="40" rx="8" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="445.5" y="94" text-anchor="middle" font-size="19" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">www.exemplu.ro</text>
+    <text x="445.5" y="132" text-anchor="middle" font-size="15" font-weight="800" fill="#0E7F96">domeniul</text>
+    <rect x="542" y="68" width="181" height="40" rx="8" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="632.5" y="94" text-anchor="middle" font-size="19" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">/clase/a8.html</text>
+    <text x="632.5" y="132" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">calea</text>
+    <text x="632.5" y="150" text-anchor="middle" font-size="13" fill="#6B6460">către pagină</text>
+    <rect x="30" y="172" width="572" height="388" rx="14" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <path d="M30 186 a14 14 0 0 1 14 -14 h544 a14 14 0 0 1 14 14 v28 h-572z" fill="#F1E9DF"/>
+    <circle cx="52" cy="193" r="6" fill="#F21F4B"/><circle cx="72" cy="193" r="6" fill="#F29A1F"/><circle cx="92" cy="193" r="6" fill="#14A39A"/>
+    <rect x="112" y="180" width="476" height="26" rx="13" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="2"/><text x="128" y="198" font-size="13" font-family="JetBrains Mono, Consolas, monospace">https://www.exemplu.ro/clase/a8.html</text>
+    <rect x="46" y="224" width="540" height="50" rx="8" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2.5"/>
+    <text x="60" y="248" font-size="14" font-weight="800">Antet (header)</text><text x="60" y="267" font-size="13" fill="#6B6460">sigla, numele site-ului</text>
+    <rect x="46" y="282" width="540" height="34" rx="8" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2.5"/>
+    <text x="60" y="304" font-size="14" font-weight="800">Meniu de navigare</text><text x="572" y="304" text-anchor="end" font-size="13" fill="#6B6460">Acasă · Despre noi · Contact</text>
+    <rect x="46" y="324" width="380" height="158" rx="8" fill="#FFFFFF" stroke="#14A39A" stroke-width="2.5"/>
+    <text x="60" y="348" font-size="14" font-weight="800">Conținut principal</text><text x="60" y="367" font-size="13" fill="#6B6460">texte, imagini, filme</text>
+    <rect x="436" y="324" width="150" height="158" rx="8" fill="#FFF0DB" stroke="#F29A1F" stroke-width="2.5"/>
+    <text x="511" y="352" text-anchor="middle" font-size="14" font-weight="800">Bară laterală</text><text x="511" y="372" text-anchor="middle" font-size="13" fill="#6B6460">noutăți, căutare</text>
+    <rect x="46" y="490" width="540" height="56" rx="8" fill="#F1E9DF" stroke="#6B6460" stroke-width="2.5"/>
+    <text x="60" y="514" font-size="14" font-weight="800">Subsol (footer)</text><text x="60" y="533" font-size="13" fill="#6B6460">contact, drepturi de autor</text>
+    <rect x="62" y="376" width="120" height="90" rx="6" fill="#E0F4F2"/><path d="M70 456 l30 -34 l22 22 l14 -14 l38 26z" fill="#14A39A"/><circle cx="160" cy="398" r="9" fill="#F29A1F"/>
+    <path d="M198 386 h210 M198 406 h190 M198 426 h205 M198 446 h160" stroke="#E8DFD3" stroke-width="8" stroke-linecap="round"/>
+    <path d="M452 410 h118 M452 430 h100 M452 450 h110" stroke="#F1E9DF" stroke-width="8" stroke-linecap="round"/>
+    <rect x="622" y="172" width="308" height="388" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="776" y="204" text-anchor="middle" font-size="17" font-weight="800" fill="#0B6F68">De la server la browser</text>
+    <rect x="642" y="240" width="76" height="24" rx="5" fill="#171416"/><circle cx="704" cy="252" r="4" fill="#14A39A"/><path d="M652 252 h30" stroke="#6B6460" stroke-width="3"/>
+    <rect x="642" y="270" width="76" height="24" rx="5" fill="#171416"/><circle cx="704" cy="282" r="4" fill="#14A39A"/><path d="M652 282 h30" stroke="#6B6460" stroke-width="3"/>
+    <rect x="642" y="300" width="76" height="24" rx="5" fill="#171416"/><circle cx="704" cy="312" r="4" fill="#14A39A"/><path d="M652 312 h30" stroke="#6B6460" stroke-width="3"/>
+    <text x="680" y="350" text-anchor="middle" font-size="14" font-weight="800">server web</text>
+    <rect x="836" y="244" width="76" height="52" rx="6" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><path d="M826 302 h96 l-8 10 h-80z" fill="#3EC6E0"/>
+    <text x="874" y="350" text-anchor="middle" font-size="14" font-weight="800">browser</text>
+    <path d="M830 262 H728" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/><text x="778" y="252" text-anchor="middle" font-size="13" font-weight="700">1. cere</text>
+    <path d="M726 294 H826" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/><text x="778" y="316" text-anchor="middle" font-size="13" font-weight="700">2. trimite</text>
+    <text x="642" y="394" font-size="14" font-weight="700">1. Scrii adresa; browserul cere pagina.</text>
+    <text x="642" y="420" font-size="14" font-weight="700">2. Serverul trimite pagina (HTML).</text>
+    <text x="642" y="446" font-size="14" font-weight="700">3. Browserul o afișează.</text>
+    <text x="642" y="486" font-size="14" fill="#6B6460">Găzduire (hosting): spațiul de pe</text>
+    <text x="642" y="512" font-size="14" fill="#6B6460">server unde stau paginile site-ului.</text>
+  </g>
+</svg>

@@ -55,6 +55,8 @@ Adresa se scrie **litera coloanei** urmată de **numărul rândului**: **B3** es
 
 Un grup de celule alăturate formează o **zonă** (*range*), scrisă cu **două puncte** între colțuri: **A1:C4** înseamnă dreptunghiul de la A1 la C4 (3 coloane × 4 rânduri = 12 celule).
 
+![Celula B3 se află la intersecția coloanei B cu rândul 3; zona A1:C4 are 12 celule, iar registrul poate avea mai multe foi.](fisiere/imagini/tic-8-u1-l1-foi-de-calcul.svg)
+
 ## Exemplu rezolvat: cheltuielile excursiei
 
 | | A | B | C |

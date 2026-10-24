@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Ciclul percepe – decide – acționează și algoritmul de ocolire a obstacolelor</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+    <marker id="sagp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#F29A1F"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="250" y="52" text-anchor="middle" font-size="20" font-weight="800">Ciclul unui robot autonom</text>
+
+    <!-- cercuri -->
+    <circle cx="250" cy="170" r="70" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="250" y="166" text-anchor="middle" font-size="17" font-weight="800" fill="#0E7F96">PERCEPE</text>
+    <text x="250" y="188" text-anchor="middle" font-size="13">citește senzorii</text>
+
+    <circle cx="390" cy="385" r="72" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="390" y="381" text-anchor="middle" font-size="17" font-weight="800" fill="#171416">DECIDE</text>
+    <text x="390" y="403" text-anchor="middle" font-size="13">alege acțiunea</text>
+
+    <circle cx="110" cy="385" r="72" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="110" y="381" text-anchor="middle" font-size="15" font-weight="800" fill="#C8133A">ACȚIONEAZĂ</text>
+    <text x="110" y="401" text-anchor="middle" font-size="13">comandă</text>
+    <text x="110" y="417" text-anchor="middle" font-size="13">motoarele</text>
+
+    <path d="M296 238 L340 306" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <path d="M310 385 L192 385" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <path d="M152 318 L196 252" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="250" y="306" text-anchor="middle" font-size="14" font-weight="700" fill="#6B6460">repetă</text>
+    <text x="250" y="325" text-anchor="middle" font-size="14" font-weight="700" fill="#6B6460">la nesfârșit</text>
+    <text x="250" y="498" text-anchor="middle" font-size="14" fill="#6B6460">Bucla se reia de zeci de ori pe secundă.</text>
+
+    <!-- exemplu ocolire -->
+    <rect x="500" y="74" width="430" height="436" rx="18" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="715" y="108" text-anchor="middle" font-size="18" font-weight="800" fill="#0B6F68">Exemplu: ocolirea obstacolelor</text>
+
+    <!-- perete -->
+    <rect x="862" y="140" width="22" height="180" rx="4" fill="#6B6460"/>
+    <text x="873" y="342" text-anchor="middle" font-size="14" font-weight="700">perete</text>
+    <!-- robot văzut de sus -->
+    <rect x="600" y="194" width="80" height="60" rx="12" fill="#171416"/>
+    <rect x="610" y="182" width="26" height="12" rx="3" fill="#6B6460"/>
+    <rect x="644" y="182" width="26" height="12" rx="3" fill="#6B6460"/>
+    <rect x="610" y="254" width="26" height="12" rx="3" fill="#6B6460"/>
+    <rect x="644" y="254" width="26" height="12" rx="3" fill="#6B6460"/>
+    <circle cx="678" cy="224" r="7" fill="#3EC6E0"/>
+    <text x="640" y="229" text-anchor="middle" font-size="13" font-weight="800" fill="#FFF7EE">robot</text>
+    <path d="M718 224 H852" stroke="#3EC6E0" stroke-width="3" stroke-dasharray="7 6" fill="none" marker-end="url(#sag)"/>
+    <text x="781" y="208" text-anchor="middle" font-size="13" font-weight="700" fill="#0E7F96">distanța</text>
+    <text x="781" y="250" text-anchor="middle" font-size="13" font-weight="700" fill="#0E7F96">&lt; 100 mm?</text>
+    <path d="M697 192 A66 66 0 0 1 646 290" stroke="#F29A1F" stroke-width="3" fill="none" marker-end="url(#sagp)"/>
+    <text x="548" y="320" font-size="14" font-weight="700" fill="#F29A1F">rotește dreapta 90°</text>
+
+    <!-- pseudocod -->
+    <rect x="530" y="360" width="370" height="124" rx="12" fill="#F1E9DF"/>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="14">
+      <text x="548" y="390">dacă distanța &lt; 100 mm atunci</text>
+      <text x="582" y="413">oprește</text>
+      <text x="582" y="436">rotește dreapta 90°</text>
+      <text x="548" y="459">altfel mergi înainte</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Serii create cu mânerul de umplere: zile, numere și luni</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Umplerea automată cu mânerul de umplere</text>
+    <text x="60" y="88" font-size="15" font-weight="800" fill="#217346">scrii</text>
+    <text x="430" y="88" text-anchor="middle" font-size="15" font-weight="800" fill="#0E7F96">tragi de mâner și obții seria</text>
+    <rect x="60" y="128" width="124" height="44" fill="#E0F4F2" stroke="#E8DFD3" stroke-width="1.5"/><text x="122" y="156" text-anchor="middle" font-size="16" font-weight="800">Luni</text>
+    <rect x="60" y="128" width="124" height="44" fill="none" stroke="#217346" stroke-width="3"/>
+    <rect x="184" y="128" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="246" y="156" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">Marți</text>
+    <rect x="308" y="128" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="370" y="156" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">Miercuri</text>
+    <rect x="432" y="128" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="494" y="156" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">Joi</text>
+    <rect x="556" y="128" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="618" y="156" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">Vineri</text>
+    <rect x="184" y="128" width="496" height="44" fill="none" stroke="#3EC6E0" stroke-width="2" stroke-dasharray="6 5"/>
+    <rect x="178" y="166" width="12" height="12" fill="#217346" stroke="#FFFFFF" stroke-width="2"/>
+    <path d="M188 188 H674" stroke="#171416" stroke-width="2.5" marker-end="url(#sag)"/>
+    <rect x="60" y="220" width="124" height="44" fill="#E0F4F2" stroke="#E8DFD3" stroke-width="1.5"/><text x="122" y="248" text-anchor="middle" font-size="16" font-weight="800">1</text>
+    <rect x="184" y="220" width="124" height="44" fill="#E0F4F2" stroke="#E8DFD3" stroke-width="1.5"/><text x="246" y="248" text-anchor="middle" font-size="16" font-weight="800">2</text>
+    <rect x="60" y="220" width="248" height="44" fill="none" stroke="#217346" stroke-width="3"/>
+    <rect x="308" y="220" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="370" y="248" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">3</text>
+    <rect x="432" y="220" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="494" y="248" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">4</text>
+    <rect x="556" y="220" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="618" y="248" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">5</text>
+    <rect x="680" y="220" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="742" y="248" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">6</text>
+    <rect x="308" y="220" width="496" height="44" fill="none" stroke="#3EC6E0" stroke-width="2" stroke-dasharray="6 5"/>
+    <rect x="302" y="258" width="12" height="12" fill="#217346" stroke="#FFFFFF" stroke-width="2"/>
+    <path d="M312 280 H798" stroke="#171416" stroke-width="2.5" marker-end="url(#sag)"/>
+    <rect x="60" y="312" width="124" height="44" fill="#E0F4F2" stroke="#E8DFD3" stroke-width="1.5"/><text x="122" y="340" text-anchor="middle" font-size="16" font-weight="800">5</text>
+    <rect x="184" y="312" width="124" height="44" fill="#E0F4F2" stroke="#E8DFD3" stroke-width="1.5"/><text x="246" y="340" text-anchor="middle" font-size="16" font-weight="800">10</text>
+    <rect x="60" y="312" width="248" height="44" fill="none" stroke="#217346" stroke-width="3"/>
+    <rect x="308" y="312" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="370" y="340" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">15</text>
+    <rect x="432" y="312" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="494" y="340" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">20</text>
+    <rect x="556" y="312" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="618" y="340" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">25</text>
+    <rect x="680" y="312" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="742" y="340" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">30</text>
+    <rect x="308" y="312" width="496" height="44" fill="none" stroke="#3EC6E0" stroke-width="2" stroke-dasharray="6 5"/>
+    <rect x="302" y="350" width="12" height="12" fill="#217346" stroke="#FFFFFF" stroke-width="2"/>
+    <path d="M312 372 H798" stroke="#171416" stroke-width="2.5" marker-end="url(#sag)"/>
+    <rect x="60" y="404" width="124" height="44" fill="#E0F4F2" stroke="#E8DFD3" stroke-width="1.5"/><text x="122" y="432" text-anchor="middle" font-size="16" font-weight="800">Ianuarie</text>
+    <rect x="60" y="404" width="124" height="44" fill="none" stroke="#217346" stroke-width="3"/>
+    <rect x="184" y="404" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="246" y="432" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">Februarie</text>
+    <rect x="308" y="404" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="370" y="432" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">Martie</text>
+    <rect x="432" y="404" width="124" height="44" fill="#E2F6FA" stroke="#FFFFFF" stroke-width="2"/><text x="494" y="432" text-anchor="middle" font-size="16" fill="#0E7F96" font-weight="700">Aprilie</text>
+    <rect x="184" y="404" width="372" height="44" fill="none" stroke="#3EC6E0" stroke-width="2" stroke-dasharray="6 5"/>
+    <rect x="178" y="442" width="12" height="12" fill="#217346" stroke="#FFFFFF" stroke-width="2"/>
+    <path d="M188 464 H550" stroke="#171416" stroke-width="2.5" marker-end="url(#sag)"/>
+    <text x="480" y="502" text-anchor="middle" font-size="14" fill="#6B6460">Pătrățelul verde din colțul dreapta jos al celulei active este mânerul de umplere.</text>
+    <text x="480" y="522" text-anchor="middle" font-size="14" fill="#6B6460">Din două numere (1 și 2, 5 și 10), aplicația continuă cu același pas.</text>
+  </g>
+</svg>

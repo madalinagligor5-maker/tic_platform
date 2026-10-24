@@ -107,6 +107,8 @@ int main()
 
 Pentru `6` și `8 4 10 7 3 10`: suma **42**, media notelor de trecere (8, 10, 7, 10) **8.75**, produsul notelor de 10 **100**.
 
+![Evoluția sumei (de la 0), a sumei și numărului notelor de trecere și a produsului notelor de 10 (de la 1); media notelor de trecere este 8.75.](fisiere/imagini/info-8-u3-l13-siruri-suma-produs.svg)
+
 ## Aplicații interactive
 
 ```quiz

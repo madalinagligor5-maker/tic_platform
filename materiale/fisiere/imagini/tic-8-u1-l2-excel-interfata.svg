@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="t">
+  <title id="t">Fereastra unei aplicații de calcul tabelar, cu elementele ei numerotate</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="640" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Elementele ferestrei de calcul tabelar</text>
+    <rect x="30" y="70" width="580" height="490" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <path d="M30 84 a14 14 0 0 1 14 -14 h552 a14 14 0 0 1 14 14 v20 h-580z" fill="#217346"/>
+    <rect x="48" y="79" width="16" height="16" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2"/><rect x="52" y="79" width="8" height="5" fill="#FFFFFF"/>
+    <path d="M78 92 a6 6 0 1 1 6 3" stroke="#FFFFFF" stroke-width="2" fill="none"/><path d="M75 88 l3 5 l4 -4" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+    <path d="M106 92 a6 6 0 1 0 -6 3" stroke="#FFFFFF" stroke-width="2" fill="none"/><path d="M109 88 l-3 5 l-4 -4" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+    <text x="330" y="93" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Registru1</text>
+    <text x="46" y="124" font-size="13" font-weight="500" fill="#171416">Fișier</text>
+    <text x="104.4" y="124" font-size="13" font-weight="800" fill="#217346">Pornire</text>
+    <path d="M104.4 130 h51.8" stroke="#217346" stroke-width="3"/>
+    <text x="170.2" y="124" font-size="13" font-weight="500" fill="#171416">Inserare</text>
+    <text x="243.4" y="124" font-size="13" font-weight="500" fill="#171416">Aspect pagină</text>
+    <text x="353.6" y="124" font-size="13" font-weight="500" fill="#171416">Formule</text>
+    <text x="419.4" y="124" font-size="13" font-weight="500" fill="#171416">Date</text>
+    <text x="463" y="124" font-size="13" font-weight="500" fill="#171416">Vizualizare</text>
+    <rect x="38" y="134" width="564" height="44" rx="6" fill="#F1E9DF"/>
+    <rect x="48" y="141" width="42" height="30" rx="5" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="1.5"/>
+    <rect x="100" y="141" width="42" height="30" rx="5" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="1.5"/>
+    <rect x="152" y="141" width="42" height="30" rx="5" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="1.5"/>
+    <rect x="204" y="141" width="42" height="30" rx="5" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="1.5"/>
+    <rect x="280" y="141" width="42" height="30" rx="5" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="1.5"/>
+    <rect x="332" y="141" width="42" height="30" rx="5" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="1.5"/>
+    <rect x="410" y="141" width="42" height="30" rx="5" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="1.5"/>
+    <rect x="462" y="141" width="42" height="30" rx="5" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="1.5"/>
+    <text x="56" y="162" font-size="15" font-weight="800">B</text><text x="110" y="162" font-size="15" font-style="italic" font-weight="700">I</text><text x="160" y="162" font-size="15" text-decoration="underline">S</text><text x="214" y="162" font-size="15" font-weight="800" fill="#217346">Σ</text>
+    <rect x="46" y="188" width="72" height="30" rx="4" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="2"/>
+    <text x="82" y="208" text-anchor="middle" font-size="14" font-weight="700">A3</text>
+    <text x="138" y="208" text-anchor="middle" font-size="14" font-style="italic" font-weight="700" fill="#6B6460">fx</text>
+    <rect x="158" y="188" width="436" height="30" rx="4" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="2"/>
+    <text x="170" y="208" font-size="14" font-family="JetBrains Mono, Consolas, monospace">=A1+A2</text>
+    <rect x="46" y="230" width="540" height="234" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="2"/>
+    <rect x="46" y="230" width="540" height="24" fill="#F1E9DF"/>
+    <rect x="46" y="230" width="36" height="234" fill="#F1E9DF"/>
+    <path d="M82 230V464 M166 230V464 M250 230V464 M334 230V464 M418 230V464 M502 230V464 M46 254H586 M46 284H586 M46 314H586 M46 344H586 M46 374H586 M46 404H586 M46 434H586 M46 464H586" stroke="#E8DFD3" stroke-width="1.5"/>
+    <text x="124" y="248" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">A</text>
+    <text x="208" y="248" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">B</text>
+    <text x="292" y="248" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">C</text>
+    <text x="376" y="248" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">D</text>
+    <text x="460" y="248" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">E</text>
+    <text x="544" y="248" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">F</text>
+    <text x="64" y="274" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">1</text>
+    <text x="64" y="304" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">2</text>
+    <text x="64" y="334" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">3</text>
+    <text x="64" y="364" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">4</text>
+    <text x="64" y="394" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">5</text>
+    <text x="64" y="424" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">6</text>
+    <text x="64" y="454" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">7</text>
+    <text x="158" y="274" text-anchor="end" font-size="14" >20</text>
+    <text x="158" y="304" text-anchor="end" font-size="14" >30</text>
+    <text x="158" y="334" text-anchor="end" font-size="14" >50</text>
+    <rect x="82" y="314" width="84" height="30" fill="none" stroke="#217346" stroke-width="3"/>
+    <rect x="162" y="340" width="8" height="8" fill="#217346" stroke="#FFFFFF" stroke-width="1.5"/>
+    <rect x="46" y="476" width="76" height="26" rx="4" fill="#FFFFFF" stroke="#217346" stroke-width="2"/><text x="84" y="494" text-anchor="middle" font-size="13" font-weight="700" fill="#217346">Foaie1</text><text x="132" y="495" font-size="17" font-weight="700" fill="#6B6460">+</text>
+    <rect x="38" y="512" width="564" height="34" rx="6" fill="#F1E9DF"/><text x="52" y="534" font-size="13" fill="#6B6460">Gata</text>
+    <rect x="392" y="522" width="14" height="12" rx="2" fill="none" stroke="#6B6460" stroke-width="1.5"/><rect x="414" y="522" width="14" height="12" rx="2" fill="none" stroke="#6B6460" stroke-width="1.5"/><path d="M446 528 h90" stroke="#6B6460" stroke-width="2"/><circle cx="492" cy="528" r="5" fill="#6B6460"/><text x="590" y="534" text-anchor="end" font-size="13" fill="#6B6460">100%</text>
+    <circle cx="400" cy="87" r="13" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="400" y="92" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">1</text>
+    <circle cx="142" cy="87" r="13" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="142" y="92" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">2</text>
+    <circle cx="586" cy="156" r="13" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="586" y="161" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">3</text>
+    <circle cx="124" cy="184" r="13" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="124" y="189" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">4</text>
+    <circle cx="586" cy="184" r="13" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="586" y="189" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">5</text>
+    <circle cx="260" cy="242" r="13" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="260" y="247" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">6</text>
+    <circle cx="196" cy="339" r="13" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="196" y="344" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">7</text>
+    <circle cx="160" cy="489" r="13" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="160" y="494" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">8</text>
+    <circle cx="560" cy="500" r="13" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="560" y="505" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">9</text>
+    <circle cx="650" cy="96" r="13" fill="#F21F4B"/><text x="650" y="101" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">1</text>
+    <text x="674" y="101" font-size="15" font-weight="800">Bara de titlu</text><text x="674" y="120" font-size="13" fill="#6B6460">numele registrului</text>
+    <circle cx="650" cy="150" r="13" fill="#F21F4B"/><text x="650" y="155" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">2</text>
+    <text x="674" y="155" font-size="15" font-weight="800">Bara de acces rapid</text><text x="674" y="174" font-size="13" fill="#6B6460">Salvare, Anulare, Refacere</text>
+    <circle cx="650" cy="204" r="13" fill="#F21F4B"/><text x="650" y="209" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">3</text>
+    <text x="674" y="209" font-size="15" font-weight="800">Panglica cu file</text><text x="674" y="228" font-size="13" fill="#6B6460">Pornire, Inserare, Formule…</text>
+    <circle cx="650" cy="258" r="13" fill="#F21F4B"/><text x="650" y="263" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">4</text>
+    <text x="674" y="263" font-size="15" font-weight="800">Caseta de nume</text><text x="674" y="282" font-size="13" fill="#6B6460">adresa celulei active</text>
+    <circle cx="650" cy="312" r="13" fill="#F21F4B"/><text x="650" y="317" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">5</text>
+    <text x="674" y="317" font-size="15" font-weight="800">Bara de formule</text><text x="674" y="336" font-size="13" fill="#6B6460">conținutul real: formula</text>
+    <circle cx="650" cy="366" r="13" fill="#F21F4B"/><text x="650" y="371" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">6</text>
+    <text x="674" y="371" font-size="15" font-weight="800">Antetele</text><text x="674" y="390" font-size="13" fill="#6B6460">coloane (litere), rânduri (numere)</text>
+    <circle cx="650" cy="420" r="13" fill="#F21F4B"/><text x="650" y="425" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">7</text>
+    <text x="674" y="425" font-size="15" font-weight="800">Celula activă</text><text x="674" y="444" font-size="13" fill="#6B6460">chenar verde și mânerul de umplere</text>
+    <circle cx="650" cy="474" r="13" fill="#F21F4B"/><text x="650" y="479" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">8</text>
+    <text x="674" y="479" font-size="15" font-weight="800">Filele foilor</text><text x="674" y="498" font-size="13" fill="#6B6460">Foaie1 și + pentru o foaie nouă</text>
+    <circle cx="650" cy="528" r="13" fill="#F21F4B"/><text x="650" y="533" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">9</text>
+    <text x="674" y="533" font-size="15" font-weight="800">Bara de stare</text><text x="674" y="552" font-size="13" fill="#6B6460">sumă, medie, moduri de vizualizare, zoom</text>
+    <text x="480" y="600" text-anchor="middle" font-size="15" font-weight="700">În celula A3 vezi rezultatul (50), iar în bara de formule vezi formula (=A1+A2).</text>
+  </g>
+</svg>

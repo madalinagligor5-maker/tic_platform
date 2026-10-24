@@ -40,6 +40,8 @@ Acasă
 
 „Robotică” și „Ecologie” sunt **subpagini** ale paginii „Proiecte”: în meniu apar într-o listă derulantă.
 
+![Harta site-ului ca un arbore, cu subpaginile paginii „Proiecte”, și meniul generat automat din ea; dedesubt, regulile lucrului în echipă.](fisiere/imagini/tic-8-u2-l4-site-mai-multe-pagini.svg)
+
 ### Pagini și meniu în Google Sites
 
 - fila **Pagini** → **+** → **Pagină nouă**; scrii numele;

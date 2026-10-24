@@ -56,6 +56,8 @@ data: 2026-10-16
 4. Apeși **Publicați**. Primești linkul prin **Copiere link**.
 5. După orice modificare, apeși din nou **Publicați** ca modificările să apară online.
 
+![Cele patru etape ale unei pagini web: planifici, construiești, verifici cu Previzualizare și publici; plus regulile de drepturi de autor și siguranță.](fisiere/imagini/tic-8-u2-l3-creare-publicare-pagina.svg)
+
 ### Varianta în HTML
 
 O pagină simplă scrisă de mână, salvată ca `index.html`, se poate publica gratuit pe servicii precum **GitHub Pages** sau **Netlify**. `index.html` este numele obișnuit al paginii de start.

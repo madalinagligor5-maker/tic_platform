@@ -110,6 +110,8 @@ Pentru `8` și `10 7 4 9 10 8 3 6`: note de 10: **2**, sub 5: **2**, cel puțin 
 
 Observă că aici contoarele sunt cu **if-uri separate**, nu cu else if: o notă de 10 se numără și la „cel puțin 8”.
 
+![Pentru notele 10 7 4 9 10 8 3 6, fiecare contor crește cu 1 doar când condiția lui e adevărată: zece = 2, sub5 = 2, peste8 = 4 (50%).](fisiere/imagini/info-8-u3-l9-siruri-numarare.svg)
+
 ## Aplicații interactive
 
 ```quiz

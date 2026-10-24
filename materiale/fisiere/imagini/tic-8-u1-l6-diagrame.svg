@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Tipuri de diagrame și situațiile în care se folosesc</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Ce tip de diagramă alegi?</text>
+    <rect x="30" y="72" width="168" height="336" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="114" y="290" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">Coloană</text>
+    <text x="114" y="320" text-anchor="middle" font-size="14">compari valori</text><text x="114" y="340" text-anchor="middle" font-size="14">din categorii</text>
+    <text x="114" y="380" text-anchor="middle" font-size="13" fill="#6B6460">ex.: notele la materii</text>
+    <path d="M54 100 V240 H178" stroke="#6B6460" stroke-width="2" fill="none"/>
+    <rect x="66" y="150" width="20" height="90" rx="3" fill="#3EC6E0"/>
+    <rect x="95" y="120" width="20" height="120" rx="3" fill="#3EC6E0"/>
+    <rect x="124" y="170" width="20" height="70" rx="3" fill="#3EC6E0"/>
+    <rect x="153" y="135" width="20" height="105" rx="3" fill="#3EC6E0"/>
+    <rect x="213" y="72" width="168" height="336" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="297" y="290" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">Bară</text>
+    <text x="297" y="320" text-anchor="middle" font-size="14">comparație, cu</text><text x="297" y="340" text-anchor="middle" font-size="14">nume lungi</text>
+    <text x="297" y="372" text-anchor="middle" font-size="13" fill="#6B6460">ex.: cele mai</text><text x="297" y="390" text-anchor="middle" font-size="13" fill="#6B6460">lungi râuri</text>
+    <path d="M237 100 V240 H361" stroke="#6B6460" stroke-width="2" fill="none"/>
+    <rect x="237" y="110" width="110" height="20" rx="3" fill="#F29A1F"/>
+    <rect x="237" y="142" width="85" height="20" rx="3" fill="#F29A1F"/>
+    <rect x="237" y="174" width="64" height="20" rx="3" fill="#F29A1F"/>
+    <rect x="237" y="206" width="40" height="20" rx="3" fill="#F29A1F"/>
+    <rect x="396" y="72" width="168" height="336" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="480" y="290" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">Linie</text>
+    <text x="480" y="320" text-anchor="middle" font-size="14">evoluția</text><text x="480" y="340" text-anchor="middle" font-size="14">în timp</text>
+    <text x="480" y="372" text-anchor="middle" font-size="13" fill="#6B6460">ex.: temperaturile</text><text x="480" y="390" text-anchor="middle" font-size="13" fill="#6B6460">pe luni</text>
+    <path d="M420 100 V240 H544" stroke="#6B6460" stroke-width="2" fill="none"/>
+    <path d="M420 200 H544" stroke="#E8DFD3" stroke-width="2" stroke-dasharray="4 4"/>
+    <polyline points="430,215 452,205 474,180 496,150 518,125 540,110" fill="none" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="430" cy="215" r="4" fill="#F21F4B"/>
+    <circle cx="452" cy="205" r="4" fill="#F21F4B"/>
+    <circle cx="474" cy="180" r="4" fill="#F21F4B"/>
+    <circle cx="496" cy="150" r="4" fill="#F21F4B"/>
+    <circle cx="518" cy="125" r="4" fill="#F21F4B"/>
+    <circle cx="540" cy="110" r="4" fill="#F21F4B"/>
+    <rect x="579" y="72" width="168" height="336" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="663" y="290" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">Radială</text>
+    <text x="663" y="320" text-anchor="middle" font-size="14">părțile unui</text><text x="663" y="340" text-anchor="middle" font-size="14">întreg (procente)</text>
+    <text x="663" y="372" text-anchor="middle" font-size="13" fill="#6B6460">ex.: cum îți</text><text x="663" y="390" text-anchor="middle" font-size="13" fill="#6B6460">împarți ziua</text>
+    <path d="M663 170 L663.0 108.0 A62 62 0 0 1 663.0 232.0Z" fill="#3EC6E0" stroke="#FFFFFF" stroke-width="3"/>
+    <path d="M663 170 L663.0 232.0 A62 62 0 0 1 604.0 150.8Z" fill="#14A39A" stroke="#FFFFFF" stroke-width="3"/>
+    <path d="M663 170 L604.0 150.8 A62 62 0 0 1 663.0 108.0Z" fill="#F29A1F" stroke="#FFFFFF" stroke-width="3"/>
+    <text x="689" y="176" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">50%</text>
+    <rect x="762" y="72" width="168" height="336" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="846" y="290" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">Prin puncte (XY)</text>
+    <text x="846" y="320" text-anchor="middle" font-size="14">legătura dintre</text><text x="846" y="340" text-anchor="middle" font-size="14">două mărimi</text>
+    <text x="846" y="372" text-anchor="middle" font-size="13" fill="#6B6460">ex.: înălțime</text><text x="846" y="390" text-anchor="middle" font-size="13" fill="#6B6460">și greutate</text>
+    <path d="M786 100 V240 H910" stroke="#6B6460" stroke-width="2" fill="none"/>
+    <circle cx="800" cy="210" r="5" fill="#0E7F96"/>
+    <circle cx="812" cy="200" r="5" fill="#0E7F96"/>
+    <circle cx="822" cy="202" r="5" fill="#0E7F96"/>
+    <circle cx="834" cy="184" r="5" fill="#0E7F96"/>
+    <circle cx="846" cy="178" r="5" fill="#0E7F96"/>
+    <circle cx="856" cy="164" r="5" fill="#0E7F96"/>
+    <circle cx="868" cy="160" r="5" fill="#0E7F96"/>
+    <circle cx="880" cy="144" r="5" fill="#0E7F96"/>
+    <circle cx="890" cy="140" r="5" fill="#0E7F96"/>
+    <circle cx="900" cy="126" r="5" fill="#0E7F96"/>
+    <rect x="30" y="426" width="900" height="84" rx="14" fill="#E0F4F2"/>
+    <text x="480" y="458" text-anchor="middle" font-size="15" font-weight="800">Elementele unei diagrame: titlu · axe · legendă · etichete de date · linii de grilă</text>
+    <text x="480" y="486" text-anchor="middle" font-size="14" fill="#0B6F68">Diagrama este legată de tabel: dacă schimbi un număr, diagrama se modifică automat.</text>
+  </g>
+</svg>

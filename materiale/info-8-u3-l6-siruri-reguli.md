@@ -76,6 +76,8 @@ cout << 1;
 
 Aici nu știi dinainte câți termeni vor fi, deci folosești `while`.
 
+![Fiecare termen se obține din cel anterior: +3 la progresia aritmetică, ×2 la cea geometrică, suma ultimilor doi la Fibonacci, regula Collatz.](fisiere/imagini/info-8-u3-l6-siruri-reguli.svg)
+
 ### Termenul de pe poziția k
 
 Generezi termenii **fără să-i afișezi**, până ajungi la poziția k, apoi îl afișezi doar pe acela.

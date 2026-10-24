@@ -110,6 +110,8 @@ int main()
 
 Pentru `5` și `7 9 4 10 3`: **Note sub 5: 2**. Pentru `3` și `6 8 5`: **Promovat la toate**.
 
+![Variabila ok pornește de la 1 și devine 0 la primul contraexemplu (nota 4), apoi rămâne 0; comparație între „toate” și „cel puțin unul”.](fisiere/imagini/info-8-u3-l10-siruri-toate-elementele.svg)
+
 ## Aplicații interactive
 
 ```quiz

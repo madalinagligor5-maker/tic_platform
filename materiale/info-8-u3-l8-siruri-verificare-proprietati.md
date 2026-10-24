@@ -97,6 +97,8 @@ int main()
 
 Pentru `6` și `4 7 9 13 1 2`: afișează **7 (pozitia 2)**, **13 (pozitia 4)**, **2 (pozitia 6)**.
 
+![Fiecare element al șirului 4 7 9 13 1 2 este verificat: se afișează doar cele cu exact 2 divizori (7, 13 și 2), împreună cu pozițiile lor.](fisiere/imagini/info-8-u3-l8-siruri-verificare-proprietati.svg)
+
 ## Aplicații interactive
 
 ```categorii

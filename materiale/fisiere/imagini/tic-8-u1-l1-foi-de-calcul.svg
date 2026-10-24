@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Coloana B, rândul 3, celula B3 și zona A1:C4 într-o foaie de calcul</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Coloane, rânduri, celule și zone</text>
+    <rect x="150" y="110" width="560" height="230" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="2"/>
+    <rect x="150" y="110" width="560" height="26" fill="#F1E9DF"/>
+    <rect x="150" y="110" width="40" height="230" fill="#F1E9DF"/>
+    <path d="M190 110V340 M330 110V340 M440 110V340 M550 110V340 M630 110V340 M150 136H710 M150 170H710 M150 204H710 M150 238H710 M150 272H710 M150 306H710 M150 340H710" stroke="#E8DFD3" stroke-width="1.5"/>
+    <text x="260" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">A</text>
+    <text x="385" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">B</text>
+    <text x="495" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">C</text>
+    <text x="590" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">D</text>
+    <text x="670" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">E</text>
+    <text x="170" y="158" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">1</text>
+    <text x="170" y="192" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">2</text>
+    <text x="170" y="226" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">3</text>
+    <text x="170" y="260" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">4</text>
+    <text x="170" y="294" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">5</text>
+    <text x="170" y="328" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">6</text>
+    <text x="198" y="158" text-anchor="start" font-size="14" font-weight="800">Produs</text>
+    <text x="338" y="158" text-anchor="start" font-size="14" font-weight="800">Preț (lei)</text>
+    <text x="448" y="158" text-anchor="start" font-size="14" font-weight="800">Cantitate</text>
+    <text x="198" y="192" text-anchor="start" font-size="14" >Bilet tren</text>
+    <text x="432" y="192" text-anchor="end" font-size="14" >45</text>
+    <text x="542" y="192" text-anchor="end" font-size="14" >1</text>
+    <text x="198" y="226" text-anchor="start" font-size="14" >Sandviș</text>
+    <text x="432" y="226" text-anchor="end" font-size="14" >12</text>
+    <text x="542" y="226" text-anchor="end" font-size="14" >2</text>
+    <text x="198" y="260" text-anchor="start" font-size="14" >Apă</text>
+    <text x="432" y="260" text-anchor="end" font-size="14" >4</text>
+    <text x="542" y="260" text-anchor="end" font-size="14" >3</text>
+    <rect x="330" y="204" width="110" height="34" fill="none" stroke="#217346" stroke-width="3"/>
+    <rect x="436" y="234" width="8" height="8" fill="#217346" stroke="#FFFFFF" stroke-width="1.5"/>
+    <rect x="330" y="110" width="110" height="230" fill="#3EC6E0" fill-opacity="0.16"/>
+    <rect x="150" y="204" width="560" height="34" fill="#F29A1F" fill-opacity="0.16"/>
+    <rect x="190" y="136" width="360" height="136" fill="none" stroke="#F21F4B" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="385" y="84" text-anchor="middle" font-size="15" font-weight="800" fill="#0E7F96">coloana B</text><path d="M385 90 V106" stroke="#0E7F96" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="40" y="226" font-size="15" font-weight="800" fill="#F29A1F">rândul 3</text><path d="M118 221 H144" stroke="#F29A1F" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M370 360 V246" stroke="#217346" stroke-width="3" marker-end="url(#sag)"/><text x="370" y="380" text-anchor="middle" font-size="15" font-weight="800" fill="#217346">celula B3 (celula activă)</text>
+    <path d="M736 190 H558" stroke="#F21F4B" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="744" y="184" font-size="16" font-weight="800" fill="#C8133A">zona A1:C4</text><text x="744" y="204" font-size="13" fill="#6B6460">3 coloane × 4 rânduri</text><text x="744" y="222" font-size="13" fill="#6B6460">= 12 celule</text>
+    <rect x="150" y="408" width="84" height="30" rx="4" fill="#FFFFFF" stroke="#217346" stroke-width="2"/><text x="192" y="428" text-anchor="middle" font-size="13" font-weight="700" fill="#217346">Foaie1</text>
+    <rect x="240" y="408" width="84" height="30" rx="4" fill="#F1E9DF"/><text x="282" y="428" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">Foaie2</text>
+    <text x="336" y="430" font-size="18" font-weight="700" fill="#6B6460">+</text>
+    <text x="364" y="428" font-size="14" fill="#6B6460">registrul Excursie.xlsx conține mai multe foi de calcul</text>
+    <rect x="150" y="458" width="660" height="50" rx="12" fill="#E0F4F2"/>
+    <text x="480" y="489" text-anchor="middle" font-size="16" font-weight="700">Adresa = litera coloanei + numărul rândului: <tspan font-weight="800" fill="#217346">B3</tspan></text>
+  </g>
+</svg>

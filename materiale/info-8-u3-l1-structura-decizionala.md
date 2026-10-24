@@ -53,6 +53,8 @@ Negația lui `a && b` este `!a || !b`: „nu e (par **și** pozitiv)” înseamn
 - **if … else if … else**: mai multe cazuri care se exclud, verificate de sus în jos;
 - **switch**: o variabilă întreagă comparată cu valori fixe (`case`, `break`, `default`).
 
+![Schema logică a structurii alternative: if … else cu două ramuri și lanțul if … else if … else, în care se execută o singură ramură.](fisiere/imagini/info-8-u3-l1-structura-decizionala.svg)
+
 ### Greșeli de evitat
 
 - `if (a = b)` în loc de `if (a == b)`;

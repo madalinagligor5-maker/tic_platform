@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Structura funcțiilor SUM și IF: nume, paranteze și argumente</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Cum se scrie o funcție: =NUME(argumente)</text>
+    <rect x="362" y="86" width="27" height="44" rx="8" fill="#F1E9DF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="375.5" y="116" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">=</text>
+    <path d="M375.5 132 V188" stroke="#6B6460" stroke-width="2"/>
+    <text x="375.5" y="206" text-anchor="middle" font-size="14" font-weight="800" fill="#6B6460">începe cu =</text>
+    <rect x="393" y="86" width="57" height="44" rx="8" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="421.5" y="116" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">SUM</text>
+    <path d="M421.5 132 V144" stroke="#0E7F96" stroke-width="2"/>
+    <text x="421.5" y="162" text-anchor="middle" font-size="14" font-weight="800" fill="#0E7F96">numele</text>
+    <text x="421.5" y="179" text-anchor="middle" font-size="13" fill="#6B6460">funcției</text>
+    <text x="463.5" y="116" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">(</text>
+    <rect x="473" y="86" width="102" height="44" rx="8" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="524" y="116" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">B2:B10</text>
+    <path d="M524 132 V144" stroke="#0B6F68" stroke-width="2"/>
+    <text x="524" y="162" text-anchor="middle" font-size="14" font-weight="800" fill="#0B6F68">argumentul</text>
+    <text x="524" y="179" text-anchor="middle" font-size="13" fill="#6B6460">zona de celule</text>
+    <text x="588.5" y="116" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">)</text>
+    <rect x="192" y="236" width="27" height="44" rx="8" fill="#F1E9DF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="205.5" y="266" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">=</text>
+    <rect x="223" y="236" width="42" height="44" rx="8" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="244" y="266" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">IF</text>
+    <path d="M244 282 V294" stroke="#0E7F96" stroke-width="2"/>
+    <text x="244" y="312" text-anchor="middle" font-size="14" font-weight="800" fill="#0E7F96">numele</text>
+    <text x="278.5" y="266" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">(</text>
+    <rect x="288" y="236" width="87" height="44" rx="8" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="331.5" y="266" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">E2&gt;=5</text>
+    <path d="M331.5 282 V294" stroke="#F29A1F" stroke-width="2"/>
+    <text x="331.5" y="312" text-anchor="middle" font-size="14" font-weight="800" fill="#F29A1F">condiția</text>
+    <text x="388.5" y="266" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">;</text>
+    <rect x="398" y="236" width="162" height="44" rx="8" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="479" y="266" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">&quot;Promovat&quot;</text>
+    <path d="M479 282 V294" stroke="#0B6F68" stroke-width="2"/>
+    <text x="479" y="312" text-anchor="middle" font-size="14" font-weight="800" fill="#0B6F68">dacă e adevărată</text>
+    <text x="573.5" y="266" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">;</text>
+    <rect x="583" y="236" width="162" height="44" rx="8" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="664" y="266" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">&quot;Corigent&quot;</text>
+    <path d="M664 282 V294" stroke="#C8133A" stroke-width="2"/>
+    <text x="664" y="312" text-anchor="middle" font-size="14" font-weight="800" fill="#C8133A">dacă e falsă</text>
+    <text x="758.5" y="266" text-anchor="middle" font-size="24" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">)</text>
+    <text x="480" y="372" text-anchor="middle" font-size="14" fill="#6B6460">În Excel cu setări românești, argumentele se despart prin ; (punct și virgulă). Textele stau între ghilimele.</text>
+    <rect x="120" y="398" width="366" height="120" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="2"/>
+    <rect x="120" y="398" width="366" height="24" fill="#F1E9DF"/>
+    <rect x="120" y="398" width="36" height="120" fill="#F1E9DF"/>
+    <path d="M156 398V518 M266 398V518 M356 398V518 M120 422H486 M120 454H486 M120 486H486 M120 518H486" stroke="#E8DFD3" stroke-width="1.5"/>
+    <text x="211" y="416" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">A</text>
+    <text x="311" y="416" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">B</text>
+    <text x="421" y="416" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">C</text>
+    <text x="138" y="443" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">1</text>
+    <text x="138" y="475" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">2</text>
+    <text x="138" y="507" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6460">3</text>
+    <text x="164" y="443" text-anchor="start" font-size="14" font-weight="800">Elev</text>
+    <text x="274" y="443" text-anchor="start" font-size="14" font-weight="800">Media</text>
+    <text x="364" y="443" text-anchor="start" font-size="14" font-weight="800">Situația</text>
+    <text x="164" y="475" text-anchor="start" font-size="14" >Ana</text>
+    <text x="348" y="475" text-anchor="end" font-size="14" >9</text>
+    <text x="364" y="475" text-anchor="start" font-size="14" >Promovat</text>
+    <text x="164" y="507" text-anchor="start" font-size="14" >Bogdan</text>
+    <text x="348" y="507" text-anchor="end" font-size="14" >4,33</text>
+    <text x="364" y="507" text-anchor="start" font-size="14" fill="#C8133A" font-weight="700">Corigent</text>
+    <rect x="356" y="454" width="130" height="32" fill="none" stroke="#217346" stroke-width="3"/>
+    <rect x="482" y="482" width="8" height="8" fill="#217346" stroke="#FFFFFF" stroke-width="1.5"/>
+    <rect x="530" y="404" width="330" height="104" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="550" y="434" font-size="15" font-weight="800">C2 conține formula:</text>
+    <text x="550" y="462" font-size="13" font-family="JetBrains Mono, Consolas, monospace">=IF(B2&gt;=5;"Promovat";"Corigent")</text>
+    <text x="550" y="490" font-size="13" fill="#6B6460">Trasă în jos, dă „Corigent” pentru 4,33.</text>
+  </g>
+</svg>

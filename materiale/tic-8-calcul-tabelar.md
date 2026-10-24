@@ -41,6 +41,8 @@ Avantajul: dacă schimbi un număr dintr-o celulă, **toate formulele care îl f
 
 **Copierea formulelor.** Dacă în `D2` ai `=B2*C2` și o copiezi în `D3`, devine `=B3*C3`: adresele se ajustează automat (adresare **relativă**). Cu `$` adresa rămâne fixă: `$B$1` (adresare **absolută**).
 
+![Formula =B2*C2 din D2, copiată în D3, devine =B3*C3 (adresare relativă), iar totalul se calculează cu funcția =SUM(D2:D4).](fisiere/imagini/tic-8-calcul-tabelar.svg)
+
 ## Funcții
 
 | Funcție | Ce calculează | Exemplu |

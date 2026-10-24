@@ -63,6 +63,8 @@ Când copiezi formula `=B2*C2` din D2 în D3, Excel o **adaptează**: devine `=B
 
 Uneori vrei ca o adresă să rămână **fixă** (de exemplu, cursul euro dintr-o singură celulă). Pui **$**: `$F$1` este o adresă **absolută**. Tasta **F4** adaugă semnele $ automat.
 
+![La copierea în jos, adresele relative (B2, C2, D2) se adaptează rândului, iar adresa absolută $F$1, cu cota de TVA, rămâne fixă.](fisiere/imagini/tic-8-u1-l4-formatare-tipuri-date-formule.svg)
+
 ### Mesaje de eroare
 
 | Eroare | Ce înseamnă |

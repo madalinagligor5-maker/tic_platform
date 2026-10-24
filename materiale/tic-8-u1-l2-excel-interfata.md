@@ -35,6 +35,8 @@ Word și PowerPoint au **bara de titlu**, **panglica** cu **file** și **bara de
 8. **Filele foilor** (jos): Foaie1, Foaie2 și butonul **+** pentru o foaie nouă.
 9. **Bara de stare** (jos): pentru celulele selectate cu numere arată automat **Medie**, **Număr** și **Sumă**; în dreapta, modurile de vizualizare și **zoomul**.
 
+![Elementele ferestrei de calcul tabelar: bara de titlu, panglica, caseta de nume, bara de formule, antetele, celula activă, filele foilor, bara de stare.](fisiere/imagini/tic-8-u1-l2-excel-interfata.svg)
+
 ### Filele cele mai folosite
 
 | Fila | Ce găsești |

@@ -117,6 +117,8 @@ int main()
 
 Pentru n = 7, v = 4 și șirul `3 4 8 4 1 4 9`: **3 aparitii, prima pe pozitia 2, ultima pe pozitia 6**.
 
+![Căutarea valorii 4 în șirul 3 4 8 4 1 4 9: compari pe rând fiecare element; prima apariție e pe poziția 2, ultima pe poziția 6, în total 3.](fisiere/imagini/info-8-u3-l11-siruri-cautare.svg)
+
 ## Aplicații interactive
 
 ```quiz

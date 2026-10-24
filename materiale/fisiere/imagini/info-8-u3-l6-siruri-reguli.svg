@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="t">
+  <title id="t">Șiruri generate după o regulă: progresii, Fibonacci și Collatz</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="600" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="22" font-weight="800">Termenul următor se obține din cel curent</text>
+    <path d="M30 182 H930 M30 300 H930 M30 418 H930" stroke="#E8DFD3" stroke-width="2"/>
+    <text x="44" y="134" font-size="17" font-weight="800" fill="#0E7F96">Progresie aritmetică</text>
+    <text x="44" y="156" font-size="14" font-family="JetBrains Mono, Consolas, monospace">t = t + 3</text>
+    <rect x="270" y="118" width="56" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="298" y="147" text-anchor="middle" font-size="18" font-weight="800">5</text>
+    <rect x="344" y="118" width="56" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="372" y="147" text-anchor="middle" font-size="18" font-weight="800">8</text>
+    <rect x="418" y="118" width="56" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="446" y="147" text-anchor="middle" font-size="18" font-weight="800">11</text>
+    <rect x="492" y="118" width="56" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="520" y="147" text-anchor="middle" font-size="18" font-weight="800">14</text>
+    <rect x="566" y="118" width="56" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="594" y="147" text-anchor="middle" font-size="18" font-weight="800">17</text>
+    <path d="M304 116 Q335 90 366 114" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="335" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#0E7F96">+3</text>
+    <path d="M378 116 Q409 90 440 114" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="409" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#0E7F96">+3</text>
+    <path d="M452 116 Q483 90 514 114" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="483" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#0E7F96">+3</text>
+    <path d="M526 116 Q557 90 588 114" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="557" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#0E7F96">+3</text>
+    <text x="44" y="252" font-size="17" font-weight="800" fill="#0B6F68">Progresie geometrică</text>
+    <text x="44" y="274" font-size="14" font-family="JetBrains Mono, Consolas, monospace">t = t * 2</text>
+    <rect x="270" y="236" width="56" height="44" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="298" y="265" text-anchor="middle" font-size="18" font-weight="800">3</text>
+    <rect x="344" y="236" width="56" height="44" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="372" y="265" text-anchor="middle" font-size="18" font-weight="800">6</text>
+    <rect x="418" y="236" width="56" height="44" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="446" y="265" text-anchor="middle" font-size="18" font-weight="800">12</text>
+    <rect x="492" y="236" width="56" height="44" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="520" y="265" text-anchor="middle" font-size="18" font-weight="800">24</text>
+    <rect x="566" y="236" width="56" height="44" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="594" y="265" text-anchor="middle" font-size="18" font-weight="800">48</text>
+    <path d="M304 234 Q335 208 366 232" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="335" y="214" text-anchor="middle" font-size="13" font-weight="700" fill="#0B6F68">×2</text>
+    <path d="M378 234 Q409 208 440 232" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="409" y="214" text-anchor="middle" font-size="13" font-weight="700" fill="#0B6F68">×2</text>
+    <path d="M452 234 Q483 208 514 232" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="483" y="214" text-anchor="middle" font-size="13" font-weight="700" fill="#0B6F68">×2</text>
+    <path d="M526 234 Q557 208 588 232" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="557" y="214" text-anchor="middle" font-size="13" font-weight="700" fill="#0B6F68">×2</text>
+    <text x="44" y="370" font-size="17" font-weight="800" fill="#171416">Fibonacci</text>
+    <text x="44" y="392" font-size="14" font-family="JetBrains Mono, Consolas, monospace">c = a + b</text>
+    <rect x="270" y="354" width="56" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="298" y="383" text-anchor="middle" font-size="18" font-weight="800">1</text>
+    <rect x="344" y="354" width="56" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="372" y="383" text-anchor="middle" font-size="18" font-weight="800">1</text>
+    <rect x="418" y="354" width="56" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="446" y="383" text-anchor="middle" font-size="18" font-weight="800">2</text>
+    <rect x="492" y="354" width="56" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="520" y="383" text-anchor="middle" font-size="18" font-weight="800">3</text>
+    <rect x="566" y="354" width="56" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="594" y="383" text-anchor="middle" font-size="18" font-weight="800">5</text>
+    <rect x="640" y="354" width="56" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="668" y="383" text-anchor="middle" font-size="18" font-weight="800">8</text>
+    <rect x="714" y="354" width="56" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="742" y="383" text-anchor="middle" font-size="18" font-weight="800">13</text>
+    <text x="446" y="344" text-anchor="middle" font-size="13" fill="#6B6460">1 + 1</text>
+    <text x="520" y="344" text-anchor="middle" font-size="13" fill="#6B6460">1 + 2</text>
+    <text x="594" y="344" text-anchor="middle" font-size="13" fill="#6B6460">2 + 3</text>
+    <text x="668" y="344" text-anchor="middle" font-size="13" fill="#6B6460">3 + 5</text>
+    <text x="742" y="344" text-anchor="middle" font-size="13" fill="#6B6460">5 + 8</text>
+    <text x="44" y="488" font-size="17" font-weight="800" fill="#C8133A">Collatz (de la 6)</text>
+    <text x="44" y="510" font-size="14" font-family="JetBrains Mono, Consolas, monospace">par → n / 2</text>
+    <text x="44" y="528" font-size="14" font-family="JetBrains Mono, Consolas, monospace">impar → 3 · n + 1</text>
+    <rect x="270" y="472" width="56" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="298" y="501" text-anchor="middle" font-size="18" font-weight="800">6</text>
+    <rect x="344" y="472" width="56" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="372" y="501" text-anchor="middle" font-size="18" font-weight="800">3</text>
+    <rect x="418" y="472" width="56" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="446" y="501" text-anchor="middle" font-size="18" font-weight="800">10</text>
+    <rect x="492" y="472" width="56" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="520" y="501" text-anchor="middle" font-size="18" font-weight="800">5</text>
+    <rect x="566" y="472" width="56" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="594" y="501" text-anchor="middle" font-size="18" font-weight="800">16</text>
+    <rect x="640" y="472" width="56" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="668" y="501" text-anchor="middle" font-size="18" font-weight="800">8</text>
+    <rect x="714" y="472" width="56" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="742" y="501" text-anchor="middle" font-size="18" font-weight="800">4</text>
+    <rect x="788" y="472" width="56" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="816" y="501" text-anchor="middle" font-size="18" font-weight="800">2</text>
+    <rect x="862" y="472" width="56" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/><text x="890" y="501" text-anchor="middle" font-size="18" font-weight="800">1</text>
+    <path d="M304 470 Q335 444 366 468" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="335" y="450" text-anchor="middle" font-size="13" font-weight="700" fill="#C8133A">: 2</text>
+    <path d="M378 470 Q409 444 440 468" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="409" y="450" text-anchor="middle" font-size="13" font-weight="700" fill="#C8133A">3n+1</text>
+    <path d="M452 470 Q483 444 514 468" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="483" y="450" text-anchor="middle" font-size="13" font-weight="700" fill="#C8133A">: 2</text>
+    <path d="M526 470 Q557 444 588 468" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="557" y="450" text-anchor="middle" font-size="13" font-weight="700" fill="#C8133A">3n+1</text>
+    <path d="M600 470 Q631 444 662 468" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="631" y="450" text-anchor="middle" font-size="13" font-weight="700" fill="#C8133A">: 2</text>
+    <path d="M674 470 Q705 444 736 468" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="705" y="450" text-anchor="middle" font-size="13" font-weight="700" fill="#C8133A">: 2</text>
+    <path d="M748 470 Q779 444 810 468" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="779" y="450" text-anchor="middle" font-size="13" font-weight="700" fill="#C8133A">: 2</text>
+    <path d="M822 470 Q853 444 884 468" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="853" y="450" text-anchor="middle" font-size="13" font-weight="700" fill="#C8133A">: 2</text>
+    <text x="480" y="572" text-anchor="middle" font-size="14" fill="#6B6460">La Collatz nu știi dinainte câți termeni vor fi, așa că folosești while (până la 1).</text>
+  </g>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="t">
+  <title id="t">Citirea unui șir: cu lungimea dată, până la santinelă și compararea cu elementul anterior</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="600" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="22" font-weight="800">Citirea și parcurgerea unui șir, element cu element</text>
+    <rect x="30" y="66" width="900" height="146" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="54" y="98" font-size="17" font-weight="800" fill="#0B6F68">Modul 1: întâi n, apoi cele n valori</text>
+    <text x="90" y="124" text-anchor="middle" font-size="14" font-weight="800" fill="#F29A1F">n</text>
+    <rect x="60" y="130" width="60" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="90" y="159" text-anchor="middle" font-size="18" font-weight="800">5</text>
+    <rect x="150" y="130" width="60" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="180" y="159" text-anchor="middle" font-size="18" font-weight="800">12</text><text x="180" y="194" text-anchor="middle" font-size="13" fill="#6B6460">poz. 1</text>
+    <rect x="222" y="130" width="60" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="252" y="159" text-anchor="middle" font-size="18" font-weight="800">15</text><text x="252" y="194" text-anchor="middle" font-size="13" fill="#6B6460">poz. 2</text>
+    <rect x="294" y="130" width="60" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="324" y="159" text-anchor="middle" font-size="18" font-weight="800">15</text><text x="324" y="194" text-anchor="middle" font-size="13" fill="#6B6460">poz. 3</text>
+    <rect x="366" y="130" width="60" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="396" y="159" text-anchor="middle" font-size="18" font-weight="800">9</text><text x="396" y="194" text-anchor="middle" font-size="13" fill="#6B6460">poz. 4</text>
+    <rect x="438" y="130" width="60" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="468" y="159" text-anchor="middle" font-size="18" font-weight="800">11</text><text x="468" y="194" text-anchor="middle" font-size="13" fill="#6B6460">poz. 5</text>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="15"><text x="600" y="136">cin &gt;&gt; n;</text><text x="600" y="160">for (i = 1; i &lt;= n; i++)</text><text x="630" y="184">cin &gt;&gt; x;</text></g>
+    <rect x="30" y="226" width="900" height="140" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="54" y="258" font-size="17" font-weight="800" fill="#0B6F68">Modul 2: până la o valoare-santinelă (aici 0)</text>
+    <rect x="60" y="276" width="60" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="90" y="305" text-anchor="middle" font-size="18" font-weight="800">7</text>
+    <rect x="132" y="276" width="60" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="162" y="305" text-anchor="middle" font-size="18" font-weight="800">3</text>
+    <rect x="204" y="276" width="60" height="44" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="234" y="305" text-anchor="middle" font-size="18" font-weight="800">8</text>
+    <rect x="276" y="276" width="60" height="44" rx="10" fill="#F1E9DF" stroke="#F21F4B" stroke-width="3" stroke-dasharray="6 5"/><text x="306" y="305" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">0</text>
+    <text x="350" y="296" font-size="14" font-weight="700" fill="#C8133A">santinela: oprește citirea,</text><text x="350" y="314" font-size="14" font-weight="700" fill="#C8133A">nu face parte din șir</text>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="15"><text x="600" y="290">cin &gt;&gt; x;</text><text x="600" y="314">while (x != 0)</text><text x="600" y="338">{ …  cin &gt;&gt; x; }</text></g>
+    <rect x="30" y="380" width="900" height="190" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="54" y="412" font-size="17" font-weight="800" fill="#0B6F68">Compararea cu elementul anterior: temperaturile 12 15 15 9 11</text>
+    <text x="90" y="440" text-anchor="middle" font-size="13" fill="#6B6460">ziua 1</text><rect x="60" y="448" width="60" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="90" y="477" text-anchor="middle" font-size="18" font-weight="800">12</text>
+    <text x="200" y="440" text-anchor="middle" font-size="13" fill="#6B6460">ziua 2</text><rect x="170" y="448" width="60" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="200" y="477" text-anchor="middle" font-size="18" font-weight="800">15</text>
+    <text x="310" y="440" text-anchor="middle" font-size="13" fill="#6B6460">ziua 3</text><rect x="280" y="448" width="60" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="310" y="477" text-anchor="middle" font-size="18" font-weight="800">15</text>
+    <text x="420" y="440" text-anchor="middle" font-size="13" fill="#6B6460">ziua 4</text><rect x="390" y="448" width="60" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="420" y="477" text-anchor="middle" font-size="18" font-weight="800">9</text>
+    <text x="530" y="440" text-anchor="middle" font-size="13" fill="#6B6460">ziua 5</text><rect x="500" y="448" width="60" height="44" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/><text x="530" y="477" text-anchor="middle" font-size="18" font-weight="800">11</text>
+    <path d="M94 496 Q145 526 196 498" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="145" y="550" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">+3</text>
+    <path d="M204 496 Q255 526 306 498" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="255" y="550" text-anchor="middle" font-size="16" font-weight="800" fill="#6B6460">0</text>
+    <path d="M314 496 Q365 526 416 498" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="365" y="550" text-anchor="middle" font-size="16" font-weight="800" fill="#C8133A">−6</text>
+    <path d="M424 496 Q475 526 526 498" stroke="#171416" stroke-width="2" fill="none" marker-end="url(#sag)"/><text x="475" y="550" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">+2</text>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="15"><text x="640" y="466">cout &lt;&lt; t - ant;</text><text x="640" y="490">ant = t;</text></g>
+    <text x="640" y="518" font-size="13" fill="#6B6460">valoarea curentă devine „anterioară”</text><text x="640" y="536" font-size="13" fill="#6B6460">pentru pasul următor</text>
+  </g>
+</svg>

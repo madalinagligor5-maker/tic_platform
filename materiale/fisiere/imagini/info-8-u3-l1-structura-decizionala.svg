@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Schema logică pentru if … else și pentru lanțul if … else if … else</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="48" text-anchor="middle" font-size="22" font-weight="800">Structura alternativă: drumul se alege după o condiție</text>
+
+    <!-- panou stânga -->
+    <rect x="30" y="74" width="430" height="436" rx="18" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="245" y="110" text-anchor="middle" font-size="18" font-weight="800" fill="#0B6F68">if … else: două cazuri</text>
+    <polygon points="125,200 245,148 365,200 245,252" fill="#E2F6FA" stroke="#0E7F96" stroke-width="3"/>
+    <text x="245" y="206" text-anchor="middle" font-size="16" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">n % 2 == 0</text>
+    <path d="M125 200 H95 V292" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <path d="M365 200 H395 V292" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="106" y="188" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">da</text>
+    <text x="384" y="188" text-anchor="middle" font-size="15" font-weight="800" fill="#C8133A">nu</text>
+    <rect x="50" y="298" width="176" height="54" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="138" y="330" text-anchor="middle" font-size="14" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">cout &lt;&lt; "par";</text>
+    <rect x="254" y="298" width="186" height="54" rx="12" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="347" y="330" text-anchor="middle" font-size="14" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">cout &lt;&lt; "impar";</text>
+    <path d="M138 352 V402" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <path d="M347 352 V402" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <rect x="110" y="408" width="270" height="48" rx="12" fill="#F1E9DF"/>
+    <text x="245" y="438" text-anchor="middle" font-size="15" font-weight="700">programul continuă</text>
+    <text x="245" y="486" text-anchor="middle" font-size="14" fill="#6B6460">Se execută ramura „da” sau ramura „nu”.</text>
+
+    <!-- panou dreapta -->
+    <rect x="490" y="74" width="440" height="436" rx="18" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="710" y="110" text-anchor="middle" font-size="18" font-weight="800" fill="#0B6F68">if … else if … else</text>
+    <polygon points="545,180 635,140 725,180 635,220" fill="#E2F6FA" stroke="#0E7F96" stroke-width="3"/>
+    <text x="635" y="186" text-anchor="middle" font-size="16" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">x &gt; 0</text>
+    <path d="M725 180 H776" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="750" y="170" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">da</text>
+    <rect x="782" y="156" width="124" height="48" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="844" y="186" text-anchor="middle" font-size="15" font-weight="700">pozitiv</text>
+    <path d="M635 220 V262" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="650" y="248" font-size="15" font-weight="800" fill="#C8133A">nu</text>
+    <polygon points="545,308 635,268 725,308 635,348" fill="#E2F6FA" stroke="#0E7F96" stroke-width="3"/>
+    <text x="635" y="314" text-anchor="middle" font-size="16" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">x &lt; 0</text>
+    <path d="M725 308 H776" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="750" y="298" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">da</text>
+    <rect x="782" y="284" width="124" height="48" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="844" y="314" text-anchor="middle" font-size="15" font-weight="700">negativ</text>
+    <path d="M635 348 V390" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="650" y="376" font-size="15" font-weight="800" fill="#C8133A">nu</text>
+    <rect x="573" y="396" width="124" height="48" rx="12" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="635" y="426" text-anchor="middle" font-size="15" font-weight="700">zero</text>
+    <text x="710" y="486" text-anchor="middle" font-size="14" fill="#6B6460">Condițiile se verifică de sus în jos; o singură ramură.</text>
+  </g>
+</svg>

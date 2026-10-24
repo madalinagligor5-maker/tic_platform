@@ -60,6 +60,8 @@ Tragi de **pătrățelul** din colțul dreapta jos al celulei active:
 | Clasa 1 | Clasa 2, Clasa 3… |
 | o formulă | aceeași formulă, adaptată fiecărui rând |
 
+![Tragând de mânerul de umplere, aplicația continuă seriile: zilele săptămânii, numerele cu același pas și lunile anului.](fisiere/imagini/tic-8-u1-l3-operatii-registru.svg)
+
 ### Rânduri, coloane și foi
 
 - **Inserare**: clic dreapta pe antetul rândului sau al coloanei → **Inserare**; rândul nou apare **deasupra**, coloana nouă la **stânga**;

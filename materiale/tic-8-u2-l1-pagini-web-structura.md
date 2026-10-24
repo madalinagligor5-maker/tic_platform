@@ -48,6 +48,8 @@ Majoritatea paginilor au aceleași zone:
 4. **Bara laterală** (opțional): noutăți, căutare;
 5. **Subsolul** (*footer*): date de contact, drepturi de autor, legături utile.
 
+![Părțile unui URL (protocol, domeniu, cale), zonele unei pagini web (antet, meniu, conținut, bară laterală, subsol) și drumul paginii de la server la browser.](fisiere/imagini/tic-8-u2-l1-pagini-web-structura.svg)
+
 ### Limbajul HTML
 
 Paginile web sunt scrise în **HTML** (*HyperText Markup Language*). Textul este „marcat” cu **etichete** (*tag*-uri) între paranteze unghiulare, care spun browserului ce este fiecare parte:

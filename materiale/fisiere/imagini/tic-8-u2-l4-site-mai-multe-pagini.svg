@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Harta unui site cu pagini și subpagini și meniul generat din ea</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="22" font-weight="800">Harta site-ului și meniul de navigare</text>
+    <rect x="30" y="66" width="572" height="352" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="52" y="96" font-size="16" font-weight="800" fill="#0B6F68">Harta site-ului</text>
+    <path d="M316 150 V176 M111 176 H521 M111 176 V202 M247 176 V202 M383 176 V202 M521 176 V202" stroke="#171416" stroke-width="2.5" fill="none"/>
+    <path d="M247 248 V276 M185 276 H321 M185 276 V302 M321 276 V302" stroke="#171416" stroke-width="2.5" fill="none"/>
+    <rect x="256" y="106" width="120" height="44" rx="12" fill="#F21F4B" stroke="#C8133A" stroke-width="3"/><text x="316" y="133" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">Acasă</text>
+    <rect x="51" y="204" width="120" height="44" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="111" y="231" text-anchor="middle" font-size="15" font-weight="800" fill="#171416">Despre noi</text>
+    <rect x="187" y="204" width="120" height="44" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="247" y="231" text-anchor="middle" font-size="15" font-weight="800" fill="#171416">Proiecte</text>
+    <rect x="323" y="204" width="120" height="44" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="383" y="231" text-anchor="middle" font-size="15" font-weight="800" fill="#171416">Galerie foto</text>
+    <rect x="459" y="204" width="124" height="44" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/><text x="521" y="231" text-anchor="middle" font-size="15" font-weight="800" fill="#171416">Contact</text>
+    <rect x="130" y="304" width="110" height="40" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="185" y="329" text-anchor="middle" font-size="14" font-weight="700" fill="#171416">Robotică</text>
+    <rect x="266" y="304" width="110" height="40" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/><text x="321" y="329" text-anchor="middle" font-size="14" font-weight="700" fill="#171416">Ecologie</text>
+    <text x="52" y="380" font-size="13" fill="#6B6460">„Robotică” și „Ecologie” sunt subpagini ale paginii „Proiecte”;</text>
+    <text x="52" y="398" font-size="13" fill="#6B6460">în meniu apar într-o listă derulantă.</text>
+    <text x="396" y="317" font-size="13" font-weight="700" fill="#0B6F68">subpagini</text>
+    <text x="396" y="333" font-size="13" fill="#6B6460">(nivelul 2)</text>
+    <rect x="622" y="66" width="308" height="352" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="642" y="96" font-size="16" font-weight="800" fill="#0B6F68">Meniul (creat automat)</text>
+    <rect x="642" y="112" width="268" height="286" rx="10" fill="#F1E9DF"/>
+    <rect x="652" y="124" width="248" height="32" rx="8" fill="#F21F4B"/>
+    <text x="668" y="145" font-size="14" font-weight="800" fill="#FFFFFF">Acasă</text>
+    <text x="668" y="183" font-size="14" font-weight="800" fill="#171416">Despre noi</text>
+    <text x="668" y="221" font-size="14" font-weight="800" fill="#171416">Proiecte</text>
+    <path d="M880 212 l6 7 l6 -7" stroke="#171416" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="692" y="259" font-size="14" font-weight="600" fill="#0B6F68">Robotică</text>
+    <path d="M672 254 h10" stroke="#14A39A" stroke-width="3" stroke-linecap="round"/>
+    <text x="692" y="297" font-size="14" font-weight="600" fill="#0B6F68">Ecologie</text>
+    <path d="M672 292 h10" stroke="#14A39A" stroke-width="3" stroke-linecap="round"/>
+    <text x="668" y="335" font-size="14" font-weight="800" fill="#171416">Galerie foto</text>
+    <text x="668" y="373" font-size="14" font-weight="800" fill="#171416">Contact</text>
+    <rect x="30" y="432" width="900" height="80" rx="14" fill="#FFF0DB"/>
+    <text x="50" y="462" font-size="15" font-weight="800">Lucrul în echipă</text>
+    <text x="50" y="488" font-size="14">Proprietarul îi adaugă pe colegi ca Editori · fiecare construiește o pagină · aceeași temă · se verifică legăturile · se publică</text>
+  </g>
+</svg>

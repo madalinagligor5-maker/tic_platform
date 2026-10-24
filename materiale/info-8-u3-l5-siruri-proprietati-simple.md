@@ -58,6 +58,8 @@ Dacă știi **formula termenului**, sari direct la valorile bune:
 
 Metoda 2 face **mai puțini pași**: pentru primii 10 multipli ai lui 7 sunt 10 pași, nu 70.
 
+![Termenii șirului au poziții și o lungime; multiplii lui 7 se pot afla verificând toate numerele (28 de pași) sau direct cu 7 · i (4 pași).](fisiere/imagini/info-8-u3-l5-siruri-proprietati-simple.svg)
+
 ### Primii n termeni sau termenii până la o limită?
 
 - „Afișează **primii n** numere pare”: număr cunoscut de termeni → `for` cu i de la 1 la n.

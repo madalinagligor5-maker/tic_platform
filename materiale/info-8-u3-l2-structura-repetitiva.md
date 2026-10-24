@@ -31,6 +31,8 @@ O structură repetitivă execută aceiași pași de mai multe ori. Fiecare execu
 | `execută … cât timp c` | `do { … } while (c);` | verifică **după**; execută cel puțin o dată |
 | `pentru i ← a, b execută` | `for (i = a; i <= b; i++) { … }` | număr **cunoscut** de pași |
 
+![Schemele logice ale buclelor: while verifică înainte, do … while verifică după (cel puțin o dată), for are un număr cunoscut de pași.](fisiere/imagini/info-8-u3-l2-structura-repetitiva.svg)
+
 ### Care se potrivește?
 
 - **for**: știi de câte ori repeți (de la 1 la n, n numere citite, divizorii de la 1 la n);
