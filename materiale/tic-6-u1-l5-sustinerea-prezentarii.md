@@ -33,6 +33,8 @@ O prezentare electronică are două etape: **realizarea** ei și **susținerea**
 
 ### Înainte de prezentare
 
+![Ce verifici înainte de prezentare și cum te porți în timpul ei: privești publicul, vorbești rar și tare, te încadrezi în timp.](fisiere/imagini/tic-6-u1-l5-sustinerea-prezentarii.svg)
+
 - **Verifici sala** și echipamentele. Un videoproiector care nu merge poate strica toată prezentarea, deci ai și un plan de rezervă (de exemplu, prezentarea pe un stick și câteva foi tipărite).
 - **Verifici culorile** pe ecranul de proiecție: pot arăta altfel decât pe monitor.
 - **Exersezi** discursul, ca să te încadrezi în timpul dat.

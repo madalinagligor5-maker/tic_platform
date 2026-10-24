@@ -53,6 +53,8 @@ Personajele: **Mâna**, **Copac1**, **Copac2**, **Ținta** și **Iarba**. Mâna 
 
 ### Mesaje între personaje
 
+![Mâna difuzează mesajul „sus”, iar fiecare copac îl primește și se mărește doar până la limită; personajele stau pe trei straturi.](fisiere/imagini/info-6-u4-l6-aplicabilitatea-algoritmilor.svg)
+
 Scriptul de taste stă la **Mâna**. La fiecare tastă, ea **difuzează** un mesaj tuturor personajelor:
 
 ```

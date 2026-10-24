@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Imaginea 2D are lățime și înălțime, iar imaginea 3D are și adâncime; filele de desen din Paint 3D</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <!-- 2D -->
+    <text x="250" y="56" text-anchor="middle" font-size="22" font-weight="800" fill="#0E7F96">Imagine 2D</text>
+    <text x="250" y="78" text-anchor="middle" font-size="14" fill="#6B6460">două dimensiuni</text>
+    <rect x="170" y="110" width="160" height="160" rx="4" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <path d="M172 296H328" stroke="#171416" stroke-width="3" marker-start="url(#sag)" marker-end="url(#sag)"/>
+    <text x="250" y="322" text-anchor="middle" font-size="16" font-weight="700">lățime</text>
+    <path d="M144 112V268" stroke="#171416" stroke-width="3" marker-start="url(#sag)" marker-end="url(#sag)"/>
+    <text x="124" y="190" text-anchor="middle" font-size="16" font-weight="700" transform="rotate(-90 124 190)">înălțime</text>
+
+    <path d="M480 90V370" stroke="#E8DFD3" stroke-width="3"/>
+
+    <!-- 3D -->
+    <text x="710" y="56" text-anchor="middle" font-size="22" font-weight="800" fill="#C8133A">Imagine 3D</text>
+    <text x="710" y="78" text-anchor="middle" font-size="14" fill="#6B6460">trei dimensiuni</text>
+    <path d="M610 160L660 110H810L760 160Z" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M760 160L810 110V260L760 310Z" fill="#F21F4B" stroke="#C8133A" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="610" y="160" width="150" height="150" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <path d="M612 336H758" stroke="#171416" stroke-width="3" marker-start="url(#sag)" marker-end="url(#sag)"/>
+    <text x="685" y="362" text-anchor="middle" font-size="16" font-weight="700">lățime</text>
+    <path d="M584 162V308" stroke="#171416" stroke-width="3" marker-start="url(#sag)" marker-end="url(#sag)"/>
+    <text x="564" y="235" text-anchor="middle" font-size="16" font-weight="700" transform="rotate(-90 564 235)">înălțime</text>
+    <path d="M782 326L828 280" stroke="#171416" stroke-width="3" marker-start="url(#sag)" marker-end="url(#sag)"/>
+    <text x="796" y="346" font-size="16" font-weight="800" fill="#C8133A">adâncime</text>
+
+    <!-- file Paint 3D -->
+    <rect x="40" y="400" width="880" height="110" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="480" y="432" text-anchor="middle" font-size="16" font-weight="800">Filele de desen din Paint 3D</text>
+    <g font-size="14" font-weight="700" text-anchor="middle">
+      <rect x="98" y="450" width="84" height="34" rx="17" fill="#E2F6FA"/><text x="140" y="472">Pensule</text>
+      <rect x="192" y="450" width="92" height="34" rx="17" fill="#FDE7EC"/><text x="238" y="472">Forme 3D</text>
+      <rect x="294" y="450" width="92" height="34" rx="17" fill="#E2F6FA"/><text x="340" y="472">Forme 2D</text>
+      <rect x="396" y="450" width="92" height="34" rx="17" fill="#FFF0DB"/><text x="442" y="472">Stickere</text>
+      <rect x="498" y="450" width="76" height="34" rx="17" fill="#E0F4F2"/><text x="536" y="472">Efecte</text>
+      <rect x="584" y="450" width="66" height="34" rx="17" fill="#F1E9DF"/><text x="617" y="472">Pânză</text>
+      <rect x="660" y="450" width="58" height="34" rx="17" fill="#FFF0DB"/><text x="689" y="472">Text</text>
+      <rect x="728" y="450" width="134" height="34" rx="17" fill="#FDE7EC"/><text x="795" y="472">Biblioteca 3D</text>
+    </g>
+  </g>
+</svg>

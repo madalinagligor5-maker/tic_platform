@@ -29,6 +29,8 @@ Orice animație începe cu un **scenariu**: ce se întâmplă, în ce ordine, ce
 
 ### Cadre și FPS
 
+![Șase cadre cu capul unui personaj rotit cu câte 30°; derulate repede, la 24 de cadre pe secundă, ele par o mișcare fluentă.](fisiere/imagini/tic-6-u2-l3-animatie-grafica.svg)
+
 O animație este o derulare rapidă a mai multor **cadre** (*frame-uri*): imagini statice, fiecare puțin diferită de cea dinainte. Împreună refac mișcarea.
 
 **FPS** (*frames per second*, cadre pe secundă) arată câte cadre se succed într-o secundă. De el depind **viteza** și **calitatea** animației. La **24 de cadre pe secundă**, ochiul vede o mișcare **fluentă**.

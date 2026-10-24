@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Comparație între un diapozitiv care respectă regulile de design și unul încărcat, cu greșeli</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <!-- etichete -->
+    <rect x="50" y="36" width="130" height="34" rx="17" fill="#14A39A"/>
+    <text x="115" y="59" text-anchor="middle" font-size="17" font-weight="800" fill="#FFFFFF">Așa DA</text>
+    <rect x="510" y="36" width="130" height="34" rx="17" fill="#F21F4B"/>
+    <text x="575" y="59" text-anchor="middle" font-size="17" font-weight="800" fill="#FFFFFF">Așa NU</text>
+
+    <!-- diapozitiv bun -->
+    <rect x="50" y="86" width="400" height="225" rx="6" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <rect x="50" y="86" width="400" height="10" fill="#0E7F96"/>
+    <text x="76" y="140" font-size="26" font-weight="800" fill="#0E7F96">Circuitul apei</text>
+    <g font-size="18">
+      <circle cx="84" cy="182" r="5" fill="#0E7F96"/><text x="98" y="188">evaporarea</text>
+      <circle cx="84" cy="220" r="5" fill="#0E7F96"/><text x="98" y="226">condensarea</text>
+      <circle cx="84" cy="258" r="5" fill="#0E7F96"/><text x="98" y="264">precipitațiile</text>
+    </g>
+    <circle cx="340" cy="178" r="26" fill="#E2F6FA"/><circle cx="372" cy="170" r="32" fill="#E2F6FA"/><circle cx="404" cy="184" r="22" fill="#E2F6FA"/>
+    <rect x="320" y="180" width="104" height="26" rx="13" fill="#E2F6FA"/>
+    <path d="M342 222l-6 14M370 222l-6 14M398 222l-6 14M356 248l-6 14M384 248l-6 14" stroke="#3EC6E0" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- diapozitiv greșit -->
+    <rect x="510" y="86" width="400" height="225" rx="6" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <text x="528" y="122" font-size="20" font-weight="800"><tspan fill="#F29A1F" font-family="Georgia, serif" font-style="italic">Circuitul</tspan> <tspan fill="#3EC6E0" font-family="Courier New, monospace">apei</tspan> <tspan fill="#14A39A" font-family="Impact, sans-serif">în natură!!!</tspan></text>
+    <g fill="#E8DFD3">
+      <rect x="528" y="138" width="250" height="5" rx="2"/><rect x="528" y="149" width="236" height="5" rx="2"/><rect x="528" y="160" width="252" height="5" rx="2"/>
+      <rect x="528" y="171" width="220" height="5" rx="2"/><rect x="528" y="182" width="248" height="5" rx="2"/><rect x="528" y="193" width="240" height="5" rx="2"/>
+      <rect x="528" y="204" width="252" height="5" rx="2"/><rect x="528" y="215" width="230" height="5" rx="2"/><rect x="528" y="226" width="246" height="5" rx="2"/>
+      <rect x="528" y="237" width="250" height="5" rx="2"/><rect x="528" y="248" width="238" height="5" rx="2"/><rect x="528" y="259" width="252" height="5" rx="2"/>
+      <rect x="528" y="270" width="226" height="5" rx="2"/><rect x="528" y="281" width="244" height="5" rx="2"/><rect x="528" y="292" width="200" height="5" rx="2"/>
+    </g>
+    <rect x="796" y="134" width="70" height="56" rx="4" fill="#FDE7EC"/>
+    <rect x="810" y="200" width="70" height="56" rx="4" fill="#FFF0DB"/>
+    <rect x="860" y="250" width="66" height="60" rx="4" fill="#E0F4F2" stroke="#14A39A" stroke-width="2"/>
+    <path d="M800 290l12-20 12 20z" fill="#F29A1F"/>
+
+    <!-- reguli -->
+    <g font-size="15">
+      <circle cx="62" cy="352" r="9" fill="#14A39A"/><path d="M57 352l4 4 7-8" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="80" y="357">titlu mare, text de cel puțin 18</text>
+      <circle cx="62" cy="388" r="9" fill="#14A39A"/><path d="M57 388l4 4 7-8" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="80" y="393">puțin text: cel mult 40 de cuvinte</text>
+      <circle cx="62" cy="424" r="9" fill="#14A39A"/><path d="M57 424l4 4 7-8" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="80" y="429">cel mult 3 culori și 3 fonturi</text>
+      <circle cx="62" cy="460" r="9" fill="#14A39A"/><path d="M57 460l4 4 7-8" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="80" y="465">contrast bun, imagine în loc de text</text>
+      <circle cx="62" cy="496" r="9" fill="#14A39A"/><path d="M57 496l4 4 7-8" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="80" y="501">nimic nu iese din margine</text>
+
+      <circle cx="522" cy="352" r="9" fill="#F21F4B"/><path d="M518 348l8 8M526 348l-8 8" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="540" y="357">prea mult text: publicul nu te ascultă</text>
+      <circle cx="522" cy="388" r="9" fill="#F21F4B"/><path d="M518 384l8 8M526 384l-8 8" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="540" y="393">litere prea mici, nu se văd din spate</text>
+      <circle cx="522" cy="424" r="9" fill="#F21F4B"/><path d="M518 420l8 8M526 420l-8 8" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="540" y="429">prea multe fonturi și culori</text>
+      <circle cx="522" cy="460" r="9" fill="#F21F4B"/><path d="M518 456l8 8M526 456l-8 8" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="540" y="465">prea multe obiecte, înghesuite</text>
+      <circle cx="522" cy="496" r="9" fill="#F21F4B"/><path d="M518 492l8 8M526 492l-8 8" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="540" y="501">un obiect iese din diapozitiv</text>
+    </g>
+  </g>
+</svg>

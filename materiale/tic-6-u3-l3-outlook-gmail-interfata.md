@@ -42,6 +42,8 @@ Deschizi browserul și scrii `mail.google.com` (sau mergi pe `google.com` → bu
 
 ### Interfața Gmail
 
+![Elementele principale ale unei căsuțe de e-mail în browser, numerotate în ordinea din lecție.](fisiere/imagini/tic-6-u3-l3-outlook-gmail-interfata.svg)
+
 1. **Scrie** (*Compose*): deschide un mesaj nou;
 2. **Mesaje primite** (*Inbox*);
 3. **Trimise** (*Sent*);

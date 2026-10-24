@@ -55,6 +55,8 @@ Toți pașii sunt **secvențiali**, unul după altul.
 
 ### B. Figuri cu laturi egale
 
+![La fiecare colț personajul se rotește cu 360° : numărul de laturi: 120° la triunghi, 90° la pătrat, 60° la hexagon.](fisiere/imagini/info-6-u4-l2-algoritmi-modele.svg)
+
 Pentru un **pătrat** cu latura de **100** de pași, de patru ori: **mergi 100 de pași**, apoi **rotește-te stânga 90°**.
 
 De ce **90°**? Ca să te întorci de unde ai plecat, faci în total o rotație completă, de **360°**, împărțită în tot atâtea părți câte laturi are figura:

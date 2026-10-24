@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Sfaturi pentru susținerea unei prezentări: înainte de expunere și în timpul ei</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="40" y="54" font-size="20" font-weight="800">În timpul prezentării</text>
+
+    <!-- ecran -->
+    <path d="M180 70V80" stroke="#171416" stroke-width="3"/>
+    <rect x="60" y="80" width="240" height="140" rx="4" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <rect x="76" y="96" width="140" height="16" rx="4" fill="#0E7F96"/>
+    <circle cx="84" cy="136" r="4" fill="#171416"/><rect x="96" y="132" width="110" height="8" rx="4" fill="#E8DFD3"/>
+    <circle cx="84" cy="160" r="4" fill="#171416"/><rect x="96" y="156" width="90" height="8" rx="4" fill="#E8DFD3"/>
+    <circle cx="84" cy="184" r="4" fill="#171416"/><rect x="96" y="180" width="100" height="8" rx="4" fill="#E8DFD3"/>
+    <rect x="226" y="128" width="60" height="64" rx="4" fill="#E2F6FA"/>
+    <text x="60" y="246" font-size="14">nu citești de pe diapozitive:</text>
+    <text x="60" y="265" font-size="14">ele doar te ghidează</text>
+
+    <!-- prezentator -->
+    <path d="M340 248L306 214" stroke="#14A39A" stroke-width="12" stroke-linecap="round"/>
+    <path d="M384 248L396 316" stroke="#14A39A" stroke-width="12" stroke-linecap="round"/>
+    <rect x="334" y="232" width="56" height="104" rx="18" fill="#14A39A"/>
+    <rect x="340" y="330" width="18" height="74" rx="6" fill="#171416"/>
+    <rect x="366" y="330" width="18" height="74" rx="6" fill="#171416"/>
+    <circle cx="362" cy="202" r="24" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+    <circle cx="370" cy="198" r="3" fill="#171416"/>
+    <path d="M368 212q6 4 10 0" fill="none" stroke="#171416" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M398 190q8 10 0 22M406 182q14 18 0 38" fill="none" stroke="#F29A1F" stroke-width="3" stroke-linecap="round"/>
+    <text x="420" y="196" font-size="14">vorbești rar</text>
+    <text x="420" y="214" font-size="14">și destul de tare</text>
+    <text x="318" y="290" font-size="14" text-anchor="end">gesturi și mimică</text>
+
+    <!-- ceas -->
+    <circle cx="430" cy="100" r="18" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <path d="M430 88V100H440" fill="none" stroke="#F21F4B" stroke-width="3" stroke-linecap="round"/>
+    <text x="456" y="98" font-size="14">te încadrezi</text>
+    <text x="456" y="116" font-size="14">în timp</text>
+
+    <!-- masă, laptop, pahar -->
+    <rect x="90" y="306" width="90" height="34" rx="4" fill="#E0F4F2" stroke="#171416" stroke-width="3"/>
+    <path d="M80 342H190" stroke="#171416" stroke-width="5" stroke-linecap="round"/>
+    <rect x="60" y="346" width="200" height="10" rx="3" fill="#F1E9DF" stroke="#171416" stroke-width="2"/>
+    <path d="M76 356V404M244 356V404" stroke="#171416" stroke-width="4"/>
+    <path d="M214 314h22l-3 30h-16z" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2"/>
+    <path d="M206 306l38 46M244 306l-38 46" stroke="#F21F4B" stroke-width="4" stroke-linecap="round"/>
+    <text x="60" y="430" font-size="14">fără apă lângă echipamente</text>
+
+    <!-- public -->
+    <path d="M384 210L478 402" stroke="#171416" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#sag)"/>
+    <text x="448" y="300" font-size="14">privești publicul</text>
+    <text x="448" y="318" font-size="14">și îi pui întrebări</text>
+    <g fill="#0E7F96">
+      <circle cx="430" cy="440" r="16"/><path d="M402 496a28 28 0 0 1 56 0z"/>
+      <circle cx="496" cy="436" r="16" fill="#C8133A"/><path d="M468 496a28 28 0 0 1 56 0z" fill="#C8133A"/>
+      <circle cx="562" cy="440" r="16" fill="#F29A1F"/><path d="M534 496a28 28 0 0 1 56 0z" fill="#F29A1F"/>
+    </g>
+
+    <!-- înainte -->
+    <path d="M614 40V500" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="640" y="68" font-size="18" font-weight="800">Înainte de prezentare</text>
+    <g font-size="14">
+      <circle cx="652" cy="100" r="12" fill="#14A39A"/><text x="652" y="105" text-anchor="middle" font-weight="800" fill="#FFFFFF">1</text>
+      <text x="674" y="98">verifici sala și</text><text x="674" y="116">echipamentele</text>
+      <circle cx="652" cy="150" r="12" fill="#14A39A"/><text x="652" y="155" text-anchor="middle" font-weight="800" fill="#FFFFFF">2</text>
+      <text x="674" y="148">verifici culorile pe</text><text x="674" y="166">ecranul de proiecție</text>
+      <circle cx="652" cy="200" r="12" fill="#14A39A"/><text x="652" y="205" text-anchor="middle" font-weight="800" fill="#FFFFFF">3</text>
+      <text x="674" y="198">exersezi discursul</text><text x="674" y="216">cu un cronometru</text>
+      <circle cx="652" cy="250" r="12" fill="#14A39A"/><text x="652" y="255" text-anchor="middle" font-weight="800" fill="#FFFFFF">4</text>
+      <text x="674" y="248">ai un plan de rezervă:</text><text x="674" y="266">stick și foi tipărite</text>
+    </g>
+    <rect x="636" y="306" width="284" height="194" rx="14" fill="#FDE7EC"/>
+    <text x="654" y="336" font-size="17" font-weight="800" fill="#C8133A">Greșeli de evitat</text>
+    <g font-size="14">
+      <text x="654" y="368">✗ depășirea timpului</text>
+      <text x="654" y="398">✗ citirea de pe diapozitive</text>
+      <text x="654" y="428">✗ prea puțină interacțiune</text>
+      <text x="670" y="446">cu publicul</text>
+      <text x="654" y="476">✗ ticuri: gumă, joaca cu pixul</text>
+    </g>
+  </g>
+</svg>

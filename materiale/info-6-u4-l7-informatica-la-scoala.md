@@ -58,6 +58,8 @@ O prezentare în Scratch poate fi folosită la **orice materie**, ca alternativ�
 
 ### B. Fractali
 
+![Copacul fractal: din capătul fiecărei linii pornesc două linii de 0,75 ori mai scurte, la 30°, iar pasul se repetă de mai multe ori.](fisiere/imagini/info-6-u4-l7-informatica-la-scoala.svg)
+
 **Fractalii** sunt forme care se pot împărți în părți mai mici, **asemănătoare** cu întregul. Termenul a fost introdus în **1975** de matematicianul **Benoit Mandelbrot**. În natură: **munții**, **ramurile copacilor**, **fulgii de zăpadă**, **frunza de ferigă**.
 
 **Copacul fractal:**

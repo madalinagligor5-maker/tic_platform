@@ -46,6 +46,8 @@ Totul e în **Meniu**:
 
 ### Cele patru mișcări ale unui obiect 3D
 
+![Un obiect 3D selectat se poate roti în trei feluri și se poate apropia sau depărta de pânză.](fisiere/imagini/tic-6-u2-l2-operatii-grafica-3d.svg)
+
 Un text sau un obiect 3D selectat are patru butoane de mișcare:
 
 1. **rotire** stânga/dreapta, în jurul centrului;

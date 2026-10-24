@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Părțile unei adrese de e-mail și folderele unei căsuțe poștale</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="58" text-anchor="middle" font-size="22" font-weight="800">Adresa de e-mail: nume@gazdă</text>
+
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="28" font-weight="700" text-anchor="middle">
+      <rect x="187" y="96" width="285" height="54" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+      <text x="329" y="133" fill="#0E7F96">elev.popescu_6b</text>
+      <rect x="480" y="96" width="44" height="54" rx="12" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+      <text x="502" y="133" fill="#C8133A">@</text>
+      <rect x="532" y="96" width="132" height="54" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+      <text x="598" y="133" fill="#0B6F68">scoala</text>
+      <text x="687" y="133" fill="#0B6F68">.</text>
+      <rect x="710" y="96" width="64" height="54" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+      <text x="742" y="133" fill="#0B6F68">ro</text>
+    </g>
+    <path d="M190 166v10H469v-10M532 166v10H774v-10M502 160v16" fill="none" stroke="#171416" stroke-width="2.5"/>
+    <text x="329" y="202" text-anchor="middle" font-size="16" font-weight="800" fill="#0E7F96">numele contului</text>
+    <text x="329" y="222" text-anchor="middle" font-size="13" fill="#6B6460">litere, cifre, punct, minus, _</text>
+    <text x="502" y="202" text-anchor="middle" font-size="16" font-weight="800" fill="#C8133A">„la”</text>
+    <text x="502" y="222" text-anchor="middle" font-size="13" fill="#6B6460">citit „at”</text>
+    <text x="653" y="202" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">gazda (serverul)</text>
+    <text x="653" y="222" text-anchor="middle" font-size="13" fill="#6B6460">nume + domeniu, cu punct între</text>
+    <text x="480" y="262" text-anchor="middle" font-size="14" fill="#6B6460">Literele mari și mici nu contează: Elev.Popescu_6B@scoala.ro ajunge tot la tine.</text>
+
+    <path d="M40 286H920" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="480" y="320" text-anchor="middle" font-size="18" font-weight="800">Folderele căsuței poștale</text>
+    <g text-anchor="middle">
+      <rect x="40" y="340" width="164" height="166" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <path d="M92 362h20l6 6h34v34H92z" fill="#3EC6E0"/>
+      <text x="122" y="436" font-size="17" font-weight="800">Inbox</text>
+      <text x="122" y="460" font-size="13" fill="#6B6460">Mesaje primite</text>
+
+      <rect x="219" y="340" width="164" height="166" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <path d="M271 362h20l6 6h34v34H271z" fill="#F29A1F"/>
+      <text x="301" y="436" font-size="17" font-weight="800">Outbox</text>
+      <text x="301" y="460" font-size="13" fill="#6B6460">Mesaje de trimis</text>
+      <text x="301" y="478" font-size="13" fill="#6B6460">(așteaptă să plece)</text>
+
+      <rect x="398" y="340" width="164" height="166" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <path d="M450 362h20l6 6h34v34H450z" fill="#14A39A"/>
+      <text x="480" y="436" font-size="17" font-weight="800">Sent</text>
+      <text x="480" y="460" font-size="13" fill="#6B6460">Mesaje trimise</text>
+
+      <rect x="577" y="340" width="164" height="166" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <path d="M629 362h20l6 6h34v34H629z" fill="#0E7F96"/>
+      <text x="659" y="436" font-size="17" font-weight="800">Drafts</text>
+      <text x="659" y="460" font-size="13" fill="#6B6460">Ciorne: începute,</text>
+      <text x="659" y="478" font-size="13" fill="#6B6460">netrimise</text>
+
+      <rect x="756" y="340" width="164" height="166" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <path d="M820 368h28M826 368v-6h16v6M822 372l4 30h16l4-30z" fill="none" stroke="#F21F4B" stroke-width="3" stroke-linejoin="round"/>
+      <text x="838" y="436" font-size="17" font-weight="800">Coș de gunoi</text>
+      <text x="838" y="460" font-size="13" fill="#6B6460">Mesaje șterse,</text>
+      <text x="838" y="478" font-size="13" fill="#6B6460">până golești coșul</text>
+    </g>
+  </g>
+</svg>

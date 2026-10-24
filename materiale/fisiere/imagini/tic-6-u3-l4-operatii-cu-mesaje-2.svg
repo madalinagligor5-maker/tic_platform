@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Cine ce adrese vede când Vlad trimite un mesaj cu Către, CC și CCI</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <!-- Vlad -->
+    <rect x="40" y="186" width="170" height="120" rx="16" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <circle cx="125" cy="222" r="16" fill="#171416"/>
+    <path d="M97 270a28 28 0 0 1 56 0z" fill="#171416"/>
+    <text x="125" y="292" text-anchor="middle" font-size="16" font-weight="800">Vlad trimite</text>
+    <text x="125" y="330" text-anchor="middle" font-size="13" fill="#6B6460">el vede toate</text>
+    <text x="125" y="348" text-anchor="middle" font-size="13" fill="#6B6460">adresele</text>
+
+    <!-- săgeți -->
+    <path d="M212 220L318 100" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M212 240L318 196" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M212 262L318 292" stroke="#171416" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#sag)"/>
+    <path d="M212 282L318 388" stroke="#171416" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#sag)"/>
+
+    <!-- carduri -->
+    <g font-size="14">
+      <rect x="326" y="60" width="594" height="80" rx="14" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+      <rect x="342" y="74" width="68" height="26" rx="13" fill="#3EC6E0"/><text x="376" y="92" text-anchor="middle" font-weight="800" fill="#FFFFFF">Către</text>
+      <text x="422" y="92" font-size="16" font-weight="800">Ana</text>
+      <text x="342" y="126" fill="#6B6460">vede adresele:</text>
+      <text x="460" y="126" font-weight="700">Vlad, Ana, Mihai</text>
+
+      <rect x="326" y="156" width="594" height="80" rx="14" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+      <rect x="342" y="170" width="68" height="26" rx="13" fill="#14A39A"/><text x="376" y="188" text-anchor="middle" font-weight="800" fill="#FFFFFF">CC</text>
+      <text x="422" y="188" font-size="16" font-weight="800">Mihai</text>
+      <text x="342" y="222" fill="#6B6460">vede adresele:</text>
+      <text x="460" y="222" font-weight="700">Vlad, Ana, Mihai</text>
+
+      <rect x="326" y="252" width="594" height="80" rx="14" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+      <rect x="342" y="266" width="68" height="26" rx="13" fill="#F21F4B"/><text x="376" y="284" text-anchor="middle" font-weight="800" fill="#FFFFFF">CCI</text>
+      <text x="422" y="284" font-size="16" font-weight="800">Ioana</text>
+      <text x="342" y="318" fill="#6B6460">vede adresele:</text>
+      <text x="460" y="318" font-weight="700">Vlad, Ana, Mihai și pe a ei</text>
+      <text x="720" y="284" font-weight="800" fill="#C8133A">nu o vede pe a lui Radu</text>
+
+      <rect x="326" y="348" width="594" height="80" rx="14" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+      <rect x="342" y="362" width="68" height="26" rx="13" fill="#F21F4B"/><text x="376" y="380" text-anchor="middle" font-weight="800" fill="#FFFFFF">CCI</text>
+      <text x="422" y="380" font-size="16" font-weight="800">Radu</text>
+      <text x="342" y="414" fill="#6B6460">vede adresele:</text>
+      <text x="460" y="414" font-weight="700">Vlad, Ana, Mihai și pe a lui</text>
+      <text x="720" y="380" font-weight="800" fill="#C8133A">nu o vede pe a Ioanei</text>
+    </g>
+
+    <rect x="40" y="448" width="880" height="60" rx="14" fill="#FFF0DB"/>
+    <text x="480" y="474" text-anchor="middle" font-size="14">Dacă Ana apasă <tspan font-weight="800">Răspunde tuturor</tspan>, răspunsul ajunge la Vlad și la Mihai,</text>
+    <text x="480" y="494" text-anchor="middle" font-size="14">dar <tspan font-weight="800">nu</tspan> și la Ioana și Radu: adresele din CCI rămân ascunse.</text>
+  </g>
+</svg>

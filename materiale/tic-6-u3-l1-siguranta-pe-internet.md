@@ -41,6 +41,8 @@ data: 2026-10-15
 
 ### Tipuri de malware
 
+![Cele patru tipuri de malware și ce face fiecare, plus măsurile de protecție: firewall, antivirus actualizat, browser la zi, parole sigure.](fisiere/imagini/tic-6-u3-l1-siguranta-pe-internet.svg)
+
 | Tip | Ce face |
 |---|---|
 | **Virus** | se atașează de fișiere (de obicei programe); când le deschizi, se răspândește și în alte fișiere și le strică |

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Schema structurii repetitive „cât timp”, cu test inițial, blocul Scratch echivalent și traseul datelor pentru a = 783</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="40" y="54" font-size="22" font-weight="800">„cât timp”: testul se face ÎNAINTE</text>
+
+    <!-- schema logică -->
+    <path d="M230 76V132" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="242" y="104" font-size="13" fill="#6B6460">intrare</text>
+    <path d="M230 140L350 200L230 260L110 200Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3" stroke-linejoin="round"/>
+    <text x="230" y="196" text-anchor="middle" font-size="17" font-weight="800">condiția C</text>
+    <text x="230" y="216" text-anchor="middle" font-size="14">este adevărată?</text>
+
+    <path d="M230 260V292" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="242" y="284" font-size="14" font-weight="800" fill="#0B6F68">Adevărat</text>
+    <rect x="150" y="300" width="160" height="54" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="230" y="333" text-anchor="middle" font-size="17" font-weight="800">secvența A</text>
+
+    <path d="M230 354V392H70V200H102" fill="none" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="82" y="380" font-size="13" fill="#6B6460">se revine la test</text>
+
+    <path d="M350 200H470V432" fill="none" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="370" y="190" font-size="14" font-weight="800" fill="#C8133A">Fals</text>
+    <rect x="395" y="440" width="150" height="44" rx="22" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="470" y="467" text-anchor="middle" font-size="15" font-weight="800">ieșire</text>
+
+    <rect x="40" y="420" width="330" height="80" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="56" y="448" font-size="14" font-weight="800">Atenție!</text>
+    <text x="56" y="469" font-size="14">Dacă C e falsă de la început,</text>
+    <text x="56" y="488" font-size="14">A nu se execută niciodată.</text>
+
+    <!-- Scratch -->
+    <path d="M580 70V510" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="606" y="96" font-size="17" font-weight="800">În Scratch</text>
+    <path d="M606 112H906a6 6 0 0 1 6 6V148a6 6 0 0 1-6 6H640V196H760a6 6 0 0 1 6 6V214a6 6 0 0 1-6 6H612a6 6 0 0 1-6-6V118a6 6 0 0 1 6-6Z" fill="#F29A1F"/>
+    <text x="618" y="138" font-size="13" fill="#FFFFFF">repetă până când</text>
+    <path d="M758 120H864L878 133L864 146H758L744 133Z" fill="#14A39A"/>
+    <text x="811" y="138" text-anchor="middle" font-size="13" fill="#FFFFFF">nu C</text>
+    <rect x="640" y="160" width="130" height="32" rx="6" fill="#0E7F96"/>
+    <text x="652" y="181" font-size="13" fill="#FFFFFF">secvența A</text>
+    <text x="606" y="248" font-size="13" fill="#6B6460">repetă până când C devine adevărată,</text>
+    <text x="606" y="266" font-size="13" fill="#6B6460">adică cât timp C este falsă</text>
+
+    <!-- traseul datelor -->
+    <text x="606" y="310" font-size="17" font-weight="800">Cifrele lui a = 783</text>
+    <g font-size="14">
+      <text x="606" y="340" font-weight="800" fill="#6B6460">a</text>
+      <text x="690" y="340" font-weight="800" fill="#6B6460">a &gt; 0</text>
+      <text x="800" y="340" font-weight="800" fill="#6B6460">se afișează</text>
+      <path d="M606 350H912" stroke="#E8DFD3" stroke-width="2"/>
+      <text x="606" y="374">783</text><text x="690" y="374" fill="#0B6F68">Adevărat</text><text x="800" y="374" font-weight="800">3</text>
+      <text x="606" y="404">78</text><text x="690" y="404" fill="#0B6F68">Adevărat</text><text x="800" y="404" font-weight="800">8</text>
+      <text x="606" y="434">7</text><text x="690" y="434" fill="#0B6F68">Adevărat</text><text x="800" y="434" font-weight="800">7</text>
+      <text x="606" y="464">0</text><text x="690" y="464" fill="#C8133A" font-weight="800">Fals</text><text x="800" y="464" fill="#C8133A">ieșire</text>
+    </g>
+    <text x="606" y="496" font-size="13" fill="#6B6460">c ← a % 10 dă ultima cifră</text>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Comparație între structurile cu test final „repetă… cât timp” și „repetă… până când”</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="50" text-anchor="middle" font-size="22" font-weight="800">Test final: secvența A se execută cel puțin o dată</text>
+    <path d="M480 76V510" stroke="#E8DFD3" stroke-width="3"/>
+
+    <!-- coloana stângă: repetă... cât timp -->
+    <text x="240" y="94" text-anchor="middle" font-size="18" font-weight="800" fill="#0E7F96">repetă A cât timp C</text>
+    <path d="M240 104V132" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="160" y="140" width="160" height="54" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="240" y="173" text-anchor="middle" font-size="17" font-weight="800">secvența A</text>
+    <path d="M240 194V222" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M240 230L350 286L240 342L130 286Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3" stroke-linejoin="round"/>
+    <text x="240" y="283" text-anchor="middle" font-size="16" font-weight="800">condiția C</text>
+    <text x="240" y="302" text-anchor="middle" font-size="14">adevărată?</text>
+    <path d="M130 286H60V167H152" fill="none" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="66" y="276" font-size="14" font-weight="800" fill="#0B6F68">Adevărat</text>
+    <text x="72" y="156" font-size="13" fill="#6B6460">se reia</text>
+    <path d="M240 342V392" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="252" y="372" font-size="14" font-weight="800" fill="#C8133A">Fals</text>
+    <rect x="175" y="400" width="130" height="42" rx="21" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="240" y="426" text-anchor="middle" font-size="15" font-weight="800">ieșire</text>
+    <rect x="60" y="460" width="360" height="46" rx="14" fill="#E2F6FA"/>
+    <text x="240" y="489" text-anchor="middle" font-size="15">se oprește când C devine <tspan font-weight="800">falsă</tspan></text>
+
+    <!-- coloana dreaptă: repetă... până când -->
+    <text x="720" y="94" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">repetă A până când C</text>
+    <path d="M720 104V132" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="640" y="140" width="160" height="54" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="720" y="173" text-anchor="middle" font-size="17" font-weight="800">secvența A</text>
+    <path d="M720 194V222" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M720 230L830 286L720 342L610 286Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3" stroke-linejoin="round"/>
+    <text x="720" y="283" text-anchor="middle" font-size="16" font-weight="800">condiția C</text>
+    <text x="720" y="302" text-anchor="middle" font-size="14">adevărată?</text>
+    <path d="M610 286H540V167H632" fill="none" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="548" y="276" font-size="14" font-weight="800" fill="#C8133A">Fals</text>
+    <text x="552" y="156" font-size="13" fill="#6B6460">se reia</text>
+    <path d="M720 342V392" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="732" y="372" font-size="14" font-weight="800" fill="#0B6F68">Adevărat</text>
+    <rect x="655" y="400" width="130" height="42" rx="21" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="720" y="426" text-anchor="middle" font-size="15" font-weight="800">ieșire</text>
+    <rect x="540" y="460" width="360" height="46" rx="14" fill="#FDE7EC"/>
+    <text x="720" y="489" text-anchor="middle" font-size="15">se oprește când C devine <tspan font-weight="800">adevărată</tspan></text>
+  </g>
+</svg>

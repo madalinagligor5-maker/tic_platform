@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Mâna difuzează mesajul „sus”, copacii îl primesc și se măresc până la o limită; straturile personajelor din joc</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="40" y="54" font-size="20" font-weight="800">Mesaje între personaje</text>
+
+    <!-- Mâna -->
+    <rect x="40" y="90" width="230" height="200" rx="16" fill="#FFFFFF" stroke="#F29A1F" stroke-width="3"/>
+    <text x="155" y="120" text-anchor="middle" font-size="18" font-weight="800">Mâna</text>
+    <rect x="125" y="134" width="60" height="56" rx="10" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+    <path d="M155 178V148M144 159l11-11 11 11" fill="none" stroke="#171416" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="155" y="212" text-anchor="middle" font-size="13" fill="#6B6460">apeși săgeata sus</text>
+    <rect x="62" y="228" width="186" height="40" rx="8" fill="#F29A1F"/>
+    <text x="155" y="253" text-anchor="middle" font-size="14" fill="#FFFFFF">difuzează „sus”</text>
+
+    <!-- săgeți mesaj -->
+    <path d="M270 236L322 160" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M270 252L322 318" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+
+    <!-- Copac1 -->
+    <rect x="330" y="90" width="300" height="140" rx="16" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <rect x="352" y="160" width="10" height="34" fill="#6B6460"/>
+    <circle cx="357" cy="146" r="22" fill="#14A39A"/>
+    <text x="357" y="216" text-anchor="middle" font-size="13" font-weight="800">Copac1</text>
+    <!-- Copac2 -->
+    <rect x="330" y="250" width="300" height="140" rx="16" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <rect x="352" y="320" width="10" height="34" fill="#6B6460"/>
+    <circle cx="357" cy="306" r="22" fill="#14A39A"/>
+    <text x="357" y="376" text-anchor="middle" font-size="13" font-weight="800">Copac2</text>
+    <!-- scripturi -->
+    <g font-size="13" fill="#FFFFFF">
+      <path d="M394 136V112Q420 96 446 112H612a6 6 0 0 1 6 6V130a6 6 0 0 1-6 6Z" fill="#F29A1F"/>
+      <text x="404" y="130">când primesc „sus”</text>
+      <path d="M394 136H612a6 6 0 0 1 6 6V160a6 6 0 0 1-6 6H414V192H612a6 6 0 0 1 6 6V206a6 6 0 0 1-6 6H400a6 6 0 0 1-6-6Z" fill="#C8133A"/>
+      <text x="404" y="157">dacă (mărime) &lt; 150 atunci</text>
+      <rect x="414" y="166" width="196" height="26" rx="5" fill="#0E7F96"/>
+      <text x="422" y="184">modifică mărimea cu 10</text>
+
+      <path d="M394 296V272Q420 256 446 272H612a6 6 0 0 1 6 6V290a6 6 0 0 1-6 6Z" fill="#F29A1F"/>
+      <text x="404" y="290">când primesc „sus”</text>
+      <path d="M394 296H612a6 6 0 0 1 6 6V320a6 6 0 0 1-6 6H414V352H612a6 6 0 0 1 6 6V366a6 6 0 0 1-6 6H400a6 6 0 0 1-6-6Z" fill="#C8133A"/>
+      <text x="404" y="317">dacă (mărime) &lt; 150 atunci</text>
+      <rect x="414" y="326" width="196" height="26" rx="5" fill="#0E7F96"/>
+      <text x="422" y="344">modifică mărimea cu 10</text>
+    </g>
+
+    <rect x="40" y="414" width="590" height="94" rx="14" fill="#E0F4F2"/>
+    <text x="58" y="442" font-size="14"><tspan font-weight="800">difuzează</tspan> trimite mesajul tuturor personajelor;</text>
+    <text x="58" y="464" font-size="14">fiecare copac îl primește și reacționează singur.</text>
+    <text x="58" y="486" font-size="14"><tspan font-weight="800">Limita</tspan> (mărime &lt; 150) oprește creșterea la nesfârșit.</text>
+
+    <!-- straturi -->
+    <path d="M660 76V510" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="800" y="54" text-anchor="middle" font-size="20" font-weight="800">Straturile</text>
+    <rect x="726" y="96" width="196" height="130" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="742" y="122" font-size="15" font-weight="800">3. Iarba</text>
+    <text x="742" y="142" font-size="13" fill="#6B6460">cel mai în spate</text>
+    <rect x="702" y="172" width="196" height="130" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="718" y="198" font-size="15" font-weight="800">2. Copac1, Copac2</text>
+    <text x="718" y="218" font-size="13" fill="#6B6460">în mijloc</text>
+    <rect x="678" y="248" width="196" height="130" rx="12" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="694" y="274" font-size="15" font-weight="800">1. Ținta, Mâna</text>
+    <text x="694" y="294" font-size="13" fill="#6B6460">în față</text>
+    <circle cx="776" cy="336" r="22" fill="none" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="776" cy="336" r="10" fill="none" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="776" cy="336" r="3" fill="#F21F4B"/>
+    <text x="800" y="414" text-anchor="middle" font-size="13" fill="#6B6460">Mâna și ținta stau pe loc;</text>
+    <text x="800" y="434" text-anchor="middle" font-size="13" fill="#6B6460">la săgeți se mișcă decorul:</text>
+    <text x="800" y="454" text-anchor="middle" font-size="13" fill="#6B6460">copacii și iarba.</text>
+  </g>
+</svg>

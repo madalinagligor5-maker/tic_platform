@@ -44,6 +44,8 @@ Dacă alegi prezentarea necompletată, se deschide **Prezentare1**, încă nesal
 
 ### Fereastra PowerPoint
 
+![Cele șase elemente ale ferestrei PowerPoint: bara de titlu, panglica, bara de status și panourile de miniaturi, de note și diapozitiv.](fisiere/imagini/tic-6-u1-l2-powerpoint-interfata.svg)
+
 1. **Bara de titlu**: numele fișierului, căutarea (**Alt + G**), contul Office și butoanele de minimizare, maximizare, închidere. În stânga are **Bara de acces rapid**: Salvare (**Ctrl + S**), Anulare (**Ctrl + Z**), Refacere (**Ctrl + Y**), Pornire de la început (**F5**).
 2. **Panglica** (*Ribbon*): comenzile, grupate pe **file** (*tabs*).
 3. **Bara de status**: jos, cu numărul diapozitivului curent, limba, butonul **Note**, modurile de vizualizare și panoramarea (zoom).

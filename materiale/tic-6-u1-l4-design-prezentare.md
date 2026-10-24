@@ -64,6 +64,8 @@ Se deschide un panou în care alegi mărimea, poziția și alte caracteristici.
 
 ### Reguli de design
 
+![Același subiect, două diapozitive: în stânga sunt respectate regulile de design, în dreapta sunt greșelile de evitat.](fisiere/imagini/tic-6-u1-l4-design-prezentare.svg)
+
 - diapozitivele au un **design unitar**, armonios;
 - **puțin text**: cel mult **40 de cuvinte**, pe cel mult **6–7 rânduri**; ce se poate arăta printr-o imagine, se arată prin imagine;
 - cel mult **trei fonturi** pe diapozitiv, de mărime **cel puțin 18**;

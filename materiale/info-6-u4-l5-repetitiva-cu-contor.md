@@ -49,6 +49,8 @@ Dacă **pasul** lipsește, este **1**.
 
 ### A. Suma lui Gauss
 
+![Structura „pentru” adună la fiecare pas valoarea contorului i: pentru n = 4, suma crește 1, 3, 6, 10.](fisiere/imagini/info-6-u4-l5-repetitiva-cu-contor.svg)
+
 **Enunț:** calculează **S = 1 + 2 + 3 + … + n**, unde n este citit de la tastatură.
 
 **Date:** n (intrare), **i** (contorul), **S** (ieșire).

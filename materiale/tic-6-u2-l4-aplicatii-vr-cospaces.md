@@ -37,6 +37,8 @@ Ca să vezi un proiect în VR ai nevoie de **ochelari VR**. Unii se fac chiar di
 
 ### CoSpaces Edu
 
+![Pașii unui proiect CoSpaces Edu: mediul, obiectele din bibliotecă, obiectele proprii, textul, rularea cu Play și distribuirea cu Share.](fisiere/imagini/tic-6-u2-l4-aplicatii-vr-cospaces.svg)
+
 Aplicația este online, la **cospaces.io**. Ai nevoie de un cont: **profesorul** îți trimite o **invitație** în clasa lui, iar tu intri direct.
 
 **Pașii unui proiect:**

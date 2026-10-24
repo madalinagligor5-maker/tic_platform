@@ -54,6 +54,8 @@ Lucrezi în **panoul de miniaturi**, cu clic dreapta pe un diapozitiv:
 
 ### C. Obiectele de pe diapozitiv
 
+![Din fila Inserare adaugi pe diapozitiv casete text, tabele, imagini, forme, sunete, filme și linkuri.](fisiere/imagini/tic-6-u1-l3-realizarea-unei-prezentari.svg)
+
 Toate se adaugă din fila **Inserare**:
 
 - **Casetă text**: clic pe diapozitiv și scrii. Fontul, mărimea, culoarea le schimbi din **Pornire → Font**, iar alinierea din **Pornire → Paragraf**;

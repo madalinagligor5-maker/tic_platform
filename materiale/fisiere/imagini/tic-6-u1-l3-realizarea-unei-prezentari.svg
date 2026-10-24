@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Fila Inserare și obiectele pe care le poți pune pe un diapozitiv: text, tabel, imagine, formă, audio, video și link</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <!-- panglica -->
+    <rect x="36" y="32" width="888" height="132" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <g font-size="14">
+      <text x="56" y="58">Fișier</text>
+      <text x="120" y="58">Pornire</text>
+      <text x="196" y="58" font-weight="800" fill="#C8133A">Inserare</text>
+      <text x="282" y="58">Proiectare</text>
+      <text x="376" y="58">Tranziții</text>
+      <text x="456" y="58">Animații</text>
+    </g>
+    <path d="M196 65h64" stroke="#C8133A" stroke-width="3"/>
+    <path d="M38 70H922" stroke="#E8DFD3" stroke-width="2"/>
+    <g font-size="14" font-weight="700" text-anchor="middle">
+      <!-- casetă text -->
+      <rect x="88" y="82" width="44" height="40" rx="4" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+      <text x="110" y="109" font-size="20" font-weight="800">A</text>
+      <text x="110" y="148">Casetă text</text>
+      <!-- tabel -->
+      <rect x="212" y="84" width="48" height="36" rx="3" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+      <path d="M212 96h48M212 108h48M228 84v36M244 84v36" stroke="#14A39A" stroke-width="2"/>
+      <rect x="213" y="85" width="46" height="11" fill="#14A39A"/>
+      <text x="236" y="148">Tabel</text>
+      <!-- imagini -->
+      <rect x="336" y="84" width="50" height="36" rx="4" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+      <path d="M340 116l14-16 10 10 6-6 12 12z" fill="#3EC6E0"/><circle cx="374" cy="94" r="4" fill="#F29A1F"/>
+      <text x="361" y="148">Imagini</text>
+      <!-- forme -->
+      <circle cx="472" cy="98" r="12" fill="#F29A1F"/>
+      <rect x="484" y="98" width="20" height="20" rx="2" fill="#F21F4B"/>
+      <text x="486" y="148">Forme</text>
+      <!-- audio -->
+      <path d="M594 94h8l12-10v36l-12-10h-8z" fill="#0E7F96"/>
+      <path d="M620 92q8 10 0 20M626 86q14 16 0 32" fill="none" stroke="#0E7F96" stroke-width="3" stroke-linecap="round"/>
+      <text x="611" y="148">Audio</text>
+      <!-- video -->
+      <rect x="710" y="84" width="52" height="36" rx="6" fill="#171416"/>
+      <path d="M730 92l14 10-14 10z" fill="#FFFFFF"/>
+      <text x="736" y="148">Video</text>
+      <!-- link -->
+      <rect x="836" y="94" width="28" height="16" rx="8" fill="none" stroke="#C8133A" stroke-width="3"/>
+      <rect x="854" y="94" width="28" height="16" rx="8" fill="none" stroke="#C8133A" stroke-width="3"/>
+      <text x="860" y="148">Link</text>
+    </g>
+
+    <!-- note stânga -->
+    <text x="40" y="214" font-size="15" font-weight="800">Aspectul</text>
+    <text x="40" y="236" font-size="13" fill="#6B6460">Pornire → Aspect:</text>
+    <text x="40" y="254" font-size="13" fill="#6B6460">unde stau titlul și textul,</text>
+    <text x="40" y="272" font-size="13" fill="#6B6460">în substituenți (casete</text>
+    <text x="40" y="290" font-size="13" fill="#6B6460">cu linie punctată)</text>
+    <text x="40" y="350" font-size="15" font-weight="800">Tema</text>
+    <text x="40" y="372" font-size="13" fill="#6B6460">Proiectare → Teme:</text>
+    <text x="40" y="390" font-size="13" fill="#6B6460">aceleași culori, fonturi</text>
+    <text x="40" y="408" font-size="13" fill="#6B6460">și efecte peste tot</text>
+    <text x="40" y="464" font-size="15" font-weight="800">Bibliografie</text>
+    <text x="40" y="486" font-size="13" fill="#6B6460">sursele materialelor</text>
+
+    <!-- diapozitiv -->
+    <rect x="300" y="182" width="596" height="326" rx="6" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <rect x="300" y="182" width="596" height="8" fill="#14A39A"/>
+    <rect x="324" y="202" width="548" height="48" rx="4" fill="none" stroke="#6B6460" stroke-width="2" stroke-dasharray="6 5"/>
+    <text x="598" y="234" text-anchor="middle" font-size="22" font-weight="800" fill="#0B6F68">Prima mea prezentare</text>
+    <!-- tabel -->
+    <g stroke="#14A39A" stroke-width="2">
+      <rect x="324" y="268" width="200" height="90" fill="#FFFFFF"/>
+      <rect x="324" y="268" width="200" height="30" fill="#14A39A"/>
+      <path d="M324 328h200M390 268v90M457 268v90"/>
+    </g>
+    <!-- imagine -->
+    <rect x="544" y="268" width="150" height="90" rx="4" fill="#E2F6FA"/>
+    <path d="M550 354l40-46 26 28 16-16 40 34z" fill="#3EC6E0"/><circle cx="660" cy="290" r="10" fill="#F29A1F"/>
+    <!-- formă -->
+    <path d="M790 270l11 23 25 3-18 17 5 25-23-12-23 12 5-25-18-17 25-3z" fill="#F29A1F"/>
+    <!-- video -->
+    <rect x="324" y="376" width="200" height="112" rx="6" fill="#171416"/>
+    <circle cx="424" cy="424" r="22" fill="#FFFFFF"/>
+    <path d="M416 412l20 12-20 12z" fill="#171416"/>
+    <path d="M336 474h176" stroke="#6B6460" stroke-width="3"/><path d="M336 474h60" stroke="#F21F4B" stroke-width="3"/>
+    <!-- audio -->
+    <path d="M556 414h10l14-12v40l-14-12h-10z" fill="#0E7F96"/>
+    <path d="M588 412q8 10 0 20M594 406q14 16 0 32" fill="none" stroke="#0E7F96" stroke-width="3" stroke-linecap="round"/>
+    <!-- link -->
+    <text x="640" y="428" font-size="16" fill="#C8133A">www.muzeu.ro</text>
+    <path d="M640 433h112" stroke="#C8133A" stroke-width="2"/>
+  </g>
+</svg>

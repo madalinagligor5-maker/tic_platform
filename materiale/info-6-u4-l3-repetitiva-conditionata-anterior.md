@@ -36,6 +36,8 @@ O **structură repetitivă** (ciclică) execută o secvență de pași **de mai 
 
 ### Structura „cât timp”
 
+![La „cât timp” condiția se verifică înainte de fiecare iterație; în Scratch scrii „repetă până când” cu condiția negată.](fisiere/imagini/info-6-u4-l3-repetitiva-conditionata-anterior.svg)
+
 ```
 cât timp (condiția C) execută
    secvența A

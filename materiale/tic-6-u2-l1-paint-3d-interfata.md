@@ -25,6 +25,8 @@ Anul trecut ai desenat în **Paint**: forme, culori, selecție, copiere, rotire,
 
 ### 2D și 3D
 
+![O imagine 2D are lățime și înălțime, iar una 3D are și adâncime; dedesubt sunt filele de desen din Paint 3D.](fisiere/imagini/tic-6-u2-l1-paint-3d-interfata.svg)
+
 - O imagine **2D** are două dimensiuni: **lățime** și **înălțime**.
 - O imagine **3D** are și a treia dimensiune: **adâncimea**.
 

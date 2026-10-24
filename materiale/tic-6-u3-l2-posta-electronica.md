@@ -58,6 +58,8 @@ Poșta electronică (**e-mailul**) trimite o scrisoare **în formă electronică
 
 ### Adresa de e-mail
 
+![O adresă de e-mail are numele contului, caracterul @ („la”) și gazda; dedesubt sunt folderele unei căsuțe poștale.](fisiere/imagini/tic-6-u3-l2-posta-electronica.svg)
+
 Are formatul **nume@gazdă**:
 
 1. **numele contului**: litere, cifre, punct, minus, liniuță de subliniere (`_`). Literele mari și mici **nu contează**.

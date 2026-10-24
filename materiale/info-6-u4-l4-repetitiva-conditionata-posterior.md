@@ -25,6 +25,8 @@ La structura **„cât timp”** condiția se verifică **înainte**, așa că s
 
 ### Două forme
 
+![La test final secvența A se execută o dată, apoi se verifică C: „cât timp” se oprește când C e falsă, „până când” când C e adevărată.](fisiere/imagini/info-6-u4-l4-repetitiva-conditionata-posterior.svg)
+
 **1. Repetă… cât timp**
 
 ```

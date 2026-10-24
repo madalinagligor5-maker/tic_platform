@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Tipurile de malware (virus, vierme, troian, spyware) și măsurile de protecție</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <g fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3">
+      <rect x="40" y="36" width="430" height="150" rx="16"/><rect x="490" y="36" width="430" height="150" rx="16"/>
+      <rect x="40" y="202" width="430" height="150" rx="16"/><rect x="490" y="202" width="430" height="150" rx="16"/>
+    </g>
+
+    <!-- virus -->
+    <g stroke="#F21F4B" stroke-width="4" stroke-linecap="round">
+      <path d="M100 75V65M100 147V137M61 111H51M149 111H139M73 84l-7-7M134 145l-7-7M73 138l-7 7M134 77l-7 7"/>
+    </g>
+    <circle cx="100" cy="111" r="30" fill="#F21F4B"/>
+    <circle cx="90" cy="102" r="6" fill="#FDE7EC"/><circle cx="110" cy="120" r="5" fill="#FDE7EC"/><circle cx="108" cy="98" r="3" fill="#FDE7EC"/>
+    <text x="170" y="76" font-size="20" font-weight="800" fill="#C8133A">Virus</text>
+    <text x="170" y="102" font-size="14">se atașează de fișiere (programe);</text>
+    <text x="170" y="122" font-size="14">când le deschizi, se răspândește</text>
+    <text x="170" y="142" font-size="14">în alte fișiere și le strică</text>
+
+    <!-- vierme -->
+    <path d="M530 140L570 100L610 140" fill="none" stroke="#E8DFD3" stroke-width="3"/>
+    <rect x="520" y="136" width="20" height="14" rx="3" fill="#6B6460"/><rect x="560" y="88" width="20" height="14" rx="3" fill="#6B6460"/><rect x="600" y="136" width="20" height="14" rx="3" fill="#6B6460"/>
+    <g fill="#14A39A"><circle cx="540" cy="118" r="8"/><circle cx="554" cy="112" r="9"/><circle cx="570" cy="114" r="9"/><circle cx="585" cy="122" r="9"/><circle cx="600" cy="120" r="10"/></g>
+    <circle cx="603" cy="117" r="2.5" fill="#FFFFFF"/>
+    <text x="640" y="76" font-size="20" font-weight="800" fill="#0B6F68">Vierme</text>
+    <text x="640" y="102" font-size="14">se răspândește singur, prin rețea,</text>
+    <text x="640" y="122" font-size="14">fără să se atașeze de programe;</text>
+    <text x="640" y="142" font-size="14">încetinește internetul</text>
+
+    <!-- troian -->
+    <rect x="64" y="262" width="74" height="34" rx="8" fill="#F29A1F"/>
+    <path d="M126 266L136 232L156 236L150 270Z" fill="#F29A1F"/>
+    <path d="M134 232l4-10 8 11" fill="#F29A1F"/>
+    <circle cx="146" cy="242" r="3" fill="#171416"/>
+    <path d="M74 296v18M92 296v18M112 296v18M130 296v18" stroke="#F29A1F" stroke-width="6"/>
+    <path d="M58 318H148" stroke="#171416" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="70" cy="324" r="7" fill="#171416"/><circle cx="136" cy="324" r="7" fill="#171416"/>
+    <rect x="86" y="272" width="22" height="14" rx="3" fill="#FFF0DB"/>
+    <text x="170" y="242" font-size="20" font-weight="800" fill="#F29A1F">Troian</text>
+    <text x="170" y="268" font-size="14">pare un program bun, tentant;</text>
+    <text x="170" y="288" font-size="14">după instalare șterge date sau</text>
+    <text x="170" y="308" font-size="14">deschide calculatorul altora</text>
+
+    <!-- spyware -->
+    <path d="M520 278Q562 236 604 278Q562 320 520 278Z" fill="#E2F6FA" stroke="#0E7F96" stroke-width="3"/>
+    <circle cx="562" cy="278" r="14" fill="#0E7F96"/><circle cx="562" cy="278" r="6" fill="#171416"/>
+    <path d="M598 300l18 18" stroke="#171416" stroke-width="5" stroke-linecap="round"/>
+    <text x="640" y="242" font-size="20" font-weight="800" fill="#0E7F96">Spyware</text>
+    <text x="640" y="268" font-size="14">program spion: urmărește ce faci</text>
+    <text x="640" y="288" font-size="14">și trimite parolele, site-urile</text>
+    <text x="640" y="308" font-size="14">vizitate, datele personale</text>
+
+    <!-- protecție -->
+    <rect x="40" y="370" width="880" height="140" rx="16" fill="#E0F4F2"/>
+    <text x="480" y="400" text-anchor="middle" font-size="17" font-weight="800" fill="#0B6F68">Cum te protejezi</text>
+    <g transform="translate(34 0)"><!-- firewall -->
+    <g fill="#C8133A" stroke="#E0F4F2" stroke-width="2">
+      <rect x="80" y="420" width="24" height="14"/><rect x="104" y="420" width="24" height="14"/>
+      <rect x="68" y="434" width="24" height="14"/><rect x="92" y="434" width="24" height="14"/><rect x="116" y="434" width="24" height="14"/>
+      <rect x="80" y="448" width="24" height="14"/><rect x="104" y="448" width="24" height="14"/>
+    </g>
+    <text x="104" y="484" text-anchor="middle" font-size="15" font-weight="800">firewall</text>
+    <text x="104" y="502" text-anchor="middle" font-size="13" fill="#6B6460">oprește accesul nedorit</text>
+    </g>
+    <g transform="translate(36 0)"><!-- antivirus -->
+    <path d="M330 416L354 424V444Q354 458 330 466Q306 458 306 444V424Z" fill="#14A39A"/>
+    <path d="M320 440l7 7 13-14" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="330" y="484" text-anchor="middle" font-size="15" font-weight="800">antivirus actualizat</text>
+    <text x="330" y="502" text-anchor="middle" font-size="13" fill="#6B6460">găsește și șterge malware</text>
+    </g>
+    <g transform="translate(-28 0)"><!-- browser -->
+    <rect x="606" y="418" width="56" height="44" rx="6" fill="#FFFFFF" stroke="#0E7F96" stroke-width="3"/>
+    <path d="M606 430H662" stroke="#0E7F96" stroke-width="3"/>
+    <path d="M626 448a8 8 0 1 0 8-8" fill="none" stroke="#0E7F96" stroke-width="3"/><path d="M630 436l5 4-5 4" fill="none" stroke="#0E7F96" stroke-width="2.5"/>
+    <text x="634" y="484" text-anchor="middle" font-size="15" font-weight="800">browser la zi</text>
+    <text x="634" y="502" text-anchor="middle" font-size="13" fill="#6B6460">cea mai nouă versiune</text>
+    </g>
+    <g transform="translate(-24 0)"><!-- parolă -->
+    <path d="M828 436v-8a14 14 0 0 1 28 0v8" fill="none" stroke="#171416" stroke-width="4"/>
+    <rect x="820" y="436" width="44" height="30" rx="6" fill="#F29A1F"/>
+    <circle cx="842" cy="450" r="4" fill="#171416"/>
+    <text x="842" y="484" text-anchor="middle" font-size="15" font-weight="800">parole sigure</text>
+    <text x="842" y="502" text-anchor="middle" font-size="13" fill="#6B6460">8+ caractere, secrete</text>
+</g>
+  </g>
+</svg>

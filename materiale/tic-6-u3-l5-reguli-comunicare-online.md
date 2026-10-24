@@ -31,6 +31,8 @@ Un mesaj are **antet** (Către, CC, CCI, Subiect) și **corp**. Adresele din **C
 
 ### Reguli pentru e-mail
 
+![Un e-mail bine scris are subiect, adresare, cuprins, încheiere, semnătură și un atașament cu nume sugestiv.](fisiere/imagini/tic-6-u3-l5-reguli-comunicare-online.svg)
+
 **Structura mesajului**
 
 - Completezi mereu **Subiectul**: în câteva cuvinte, despre ce e mesajul.

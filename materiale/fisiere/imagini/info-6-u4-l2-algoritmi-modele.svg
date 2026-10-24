@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Unghiul de rotire pentru figuri cu laturi egale: 360° împărțit la numărul de laturi</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+    <marker id="mic" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="56" text-anchor="middle" font-size="22" font-weight="800">unghiul de rotire = 360° : numărul de laturi</text>
+    <text x="480" y="82" text-anchor="middle" font-size="14" fill="#6B6460">personajul merge o latură, apoi se rotește la stânga; după ultima latură a făcut o tură completă</text>
+
+    <g transform="translate(0 -30)">
+    <!-- triunghi -->
+    <path d="M95 340H245L170 210Z" fill="#FDE7EC" stroke="#F21F4B" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M110 358H200" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <circle cx="95" cy="340" r="6" fill="#171416"/>
+    <path d="M245 340H300" stroke="#6B6460" stroke-width="2" stroke-dasharray="6 5"/>
+    <path d="M275 340A30 30 0 0 0 230 314" fill="none" stroke="#171416" stroke-width="3" marker-end="url(#mic)"/>
+    <text x="270" y="304" font-size="17" font-weight="800" fill="#C8133A">120°</text>
+    <text x="170" y="410" text-anchor="middle" font-size="17" font-weight="800">triunghi echilateral</text>
+    <text x="170" y="434" text-anchor="middle" font-size="15">3 laturi: 360° : 3 = 120°</text>
+
+    <!-- pătrat -->
+    <path d="M415 340H545V210H415Z" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M430 358H515" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <circle cx="415" cy="340" r="6" fill="#171416"/>
+    <path d="M545 340H600" stroke="#6B6460" stroke-width="2" stroke-dasharray="6 5"/>
+    <path d="M575 340A30 30 0 0 0 545 310" fill="none" stroke="#171416" stroke-width="3" marker-end="url(#mic)"/>
+    <text x="574" y="306" font-size="17" font-weight="800" fill="#0E7F96">90°</text>
+    <text x="480" y="410" text-anchor="middle" font-size="17" font-weight="800">pătrat</text>
+    <text x="480" y="434" text-anchor="middle" font-size="15">4 laturi: 360° : 4 = 90°</text>
+
+    <!-- hexagon -->
+    <path d="M745 340H825L865 270.7L825 201.4H745L705 270.7Z" fill="#E0F4F2" stroke="#14A39A" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M755 358H815" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <circle cx="745" cy="340" r="6" fill="#171416"/>
+    <path d="M825 340H885" stroke="#6B6460" stroke-width="2" stroke-dasharray="6 5"/>
+    <path d="M857 340A32 32 0 0 0 841 312.3" fill="none" stroke="#171416" stroke-width="3" marker-end="url(#mic)"/>
+    <text x="872" y="322" font-size="17" font-weight="800" fill="#0B6F68">60°</text>
+    <text x="790" y="410" text-anchor="middle" font-size="17" font-weight="800">hexagon</text>
+    <text x="790" y="434" text-anchor="middle" font-size="15">6 laturi: 360° : 6 = 60°</text>
+
+    </g>
+    <!-- legendă -->
+    <rect x="110" y="462" width="740" height="52" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <circle cx="140" cy="488" r="6" fill="#171416"/>
+    <text x="154" y="493" font-size="14">punctul de plecare</text>
+    <path d="M310 488H350" stroke="#6B6460" stroke-width="2" stroke-dasharray="6 5"/>
+    <text x="360" y="493" font-size="14">direcția de mers de dinainte</text>
+    <path d="M592 500A24 24 0 0 0 606 478" fill="none" stroke="#171416" stroke-width="3" marker-end="url(#mic)"/>
+    <text x="626" y="493" font-size="14">cât se rotește personajul</text>
+  </g>
+</svg>

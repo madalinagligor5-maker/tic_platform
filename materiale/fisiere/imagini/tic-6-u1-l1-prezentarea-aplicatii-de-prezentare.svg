@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Cele trei tipuri de prezentări: pe folii transparente, pe hârtie și electronică</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <!-- panouri -->
+    <rect x="40" y="36" width="270" height="390" rx="18" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <rect x="345" y="36" width="270" height="390" rx="18" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <rect x="650" y="36" width="270" height="390" rx="18" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+
+    <!-- retroproiector -->
+    <path d="M175 90V70" stroke="#171416" stroke-width="3"/>
+    <rect x="95" y="90" width="160" height="96" rx="4" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <rect x="115" y="106" width="80" height="10" rx="5" fill="#3EC6E0"/>
+    <rect x="115" y="126" width="120" height="8" rx="4" fill="#E2F6FA"/>
+    <rect x="115" y="142" width="104" height="8" rx="4" fill="#E2F6FA"/>
+    <path d="M175 252L112 186H238Z" fill="#FFF0DB"/>
+    <path d="M200 320V252" stroke="#171416" stroke-width="5" stroke-linecap="round"/>
+    <rect x="160" y="236" width="56" height="22" rx="6" fill="#171416"/>
+    <rect x="110" y="316" width="130" height="42" rx="8" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+    <path d="M124 300L224 306L220 322L120 316Z" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2" opacity="0.9"/>
+    <text x="175" y="386" text-anchor="middle" font-size="17" font-weight="800">Pe folii transparente</text>
+    <text x="175" y="408" text-anchor="middle" font-size="14" fill="#6B6460">le proiectează retroproiectorul</text>
+
+    <!-- flipchart -->
+    <path d="M480 140L420 360M480 140L540 360M480 140V350" stroke="#171416" stroke-width="4" stroke-linecap="round"/>
+    <rect x="410" y="74" width="140" height="14" rx="4" fill="#171416"/>
+    <rect x="418" y="88" width="124" height="190" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <rect x="434" y="104" width="80" height="12" rx="6" fill="#F21F4B"/>
+    <circle cx="440" cy="140" r="4" fill="#171416"/><rect x="452" y="136" width="74" height="8" rx="4" fill="#F1E9DF"/>
+    <circle cx="440" cy="164" r="4" fill="#171416"/><rect x="452" y="160" width="60" height="8" rx="4" fill="#F1E9DF"/>
+    <circle cx="440" cy="188" r="4" fill="#171416"/><rect x="452" y="184" width="70" height="8" rx="4" fill="#F1E9DF"/>
+    <path d="M440 240q20-30 40 0t40 0" fill="none" stroke="#14A39A" stroke-width="3"/>
+    <text x="480" y="386" text-anchor="middle" font-size="17" font-weight="800">Pe hârtie</text>
+    <text x="480" y="408" text-anchor="middle" font-size="14" fill="#6B6460">foi mari prinse pe flipchart</text>
+
+    <!-- electronică -->
+    <path d="M785 70V82" stroke="#171416" stroke-width="3"/>
+    <rect x="690" y="82" width="190" height="112" rx="4" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <rect x="704" y="96" width="162" height="18" rx="4" fill="#14A39A"/>
+    <rect x="704" y="124" width="60" height="56" rx="4" fill="#E2F6FA"/>
+    <path d="M708 176l18-24 14 16 8-8 14 16z" fill="#3EC6E0"/>
+    <rect x="774" y="128" width="88" height="8" rx="4" fill="#F1E9DF"/>
+    <rect x="774" y="146" width="72" height="8" rx="4" fill="#F1E9DF"/>
+    <rect x="774" y="164" width="80" height="8" rx="4" fill="#F1E9DF"/>
+    <path d="M838 290L716 194H870Z" fill="#FFF0DB"/>
+    <rect x="806" y="282" width="80" height="36" rx="8" fill="#171416"/>
+    <circle cx="838" cy="300" r="10" fill="#3EC6E0"/>
+    <rect x="688" y="300" width="80" height="48" rx="4" fill="#E0F4F2" stroke="#171416" stroke-width="3"/>
+    <path d="M676 352H780" stroke="#171416" stroke-width="5" stroke-linecap="round"/>
+    <path d="M768 334Q790 334 806 312" fill="none" stroke="#6B6460" stroke-width="2"/>
+    <text x="785" y="386" text-anchor="middle" font-size="17" font-weight="800">Electronică</text>
+    <text x="785" y="408" text-anchor="middle" font-size="14" fill="#6B6460">diapozitive și videoproiector</text>
+
+    <!-- avantaje -->
+    <rect x="40" y="446" width="880" height="64" rx="16" fill="#E0F4F2"/>
+    <text x="480" y="472" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">Prezentarea electronică are cel mai mare impact asupra publicului</text>
+    <text x="480" y="495" text-anchor="middle" font-size="14">sunete · animații · filmulețe · hiperlinkuri · note ale vorbitorului · se actualizează ușor</text>
+  </g>
+</svg>

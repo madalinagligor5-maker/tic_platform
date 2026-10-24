@@ -26,6 +26,8 @@ data: 2026-10-15
 
 ### A. Compunerea unui mesaj
 
+![Fereastra unui mesaj nou: antetul (De la, Către, CC, CCI, Subiect), corpul mesajului, atașamentul și butonul Trimite.](fisiere/imagini/tic-6-u3-l4-operatii-cu-mesaje.svg)
+
 Fereastra unui mesaj nou are două părți:
 
 **1. Antetul** (*header*):
@@ -86,6 +88,8 @@ Vlad trimite un mesaj: la **Către** pune adresa lui **Ana**, la **CC** adresa l
 | Radu (CCI) | Vlad, Ana, Mihai (și pe a lui); nu vede adresa Ioanei |
 
 Nimeni nu vede adresele din **CCI**, în afară de Vlad. Dacă Ana apasă **Răspunde tuturor**, răspunsul ajunge la Vlad și la Mihai, dar **nu** la Ioana și Radu.
+
+![Ce adrese vede fiecare destinatar al lui Vlad: cei din CCI primesc mesajul, dar adresele lor rămân ascunse pentru ceilalți.](fisiere/imagini/tic-6-u3-l4-operatii-cu-mesaje-2.svg)
 
 ## Aplicații interactive
 

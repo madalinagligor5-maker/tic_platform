@@ -28,6 +28,8 @@ Ca să-ți **partajezi** proiectele în comunitatea Scratch, ai nevoie de un **c
 
 ### Interfața Scratch
 
+![Interfața Scratch: categoriile și paleta de blocuri, zona de program cu scriptul unui articol, scena, zonele Personaje și Decoruri și Rucsacul.](fisiere/imagini/info-6-u4-l1-scratch-recapitulare.svg)
+
 - **fila Cod**: **paleta de blocuri** și **zona de program**;
 - **fila Costume**: aspectele unui personaj, cu un editor grafic;
 - **fila Sunete**;

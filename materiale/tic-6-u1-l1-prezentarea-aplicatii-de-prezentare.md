@@ -29,6 +29,8 @@ Anul trecut ai lucrat în Paint cu imagini și text. O prezentare bună le folos
 
 ### Tipuri de prezentări
 
+![Prezentarea pe folii se arată cu retroproiectorul, cea pe hârtie pe un flipchart, iar cea electronică cu videoproiectorul.](fisiere/imagini/tic-6-u1-l1-prezentarea-aplicatii-de-prezentare.svg)
+
 | Tip | Pe ce se face | Cu ce se arată |
 |---|---|---|
 | pe **folii transparente** | foi transparente scrise | **retroproiectorul** le proiectează pe un ecran |
