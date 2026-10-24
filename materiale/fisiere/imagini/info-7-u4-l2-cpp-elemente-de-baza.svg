@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Împărțirea întreagă: 17 / 5 dă câtul 3, iar 17 % 5 dă restul 2; cifrele numărului 472 obținute cu / și %</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="54" text-anchor="middle" font-size="24" font-weight="800">Operatorii / și % la numere întregi</text>
+    <text x="480" y="82" text-anchor="middle" font-size="15" fill="#6B6460">17 bomboane împărțite în pungi de câte 5</text>
+
+    <!-- pungi -->
+    <g stroke-width="3">
+      <rect x="40" y="110" width="190" height="80" rx="14" fill="#E2F6FA" stroke="#3EC6E0"/>
+      <rect x="250" y="110" width="190" height="80" rx="14" fill="#E2F6FA" stroke="#3EC6E0"/>
+      <rect x="460" y="110" width="190" height="80" rx="14" fill="#E2F6FA" stroke="#3EC6E0"/>
+      <rect x="680" y="110" width="110" height="80" rx="14" fill="#FDE7EC" stroke="#F21F4B" stroke-dasharray="8 6"/>
+    </g>
+    <g fill="#0E7F96">
+      <circle cx="75" cy="150" r="13"/><circle cx="105" cy="150" r="13"/><circle cx="135" cy="150" r="13"/><circle cx="165" cy="150" r="13"/><circle cx="195" cy="150" r="13"/>
+      <circle cx="285" cy="150" r="13"/><circle cx="315" cy="150" r="13"/><circle cx="345" cy="150" r="13"/><circle cx="375" cy="150" r="13"/><circle cx="405" cy="150" r="13"/>
+      <circle cx="495" cy="150" r="13"/><circle cx="525" cy="150" r="13"/><circle cx="555" cy="150" r="13"/><circle cx="585" cy="150" r="13"/><circle cx="615" cy="150" r="13"/>
+    </g>
+    <circle cx="718" cy="150" r="13" fill="#F21F4B"/><circle cx="752" cy="150" r="13" fill="#F21F4B"/>
+    <text x="135" y="212" text-anchor="middle" font-size="14" fill="#6B6460">punga 1</text>
+    <text x="345" y="212" text-anchor="middle" font-size="14" fill="#6B6460">punga 2</text>
+    <text x="555" y="212" text-anchor="middle" font-size="14" fill="#6B6460">punga 3</text>
+    <text x="735" y="212" text-anchor="middle" font-size="14" fill="#6B6460">rămân</text>
+
+    <!-- rezultate -->
+    <rect x="40" y="232" width="610" height="62" rx="14" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="70" y="272" font-size="22" font-weight="800" font-family="JetBrains Mono, Consolas, monospace" fill="#0E7F96">17 / 5 = 3</text>
+    <text x="300" y="271" font-size="16">câtul: câte pungi pline</text>
+    <rect x="680" y="232" width="240" height="62" rx="14" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <text x="700" y="272" font-size="22" font-weight="800" font-family="JetBrains Mono, Consolas, monospace" fill="#C8133A">17 % 5 = 2</text>
+    <text x="800" y="316" text-anchor="middle" font-size="14">restul: ce rămâne</text>
+    <text x="345" y="316" text-anchor="middle" font-size="14" fill="#6B6460">dar 17.0 / 5 = 3.4 (un operand real dă rezultat real)</text>
+
+    <!-- cifrele lui 472 -->
+    <path d="M40 346H920" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="40" y="384" font-size="18" font-weight="800">Cifrele lui n = 472</text>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-weight="800" font-size="30" text-anchor="middle">
+      <rect x="70" y="404" width="56" height="64" rx="10" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+      <rect x="134" y="404" width="56" height="64" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+      <rect x="198" y="404" width="56" height="64" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+      <text x="98" y="447">4</text><text x="162" y="447">7</text><text x="226" y="447">2</text>
+    </g>
+    <g font-size="16">
+      <rect x="300" y="392" width="300" height="40" rx="10" fill="#FFFFFF" stroke="#F29A1F" stroke-width="3"/>
+      <text x="316" y="418"><tspan font-family="JetBrains Mono, Consolas, monospace" font-weight="800">n / 100 → 4</tspan>  prima cifră</text>
+      <rect x="300" y="442" width="300" height="40" rx="10" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+      <text x="316" y="468"><tspan font-family="JetBrains Mono, Consolas, monospace" font-weight="800">n / 10 % 10 → 7</tspan>  mijloc</text>
+      <rect x="620" y="392" width="300" height="40" rx="10" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+      <text x="636" y="418"><tspan font-family="JetBrains Mono, Consolas, monospace" font-weight="800">n % 10 → 2</tspan>  ultima cifră</text>
+      <rect x="620" y="442" width="300" height="40" rx="10" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+      <text x="636" y="468"><tspan font-family="JetBrains Mono, Consolas, monospace" font-weight="800">n / 10 → 47</tspan>  fără ultima</text>
+    </g>
+    <text x="480" y="512" text-anchor="middle" font-size="14" fill="#6B6460">% funcționează doar cu numere întregi</text>
+  </g>
+</svg>

@@ -52,6 +52,8 @@ data: 2026-10-16
 - **Mutare**: **Ctrl + X**, apoi **Ctrl + V**, sau tragi selecția cu mouse-ul;
 - **Anulare**: **Ctrl + Z**; **Refacere**: **Ctrl + Y**.
 
+![Backspace șterge caracterul din stânga cursorului, Delete pe cel din dreapta; Ctrl + C sau Ctrl + X pun textul în Clipboard, Ctrl + V îl lipește.](fisiere/imagini/tic-7-u1-l4-editarea-documentului.svg)
+
 ### Găsire și înlocuire
 
 - **Ctrl + F** (**Pornire → Găsire**): caută un cuvânt; rezultatele apar în panoul **Navigare**.

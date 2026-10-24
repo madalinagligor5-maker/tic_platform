@@ -1165,3 +1165,8 @@ body:has(.lab-ecran) { overflow: hidden; }
   .of-statusbar { gap: 8px; }
   .of-statusbar input[type=range] { width: 70px; }
 }
+
+/* Ilustrațiile din lecții */
+.prose figure.fig { margin: 1.6em 0; padding: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; text-align: center; }
+.prose figure.fig img { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; border-radius: 10px; }
+.prose figure.fig figcaption { margin-top: 10px; font-size: .88rem; color: var(--muted); line-height: 1.4; }

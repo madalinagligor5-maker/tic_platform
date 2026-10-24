@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Drumul unui program: codul sursă este compilat, se obține programul executabil, iar rezultatul apare în consolă</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+    <marker id="sagr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#C8133A"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="56" text-anchor="middle" font-size="24" font-weight="800">Drumul unui program în C++</text>
+    <text x="480" y="84" text-anchor="middle" font-size="15" fill="#6B6460">de la textul scris de tine până la rezultatul afișat</text>
+
+    <!-- 1 editor -->
+    <text x="135" y="124" text-anchor="middle" font-size="15" font-weight="800" fill="#0E7F96">1. SCRII</text>
+    <rect x="40" y="136" width="190" height="170" rx="16" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="97" y="152" width="76" height="92" rx="6" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <path d="M109 170h40M109 184h52M117 198h44M117 212h30M109 226h20" stroke="#0E7F96" stroke-width="4" stroke-linecap="round"/>
+    <text x="135" y="270" text-anchor="middle" font-size="17" font-weight="800">codul sursă</text>
+    <text x="135" y="292" text-anchor="middle" font-size="15" font-family="JetBrains Mono, Consolas, monospace">main.cpp</text>
+
+    <!-- 2 compilator -->
+    <text x="375" y="124" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">2. COMPILEZI</text>
+    <rect x="280" y="136" width="190" height="170" rx="16" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="375" cy="198" r="34" fill="none" stroke="#14A39A" stroke-width="12" stroke-dasharray="9 7"/>
+    <circle cx="375" cy="198" r="24" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="375" cy="198" r="8" fill="#14A39A"/>
+    <text x="375" y="270" text-anchor="middle" font-size="17" font-weight="800">compilatorul</text>
+    <text x="375" y="292" text-anchor="middle" font-size="14">traduce în cod mașină</text>
+
+    <!-- 3 executabil -->
+    <text x="615" y="124" text-anchor="middle" font-size="15" font-weight="800" fill="#C8133A">3. OBȚII</text>
+    <rect x="520" y="136" width="190" height="170" rx="16" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <rect x="577" y="152" width="76" height="92" rx="6" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="15" font-weight="700" fill="#C8133A" text-anchor="middle">
+      <text x="615" y="182">0110</text><text x="615" y="204">1011</text><text x="615" y="226">0010</text>
+    </g>
+    <text x="615" y="270" text-anchor="middle" font-size="16" font-weight="800">programul executabil</text>
+    <text x="615" y="292" text-anchor="middle" font-size="15" font-family="JetBrains Mono, Consolas, monospace">main.exe</text>
+
+    <!-- 4 consola -->
+    <text x="835" y="124" text-anchor="middle" font-size="15" font-weight="800" fill="#171416">4. RULEZI</text>
+    <rect x="750" y="136" width="170" height="170" rx="16" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <rect x="764" y="152" width="142" height="92" rx="6" fill="#171416"/>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="14" fill="#FFF7EE">
+      <text x="774" y="180">Salut, clasa</text><text x="774" y="200">a VII-a!</text>
+    </g>
+    <rect x="774" y="212" width="9" height="16" fill="#3EC6E0"/>
+    <text x="835" y="270" text-anchor="middle" font-size="17" font-weight="800">consola</text>
+    <text x="835" y="292" text-anchor="middle" font-size="14">vezi rezultatul</text>
+
+    <!-- săgeți principale -->
+    <path d="M236 221H272" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <path d="M476 221H512" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <path d="M716 221H742" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+
+    <!-- ramura de eroare -->
+    <path d="M375 312V372" stroke="#C8133A" stroke-width="3" fill="none" marker-end="url(#sagr)"/>
+    <text x="388" y="348" font-size="14" font-weight="700" fill="#C8133A">dacă ai greșit</text>
+    <rect x="280" y="380" width="430" height="76" rx="14" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="495" y="408" text-anchor="middle" font-size="16" font-weight="800" fill="#C8133A">Fereastra de mesaje: eroare, nu se face .exe</text>
+    <text x="495" y="436" text-anchor="middle" font-size="14" font-family="JetBrains Mono, Consolas, monospace">error: expected ';' before 'return'</text>
+    <path d="M274 418H135V314" stroke="#C8133A" stroke-width="3" fill="none" marker-end="url(#sagr)"/>
+    <text x="40" y="486" font-size="14" font-weight="700">corectezi rândul și</text>
+    <text x="40" y="506" font-size="14" font-weight="700">apeși din nou F9</text>
+
+    <!-- notă F9 -->
+    <rect x="750" y="380" width="170" height="76" rx="14" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="835" y="410" text-anchor="middle" font-size="18" font-weight="800" fill="#0B6F68">F9</text>
+    <text x="835" y="436" text-anchor="middle" font-size="14">Build and run</text>
+    <text x="835" y="490" text-anchor="middle" font-size="13" fill="#6B6460">compilează și rulează</text>
+    <text x="835" y="508" text-anchor="middle" font-size="13" fill="#6B6460">dintr-o singură apăsare</text>
+  </g>
+</svg>

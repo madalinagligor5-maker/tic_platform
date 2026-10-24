@@ -41,6 +41,8 @@ else
 
 Dacă **condiția** este **adevărată**, se execută `instructiune1`; altfel, `instructiune2`. Condiția stă **obligatoriu între paranteze rotunde**.
 
+![Schema lui if … else: dacă n % 2 == 0 este adevărată, se afișează „par”, altfel „impar”, apoi programul continuă.](fisiere/imagini/info-7-u4-l4-structura-alternativa-if.svg)
+
 ### Forma scurtă: if fără else
 
 ```cpp

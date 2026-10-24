@@ -40,6 +40,8 @@ Un **document** este un fișier care conține text și, eventual, imagini, tabel
 
 În limbajul obișnuit, programele ca Word se numesc tot **editoare de texte**. În această unitate lucrăm cu **Microsoft Word**; comenzile sunt foarte asemănătoare în **LibreOffice Writer** (gratuit) și în **Google Docs** (online).
 
+![Un editor simplu lucrează doar cu text, în fișiere .txt; un procesor de texte formatează și aranjează documentul în pagină.](fisiere/imagini/tic-7-u1-l1-editoare-de-texte.svg)
+
 ### Reguli de bază pentru scrierea pe calculator
 
 - **Diacriticele** se scriu mereu: ă, â, î, ș, ț. Activează tastatura românească.

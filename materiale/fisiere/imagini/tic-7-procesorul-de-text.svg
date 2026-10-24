@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Formatarea caracterelor se aplică textului selectat, iar formatarea paragrafelor întregului paragraf: aliniere și liste</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <!-- caractere -->
+    <rect x="40" y="40" width="425" height="460" rx="18" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="252" y="78" text-anchor="middle" font-size="20" font-weight="800" fill="#0E7F96">Formatarea caracterelor</text>
+    <text x="252" y="102" text-anchor="middle" font-size="14" fill="#6B6460">doar pentru textul selectat</text>
+    <text x="64" y="148" font-size="17">Scriu o</text>
+    <rect x="128" y="128" width="104" height="28" rx="4" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2"/>
+    <text x="134" y="148" font-size="17">compunere</text>
+    <text x="240" y="148" font-size="17">frumoasă.</text>
+    <text x="180" y="176" text-anchor="middle" font-size="13" fill="#0E7F96" font-weight="700">selecția</text>
+
+    <g font-size="16">
+      <rect x="64" y="200" width="40" height="40" rx="8" fill="#F1E9DF"/><text x="84" y="226" text-anchor="middle" font-weight="800">B</text>
+      <text x="120" y="226">Ctrl + B</text><text x="250" y="226" font-weight="800">text aldin</text>
+      <rect x="64" y="252" width="40" height="40" rx="8" fill="#F1E9DF"/><text x="84" y="278" text-anchor="middle" font-style="italic" font-weight="700">I</text>
+      <text x="120" y="278">Ctrl + I</text><text x="250" y="278" font-style="italic">text cursiv</text>
+      <rect x="64" y="304" width="40" height="40" rx="8" fill="#F1E9DF"/><text x="84" y="330" text-anchor="middle" font-weight="700">U</text><path d="M77 334h14" stroke="#171416" stroke-width="2"/>
+      <text x="120" y="330">Ctrl + U</text><text x="250" y="330">text subliniat</text><path d="M250 334h108" stroke="#171416" stroke-width="2"/>
+      <rect x="64" y="356" width="40" height="40" rx="8" fill="#F1E9DF"/><text x="84" y="381" text-anchor="middle" font-weight="800">A</text><rect x="74" y="385" width="20" height="5" fill="#F21F4B"/>
+      <text x="120" y="382">culoare</text><text x="250" y="382" font-weight="700" fill="#F21F4B">text roșu</text>
+      <rect x="64" y="408" width="40" height="40" rx="8" fill="#F1E9DF"/><text x="84" y="434" text-anchor="middle" font-size="14" font-weight="700">Aa</text>
+      <text x="120" y="434">font, mărime</text><text x="250" y="434" font-family="Georgia, Times New Roman, serif" font-size="20">Times, 18</text>
+    </g>
+    <text x="252" y="482" text-anchor="middle" font-size="13" fill="#6B6460">Greșeală? Anulează cu Ctrl + Z.</text>
+
+    <!-- paragrafe -->
+    <rect x="495" y="40" width="425" height="460" rx="18" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="707" y="78" text-anchor="middle" font-size="20" font-weight="800" fill="#0B6F68">Formatarea paragrafelor</text>
+    <text x="707" y="102" text-anchor="middle" font-size="14" fill="#6B6460">pentru tot paragraful în care e cursorul</text>
+    <g fill="#E0F4F2"><rect x="515" y="124" width="185" height="84" rx="10"/><rect x="715" y="124" width="185" height="84" rx="10"/><rect x="515" y="244" width="185" height="84" rx="10"/><rect x="715" y="244" width="185" height="84" rx="10"/></g>
+    <g stroke="#14A39A" stroke-width="6" stroke-linecap="round">
+      <path d="M533 144h130M533 164h100M533 184h140"/>
+      <path d="M747 144h120M767 164h80M742 184h130"/>
+      <path d="M552 264h130M582 284h100M542 304h140"/>
+      <path d="M733 264h149M733 284h149M733 304h90"/>
+    </g>
+    <g font-size="14" font-weight="700" text-anchor="middle">
+      <text x="607" y="228">la stânga</text><text x="807" y="228">centrat</text>
+      <text x="607" y="348">la dreapta</text><text x="807" y="348">stânga-dreapta</text>
+    </g>
+    <path d="M515 368H900" stroke="#E8DFD3" stroke-width="3"/>
+    <g font-size="15">
+      <text x="515" y="398" font-weight="800">Listă cu buline</text>
+      <circle cx="525" cy="421" r="4" fill="#14A39A"/><text x="537" y="426">caiet</text>
+      <circle cx="525" cy="447" r="4" fill="#14A39A"/><text x="537" y="452">pix</text>
+      <text x="715" y="398" font-weight="800">Listă numerotată</text>
+      <text x="715" y="426">1. intru în aplicație</text>
+      <text x="715" y="452">2. scriu textul</text>
+    </g>
+    <text x="707" y="482" text-anchor="middle" font-size="13" fill="#6B6460">Un paragraf se termină când apeși Enter.</text>
+  </g>
+</svg>

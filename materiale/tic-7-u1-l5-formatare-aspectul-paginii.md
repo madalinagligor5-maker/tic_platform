@@ -59,6 +59,8 @@ Din **Pornire → Stiluri** alegi **Titlu 1**, **Titlu 2**, **Normal**. Stiluril
 - **Subsolul** apare jos (de exemplu, numele tău);
 - **Număr de pagină**: sus sau jos, numerotare automată.
 
+![Aspectul paginii: margini, antet cu număr de pagină, titlu, text aliniat, listă și subsol; orientarea și coloanele se aleg din fila Aspect.](fisiere/imagini/tic-7-u1-l5-formatare-aspectul-paginii.svg)
+
 ### Chenar și culoarea paginii (fila Proiectare)
 
 **Chenare de pagină** și **Culoare pagină**, potrivite pentru diplome sau invitații.

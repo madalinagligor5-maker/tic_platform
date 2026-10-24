@@ -40,6 +40,8 @@ Programe: **VideoPad** (NCH Software, gratuit pentru uz necomercial), **Clipcham
 
 > Unele versiuni arată un **storyboard** (scenariu cu căsuțe) în loc de cronologie. Comuți cu butonul **Cronologie / Storyboard**.
 
+![Fereastra unui program de montaj video: coșul media, previzualizarea clipului și a secvenței, cronologia cu piste video și audio.](fisiere/imagini/tic-7-u2-l4-videopad-interfata.svg)
+
 ### Proiect sau film?
 
 - **Proiectul** (`.vpj`) păstrează **lucrul tău**: ce clipuri ai folosit, unde, cu ce efecte. Îl poți deschide și modifica.

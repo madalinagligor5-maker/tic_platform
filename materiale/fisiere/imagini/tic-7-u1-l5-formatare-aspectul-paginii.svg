@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Aspectul unei pagini de document: margini, antet, subsol, număr de pagină, titlu, text aliniat și listă, plus orientare și coloane</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <!-- pagina A4 -->
+    <rect x="250" y="40" width="320" height="460" rx="6" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <rect x="290" y="80" width="240" height="380" fill="none" stroke="#3EC6E0" stroke-width="2" stroke-dasharray="6 5"/>
+    <text x="300" y="66" font-size="13" fill="#6B6460">Școala Gimnazială nr. 1</text><text x="520" y="66" text-anchor="end" font-size="14" font-weight="800">1</text>
+    <text x="410" y="112" text-anchor="middle" font-size="18" font-weight="800" fill="#2B579A">Apa în natură</text>
+    <g stroke="#6B6460" stroke-width="4" stroke-linecap="round">
+      <path d="M300 140h220M300 156h220M300 172h220M300 188h150"/>
+      <path d="M300 214h220M300 230h220M300 246h120"/>
+    </g>
+    <text x="300" y="282" font-size="14" font-weight="800" fill="#2B579A">Circuitul apei</text>
+    <g fill="#14A39A"><circle cx="306" cy="304" r="4"/><circle cx="306" cy="324" r="4"/><circle cx="306" cy="344" r="4"/></g>
+    <g stroke="#6B6460" stroke-width="4" stroke-linecap="round"><path d="M318 304h150M318 324h130M318 344h170"/></g>
+    <g stroke="#6B6460" stroke-width="4" stroke-linecap="round"><path d="M300 372h220M300 388h220M300 404h180"/></g>
+    <text x="300" y="484" font-size="13" fill="#6B6460">Popescu Ana, 7B</text>
+    
+    <!-- etichete stânga -->
+    <g font-size="14" font-weight="700" text-anchor="end">
+      <text x="214" y="56">antet și</text><text x="214" y="74">număr de pagină</text>
+      <text x="214" y="116">titlu (Titlu 1)</text>
+      <text x="214" y="166">text stânga-dreapta</text>
+      <text x="214" y="328">listă cu marcatori</text>
+      <text x="214" y="484">subsol</text><text x="214" y="434">marginea (2,54 cm)</text>
+    </g>
+    <g stroke="#F29A1F" stroke-width="2">
+      <path d="M220 62H300"/><path d="M220 112H340"/><path d="M220 162H296"/><path d="M220 324H298"/><path d="M220 480H296"/><path d="M220 430H290"/>
+    </g>
+    <!-- panou Aspect -->
+    <rect x="620" y="40" width="300" height="340" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="640" y="72" font-size="17" font-weight="800">Fila Aspect</text>
+    <rect x="652" y="94" width="56" height="78" rx="4" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="752" y="104" width="100" height="58" rx="4" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="680" y="196" text-anchor="middle" font-size="14" font-weight="700">Tip portret</text>
+    <text x="802" y="196" text-anchor="middle" font-size="14" font-weight="700">Tip vedere</text>
+    <path d="M640 216H900" stroke="#E8DFD3" stroke-width="2"/>
+    <rect x="652" y="232" width="56" height="78" rx="4" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <g stroke="#14A39A" stroke-width="3"><path d="M660 246h16M660 256h16M660 266h16M660 276h16M660 286h16M684 246h16M684 256h16M684 266h16M684 276h16M684 286h12"/></g>
+    <text x="724" y="262" font-size="14" font-weight="700">Coloane: 2</text>
+    <text x="724" y="284" font-size="13" fill="#6B6460">ca în ziare</text>
+    <text x="640" y="342" font-size="14"><tspan font-weight="800">Dimensiune:</tspan> A4</text>
+    <text x="640" y="364" font-size="14"><tspan font-weight="800">Pagină nouă:</tspan> Ctrl + Enter</text>
+    <rect x="620" y="396" width="300" height="104" rx="16" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="640" y="426" font-size="17" font-weight="800">Fila Inserare</text>
+    <text x="640" y="452" font-size="14">antet (sus pe fiecare pagină),</text>
+    <text x="640" y="474" font-size="14">subsol (jos), număr de pagină</text>
+  </g>
+</svg>

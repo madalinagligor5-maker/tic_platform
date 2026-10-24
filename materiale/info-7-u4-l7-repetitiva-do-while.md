@@ -59,6 +59,8 @@ do
 cout << nr;
 ```
 
+![while verifică întâi condiția și poate să nu se execute deloc; do … while execută întâi pașii, deci cel puțin o dată.](fisiere/imagini/info-7-u4-l7-repetitiva-do-while.svg)
+
 ### Validarea datelor
 
 Programul cere un număr **până când** e corect:

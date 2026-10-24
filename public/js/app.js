@@ -124,7 +124,11 @@
     const lines = src.replace(/\r/g, '').split('\n');
     let para = [], list = null;
     const flush = () => {
-      if (para.length) root.append(h('p', {}, inline(para.join(' '))));
+      const txt = para.join(' ').trim();
+      const fig = /^!\[([^\]]*)\]\(([^)\s]+)\)$/.exec(txt);
+      // Un paragraf care conține doar o imagine devine figură, cu explicația (textul alternativ) dedesubt.
+      if (fig && safeUrl(fig[2])) root.append(h('figure', { class: 'fig' }, h('img', { src: safeUrl(fig[2]), alt: fig[1], loading: 'lazy' }), fig[1] ? h('figcaption', {}, fig[1]) : null));
+      else if (para.length) root.append(h('p', {}, inline(para.join(' '))));
       para = [];
       list = null;
     };

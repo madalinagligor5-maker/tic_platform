@@ -71,6 +71,8 @@ b = aux;
 
 Dacă ai scrie doar `a = b; b = a;`, ambele ar ajunge să aibă valoarea lui b!
 
+![Interschimbarea: aux păstrează valoarea lui a, a primește valoarea lui b, apoi b primește valoarea din aux.](fisiere/imagini/info-7-u4-l3-structura-liniara.svg)
+
 ## Exemplu rezolvat: dreptunghiul
 
 Se citesc lungimea și lățimea unui dreptunghi (numere naturale). Afișează perimetrul și aria.

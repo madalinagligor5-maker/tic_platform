@@ -81,6 +81,8 @@ Pentru 3725: s = 5 + 2 + 7 + 3 = **17**, nr = **4**.
 | 3 | 7 | 14 | 3 | 3 |
 | 4 | 3 | 17 | 4 | 0 |
 
+![while verifică condiția înainte de fiecare pas; cu % 10 și / 10, numărul 3725 își pierde pe rând cifrele, până devine 0.](fisiere/imagini/info-7-u4-l6-repetitiva-while.svg)
+
 ### Oglinditul unui număr
 
 ```cpp

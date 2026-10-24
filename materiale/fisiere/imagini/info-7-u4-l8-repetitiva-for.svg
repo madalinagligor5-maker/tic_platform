@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Cele trei părți ale instrucțiunii for și ordinea în care se execută: inițializare, condiție, instrucțiuni, pas</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="50" text-anchor="middle" font-size="24" font-weight="800">Cum lucrează instrucțiunea for</text>
+
+    <rect x="220" y="72" width="520" height="62" rx="14" fill="#171416"/>
+    <text x="480" y="113" text-anchor="middle" font-size="26" font-family="JetBrains Mono, Consolas, monospace" font-weight="700" fill="#FFF7EE">for (<tspan fill="#3EC6E0">int i = 1</tspan>; <tspan fill="#F29A1F">i &lt;= 5</tspan>; <tspan fill="#F21F4B">i++</tspan>)</text>
+
+    <!-- etichete -->
+    <path d="M410 136L300 168" stroke="#3EC6E0" stroke-width="3"/>
+    <path d="M558 136L480 168" stroke="#F29A1F" stroke-width="3"/>
+    <path d="M660 136L660 168" stroke="#F21F4B" stroke-width="3"/>
+    <g text-anchor="middle">
+      <circle cx="300" cy="184" r="15" fill="#3EC6E0"/><text x="300" y="190" font-size="15" font-weight="800" fill="#FFFFFF">1</text>
+      <circle cx="480" cy="184" r="15" fill="#F29A1F"/><text x="480" y="190" font-size="15" font-weight="800" fill="#FFFFFF">2</text>
+      <circle cx="660" cy="184" r="15" fill="#F21F4B"/><text x="660" y="190" font-size="15" font-weight="800" fill="#FFFFFF">4</text>
+      <text x="300" y="224" font-size="16" font-weight="800" fill="#0E7F96">inițializare</text>
+      <text x="300" y="244" font-size="13" fill="#6B6460">o singură dată</text>
+      <text x="480" y="224" font-size="16" font-weight="800" fill="#171416">condiție</text>
+      <text x="480" y="244" font-size="13" fill="#6B6460">înainte de fiecare pas</text>
+      <text x="660" y="224" font-size="16" font-weight="800" fill="#C8133A">pas</text>
+      <text x="660" y="244" font-size="13" fill="#6B6460">i crește cu 1</text>
+    </g>
+
+    <!-- schema -->
+    <rect x="40" y="330" width="160" height="50" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="120" y="361" text-anchor="middle" font-size="16" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">int i = 1</text>
+    <path d="M200 355H234" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M330 315L420 355L330 395L240 355Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="330" y="361" text-anchor="middle" font-size="16" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">i &lt;= 5 ?</text>
+    <path d="M420 355H464" stroke="#0B6F68" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="442" y="344" text-anchor="middle" font-size="14" font-weight="800" fill="#0B6F68">DA</text>
+    <rect x="470" y="330" width="170" height="50" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="555" y="361" text-anchor="middle" font-size="16" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">cout &lt;&lt; i;</text>
+    <path d="M640 355H684" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="690" y="330" width="120" height="50" rx="12" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="750" y="361" text-anchor="middle" font-size="16" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">i++</text>
+    <path d="M750 330V290H330V309" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="540" y="282" text-anchor="middle" font-size="13" fill="#6B6460">se revine la condiție</text>
+    <path d="M330 395V440" stroke="#C8133A" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="344" y="426" font-size="14" font-weight="800" fill="#C8133A">NU</text>
+    <rect x="270" y="446" width="120" height="40" rx="20" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <text x="330" y="471" text-anchor="middle" font-size="14" font-weight="700">sfârșit</text>
+    <g text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">
+      <circle cx="52" cy="330" r="13" fill="#3EC6E0"/><text x="52" y="335">1</text>
+      <circle cx="640" cy="330" r="13" fill="#14A39A"/><text x="640" y="335">3</text>
+      <circle cx="810" cy="330" r="13" fill="#F21F4B"/><text x="810" y="335">4</text>
+    </g>
+
+    <rect x="470" y="440" width="450" height="56" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="490" y="474" font-size="16" font-weight="700">Afișează:</text>
+    <text x="580" y="475" font-size="20" font-weight="800" font-family="JetBrains Mono, Consolas, monospace" fill="#0B6F68">1 2 3 4 5</text>
+    <text x="800" y="474" font-size="14" fill="#6B6460">(5 pași)</text>
+  </g>
+</svg>

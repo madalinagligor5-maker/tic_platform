@@ -39,6 +39,8 @@ Scara **1 : 100 000** înseamnă că 1 cm pe hartă reprezintă 100 000 cm = **1
 
 `t_varf = t_baza - 0.006 * (alt_varf - alt_baza)`
 
+![Temperatura scade cu circa 6 °C la 1000 m: la Bușteni (900 m) sunt 18 °C, iar pe Vârful Omu (2500 m) circa 8,4 °C.](fisiere/imagini/info-7-u4-l11-aplicatii-geografie.svg)
+
 ### Amplitudinea termică
 
 **Amplitudinea** este diferența dintre temperatura **maximă** și cea **minimă**: `amplitudine = maxim - minim`.

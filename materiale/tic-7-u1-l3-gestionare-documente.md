@@ -45,6 +45,8 @@ Comenzile pentru fișiere sunt în fila **Fișier** (vizualizarea **Backstage**)
 - **.txt**: doar text, fără formatare;
 - **.dotx**: **șablon** Word, pentru documente care se repetă (de exemplu, o fișă).
 
+![Salvare păstrează modificările în același fișier; Salvare ca creează un fișier nou, de exemplu un PDF, iar originalul rămâne neschimbat.](fisiere/imagini/tic-7-u1-l3-gestionare-documente.svg)
+
 ### Salvarea automată și recuperarea
 
 Word salvează automat, din câteva în câteva minute, o copie de siguranță. Dacă se închide brusc calculatorul, la repornire îți propune **documentele recuperate**. Dacă documentul e salvat în OneDrive, butonul **Salvare automată** din bara de titlu păstrează fiecare modificare.

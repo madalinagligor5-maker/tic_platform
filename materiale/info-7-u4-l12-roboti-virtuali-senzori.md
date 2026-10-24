@@ -33,6 +33,8 @@ Un **robot** este o mașină programabilă care **percepe** mediul, **decide** �
 
 Exemple: robotul aspirator, brațele robotice din fabrici, roverele de pe Marte, dronele.
 
+![Robotul percepe mediul cu senzorii, decide cu controlerul, care rulează programul, și acționează cu motoarele, apoi percepe din nou.](fisiere/imagini/info-7-u4-l12-roboti-virtuali-senzori.svg)
+
 ### Senzori
 
 | Senzor | Ce măsoară | Exemplu |

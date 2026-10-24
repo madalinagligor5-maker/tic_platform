@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Sunetul digital: microfonul transformă sunetul în semnal, calculatorul îl măsoară des și păstrează numere; WAV ocupă mult mai mult decât MP3</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+<text x="480" y="50" text-anchor="middle" font-size="24" font-weight="800">Cum devine sunetul un fișier</text>
+<rect x="74" y="112" width="44" height="74" rx="22" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+<path d="M84 136h24M84 150h24M84 164h24" stroke="#6B6460" stroke-width="2"/>
+<path d="M62 168a34 34 0 0 0 68 0" fill="none" stroke="#171416" stroke-width="3"/>
+<path d="M96 202v22M78 226h36" stroke="#171416" stroke-width="3" stroke-linecap="round"/>
+<text x="96" y="256" text-anchor="middle" font-size="14" font-weight="700">microfonul</text>
+<path d="M140 170H178" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+<path d="M196 170H904" stroke="#E8DFD3" stroke-width="2"/>
+<polyline points="196,172.9 200,170.0 204,167.0 208,164.0 212,161.0 216,157.9 220,154.8 224,151.8 228,148.8 232,145.9 236,143.1 240,140.4 244,137.9 248,135.5 252,133.3 256,131.2 260,129.4 264,127.8 268,126.5 272,125.4 276,124.6 280,124.1 284,123.8 288,123.9 292,124.3 296,124.9 300,125.9 304,127.2 308,128.7 312,130.6 316,132.8 320,135.2 324,137.9 328,140.8 332,144.0 336,147.4 340,150.9 344,154.7 348,158.6 352,162.6 356,166.8 360,171.0 364,175.2 368,179.5 372,183.7 376,188.0 380,192.1 384,196.2 388,200.1 392,203.9 396,207.5 400,210.9 404,214.1 408,217.0 412,219.6 416,222.0 420,224.0 424,225.7 428,227.1 432,228.1 436,228.7 440,229.0 444,228.9 448,228.4 452,227.6 456,226.3 460,224.7 464,222.8 468,220.5 472,217.8 476,214.9 480,211.6 484,208.1 488,204.3 492,200.2 496,196.0 500,191.6 504,187.0 508,182.3 512,177.5 516,172.7 520,167.8 524,162.9 528,158.1 532,153.3 536,148.6 540,144.1 544,139.7 548,135.6 552,131.6 556,127.9 560,124.4 564,121.3 568,118.4 572,115.9 576,113.8 580,112.0 584,110.5 588,109.5 592,108.8 596,108.6 600,108.7 604,109.2 608,110.1 612,111.4 616,113.0 620,115.0 624,117.3 628,120.0 632,123.0 636,126.2 640,129.7 644,133.5 648,137.4 652,141.5 656,145.8 660,150.3 664,154.8 668,159.3 672,163.9 676,168.5 680,173.1 684,177.6 688,182.1 692,186.4 696,190.6 700,194.6 704,198.4 708,201.9 712,205.3 716,208.4 720,211.2 724,213.7 728,215.9 732,217.8 736,219.4 740,220.6 744,221.5 748,222.0 752,222.3 756,222.1 760,221.7 764,220.9 768,219.8 772,218.4 776,216.7 780,214.8 784,212.6 788,210.1 792,207.5 796,204.6 800,201.6 804,198.4 808,195.1 812,191.6 816,188.1 820,184.6 824,181.0 828,177.4 832,173.8 836,170.3 840,166.9 844,163.5 848,160.2 852,157.1 856,154.1 860,151.3 864,148.6 868,146.2 872,143.9 876,141.9 880,140.1 884,138.5 888,137.2 892,136.1 896,135.2 900,134.6 904,134.3" fill="none" stroke="#3EC6E0" stroke-width="4" stroke-linecap="round"/>
+<path d="M212 170V161.0" stroke="#0E7F96" stroke-width="2"/><circle cx="212" cy="161.0" r="5" fill="#F21F4B"/>
+<text x="212" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">15</text>
+<path d="M248 170V135.5" stroke="#0E7F96" stroke-width="2"/><circle cx="248" cy="135.5" r="5" fill="#F21F4B"/>
+<text x="248" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">56</text>
+<path d="M284 170V123.8" stroke="#0E7F96" stroke-width="2"/><circle cx="284" cy="123.8" r="5" fill="#F21F4B"/>
+<text x="284" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">74</text>
+<path d="M320 170V135.2" stroke="#0E7F96" stroke-width="2"/><circle cx="320" cy="135.2" r="5" fill="#F21F4B"/>
+<text x="320" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">56</text>
+<path d="M356 170V166.8" stroke="#0E7F96" stroke-width="2"/><circle cx="356" cy="166.8" r="5" fill="#F21F4B"/>
+<text x="356" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">5</text>
+<path d="M392 170V203.9" stroke="#0E7F96" stroke-width="2"/><circle cx="392" cy="203.9" r="5" fill="#F21F4B"/>
+<text x="392" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">-55</text>
+<path d="M428 170V227.1" stroke="#0E7F96" stroke-width="2"/><circle cx="428" cy="227.1" r="5" fill="#F21F4B"/>
+<text x="428" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">-92</text>
+<path d="M464 170V222.8" stroke="#0E7F96" stroke-width="2"/><circle cx="464" cy="222.8" r="5" fill="#F21F4B"/>
+<text x="464" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">-85</text>
+<path d="M500 170V191.6" stroke="#0E7F96" stroke-width="2"/><circle cx="500" cy="191.6" r="5" fill="#F21F4B"/>
+<text x="500" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">-35</text>
+<path d="M536 170V148.6" stroke="#0E7F96" stroke-width="2"/><circle cx="536" cy="148.6" r="5" fill="#F21F4B"/>
+<text x="536" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">34</text>
+<path d="M572 170V115.9" stroke="#0E7F96" stroke-width="2"/><circle cx="572" cy="115.9" r="5" fill="#F21F4B"/>
+<text x="572" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">87</text>
+<path d="M608 170V110.1" stroke="#0E7F96" stroke-width="2"/><circle cx="608" cy="110.1" r="5" fill="#F21F4B"/>
+<text x="608" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">97</text>
+<path d="M644 170V133.5" stroke="#0E7F96" stroke-width="2"/><circle cx="644" cy="133.5" r="5" fill="#F21F4B"/>
+<text x="644" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">59</text>
+<path d="M680 170V173.1" stroke="#0E7F96" stroke-width="2"/><circle cx="680" cy="173.1" r="5" fill="#F21F4B"/>
+<text x="680" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">-5</text>
+<path d="M716 170V208.4" stroke="#0E7F96" stroke-width="2"/><circle cx="716" cy="208.4" r="5" fill="#F21F4B"/>
+<text x="716" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">-62</text>
+<path d="M752 170V222.3" stroke="#0E7F96" stroke-width="2"/><circle cx="752" cy="222.3" r="5" fill="#F21F4B"/>
+<text x="752" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">-84</text>
+<path d="M788 170V210.1" stroke="#0E7F96" stroke-width="2"/><circle cx="788" cy="210.1" r="5" fill="#F21F4B"/>
+<text x="788" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">-65</text>
+<path d="M824 170V181.0" stroke="#0E7F96" stroke-width="2"/><circle cx="824" cy="181.0" r="5" fill="#F21F4B"/>
+<text x="824" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">-18</text>
+<path d="M860 170V151.3" stroke="#0E7F96" stroke-width="2"/><circle cx="860" cy="151.3" r="5" fill="#F21F4B"/>
+<text x="860" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">30</text>
+<path d="M896 170V135.2" stroke="#0E7F96" stroke-width="2"/><circle cx="896" cy="135.2" r="5" fill="#F21F4B"/>
+<text x="896" y="268" text-anchor="middle" font-size="13" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">56</text>
+<text x="800" y="104" text-anchor="middle" font-size="14" fill="#6B6460">unda sonoră (semnalul electric)</text>
+<text x="550" y="300" text-anchor="middle" font-size="15">Calculatorul <tspan font-weight="800">măsoară</tspan> semnalul (punctele roșii) de foarte multe ori pe secundă,</text>
+<text x="550" y="322" text-anchor="middle" font-size="15">de exemplu de 44 100 de ori, și păstrează <tspan font-weight="800">numerele</tspan> obținute.</text>
+<rect x="40" y="350" width="880" height="160" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+<text x="60" y="382" font-size="17" font-weight="800">Un minut de sunet ocupă aproximativ:</text>
+<text x="60" y="428" font-size="18" font-weight="800" fill="#C8133A">WAV</text>
+<rect x="130" y="408" width="600" height="30" rx="8" fill="#F21F4B"/>
+<text x="746" y="429" font-size="16" font-weight="800">10 MB</text>
+<text x="814" y="429" font-size="13" fill="#6B6460">necomprimat</text>
+<text x="60" y="482" font-size="18" font-weight="800" fill="#0B6F68">MP3</text>
+<rect x="130" y="462" width="60" height="30" rx="8" fill="#14A39A"/>
+<text x="206" y="483" font-size="16" font-weight="800">1 MB</text>
+<text x="262" y="483" font-size="13" fill="#6B6460">comprimat: fișier mic, calitate bună, cel mai folosit</text>
+  </g>
+</svg>

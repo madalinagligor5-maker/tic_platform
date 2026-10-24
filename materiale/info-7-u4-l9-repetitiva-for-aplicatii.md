@@ -104,6 +104,8 @@ Afișează un triunghi:
 ****
 ```
 
+![for în for: pentru fiecare valoare a lui i, bucla interioară cu j se execută complet și desenează i steluțe pe rând.](fisiere/imagini/info-7-u4-l9-repetitiva-for-aplicatii.svg)
+
 ## Exemplu rezolvat: șirul lui Fibonacci
 
 Primii doi termeni sunt 1 și 1; fiecare termen următor este **suma celor doi dinaintea lui**: 1, 1, 2, 3, 5, 8, 13, 21… Afișează primii n termeni (n ≥ 2).

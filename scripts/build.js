@@ -66,6 +66,13 @@ function readMaterial(dir, file) {
     else fisier = { url: `fisiere/${rel.split('/').map(encodeURIComponent).join('/')}`, nume: path.basename(rel), ext: path.extname(rel).slice(1).toLowerCase(), marime: fs.statSync(abs).size };
   }
   if (!body && !meta.fisier) err('materialul nu are nici conținut, nici atașament („fisier”)');
+  // Imaginile din text (![descriere](fisiere/...)) trebuie să existe și să aibă descriere.
+  for (const m of body.matchAll(/!\[([^\]]*)\]\(([^)\s]+)\)/g)) {
+    if (/^https?:\/\//.test(m[2])) continue;
+    const rel = m[2].replace(/^\/?fisiere\//, '');
+    if (rel.includes('..') || !fs.existsSync(path.join(dir, 'fisiere', rel))) err(`imaginea „${m[2]}” nu există în materiale/fisiere/`);
+    if (!m[1].trim()) err(`imaginea „${m[2]}” nu are descriere (textul dintre [ ])`);
+  }
 
   // Aplicațiile interactive (blocuri ```quiz, ```categorii etc.) se verifică aici, ca greșelile să apară la construire.
   const activitati = extract(body);

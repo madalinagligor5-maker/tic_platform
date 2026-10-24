@@ -94,6 +94,8 @@ Pentru un număr `n` de trei cifre, de exemplu 472:
 - cifra din mijloc: `n / 10 % 10` → 7;
 - `n` este par dacă `n % 2 == 0`.
 
+![Între numere întregi, 17 / 5 dă câtul 3, iar 17 % 5 dă restul 2; tot cu / și % obții cifrele numărului 472.](fisiere/imagini/info-7-u4-l2-cpp-elemente-de-baza.svg)
+
 ## Exemplu rezolvat: calculează expresiile
 
 Fie `int a = 23, b = 4;`

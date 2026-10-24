@@ -37,6 +37,8 @@ Intri în contul școlii, apoi în **Google Drive** (iconița triunghi colorat d
 5. Dreapta sus: **istoricul**, **comentariile** și butonul albastru **Distribuiți** (Partajare).
 6. Inițialele sau poza colegilor care sunt **acum** în document; fiecare are un **cursor colorat**.
 
+![Un editor de documente online: numele, meniurile, bara de instrumente, butonul Distribuiți, colegii cu cursoare colorate și comentariile.](fisiere/imagini/tic-7-u3-l2-google-docs-slides.svg)
+
 ### Interfața Google Slides
 
 Seamănă cu PowerPoint: **panoul cu miniaturi** (stânga), **diapozitivul** (centru), **notele vorbitorului** (jos), bara cu **Temă**, **Aspect**, **Tranziție** și butonul **Prezentare diapozitive**. Fiecare coleg poate lucra la **alt diapozitiv** în același timp.

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Comparație între while, care verifică condiția înainte, și do … while, care execută pașii cel puțin o dată</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="240" y="54" text-anchor="middle" font-size="24" font-weight="800" fill="#0E7F96">while</text>
+    <text x="720" y="54" text-anchor="middle" font-size="24" font-weight="800" fill="#C8133A">do … while</text>
+    <path d="M480 40V500" stroke="#E8DFD3" stroke-width="3"/>
+
+    <!-- while -->
+    <path d="M240 72V104" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M240 110L340 154L240 198L140 154Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="240" y="160" text-anchor="middle" font-size="16" font-weight="800">condiție?</text>
+    <path d="M240 198V238" stroke="#0B6F68" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="254" y="226" font-size="14" font-weight="800" fill="#0B6F68">DA</text>
+    <rect x="160" y="244" width="160" height="52" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="240" y="276" text-anchor="middle" font-size="16" font-weight="700">instrucțiuni</text>
+    <path d="M160 270H80V154H132" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <path d="M340 154H400V324" stroke="#C8133A" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="356" y="144" font-size="14" font-weight="800" fill="#C8133A">NU</text>
+    <rect x="330" y="330" width="130" height="40" rx="20" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <text x="395" y="355" text-anchor="middle" font-size="14" font-weight="700">după buclă</text>
+
+    <text x="240" y="410" text-anchor="middle" font-size="16" font-weight="800">întâi verifică, apoi execută</text>
+    <text x="240" y="434" text-anchor="middle" font-size="14" fill="#6B6460">se poate executa de 0 ori</text>
+    <rect x="90" y="452" width="300" height="48" rx="12" fill="#171416"/>
+    <text x="240" y="482" text-anchor="middle" font-size="17" font-family="JetBrains Mono, Consolas, monospace" fill="#FFF7EE">while (c) { … }</text>
+
+    <!-- do while -->
+    <path d="M720 72V104" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="640" y="110" width="160" height="52" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="720" y="142" text-anchor="middle" font-size="16" font-weight="700">instrucțiuni</text>
+    <path d="M720 162V196" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M720 202L820 246L720 290L620 246Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="720" y="252" text-anchor="middle" font-size="16" font-weight="800">condiție?</text>
+    <path d="M620 246H560V136H632" stroke="#0B6F68" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="576" y="236" font-size="14" font-weight="800" fill="#0B6F68">DA</text>
+    <path d="M720 290V324" stroke="#C8133A" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="734" y="314" font-size="14" font-weight="800" fill="#C8133A">NU</text>
+    <rect x="655" y="330" width="130" height="40" rx="20" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <text x="720" y="355" text-anchor="middle" font-size="14" font-weight="700">după buclă</text>
+
+    <text x="720" y="410" text-anchor="middle" font-size="16" font-weight="800">întâi execută, apoi verifică</text>
+    <text x="720" y="434" text-anchor="middle" font-size="14" fill="#6B6460">se execută cel puțin o dată</text>
+    <rect x="550" y="452" width="340" height="48" rx="12" fill="#171416"/>
+    <text x="720" y="482" text-anchor="middle" font-size="17" font-family="JetBrains Mono, Consolas, monospace" fill="#FFF7EE">do { … } while (c)<tspan fill="#F21F4B" font-weight="800">;</tspan></text>
+    <text x="720" y="524" text-anchor="middle" font-size="13" fill="#C8133A">aici punctul și virgula este obligatoriu</text>
+  </g>
+</svg>

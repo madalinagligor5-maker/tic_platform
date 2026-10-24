@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Backspace șterge caracterul din stânga cursorului, Delete pe cel din dreapta; copierea și mutarea textului prin Clipboard</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="40" y="56" font-size="20" font-weight="800">Ștergerea: în ce parte a cursorului?</text>
+    <!-- original -->
+    <rect x="340" y="76" width="280" height="56" rx="12" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <text x="480" y="113" text-anchor="middle" font-size="26" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">calc<tspan fill="#0E7F96">u</tspan><tspan fill="#C8133A">l</tspan>ator</text>
+    <path d="M480 86v38" stroke="#171416" stroke-width="3"/>
+    <text x="480" y="152" text-anchor="middle" font-size="13" fill="#6B6460">cursorul este după litera u</text>
+    <!-- backspace -->
+    <path d="M336 118L230 162" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="40" y="166" width="300" height="74" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="60" y="194" font-size="15" font-weight="800" fill="#0E7F96">Backspace ← stânga</text>
+    <text x="60" y="226" font-size="22" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">calc|lator</text>
+    <text x="230" y="226" font-size="14" fill="#6B6460">dispare u</text>
+    <!-- delete -->
+    <path d="M624 118L730 162" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="620" y="166" width="300" height="74" rx="12" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="640" y="194" font-size="15" font-weight="800" fill="#C8133A">Delete → dreapta</text>
+    <text x="640" y="226" font-size="22" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">calcu|ator</text>
+    <text x="814" y="226" font-size="14" fill="#6B6460">dispare l</text>
+
+    <path d="M40 266H920" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="40" y="300" font-size="20" font-weight="800">Copiere și mutare prin Clipboard</text>
+
+    <!-- clipboard -->
+    <rect x="410" y="320" width="140" height="170" rx="14" fill="#F1E9DF" stroke="#6B6460" stroke-width="3"/>
+    <rect x="450" y="310" width="60" height="22" rx="6" fill="#6B6460"/>
+    <rect x="428" y="380" width="104" height="34" rx="6" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="480" y="403" text-anchor="middle" font-size="16" font-weight="800">mere</text>
+    <text x="480" y="456" text-anchor="middle" font-size="14" font-weight="800">Clipboard</text>
+    <text x="480" y="474" text-anchor="middle" font-size="13" fill="#6B6460">memorie</text>
+
+    <!-- copiere -->
+    <rect x="40" y="322" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="60" y="357" font-size="17">Ana are</text>
+    <rect x="132" y="337" width="54" height="28" rx="4" fill="#FFF0DB"/>
+    <text x="137" y="357" font-size="17">mere</text>
+    <text x="196" y="357" font-size="17">.</text>
+    <text x="210" y="357" font-size="13" font-weight="800" fill="#0B6F68">rămâne</text>
+    <path d="M294 350H402" stroke="#14A39A" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="348" y="340" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">Ctrl + C</text>
+    <!-- mutare -->
+    <rect x="40" y="430" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <text x="60" y="465" font-size="17">Ana are</text>
+    <rect x="132" y="445" width="54" height="28" rx="4" fill="none" stroke="#F21F4B" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="196" y="465" font-size="17">.</text>
+    <text x="210" y="465" font-size="13" font-weight="800" fill="#C8133A">dispare</text>
+    <path d="M294 458H402" stroke="#F21F4B" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="348" y="448" text-anchor="middle" font-size="15" font-weight="800" fill="#C8133A">Ctrl + X</text>
+    <!-- lipire -->
+    <path d="M556 404H654" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="606" y="392" text-anchor="middle" font-size="15" font-weight="800">Ctrl + V</text>
+    <rect x="660" y="376" width="260" height="56" rx="12" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <text x="680" y="411" font-size="17">Îmi plac</text>
+    <rect x="757" y="391" width="54" height="28" rx="4" fill="#FFF0DB"/>
+    <text x="762" y="411" font-size="17">mere</text>
+    <text x="816" y="411" font-size="17">!</text>
+    <text x="790" y="456" text-anchor="middle" font-size="13" fill="#6B6460">lipit unde e cursorul</text>
+    <text x="790" y="476" text-anchor="middle" font-size="13" fill="#6B6460">Ctrl + Z anulează</text>
+  </g>
+</svg>

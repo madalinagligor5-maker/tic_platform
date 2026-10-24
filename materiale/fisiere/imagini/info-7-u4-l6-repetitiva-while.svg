@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Schema instrucțiunii while și prelucrarea cifrelor numărului 3725 cu % 10 și / 10</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="250" y="50" text-anchor="middle" font-size="24" font-weight="800">Instrucțiunea while</text>
+    <text x="250" y="76" text-anchor="middle" font-size="14" fill="#6B6460">condiția se verifică ÎNAINTE de fiecare pas</text>
+
+    <rect x="170" y="96" width="160" height="40" rx="20" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <text x="250" y="122" text-anchor="middle" font-size="15" font-weight="700" font-family="JetBrains Mono, Consolas, monospace">cin &gt;&gt; n;</text>
+    <path d="M250 136V160" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M250 166L360 210L250 254L140 210Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="250" y="216" text-anchor="middle" font-size="17" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">n != 0</text>
+    <path d="M250 254V284" stroke="#0B6F68" stroke-width="3" marker-end="url(#sag)"/>
+    <text x="264" y="276" font-size="14" font-weight="800" fill="#0B6F68">DA</text>
+    <rect x="120" y="290" width="260" height="104" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <g font-size="15" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">
+      <text x="140" y="320">s = s + n % 10;</text>
+      <text x="140" y="346">nr++;</text>
+      <text x="140" y="372">n = n / 10;</text>
+    </g>
+    <path d="M120 342H70V210H132" stroke="#171416" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="40" y="440" font-size="13" fill="#6B6460">se revine la condiție</text>
+    <path d="M360 210H430V430" stroke="#C8133A" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="376" y="200" font-size="14" font-weight="800" fill="#C8133A">NU</text>
+    <rect x="330" y="436" width="200" height="56" rx="12" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="430" y="460" text-anchor="middle" font-size="14" font-weight="700">bucla se încheie,</text>
+    <text x="430" y="480" text-anchor="middle" font-size="14" font-weight="700">se afișează s și nr</text>
+
+    <!-- urmărire 3725 -->
+    <rect x="570" y="40" width="350" height="460" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="745" y="74" text-anchor="middle" font-size="18" font-weight="800">n = 3725</text>
+    <g font-size="13" font-weight="800" fill="#6B6460" text-anchor="middle">
+      <text x="640" y="104">n</text><text x="745" y="104">n % 10</text><text x="855" y="104">s</text>
+    </g>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="20" font-weight="800" text-anchor="middle">
+      <text x="640" y="144">3725</text><text x="745" y="144" fill="#C8133A">5</text><text x="855" y="144" fill="#0B6F68">5</text>
+      <text x="640" y="214">372</text><text x="745" y="214" fill="#C8133A">2</text><text x="855" y="214" fill="#0B6F68">7</text>
+      <text x="640" y="284">37</text><text x="745" y="284" fill="#C8133A">7</text><text x="855" y="284" fill="#0B6F68">14</text>
+      <text x="640" y="354">3</text><text x="745" y="354" fill="#C8133A">3</text><text x="855" y="354" fill="#0B6F68">17</text>
+      <text x="640" y="424">0</text>
+    </g>
+    <g stroke="#3EC6E0" stroke-width="3" fill="none">
+      <path d="M640 154V190" marker-end="url(#sag)"/>
+      <path d="M640 224V260" marker-end="url(#sag)"/>
+      <path d="M640 294V330" marker-end="url(#sag)"/>
+      <path d="M640 364V400" marker-end="url(#sag)"/>
+    </g>
+    <g font-size="13" fill="#0E7F96" font-weight="700">
+      <text x="660" y="178">/ 10</text><text x="660" y="248">/ 10</text><text x="660" y="318">/ 10</text><text x="660" y="388">/ 10</text>
+    </g>
+    <text x="745" y="424" font-size="15" font-weight="800" fill="#C8133A">condiția e falsă: STOP</text>
+    <path d="M590 446H900" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="745" y="478" text-anchor="middle" font-size="15" font-weight="700">suma cifrelor 17, nr = 4 cifre</text>
+  </g>
+</svg>

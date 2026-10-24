@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Montajul pe cronologie: titlu, tranziție între clipuri, împărțirea și ștergerea unei bucăți, muzică cu estompare și exportul în MP4</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+    <pattern id="hasura" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#FDE7EC"/><path d="M0 0V10" stroke="#F21F4B" stroke-width="3"/></pattern>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="48" text-anchor="middle" font-size="24" font-weight="800">Montajul pe cronologie</text>
+    <rect x="30" y="66" width="900" height="250" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <g font-size="13" fill="#6B6460"><text x="150" y="88">0 s</text><text x="300" y="88">5 s</text><text x="450" y="88">10 s</text><text x="600" y="88">15 s</text><text x="750" y="88">20 s</text></g>
+    <path d="M150 96H900" stroke="#E8DFD3" stroke-width="2"/>
+    <g font-size="14" font-weight="800"><text x="46" y="132">Text</text><text x="46" y="192">Video</text><text x="46" y="262">Audio</text></g>
+    <!-- text -->
+    <rect x="150" y="108" width="120" height="38" rx="6" fill="#14A39A"/>
+    <text x="210" y="132" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">Titlu 4 s</text>
+    <rect x="780" y="108" width="120" height="38" rx="6" fill="#14A39A"/>
+    <text x="840" y="132" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">Generic</text>
+    <!-- video -->
+    <rect x="150" y="160" width="240" height="56" rx="6" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2"/>
+    <text x="270" y="193" text-anchor="middle" font-size="14" font-weight="700">fotografii</text>
+    <rect x="392" y="160" width="148" height="56" rx="6" fill="#E0F4F2" stroke="#14A39A" stroke-width="2"/>
+    <text x="466" y="193" text-anchor="middle" font-size="14" font-weight="700">cascada</text>
+    <rect x="542" y="160" width="58" height="56" rx="6" fill="url(#hasura)" stroke="#F21F4B" stroke-width="2"/>
+    <rect x="602" y="160" width="298" height="56" rx="6" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2"/>
+    <text x="751" y="193" text-anchor="middle" font-size="14" font-weight="700">alte clipuri</text>
+    <path d="M378 170L402 206V170L378 206Z" fill="#F29A1F" stroke="#171416" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M541 152V224" stroke="#171416" stroke-width="3" stroke-dasharray="5 4"/>
+    <!-- audio -->
+    <path d="M150 236H810L900 288H150Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="2"/>
+    <text x="300" y="268" font-size="14" font-weight="700">muzică liberă de drepturi, volum mic</text>
+    <!-- etichete -->
+    <g stroke="#6B6460" stroke-width="2" stroke-dasharray="4 4"><path d="M390 216V340"/><path d="M570 216V340"/><path d="M860 288V340"/></g>
+    <g font-size="14" text-anchor="middle">
+      <text x="390" y="360" font-weight="800">tranziție</text><text x="390" y="380">Disolvare, 0,7 s</text>
+      <text x="580" y="360" font-weight="800">Împărțire + Delete</text><text x="580" y="380">partea neclară dispare</text>
+      <text x="840" y="360" font-weight="800">Estompare</text><text x="840" y="380">la ieșire, 3 s</text>
+    </g>
+    <!-- export -->
+    <rect x="40" y="410" width="250" height="90" rx="14" fill="#171416"/>
+    <text x="165" y="448" text-anchor="middle" font-size="17" font-weight="800" fill="#FFF7EE">Export</text>
+    <text x="165" y="474" text-anchor="middle" font-size="14" fill="#E8DFD3">Fișier video</text>
+    <path d="M296 455H344" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="350" y="410" width="300" height="90" rx="14" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="500" y="446" text-anchor="middle" font-size="17" font-weight="800">MP4 · 1080p</text>
+    <text x="500" y="474" text-anchor="middle" font-size="14">30 de cadre pe secundă → Creare</text>
+    <path d="M656 455H704" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="712" y="410" width="208" height="90" rx="14" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <rect x="732" y="430" width="56" height="50" rx="6" fill="#F21F4B"/>
+    <path d="M752 443l16 12-16 12z" fill="#FFFFFF"/>
+    <text x="800" y="452" font-size="14" font-weight="800">Excursie</text>
+    <text x="800" y="472" font-size="14" font-weight="800">.mp4</text>
+  </g>
+</svg>

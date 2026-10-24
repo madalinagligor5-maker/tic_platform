@@ -33,6 +33,8 @@ Microfonul transformă sunetul în semnal electric, iar calculatorul îl **măso
 - **MP3**: comprimat, fișiere mici, calitate bună; cel mai folosit;
 - **OGG**, **M4A**, **FLAC**: alte formate comprimate.
 
+![Sunetul devine digital când calculatorul îl măsoară de foarte multe ori pe secundă; un minut ocupă cam 10 MB în WAV și cam 1 MB în MP3.](fisiere/imagini/tic-7-u2-l1-aplicatii-audio-video.svg)
+
 ### Video digital
 
 Un fișier video conține **cadre** (imagini) și **sunet**. **Rezoluția** (de exemplu, **1920 × 1080**, adică „Full HD”) arată câți pixeli are un cadru, iar **FPS** câte cadre are o secundă (25, 30, 60).

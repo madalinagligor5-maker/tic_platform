@@ -31,6 +31,8 @@ Partea hardware a unui calculator are:
 
 **Monitorul**, **tastatura** și **mouse-ul** sunt dispozitive periferice. Mouse-ul servește la indicare, la selecție (un clic) și la deschiderea programelor (dublu clic); poziția lui pe ecran este arătată de **cursorul de mouse**. La tastatură, majusculele și unele semne se obțin ținând apăsată tasta **Shift**.
 
+![Dispozitivele de intrare trimit date unității centrale, cele de ieșire primesc rezultatele, iar cele de intrare-ieșire fac ambele lucruri.](fisiere/imagini/tic-5-hardware-periferice.svg)
+
 ### Cele trei tipuri de dispozitive periferice
 
 | Tip | Rol | Exemple |

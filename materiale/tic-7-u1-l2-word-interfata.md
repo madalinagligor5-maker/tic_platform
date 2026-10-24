@@ -39,6 +39,8 @@ Un document Word se salvează cu extensia **.docx**.
 5. **Zona documentului**: foaia albă pe care scrii. **Cursorul** (linia verticală care clipește) arată unde apare textul.
 6. **Bara de stare**: numărul paginii, numărul de **cuvinte**, limba, modurile de vizualizare și **panoramarea** (zoom).
 
+![Fereastra procesorului de texte: bara de titlu, bara de acces rapid, panglica cu file, rigla, zona documentului și bara de stare.](fisiere/imagini/tic-7-u1-l2-word-interfata.svg)
+
 ### Filele principale
 
 | Filă | Ce conține |

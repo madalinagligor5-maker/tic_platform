@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Ecranul verde (chroma key): persoana filmată pe fundal verde este pusă peste o altă imagine, pe două piste video</title>
+  <defs>
+    <g id="om">
+      <circle cx="0" cy="-58" r="22" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+      <path d="M-44 40V-4a26 26 0 0 1 26-26h36a26 26 0 0 1 26 26V40z" fill="#F21F4B" stroke="#171416" stroke-width="3"/>
+      <path d="M-20 -6v46M20 -6v46" stroke="#C8133A" stroke-width="3"/>
+    </g>
+    <g id="harta">
+      <rect width="260" height="190" fill="#E2F6FA"/>
+      <path d="M30 40l60-14 50 22 40-10 50 18 10 60-30 40-70 10-50-20-50 10-20-50z" fill="#F1E9DF" stroke="#0E7F96" stroke-width="2"/>
+      <path d="M60 60q40 30 30 60t60 40" fill="none" stroke="#3EC6E0" stroke-width="4"/>
+      <circle cx="80" cy="140" r="12" fill="#F29A1F"/>
+      <g stroke="#F29A1F" stroke-width="3" stroke-linecap="round"><path d="M80 120v-6M80 166v-6M60 140h-6M106 140h-6"/></g>
+      <path d="M180 70a12 12 0 0 1 22-6a10 10 0 0 1 8 18h-30a8 8 0 0 1 0-12z" fill="#FFFFFF" stroke="#6B6460" stroke-width="2"/>
+      <text x="196" y="130" text-anchor="middle" font-size="16" font-weight="800" font-family="Montserrat, Arial, sans-serif" fill="#C8133A">24°</text>
+    </g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="48" text-anchor="middle" font-size="24" font-weight="800">Ecranul verde (chroma key)</text>
+    <!-- 1 -->
+    <rect x="40" y="76" width="260" height="190" rx="8" fill="#14A39A"/>
+    <use href="#om" x="170" y="226"/>
+    <!-- 2 -->
+    <use href="#harta" x="350" y="76"/>
+    <rect x="350" y="76" width="260" height="190" rx="8" fill="none" stroke="#0E7F96" stroke-width="3"/>
+    <!-- 3 -->
+    <use href="#harta" x="660" y="76"/>
+    <use href="#om" x="840" y="226"/>
+    <rect x="660" y="76" width="260" height="190" rx="8" fill="none" stroke="#0E7F96" stroke-width="3"/>
+    <rect x="40" y="76" width="260" height="190" rx="8" fill="none" stroke="#0B6F68" stroke-width="3"/>
+    <text x="325" y="182" text-anchor="middle" font-size="30" font-weight="800">+</text>
+    <text x="635" y="182" text-anchor="middle" font-size="30" font-weight="800">=</text>
+    <g font-size="15" text-anchor="middle">
+      <text x="170" y="294" font-weight="800">1. Filmezi persoana</text><text x="170" y="314">în fața fundalului verde</text>
+      <text x="480" y="294" font-weight="800">2. Alegi fundalul</text><text x="480" y="314">de exemplu, o hartă meteo</text>
+      <text x="790" y="294" font-weight="800">3. Chroma key</text><text x="790" y="314">face verdele transparent</text>
+    </g>
+    <!-- piste -->
+    <rect x="40" y="346" width="620" height="154" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="60" y="376" font-size="15" font-weight="800">Pe cronologie: două piste video</text>
+    <text x="60" y="418" font-size="14" font-weight="700">Video 2</text>
+    <rect x="150" y="396" width="490" height="34" rx="6" fill="#14A39A"/>
+    <text x="164" y="418" font-size="14" font-weight="700" fill="#FFFFFF">persoana pe verde + efectul Chroma key</text>
+    <text x="60" y="466" font-size="14" font-weight="700">Video 1</text>
+    <rect x="150" y="444" width="490" height="34" rx="6" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2"/>
+    <text x="164" y="466" font-size="14" font-weight="700">harta din spate</text>
+    <rect x="690" y="346" width="230" height="154" rx="14" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="805" y="384" text-anchor="middle" font-size="16" font-weight="800" fill="#C8133A">Atenție!</text>
+    <text x="805" y="414" text-anchor="middle" font-size="14">Persoana nu trebuie</text>
+    <text x="805" y="436" text-anchor="middle" font-size="14">să poarte haine verzi:</text>
+    <text x="805" y="458" text-anchor="middle" font-size="14">ar deveni și ele</text>
+    <text x="805" y="480" text-anchor="middle" font-size="14">transparente.</text>
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Scăderea temperaturii cu altitudinea: de la 18 °C la Bușteni (900 m) la 8,4 °C pe Vârful Omu (2500 m)</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="50" text-anchor="middle" font-size="24" font-weight="800">Temperatura scade când urcăm</text>
+
+    <!-- axă: y = 450 - alt*0.11 -->
+    <path d="M100 456V100" stroke="#6B6460" stroke-width="3"/>
+    <g font-size="13" fill="#6B6460" text-anchor="end">
+      <text x="90" y="455">0 m</text><text x="90" y="345">1000 m</text><text x="90" y="235">2000 m</text><text x="90" y="125">3000 m</text>
+    </g>
+    <g stroke="#E8DFD3" stroke-width="2">
+      <path d="M104 340H600"/><path d="M104 230H600"/><path d="M104 120H600"/>
+    </g>
+    <path d="M100 450H600" stroke="#6B6460" stroke-width="3"/>
+    <!-- munte -->
+    <path d="M120 450L200 380L260 351L330 290L400 230L440 175L480 215L540 300L600 450Z" fill="#E0F4F2" stroke="#14A39A" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M416 206L440 175L466 200L452 210L440 200L428 212Z" fill="#FFFFFF" stroke="#14A39A" stroke-width="3" stroke-linejoin="round"/>
+    <!-- puncte -->
+    <circle cx="260" cy="351" r="8" fill="#F29A1F" stroke="#FFFFFF" stroke-width="3"/>
+    <circle cx="440" cy="175" r="8" fill="#0E7F96" stroke="#FFFFFF" stroke-width="3"/>
+    <text x="246" y="318" text-anchor="end" font-size="15" font-weight="800">Bușteni</text>
+    <text x="246" y="338" text-anchor="end" font-size="13" fill="#6B6460">≈ 900 m</text>
+    <rect x="276" y="360" width="86" height="34" rx="17" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="319" y="383" text-anchor="middle" font-size="16" font-weight="800">18 °C</text>
+    <text x="460" y="128" font-size="15" font-weight="800">Vârful Omu</text>
+    <text x="460" y="148" font-size="13" fill="#6B6460">≈ 2500 m</text>
+    <rect x="490" y="164" width="96" height="34" rx="17" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="538" y="187" text-anchor="middle" font-size="16" font-weight="800">8,4 °C</text>
+
+    <!-- regula -->
+    <rect x="640" y="90" width="280" height="150" rx="16" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="780" y="140" text-anchor="middle" font-size="34" font-weight="800" fill="#0E7F96">−6 °C</text>
+    <text x="780" y="172" text-anchor="middle" font-size="15" font-weight="700">la fiecare 1000 m urcați</text>
+    <text x="780" y="198" text-anchor="middle" font-size="14" fill="#6B6460">adică 0,6 °C la 100 m</text>
+    <text x="780" y="222" text-anchor="middle" font-size="14" fill="#6B6460">sau 0,006 °C la 1 m</text>
+
+    <rect x="640" y="262" width="280" height="150" rx="16" fill="#FFFFFF" stroke="#F29A1F" stroke-width="3"/>
+    <text x="660" y="294" font-size="15" font-weight="800">Calculul</text>
+    <text x="660" y="324" font-size="14">diferența de altitudine:</text>
+    <text x="660" y="346" font-size="14" font-weight="700">2500 − 900 = 1600 m</text>
+    <text x="660" y="374" font-size="14">temperatura pe vârf:</text>
+    <text x="660" y="396" font-size="14" font-weight="700">18 − 0,006 · 1600 = 8,4 °C</text>
+
+    <rect x="40" y="474" width="880" height="44" rx="12" fill="#171416"/>
+    <text x="480" y="502" text-anchor="middle" font-size="15" font-family="JetBrains Mono, Consolas, monospace" fill="#FFF7EE">t_varf = t_baza - 0.006 * (alt_varf - alt_baza)</text>
+  </g>
+</svg>

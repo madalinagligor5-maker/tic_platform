@@ -52,6 +52,8 @@ Ca să pui muzică de fond sub voce: copiezi muzica și folosești **Editare →
 
 **Ascultă după fiecare modificare.** Dacă nu-ți place, **Ctrl + Z**.
 
+![Pe forma de undă: ștergi o porțiune selectată, aplici estompare la început și la sfârșit și pui muzica la volum mic sub voce.](fisiere/imagini/tic-7-u2-l3-prelucrarea-sunetelor.svg)
+
 ## Exemplu rezolvat: un anunț radio cu muzică de fond
 
 1. Deschizi înregistrarea vocii tale, `Anunt.wav`.

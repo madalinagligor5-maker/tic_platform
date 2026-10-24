@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Schema instrucțiunii if … else: condiția alege ramura adevărată sau ramura falsă, cu exemplul număr par sau impar</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="300" y="54" text-anchor="middle" font-size="24" font-weight="800">Instrucțiunea if … else</text>
+
+    <!-- schema logică -->
+    <rect x="230" y="80" width="140" height="44" rx="22" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <text x="300" y="108" text-anchor="middle" font-size="15" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">cin &gt;&gt; n;</text>
+    <path d="M300 124V156" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M300 162L420 222L300 282L180 222Z" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="300" y="218" text-anchor="middle" font-size="16" font-family="JetBrains Mono, Consolas, monospace" font-weight="800">n % 2 == 0</text>
+    <text x="300" y="240" text-anchor="middle" font-size="13" fill="#6B6460">condiția</text>
+
+    <!-- ramura adevărat -->
+    <path d="M180 222H100V312" stroke="#0B6F68" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="140" y="210" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">DA</text>
+    <rect x="30" y="318" width="160" height="70" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="110" y="346" text-anchor="middle" font-size="14" font-weight="700">instrucțiune 1</text>
+    <text x="110" y="370" text-anchor="middle" font-size="15" font-family="JetBrains Mono, Consolas, monospace">"este par"</text>
+
+    <!-- ramura fals -->
+    <path d="M420 222H500V312" stroke="#C8133A" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="460" y="210" text-anchor="middle" font-size="15" font-weight="800" fill="#C8133A">NU</text>
+    <rect x="410" y="318" width="170" height="70" rx="12" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="495" y="346" text-anchor="middle" font-size="14" font-weight="700">instrucțiune 2</text>
+    <text x="495" y="370" text-anchor="middle" font-size="15" font-family="JetBrains Mono, Consolas, monospace">"este impar"</text>
+
+    <!-- unire -->
+    <path d="M110 388V430H495V388" stroke="#171416" stroke-width="3" fill="none"/>
+        <path d="M300 430V462" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <rect x="200" y="468" width="200" height="40" rx="20" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <text x="300" y="493" text-anchor="middle" font-size="14" font-weight="700">programul continuă</text>
+
+    <!-- cod -->
+    <rect x="620" y="80" width="300" height="230" rx="16" fill="#171416"/>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="16" fill="#FFF7EE">
+      <text x="640" y="116"><tspan fill="#F29A1F">if</tspan> (n % 2 == 0)</text>
+      <text x="676" y="146">cout &lt;&lt; <tspan fill="#3EC6E0">"par"</tspan>;</text>
+      <text x="640" y="176"><tspan fill="#F29A1F">else</tspan></text>
+      <text x="676" y="206">cout &lt;&lt; <tspan fill="#3EC6E0">"impar"</tspan>;</text>
+    </g>
+    <text x="640" y="246" font-size="14" fill="#E8DFD3">condiția stă între</text>
+    <text x="640" y="268" font-size="14" fill="#E8DFD3">paranteze rotunde ( )</text>
+
+    <rect x="620" y="330" width="300" height="178" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="640" y="360" font-size="16" font-weight="800">Atenție</text>
+    <g font-size="14">
+      <text x="640" y="390"><tspan font-family="JetBrains Mono, Consolas, monospace" font-weight="700" fill="#C8133A">=</tspan> atribuie, <tspan font-family="JetBrains Mono, Consolas, monospace" font-weight="700" fill="#0B6F68">==</tspan> compară</text>
+      <text x="640" y="420">fără ; după paranteza lui if</text>
+      <text x="640" y="450">mai multe instrucțiuni pe o</text>
+      <text x="640" y="470">ramură se pun între { }</text>
+      <text x="640" y="496" fill="#6B6460">else poate lipsi (forma scurtă)</text>
+    </g>
+  </g>
+</svg>

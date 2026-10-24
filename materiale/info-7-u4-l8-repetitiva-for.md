@@ -55,6 +55,8 @@ while (i <= 5)
 }
 ```
 
+![În for, inițializarea se face o singură dată, apoi se repetă condiția, instrucțiunile și pasul, până când condiția devine falsă.](fisiere/imagini/info-7-u4-l8-repetitiva-for.svg)
+
 ### Variante
 
 | for | Afișează |

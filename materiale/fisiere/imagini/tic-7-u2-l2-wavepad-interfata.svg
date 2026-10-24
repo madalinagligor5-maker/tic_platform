@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Fereastra unui editor audio: filele cu instrumente, forma de undă stereo, cronologia, cursorul de redare, bara de redare și panoul de fișiere</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+<rect x="30" y="30" width="660" height="480" rx="12" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+<path d="M30 42a12 12 0 0 1 12-12h636a12 12 0 0 1 12 12v24H30z" fill="#171416"/>
+<text x="360" y="54" text-anchor="middle" font-size="14" font-weight="700" fill="#FFF7EE">Mesaj_audio.mp3 – editor audio</text>
+<rect x="33" y="66" width="654" height="56" fill="#FFFFFF"/>
+<g font-size="13"><text x="50" y="84" font-weight="800" fill="#C8133A">Acasă</text><text x="104" y="84">Editare</text><text x="168" y="84">Nivel</text><text x="216" y="84">Efecte</text><text x="274" y="84">Curățare</text><text x="346" y="84">Instrumente</text></g>
+<g fill="#FDE7EC" stroke="#F21F4B" stroke-width="1.5"><rect x="50" y="92" width="24" height="22" rx="4"/><rect x="80" y="92" width="24" height="22" rx="4"/><rect x="110" y="92" width="24" height="22" rx="4"/><rect x="140" y="92" width="24" height="22" rx="4"/><rect x="170" y="92" width="24" height="22" rx="4"/><rect x="200" y="92" width="24" height="22" rx="4"/></g>
+<rect x="33" y="122" width="150" height="318" fill="#FFFFFF"/>
+<text x="46" y="146" font-size="13" font-weight="800">Fișiere</text>
+<rect x="42" y="156" width="132" height="26" rx="5" fill="#FDE7EC"/>
+<text x="50" y="174" font-size="13">Mesaj_audio</text>
+<text x="50" y="204" font-size="13" fill="#6B6460">Muzica</text>
+<rect x="188" y="126" width="496" height="24" fill="#FFFFFF"/>
+<g font-size="13" fill="#6B6460"><text x="196" y="143">0:00</text><text x="316" y="143">0:05</text><text x="436" y="143">0:10</text><text x="556" y="143">0:15</text></g>
+<g stroke="#6B6460" stroke-width="1.5"><path d="M228 140v8M348 140v8M468 140v8M588 140v8"/></g>
+<rect x="188" y="154" width="496" height="138" fill="#171416"/>
+<rect x="188" y="296" width="496" height="138" fill="#171416"/>
+<text x="196" y="172" font-size="13" fill="#E8DFD3">Stânga</text>
+<text x="196" y="314" font-size="13" fill="#E8DFD3">Dreapta</text>
+<path d="M196 222V224M202 222V224M208 222V224M214 222V224M220 222V224M226 203V243M232 204V242M238 186V260M244 203V243M250 202V244M256 178V268M262 189V257M268 179V267M274 196V250M280 203V243M286 203V243M292 187V259M298 175V271M304 189V257M310 192V254M316 204V242M322 204V242M328 182V264M334 185V261M340 196V250M346 204V242M352 201V245M358 195V251M364 182V264M370 176V270M376 187V259M382 195V251M388 222V224M394 222V224M400 222V224M406 222V224M412 222V224M418 222V224M424 222V224M430 222V224M436 222V224M442 191V255M448 192V254M454 204V242M460 198V248M466 194V252M472 193V253M478 187V259M484 194V252M490 204V242M496 193V253M502 177V269M508 176V270M514 177V269M520 195V251M526 204V242M532 188V258M538 175V271M544 174V272M550 190V256M556 196V250M562 204V242M568 186V260M574 186V260M580 195V251M586 203V243M592 197V249M598 196V250M604 203V243M610 178V268M616 192V254M622 201V245M628 203V243M634 195V251M640 222V224M646 222V224M652 222V224M658 222V224M664 222V224M670 222V224M676 222V224" stroke="#3EC6E0" stroke-width="3" stroke-linecap="round"/>
+<path d="M196 364V366M202 364V366M208 364V366M214 364V366M220 364V366M226 340V390M232 346V384M238 332V398M244 316V414M250 331V399M256 340V390M262 346V384M268 335V395M274 339V391M280 330V400M286 335V395M292 347V383M298 344V386M304 339V391M310 316V414M316 324V406M322 344V386M328 346V384M334 345V385M340 329V401M346 343V387M352 347V383M358 333V397M364 346V384M370 343V387M376 317V413M382 317V413M388 364V366M394 364V366M400 364V366M406 364V366M412 364V366M418 364V366M424 364V366M430 364V366M436 364V366M442 340V390M448 335V395M454 341V389M460 344V386M466 346V384M472 343V387M478 331V399M484 347V383M490 326V404M496 340V390M502 346V384M508 335V395M514 333V397M520 336V394M526 333V397M532 335V395M538 347V383M544 329V401M550 346V384M556 322V408M562 323V407M568 347V383M574 344V386M580 339V391M586 329V401M592 346V384M598 346V384M604 345V385M610 340V390M616 342V388M622 322V408M628 316V414M634 325V405M640 364V366M646 364V366M652 364V366M658 364V366M664 364V366M670 364V366M676 364V366" stroke="#3EC6E0" stroke-width="3" stroke-linecap="round"/>
+<path d="M420 150V436" stroke="#F21F4B" stroke-width="3"/>
+<path d="M413 150h14l-7 9z" fill="#F21F4B"/>
+<rect x="33" y="440" width="654" height="67" fill="#FFFFFF"/>
+<g fill="#171416">
+<path d="M220 458v26M224 471l14-13v26z"/>
+<path d="M262 458l22 13-22 13z"/>
+<rect x="302" y="458" width="7" height="26"/><rect x="314" y="458" width="7" height="26"/>
+<rect x="340" y="459" width="24" height="24" rx="2"/>
+<circle cx="396" cy="471" r="13" fill="#F21F4B"/>
+<path d="M428 458l14 13-14 13zM446 458v26"/>
+</g>
+<text x="560" y="477" font-size="15" font-family="JetBrains Mono, Consolas, monospace" font-weight="700">0:08.5</text>
+<circle cx="560" cy="48" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="560" y="53" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">1</text>
+<circle cx="452" cy="84" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="452" y="89" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">2</text>
+<circle cx="664" cy="180" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="664" y="185" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">3</text>
+<circle cx="636" cy="140" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="636" y="145" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">4</text>
+<circle cx="420" cy="190" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="420" y="195" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">5</text>
+<circle cx="476" cy="471" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="476" y="476" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">6</text>
+<circle cx="160" cy="146" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="160" y="151" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">7</text>
+<rect x="710" y="30" width="220" height="480" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+<text x="730" y="64" font-size="17" font-weight="800">Fereastra</text>
+<circle cx="742" cy="99" r="12" fill="#F21F4B"/><text x="742" y="104" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">1</text><text x="762" y="104" font-size="14">bara de titlu</text>
+<circle cx="742" cy="139" r="12" fill="#F21F4B"/><text x="742" y="144" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">2</text><text x="762" y="144" font-size="14">filele cu instrumente</text>
+<circle cx="742" cy="179" r="12" fill="#F21F4B"/><text x="742" y="184" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">3</text><text x="762" y="184" font-size="14">forma de undă</text>
+<circle cx="742" cy="219" r="12" fill="#F21F4B"/><text x="742" y="224" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">4</text><text x="762" y="224" font-size="14">cronologia (timpul)</text>
+<circle cx="742" cy="259" r="12" fill="#F21F4B"/><text x="742" y="264" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">5</text><text x="762" y="264" font-size="14">cursorul de redare</text>
+<circle cx="742" cy="299" r="12" fill="#F21F4B"/><text x="742" y="304" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">6</text><text x="762" y="304" font-size="14">bara de redare</text>
+<circle cx="742" cy="339" r="12" fill="#F21F4B"/><text x="742" y="344" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">7</text><text x="762" y="344" font-size="14">panoul de fișiere</text>
+<path d="M730 386H910" stroke="#E8DFD3" stroke-width="2"/>
+<text x="730" y="414" font-size="13" fill="#6B6460">undă înaltă = sunet tare</text>
+<text x="730" y="436" font-size="13" fill="#6B6460">linie dreaptă = liniște</text>
+<text x="730" y="458" font-size="13" fill="#6B6460">stereo = două unde</text>
+<text x="730" y="486" font-size="13" fill="#6B6460">Spațiu: redare / pauză</text>
+  </g>
+</svg>

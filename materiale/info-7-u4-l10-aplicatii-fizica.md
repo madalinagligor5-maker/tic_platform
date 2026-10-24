@@ -38,6 +38,8 @@ La fizică ai învățat **viteza medie**: v = d / t, **densitatea**: ρ = m / V
 - din m/s în km/h: înmulțești cu **3,6**;
 - 1 h = 3600 s, 1 km = 1000 m, 1 kg = 1000 g.
 
+![Din km/h în m/s împarți la 3,6, iar invers înmulțești cu 3,6; dedesubt, pașii unei probleme de fizică rezolvate în C++.](fisiere/imagini/info-7-u4-l10-aplicatii-fizica.svg)
+
 ### Atenție la împărțire
 
 Dacă scrii `int d = 7, t = 2; cout << d / t;` obții **3**, nu 3.5. La fizică folosește `double` sau scrie `7.0 / 2`.

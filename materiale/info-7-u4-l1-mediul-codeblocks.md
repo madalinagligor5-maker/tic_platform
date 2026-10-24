@@ -35,6 +35,8 @@ cod sursă (.cpp)  →  compilator  →  program executabil (.exe)  →  rulare
 
 Dacă ai greșit regulile limbajului, compilatorul **nu** face executabilul și îți arată **erorile**.
 
+![Drumul unui program: compilatorul traduce codul sursă .cpp în program executabil; dacă ai greșit, erorile apar în fereastra de mesaje.](fisiere/imagini/info-7-u4-l1-mediul-codeblocks.svg)
+
 ### Mediul de dezvoltare Code::Blocks
 
 Un **mediu de dezvoltare integrat** (IDE) adună la un loc tot ce îți trebuie: **editorul** în care scrii, **compilatorul** și **depanatorul**. **Code::Blocks** este gratuit; la instalare alegi varianta care conține și compilatorul (**mingw-setup**).

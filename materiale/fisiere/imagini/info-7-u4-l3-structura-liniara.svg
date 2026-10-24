@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Interschimbarea valorilor a două variabile a și b cu ajutorul variabilei auxiliare aux, în trei pași</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="54" text-anchor="middle" font-size="24" font-weight="800">Interschimbarea a două variabile</text>
+    <text x="480" y="82" text-anchor="middle" font-size="15" fill="#6B6460">ca la două pahare: ai nevoie de un al treilea pahar gol, aux</text>
+
+    <!-- 4 coloane: start, pas1, pas2, pas3 -->
+    <g font-size="15" font-weight="800" text-anchor="middle">
+      <text x="135" y="124" fill="#6B6460">LA ÎNCEPUT</text>
+      <text x="365" y="124" fill="#0E7F96">PASUL 1</text>
+      <text x="595" y="124" fill="#0B6F68">PASUL 2</text>
+      <text x="825" y="124" fill="#C8133A">PASUL 3</text>
+    </g>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="18" font-weight="800" text-anchor="middle">
+      <rect x="295" y="136" width="140" height="40" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+      <text x="365" y="162">aux = a;</text>
+      <rect x="525" y="136" width="140" height="40" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+      <text x="595" y="162">a = b;</text>
+      <rect x="755" y="136" width="140" height="40" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+      <text x="825" y="162">b = aux;</text>
+    </g>
+
+    <!-- cutiile variabilelor: rând a, b, aux -->
+    <g font-size="16" font-weight="700" fill="#6B6460" text-anchor="end">
+      <text x="56" y="238">a</text><text x="56" y="328">b</text><text x="56" y="418">aux</text>
+    </g>
+    <g stroke-width="3" fill="#FFFFFF">
+      <!-- start -->
+      <rect x="85" y="200" width="100" height="64" rx="12" stroke="#171416"/>
+      <rect x="85" y="290" width="100" height="64" rx="12" stroke="#171416"/>
+      <rect x="85" y="380" width="100" height="64" rx="12" stroke="#171416" stroke-dasharray="7 6"/>
+      <!-- p1 -->
+      <rect x="315" y="200" width="100" height="64" rx="12" stroke="#171416"/>
+      <rect x="315" y="290" width="100" height="64" rx="12" stroke="#171416"/>
+      <rect x="315" y="380" width="100" height="64" rx="12" stroke="#3EC6E0" fill="#E2F6FA"/>
+      <!-- p2 -->
+      <rect x="545" y="200" width="100" height="64" rx="12" stroke="#14A39A" fill="#E0F4F2"/>
+      <rect x="545" y="290" width="100" height="64" rx="12" stroke="#171416"/>
+      <rect x="545" y="380" width="100" height="64" rx="12" stroke="#171416"/>
+      <!-- p3 -->
+      <rect x="775" y="200" width="100" height="64" rx="12" stroke="#171416"/>
+      <rect x="775" y="290" width="100" height="64" rx="12" stroke="#F21F4B" fill="#FDE7EC"/>
+      <rect x="775" y="380" width="100" height="64" rx="12" stroke="#171416"/>
+    </g>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="28" font-weight="800" text-anchor="middle">
+      <text x="135" y="242" fill="#F29A1F">5</text><text x="135" y="332" fill="#0E7F96">3</text><text x="135" y="420" font-size="16" fill="#6B6460">gol</text>
+      <text x="365" y="242" fill="#F29A1F">5</text><text x="365" y="332" fill="#0E7F96">3</text><text x="365" y="422" fill="#F29A1F">5</text>
+      <text x="595" y="242" fill="#0E7F96">3</text><text x="595" y="332" fill="#0E7F96">3</text><text x="595" y="422" fill="#F29A1F">5</text>
+      <text x="825" y="242" fill="#0E7F96">3</text><text x="825" y="332" fill="#F29A1F">5</text><text x="825" y="422" fill="#F29A1F">5</text>
+    </g>
+    <!-- săgeți de copiere -->
+    <path d="M420 232C468 262 468 382 422 410" stroke="#0E7F96" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <path d="M652 322C690 300 690 260 653 238" stroke="#14A39A" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <path d="M882 412C925 390 925 345 883 326" stroke="#F21F4B" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+
+    <rect x="160" y="470" width="640" height="44" rx="12" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="480" y="498" text-anchor="middle" font-size="15">Fără aux, <tspan font-family="JetBrains Mono, Consolas, monospace" font-weight="800">a = b; b = a;</tspan> ar pune în ambele valoarea lui b (3 și 3).</text>
+  </g>
+</svg>

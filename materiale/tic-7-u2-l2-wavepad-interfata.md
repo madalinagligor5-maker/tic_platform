@@ -41,6 +41,8 @@ WavePad se descarcă de pe site-ul producătorului (**nchsoftware.com**); versiu
 
 Pentru **sunet stereo** apar **două** forme de undă: canalul **stânga** și canalul **dreapta**.
 
+![Fereastra unui editor audio: filele cu instrumente, forma de undă stereo, cronologia, cursorul de redare, bara de redare și panoul de fișiere.](fisiere/imagini/tic-7-u2-l2-wavepad-interfata.svg)
+
 ### Operații de bază
 
 - **Deschidere**: **Fișier → Deschidere fișier**, sau tragi fișierul în fereastră;

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Ciclul unui robot: senzorii percep mediul, controlerul decide după program, iar motoarele acționează</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="50" text-anchor="middle" font-size="24" font-weight="800">Robotul percepe, decide, acționează</text>
+
+    <!-- senzori -->
+    <rect x="40" y="86" width="250" height="250" rx="18" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="110" y="122" width="40" height="56" rx="8" fill="#3EC6E0"/>
+    <g stroke="#3EC6E0" stroke-width="4" fill="none" stroke-linecap="round">
+      <path d="M166 132Q182 150 166 168"/><path d="M180 122Q206 150 180 178"/><path d="M194 112Q230 150 194 188"/>
+    </g>
+    <text x="165" y="226" text-anchor="middle" font-size="19" font-weight="800" fill="#0E7F96">SENZORII</text>
+    <text x="165" y="250" text-anchor="middle" font-size="15" font-weight="700">percep mediul</text>
+    <text x="165" y="282" text-anchor="middle" font-size="13" fill="#6B6460">distanță · atingere</text>
+    <text x="165" y="302" text-anchor="middle" font-size="13" fill="#6B6460">culoare · giroscop · GPS</text>
+
+    <!-- controler -->
+    <rect x="355" y="86" width="250" height="250" rx="18" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <rect x="445" y="114" width="70" height="70" rx="8" fill="#14A39A"/>
+    <rect x="462" y="131" width="36" height="36" rx="4" fill="#E0F4F2"/>
+    <g stroke="#14A39A" stroke-width="4" stroke-linecap="round">
+      <path d="M460 104v10M480 104v10M500 104v10M460 184v10M480 184v10M500 184v10M435 129h10M435 149h10M435 169h10M515 129h10M515 149h10M515 169h10"/>
+    </g>
+    <text x="480" y="226" text-anchor="middle" font-size="19" font-weight="800" fill="#0B6F68">CONTROLERUL</text>
+    <text x="480" y="250" text-anchor="middle" font-size="15" font-weight="700">decide după program</text>
+    <rect x="375" y="268" width="210" height="44" rx="10" fill="#E0F4F2"/>
+    <text x="480" y="287" text-anchor="middle" font-size="13">dacă distanța &lt; 50 mm</text>
+    <text x="480" y="305" text-anchor="middle" font-size="13">atunci oprește și rotește</text>
+
+    <!-- motoare -->
+    <rect x="670" y="86" width="250" height="250" rx="18" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="795" cy="150" r="40" fill="#FDE7EC" stroke="#F21F4B" stroke-width="4"/>
+    <circle cx="795" cy="150" r="12" fill="#F21F4B"/>
+    <g stroke="#F21F4B" stroke-width="4" stroke-linecap="round">
+      <path d="M795 118v20M795 162v20M763 150h20M807 150h20"/>
+    </g>
+    <text x="795" y="226" text-anchor="middle" font-size="19" font-weight="800" fill="#C8133A">MOTOARELE</text>
+    <text x="795" y="250" text-anchor="middle" font-size="15" font-weight="700">acționează</text>
+    <text x="795" y="282" text-anchor="middle" font-size="13" fill="#6B6460">merge înainte · se rotește</text>
+    <text x="795" y="302" text-anchor="middle" font-size="13" fill="#6B6460">se oprește · dă înapoi</text>
+
+    <path d="M294 211H347" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M609 211H662" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <!-- bucla -->
+    <path d="M795 340V392H165V344" stroke="#171416" stroke-width="3" fill="none" stroke-dasharray="8 6" marker-end="url(#sag)"/>
+    <rect x="300" y="374" width="360" height="36" rx="18" fill="#FFF7EE" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="480" y="398" text-anchor="middle" font-size="14" font-weight="700">robotul s-a mișcat: percepe din nou</text>
+
+    <rect x="40" y="434" width="880" height="76" rx="16" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="60" y="464" font-size="15" font-weight="800">Exemplu:</text>
+    <text x="140" y="464" font-size="15">senzorul de distanță măsoară 40 mm → controlerul compară 40 &lt; 50:</text>
+    <text x="140" y="490" font-size="15">condiția e adevărată → motoarele opresc robotul și îl rotesc.</text>
+  </g>
+</svg>

@@ -56,6 +56,8 @@ Poți **ascunde** sau **afișa** fiecare strat, ca să vezi doar ce te interesea
 
 Fiecare element are **atribute**: nume, descriere, fotografie, an etc.
 
+![O hartă GIS este formată din straturi suprapuse (fundal, ape, drumuri, clădiri); elementele ei sunt puncte, linii și poligoane.](fisiere/imagini/tic-7-u3-l3-gis.svg)
+
 ### Unde se folosește GIS
 
 - **navigare**: Google Maps, Waze (traseul cel mai rapid);

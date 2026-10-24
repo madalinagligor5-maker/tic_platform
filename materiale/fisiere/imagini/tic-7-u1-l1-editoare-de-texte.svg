@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Comparație între un editor de texte simplu (text fără formatare, .txt) și un procesor de texte (formatare și aranjare în pagină, .docx)</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="250" y="52" text-anchor="middle" font-size="22" font-weight="800">Editor de texte simplu</text>
+    <text x="710" y="52" text-anchor="middle" font-size="22" font-weight="800" fill="#2B579A">Procesor de texte</text>
+
+    <!-- editor simplu -->
+    <rect x="40" y="76" width="420" height="300" rx="12" fill="#FFFFFF" stroke="#6B6460" stroke-width="3"/>
+    <path d="M40 88a12 12 0 0 1 12-12h396a12 12 0 0 1 12 12v22H40z" fill="#F1E9DF"/>
+    <text x="60" y="99" font-size="14" font-weight="700">notite.txt</text>
+    <g fill="#6B6460"><rect x="388" y="88" width="12" height="3"/><rect x="410" y="84" width="11" height="11" fill="none" stroke="#6B6460" stroke-width="2"/><path d="M432 84l11 11M443 84l-11 11" stroke="#6B6460" stroke-width="2"/></g>
+    <text x="60" y="130" font-size="13" fill="#6B6460">Fișier   Editare   Format   Vizualizare</text>
+    <path d="M40 140H460" stroke="#E8DFD3" stroke-width="2"/>
+    <g font-family="JetBrains Mono, Consolas, monospace" font-size="15">
+      <text x="60" y="172">Excursia la munte</text>
+      <text x="60" y="200">Am plecat dimineata devreme.</text>
+      <text x="60" y="224">Am vazut un lac si o cabana.</text>
+      <text x="60" y="248">Seara am ajuns acasa.</text>
+    </g>
+    <text x="250" y="320" text-anchor="middle" font-size="14" fill="#6B6460">doar litere, toate la fel:</text>
+    <text x="250" y="342" text-anchor="middle" font-size="14" fill="#6B6460">fără titluri, imagini sau tabele</text>
+
+    <!-- procesor -->
+    <rect x="500" y="76" width="420" height="300" rx="12" fill="#FFFFFF" stroke="#2B579A" stroke-width="3"/>
+    <path d="M500 88a12 12 0 0 1 12-12h396a12 12 0 0 1 12 12v22H500z" fill="#2B579A"/>
+    <text x="520" y="99" font-size="14" font-weight="700" fill="#FFFFFF">compunere.docx</text>
+    <rect x="500" y="110" width="420" height="34" fill="#E2F6FA"/>
+    <g font-size="14" font-weight="800" fill="#2B579A">
+      <text x="520" y="132">B</text><text x="542" y="132" font-style="italic">I</text><text x="560" y="132">U</text>
+    </g>
+    <g fill="#2B579A"><rect x="590" y="121" width="2" height="16"/></g>
+    <g stroke="#2B579A" stroke-width="3"><path d="M604 122h18M604 128h12M604 134h18"/><path d="M634 122h18M637 128h12M634 134h18"/></g>
+    <rect x="668" y="118" width="70" height="20" rx="3" fill="#FFFFFF" stroke="#2B579A" stroke-width="1.5"/>
+    <text x="674" y="133" font-size="13">Calibri</text>
+    <text x="710" y="176" text-anchor="middle" font-size="20" font-weight="800" fill="#2B579A">Excursia la munte</text>
+    <g stroke="#6B6460" stroke-width="4" stroke-linecap="round"><path d="M530 200h160M530 216h160M530 232h160M530 248h120"/></g>
+    <rect x="710" y="192" width="180" height="70" rx="6" fill="#E0F4F2"/>
+    <path d="M718 254l40-40 30 26 22-16 72 30z" fill="#14A39A"/>
+    <circle cx="860" cy="210" r="9" fill="#F29A1F"/>
+    <g stroke="#2B579A" stroke-width="2" fill="none"><rect x="530" y="280" width="360" height="60"/><path d="M530 300h360M530 320h360M650 280v60M770 280v60"/></g>
+    <rect x="530" y="280" width="360" height="20" fill="#2B579A" opacity="0.25"/>
+
+    <!-- tabel caracteristici -->
+    <g font-size="15">
+      <rect x="40" y="398" width="420" height="104" rx="14" fill="#F1E9DF"/>
+      <text x="60" y="428" font-weight="800">scrie și modifică text simplu</text>
+      <text x="60" y="456">Exemple: Notepad, Notepad++</text>
+      <text x="60" y="484">Fișiere: <tspan font-weight="800">.txt</tspan></text>
+      <rect x="500" y="398" width="420" height="104" rx="14" fill="#E2F6FA"/>
+      <text x="520" y="428" font-weight="800">scrie, formatează, aranjează în pagină</text>
+      <text x="520" y="456">Exemple: Word, LibreOffice Writer, Google Docs</text>
+      <text x="520" y="484">Fișiere: <tspan font-weight="800">.docx</tspan>, <tspan font-weight="800">.odt</tspan>, export <tspan font-weight="800">.pdf</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Elementele ferestrei unui procesor de texte: bara de titlu, bara de acces rapid, panglica, rigla, zona documentului și bara de stare</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <rect x="30" y="30" width="900" height="480" rx="12" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+    <!-- bara de titlu -->
+    <path d="M30 42a12 12 0 0 1 12-12h876a12 12 0 0 1 12 12v28H30z" fill="#2B579A"/>
+    <g stroke="#FFFFFF" stroke-width="2" fill="none">
+      <rect x="52" y="40" width="16" height="16" rx="2"/><path d="M56 40v6h8v-6"/>
+      <path d="M84 50a7 7 0 1 1 3 6M84 44v6h6"/>
+      <path d="M116 50a7 7 0 1 0 -3 6M116 44v6h-6"/>
+    </g>
+    <text x="480" y="56" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">Document1 – Word</text>
+    <g stroke="#FFFFFF" stroke-width="2"><path d="M846 50h12"/><rect x="872" y="44" width="12" height="12" fill="none"/><path d="M898 44l12 12M910 44l-12 12"/></g>
+    <!-- file -->
+    <rect x="33" y="70" width="894" height="30" fill="#FFFFFF"/>
+    <g font-size="13">
+      <text x="50" y="90" font-weight="700" fill="#2B579A">Fișier</text>
+      <text x="112" y="90" font-weight="800">Pornire</text>
+      <text x="184" y="90">Inserare</text><text x="260" y="90">Desenare</text><text x="342" y="90">Proiectare</text>
+      <text x="432" y="90">Aspect</text><text x="498" y="90">Referințe</text><text x="584" y="90">Revizuire</text><text x="670" y="90">Vizualizare</text>
+    </g>
+    <path d="M110 98h58" stroke="#2B579A" stroke-width="3"/>
+    <!-- panglica -->
+    <rect x="33" y="100" width="894" height="70" fill="#FFFFFF"/>
+    <path d="M33 100H927" stroke="#E8DFD3" stroke-width="2"/>
+    <g fill="#E2F6FA" stroke="#2B579A" stroke-width="1.5">
+      <rect x="50" y="110" width="34" height="34" rx="4"/><rect x="92" y="110" width="24" height="15" rx="3"/><rect x="92" y="129" width="24" height="15" rx="3"/>
+      <rect x="150" y="106" width="110" height="22" rx="3" fill="#FFFFFF"/><rect x="266" y="106" width="34" height="22" rx="3" fill="#FFFFFF"/>
+      <rect x="370" y="110" width="22" height="16" rx="3"/><rect x="396" y="110" width="22" height="16" rx="3"/><rect x="422" y="110" width="22" height="16" rx="3"/>
+      <rect x="480" y="110" width="80" height="36" rx="3" fill="#FFFFFF"/><rect x="566" y="110" width="80" height="36" rx="3" fill="#FFFFFF"/><rect x="652" y="110" width="80" height="36" rx="3" fill="#FFFFFF"/>
+    </g>
+    <g font-size="13" font-weight="800" fill="#2B579A"><text x="154" y="140">B</text><text x="172" y="140" font-style="italic">I</text><text x="186" y="140">U</text></g>
+    <text x="156" y="122" font-size="13" fill="#6B6460">Calibri</text><text x="274" y="122" font-size="13" fill="#6B6460">11</text>
+    <text x="486" y="132" font-size="13">Normal</text><text x="572" y="132" font-size="13">Titlu 1</text><text x="658" y="132" font-size="13">Titlu 2</text>
+    <g font-size="13" fill="#6B6460" text-anchor="middle"><text x="83" y="163">Clipboard</text><text x="225" y="163">Font</text><text x="407" y="163">Paragraf</text><text x="606" y="163">Stiluri</text></g>
+    <g stroke="#E8DFD3" stroke-width="2"><path d="M134 108v56M340 108v56M466 108v56M748 108v56"/></g>
+    <!-- riglă -->
+    <rect x="290" y="178" width="380" height="16" fill="#FFFFFF" stroke="#E8DFD3"/>
+    <g stroke="#6B6460" stroke-width="1.5"><path d="M330 186v8M370 186v8M410 186v8M450 186v8M490 186v8M530 186v8M570 186v8M610 186v8"/></g>
+    <!-- pagină -->
+    <rect x="290" y="200" width="380" height="270" fill="#FFFFFF"/>
+    <text x="480" y="236" text-anchor="middle" font-size="17" font-weight="800">Compunerea mea</text>
+    <g stroke="#6B6460" stroke-width="4" stroke-linecap="round"><path d="M320 262h320M320 280h320M320 298h260M320 326h320M320 344h200"/></g>
+    <path d="M528 334v18" stroke="#171416" stroke-width="2"/>
+    <!-- bara de stare -->
+    <rect x="33" y="478" width="894" height="29" fill="#2B579A"/>
+    <text x="50" y="497" font-size="13" fill="#FFFFFF">Pagina 1 din 1</text><text x="170" y="497" font-size="13" fill="#FFFFFF">245 de cuvinte</text><text x="296" y="497" font-size="13" fill="#FFFFFF">Română</text>
+    <path d="M760 492h120" stroke="#FFFFFF" stroke-width="2"/><rect x="814" y="486" width="6" height="12" fill="#FFFFFF"/>
+    <text x="890" y="497" font-size="13" fill="#FFFFFF">100%</text>
+
+    <!-- legendă -->
+    <rect x="44" y="206" width="226" height="258" rx="10" fill="#FFFFFF"/>
+    <g font-size="14">
+      <text x="80" y="238">bara de titlu</text><text x="80" y="276">bara de acces rapid</text><text x="80" y="314">panglica cu file</text>
+      <text x="80" y="352">rigla</text><text x="80" y="390">zona documentului</text><text x="80" y="428">bara de stare</text>
+    </g>
+    <g font-size="13" font-weight="800" text-anchor="middle" fill="#FFFFFF">
+      <circle cx="64" cy="233" r="12" fill="#F21F4B"/><text x="64" y="238">1</text>
+      <circle cx="64" cy="271" r="12" fill="#F21F4B"/><text x="64" y="276">2</text>
+      <circle cx="64" cy="309" r="12" fill="#F21F4B"/><text x="64" y="314">3</text>
+      <circle cx="64" cy="347" r="12" fill="#F21F4B"/><text x="64" y="352">4</text>
+      <circle cx="64" cy="385" r="12" fill="#F21F4B"/><text x="64" y="390">5</text>
+      <circle cx="64" cy="423" r="12" fill="#F21F4B"/><text x="64" y="428">6</text>
+      <!-- pe fereastră -->
+      <circle cx="610" cy="50" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="610" y="55">1</text>
+      <circle cx="140" cy="50" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="140" y="55">2</text>
+      <circle cx="790" cy="128" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="790" y="133">3</text>
+      <circle cx="694" cy="186" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="694" y="191">4</text>
+      <circle cx="694" cy="300" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="694" y="305">5</text>
+      <circle cx="730" cy="492" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="730" y="497">6</text>
+    </g>
+    <text x="800" y="300" text-anchor="middle" font-size="13" fill="#6B6460">cursorul arată</text>
+    <text x="800" y="318" text-anchor="middle" font-size="13" fill="#6B6460">unde apare textul</text>
+  </g>
+</svg>

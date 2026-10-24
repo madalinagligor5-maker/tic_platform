@@ -58,6 +58,8 @@ else
 
 Condițiile se verifică **de sus în jos**; se execută **doar prima** ramură cu condiția adevărată. De aceea, la ramura „Bine” nu mai trebuie să scrii `nota < 9`.
 
+![Lanțul if … else if … else: condițiile se verifică de sus în jos și se execută doar prima ramură cu condiția adevărată.](fisiere/imagini/info-7-u4-l5-structura-alternativa-aplicatii.svg)
+
 ### Maximul a trei numere
 
 ```cpp

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">O hartă GIS este formată din straturi puse unul peste altul; elementele hărții sunt puncte, linii și poligoane</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="40" y="52" font-size="22" font-weight="800">Straturile unei hărți GIS</text>
+<polygon points="60,484 360,484 460,404 160,404" fill="#F1E9DF" fill-opacity="0.92" stroke="#6B6460" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="85,476 195,472 235,428 164,420" fill="#E0F4F2"/>
+<polygon points="245,468 355,476 415,416 315,424" fill="#E0F4F2"/>
+<text x="480" y="438" font-size="15" font-weight="800">1. fundal</text>
+<text x="480" y="457" font-size="13" fill="#6B6460">hartă sau satelit</text>
+<polygon points="60,390 360,390 460,310 160,310" fill="#FFFFFF" fill-opacity="0.92" stroke="#6B6460" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="90,366 180,354 245,362 345,342 415,346" fill="none" stroke="#3EC6E0" stroke-width="5" stroke-linecap="round"/>
+<polygon points="161,338 212,340 246,318 194,316" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+<text x="480" y="344" font-size="15" font-weight="800">2. ape</text>
+<text x="480" y="363" font-size="13" fill="#6B6460">râuri, lacuri</text>
+<polygon points="60,296 360,296 460,216 160,216" fill="#FFFFFF" fill-opacity="0.92" stroke="#6B6460" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="130,240 430,240" stroke="#171416" stroke-width="4" fill="none"/>
+<polyline points="240,296 340,216" stroke="#171416" stroke-width="4" fill="none"/>
+<polyline points="80,280 205,276 310,240" stroke="#6B6460" stroke-width="3" stroke-dasharray="6 4" fill="none"/>
+<text x="480" y="250" font-size="15" font-weight="800">3. drumuri</text>
+<text x="480" y="269" font-size="13" fill="#6B6460">străzi, căi ferate</text>
+<polygon points="60,202 360,202 460,122 160,122" fill="#FFFFFF" fill-opacity="0.92" stroke="#6B6460" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="125,186 149,186 167,172 143,172" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2"/>
+<polygon points="200,162 224,162 242,148 218,148" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2"/>
+<polygon points="310,182 334,182 352,168 328,168" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2"/>
+<polygon points="375,142 399,142 417,128 393,128" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2"/>
+<path d="M250 158c-14-18-14-30 0-30s14 12 0 30z" fill="#F21F4B" stroke="#C8133A" stroke-width="2"/><circle cx="250" cy="138" r="5" fill="#FFFFFF"/>
+<text x="264" y="134" font-size="13" font-weight="700">școala</text>
+<text x="480" y="156" font-size="15" font-weight="800">4. clădiri</text>
+<text x="480" y="175" font-size="13" fill="#6B6460">școli, spitale</text>
+<text x="40" y="520" font-size="13" fill="#6B6460">Fiecare strat se poate afișa sau ascunde.</text>
+<rect x="640" y="30" width="280" height="330" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+<text x="660" y="62" font-size="17" font-weight="800">Tipuri de elemente</text>
+<path d="M680 116c-16-20-16-34 0-34s16 14 0 34z" fill="#F21F4B"/><circle cx="680" cy="94" r="5" fill="#FFFFFF"/>
+<text x="716" y="96" font-size="16" font-weight="800" fill="#C8133A">Punct</text>
+<text x="716" y="116" font-size="13">școală, copac, stație</text>
+<polyline points="662,200 680,176 698,192 712,168" fill="none" stroke="#0E7F96" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="730" y="180" font-size="16" font-weight="800" fill="#0E7F96">Linie</text>
+<text x="730" y="200" font-size="13">drum, râu, pistă de biciclete</text>
+<polygon points="662,250 702,240 712,272 690,290 664,280" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+<text x="730" y="262" font-size="16" font-weight="800" fill="#0B6F68">Poligon</text>
+<text x="730" y="282" font-size="13">parc, lac, județ</text>
+<text x="660" y="324" font-size="13" fill="#6B6460">fiecare element are atribute:</text>
+<text x="660" y="342" font-size="13" fill="#6B6460">nume, descriere, fotografie</text>
+<rect x="640" y="380" width="280" height="130" rx="16" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+<text x="660" y="410" font-size="16" font-weight="800">Coordonate (GPS)</text>
+<text x="660" y="436" font-size="13">latitudine: nord–sud de Ecuator</text>
+<text x="660" y="456" font-size="13">longitudine: est–vest de Greenwich</text>
+<text x="660" y="486" font-size="14" font-weight="700">București ≈ 44,43° N, 26,10° E</text>
+  </g>
+</svg>

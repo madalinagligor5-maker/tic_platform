@@ -59,6 +59,8 @@ Butonul **Partajare** (*Share*) trimite fișierul altor persoane. Pentru fiecare
 
 Poți partaja cu **anumite persoane** (după adresa de e-mail) sau printr-un **link**. Linkul „oricine are linkul” e comod, dar oricine îl primește poate intra. Dă **cel mai mic drept** de care are nevoie fiecare.
 
+![Fișierul din cloud se deschide de pe dispozitive diferite; la partajare, fiecare primește dreptul de vizualizator, comentator sau editor.](fisiere/imagini/tic-7-u3-l1-aplicatii-colaborative.svg)
+
 ### Istoricul versiunilor
 
 Aplicația **salvează automat** și păstrează **istoricul versiunilor**: vezi cine ce a modificat și poți **reveni** la o variantă mai veche, dacă cineva a șters din greșeală o parte.

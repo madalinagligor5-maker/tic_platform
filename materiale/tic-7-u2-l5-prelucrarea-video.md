@@ -53,6 +53,8 @@ Alegi fontul, mărimea, culoarea și poziția; textul are propria **pistă** și
 
 **Export → Fișier video**: alegi formatul **MP4**, rezoluția (**720p** sau **1080p**) și numărul de cadre pe secundă, apoi **Creare**. Exportul durează puțin, în funcție de lungimea filmului.
 
+![Pe cronologie: titlu, tranziție între clipuri, o bucată împărțită și ștearsă, muzică cu estompare, apoi exportul filmului în MP4.](fisiere/imagini/tic-7-u2-l5-prelucrarea-video.svg)
+
 ## Exemplu rezolvat: filmul excursiei, terminat
 
 1. Deschizi `Excursie.vpj`.

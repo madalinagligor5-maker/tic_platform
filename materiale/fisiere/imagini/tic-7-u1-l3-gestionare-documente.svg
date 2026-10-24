@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Salvare păstrează modificările în același fișier, iar Salvare ca creează un fișier nou, de exemplu PDF; plus formatele de fișier</title>
+  <defs>
+    <marker id="sag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <!-- Salvare -->
+    <text x="230" y="52" text-anchor="middle" font-size="22" font-weight="800" fill="#2B579A">Salvare</text>
+    <text x="230" y="78" text-anchor="middle" font-size="15" font-weight="700">Ctrl + S</text>
+    <path d="M190 110h80l30 30v110h-110z" fill="#FFFFFF" stroke="#2B579A" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M270 110v30h30" fill="none" stroke="#2B579A" stroke-width="3"/>
+    <rect x="204" y="200" width="54" height="24" rx="4" fill="#2B579A"/><text x="231" y="217" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">DOCX</text>
+    <g stroke="#6B6460" stroke-width="3" stroke-linecap="round"><path d="M206 150h60M206 164h76M206 178h50"/></g>
+    <path d="M318 150C370 170 370 230 318 246" stroke="#14A39A" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <path d="M172 246C120 230 120 170 172 150" stroke="#14A39A" stroke-width="3" fill="none" marker-end="url(#sag)"/>
+    <text x="245" y="280" text-anchor="middle" font-size="15" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">Referat_apa.docx</text>
+    <text x="230" y="314" text-anchor="middle" font-size="14">modificările intră în</text>
+    <text x="230" y="334" text-anchor="middle" font-size="14" font-weight="800">același fișier</text>
+
+    <path d="M460 60V350" stroke="#E8DFD3" stroke-width="3"/>
+
+    <!-- Salvare ca -->
+    <text x="700" y="52" text-anchor="middle" font-size="22" font-weight="800" fill="#C8133A">Salvare ca</text>
+    <text x="700" y="78" text-anchor="middle" font-size="15" font-weight="700">F12</text>
+    <path d="M520 110h80l30 30v110h-110z" fill="#FFFFFF" stroke="#2B579A" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M600 110v30h30" fill="none" stroke="#2B579A" stroke-width="3"/>
+    <rect x="534" y="200" width="54" height="24" rx="4" fill="#2B579A"/><text x="561" y="217" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">DOCX</text>
+    <g stroke="#6B6460" stroke-width="3" stroke-linecap="round"><path d="M536 150h60M536 164h76M536 178h50"/></g>
+    <path d="M644 180H738" stroke="#171416" stroke-width="3" marker-end="url(#sag)"/>
+    <path d="M760 110h80l30 30v110h-110z" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M840 110v30h30" fill="none" stroke="#F21F4B" stroke-width="3"/>
+    <rect x="774" y="200" width="54" height="24" rx="4" fill="#F21F4B"/><text x="801" y="217" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">PDF</text>
+    <g stroke="#6B6460" stroke-width="3" stroke-linecap="round"><path d="M776 150h60M776 164h76M776 178h50"/></g>
+    <text x="575" y="280" text-anchor="middle" font-size="14" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">Referat_apa.docx</text>
+    <text x="815" y="280" text-anchor="middle" font-size="14" font-weight="800" font-family="JetBrains Mono, Consolas, monospace">Referat_apa.pdf</text>
+    <text x="575" y="304" text-anchor="middle" font-size="13" fill="#6B6460">rămâne neschimbat</text>
+    <text x="815" y="304" text-anchor="middle" font-size="13" fill="#6B6460">fișier nou</text>
+    <text x="700" y="334" text-anchor="middle" font-size="14">alt nume, alt folder sau <tspan font-weight="800">alt format</tspan></text>
+
+    <!-- formate -->
+    <rect x="40" y="370" width="880" height="140" rx="16" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="60" y="400" font-size="16" font-weight="800">Formate de fișier</text>
+    <g font-size="14" font-weight="800" fill="#FFFFFF" text-anchor="middle">
+      <rect x="60" y="416" width="70" height="28" rx="6" fill="#2B579A"/><text x="95" y="435">.docx</text>
+      <rect x="490" y="416" width="70" height="28" rx="6" fill="#F21F4B"/><text x="525" y="435">.pdf</text>
+      <rect x="60" y="462" width="70" height="28" rx="6" fill="#14A39A"/><text x="95" y="481">.odt</text>
+      <rect x="490" y="462" width="70" height="28" rx="6" fill="#6B6460"/><text x="525" y="481">.txt</text>
+    </g>
+    <g font-size="14">
+      <text x="144" y="435">formatul obișnuit Word</text>
+      <text x="574" y="435">arată la fel oriunde, se modifică greu</text>
+      <text x="144" y="481">LibreOffice Writer</text>
+      <text x="574" y="481">doar text, fără formatare</text>
+      <text x="300" y="481"><tspan font-weight="800">.dotx</tspan> = șablon Word</text>
+    </g>
+  </g>
+</svg>

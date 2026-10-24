@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Interfața unui editor de documente online: numele, meniurile, bara de instrumente, pagina, butonul Distribuiți, colegii cu cursoare colorate și un comentariu</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <rect x="30" y="30" width="900" height="480" rx="12" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+    <!-- antet document -->
+    <path d="M30 42a12 12 0 0 1 12-12h876a12 12 0 0 1 12 12v80H30z" fill="#FFFFFF"/>
+    <rect x="46" y="44" width="30" height="40" rx="4" fill="#0E7F96"/>
+    <path d="M53 58h16M53 66h16M53 74h10" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+    <text x="90" y="62" font-size="17" font-weight="700">Regulile clasei</text>
+    <g font-size="13"><text x="90" y="84">Fișier</text><text x="140" y="84">Editați</text><text x="196" y="84">Afișare</text><text x="256" y="84">Inserare</text><text x="324" y="84">Format</text><text x="382" y="84">Instrumente</text></g>
+    <!-- dreapta sus -->
+    <circle cx="620" cy="62" r="11" fill="none" stroke="#171416" stroke-width="2.5"/><path d="M620 55v7l5 4" stroke="#171416" stroke-width="2.5" fill="none"/>
+    <path d="M648 52h22a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-14l-8 7v-7a4 4 0 0 1-4-4v-12a4 4 0 0 1 4-4z" fill="none" stroke="#171416" stroke-width="2.5"/>
+    <circle cx="700" cy="62" r="14" fill="#14A39A"/><text x="700" y="67" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">M</text>
+    <circle cx="726" cy="62" r="14" fill="#F29A1F"/><text x="726" y="67" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">I</text>
+    <rect x="760" y="44" width="150" height="36" rx="18" fill="#0E7F96"/>
+    <text x="835" y="67" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">Distribuiți</text>
+    <!-- bara de instrumente -->
+    <rect x="44" y="96" width="872" height="30" rx="15" fill="#E2F6FA"/>
+    <path d="M66 112a7 7 0 1 1 3 6M66 106v6h6" stroke="#171416" stroke-width="2" fill="none"/>
+    <rect x="96" y="102" width="70" height="18" rx="3" fill="#FFFFFF"/><text x="102" y="116" font-size="13">Arial</text>
+    <rect x="172" y="102" width="30" height="18" rx="3" fill="#FFFFFF"/><text x="179" y="116" font-size="13">11</text>
+    <g font-size="14" font-weight="800"><text x="220" y="117">B</text><text x="240" y="117" font-style="italic">I</text><text x="256" y="117">U</text><text x="280" y="117" fill="#F21F4B">A</text></g>
+    <g stroke="#171416" stroke-width="2.5"><path d="M310 106h16M310 112h10M310 118h16"/><path d="M340 106h16M343 112h10M340 118h16"/><path d="M372 106h4M380 106h12M372 112h4M380 112h12M372 118h4M380 118h12"/></g>
+    <!-- pagina -->
+    <rect x="250" y="138" width="400" height="368" fill="#FFFFFF"/>
+    <text x="280" y="176" font-size="18" font-weight="800">Regulile clasei</text>
+    <g font-size="14">
+      <text x="280" y="210">1. Venim la timp la ore.</text>
+      <text x="280" y="238">2. Ascultăm când vorbește colegul.</text>
+      <text x="280" y="266">3. Păstrăm clasa <tspan fill="#0B6F68" text-decoration="line-through">curată</tspan> <tspan fill="#0B6F68" font-weight="700">curată și aerisită</tspan>.</text>
+      <text x="280" y="294">4. Ne ajutăm la teme și la proiecte.</text>
+      <text x="280" y="322">5. Folosim telefonul doar</text>
+    </g>
+    <!-- cursoare colegi -->
+    <path d="M514 224v20" stroke="#14A39A" stroke-width="3"/><rect x="514" y="226" width="46" height="16" rx="3" fill="#14A39A"/><text x="518" y="238" font-size="13" font-weight="700" fill="#FFFFFF">Mihai</text>
+    <path d="M450 308v20" stroke="#F29A1F" stroke-width="3"/><rect x="450" y="310" width="46" height="16" rx="3" fill="#F29A1F"/><text x="454" y="322" font-size="13" font-weight="700" fill="#FFFFFF">Ioana</text>
+    <text x="450" y="370" text-anchor="middle" font-size="13" fill="#6B6460">modul Sugerare: propunerea apare colorată</text>
+    <text x="450" y="390" text-anchor="middle" font-size="13" fill="#6B6460">și poate fi acceptată sau respinsă</text>
+    <!-- comentariu -->
+    <rect x="670" y="256" width="240" height="140" rx="12" fill="#FFFFFF" stroke="#F29A1F" stroke-width="3"/>
+    <circle cx="694" cy="282" r="12" fill="#6B6460"/><text x="694" y="287" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">D</text>
+    <text x="714" y="287" font-size="13" font-weight="800">Diriginta (comentator)</text>
+    <text x="686" y="316" font-size="13"><tspan font-weight="800" fill="#0E7F96">@Ana</tspan>, adăugați o regulă</text>
+    <text x="686" y="334" font-size="13">despre pauze.</text>
+    <rect x="686" y="350" width="104" height="30" rx="15" fill="#0E7F96"/>
+    <text x="738" y="370" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">✓ Rezolvă</text>
+    <path d="M670 290H624" stroke="#F29A1F" stroke-width="2" stroke-dasharray="4 3"/>
+    <!-- legendă -->
+    <rect x="44" y="138" width="196" height="300" rx="10" fill="#FFFFFF"/>
+    <g font-size="14">
+      <text x="80" y="174">numele</text><text x="80" y="214">meniurile</text><text x="80" y="254">bara de instrumente</text>
+      <text x="80" y="294">pagina</text><text x="80" y="326">istoric, comentarii,</text><text x="80" y="344">Distribuiți</text><text x="80" y="384">colegii conectați,</text><text x="80" y="402">cursoare colorate</text>
+    </g>
+    <g font-size="13" font-weight="800" text-anchor="middle" fill="#FFFFFF">
+      <circle cx="62" cy="169" r="12" fill="#F21F4B"/><text x="62" y="174">1</text>
+      <circle cx="62" cy="209" r="12" fill="#F21F4B"/><text x="62" y="214">2</text>
+      <circle cx="62" cy="249" r="12" fill="#F21F4B"/><text x="62" y="254">3</text>
+      <circle cx="62" cy="289" r="12" fill="#F21F4B"/><text x="62" y="294">4</text>
+      <circle cx="62" cy="321" r="12" fill="#F21F4B"/><text x="62" y="326">5</text>
+      <circle cx="62" cy="379" r="12" fill="#F21F4B"/><text x="62" y="384">6</text>
+      <circle cx="244" cy="58" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="244" y="63">1</text>
+      <circle cx="486" cy="80" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="486" y="85">2</text>
+      <circle cx="420" cy="111" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="420" y="116">3</text>
+      <circle cx="630" cy="160" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="630" y="165">4</text>
+      <circle cx="590" cy="62" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="590" y="67">5</text>
+      <circle cx="582" cy="234" r="12" fill="#F21F4B" stroke="#FFFFFF" stroke-width="2"/><text x="582" y="239">6</text>
+    </g>
+    <text x="64" y="470" font-size="13" fill="#6B6460">Se salvează automat:</text>
+    <text x="64" y="488" font-size="13" fill="#6B6460">nu există butonul Salvare.</text>
+  </g>
+</svg>

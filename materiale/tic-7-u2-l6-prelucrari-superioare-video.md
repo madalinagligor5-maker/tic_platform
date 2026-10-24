@@ -44,6 +44,8 @@ Pui un clip pe o **a doua pistă video**, deasupra, și îl micșorezi într-un 
 
 Filmezi o persoană în fața unui fundal **verde** uniform. Efectul **Chroma key** face verdele **transparent**, iar în spate pui altă imagine (de exemplu, o hartă, ca la știrile meteo). Persoana nu trebuie să poarte haine verzi!
 
+![Chroma key: persoana filmată pe fundal verde, pusă pe pista video de deasupra, apare peste altă imagine, de exemplu o hartă meteo.](fisiere/imagini/tic-7-u2-l6-prelucrari-superioare-video.svg)
+
 ### Narațiunea
 
 Cu **Înregistrare → Narațiune**, vorbești la microfon în timp ce privești filmul; sunetul apare pe o pistă audio nouă. Poți folosi și o înregistrare curățată în WavePad.

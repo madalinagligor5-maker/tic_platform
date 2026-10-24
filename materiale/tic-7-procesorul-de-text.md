@@ -45,6 +45,8 @@ Se aplică **întregului paragraf** în care se află cursorul, chiar dacă nu a
 
 > **Sfat:** întâi scrii tot textul, apoi îl formatezi. Așa nu pierzi timp și documentul arată unitar.
 
+![Formatarea caracterelor schimbă doar textul selectat; formatarea paragrafelor (alinierea, listele) se aplică întregului paragraf.](fisiere/imagini/tic-7-procesorul-de-text.svg)
+
 ## Pașii formatării
 
 1. Selectezi textul (tragi cu mouse-ul peste el sau dai dublu clic pe un cuvânt).
