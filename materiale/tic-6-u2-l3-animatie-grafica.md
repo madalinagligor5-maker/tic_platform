@@ -41,7 +41,7 @@ Unele programe lucrează cu **cadrele pregătite de tine** (de exemplu, **Scratc
 
 ### Toontastic
 
-**Toontastic 3D** este o aplicație ușoară pentru animații 3D, pentru tablete și telefoane **Android** sau **Chromebook**. Mișcarea o generează aplicația: tu doar **tragi personajele** pe drumul dorit și **povestești**.
+**Toontastic 3D** este o aplicație ușoară pentru animații 3D, pentru tablete și telefoane **Android** sau **iOS** și pentru **Chromebook**. Mișcarea o generează aplicația: tu doar **tragi personajele** pe drumul dorit și **povestești**.
 
 > Dacă nu ai Toontastic, poți face aceleași etape (scenariu, decor, personaje, înregistrare) în **Scratch**, cu personaje și costume.
 

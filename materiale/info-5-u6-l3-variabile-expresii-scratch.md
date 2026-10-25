@@ -90,7 +90,7 @@ Mai sunt blocuri pentru **culoarea** și **grosimea** liniei. În „Stiloul mag
 ## Aplicații interactive
 
 ```categorii
-# Ce face blocul?
+# Ce face blocul sau butonul?
 Atribuire: setează a la 10
 Modificare: modifică a cu 1
 Creare: Creează o variabilă
@@ -98,7 +98,7 @@ Creare: Creează o variabilă
 
 ```completare
 # Evaluează (a = 10).
-10 + (3 * (20 - 3)) = [61]. (a + 5) * 10 = [150]. 20 mod 6 = [2]. (100 - 7 * 54) + 2 * (2 + 7 * 8) = [-162].
+10 + (3 * (20 - 3)) = [61]. (a + 5) * 10 = [150]. 20 mod 6 = [2]. (100 - 7 * 54) + 2 * (2 + 7 * 8) = [-162|–162|−162].
 ```
 
 ```quiz

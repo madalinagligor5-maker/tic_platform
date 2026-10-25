@@ -82,5 +82,5 @@ Prezinți proiectul colegilor
 2. Am terminat la timp: în întregime / parțial.
 3. Documentarea a fost: foarte bună / bună / slabă.
 4. Comunicarea cu colegii a fost: foarte bună / bună / slabă.
-5. Creativitatea a fost: foarte mare / mare / slabă.
+5. Creativitatea a fost: foarte mare / mare / mică.
 6. Prezentarea a avut impact la colegi: în mare măsură / moderat / într-o mică măsură.

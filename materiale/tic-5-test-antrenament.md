@@ -81,5 +81,5 @@ Pentru a muta un fișier folosim comenzile Decupare și [Lipire|Lipește|Paste].
 ```eseu puncte=20
 Scrie 3 reguli pe care le respecți ca să fii în siguranță pe internet și explică pe scurt de ce este importantă fiecare.
 Cuvinte: 30-100
-Barem: câte 6–7 puncte pentru fiecare regulă explicată, de exemplu: nu dau date personale (adresă, telefon, parolă) – pot fi folosite de persoane rău intenționate; nu deschid linkuri sau atașamente de la necunoscuți – pot conține viruși; spun unui adult dacă ceva mă sperie sau mă deranjează; folosesc parole puternice și nu le spun nimănui.
+Barem: 7p pentru prima regulă explicată corect, 7p pentru a doua și 6p pentru a treia; exemple de reguli: nu dau date personale (adresă, telefon, parolă) – pot fi folosite de persoane rău intenționate; nu deschid linkuri sau atașamente de la necunoscuți – pot conține viruși; spun unui adult dacă ceva mă sperie sau mă deranjează; folosesc parole puternice și nu le spun nimănui.
 ```

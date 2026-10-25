@@ -135,8 +135,7 @@ A: Pot adăuga un efect de rotație obiectelor de pe primul diapozitiv.
 
 ```ordonare
 # Cum aplici o animație unui text? Pune pașii în ordine.
-Selectezi caseta de text
-Deschizi fila Animații
+Selectezi caseta de text și deschizi fila Animații
 Alegi o animație din grupul Animație
 Apeși Previzualizare ca să vezi efectul
 ```

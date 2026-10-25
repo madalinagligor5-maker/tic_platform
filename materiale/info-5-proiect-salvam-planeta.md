@@ -33,7 +33,7 @@ O **poveste animată** care să-i ajute pe colegi să înțeleagă **ce riscuri 
 7. **Testați** și **îmbunătățiți** proiectul.
 8. Pregătiți câteva propoziții de **prezentare** și exersați acasă.
 
-**Ce poți folosi din ce ai învățat:** structuri liniare (dialogul personajelor), **evenimente** (steag, taste, clic), **mesaje** cu „spune”, **schimbarea decorului**, **sunete**, **variabile** și **decizii** (de exemplu, un mic quiz la final).
+**Ce puteți folosi din ce ați învățat:** structuri liniare (dialogul personajelor), **evenimente** (steag, taste, clic), **mesaje** cu „spune”, **schimbarea decorului**, **sunete**, **variabile** și **decizii** (de exemplu, un mic quiz la final).
 
 ## Cum prezentați
 
@@ -46,8 +46,8 @@ O **poveste animată** care să-i ajute pe colegi să înțeleagă **ce riscuri 
 ```quiz
 # Lista de verificare
 Cum folosiți imaginile găsite pe internet?
-* respectăm drepturile de autor și trecem sursa
-- le luăm pe toate, fără să spunem de unde sunt
+* respectați drepturile de autor și treceți sursa
+- le luați pe toate, fără să spuneți de unde sunt
 
 Ce bloc folosiți ca personajele să vorbească?
 - „pornește sunetul”
@@ -66,12 +66,12 @@ Probleme: subțierea stratului de ozon, topirea calotei glaciare, dispariția sp
 Soluții: reciclăm, economisim energia, protejăm plantele și animalele
 ```
 
-## Autoevaluare (bifează în caiet)
+## Autoevaluare (bifați în caiet)
 
 1. Am respectat tema: în întregime / parțial.
 2. Am terminat proiectul la timp: în întregime / parțial.
 3. Documentarea: foarte bună / bună / slabă.
 4. Comunicarea în echipă: foarte bună / bună / slabă.
 5. Creativitatea: foarte bună / bună / slabă.
-6. Proiectul a plăcut colegilor: în mare / normală / mică măsură.
-7. Prezentarea a avut impact: în mare / normală / mică măsură.
+6. Proiectul a plăcut colegilor: în mare măsură / în măsură normală / în mică măsură.
+7. Prezentarea a avut impact: în mare măsură / în măsură normală / în mică măsură.

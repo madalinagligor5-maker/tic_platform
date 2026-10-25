@@ -57,7 +57,7 @@ La ce folosește Coșul de reciclare?
 
 ## Evaluare sumativă
 
-Punctaj maxim: 100 de puncte. Insuficient 0–40 · Suficient 50–60 · Bine 70–80 · Foarte bine 90–100.
+Punctaj maxim: 100 de puncte. Insuficient: sub 50 · Suficient: 50–69 · Bine: 70–89 · Foarte bine: 90–100.
 
 ```quiz
 # Itemii 1, 4, 5, 8 și 10 (câte 10 puncte)

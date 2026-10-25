@@ -41,7 +41,7 @@ Echipamente fizice: hardware-ul
 
 5. Monitorul, tastatura și boxele sunt dispozitive...: [periferice]
 
-Dispozitivul de intrare cu nume de animal (în engleză, „șoricel”) este: [mouse-ul|mouse]
+Dispozitivul de intrare cu nume de animal (în engleză înseamnă „șoarece”) este: [mouse-ul|mouse]
 ```
 
 ```quiz

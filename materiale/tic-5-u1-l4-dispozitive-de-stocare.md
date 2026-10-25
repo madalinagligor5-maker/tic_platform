@@ -59,7 +59,7 @@ Calculatorul folosește doar cifrele 0 și 1, de aceea multiplii byte-ului se ob
 - **CD**: 700 MB
 - **DVD**: 4,7 GB
 - **Blu-ray**: 25 GB
-- **HDD**: de la 120 GB până la 8 TB
+- **HDD**: de obicei de la 120 GB până la 8 TB (azi există și HDD-uri mai mari)
 - **SSD**: de la 32 GB până la 4 TB
 - **stickuri și carduri**: de obicei de la câțiva GB până la 1–2 TB
 

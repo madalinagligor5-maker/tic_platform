@@ -85,10 +85,10 @@ Aici **B** este **variabilă** (își schimbă valoarea), iar **2**, **6** și *
 ## Aplicații interactive
 
 ```categorii
-# Algoritmul bancomatului: date de intrare, de ieșire sau constantă?
-Date de intrare: suma inițială de pe card, suma pe care o retragi
-Constantă: comisionul fix de 5 lei
-Dată de ieșire: suma rămasă pe card
+# Algoritmul bancomatului: sortează datele.
+Date de intrare variabile: suma inițială de pe card, suma pe care o retragi
+Dată de intrare constantă: comisionul fix de 5 lei
+Dată de ieșire (variabilă): suma rămasă pe card
 ```
 
 ```categorii

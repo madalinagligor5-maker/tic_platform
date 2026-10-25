@@ -107,7 +107,7 @@ F: Parola poate fi spusă colegului de bancă, dacă îi ești prieten. | Parole
 
 ```categorii
 # Ce faci? Sortează comportamentele.
-Sigur: verific informațiile în mai multe surse, cer ajutorul unui adult dacă primesc un mesaj urât, folosesc o parolă cu litere cifre și simboluri, folosesc site-uri potrivite vârstei mele
+Sigur: verific informațiile în mai multe surse, cer ajutorul unui adult dacă primesc un mesaj urât, folosesc o parolă complexă și greu de ghicit, folosesc site-uri potrivite vârstei mele
 Periculos: îmi public adresa pe internet, deschid fișierul primit de la un necunoscut, răspund la mesajele jignitoare, accept orice cerere de prietenie
 ```
 

@@ -42,7 +42,7 @@ Selectezi fișierul sau folderul → **clic dreapta** → **Proprietăți (Prope
 | Operație | Cum o faci |
 |---|---|
 | **Creare folder** | clic dreapta → **Nou (New)** → **Folder** → scrii numele → **Enter** |
-| **Creare fișier** | clic dreapta → **Nou** → alegi tipul (de exemplu, *Text document*) |
+| **Creare fișier** | clic dreapta → **Nou** → alegi tipul (de exemplu, *Document text*) |
 | **Deschidere** | **dublu clic** pe fișier; se deschide în aplicația cu care a fost creat |
 | **Redenumire** | selectezi → clic pe nume → scrii numele nou → **Enter** |
 | **Copiere** | **Ctrl + C**, apoi în folderul destinație **Ctrl + V**; sau tragi fișierul ținând apăsat **Ctrl**; sau clic dreapta → **Copiere** / **Lipire** |
@@ -72,7 +72,7 @@ Selectezi folderul în care cauți → scrii în caseta **Căutare (Search)** �
 **Sarcină:** în folderul `Lucru` creează subfolderele `Aplic1` și `Aplic2`. În `Aplic1` creează `test1.txt`, fă o copie numită `test2.txt`, apoi mută `test2.txt` în `Aplic2`.
 
 1. În `Lucru`: clic dreapta → Nou → Folder → `Aplic1` → Enter. La fel pentru `Aplic2`.
-2. În `Aplic1`: clic dreapta → Nou → Text document → `test1.txt`.
+2. În `Aplic1`: clic dreapta → Nou → Document text → `test1.txt`.
 3. Selectezi `test1.txt` → **Ctrl + C** → **Ctrl + V** → redenumești copia în `test2.txt`.
 4. Selectezi `test2.txt` → **Ctrl + X** → deschizi `Aplic2` → **Ctrl + V**.
 

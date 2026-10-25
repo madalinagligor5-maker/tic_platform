@@ -69,7 +69,7 @@ schimbă costumul la (alege aleator între (1) și (4))
 
 ### Salvare, remixare, partajare
 
-- **Fișier → Salvează pe computerul tău**: fișier **.sb3**;
+- **Fișier → Salvează pe calculatorul tău**: fișier **.sb3**;
 - **Remixează**: salvezi o versiune modificată a proiectului altcuiva;
 - **Partajează**: proiectul tău devine vizibil în comunitatea Scratch.
 
@@ -86,7 +86,7 @@ când se dă clic pe acest personaj
 costumul următor
 ```
 
-4. Apeși **steagul verde**, dai clic pe haină de cinci ori și verifici că după modelul 4 vine modelul 1.
+4. Dai clic pe haină de cinci ori și verifici că după modelul 4 vine modelul 1.
 
 ## Aplicații interactive
 

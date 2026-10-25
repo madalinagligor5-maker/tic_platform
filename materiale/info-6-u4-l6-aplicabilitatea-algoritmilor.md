@@ -101,7 +101,7 @@ la infinit
 
 **Problema:** dacă ții apăsată săgeata stânga, copacii fug spre dreapta și ies de pe ecran.
 
-1. Muți Copac1 cu mouse-ul cât de la dreapta vrei să ajungă. Citești x: de exemplu, **200**.
+1. Muți Copac1 cu mouse-ul cât de departe la dreapta vrei să ajungă. Citești x: de exemplu, **200**.
 2. În scriptul care primește mesajul „stânga” pui o decizie:
 
 ```
@@ -163,7 +163,7 @@ A: Pozițiile inițiale se pot afla bifând „poziția x” și „poziția y�
 ## Exersează
 
 1. Mărește cu 100 limita la dreapta. Ce se întâmplă cu copacii când ajungi la noua limită?
-2. Elimină limita pentru mesajul „sari” al ierbii. Cum se mișcă acum?
+2. Elimină limita ierbii (y = 0) la mișcarea în sus. Ce se vede dacă apeși de mai multe ori tasta **J**?
 3. Schimbă efectul de la teleportare din **fantomă** în **culoare** sau **vârtej**.
 4. Desenează în Paint 3D un obiect nou (o casă, o tufă) și adaugă-l în joc, cu același comportament ca un copac.
 5. Dă două exemple de jocuri în care e nevoie de limitarea mișcării.

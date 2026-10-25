@@ -128,8 +128,7 @@ La ce folosește agenda de adrese?
 # Cum trimiți un mesaj cu un atașament?
 Apeși Scrie (sau Mesaj de e-mail nou)
 Completezi Către și Subiect
-Scrii textul mesajului
-Apeși agrafa și alegi fișierul
+Scrii textul mesajului și atașezi fișierul cu agrafa
 Apeși Trimite
 ```
 

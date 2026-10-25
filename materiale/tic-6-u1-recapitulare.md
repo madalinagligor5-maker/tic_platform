@@ -81,8 +81,7 @@ Ce pași urmezi ca să creezi o prezentare nouă?
 
 ```ordonare
 # 2. Cum formatezi fundalul unui diapozitiv?
-Selectezi diapozitivul
-Deschizi fila Proiectare
+Selectezi diapozitivul și deschizi fila Proiectare
 Apeși Formatare fundal din grupul Particularizare
 Alegi umplerea dorită în panoul care se deschide
 ```

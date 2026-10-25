@@ -45,7 +45,7 @@ Altă aplicație: Paint 3D, Outlook, Scratch
 
 ```completare
 # 3. Completează textul (10 puncte).
-Numim [prezentare] electronică acea prezentare realizată cu programe [electronice] ([aplicații|aplicatii] de prezentare), instalate pe echipamente [digitale] (calculator, tabletă, [telefon] inteligent).
+Numim [prezentare] electronică acea prezentare realizată cu mijloace [electronice] ([aplicații|aplicatii] de prezentare), instalate pe echipamente [digitale] (calculator, tabletă, [telefon] inteligent).
 ```
 
 ```quiz

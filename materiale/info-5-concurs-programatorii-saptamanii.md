@@ -28,6 +28,7 @@ Idee de script pentru pește:
 
 ```
 când se dă clic pe steagul verde
+setează [pași] la 0
 alunecă în 1 secunde la (poziție aleatoare)
 ```
 

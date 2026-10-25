@@ -28,7 +28,7 @@ data: 2026-10-15
 
 7. Accesarea e-mailului prin internet, din browser: [webmail]
 
-8. Ce este „trimis” cu agrafa (prescurtat): [atașament|atasament]
+8. Fișierul trimis odată cu mesajul, cu ajutorul agrafei: [atașament|atasament]
 
 9. Mesaj nesolicitat și nedorit: [spam]
 
