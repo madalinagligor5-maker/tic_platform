@@ -70,7 +70,7 @@ Tragi de **pătrățelul** din colțul dreapta jos al celulei active:
 
 ### Tipărirea
 
-**Fișier → Imprimare** (**Ctrl + P**): vezi examinarea, alegi imprimanta, numărul de copii, orientarea (**Portret** sau **Tip vedere**) și **Potrivire foaie pe o pagină**, ca tabelul să nu fie tăiat.
+**Fișier → Imprimare** (**Ctrl + P**): vezi examinarea, alegi imprimanta, numărul de copii, orientarea (**Tip portret** sau **Tip vedere**) și **Potrivire foaie pe o pagină**, ca tabelul să nu fie tăiat.
 
 ## Exemplu rezolvat: orarul clasei
 

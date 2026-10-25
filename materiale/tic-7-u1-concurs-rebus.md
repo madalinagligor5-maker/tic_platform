@@ -12,7 +12,7 @@ data: 2026-10-16
 
 ## Ce vei face
 
-Un concurs **pe echipe** (3–4 elevi): fiecare echipă face în **Word** un **rebus** despre ce ați învățat în Unitatea 1, apoi îl rezolvă rebusul altei echipe. Câștigă rebusul cel mai **inspirat**: corect, frumos tehnoredactat și ingenios.
+Un concurs **pe echipe** (3–4 elevi): fiecare echipă face în **Word** un **rebus** despre ce ați învățat în Unitatea 1, apoi rezolvă rebusul altei echipe. Câștigă rebusul cel mai **inspirat**: corect, frumos tehnoredactat și ingenios.
 
 **Timp de lucru:** o oră (plus pregătire acasă, dacă profesorul permite).
 

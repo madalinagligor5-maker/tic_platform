@@ -64,7 +64,7 @@ Produs;Preț (lei);Cantitate;Total
 Caiet;4,5;6
 Pix;3;4
 Creion;1,5;10
-Rigla;5;1
+Riglă;5;1
 Cerințe:
 - D2:D5: =B2*C2 | În D2:D5, totalul fiecărui produs (preț × cantitate), cu formulă
 - D6: =SUM(D2:D5) | În D6, suma de plată, cu funcția SUM

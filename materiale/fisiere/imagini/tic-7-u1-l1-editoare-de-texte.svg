@@ -14,9 +14,9 @@
     <path d="M40 140H460" stroke="#E8DFD3" stroke-width="2"/>
     <g font-family="JetBrains Mono, Consolas, monospace" font-size="15">
       <text x="60" y="172">Excursia la munte</text>
-      <text x="60" y="200">Am plecat dimineata devreme.</text>
-      <text x="60" y="224">Am vazut un lac si o cabana.</text>
-      <text x="60" y="248">Seara am ajuns acasa.</text>
+      <text x="60" y="200">Am plecat dimineața devreme.</text>
+      <text x="60" y="224">Am văzut un lac și o cabană.</text>
+      <text x="60" y="248">Seara am ajuns acasă.</text>
     </g>
     <text x="250" y="320" text-anchor="middle" font-size="14" fill="#6B6460">doar litere, toate la fel:</text>
     <text x="250" y="342" text-anchor="middle" font-size="14" fill="#6B6460">fără titluri, imagini sau tabele</text>

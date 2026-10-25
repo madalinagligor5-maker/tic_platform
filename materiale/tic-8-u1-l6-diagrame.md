@@ -73,7 +73,7 @@ Când selectezi diagrama, apare butonul **+** (elemente), **pensula** (stiluri �
 2. **Inserare → Linie cu marcaje**: se vede cum crește temperatura.
 3. Titlul: „Temperaturi medii în Cluj-Napoca”; titlul axei verticale: „°C”.
 4. Adaugi **etichete de date** din butonul **+**.
-5. Pe celulele cu temperaturi aplici o **scală de culori** roșu – alb – albastru: lunile reci apar albastru, cele calde roșu.
+5. Pe celulele cu temperaturi aplici o **scală de culori** roșu – alb – albastru: lunile reci apar cu albastru, cele calde cu roșu.
 6. Schimbi temperatura din iunie în 19: linia se modifică automat.
 
 ## Aplicații interactive

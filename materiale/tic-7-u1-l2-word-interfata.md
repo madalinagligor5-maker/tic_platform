@@ -19,7 +19,7 @@ data: 2026-10-16
 
 ## Să ne amintim
 
-În PowerPoint ai lucrat cu **bara de titlu**, **panglica** cu **file** și **bara de status**. Word face parte tot din pachetul **Microsoft Office**, așa că fereastra lui seamănă foarte mult.
+În PowerPoint ai lucrat cu **bara de titlu**, **panglica** cu **file** și **bara de stare**. Word face parte tot din pachetul **Microsoft Office**, așa că fereastra lui seamănă foarte mult.
 
 ## Lecția pe scurt
 

@@ -56,8 +56,9 @@ Paginile web sunt scrise în **HTML** (*HyperText Markup Language*). Textul este
 
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="ro">
   <head>
+    <meta charset="UTF-8">
     <title>Clasa a VIII-a A</title>
   </head>
   <body>

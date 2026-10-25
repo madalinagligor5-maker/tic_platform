@@ -22,8 +22,8 @@ Montaj video: VideoPad, Clipchamp, Shotcut
 # Alege răspunsul corect.
 Ce faci ca vocea să se audă peste muzica de fond?
 * micșorezi volumul muzicii
-- măresc viteza vocii
-- inversez muzica
+- mărești viteza vocii
+- inversezi muzica
 
 Ce operație împarte un clip în două?
 - Export

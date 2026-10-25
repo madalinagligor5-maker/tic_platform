@@ -88,7 +88,7 @@ Uneori vrei ca o adresă să rămână **fixă** (de exemplu, cursul euro dintr-
 2. Formatezi coloanele B și D ca **Monedă** (lei), cu 2 zecimale.
 3. Titlul: inserezi un rând deasupra, scrii „Factura” în A1, selectezi A1:D1 și apeși **Îmbinare și centrare**.
 4. Pui **Toate bordurile** pe tabel și o culoare de umplere pe capul de tabel.
-5. TVA-ul (21%) e scris în **F1**. După inserarea rândului de titlu, produsele sunt pe rândurile 3–5: în E3 scrii `=D3*$F$1` și tragi în jos; adresa F1 rămâne fixă.
+5. După inserarea rândului de titlu, produsele sunt pe rândurile 3–5. Scrii cota de TVA (21%) în **F1**, apoi în E3 scrii `=D3*$F$1` și tragi în jos; adresa F1 rămâne fixă.
 
 ## Aplicații interactive
 
