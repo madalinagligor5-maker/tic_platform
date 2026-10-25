@@ -42,7 +42,7 @@ Când cumperi ceva: pui bani în portofel, mergi la magazin, ceri produsul, plă
 
 ```
 Start
-Pasul 1: Introducem cele trei prețuri.
+Pasul 1: Introducem suma deținută și cele trei prețuri.
 Pasul 2: Calculăm suma prețurilor.
 Pasul 3: Dacă suma deținută < suma prețurilor,
             Atunci nu putem cumpăra cele trei produse.

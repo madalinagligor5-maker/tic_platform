@@ -101,7 +101,12 @@ int main()
     double a, b;
     cin >> a >> b;
     if (a != 0)
-        cout << "x = " << -b / a;
+    {
+        double x = -b / a;
+        if (x == 0)
+            x = 0;  // pentru b = 0, ca să nu afișeze „-0”
+        cout << "x = " << x;
+    }
     else if (b == 0)
         cout << "Orice numar este solutie";
     else

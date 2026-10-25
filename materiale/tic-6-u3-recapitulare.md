@@ -16,7 +16,7 @@ data: 2026-10-15
 # Rebus: termeni din poșta electronică.
 1. Folderul cu mesajele primite (în engleză): [Inbox]
 
-2. Aici păstrezi adresele cunoscuților (în engleză, Address Book): [Agenda|Agendă]
+2. Aici păstrezi adresele cunoscuților (în engleză, Address Book): [Agenda|Agendă|Contacte]
 
 3. Program client de e-mail din Microsoft Office: [Outlook]
 

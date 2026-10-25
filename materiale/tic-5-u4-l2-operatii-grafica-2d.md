@@ -124,8 +124,8 @@ Ce tip de rotire folosești ca să faci aripa a doua a unui fluture?
 
 ```categorii
 # Culoarea 1 sau Culoarea 2?
-Culoarea 1 (prim-plan): conturul formelor, textul, creionul, umplerea cu culoare
-Culoarea 2 (fundal): umplerea formelor, urma radierei
+Culoarea 1 (prim-plan): conturul formelor, textul, creionul, instrumentul Umplere cu culoare (clic stânga)
+Culoarea 2 (fundal): interiorul formelor desenate, urma radierei
 ```
 
 ```cartonase

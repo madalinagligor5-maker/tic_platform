@@ -64,7 +64,7 @@ Folosește **nume sugestive**: `Referat_apa_Popescu_7B.docx`, nu `Document1.docx
 Ai scris un referat, `Referat_apa.docx`, și vrei să-l trimiți profesorului ca PDF, dar să-l poți modifica mai târziu.
 
 1. Salvezi ultimele modificări cu **Ctrl + S** (rămâne `Referat_apa.docx`).
-2. **Fișier → Salvare ca**, alegi folderul și, la **Tip fișier**, **PDF**.
+2. **Fișier → Salvare ca**, alegi folderul și, la **Salvare cu tipul**, **PDF**.
 3. Apeși **Salvare**: apare `Referat_apa.pdf`, pe care îl trimiți.
 4. Când vrei să schimbi ceva, deschizi `Referat_apa.docx`, nu PDF-ul.
 

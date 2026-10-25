@@ -25,7 +25,7 @@ Poți folosi e-mailul printr-un **client de e-mail** (Outlook) sau prin **webmai
 
 ### Contul de e-mail
 
-> **Atenție!** Ca să-ți faci singur un cont Google, trebuie să ai **13 ani împliniți**. Până atunci, contul îl creează **părinții** pentru tine (cu aplicația Google Family Link) sau folosești contul de e-mail oferit de **școală**. La ore, profesorul îți spune ce cont folosești.
+> **Atenție!** Ca să-ți faci singur un cont Google, trebuie să ai vârsta minimă stabilită pentru țara ta: în România, **16 ani împliniți**. Până atunci, contul îl creează **părinții** pentru tine (cu aplicația Google Family Link) sau folosești contul de e-mail oferit de **școală**. La ore, profesorul îți spune ce cont folosești.
 
 Pașii la crearea unui cont (asemănători la toți furnizorii):
 
@@ -96,9 +96,9 @@ Mesaje nefinalizate: continui o ciornă
 # Alege răspunsul corect.
 Câți ani trebuie să ai ca să-ți faci singur un cont Google?
 - 10
-* 13
+* 16 (în România)
 - 18
-Explicație: Până la 13 ani, contul îl creează părinții sau folosești contul oferit de școală.
+Explicație: În România, până la 16 ani, contul îl creează părinții sau folosești contul oferit de școală.
 
 Ce faci cu casetele de oferte gata bifate dintr-un formular de înscriere?
 * le debifezi, dacă nu vrei să primești oferte
@@ -138,9 +138,9 @@ Apeși Creează
 
 ## Verifică-te
 
-- Ce faci dacă ai sub 13 ani și ai nevoie de e-mail?
+- Ce faci dacă ai sub 16 ani și ai nevoie de e-mail?
 - Unde găsești mesajele șterse? Dar ciornele?
 
 ## Pe scurt
 
-La crearea unui cont alegi **numele de utilizator** și o **parolă sigură** și debifezi ofertele. Sub **13 ani**, contul îl fac **părinții** sau îl dă **școala**. Gmail și Outlook au aceleași elemente: **mesaj nou**, **Inbox**, **Sent**, **Drafts**, **Spam**, **Coș de gunoi**, **Căutare**. Gmail folosește **etichete**, Outlook **foldere**.
+La crearea unui cont alegi **numele de utilizator** și o **parolă sigură** și debifezi ofertele. Sub **16 ani**, contul îl fac **părinții** sau îl dă **școala**. Gmail și Outlook au aceleași elemente: **mesaj nou**, **Inbox**, **Sent**, **Drafts**, **Spam**, **Coș de gunoi**, **Căutare**. Gmail folosește **etichete**, Outlook **foldere**.

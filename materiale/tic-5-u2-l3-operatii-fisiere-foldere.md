@@ -46,7 +46,7 @@ Selectezi fișierul sau folderul → **clic dreapta** → **Proprietăți (Prope
 | **Deschidere** | **dublu clic** pe fișier; se deschide în aplicația cu care a fost creat |
 | **Redenumire** | selectezi → clic pe nume → scrii numele nou → **Enter** |
 | **Copiere** | **Ctrl + C**, apoi în folderul destinație **Ctrl + V**; sau tragi fișierul ținând apăsat **Ctrl**; sau clic dreapta → **Copiere** / **Lipire** |
-| **Mutare** | **Ctrl + X**, apoi **Ctrl + V**; sau tragi fișierul în alt folder (drag and drop); sau clic dreapta → **Decupare** / **Lipire** |
+| **Mutare** | **Ctrl + X**, apoi **Ctrl + V**; sau tragi fișierul în alt folder de pe aceeași unitate de disc (drag and drop); sau clic dreapta → **Decupare** / **Lipire** |
 | **Ștergere** | tasta **Delete**, sau clic dreapta → **Ștergere (Delete)** |
 
 > **Copiere** = fișierul rămâne și în locul vechi, și apare în cel nou. **Mutare** = fișierul pleacă din locul vechi.
@@ -118,7 +118,7 @@ Cum selectezi mai multe fișiere care NU sunt unul după altul?
 ```categorii
 # Copiere sau mutare?
 Copiere: Ctrl + C apoi Ctrl + V, tragi fișierul ținând Ctrl, fișierul rămâne și în locul vechi
-Mutare: Ctrl + X apoi Ctrl + V, tragi fișierul fără Ctrl, fișierul pleacă din locul vechi
+Mutare: Ctrl + X apoi Ctrl + V, tragi fișierul fără Ctrl pe aceeași unitate de disc, fișierul pleacă din locul vechi
 ```
 
 ```adevarat-fals

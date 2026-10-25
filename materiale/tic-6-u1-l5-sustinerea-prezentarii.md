@@ -12,7 +12,7 @@ data: 2026-10-15
 
 ## Ce vei învăța azi
 
-- de ce trebuie să ții cont ca o prezentare să-și atingă **scopul**;
+- de ce trebuie să ții cont pentru ca o prezentare să-și atingă **scopul**;
 - **sfaturi** pentru o susținere reușită;
 - **greșelile** frecvente și cum le eviți;
 - cum **exersezi** înainte de prezentare.

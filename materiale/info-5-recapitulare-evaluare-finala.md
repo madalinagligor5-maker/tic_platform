@@ -62,7 +62,7 @@ altfel scrie „Impar”
 
 ## Evaluare finală
 
-Fiecare item valorează 9 puncte, plus 10 puncte din oficiu.
+Fiecare dintre cei 9 itemi valorează 10 puncte, plus 10 puncte din oficiu (total 100 de puncte).
 
 ```quiz
 # Itemii 1, 6, 8
@@ -103,7 +103,7 @@ Explicație: 1 × 2 + 2 = 4, 2 × 2 + 3 = 7, 4 × 2 + 3 = 11, 3 × 2 + 0 = 6.
 # Itemii 4, 5 și 9
 4. Suma ultimelor cifre ale numerelor 23 și 44 este [7] (folosind a % 10 + b % 10).
 
-5. Pentru a = 2 și b = 4 se afișează „[da]” (suma e pară), iar pentru a = 2 și b = 3 se afișează „[nu]”.
+5. Un algoritm afișează „da” dacă suma a două numere naturale este pară și „nu” dacă este impară. Pentru a = 2 și b = 4 se afișează „[da]”, iar pentru a = 2 și b = 3 se afișează „[nu]”.
 
 9. Variabila a are valoarea 200. După blocul „modifică [a] cu 1”, a are valoarea [201].
 ```

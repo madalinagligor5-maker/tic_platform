@@ -31,7 +31,7 @@ Intri în contul școlii, apoi în **Google Drive** (iconița triunghi colorat d
 ### Interfața Google Docs
 
 1. **Numele documentului** (stânga sus): dai clic și îl schimbi din „Document fără titlu”.
-2. **Meniurile**: Fișier, Editați, Afișare, Inserare, Format, Instrumente.
+2. **Meniurile**: Fișier, Editați, Afișați, Inserați, Format, Instrumente.
 3. **Bara de instrumente**: anulare, font, mărime, **B** *I* <u>S</u>, culoare, aliniere, liste.
 4. **Pagina** în care scrii.
 5. Dreapta sus: **istoricul**, **comentariile** și butonul albastru **Distribuiți** (Partajare).
@@ -46,7 +46,7 @@ Seamănă cu PowerPoint: **panoul cu miniaturi** (stânga), **diapozitivul** (ce
 ### Lucrul împreună
 
 - **Distribuiți**: scrii adresele colegilor și alegi **Editor**, **Comentator** sau **Persoană care vede**.
-- **Comentariu**: selectezi textul → **Inserare → Comentariu** (**Ctrl + Alt + M**). Poți scrie **@nume** ca să anunți un coleg. Când problema e rezolvată, apeși **✓ Rezolvă**.
+- **Comentariu**: selectezi textul → **Inserați → Comentariu** (**Ctrl + Alt + M**). Poți scrie **@nume** ca să anunți un coleg. Când problema e rezolvată, apeși **✓ Rezolvă**.
 - **Modul Sugestii** (creionul din dreapta sus → **Sugerare**): modificările tale apar colorate, ca propuneri; autorul le **acceptă** sau le **respinge**.
 - **Istoricul versiunilor**: **Fișier → Istoricul versiunilor**; vezi cine ce a scris, cu altă culoare, și poți **restabili** o versiune.
 
@@ -98,7 +98,7 @@ Cum anunți un coleg anume într-un comentariu?
 ```categorii
 # Unde găsești?
 Fișier: Istoricul versiunilor, Descărcați
-Inserare: Comentariu, Imagine, Tabel
+Inserați: Comentariu, Imagine, Tabel
 Butonul Distribuiți: adăugarea colegilor cu drepturi
 ```
 

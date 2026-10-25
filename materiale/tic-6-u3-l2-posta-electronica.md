@@ -129,7 +129,7 @@ Coș de gunoi: un mesaj pe care tocmai l-ai șters
 ```
 
 ```adevarat-fals
-F: Poți folosi poșta electronică fără internet. | Ai nevoie de internet ca să trimiți și să primești mesaje.
+F: Poți trimite și primi e-mailuri fără internet. | Ai nevoie de internet ca să trimiți și să primești mesaje.
 A: Poți folosi e-mailul dintr-un browser.
 A: Într-o adresă de e-mail nu contează literele mari și mici.
 F: Cu webmail îți vezi mesajele doar pe un singur calculator. | Intri de oriunde, dacă ai internet.

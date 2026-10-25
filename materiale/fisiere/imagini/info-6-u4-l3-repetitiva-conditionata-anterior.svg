@@ -41,8 +41,8 @@
     <text x="811" y="138" text-anchor="middle" font-size="13" fill="#FFFFFF">nu C</text>
     <rect x="640" y="160" width="130" height="32" rx="6" fill="#0E7F96"/>
     <text x="652" y="181" font-size="13" fill="#FFFFFF">secvența A</text>
-    <text x="606" y="248" font-size="13" fill="#6B6460">repetă până când C devine adevărată,</text>
-    <text x="606" y="266" font-size="13" fill="#6B6460">adică cât timp C este falsă</text>
+    <text x="606" y="248" font-size="13" fill="#6B6460">repetă până când „nu C” devine adevărată,</text>
+    <text x="606" y="266" font-size="13" fill="#6B6460">adică exact cât timp C este adevărată</text>
 
     <!-- traseul datelor -->
     <text x="606" y="310" font-size="17" font-weight="800">Cifrele lui a = 783</text>

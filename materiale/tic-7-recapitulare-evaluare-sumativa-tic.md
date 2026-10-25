@@ -16,7 +16,7 @@ data: 2026-10-16
 # Ce ai învățat la TIC în clasa a VII-a
 Editor de texte = aplicație pentru scrierea, modificarea și formatarea documentelor (Word, Google Docs)
 Formatare = schimbarea aspectului textului: font, mărime, culoare, aliniere, spațiere
-Orientare = poziția paginii: portret (în picioare) sau peisaj (culcată)
+Orientare = poziția paginii: portret (în picioare; în Word: Tip portret) sau peisaj (culcată; în Word: Tip vedere)
 MP3 = format audio comprimat, cu fișiere mici
 Normalizare = aduce sunetul la un volum maxim egal, fără distorsiuni
 Cronologie = zona din VideoPad cu pistele video și audio, în timp

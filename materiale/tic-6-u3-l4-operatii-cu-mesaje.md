@@ -40,7 +40,7 @@ Fereastra unui mesaj nou are două părți:
 
 **2. Corpul** (*body*): textul mesajului.
 
-**Atașamentele:** apeși butonul cu **agrafa** (**Atașare fișier**), cauți fișierele, le selectezi și apeși **OK**.
+**Atașamentele:** apeși butonul cu **agrafa** (**Atașare fișier**), cauți fișierele, le selectezi și apeși **Deschidere**.
 
 La final apeși **Trimite** (**Trimitere** în Outlook).
 

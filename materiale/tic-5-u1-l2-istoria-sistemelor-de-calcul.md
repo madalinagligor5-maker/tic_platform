@@ -98,7 +98,7 @@ Laptopul este un calculator personal [portabil]. Tableta are un ecran [tactil]. 
 
 ```categorii
 # Sistem de calcul sau mijloc de comunicare din istorie?
-Sisteme de calcul: Pascalina, ENIAC, IBM PC, laptopul
+Sisteme de calcul: Pascalina, ENIAC, IBM PC, Macintosh 128K
 Mijloace de comunicare: semnalele de fum, telegraful, radioul, televiziunea
 ```
 

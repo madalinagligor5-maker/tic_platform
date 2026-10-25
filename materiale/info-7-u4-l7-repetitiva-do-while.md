@@ -113,7 +113,7 @@ int main()
 }
 ```
 
-Strategia cea mai bună: începi de la mijloc (50), apoi înjumătățești intervalul de fiecare dată.
+Strategia cea mai bună (dacă știi că numărul este între 1 și 100): începi de la mijloc (50), apoi înjumătățești intervalul de fiecare dată.
 
 ## Aplicații interactive
 

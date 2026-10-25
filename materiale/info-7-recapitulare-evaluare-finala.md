@@ -77,9 +77,9 @@ Fișierul audio comprimat cel mai folosit are formatul [MP3]. Stocarea fișierel
 ```quiz
 # 2. Alege răspunsul corect (25 de puncte).
 Ce orientare are o pagină culcată?
-- portret
-* peisaj
-- vedere
+- portret (în Word: Tip portret)
+* peisaj (în Word: Tip vedere)
+- centrată
 
 Ce efect face fundalul verde transparent?
 * chroma key

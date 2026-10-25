@@ -45,7 +45,7 @@ Servicii de stocare: **Google Drive**, **OneDrive**, **Dropbox**, **iCloud**.
 - **documente**: Google Docs, Word online (Microsoft 365);
 - **prezentări**: Google Slides, PowerPoint online, Canva;
 - **foi de calcul**: Google Sheets, Excel online;
-- **table albe și idei**: Jamboard, Padlet, Miro;
+- **table albe și idei**: Padlet, Miro, Microsoft Whiteboard;
 - **clase virtuale**: Google Classroom, Microsoft Teams;
 - **hărți**: Google My Maps (lecția despre GIS).
 
@@ -73,7 +73,7 @@ Aplicația **salvează automat** și păstrează **istoricul versiunilor**: vezi
 4. Nu partajezi date personale și nu dai linkul de editare persoanelor străine.
 5. La final, citiți toți documentul și îl uniformizați.
 
-> **Atenție la vârstă:** multe conturi (de exemplu, un cont Google personal) se pot crea singur doar de la **13 ani**. La școală folosești **contul școlii** sau, acasă, contul administrat de părinți.
+> **Atenție la vârstă:** multe conturi (de exemplu, un cont Google personal) se pot crea singur doar de la o anumită vârstă (în România, de regulă **16 ani**). La școală folosești **contul școlii** sau, acasă, contul administrat de părinți.
 
 ## Exemplu rezolvat: un afiș al clasei, făcut în echipă
 

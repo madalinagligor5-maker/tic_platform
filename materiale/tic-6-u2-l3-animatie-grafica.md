@@ -136,7 +136,7 @@ A: Toontastic exportă animațiile ca fișiere .mp4.
 ## Exersează
 
 1. Fă după pașii de mai sus o poveste scurtă în Toontastic (sau în Scratch).
-2. Creează o **poveste clasică**. Adaugă-i o parte nouă, **Încercare**, cu un scenariu al tău. Schimbă melodia unui cadru.
+2. Creează o **poveste clasică**. Adaugă-i încă un cadru de tip **Încercare**, cu un scenariu al tău. Schimbă melodia unui cadru.
 3. Adaugă două personaje „spectatori”. Mută unul în alt loc al scenei și șterge-l pe celălalt.
 4. Fă un personaj 3D numit **Gogu**, cu o gură zâmbitoare și păr negru.
 5. Realizează o **felicitare animată** pentru ziua bunicii.

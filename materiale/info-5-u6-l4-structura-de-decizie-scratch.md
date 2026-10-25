@@ -54,7 +54,7 @@ scrie mx
 
 ### B. Deplasarea printr-un labirint
 
-Drumurile labirintului sunt desenate cu **negru**, iar ieșirea este marcată cu **roșu**. Personajul se mișcă cu **săgețile**, câte **5 pixeli**.
+Pereții labirintului și obstacolele sunt desenate cu **negru**, ca un zid, iar ieșirea este marcată cu **roșu**. Personajul se mișcă cu **săgețile**, câte **5 pixeli**.
 
 ```
 Dacă personajul atinge culoarea neagră

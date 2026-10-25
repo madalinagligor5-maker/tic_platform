@@ -72,7 +72,7 @@ Exemple:
 
 ### O prezentare făcută chiar pe edudigi
 
-Mai jos este o prezentare electronică. Treci prin diapozitive cu săgețile, glisând sau cu un clic. Observă cele trei etape ale unei prezentări: **titlul**, **cuprinsul** și **încheierea**. Butonul **Note** îți arată notele vorbitorului, iar **Ecran complet** o arată ca la videoproiector.
+Mai jos este o prezentare electronică. Treci prin diapozitive cu săgețile, glisând sau cu un clic. Observă cele trei părți ale unei prezentări: **titlul**, **cuprinsul** și **încheierea**. Butonul **Note** îți arată notele vorbitorului, iar **Ecran complet** o arată ca la videoproiector.
 
 ```diapozitive
 # Tipuri de prezentări

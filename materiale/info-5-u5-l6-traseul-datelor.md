@@ -62,7 +62,7 @@ scrie mx
 
 Săgeata `←` înseamnă „**primește valoarea**” (atribuire).
 
-**Schema logică:** START → citește a, b → romb `a >= b?` → pe **Da**: `mx = a`; pe **Nu**: `mx = b` → scrie mx → STOP.
+**Schema logică:** START → citește a, b → romb `a >= b?` → pe **Da**: `mx ← a`; pe **Nu**: `mx ← b` → scrie mx → STOP.
 
 ![Schema logică pentru cel mai mare dintre două numere, blocurile folosite în ea și traseul datelor pentru trei perechi de valori.](fisiere/imagini/info-5-u5-l6-traseul-datelor.svg)
 

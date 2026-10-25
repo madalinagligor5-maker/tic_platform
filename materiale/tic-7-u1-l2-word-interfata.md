@@ -60,7 +60,7 @@ Un document Word se salvează cu extensia **.docx**.
 - **Aspect pagină** (*Print Layout*): vezi pagina așa cum se va tipări. Este modul obișnuit.
 - **Mod citire** (*Read Mode*): ecran curat, numai pentru citit.
 - **Aspect web**: documentul ca pagină web.
-- **Schiță** și **Schiță (Outline)**: pentru texte lungi.
+- **Schiță** (*Outline*) și **Ciornă** (*Draft*): pentru texte lungi.
 
 **Știai că…?** Prima versiune de Word a apărut în **1983**, pentru calculatoarele cu sistemul de operare MS-DOS.
 

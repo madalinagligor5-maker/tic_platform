@@ -49,7 +49,7 @@ Paint 3D, Tinkercad, Scratch, Toontastic, Alice, Pivot Animator, Unity, Autodesk
 
 ### Paint 3D
 
-**Paint 3D** este un editor grafic de la Microsoft, apărut odată cu Windows 10. Cu el creezi grafică **2D** și **3D**, transformi imagini 2D în 3D și faci **animații 3D**.
+**Paint 3D** este un editor grafic de la Microsoft, apărut în 2017, în Windows 10. Cu el creezi grafică **2D** și **3D**, transformi imagini 2D în 3D și faci **animații 3D**.
 
 > **Atenție:** Windows 11 nu mai include Paint 3D, iar din 2024 Microsoft nu îl mai oferă în Microsoft Store. Dacă nu îl ai deja pe calculator, poți folosi în loc **Tinkercad** (gratuit, online), unde găsești aceleași idei: forme 3D, mutare, rotire, redimensionare. Pentru un cont Tinkercad cere ajutorul profesorului.
 

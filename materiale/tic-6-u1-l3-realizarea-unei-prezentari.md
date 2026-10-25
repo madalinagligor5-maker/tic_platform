@@ -119,7 +119,7 @@ De ce prima apăsare pe Salvare deschide o fereastră, iar a doua nu?
 Ce combinație de taste adaugă un diapozitiv nou?
 - Ctrl + N
 * Ctrl + M
-- Ctrl + D
+- Ctrl + B
 ```
 
 ```adevarat-fals

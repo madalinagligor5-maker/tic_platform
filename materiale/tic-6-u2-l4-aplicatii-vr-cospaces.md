@@ -122,7 +122,7 @@ Share = distribuirea proiectului prin cod QR sau link
 
 ## Verifică-te
 
-- Ce ai nevoie ca să vezi un proiect în modul VR?
+- De ce ai nevoie ca să vezi un proiect în modul VR?
 - Care sunt cei șase pași ai unui proiect CoSpaces?
 
 ## Pe scurt

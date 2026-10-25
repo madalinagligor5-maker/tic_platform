@@ -25,7 +25,7 @@ F: În laboratorul de informatică poți lucra și fără profesor. | Accesul ș
 # Potrivește fiecare termen cu explicația lui.
 Calculator portabil: laptopul
 Dispozitiv de comunicare: telegraful
-Calculator personal: PC-ul
+Calculator personal de birou: desktopul
 Echipamente fizice: hardware-ul
 ```
 

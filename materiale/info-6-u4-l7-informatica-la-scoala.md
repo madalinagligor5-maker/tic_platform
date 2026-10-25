@@ -35,7 +35,7 @@ O prezentare în Scratch poate fi folosită la **orice materie**, ca alternativ�
 - **3**: **Poarta Sărutului**, din travertin, simbol al trecerii spre o altă viață;
 - **4**: motivul sărutului de pe stâlpii porții;
 - **5**: **Coloana fără Sfârșit**, o axă care susține cerul;
-- **6**: Coloana are **17 module** romboidale din fontă și două jumătăți de modul la capete;
+- **6**: Coloana are **15 module** romboidale întregi, din fontă, și două jumătăți de modul la capete;
 - **7**: **Grădina de piatră** din curtea casei Gănescu.
 
 **Personaje:** **Minizaurus** (spune comentariile), butonul **Înainte** și butonul **Înapoi**.
@@ -46,7 +46,7 @@ O prezentare în Scratch poate fi folosită la **orice materie**, ca alternativ�
 - **Înainte**: „decorul următor”. **Înapoi**: „decorul anterior”.
 - Minizaurus are câte un script pentru fiecare cadru: **„când decorul devine img3”** → spune comentariul.
 
-**O eroare și repararea ei:** dacă la un cadru Minizaurus are de spus **două** texte și treci repede la alt cadru, se amestecă textele: apare textul noului cadru, urmat de al doilea text de la cadrul vechi. **Soluția:** la începutul fiecărui script pui **„oprește (alte scripturi ale personajului)”**, ca să opriți tot ce era pornit înainte.
+**O eroare și repararea ei:** dacă la un cadru Minizaurus are de spus **două** texte și treci repede la alt cadru, se amestecă textele: apare textul noului cadru, urmat de al doilea text de la cadrul vechi. **Soluția:** la începutul fiecărui script pui **„oprește (alte scripturi ale personajului)”**, ca să oprești tot ce era pornit înainte.
 
 **Jocul butoanelor:**
 
@@ -73,7 +73,7 @@ O prezentare în Scratch poate fi folosită la **orice materie**, ca alternativ�
 
 ### C. Simulare: florile se închid noaptea
 
-Ce se poate folosi la **Științe** sau **Biologie**. **6 cadre** arată flori care se închid tot mai mult pe măsură ce se întunecă. La steagul verde se afișează cadrele **1, 2, …, 6**, cu o pauză între ele și un sunet de fundal. După cadrul 6, o nouă zi începe de la cadrul 1.
+Se poate folosi la **Științe** sau la **Biologie**. **6 cadre** arată flori care se închid tot mai mult pe măsură ce se întunecă. La steagul verde se afișează cadrele **1, 2, …, 6**, cu o pauză între ele și un sunet de fundal. După cadrul 6, o nouă zi începe de la cadrul 1.
 
 ```
 când se dă clic pe steagul verde

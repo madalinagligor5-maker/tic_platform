@@ -26,7 +26,7 @@ Până acum ai folosit sunetele din categoria **Sunet**. Acum vei compune muzic�
 
 Apeși **Adaugă o extensie** (jos, în stânga) și alegi **Muzică**. Primești blocuri noi:
 
-- **„setează instrumentul la (1) Pian”**: alegi instrumentul (pian, chitară, vioară, flaut, saxofon, tobe...);
+- **„setează instrumentul la (1) Pian”**: alegi instrumentul (pian, chitară, violoncel, flaut, saxofon, cor...);
 - **„cântă nota (60) pentru (0.25) bătăi”**: cânți o notă cu o durată;
 - **„pauză (0.25) bătăi”**: o pauză între note;
 - **„setează tempoul la ()”**: viteza cântecului.

@@ -107,6 +107,7 @@ Scriptul, pus la personajul **Prințesa**:
 
 ```
 când se dă clic pe steagul verde
+setează dimPas la 15
 setează nrPasi la 0
 repetă până când < atinge Urs? >
    mergi (dimPas) pași
@@ -161,7 +162,7 @@ Ce trebuie să se întâmple în interiorul unei structuri repetitive?
 
 ```categorii
 # Ce tip de structură repetitivă este?
-Condiționată anterior: test inițial, număr necunoscut de pași, poate avea zero iterații
+Condiționată anterior: test inițial, poate avea zero iterații
 Condiționată posterior: test final, cel puțin o iterație
 Cu contor: număr cunoscut de pași
 ```

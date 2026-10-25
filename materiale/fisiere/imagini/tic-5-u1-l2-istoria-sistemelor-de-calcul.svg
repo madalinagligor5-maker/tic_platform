@@ -47,7 +47,7 @@
       <text x="240" y="360" font-size="20" font-weight="800" fill="#0E7F96">1946</text>
       <text x="240" y="386" font-size="16" font-weight="800">ENIAC</text>
       <text x="240" y="412" font-size="13">primul calculator</text>
-      <text x="240" y="432" font-size="13">electronic, digital</text>
+      <text x="240" y="432" font-size="13">electronic de uz general</text>
 
       <rect x="400" y="330" width="200" height="130" rx="14" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
       <text x="500" y="360" font-size="20" font-weight="800" fill="#0E7F96">1984</text>
