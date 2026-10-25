@@ -6,14 +6,14 @@ categorie: aplicatii
 tip: lectie
 unitate: Unitatea 1 · Prezentări
 ordine: 102
-descriere: Pornirea PowerPoint, ecranul de start și fereastra aplicației: bara de titlu, panglica cu file, panoul de miniaturi, panoul de note și bara de status.
+descriere: Pornirea PowerPoint, ecranul de start și fereastra aplicației: bara de titlu, panglica cu file, panoul de miniaturi, panoul de note și bara de stare.
 data: 2026-10-15
 ---
 
 ## Ce vei învăța azi
 
 - să **pornești** PowerPoint și să alegi tipul de prezentare din **ecranul de start**;
-- să recunoști elementele **ferestrei**: bara de titlu, panglica, panourile, bara de status;
+- să recunoști elementele **ferestrei**: bara de titlu, panglica, panourile, bara de stare;
 - ce conține fiecare **filă** de pe panglică;
 - cum se salvează o prezentare (**.pptx**).
 
@@ -44,11 +44,11 @@ Dacă alegi prezentarea necompletată, se deschide **Prezentare1**, încă nesal
 
 ### Fereastra PowerPoint
 
-![Cele șase elemente ale ferestrei PowerPoint: bara de titlu, panglica, bara de status și panourile de miniaturi, de note și diapozitiv.](fisiere/imagini/tic-6-u1-l2-powerpoint-interfata.svg)
+![Cele șase elemente ale ferestrei PowerPoint: bara de titlu, panglica, bara de stare și panourile de miniaturi, de note și diapozitiv.](fisiere/imagini/tic-6-u1-l2-powerpoint-interfata.svg)
 
-1. **Bara de titlu**: numele fișierului, căutarea (**Alt + G**), contul Office și butoanele de minimizare, maximizare, închidere. În stânga are **Bara de acces rapid**: Salvare (**Ctrl + S**), Anulare (**Ctrl + Z**), Refacere (**Ctrl + Y**), Pornire de la început (**F5**).
+1. **Bara de titlu**: numele fișierului, caseta de căutare, contul Office și butoanele de minimizare, maximizare, închidere. În stânga are **Bara de acces rapid**: Salvare (**Ctrl + S**), Anulare (**Ctrl + Z**), Refacere (**Ctrl + Y**), Pornire de la început (**F5**).
 2. **Panglica** (*Ribbon*): comenzile, grupate pe **file** (*tabs*).
-3. **Bara de status**: jos, cu numărul diapozitivului curent, limba, butonul **Note**, modurile de vizualizare și panoramarea (zoom).
+3. **Bara de stare**: jos, cu numărul diapozitivului curent, limba, butonul **Note**, modurile de vizualizare și panoramarea (zoom).
 4. **Panoul de miniaturi**: în stânga, câte o imagine mică pentru fiecare diapozitiv. Clic pe una și o editezi.
 5. **Panoul de note**: notele tale pentru diapozitivul curent. **Publicul nu le vede.**
 6. **Panoul diapozitiv**: zona mare din centru, unde lucrezi efectiv.
@@ -81,7 +81,7 @@ Dacă alegi prezentarea necompletată, se deschide **Prezentare1**, încă nesal
 
 **Sarcina:** vrei să vezi toate diapozitivele odată, ca să le schimbi ordinea.
 
-1. Te uiți jos, pe **bara de status**, la zona cu modurile de vizualizare.
+1. Te uiți jos, pe **bara de stare**, la zona cu modurile de vizualizare.
 2. Alegi **Sortare diapozitive** (*Slide Sorter*). Același mod îl găsești și în fila **Vizualizare**.
 3. Toate diapozitivele apar ca miniaturi mari, unul lângă altul.
 4. Ca să revii la editare, alegi din nou **Normal**.
@@ -118,7 +118,7 @@ Ce tastă pornește expunerea de la început?
 ```adevarat-fals
 A: Notele asociate unui diapozitiv nu sunt văzute de public în timpul expunerii.
 F: Panglica PowerPoint are o filă numită Încărcare. | Nu există o astfel de filă; există Fișier, Pornire, Inserare etc.
-A: Pe bara de status apare numărul de diapozitive din prezentare.
+A: Pe bara de stare apare numărul de diapozitive din prezentare.
 A: Bara de acces rapid poate primi și alte comenzi, alese de tine.
 ```
 
@@ -128,14 +128,14 @@ Ctrl + S = Salvare
 Ctrl + Z = Anularea ultimei acțiuni
 Ctrl + Y = Refacerea acțiunii anulate
 F5 = Pornirea expunerii de la început
-Alt + G = Căutare în aplicație
+Ctrl + M = Diapozitiv nou
 ```
 
 ## Exersează
 
 1. Deschide PowerPoint și creează o prezentare necompletată. Închide-o, apoi creează una dintr-un **șablon**. Ce diferențe observi?
 2. Parcurge toate filele și privește grupurile de comenzi.
-3. Apasă butonul **Note** de pe bara de status. Apasă-l încă o dată. Ce se întâmplă?
+3. Apasă butonul **Note** de pe bara de stare. Apasă-l încă o dată. Ce se întâmplă?
 4. Modifică afișarea panglicii astfel încât să se vadă **doar filele**, fără comenzi.
 5. Adaugă în **Bara de acces rapid** butonul **Imprimare rapidă**.
 6. Micșorează fereastra PowerPoint. Cum se schimbă grupurile de comenzi de pe panglică?
@@ -148,4 +148,4 @@ Alt + G = Căutare în aplicație
 
 ## Pe scurt
 
-PowerPoint salvează prezentările ca **.pptx**. Fereastra are **bara de titlu** (cu Bara de acces rapid), **panglica** cu file, **panoul de miniaturi**, **panoul diapozitiv**, **panoul de note** și **bara de status**. Fiecare filă grupează comenzi pentru un tip de activitate: **Inserare** pentru conținut, **Proiectare** pentru aspect, **Tranziții** și **Animații** pentru efecte.
+PowerPoint salvează prezentările ca **.pptx**. Fereastra are **bara de titlu** (cu Bara de acces rapid), **panglica** cu file, **panoul de miniaturi**, **panoul diapozitiv**, **panoul de note** și **bara de stare**. Fiecare filă grupează comenzi pentru un tip de activitate: **Inserare** pentru conținut, **Proiectare** pentru aspect, **Tranziții** și **Animații** pentru efecte.

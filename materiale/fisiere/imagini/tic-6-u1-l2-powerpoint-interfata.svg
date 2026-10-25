@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
-  <title id="t">Fereastra unei aplicații de prezentare: bara de titlu, panglica, bara de status, panoul de miniaturi, panoul de note și panoul diapozitiv</title>
+  <title id="t">Fereastra unei aplicații de prezentare: bara de titlu, panglica, bara de stare, panoul de miniaturi, panoul de note și panoul diapozitiv</title>
   <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
   <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
     <!-- fereastra -->
@@ -56,7 +56,7 @@
     <!-- note -->
     <path d="M150 388H642" stroke="#E8DFD3" stroke-width="2"/>
     <text x="166" y="414" font-size="13" fill="#6B6460">Faceți clic pentru a adăuga note</text>
-    <!-- bara de status -->
+    <!-- bara de stare -->
     <rect x="38" y="470" width="604" height="32" fill="#F1E9DF"/>
     <rect x="38" y="490" width="604" height="12" rx="10" fill="#F1E9DF"/>
     <text x="50" y="491" font-size="13">Diapozitiv 1 din 3</text>
@@ -82,7 +82,7 @@
       <circle cx="686" cy="136" r="14" fill="#C8133A"/><text x="686" y="141" text-anchor="middle" font-weight="800" fill="#FFFFFF">2</text>
       <text x="710" y="134" font-weight="800">Panglica</text><text x="710" y="154" font-size="13" fill="#6B6460">comenzile, grupate pe file</text>
       <circle cx="686" cy="208" r="14" fill="#C8133A"/><text x="686" y="213" text-anchor="middle" font-weight="800" fill="#FFFFFF">3</text>
-      <text x="710" y="206" font-weight="800">Bara de status</text><text x="710" y="226" font-size="13" fill="#6B6460">nr. diapozitivului, Note, zoom</text>
+      <text x="710" y="206" font-weight="800">Bara de stare</text><text x="710" y="226" font-size="13" fill="#6B6460">nr. diapozitivului, Note, zoom</text>
       <circle cx="686" cy="280" r="14" fill="#C8133A"/><text x="686" y="285" text-anchor="middle" font-weight="800" fill="#FFFFFF">4</text>
       <text x="710" y="278" font-weight="800">Panoul de miniaturi</text><text x="710" y="298" font-size="13" fill="#6B6460">câte o imagine mică pe diapozitiv</text>
       <circle cx="686" cy="352" r="14" fill="#C8133A"/><text x="686" y="357" text-anchor="middle" font-weight="800" fill="#FFFFFF">5</text>
