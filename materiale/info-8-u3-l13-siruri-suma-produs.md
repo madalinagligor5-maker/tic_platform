@@ -142,8 +142,7 @@ int x, s = 0, k = 0;
 cin >> x;
 while (x != 0)
 {
-s = s + x;
-k++;
+s = s + x; k++;
 cin >> x;
 }
 if (k > 0) cout << (double)s / k;

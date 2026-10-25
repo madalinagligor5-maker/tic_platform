@@ -97,7 +97,7 @@ else
 
 ```categorii
 # Ce condiție C++ corespunde?
-n % 2 == 1: n este impar
+n % 2 == 1: n (natural) este impar
 n % 3 == 0 && n % 5 == 0: n se divide cu 15
 n >= 100 && n <= 999: n are trei cifre
 x < 1 || x > 10: x nu este între 1 și 10

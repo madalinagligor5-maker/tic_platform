@@ -145,6 +145,7 @@ Ce se întâmplă într-un switch dacă lipsește break?
 # Ce tip are triunghiul cu laturile a, b, c?
 Echilateral: a == b && b == c
 Isoscel: a == b || b == c || a == c
+Oarecare: a != b && b != c && a != c
 ```
 
 ```ordonare
@@ -175,7 +176,7 @@ Pentru ecuația 2x - 8 = 0, adică a = 2 și b = -8, programul afișează x = [4
 2. Citește trei numere și afișează-le în ordine **crescătoare**.
 3. Citește trei lungimi și verifică dacă pot fi laturile unui **triunghi** (fiecare latură mai mică decât suma celorlalte); dacă da, afișează tipul: echilateral, isoscel sau oarecare.
 4. Citește numărul lunii (1–12) și afișează **anotimpul**, cu switch.
-5. Citește o temperatură și afișează „Ger” (sub 0), „Frig” (0–10), „Plăcut” (11–25) sau „Cald” (peste 25).
+5. Citește o temperatură (număr întreg) și afișează „Ger” (sub 0), „Frig” (0–10), „Plăcut” (11–25) sau „Cald” (peste 25).
 6. **Portofoliu:** un **calculator**: citește două numere și un caracter (`+`, `-`, `*`, `/`) și afișează rezultatul; la împărțirea cu 0, un mesaj de eroare.
 
 ## Verifică-te

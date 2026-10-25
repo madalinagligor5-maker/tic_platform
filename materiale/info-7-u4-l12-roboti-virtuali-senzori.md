@@ -49,7 +49,7 @@ Exemple: robotul aspirator, brațele robotice din fabrici, roverele de pe Marte,
 
 **VEXcode VR** (vr.vex.com) este un mediu **gratuit, online**, în care programezi un **robot virtual** pe diferite **terenuri** (*playgrounds*): labirint, grilă cu numere, teren cu linii, cu discuri colorate.
 
-- În stânga: **blocurile** (ca în Scratch) sau editorul de text (**Python** sau **C++** în VEXcode V5).
+- În stânga: **blocurile** (ca în Scratch) sau editorul de text, în **Python**. Pentru roboții VEX reali, mediul **VEXcode V5** permite și **C++**.
 - În dreapta: **fereastra terenului**, cu butonul **Start**.
 - **Monitorul** arată valorile senzorilor în timp ce robotul merge.
 
@@ -71,7 +71,7 @@ Comenzi des folosite:
 - **repetitivă condiționată**: `repeat until` (distanța < 50 mm) mergi înainte;
 - **decizie**: `if` (culoarea e roșie) atunci întoarce-te, altfel continuă.
 
-Același program, scris ca în C++ (VEXcode V5):
+Un program care ocolește obstacolele, scris în C++ ca în VEXcode V5 (robotul merge înainte, iar când peretele e mai aproape de 100 mm se oprește și se rotește):
 
 ```cpp
 while (true)                                  // repetă la nesfârșit
@@ -116,7 +116,7 @@ Giroscop: se rotește exact 90 de grade
 ```quiz
 # Alege răspunsul corect.
 Ce face robotul cu programul: repetă de 4 ori (înainte 300 mm, dreapta 90°)?
-* desenează un pătrat și ajunge în punctul de plecare
+* parcurge un pătrat și ajunge în punctul de plecare
 - merge în linie dreaptă 1200 mm
 - se rotește pe loc
 

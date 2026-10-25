@@ -93,7 +93,7 @@ Un robot real nu e perfect: roțile alunecă, senzorii au mici erori. De aceea s
 
 ## Exemplu rezolvat: robotul de pază
 
-Pe terenul **Wall Maze**, robotul patrulează: merge înainte, iar la fiecare perete se întoarce și numără câte ture a făcut. După 4 întoarceri se oprește și afișează mesajul.
+Pe terenul **Wall Maze**, robotul patrulează: merge înainte, iar la fiecare perete se întoarce și numără de câte ori s-a întors. După 4 întoarceri se oprește și afișează mesajul.
 
 ```text
 ture ← 0

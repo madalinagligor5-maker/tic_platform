@@ -158,21 +158,21 @@ Ce valoare are s pentru n = 506, după bucla care adună cifrele?
 ```
 
 ```ordonare
-# Ordonează programul care numără cifrele lui n
-int n, nr = 0;
+# Ordonează programul care calculează suma cifrelor lui n
+int n, s = 0;
 cin >> n;
 while (n != 0)
 {
-nr++;
+s = s + n % 10;
 n = n / 10;
 }
-cout << nr;
+cout << s;
 ```
 
 ```adevarat-fals
 A: La while, condiția se verifică înainte de fiecare iterație.
 A: Dacă la început condiția e falsă, instrucțiunile din while nu se execută niciodată.
-F: Bucla while (x > 0) cout << x; se oprește singură. | x nu se modifică, deci bucla este infinită.
+F: Pentru x = 3, bucla while (x > 0) cout << x; se oprește singură. | x nu se modifică, deci bucla este infinită.
 F: Oglinditul lui 120 este 021. | Este 21; zerourile din față nu se scriu.
 ```
 

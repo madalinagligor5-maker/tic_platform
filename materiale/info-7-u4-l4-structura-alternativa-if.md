@@ -158,7 +158,7 @@ F: Expresia 1 <= x <= 10 verifică în C++ dacă x este între 1 și 10. | Se sc
 
 ```completare
 # Completează programul care afișează valoarea absolută a lui x.
-if (x [<] 0) x = -x; cout << x;
+if (x [<|<=] 0) x = -x; cout << x;
 ```
 
 ## Exersează

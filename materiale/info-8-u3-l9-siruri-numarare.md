@@ -6,7 +6,7 @@ categorie: algoritmi
 tip: lectie
 unitate: Unitatea 3 · Algoritmi
 ordine: 309
-descriere: Algoritmul de numărare cu un contor, numărarea simultană după mai multe condiții, procente și frecvențe, numărarea perechilor de elemente vecine și a secvențelor, cu exemple din statistica clasei.
+descriere: Algoritmul de numărare cu un contor, numărarea simultană după mai multe condiții, procente și frecvențe, numărarea perechilor de elemente vecine, cu exemple din statistica clasei.
 data: 2026-10-16
 ---
 

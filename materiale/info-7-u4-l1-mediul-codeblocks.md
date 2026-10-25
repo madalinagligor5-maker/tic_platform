@@ -138,7 +138,7 @@ Ce extensie are fișierul cu codul sursă C++?
 ```adevarat-fals
 A: Code::Blocks este un mediu de dezvoltare gratuit.
 F: Calculatorul înțelege direct textul scris în C++. | Codul trebuie tradus de compilator în cod mașină.
-A: Fiecare instrucțiune C++ se termină cu punct și virgulă.
+A: Instrucțiunile `cout` și `return 0` se termină cu punct și virgulă.
 F: Dacă programul are erori, compilatorul face oricum executabilul. | Întâi trebuie corectate erorile.
 ```
 
