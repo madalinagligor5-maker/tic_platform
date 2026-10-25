@@ -84,7 +84,7 @@ Copiezi linkul și îl trimiți
 
 ```completare
 # 3. Completează.
-În adresa https://www.muzeu.ro/expozitii, protocolul este [https], iar domeniul este [www.muzeu.ro]. Paginile web sunt scrise în limbajul [HTML].
+În adresa https://www.muzeu.ro/expozitii, protocolul este [https|https://], iar domeniul este [www.muzeu.ro|muzeu.ro]. Paginile web sunt scrise în limbajul [HTML].
 ```
 
 **Cum te apreciezi?** 40 p · 70 p · 100 p. Scrie în caiet cum te simți: nemulțumit, mulțumit sau încântat.

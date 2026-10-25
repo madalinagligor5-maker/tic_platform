@@ -73,7 +73,7 @@ Cerințe:
 ```
 
 ```calcul-tabelar
-# Notele lui Andrei la TIC. Calculează media, nota minimă și nota maximă.
+# Notele lui Andrei. Calculează media, nota minimă și nota maximă.
 Date:
 Disciplina;Nota 1;Nota 2;Nota 3;Media
 TIC;9;10;8
@@ -131,4 +131,4 @@ $B$1 = Adresă absolută (nu se schimbă la copiere)
 
 ## Exersează liber
 
-În **Laborator → Foaie de calcul** ai o foaie goală în care poți face orice tabel, apoi îl poți descărca (CSV) și deschide în Excel.
+În **Laborator → Registru** ai o foaie goală în care poți face orice tabel, apoi îl poți descărca (.xlsx sau CSV) și deschide în Excel.

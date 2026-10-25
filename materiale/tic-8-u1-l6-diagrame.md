@@ -61,7 +61,7 @@ Când selectezi diagrama, apare butonul **+** (elemente), **pensula** (stiluri �
 
 - **Reguli de evidențiere**: de exemplu, notele mai mici decât 5 cu **roșu**;
 - **Bare de date**: o bară colorată în fiecare celulă, proporțională cu valoarea;
-- **Scale de culori**: de la verde (mare) la roșu (mic).
+- **Scale de culori**: de exemplu, de la verde (mare) la roșu (mic).
 
 ## Exemplu rezolvat: temperaturile din Cluj-Napoca
 
@@ -73,7 +73,7 @@ Când selectezi diagrama, apare butonul **+** (elemente), **pensula** (stiluri �
 2. **Inserare → Linie cu marcaje**: se vede cum crește temperatura.
 3. Titlul: „Temperaturi medii în Cluj-Napoca”; titlul axei verticale: „°C”.
 4. Adaugi **etichete de date** din butonul **+**.
-5. Pe celulele cu temperaturi aplici **Scale de culori**: lunile reci apar albastru, cele calde roșu.
+5. Pe celulele cu temperaturi aplici o **scală de culori** roșu – alb – albastru: lunile reci apar albastru, cele calde roșu.
 6. Schimbi temperatura din iunie în 19: linia se modifică automat.
 
 ## Aplicații interactive
@@ -109,8 +109,8 @@ Ce se întâmplă cu diagrama dacă modifici o valoare din tabel?
 Scrii activitățile și orele în două coloane
 Selectezi tabelul cu tot cu etichete
 Apeși Inserare și alegi diagrama radială
-Adaugi titlul diagramei
-Adaugi etichete de date cu procente
+Adaugi titlul diagramei și etichetele de date cu procente
+Salvezi registrul
 ```
 
 ```adevarat-fals

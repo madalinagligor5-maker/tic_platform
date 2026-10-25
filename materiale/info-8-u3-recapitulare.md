@@ -82,7 +82,7 @@ cout << k;
 
 ```quiz
 # 2. Alege răspunsul corect.
-Ce afișează pentru șirul 3 9 9 2? cin >> n >> ant; ok = 1; for (i = 2; i <= n; i++) { cin >> x; if (x < ant) ok = 0; ant = x; } cout << ok;
+Ce afișează pentru n = 4 și șirul 3 9 9 2? cin >> n >> ant; ok = 1; for (i = 2; i <= n; i++) { cin >> x; if (x < ant) ok = 0; ant = x; } cout << ok;
 * 0
 - 1
 - 9

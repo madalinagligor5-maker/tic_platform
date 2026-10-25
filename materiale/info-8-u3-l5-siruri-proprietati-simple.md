@@ -62,7 +62,7 @@ Metoda 2 face **mai puțini pași**: pentru primii 10 multipli ai lui 7 sunt 10 
 
 ### Primii n termeni sau termenii până la o limită?
 
-- „Afișează **primii n** numere pare”: număr cunoscut de termeni → `for` cu i de la 1 la n.
+- „Afișează **primele n** numere pare”: număr cunoscut de termeni → `for` cu i de la 1 la n.
 - „Afișează numerele pare **mai mici decât n**”: limita e valoarea → `for (x = 2; x < n; x = x + 2)` sau `while`.
 
 ## Exemplu rezolvat: numerele care se termină în 3

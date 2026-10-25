@@ -168,7 +168,7 @@ A: Mai multe contoare pot fi actualizate în aceeași parcurgere a șirului.
 2. Citește numere până la 0 și afișează câte sunt prime.
 3. Citește n numere și afișează câte sunt mai mari decât **primul** element.
 4. Citește n temperaturi și afișează în câte zile a fost mai cald decât în ziua anterioară.
-5. Citește n numere și afișează câte sunt pare, câte impare și procentul fiecăror.
+5. Citește n numere și afișează câte sunt pare, câte impare și procentul fiecărei categorii.
 6. **Portofoliu:** „Sondajul clasei”: fiecare elev votează un sport (1 = fotbal, 2 = baschet, 3 = volei, 4 = înot); se citesc voturile până la 0. Afișează numărul de voturi și procentul pentru fiecare sport și sportul câștigător.
 
 ## Verifică-te

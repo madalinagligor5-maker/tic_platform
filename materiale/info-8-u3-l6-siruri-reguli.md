@@ -46,7 +46,7 @@ Fiecare termen se obține **înmulțind** cu același număr **q**: 3, 6, 12, 24
 
 ### Șirul lui Fibonacci
 
-Fiecare termen este **suma celor doi dinainte**: 1, 1, 2, 3, 5, 8, 13… Ai nevoie de **două** variabile:
+Fiecare termen este **suma celor doi dinainte**: 1, 1, 2, 3, 5, 8, 13… Ai nevoie de **două** variabile pentru ultimii doi termeni (a și b) și de una pentru termenul nou (c):
 
 ```cpp
 int a = 1, b = 1, c;

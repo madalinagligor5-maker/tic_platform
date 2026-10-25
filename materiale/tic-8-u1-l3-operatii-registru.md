@@ -85,10 +85,10 @@ Tragi de **pătrățelul** din colțul dreapta jos al celulei active:
 
 ```ordonare
 # Cum creezi seria 10, 20, 30 … 100 în coloana A
-Scrii 10 în A1
-Scrii 20 în A2
+Scrii 10 în A1 și 20 în A2
 Selectezi A1 și A2
 Tragi de mânerul de umplere până la A10
+Eliberezi butonul mouse-ului: seria se completează până la 100
 ```
 
 ```quiz

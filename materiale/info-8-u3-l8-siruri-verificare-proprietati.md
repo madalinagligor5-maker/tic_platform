@@ -103,9 +103,9 @@ Pentru `6` și `4 7 9 13 1 2`: afișează **7 (pozitia 2)**, **13 (pozitia 4)**,
 
 ```categorii
 # Care numere au proprietatea?
-Palindrom: 121, 7, 4554
-Prim: 2, 17, 31
-Pătrat perfect: 1, 49, 100
+Palindrom: 252, 1221, 4554
+Prim: 13, 17, 31
+Pătrat perfect: 16, 49, 100
 ```
 
 ```quiz

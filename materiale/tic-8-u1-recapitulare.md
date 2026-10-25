@@ -53,7 +53,7 @@ Realizează registrul `Magazin.xlsx`:
 
 1. Tabelul cu 8 produse: denumire, preț, cantitate vândută luni, marți și miercuri.
 2. Coloana **Total bucăți** (SUM) și coloana **Încasări** (preț × total bucăți), formatată ca monedă.
-3. Sub tabel: încasările totale, produsul cel mai vândut (MAX), câte produse au vândut peste 20 de bucăți (COUNTIF).
+3. Sub tabel: încasările totale, cel mai mare număr de bucăți vândute dintr-un produs (MAX), câte produse au vândut peste 20 de bucăți (COUNTIF).
 4. O coloană „Stoc” cu IF: „Comandă” dacă s-au vândut peste 30 de bucăți, altfel „OK”.
 5. Formatare: titlu îmbinat, borduri, culori, formatare condiționată pe încasări.
 6. O diagramă cu coloane cu încasările pe produse.
@@ -64,8 +64,8 @@ Timp: 15 minute. Fiecare aplicație valorează 30 de puncte, plus 10 puncte din 
 
 ```categorii
 # 1. Ce scrii în celulă?
-Formulă: =B2*C2, =(A1+A2)/2
-Funcție: =SUM(B2:B9), =MAX(E2:E9)
+Formulă doar cu operatori: =B2*C2, =(A1+A2)/2
+Formulă cu funcție: =SUM(B2:B9), =MAX(E2:E9)
 Valoare: 125, Popescu Ana
 ```
 
@@ -75,7 +75,6 @@ Selectezi datele cu etichete
 Deschizi fila Inserare
 Alegi tipul diagramei
 Scrii titlul diagramei
-Adaugi etichetele de date
 ```
 
 ```completare

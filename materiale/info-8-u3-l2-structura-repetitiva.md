@@ -46,7 +46,7 @@ for (int i = 1; i <= n; i++)       int i = 1;
     cout << i;                      while (i <= n) { cout << i; i++; }
 ```
 
-Orice for se poate scrie cu while; un while se poate scrie cu for doar dacă îi cunoaștem numărul de pași.
+Orice for se poate scrie cu while; un while se poate scrie ca un for cu contor (ca structura „pentru” din pseudocod) doar dacă îi cunoaștem numărul de pași.
 
 ### Algoritmi clasici
 

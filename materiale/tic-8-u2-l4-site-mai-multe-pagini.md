@@ -58,7 +58,7 @@ Acasă
 
 ### Încorporarea conținutului
 
-Din **Inserare** adaugi direct din Drive: **Documente**, **Prezentări**, **Foi de calcul** (de exemplu, un tabel Excel urcat în Drive), **Diagrame**, **Formulare** (un chestionar sau o înscriere), **Calendar**, **YouTube**, **Hartă**. Când modifici documentul original, se actualizează și pe site.
+Din **Inserare** adaugi direct din Drive: **Documente**, **Prezentări**, **Foi de calcul** (de exemplu, un tabel Excel urcat în Drive și deschis cu Foi de calcul Google), **Diagrame**, **Formulare** (un chestionar sau o înscriere), **Calendar**, **YouTube**, **Hartă**. Când modifici documentul original, se actualizează și pe site.
 
 ### Lucrul colaborativ
 

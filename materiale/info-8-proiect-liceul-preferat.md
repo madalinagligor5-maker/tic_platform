@@ -28,7 +28,7 @@ Căutați pe site-ul liceului și pe site-urile oficiale (inspectoratul școlar,
 
 ### 2. Registrul Excel `Liceul_nostru.xlsx`
 
-- Foaia **„Specializări”**: specializarea, numărul de locuri, ultima medie de admitere în ultimii 3 ani.
+- Foaia **„Specializări”**: specializarea, numărul de locuri, ultima medie de admitere din fiecare dintre ultimii 3 ani.
 - Formule și funcții: totalul locurilor (SUM), media ultimelor medii (AVERAGE), cea mai mare și cea mai mică medie (MAX, MIN), câte specializări au media peste 9 (COUNTIF), o coloană cu IF: „Foarte căutată” sau „Accesibilă”.
 - Formatare: titlu îmbinat, borduri, formatare condiționată.
 - Două **diagrame**: locurile pe specializări (coloane) și evoluția mediei la o specializare în 3 ani (linie).
@@ -117,9 +117,9 @@ Ce faci după ultima modificare a site-ului?
 # Etapele proiectului
 Vă documentați și notați sursele
 Realizați registrul Excel cu diagrame
-Desenați harta site-ului
-Construiți și publicați site-ul
-Scrieți și testați programul C++
+Construiți paginile site-ului și încorporați foaia de calcul
+Verificați legăturile dintre pagini
+Publicați site-ul
 Prezentați proiectul colegilor
 ```
 

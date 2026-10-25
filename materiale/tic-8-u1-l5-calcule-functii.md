@@ -55,7 +55,7 @@ Exemplu: `=IF(E2>=5;"Promovat";"Corigent")`. Textele se scriu între **ghilimele
 
 ### Cum inserezi o funcție
 
-- butonul **AutoSum** (Σ, din **Pornire** sau **Formule**): Excel propune singur zona; săgeata de lângă el oferă **Medie**, **Contorizare numere**, **Max**, **Min**;
+- butonul **AutoSum** (Σ, **Însumare automată**, din **Pornire** sau **Formule**): Excel propune singur zona; săgeata de lângă el oferă **Medie**, **Contorizare numere**, **Max**, **Min**;
 - butonul **fx** de lângă bara de formule: cauți funcția și completezi argumentele într-o fereastră;
 - scrii direct `=` și primele litere: Excel îți arată o **listă** de funcții.
 
