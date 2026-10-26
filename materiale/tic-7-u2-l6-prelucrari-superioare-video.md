@@ -10,6 +10,8 @@ descriere: Efecte video (culoare, alb-negru, sepia), viteză și încetinitorul,
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
+
 ## Ce vei învăța azi
 
 - să aplici **efecte video**: culoare, luminozitate, alb-negru, sepia;
@@ -102,6 +104,13 @@ Ce faci înainte să filmezi?
 A: Pentru imagine în imagine pui un clip pe o a doua pistă video, micșorat.
 F: La ecranul verde, persoana filmată trebuie să poarte haine verzi. | Hainele verzi ar deveni și ele transparente.
 A: Narațiunea apare pe o pistă audio separată.
+```
+
+```eseu
+# Nivel avansat: proiectul unui film după cerință.
+Cerința: un film de 60–90 de secunde, „Un obicei sănătos”, pentru colegii de clasa a V-a. Scrie scenariul pe cadre (ce se vede, textul sau narațiunea, durata fiecărui cadru), ce surse folosești (filmări, fotografii, muzică, narațiune), ce efecte și tranziții alegi și de ce, apoi cum verifici că filmul respectă durata și publicul cerut. Realizează filmul în VideoPad sau Clipchamp și exportă-l ca MP4.
+Cuvinte: 60-180
+Barem: scenariu cu cel puțin 5 cadre, fiecare cu imagine, text sau narațiune și durată, care însumează 60–90 s; surse variate (cel puțin video sau imagini, muzică și narațiune), proprii sau libere de drepturi, menționate în generic; efecte și tranziții puține, justificate prin mesaj și public; titlu, generic și export MP4; respectarea acordului persoanelor filmate.
 ```
 
 ## Exersează

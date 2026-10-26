@@ -10,6 +10,8 @@ descriere: Tipuri de date (număr, text, dată, procent, monedă), formatarea ce
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
+
 ## Ce vei învăța azi
 
 - ce **tipuri de date** poate conține o celulă;
@@ -34,7 +36,13 @@ Bara de formule arată **conținutul real** al celulei. Mânerul de umplere copi
 | **Procent** | 25% | dreapta |
 | **Monedă** | 12,50 lei | dreapta |
 
-În setările românești, separatorul zecimal este **virgula**: 3,75. Dacă un număr apare aliniat la **stânga**, Excel l-a luat drept text (de exemplu, ai scris 3.75 cu punct).
+Acestea sunt **tipurile implicite**: nu alegi tu tipul, ci aplicația îl **recunoaște singură** după ce scrii în celulă, iar alinierea îți arată ce a înțeles:
+
+- **numerele** (inclusiv datele, procentele și sumele de bani) se aliniază la **dreapta** și se pot folosi în calcule;
+- **textul** se aliniază la **stânga** și nu intră în calcule;
+- o **dată** scrisă corect (16.10.2026 sau 16/10/2026) e păstrată de fapt ca un număr de zile, așa că poți face calcule cu ea: `=B2-A2` dă numărul de zile dintre două date.
+
+În setările românești, separatorul zecimal este **virgula**: 3,75. Dacă un număr apare aliniat la **stânga**, Excel l-a luat drept text (de exemplu, ai scris 3.75 cu punct). Dacă vrei ca un număr să fie păstrat ca **text** (un număr de telefon care începe cu 0, de exemplu), scrii un apostrof în fața lui: `'0745123456`.
 
 ### Formatarea celulelor (fila Pornire)
 
@@ -126,11 +134,36 @@ Dată: 16.10.2026
 Procent: 25%
 ```
 
+```categorii
+# Cum se aliniază implicit, după ce apeși Enter?
+La dreapta (număr): 125, -7, 16.10.2026, 25%
+La stânga (text): Clasa 8A, Popescu Ana, 3.75 scris cu punct
+```
+
+```calcul-tabelar
+# Chioșcul școlii. Scrie formule cu operatori aritmetici (fără funcții) și formatează tabelul.
+Date:
+Produs;Preț (lei);Cantitate;Valoare;Cu reducere 10%
+Suc;6;12
+Covrig;2,5;30
+Apă;3;20
+Cerințe:
+- D2:D4: =B2*C2 | În D2:D4, valoarea (preț × cantitate), cu formula =B2*C2
+- E2:E4: =D2-D2*10/100 | În E2:E4, valoarea după o reducere de 10%: din valoare scazi 10% din ea, de exemplu =D2-D2*10/100
+- D5: =D2+D3+D4 | În D5, totalul valorilor, adunând cu +
+- E5: =E2+E3+E4 | În E5, totalul cu reducere
+- D2:E5: 2 zecimale | Valorile din D2:E5 au 2 zecimale
+- A1:E1: aldin | Capul de tabel este aldin
+- A1:E1: centrat | Capul de tabel este centrat
+```
+
 ```adevarat-fals
 A: Formatarea ca procent schimbă doar aspectul: 0,25 apare ca 25%.
 F: O formulă cu numere scrise direct se recalculează când schimbi datele din tabel. | Doar formulele cu adrese de celule se recalculează.
 A: Tasta F4 adaugă semnele $ într-o adresă.
 A: Îmbinare și centrare unește mai multe celule într-una singură.
+A: Un număr aliniat la stânga a fost recunoscut ca text și nu intră în calcule.
+F: Tipul de date al unei celule trebuie ales întotdeauna înainte de a scrie în ea. | Aplicația recunoaște singură tipul (tip implicit) după ce scrii.
 ```
 
 ```completare

@@ -10,6 +10,8 @@ descriere: Ciclul percepe – decide – acționează, algoritmi pentru roboți:
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2
+
 ## Ce vei învăța azi
 
 - cum funcționează un robot după ciclul **percepe – decide – acționează**;

@@ -10,6 +10,8 @@ descriere: Pornirea aplicației Word, ecranul de start și elementele ferestrei:
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1
+
 ## Ce vei învăța azi
 
 - să **pornești** Word și să creezi un **document necompletat**;

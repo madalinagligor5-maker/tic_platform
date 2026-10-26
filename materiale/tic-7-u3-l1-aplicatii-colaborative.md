@@ -10,12 +10,15 @@ descriere: Ce înseamnă lucrul colaborativ online, cloud-ul și stocarea în no
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.3
+
 ## Ce vei învăța azi
 
 - ce este o **aplicație colaborativă** și ce înseamnă **cloud**;
 - să dai exemple de aplicații colaborative;
 - ce **drepturi** poți da când **partajezi** un fișier;
-- cum se lucrează **corect** într-o echipă online.
+- cum îți **protejezi** contul și documentele online;
+- ce reguli de **etică** respecți când lucrezi într-o echipă online.
 
 ## Să ne amintim
 
@@ -64,6 +67,33 @@ Poți partaja cu **anumite persoane** (după adresa de e-mail) sau printr-un **l
 ### Istoricul versiunilor
 
 Aplicația **salvează automat** și păstrează **istoricul versiunilor**: vezi cine ce a modificat și poți **reveni** la o variantă mai veche, dacă cineva a șters din greșeală o parte.
+
+### Protecția în mediul online când lucrezi în echipă
+
+**Protejează-ți contul:**
+
+- o **parolă puternică** (cel puțin 12 caractere, litere mari și mici, cifre, simboluri), pe care **nu o spui** nimănui, nici celui mai bun prieten;
+- activează **verificarea în doi pași** (un cod primit pe telefon), dacă școala sau părinții îți permit;
+- pe un calculator al școlii sau al altcuiva, la final apeși **Deconectare** (*Sign out*) și **nu** bifezi „Ține-mă minte”;
+- nu dai clic pe linkuri de „partajare” primite de la necunoscuți: pot fi **înșelătorii** (*phishing*) care îți cer parola.
+
+**Protejează fișierul, cu permisiunile de partajare:**
+
+- **Proprietarul** (*Owner*) este cel care a creat fișierul: doar el îl poate șterge definitiv și poate schimba orice drept;
+- **Acces general**: alegi **Restricționat** (intră doar persoanele adăugate de tine) în loc de „Oricine are linkul”;
+- dai **cel mai mic drept necesar**: părinții și publicul doar **vizualizează**, profesorul **comentează**, colegii din echipă **editează**;
+- la vizualizatori și comentatori poți **dezactiva descărcarea, tipărirea și copierea** (din setările de partajare, rotița ⚙);
+- la final de proiect **elimini accesul** celor care nu mai au nevoie de el sau le schimbi dreptul în **Vizualizator**;
+- nu pui în documente comune **date personale**: adresa, numărul de telefon, parole, fotografii cu alte persoane fără acordul lor.
+
+### Etica în lucrul colaborativ
+
+- **Respecți munca altora**: nu ștergi și nu rescrii partea unui coleg fără acordul lui; propui schimbări prin **comentarii** sau în modul **Sugestii**.
+- **Fiecare își face partea**: nu te bazezi pe munca celorlalți și nu îți asumi meritele lor. Istoricul versiunilor arată cine ce a scris.
+- **Spui de unde ai luat informațiile**: nu copiezi texte de pe internet ca și cum ar fi ale tale (**plagiat**); scrii **sursa** textelor și a imaginilor și folosești imagini cu licență liberă.
+- **Comunici politicos**: critici ideea, nu persoana; nu scrii jigniri și nu râzi de greșelile altora în comentarii (asta ar fi **hărțuire online**, *cyberbullying*).
+- **Nu distribui mai departe** un fișier primit fără permisiunea proprietarului.
+- **Spui unui adult** (profesor, părinte) dacă cineva strică intenționat documentul sau scrie mesaje urâte.
 
 ### Reguli de lucru în echipă
 
@@ -123,6 +153,46 @@ Stocare locală: hard disk, stick USB, card de memorie
 Stocare în cloud: Google Drive, OneDrive, Dropbox
 ```
 
+```categorii
+# Protejează sau pune în pericol documentul și contul?
+Protejează: acces general Restricționat, Deconectare pe calculatorul școlii, verificarea în doi pași, eliminarea accesului la finalul proiectului
+Pune în pericol: linkul de editare postat pe o rețea de socializare, parola spusă unui prieten, adresa de acasă scrisă în document, opțiunea Ține-mă minte pe un calculator străin
+```
+
+```categorii
+# Comportament etic sau neetic în echipă?
+Etic: lași un comentariu politicos, scrii sursa imaginii, folosești modul Sugestii pentru partea colegului
+Neetic: ștergi textul unui coleg fără să-l întrebi, copiezi un text de pe internet fără sursă, scrii comentarii jignitoare, trimiți fișierul altora fără acordul proprietarului
+```
+
+```quiz
+# Permisiuni de partajare.
+Ai terminat proiectul și vrei ca părinții să-l poată citi, dar nu să-l modifice sau să-l descarce. Ce faci?
+* îi adaugi ca Vizualizatori și dezactivezi descărcarea, tipărirea și copierea
+- îi adaugi ca Editori
+- postezi linkul de editare pe grupul clasei
+Explicație: Dai cel mai mic drept necesar și poți opri descărcarea pentru vizualizatori și comentatori.
+
+Cine poate șterge definitiv un document din Google Drive?
+- orice vizualizator
+- orice comentator
+* proprietarul (cel care l-a creat)
+Explicație: Proprietarul are toate drepturile asupra fișierului.
+
+Un coleg din altă clasă îți cere linkul de editare al proiectului echipei. Ce faci?
+- i-l dai imediat
+* întrebi echipa și profesorul; dacă e nevoie, îi dai doar dreptul de vizualizare
+- îi dai parola contului tău
+Explicație: Fișierul echipei nu se distribuie fără acordul celorlalți, iar dreptul dat trebuie să fie cel mai mic necesar.
+```
+
+```eseu
+# Nivel avansat: regulamentul echipei.
+Echipa ta lucrează o lună la un document comun în Google Docs. Scrie un regulament cu cel puțin cinci reguli: cine primește ce drept (proprietar, editor, comentator, vizualizator) și de ce, cum vă protejați conturile și documentul, ce faceți dacă cineva șterge din greșeală sau intenționat o parte și ce reguli de etică respectați în comentarii și la folosirea surselor.
+Cuvinte: 60-180
+Barem: drepturi atribuite după principiul celui mai mic drept necesar, justificate; acces general Restricționat și cel puțin o măsură de protecție a contului (parolă, verificare în doi pași, deconectare); folosirea istoricului versiunilor pentru recuperare și anunțarea unui adult la probleme; cel puțin două reguli de etică (respectarea muncii altora, comentarii politicoase, citarea surselor, fără date personale).
+```
+
 ```completare
 # Completează.
 Fișierele păstrate pe internet, pe serverele unei firme, sunt stocate în [cloud|nori]. Butonul care trimite fișierul altor persoane se numește [Partajare|Share]. Varianta veche a unui document o găsești în istoricul [versiunilor].
@@ -140,7 +210,9 @@ Fișierele păstrate pe internet, pe serverele unei firme, sunt stocate în [clo
 
 - Care e diferența dintre un comentator și un editor?
 - La ce folosește istoricul versiunilor?
+- De ce alegi accesul Restricționat în loc de „Oricine are linkul”?
+- Numește trei reguli de etică în lucrul colaborativ.
 
 ## Pe scurt
 
-**Aplicațiile colaborative** permit mai multor persoane să lucreze simultan la același fișier, păstrat în **cloud**. La **partajare** alegi dreptul potrivit: **vizualizator**, **comentator** sau **editor**. Modificările se salvează automat, iar **istoricul versiunilor** permite revenirea. În echipă, comunici prin **comentarii politicoase** și nu ștergi munca altora.
+**Aplicațiile colaborative** permit mai multor persoane să lucreze simultan la același fișier, păstrat în **cloud**. La **partajare** alegi dreptul potrivit: **vizualizator**, **comentator** sau **editor**. Modificările se salvează automat, iar **istoricul versiunilor** permite revenirea. În echipă, comunici prin **comentarii politicoase** și nu ștergi munca altora. Îți protejezi **contul** (parolă, deconectare) și **fișierul** (acces **Restricționat**, cel mai mic drept necesar), citezi **sursele** și nu publici **date personale**.

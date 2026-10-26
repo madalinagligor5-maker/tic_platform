@@ -10,6 +10,8 @@ descriere: Editoare de cod și editoare vizuale (WYSIWYG), constructori de site-
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2
+
 ## Ce vei învăța azi
 
 - ce tipuri de aplicații se folosesc pentru crearea **paginilor web**;

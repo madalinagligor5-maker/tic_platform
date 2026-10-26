@@ -10,6 +10,8 @@ descriere: Simularea în C++ a unui robot pe o grilă: poziție, direcție, come
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să descrii în C++ **poziția** și **direcția** unui robot;

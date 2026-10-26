@@ -5,7 +5,7 @@ clasa: 8
 categorie: aplicatii
 tip: test
 unitate: Unitatea 2 · Pagini web
-ordine: 205
+ordine: 206
 descriere: Exerciții recapitulative și autoevaluare pentru Unitatea 2: pagini și site-uri web, URL, structură, HTML, Google Sites, publicare, site cu mai multe pagini și lucru colaborativ.
 data: 2026-10-16
 ---

@@ -10,6 +10,8 @@ descriere: Suma și produsul elementelor unui șir, suma elementelor cu o propri
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să calculezi **suma** și **produsul** elementelor unui șir;
@@ -46,6 +48,17 @@ for (int i = 1; i <= n; i++)
     p = p * x;
 }
 ```
+
+**De ce pornește produsul de la 1?** La sumă pornim de la 0, pentru că adunarea cu 0 nu schimbă rezultatul. La produs, valoarea care nu schimbă rezultatul este **1** (x · 1 = x). Dacă am porni greșit cu `p = 0`, după prima înmulțire am avea 0 · x = 0 și produsul ar rămâne **0 până la final**, oricare ar fi elementele.
+
+Urmărim programul pentru șirul `3 2 5`:
+
+| Pas | x citit | p după `p = p * x` |
+|---|---|---|
+| început | – | 1 |
+| 1 | 3 | 1 · 3 = 3 |
+| 2 | 2 | 3 · 2 = 6 |
+| 3 | 5 | 6 · 5 = 30 |
 
 Produsul crește **foarte repede**. Tipul `int` păstrează numere doar până la aproximativ **2 miliarde**; peste această valoare apare **depășirea** (*overflow*) și rezultatul e greșit. De aceea folosim `long long` (până la circa 9 · 10¹⁸). Dacă un element e **0**, tot produsul devine 0.
 
@@ -123,6 +136,11 @@ Cât este produsul elementelor șirului 2 3 0 5?
 - 30
 - 10
 
+Un elev scrie long long p = 0; și apoi înmulțește cu fiecare element al șirului 4 2 3. Ce afișează programul?
+- 24
+* 0
+- 9
+
 Ce afișează cout << 7 / 2; și cout << 7 * 1.0 / 2;?
 - 3.5 și 3.5
 * 3 și 3.5
@@ -160,6 +178,13 @@ A: Suma alternantă a șirului 5 2 4 1 este 6.
 Pentru șirul 4 6 5 5, suma este [20], media este [5], iar produsul este [600].
 ```
 
+```eseu
+# Aplică într-un context nou
+La un magazin online, un client cumpără n produse; pentru fiecare se citesc prețul și cantitatea. Magazinul vrea să afle totalul de plată, câte produse au prețul peste 100 de lei și produsul cantităților (un cod de verificare). Identifică șirurile de valori din problemă, spune ce operație faci cu fiecare (sumă, numărare, produs) și cu ce valoare inițializezi fiecare variabilă, apoi scrie programul în C++.
+Cuvinte: 40-250
+Barem: șirurile: prețurile și cantitățile, citite în aceeași parcurgere (for de la 1 la n); totalul: suma lui pret * cantitate, inițializată cu 0; contorul produselor cu pret > 100, inițializat cu 0; produsul cantităților, inițializat cu 1, de tip long long; afișarea celor trei rezultate după for.
+```
+
 ## Exersează
 
 1. Citește n numere și afișează suma și media lor, cu două zecimale.
@@ -171,7 +196,7 @@ Pentru șirul 4 6 5 5, suma este [20], media este [5], iar produsul este [600].
 
 ## Verifică-te
 
-- De ce suma pornește de la 0, iar produsul de la 1?
+- De ce suma pornește de la 0, iar produsul de la 1? Ce s-ar întâmpla dacă produsul ar porni de la 0?
 - Ce verifici înainte de a împărți la contor?
 
 ## Pe scurt

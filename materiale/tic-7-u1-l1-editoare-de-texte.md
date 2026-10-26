@@ -10,6 +10,8 @@ descriere: Ce înseamnă să editezi și să tehnoredactezi un document, ce este
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1
+
 ## Ce vei învăța azi
 
 - ce înseamnă **editarea** și **tehnoredactarea** unui document;

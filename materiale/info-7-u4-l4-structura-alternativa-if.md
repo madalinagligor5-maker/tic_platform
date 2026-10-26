@@ -10,6 +10,8 @@ descriere: Instrucțiunea if cu și fără else, condiții simple și compuse cu
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să scrii **instrucțiunea if**, cu și fără **else**;

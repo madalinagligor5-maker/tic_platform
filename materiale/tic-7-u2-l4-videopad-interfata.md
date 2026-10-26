@@ -10,6 +10,8 @@ descriere: Programe de montaj video, fereastra VideoPad (coșul cu fișiere medi
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
+
 ## Ce vei învăța azi
 
 - ce face un program de **montaj video**;

@@ -10,6 +10,8 @@ descriere: Două moduri de a citi un șir de valori (lungimea dată sau până l
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să **citești** un șir de valori când îi știi **lungimea** sau până la o **valoare de oprire**;

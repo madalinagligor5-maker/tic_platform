@@ -10,6 +10,8 @@ descriere: if-uri imbricate și lanțul if … else if … else, maximul a trei 
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să pui un **if în alt if** (decizii imbricate);
@@ -72,7 +74,7 @@ Ideea: presupui că primul e cel mai mare, apoi îl compari pe fiecare cu „cam
 
 ### Instrucțiunea switch
 
-Când compari **aceeași variabilă întreagă** cu mai multe **valori fixe**:
+Când compari **aceeași variabilă** de tip **întreg** sau **char** cu mai multe **valori fixe**:
 
 ```cpp
 switch (zi)
@@ -143,9 +145,9 @@ Ce se întâmplă într-un switch dacă lipsește break?
 
 ```categorii
 # Ce tip are triunghiul cu laturile a, b, c?
-Echilateral: a == b && b == c
-Isoscel: a == b || b == c || a == c
-Oarecare: a != b && b != c && a != c
+Echilateral (toate laturile egale): a == b && b == c
+Cel puțin isoscel (măcar două laturi egale): a == b || b == c || a == c
+Oarecare (nicio latură egală cu alta): a != b && b != c && a != c
 ```
 
 ```ordonare

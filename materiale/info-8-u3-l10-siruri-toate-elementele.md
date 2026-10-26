@@ -10,6 +10,8 @@ descriere: Verificarea dacă toate elementele unui șir au o proprietate, cu o v
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să verifici dacă **toate** elementele unui șir au o proprietate;

@@ -10,6 +10,8 @@ descriere: Fereastra Excel: bara de titlu, panglica cu file, caseta de nume, bar
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1
+
 ## Ce vei învăța azi
 
 - să recunoști **elementele ferestrei** Excel;

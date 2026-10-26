@@ -10,6 +10,8 @@ descriere: Lucrezi direct în pagină, într-un procesor de text ca Word: format
 data: 2026-10-22
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
+
 ## Ce vei învăța azi
 
 - ce este un **procesor de text** și la ce folosește;

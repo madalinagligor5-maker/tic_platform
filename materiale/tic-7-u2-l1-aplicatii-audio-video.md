@@ -10,6 +10,8 @@ descriere: Sunetul și imaginea în format digital, fișiere audio și video (MP
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2
+
 ## Ce vei învăța azi
 
 - ce înseamnă **sunet** și **video** în format **digital**;

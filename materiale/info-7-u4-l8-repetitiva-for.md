@@ -10,6 +10,8 @@ descriere: Instrucțiunea for cu inițializare, condiție și pas, numărare cre
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să scrii instrucțiunea **for**;

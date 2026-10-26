@@ -10,6 +10,8 @@ descriere: Instrucțiunea while, condiția de continuare, bucla infinită, prelu
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să scrii instrucțiunea **while**;
@@ -73,6 +75,8 @@ cout << "Numar de cifre: " << nr;
 ```
 
 Pentru 3725: s = 5 + 2 + 7 + 3 = **17**, nr = **4**.
+
+Datele programului: `n` este dată de **intrare**, `s` și `nr` sunt date de **ieșire**. Atenție: bucla **distruge** valoarea lui `n` (la final e 0). Dacă trebuie să afișezi și numărul inițial, îl copiezi înainte într-o **dată de manevră**: `int copie = n;` și lucrezi în buclă cu `copie`.
 
 | Pas | n % 10 | s | nr | n după pas |
 |---|---|---|---|---|
@@ -181,6 +185,13 @@ F: Oglinditul lui 120 este 021. | Este 21; zerourile din față nu se scriu.
 n % 10: dă ultima cifră
 n / 10: taie ultima cifră
 ogl * 10 + n % 10: lipește cifra la oglindit
+```
+
+```categorii
+# Problema: „Se citește n. Afișează cifra maximă a lui n.” Programul folosește n, c (ultima cifră, la fiecare pas) și cmax. Clasifică datele.
+Date de intrare: n
+Date de ieșire: cmax
+Date de manevră: c
 ```
 
 ```completare

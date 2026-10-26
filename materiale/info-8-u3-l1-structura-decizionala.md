@@ -10,6 +10,8 @@ descriere: Recapitularea structurii alternative în pseudocod și C++: if cu și
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să reamintești **structura alternativă** în pseudocod și în **C++**;

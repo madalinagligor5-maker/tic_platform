@@ -10,6 +10,8 @@ descriere: Probleme de geografie rezolvate în C++: scara hărții, densitatea p
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să folosești C++ la probleme de **geografie**;
@@ -145,6 +147,13 @@ cout << tv;
 A: Scara 1 : 100 000 înseamnă că 1 cm pe hartă reprezintă 1 km în realitate.
 F: Temperatura aerului crește odată cu altitudinea. | Scade, în medie cu 6 grade la 1000 m.
 A: Amplitudinea termică este diferența dintre temperatura maximă și cea minimă.
+```
+
+```categorii
+# În programul cu temperaturile săptămânii, clasifică datele.
+Date de intrare: t (temperatura citită în fiecare zi)
+Date de ieșire: media, maxim, minim, amplitudinea
+Date de manevră: s (suma temperaturilor), zi (contorul zilelor)
 ```
 
 ```completare

@@ -10,6 +10,8 @@ descriere: Google Drive, Google Docs și Google Slides: crearea unui fișier, in
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.3, CS 3.1
+
 ## Ce vei învăța azi
 
 - să creezi un document în **Google Docs** și o prezentare în **Google Slides**;

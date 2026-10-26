@@ -10,6 +10,8 @@ descriere: Recapitularea structurilor repetitive while, do … while și for, al
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să reamintești cele trei **structuri repetitive** din C++;

@@ -10,6 +10,8 @@ descriere: Ce sunt pagina web, site-ul, adresa URL, serverul și browserul, stru
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2
+
 ## Ce vei învăța azi
 
 - ce sunt **pagina web**, **site-ul** și **adresa URL**;

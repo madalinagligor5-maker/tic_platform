@@ -10,6 +10,8 @@ descriere: Crearea, salvarea (XLSX, PDF, CSV) și deschiderea unui registru, int
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
+
 ## Ce vei învăța azi
 
 - să **creezi**, să **salvezi** și să **deschizi** un registru;
@@ -64,9 +66,14 @@ Tragi de **pătrățelul** din colțul dreapta jos al celulei active:
 
 ### Rânduri, coloane și foi
 
-- **Inserare**: clic dreapta pe antetul rândului sau al coloanei → **Inserare**; rândul nou apare **deasupra**, coloana nouă la **stânga**;
-- **Ștergere**: clic dreapta pe antet → **Ștergere**;
-- foaia: clic dreapta pe filă → **Redenumire**, **Ștergere**, **Mutare sau copiere**, **Culoare filă**; o muți trăgând de filă.
+- **Inserare**: clic dreapta pe antetul rândului sau al coloanei → **Inserare** (sau **Pornire → Celule → Inserare**); rândul nou apare **deasupra** rândului selectat, coloana nouă la **stânga** coloanei selectate;
+- **Ștergere**: clic dreapta pe antet → **Ștergere** (sau **Pornire → Celule → Ștergere**); dispare **tot** rândul (toată coloana), cu tot conținutul, iar celelalte se mută ca să umple golul;
+- **Ștergere** nu e același lucru cu tasta **Delete**: Delete golește doar **conținutul** celulelor, rândul rămâne pe loc;
+- **formulele se adaptează**: dacă inserezi un rând în interiorul zonei din `=SUM(B2:B5)`, formula devine singură `=SUM(B2:B6)`; dacă ștergi o celulă folosită într-o formulă, apare eroarea `#REF!`;
+- **foaie nouă**: butonul **⊕** (Foaie nouă) de lângă filele foilor sau **Shift + F11**; **ștergerea unei foi**: clic dreapta pe filă → **Ștergere** (atenție, nu se poate anula cu Ctrl + Z!);
+- foaia: clic dreapta pe filă → **Redenumire**, **Mutare sau copiere**, **Culoare filă**; o muți trăgând de filă.
+
+> În foaia de calcul din platformă găsești butoanele în **Pornire → Celule**: **Rând** și **Coloană** (inserare deasupra / la stânga), **Șterge rând** și **Șterge col.**
 
 ### Tipărirea
 
@@ -82,6 +89,22 @@ Tragi de **pătrățelul** din colțul dreapta jos al celulei active:
 6. Redenumești foaia în „Orar” și salvezi și ca **PDF**, pentru avizier.
 
 ## Aplicații interactive
+
+```calcul-tabelar
+# Inventarul clasei. Ai uitat un produs și ai o coloană în plus. Selectează A4 și inserează un rând deasupra (Pornire → Celule → Rând); scrie în el Creion și prețul 1,5. Apoi selectează o celulă din coloana B și șterge coloana Cod (Șterge col.). La final calculează totalul.
+Date:
+Produs;Cod;Preț (lei)
+Caiet;C01;4,5
+Pix;P07;3
+Riglă;R02;5
+Cerințe:
+- A4: Creion | Pe rândul 4 (inserat deasupra Riglei) este Creion
+- A5: Riglă | Rigla a coborât pe rândul 5
+- B1: Preț (lei) | Coloana Cod a fost ștearsă: în B1 este acum „Preț (lei)”
+- B4: 1,5 | Prețul creionului (1,5) este în B4
+- B6: =SUM(B2:B5) | În B6, totalul prețurilor, cu funcția SUM
+- A1:B1: aldin | Capul de tabel este aldin
+```
 
 ```ordonare
 # Cum creezi seria 10, 20, 30 … 100 în coloana A
@@ -122,6 +145,9 @@ A: Un rând nou se inserează deasupra rândului selectat.
 F: Formatul CSV păstrează toate foile și formatarea. | Păstrează doar valorile foii curente.
 A: Dublu clic pe marginea antetului potrivește automat lățimea coloanei.
 A: O foaie se poate redenumi cu dublu clic pe fila ei.
+F: Tasta Delete șterge tot rândul selectat. | Delete golește doar conținutul; rândul se șterge cu Ștergere.
+A: Dacă inserezi un rând în interiorul zonei B2:B5, formula =SUM(B2:B5) devine =SUM(B2:B6).
+A: O foaie nouă se inserează cu butonul ⊕ de lângă filele foilor sau cu Shift + F11.
 ```
 
 ```completare
@@ -133,7 +159,7 @@ Dacă scrii 3 și 6 în două celule, le selectezi și tragi de mânerul de umpl
 
 1. Creează seria zilelor săptămânii și seria lunilor anului, cu mânerul de umplere.
 2. Creează seria numerelor impare de la 1 la 39.
-3. Inserează o coloană între A și B, apoi șterge-o.
+3. Inserează o coloană între A și B, apoi șterge-o. Inserează o foaie nouă, redenumește-o „Ciornă”, apoi șterge-o.
 4. Copiază foaia „Orar” și redenumește copia „Orar semestrul 2”.
 5. Salvează același registru ca XLSX, PDF și CSV; deschide fișierul CSV cu Notepad. Ce observi?
 6. **Portofoliu:** realizează `Orar_clasa_mea.xlsx`, cu orarul complet, potrivit pe o pagină, și salvează-l și ca PDF.

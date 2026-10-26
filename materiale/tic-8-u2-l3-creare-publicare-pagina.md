@@ -10,6 +10,8 @@ descriere: Planificarea unei pagini, adăugarea și formatarea textului, imagini
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
+
 ## Ce vei învăța azi
 
 - să **planifici** o pagină web;
@@ -61,6 +63,8 @@ data: 2026-10-16
 ### Varianta în HTML
 
 O pagină simplă scrisă de mână, salvată ca `index.html`, se poate publica gratuit pe servicii precum **GitHub Pages** sau **Netlify**. `index.html` este numele obișnuit al paginii de start.
+
+Cum scrii codul unei astfel de pagini (corpul `body`, paragrafele `p`, imaginile `img` și formatările) afli în lecția **„Pagina web în HTML – corpul paginii, paragrafe, imagini și formatări”**.
 
 ## Exemplu rezolvat: pagina „Castelul Bran”
 

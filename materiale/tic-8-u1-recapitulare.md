@@ -5,7 +5,7 @@ clasa: 8
 categorie: aplicatii
 tip: test
 unitate: Unitatea 1 · Calcul tabelar
-ordine: 107
+ordine: 108
 descriere: Exerciții recapitulative și autoevaluare pentru Unitatea 1: registre, celule și zone, formatare, formule, adrese absolute, funcții, sortare, filtrare și diagrame în Excel.
 data: 2026-10-16
 ---

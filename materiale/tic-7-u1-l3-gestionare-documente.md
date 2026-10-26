@@ -10,6 +10,8 @@ descriere: Crearea, deschiderea, salvarea (Salvare și Salvare ca), salvarea în
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1
+
 ## Ce vei învăța azi
 
 - să **creezi**, să **deschizi** și să **închizi** un document;

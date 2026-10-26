@@ -10,6 +10,8 @@ descriere: Diagrame în Excel: tipuri (coloană, bară, linie, radială), aleger
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
+
 ## Ce vei învăța azi
 
 - de ce reprezentăm datele prin **diagrame**;

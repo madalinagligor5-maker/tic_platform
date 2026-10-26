@@ -10,6 +10,8 @@ descriere: Funcții în Excel (SUM, AVERAGE, MIN, MAX, COUNT, COUNTIF, IF, ROUND
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
+
 ## Ce vei învăța azi
 
 - ce este o **funcție** și cum se scrie;
@@ -59,9 +61,33 @@ Exemplu: `=IF(E2>=5;"Promovat";"Corigent")`. Textele se scriu între **ghilimele
 - butonul **fx** de lângă bara de formule: cauți funcția și completezi argumentele într-o fereastră;
 - scrii direct `=` și primele litere: Excel îți arată o **listă** de funcții.
 
-### Sortarea și filtrarea (fila Date)
+### Sortarea datelor (fila Date)
 
-- **Sortare**: selectezi tabelul → **Date → Sortare**, alegi coloana și ordinea (A → Z, crescător sau descrescător). Rândurile rămân întregi.
+**Sortarea** așază rândurile unui tabel într-o anumită ordine, după valorile dintr-o **coloană** (coloana-cheie).
+
+| Tipul datelor | Crescător | Descrescător |
+|---|---|---|
+| text | alfabetic, **A → Z** | **Z → A** |
+| numere | de la cel **mai mic** la cel **mai mare** | de la cel mai mare la cel mai mic |
+| date calendaristice | de la cea mai **veche** la cea mai **nouă** | de la cea mai nouă la cea mai veche |
+
+Cum sortezi:
+
+1. dai clic **într-o celulă din coloana** după care sortezi (sau selectezi **tot tabelul**, cu capul de tabel);
+2. **Date → Sortare A → Z** (crescător) sau **Sortare Z → A** (descrescător);
+3. pentru mai multe opțiuni: **Date → Sortare**: alegi coloana (**Sortare după**), ordinea și bifezi **Datele mele au anteturi**, ca rândul cu capul de tabel să **rămână sus** și să nu fie amestecat cu datele; cu **Adăugare nivel** sortezi după o a doua coloană când valorile din prima sunt egale (de exemplu, după medie, apoi alfabetic).
+
+Reguli importante:
+
+- **rândurile rămân întregi**: fiecare nume își păstrează notele. Dacă selectezi o **singură coloană** și alegi „Continuare cu selecția curentă”, doar ea se reordonează și datele se amestecă;
+- tabelul nu trebuie să aibă **rânduri goale** în interior: Excel sortează doar zona continuă de date;
+- **formulele** de pe fiecare rând se mută odată cu rândul lor;
+- numerele scrise ca **text** (aliniate la stânga) se sortează greșit: „10” ajunge înaintea lui „9”.
+
+> În foaia de calcul din platformă: selectezi tabelul (cu capul de tabel), apoi **Date → Sortare A→Z** sau **Sortare Z→A**. Sortarea se face după **prima coloană a selecției**, iar capul de tabel este recunoscut și rămâne pe primul rând.
+
+### Filtrarea (fila Date)
+
 - **Filtrare**: **Date → Filtru**; în capul de tabel apar săgeți. Alegi ce să se vadă (de exemplu, doar elevii cu media peste 9). Celelalte rânduri sunt **ascunse**, nu șterse.
 
 ## Exemplu rezolvat: catalogul clasei
@@ -101,6 +127,16 @@ Ce afișează =IF(A1>10;"mare";"mic"), dacă A1 conține 10?
 * mic
 - 10
 
+Sortezi crescător numerele 25, 9, 100, 47. Ce ordine obții?
+* 9, 25, 47, 100
+- 100, 47, 25, 9
+- 100, 25, 47, 9
+
+Sortezi alfabetic Z → A numele Ana, Matei, Dan. Ce ordine obții?
+- Ana, Dan, Matei
+* Matei, Dan, Ana
+- Dan, Matei, Ana
+
 Ce face filtrarea?
 * ascunde temporar rândurile care nu respectă condiția
 - șterge definitiv rândurile
@@ -116,11 +152,60 @@ Selectezi zona B2:D2
 Apeși OK
 ```
 
+```calcul-tabelar
+# Catalogul. Calculează media fiecărui elev, apoi sortează tabelul alfabetic (A→Z) după nume, păstrând capul de tabel pe primul rând.
+Date:
+Elev;Nota 1;Nota 2;Media
+Radu;8;10
+Ana;9;9
+Mihai;6;7
+Bianca;10;9
+Cerințe:
+- D2:D5: =AVERAGE(B2:C2) | În D2:D5, media fiecărui elev, cu funcția AVERAGE
+- A1: Elev | Capul de tabel a rămas pe rândul 1
+- A2: Ana | Pe rândul 2 este Ana
+- A3: Bianca | Pe rândul 3 este Bianca
+- A4: Mihai | Pe rândul 4 este Mihai
+- A5: Radu | Pe rândul 5 este Radu
+- C5: 10 | Rândurile au rămas întregi: Radu are tot nota 10 la Nota 2
+```
+
+```calcul-tabelar
+# Crosul școlii. Sortează echipele descrescător (Z→A) după punctaj, ca prima să fie câștigătoarea. Capul de tabel rămâne sus.
+Date:
+Punctaj;Echipa;Clasa
+75;Vulturii;8A
+92;Fulgerele;8B
+68;Delfinii;8C
+88;Lupii;8D
+Cerințe:
+- A1:C1: aldin | Capul de tabel este aldin
+- A2: 92 | Pe primul loc (rândul 2) este punctajul cel mai mare, 92
+- B2: Fulgerele | Câștigătoarea este echipa Fulgerele
+- B3: Lupii | Pe locul 2 sunt Lupii (88)
+- B4: Vulturii | Pe locul 3 sunt Vulturii (75)
+- B5: Delfinii | Pe locul 4 sunt Delfinii (68)
+- C5: 8C | Rândurile au rămas întregi: Delfinii sunt tot din 8C
+```
+
+```ordonare
+# Cum sortezi un tabel cu cap de tabel, descrescător după medie (Excel)
+Selectezi tot tabelul, împreună cu capul de tabel
+Alegi Date → Sortare
+Bifezi Datele mele au anteturi
+La Sortare după alegi coloana Media
+La Ordine alegi De la cel mai mare la cel mai mic
+Apeși OK
+```
+
 ```adevarat-fals
 A: Funcția COUNT numără celulele care conțin numere.
 F: Sortarea unei singure coloane din tabel păstrează legătura dintre nume și note. | Trebuie selectat tot tabelul, ca rândurile să rămână întregi.
 A: În Excel cu setări românești, argumentele se despart prin punct și virgulă.
 A: Textele dintr-o funcție IF se scriu între ghilimele.
+A: Sortarea crescătoare a unor date calendaristice le așază de la cea mai veche la cea mai nouă.
+F: La sortare, rândul cu capul de tabel trebuie să fie amestecat cu datele. | Bifezi „Datele mele au anteturi”, ca el să rămână sus.
+A: Sortarea descrescătoare a numerelor 5, 12, 9 dă 12, 9, 5.
 ```
 
 ```completare
@@ -133,7 +218,7 @@ A: Textele dintr-o funcție IF se scriu între ghilimele.
 1. Scrie temperaturile dintr-o săptămână și calculează media, minima, maxima și amplitudinea (`=MAX(...)-MIN(...)`).
 2. Completează catalogul cu 10 elevi și 4 note și calculează mediile, situația și media clasei.
 3. Numără câți elevi au media peste 9 și câți sunt corigenți, cu COUNTIF.
-4. Sortează catalogul alfabetic, apoi după medie; filtrează doar elevii promovați.
+4. Sortează catalogul alfabetic (A → Z), apoi descrescător după medie (cu **Datele mele au anteturi**); adaugă un al doilea nivel, ca elevii cu aceeași medie să apară alfabetic; filtrează doar elevii promovați.
 5. Într-un buget lunar, afișează cu IF „Economie” dacă veniturile sunt mai mari decât cheltuielile, altfel „Deficit”.
 6. **Portofoliu:** `Catalog_8.xlsx`, cu cel puțin 10 elevi, medii rotunjite, situația, statistici sub tabel și clasament.
 
@@ -141,7 +226,8 @@ A: Textele dintr-o funcție IF se scriu între ghilimele.
 
 - Ce argumente are funcția IF?
 - Care e diferența dintre COUNT și COUNTIF?
+- De ce trebuie selectat tot tabelul (cu antet) când sortezi?
 
 ## Pe scurt
 
-**Funcțiile** sunt formule gata făcute: **SUM**, **AVERAGE**, **MIN**, **MAX**, **COUNT**, **COUNTIF**, **ROUND** și **IF** (care alege între două rezultate). Le inserezi cu **AutoSum**, cu **fx** sau scriindu-le. În Excel românesc, argumentele se despart prin **;**. Din fila **Date** poți **sorta** și **filtra** tabelul.
+**Funcțiile** sunt formule gata făcute: **SUM**, **AVERAGE**, **MIN**, **MAX**, **COUNT**, **COUNTIF**, **ROUND** și **IF** (care alege între două rezultate). Le inserezi cu **AutoSum**, cu **fx** sau scriindu-le. În Excel românesc, argumentele se despart prin **;**. Din fila **Date** poți **sorta** tabelul crescător sau descrescător după o coloană (păstrând capul de tabel sus și rândurile întregi) și îl poți **filtra**.

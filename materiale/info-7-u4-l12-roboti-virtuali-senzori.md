@@ -10,6 +10,8 @@ descriere: Ce este un robot, senzori și motoare, robotul virtual din VEXcode VR
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - ce este un **robot** și din ce e format;

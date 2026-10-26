@@ -10,6 +10,8 @@ descriere: Ce este o foaie de calcul tabelar, la ce folosește, aplicații (Exce
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
+
 ## Ce vei învăța azi
 
 - ce este o **foaie de calcul tabelar** și la ce folosește;

@@ -10,6 +10,8 @@ descriere: Aplicații cu for: divizorii unui număr, numărul prim, maximul și 
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să afli **divizorii** unui număr și să verifici dacă e **prim**;
@@ -175,6 +177,20 @@ A: Un număr prim are exact doi divizori.
 F: Numărul 1 este prim. | 1 are un singur divizor.
 A: La for în for, bucla interioară se execută complet la fiecare pas al buclei exterioare.
 F: Al optulea termen din șirul lui Fibonacci este 34. | Este 21; 34 este al nouălea.
+```
+
+```categorii
+# Problema: „Se citesc n și apoi n numere. Afișează câte sunt pare.” Programul folosește n, x (numărul citit la fiecare pas), i (contorul for-ului) și pare. Clasifică datele.
+Date de intrare: n, x
+Date de ieșire: pare
+Date de manevră: i
+```
+
+```eseu
+# Nivel avansat: creează-ți propria problemă.
+Inventează o problemă din viața ta (sport, școală, buget, joc) care se rezolvă cu for și if. Scrie enunțul, precizează datele de intrare, de ieșire și de manevră cu tipurile lor, descrie pe scurt algoritmul (în cuvinte sau pseudocod) și dă un exemplu de date de test cu rezultatul așteptat. Apoi implementează programul în Code::Blocks.
+Cuvinte: 60-200
+Barem: enunț clar, cu ce se dă și ce se cere; date de intrare, de ieșire și de manevră identificate corect, cu tipuri potrivite (int, double, char sau bool) și justificate; algoritm care folosește corect o repetiție cu contor și o decizie; un exemplu de test cu rezultatul corect.
 ```
 
 ```completare

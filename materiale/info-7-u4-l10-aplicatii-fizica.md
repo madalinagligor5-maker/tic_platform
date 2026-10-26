@@ -10,6 +10,8 @@ descriere: Probleme de fizică rezolvate în C++: viteza medie, transformări de
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să transformi o **formulă de fizică** într-un program;
@@ -25,7 +27,7 @@ La fizică ai învățat **viteza medie**: v = d / t, **densitatea**: ρ = m / V
 
 ### Pașii unei probleme de fizică
 
-1. Afli **ce se dă** (datele de intrare) și **ce se cere** (datele de ieșire).
+1. Afli **ce se dă** (datele de intrare), **ce se cere** (datele de ieșire) și ce rezultate intermediare îți trebuie (datele de **manevră**, de exemplu timpul transformat în ore).
 2. Scrii **formula**.
 3. Verifici **unitățile**: toate în același sistem (de exemplu, metri și secunde).
 4. Alegi **tipul** variabilelor: de obicei `double`.

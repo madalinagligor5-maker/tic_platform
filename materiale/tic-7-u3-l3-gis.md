@@ -10,6 +10,8 @@ descriere: Ce este un sistem informatic geografic (GIS), straturi de date, coord
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.3
+
 ## Ce vei învăța azi
 
 - ce este un **GIS** (sistem informatic geografic);

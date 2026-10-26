@@ -10,10 +10,12 @@ descriere: Structura unui program C++, identificatori, tipuri de date (int, doub
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.4, CS 2.1, CS 2.2
+
 ## Ce vei învăța azi
 
 - să explici fiecare rând al unui **program C++**;
-- să **declari** variabile de tipurile **int**, **double**, **char**, **bool**;
+- să **declari** variabile de tipurile **int**, **double**, **float**, **char**, **bool** și să cunoști **domeniul** fiecăruia;
 - să folosești **operatorii** aritmetici, relaționali și logici;
 - să calculezi **expresii**, inclusiv cu **/** și **%**.
 
@@ -55,6 +57,26 @@ Numele variabilelor se numesc **identificatori**. Reguli: conțin **litere**, **
 | `bool` | adevărat sau fals | true, false |
 
 În C++ virgula zecimală se scrie cu **punct**: `3.14`.
+
+### Domeniul de valori al tipurilor
+
+Fiecare tip ocupă un anumit loc în memorie (măsurat în **octeți**) și, de aceea, poate păstra doar valori dintr-un anumit **domeniu**. Valorile de mai jos sunt cele obișnuite în Code::Blocks (compilatorul GCC):
+
+| Tip | Memorie | Domeniu (aproximativ) | Când îl folosești |
+|---|---|---|---|
+| `int` | 4 octeți | de la −2 147 483 648 la 2 147 483 647 (circa ±2 miliarde) | numere întregi obișnuite: vârste, note întregi, ani, punctaje |
+| `long long` | 8 octeți | circa ±9,2 · 10¹⁸ | întregi foarte mari: factoriale, populația lumii în secunde |
+| `float` | 4 octeți | circa ±3,4 · 10³⁸, cu **6–7 cifre** exacte | numere reale, când precizia mică ajunge |
+| `double` | 8 octeți | circa ±1,7 · 10³⁰⁸, cu **15–16 cifre** exacte | numere reale: medii, măsurători de fizică (alegerea obișnuită) |
+| `char` | 1 octet | un caracter; intern, un cod între −128 și 127 (codul **ASCII**: 'A' = 65, 'a' = 97, '0' = 48) | o literă, o cifră scrisă ca semn, un simbol |
+| `bool` | 1 octet | doar `true` (1) sau `false` (0) | răspunsuri da/nu: „e par?”, „a ghicit?” |
+
+Ce trebuie să reții:
+
+- dacă un calcul cu `int` depășește domeniul (de exemplu `2000000000 + 2000000000`), apare **depășirea** (*overflow*): rezultatul este greșit, fără niciun mesaj de eroare. Atunci folosești `long long`;
+- `float` și `double` păstrează numerele reale **aproximativ**: `0.1 + 0.2` nu dă exact `0.3`, ci `0.30000000000000004`. De aceea preferăm `double`, care e mai precis;
+- un caracter se scrie între **apostrofuri**: `'A'`; textul între ghilimele (`"A"`) este un **șir de caractere**, nu un `char`;
+- `cout` afișează o variabilă `bool` ca **1** (true) sau **0** (false).
 
 ### Declararea variabilelor și a constantelor
 
@@ -137,6 +159,40 @@ Care identificator este corect?
 * nota_finala
 ```
 
+```quiz
+# Domeniul tipurilor.
+Vrei să păstrezi populația României (aproximativ 19 000 000). Ce tip alegi?
+* int, pentru că valoarea încape în domeniul lui (circa ±2 miliarde)
+- char
+- bool
+Explicație: 19 milioane este un număr întreg mai mic de 2 147 483 647, deci încape într-un int.
+
+Vrei să calculezi 20! (aproximativ 2,4 · 10¹⁸). Ce tip alegi?
+- int
+* long long
+- char
+Explicație: 20! depășește domeniul lui int; long long ajunge până la circa 9,2 · 10¹⁸.
+
+Ce afișează: bool par = (10 % 2 == 0); cout << par;
+- true
+* 1
+- 0
+Explicație: cout afișează valoarea true ca 1 și false ca 0.
+
+Care este scrierea corectă a unui caracter în C++?
+* 'M'
+- "M"
+- M
+Explicație: Un char se scrie între apostrofuri; între ghilimele este un șir de caractere.
+```
+
+```adevarat-fals
+A: Tipul double păstrează numere reale cu mai multe cifre exacte decât float.
+F: Dacă un calcul cu int depășește domeniul, compilatorul afișează o eroare. | Nu apare nicio eroare, dar rezultatul este greșit (depășire).
+A: Variabilele de tip bool pot avea doar două valori: true și false.
+F: Tipul char poate păstra un cuvânt întreg, de exemplu "școala". | char păstrează un singur caracter.
+```
+
 ```categorii
 # Corect sau greșit ca identificator?
 Corect: suma, x1, nr_elevi, Medie
@@ -166,8 +222,9 @@ Pentru n = 538, ultima cifră se obține cu n % 10, adică [8]. Prima cifră se 
 ## Verifică-te
 
 - Care e diferența dintre `17 / 5` și `17.0 / 5`?
+- Ce tip alegi pentru o medie, pentru numărul de elevi ai școlii și pentru inițiala numelui? De ce?
 - Ce face operatorul `%` și când îl folosești?
 
 ## Pe scurt
 
-Un program C++ are **#include**, **using namespace std;** și funcția **main**. Variabilele se **declară** cu un **tip** (`int`, `double`, `char`, `bool`) și un **identificator** corect. Operatorii aritmetici sunt `+ - * / %`; între întregi, `/` dă **câtul**, iar `%` dă **restul**. Comparăm cu `== != < <= > >=` și legăm condiții cu `&&`, `||`, `!`.
+Un program C++ are **#include**, **using namespace std;** și funcția **main**. Variabilele se **declară** cu un **tip** (`int`, `long long`, `float`, `double`, `char`, `bool`) și un **identificator** corect; fiecare tip are un **domeniu** de valori, iar depășirea lui dă rezultate greșite. Operatorii aritmetici sunt `+ - * / %`; între întregi, `/` dă **câtul**, iar `%` dă **restul**. Comparăm cu `== != < <= > >=` și legăm condiții cu `&&`, `||`, `!`.

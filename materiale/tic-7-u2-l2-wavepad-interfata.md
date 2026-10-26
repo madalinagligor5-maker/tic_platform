@@ -10,6 +10,8 @@ descriere: Instalarea și pornirea WavePad, fereastra aplicației (meniul, filel
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2
+
 ## Ce vei învăța azi
 
 - să **pornești** WavePad și să deschizi un fișier audio;

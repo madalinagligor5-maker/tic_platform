@@ -10,6 +10,8 @@ descriere: Tăierea și scurtarea clipurilor, împărțirea, mutarea și șterge
 data: 2026-10-16
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
+
 ## Ce vei învăța azi
 
 - să **scurtezi**, să **împarți** și să **ștergi** porțiuni din clipuri;
