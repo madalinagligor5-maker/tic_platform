@@ -10,6 +10,8 @@ descriere: Jocul „Minecraft 3D” în Scratch: personaje desenate în Paint 3D
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.3, CS 3.3
+
 ## Ce vei învăța azi
 
 - să controlezi personajele din **taste**;
@@ -158,6 +160,12 @@ A: În acest joc, mâna și ținta nu se mișcă; mișcarea este o iluzie creat�
 F: Fără limite, copacii s-ar opri singuri la marginea ecranului. | Fără limite, ar ieși de pe ecran.
 A: Efectul fantomă face un personaj să devină transparent treptat.
 A: Pozițiile inițiale se pot afla bifând „poziția x” și „poziția y”.
+```
+
+```eseu
+Sarcină de creație: proiectează în Scratch un mini-joc „Prinde mărul”: un măr cade de sus, iar un coș, mișcat cu săgețile, trebuie să-l prindă. Jocul are 10 mere (structură cu contor), fiecare măr cade până când atinge coșul sau marginea de jos (structură condiționată), iar la final afișezi câte mere ai prins. Descrie personajele, scripturile (ce blocuri folosești și în ce ordine) și condițiile, cu operatorii relaționali folosiți.
+Cuvinte: 70-220
+Barem: 2p personaje și scenă descrise (măr, coș, decor); 2p controlul coșului din săgeți, cu limite (dacă x < … / x > …); 2p „repetă (10)” pentru cele 10 mere; 2p „repetă până când < atinge Coș? sau (poziția y) < … >” pentru căderea unui măr; 2p variabilă pentru scor, mărită la prindere și afișată la final.
 ```
 
 ## Exersează

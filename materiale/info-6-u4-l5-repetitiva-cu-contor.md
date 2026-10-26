@@ -10,6 +10,8 @@ descriere: Structura „pentru” (cu contor), blocurile „repetă de n ori” 
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 2.3, CS 3.3
+
 ## Ce vei învăța azi
 
 - cum funcționează structura **„pentru”** (cu **contor**);

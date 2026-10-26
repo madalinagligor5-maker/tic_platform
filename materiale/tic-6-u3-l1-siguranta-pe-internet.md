@@ -10,6 +10,8 @@ descriere: Serviciile internetului, programele malware (virus, vierme, troian, s
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.3
+
 ## Ce vei învăța azi
 
 - ce este un program **malware** și cum ajunge pe calculator;

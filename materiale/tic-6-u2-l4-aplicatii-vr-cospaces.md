@@ -10,6 +10,8 @@ descriere: Realitatea virtuală, ochelarii VR, ce este un infografic și cum se 
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
+
 ## Ce vei învăța azi
 
 - ce este **realitatea virtuală** (VR) și unde se folosește;

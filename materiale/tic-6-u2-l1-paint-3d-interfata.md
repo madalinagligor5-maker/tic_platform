@@ -10,6 +10,8 @@ descriere: Imagini 2D și 3D, avantajele graficii 3D, ce este o animație, aplic
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
+
 ## Ce vei învăța azi
 
 - diferența dintre o imagine **2D** și una **3D**;

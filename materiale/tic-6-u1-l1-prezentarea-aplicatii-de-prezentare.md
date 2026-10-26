@@ -10,6 +10,8 @@ descriere: Ce este o prezentare, tipurile de prezentări (folii, hârtie, electr
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
+
 ## Ce vei învăța azi
 
 - ce este o **prezentare** și de ce o facem **vizuală**;

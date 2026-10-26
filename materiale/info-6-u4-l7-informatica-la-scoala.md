@@ -10,6 +10,8 @@ descriere: Trei aplicații Scratch pentru alte materii: un album foto despre ope
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.3, CS 3.3
+
 ## Ce vei învăța azi
 
 - să faci în Scratch o **prezentare** cu butoane **Înainte** și **Înapoi**;

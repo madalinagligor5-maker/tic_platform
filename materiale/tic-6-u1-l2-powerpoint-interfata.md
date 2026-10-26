@@ -10,6 +10,8 @@ descriere: Pornirea PowerPoint, ecranul de start și fereastra aplicației: bara
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1
+
 ## Ce vei învăța azi
 
 - să **pornești** PowerPoint și să alegi tipul de prezentare din **ecranul de start**;
@@ -71,7 +73,7 @@ Dacă alegi prezentarea necompletată, se deschide **Prezentare1**, încă nesal
 | **Tranziții** | cum se trece de la un diapozitiv la altul |
 | **Animații** | cum apar și se mișcă obiectele de pe diapozitiv |
 | **Expunere diapozitive** | pornirea și setarea expunerii |
-| **Înregistrare** | înregistrarea prezentării ca expunere (.ppsx) sau video |
+| **Înregistrare** | înregistrarea expunerii cu vocea ta (și camera), apoi exportul ca video |
 | **Revizuire** | verificarea ortografiei, comentarii |
 | **Vizualizare** | modurile de vizualizare: Normal, Sortare diapozitive, Citire |
 

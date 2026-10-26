@@ -10,9 +10,11 @@ descriere: Recapitularea interfeței Scratch și a categoriilor de blocuri, cu j
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1
+
 ## Ce vei învăța azi
 
-- să-ți amintești **interfața Scratch** și **categoriile de blocuri**;
+- să-ți amintești **interfața Scratch**, **butoanele de executare** și **categoriile de blocuri**;
 - să lucrezi cu **personaje**, **costume** și **decoruri**;
 - să folosești evenimentul **„când se dă clic pe acest personaj”**;
 - să alegi un costum **la întâmplare**, cu **„alege aleator între”**;
@@ -37,9 +39,18 @@ Ca să-ți **partajezi** proiectele în comunitatea Scratch, ai nevoie de un **c
 - **zona Personaje** și **zona Decoruri**;
 - **Rucsacul**: păstrezi scripturi și personaje ca să le folosești în alte proiecte.
 
-### Categoriile de blocuri
+### Butoanele de executare
 
-**Mișcare**, **Aspect**, **Sunet**, **Evenimente**, **Control**, **Detectare**, **Operatori**, **Variabile**, **Blocurile mele** și **Extensii** (de exemplu, **Stilou**, pentru desen).
+Deasupra scenei sunt butoanele care **pornesc** și **opresc** programul:
+
+- **steagul verde**: pornește toate scripturile care încep cu **„când se dă clic pe steagul verde”**;
+- **semnul roșu de stop**: oprește toate scripturile și sunetele;
+- un **clic pe un script** din zona de program îl rulează doar pe acela (scriptul care rulează se luminează cu un contur galben), util când vrei să **testezi** o bucată de program;
+- butonul **ecran complet**: arată scena mare, ca la o prezentare.
+
+### Categoriile de blocuri (blocurile tematice)
+
+Blocurile sunt grupate pe **teme**, fiecare cu culoarea ei: **Mișcare**, **Aspect**, **Sunet**, **Evenimente**, **Control**, **Detectare**, **Operatori**, **Variabile**, **Blocurile mele** și **Extensii** (de exemplu, **Stilou**, pentru desen).
 
 ### Jocul „Îmbracă pinguinul”
 
@@ -114,6 +125,16 @@ Cu ce bloc alegi un model la întâmplare dintre 4?
 * alege aleator între 1 și 4
 - costumul următor
 - așteaptă 1 secunde
+
+Ce buton oprește toate scripturile care rulează?
+- steagul verde
+* semnul roșu de stop
+- Remixează
+
+Cum rulezi un singur script, ca să-l testezi?
+* dai clic pe el în zona de program
+- apeși steagul verde de două ori
+- îl tragi în Rucsac
 
 Ce face butonul Remixează?
 - șterge proiectul

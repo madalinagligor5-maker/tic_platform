@@ -10,6 +10,8 @@ descriere: Ce este e-mailul, avantajele față de poșta clasică, ce îți treb
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.3
+
 ## Ce vei învăța azi
 
 - ce este **poșta electronică** și la ce folosește;

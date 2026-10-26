@@ -10,6 +10,8 @@ descriere: Cum se creează un cont de e-mail (cu acordul părinților), cum intr
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.3
+
 ## Ce vei învăța azi
 
 - ce pași are **crearea unui cont** de e-mail și de ce ai nevoie de **acordul părinților**;

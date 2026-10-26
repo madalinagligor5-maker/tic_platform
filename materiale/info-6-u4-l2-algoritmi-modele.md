@@ -10,6 +10,8 @@ descriere: Recapitularea algoritmilor secvențiali și alternativi prin desene �
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1
+
 ## Ce vei învăța azi
 
 - să-ți amintești ce este un **algoritm** și caracteristicile lui;

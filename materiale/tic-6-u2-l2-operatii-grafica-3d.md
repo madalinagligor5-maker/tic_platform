@@ -10,6 +10,8 @@ descriere: În Paint 3D: gestionarea fișierelor, text 2D și 3D, forme 2D și 3
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
+
 ## Ce vei învăța azi
 
 - să **creezi, deschizi, salvezi și tipărești** un fișier în Paint 3D;

@@ -10,11 +10,15 @@ descriere: Operații cu fișiere de prezentare, lucrul cu diapozitivele și cu o
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
+
 ## Ce vei învăța azi
 
 - să **creezi**, **deschizi**, **salvezi**, **închizi** și să **expui** o prezentare;
 - să **adaugi, ștergi, copiezi, dublezi și muți** diapozitive;
 - să inserezi **text, tabele, imagini, forme, sunete, video și hiperlinkuri**;
+- să desenezi și să formatezi **forme predefinite**;
+- să **imporți imagini** și să le potrivești pe diapozitiv;
 - să alegi o **temă** și un **aspect** pentru diapozitive;
 - să respecți **drepturile de autor**.
 
@@ -65,6 +69,35 @@ Toate se adaugă din fila **Inserare**:
 - **Audio**: un sunet salvat sau unul înregistrat cu microfonul;
 - **Video**: un film salvat sau unul de pe internet;
 - **Link**: un hiperlink către o pagină web sau un document.
+
+### Formele predefinite
+
+**Formele predefinite** sunt desene gata făcute: linii, săgeți, dreptunghiuri, cercuri, stele, baloane de vorbire, butoane de acțiune. Le găsești în **Inserare → Forme**.
+
+- **desenare**: alegi forma, apoi tragi cu mouse-ul pe diapozitiv. Dacă ții apăsat **Shift**, obții un **pătrat** în loc de dreptunghi și un **cerc** în loc de elipsă;
+- **text în formă**: selectezi forma și începi să scrii; textul stă în interiorul ei;
+- **mărime**: tragi de **punctele albe** de pe margini; **rotire**: tragi de **săgeata circulară** de deasupra; unele forme au și un **punct galben**, care le schimbă aspectul (de exemplu, vârful săgeții);
+- **formatare**: când forma e selectată apare fila **Format formă**, cu **Umplere formă** (culoarea din interior), **Contur formă** (culoarea și grosimea marginii) și **Efecte formă** (umbră, strălucire, 3D);
+- **ștergere**: selectezi forma și apeși **Delete**.
+
+### Importul imaginilor
+
+O imagine **importată** este o imagine adusă din afara prezentării. Ai trei căi:
+
+1. **Inserare → Imagini → Acest dispozitiv**: alegi un fișier salvat pe calculator (`.jpg`, `.png`, `.gif`, `.bmp`, `.svg`) și apeși **Inserare**;
+2. **Inserare → Imagini → Imagini stoc** sau **Imagini online**: cauți o imagine după un cuvânt; verifici întotdeauna **licența** (dacă ai voie să o folosești);
+3. **tragi** fișierul din folder direct pe diapozitiv sau îl **copiezi** (**Ctrl + C**) și îl **lipești** (**Ctrl + V**).
+
+După import, cu imaginea selectată, apare fila **Format imagine**:
+
+- **redimensionare** din **colțuri**, ca imaginea să nu se deformeze (din mijlocul laturilor o lățești sau o turtești);
+- **Decupare**: tai marginile care nu-ți trebuie;
+- **Corecții** și **Culoare**: luminozitate, contrast;
+- **Stiluri imagine**: ramă, umbră, colțuri rotunjite;
+- **Eliminare fundal**: păstrezi doar subiectul;
+- **Text alternativ**: o descriere scurtă a imaginii, pentru persoanele care nu văd bine și folosesc un cititor de ecran.
+
+Dacă o imagine acoperă un text, o așezi dedesubt cu clic dreapta → **Trimitere în ultimul plan**.
 
 ### Teme și aspecte
 
@@ -129,6 +162,42 @@ F: O prezentare necompletată are la creare două diapozitive. | Are un singur d
 F: Într-o prezentare, două diapozitive nu pot fi identice. | Poți dubla oricând un diapozitiv.
 ```
 
+```ordonare
+# Cum imporți o imagine salvată pe calculator? Pune pașii în ordine.
+Selectezi diapozitivul pe care vrei imaginea
+Deschizi fila Inserare → Imagini → Acest dispozitiv
+Cauți fișierul imaginii și îl selectezi
+Apeși Inserare
+Redimensionezi imaginea trăgând de un colț
+```
+
+```categorii
+# Ce comandă folosești?
+Umplere formă: schimbi culoarea din interiorul unui dreptunghi
+Contur formă: îngroși marginea unei săgeți
+Decupare: tai marginile inutile ale unei fotografii
+Eliminare fundal: păstrezi doar animalul din fotografie
+Text alternativ: descrii imaginea pentru un cititor de ecran
+```
+
+```quiz
+# Forme și imagini
+Cum desenezi un cerc perfect cu forma Oval?
+- desenezi foarte încet
+* ții apăsat Shift în timp ce tragi
+- apeși Ctrl + M
+
+Cum mărești o imagine fără să o deformezi?
+* tragi de un colț al ei
+- tragi de mijlocul unei laturi
+- o decupezi
+
+Ce verifici când folosești o imagine găsită online?
+- dacă are culori frumoase
+* licența: dacă ai voie să o folosești
+- dacă are extensia .pptx
+```
+
 ```completare
 # Completează.
 Tema stabilește [culorile], fonturile și efectele diapozitivelor. Aspectul stabilește unde stau titlul și textul, cu ajutorul [substituenților|substituentilor]. Sursele materialelor preluate se trec într-un diapozitiv numit [Bibliografie].
@@ -139,8 +208,10 @@ Tema stabilește [culorile], fonturile și efectele diapozitivelor. Aspectul sta
 1. Dă trei exemple de operații cu diapozitivele.
 2. Inserează pe un diapozitiv un tabel cu 3 linii și 2 coloane, cu orarul tău de luni.
 3. Adaugă un hiperlink către pagina unui muzeu din orașul tău.
-4. Câte dintre materiile tale de la școală te-ar ajuta să faci prezentări electronice?
-5. **Portofoliu:** fă o prezentare de **6 diapozitive**, „Cinci lucruri care ne fac mândri că suntem români”, cu cel puțin **6 imagini**, un **video** și un **hiperlink** către un video. Nu uita diapozitivul **Bibliografie**.
+4. Desenează o schemă „Circuitul apei” din **forme predefinite**: trei dreptunghiuri cu text (**evaporare**, **nori**, **ploaie**) legate prin **săgeți**. Colorează fiecare formă cu **Umplere formă**.
+5. Importă o fotografie de pe calculator, **decupeaz-o**, aplică-i un **stil de imagine** și scrie-i un **text alternativ**.
+6. Câte dintre materiile tale de la școală te-ar ajuta să faci prezentări electronice?
+7. **Portofoliu:** fă o prezentare de **6 diapozitive**, „Cinci lucruri care ne fac mândri că suntem români”, cu cel puțin **6 imagini**, un **video** și un **hiperlink** către un video. Nu uita diapozitivul **Bibliografie**.
 
 ## Verifică-te
 

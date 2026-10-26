@@ -10,6 +10,8 @@ descriere: Cum pregătești și cum susții o prezentare: sala și echipamentele
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
+
 ## Ce vei învăța azi
 
 - de ce trebuie să ții cont pentru ca o prezentare să-și atingă **scopul**;

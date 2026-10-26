@@ -10,6 +10,8 @@ descriere: Neticheta și regulile unui e-mail politicos: subiect, formule de adr
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.3
+
 ## Ce vei învăța azi
 
 - ce este **neticheta**;
@@ -121,6 +123,12 @@ Formula de adresare
 Cuprinsul mesajului
 Formula de încheiere
 Semnătura
+```
+
+```eseu
+Sarcină de creație: scrie un e-mail către bibliotecara școlii, în care o rogi să vă împrumute, ție și colegilor din echipa de proiect, trei cărți despre spațiu. Scrie întâi ce pui în câmpurile Către, CC (dirigintele trebuie să afle) și Subiect, apoi mesajul complet, respectând neticheta.
+Cuvinte: 50-150
+Barem: 2p câmpurile completate corect (bibliotecara la Către, dirigintele la CC, subiect clar); 2p formulă de adresare politicoasă; 3p cuprins clar și scurt (ce cărți, pentru ce, până când); 2p formulă de încheiere și semnătură cu nume și clasă; 1p fără greșeli, cu diacritice, fără majuscule și prescurtări.
 ```
 
 ## Exersează
