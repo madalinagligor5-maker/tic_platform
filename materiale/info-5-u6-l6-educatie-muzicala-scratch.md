@@ -10,6 +10,8 @@ descriere: Extensia Muzică: instrumente, notele și numerele lor, durata notelo
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 3.2
+
 ## Ce vei învăța azi
 
 - să adaugi extensia **Muzică**;

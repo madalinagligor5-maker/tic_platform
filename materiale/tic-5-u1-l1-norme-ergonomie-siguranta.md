@@ -10,6 +10,8 @@ descriere: Regulile din laboratorul de informatică, poziția corectă la calcul
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1
+
 ## Ce vei învăța azi
 
 - regulile de securitate și protecție a muncii din laboratorul de informatică;

@@ -10,6 +10,8 @@ descriere: Cum descriem un algoritm: limbaj natural, pseudocod și schemă logic
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.2, CS 2.3
+
 ## Ce vei învăța azi
 
 - cele trei moduri de a descrie un algoritm: **limbaj natural**, **pseudocod** și **schemă logică**;
@@ -91,6 +93,26 @@ dacă a = 0
 | a = 0 | Adevărat | „Număr incorect” |
 | a = 20 | Fals | P = 4 * 20 = **80** |
 
+### Cum descrii în cuvinte ce face un algoritm
+
+Când primești un algoritm scris de altcineva, îl poți explica în **limbaj natural** urmând patru pași:
+
+1. **Ce date primește?** (datele de intrare)
+2. **Ce calcule face, în ordine?** (secvența de operații)
+3. **Ce condiții verifică și ce se întâmplă pe fiecare ramură?** (deciziile)
+4. **Ce afișează la final?** (datele de ieșire)
+
+**Exemplu:**
+
+```
+citește n (număr natural)
+dacă n % 2 = 0
+   atunci scrie „par”
+   altfel scrie „impar”
+```
+
+**Descrierea:** algoritmul primește un număr natural n. Calculează restul împărțirii lui n la 2 și verifică dacă este egal cu 0. Dacă da, numărul se împarte exact la 2 și se afișează „par”; altfel se afișează „impar”. **Pe scurt: algoritmul spune dacă un număr este par sau impar.**
+
 ## Exemplu rezolvat
 
 **Care este rezultatul pentru a = 3, b = 2, c = 9?**
@@ -154,6 +176,31 @@ scrie mx
 A: În pseudocod, „mx ← a” înseamnă că mx primește valoarea lui a.
 F: Blocul de decizie are o singură ieșire. | Are două ieșiri: Da și Nu.
 A: Ultima cifră a unui număr natural este restul împărțirii lui la 10 (x % 10).
+```
+
+```quiz
+# Ce face algoritmul? Alege descrierea corectă.
+„citește a, b; dacă a < b atunci scrie b - a altfel scrie a - b”
+- afișează suma numerelor
+* afișează diferența dintre numărul mai mare și cel mai mic
+- afișează mereu a - b
+Explicație: Dacă a < b, scade a din b; altfel scade b din a. Rezultatul nu este niciodată negativ.
+
+„citește x; dacă x >= 5 atunci scrie „promovat” altfel scrie „nepromovat””
+* verifică dacă o notă este de trecere
+- calculează media
+- afișează nota mărită cu 5
+
+„citește l; dacă l > 0 atunci P ← 4 * l, scrie P altfel scrie „Eroare””
+- calculează aria unui pătrat
+* calculează perimetrul unui pătrat, dacă latura este pozitivă
+- afișează mereu „Eroare”
+```
+
+```eseu
+Descrie în limbaj natural, pas cu pas, ce face algoritmul următor și spune pe scurt ce problemă rezolvă: „citește a, b, c; mx ← a; dacă b > mx atunci mx ← b; dacă c > mx atunci mx ← c; scrie mx”. Urmărește apoi traseul datelor pentru a = 4, b = 9, c = 7 și pentru a = 8, b = 2, c = 8.
+Cuvinte: 50-180
+Barem: datele de intrare a, b, c și de ieșire mx; mx primește întâi valoarea lui a; se compară pe rând b și c cu mx și, dacă sunt mai mari, mx primește valoarea lor; algoritmul afișează cel mai mare dintre cele trei numere; traseul: pentru 4, 9, 7 → mx devine 4, apoi 9, rămâne 9 → afișează 9; pentru 8, 2, 8 → mx = 8, 2 > 8 fals, 8 > 8 fals → afișează 8.
 ```
 
 ## Exersează

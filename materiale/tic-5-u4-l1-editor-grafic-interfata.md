@@ -10,6 +10,8 @@ descriere: Ce este un editor grafic, imagini 2D și 3D, cum pornești Paint și 
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 3.1
+
 ## Ce vei învăța azi
 
 - ce este un **editor grafic** și ce extensii au fișierele grafice;

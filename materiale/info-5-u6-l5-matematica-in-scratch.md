@@ -10,6 +10,8 @@ descriere: Analizăm și îmbunătățim jocul „Învățăm tabla înmulțirii
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.2, CS 3.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să **analizezi** un joc educațional făcut în Scratch;
@@ -31,8 +33,9 @@ data: 2026-10-15
 
 **Datele:**
 
-- de intrare: **x**, **y** și **răspuns** (ce scrie jucătorul);
-- de ieșire: **prod** (produsul calculat de program).
+- de intrare: **x** și **y** (alese la întâmplare de program) și **răspuns** (ce scrie jucătorul);
+- **prod** este produsul calculat de program: îl folosim ca să verificăm răspunsul și îl afișăm când jucătorul greșește, deci este și **dată de ieșire**;
+- tot date de ieșire sunt **mesajul** afișat („Bravo! Ești tare!” sau „Fii mai atent!”) și, după îmbunătățire, **scorul**.
 
 **Scriptul**, care pornește la clic pe RoboY:
 
@@ -106,7 +109,7 @@ Pe ce ramură adaugi „modifică [rezultat] cu 1”?
 ```categorii
 # Date de intrare sau dată de ieșire?
 Date de intrare: x, y, răspuns
-Dată de ieșire: prod
+Date de ieșire: prod afișat la greșeală, mesajul Bravo sau Fii mai atent
 ```
 
 ```ordonare

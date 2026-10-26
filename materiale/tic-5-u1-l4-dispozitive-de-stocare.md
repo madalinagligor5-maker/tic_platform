@@ -10,6 +10,8 @@ descriere: HDD, SSD, stickul de memorie, cardurile și discurile optice; bitul, 
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1
+
 ## Ce vei învăța azi
 
 - care sunt dispozitivele de **stocare permanentă** a datelor și prin ce se deosebesc;
@@ -119,6 +121,27 @@ A: Stickul de memorie se conectează la calculator printr-un port USB.
 F: 1 KB este egal cu 1000 de byți. | 1 KB = 1024 B, pentru că multiplii byte-ului sunt puteri ale lui 2.
 A: Pe discurile optice datele se scriu și se citesc cu o rază laser.
 F: Un DVD are 700 MB. | Un CD are 700 MB; un DVD are 4,7 GB.
+```
+
+```quiz
+# Alege dispozitivul potrivit.
+Vrei să duci la școală un proiect de 300 MB și să îl deschizi pe calculatorul din laborator. Ce folosești?
+* un stick de memorie
+- memoria RAM
+- o dischetă de 1,44 MB
+Explicație: Stickul este mic, se conectează la portul USB și are spațiu suficient.
+
+Ai 50 GB de fotografii de familie și vrei o copie de siguranță. Pe ce dispozitiv încap toate?
+- un CD de 700 MB
+- un DVD de 4,7 GB
+* un HDD extern de 1 TB
+Explicație: 50 GB nu încap pe un CD sau pe un DVD, dar încap ușor pe un HDD de 1 TB (1024 GB).
+```
+
+```eseu
+Familia ta are 120 GB de fotografii și filme pe un laptop vechi. Propune o soluție ca să nu le piardă dacă laptopul se strică: ce dispozitiv(e) de stocare alegi, ce capacitate, de ce, și cum faci copia de siguranță.
+Cuvinte: 40-150
+Barem: alege un dispozitiv cu capacitate potrivită (HDD/SSD extern sau stick de cel puțin 128 GB; 120 GB nu încap pe CD/DVD); justifică alegerea (capacitate, viteză, rezistență la șocuri pentru SSD); descrie copierea fișierelor pe dispozitiv; ideal propune două copii, în locuri diferite.
 ```
 
 ## Exersează

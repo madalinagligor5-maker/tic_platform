@@ -10,6 +10,8 @@ descriere: Programe Scratch în care blocurile se execută pe rând: „RoboTIC 
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 3.2
+
 ## Ce vei învăța azi
 
 - să faci un program Scratch cu **structură liniară** (blocurile se execută pe rând, de sus în jos);

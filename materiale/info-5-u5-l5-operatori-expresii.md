@@ -10,6 +10,8 @@ descriere: Operatori aritmetici (+, -, *, /, %), relaționali (=, <>, <, >, <=, 
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.3
+
 ## Ce vei învăța azi
 
 - ce sunt **operanzii**, **operatorii** și **expresiile**;

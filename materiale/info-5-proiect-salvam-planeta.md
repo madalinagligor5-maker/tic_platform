@@ -5,7 +5,7 @@ clasa: 5
 categorie: programare
 tip: proiect
 unitate: Jocuri și povești în Scratch
-ordine: 702
+ordine: 703
 descriere: Proiect pe echipe: o poveste animată în Scratch despre riscurile la care este expusă Terra și soluțiile pentru salvarea ei.
 data: 2026-10-15
 ---

@@ -10,12 +10,15 @@ descriere: Lucrul cu fișiere grafice, culori RGB, forme, selecție, copiere, re
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 3.1
+
 ## Ce vei învăța azi
 
 - să creezi, să deschizi, să salvezi și să tipărești un **fișier grafic**;
 - ce este modelul de culori **RGB** și cum creezi o culoare nouă;
 - să desenezi **forme**, să **selectezi**, să **copiezi**, să **redimensionezi** și să **rotești** părți din desen;
-- să adaugi **text** și să folosești celelalte instrumente din Paint.
+- să adaugi **text** și să folosești celelalte instrumente din Paint;
+- să **organizezi spațiul** desenului după o cerință dată.
 
 ## Să ne amintim
 
@@ -76,6 +79,22 @@ Cu instrumentul **Text** dai clic pe desen și scrii. Apare fila **Instrumente t
 - **Selector de culoare**: preia o culoare din desen;
 - **Lupă**: clic stânga mărește, clic dreapta micșorează;
 - **Pensule**: urme ca de pensulă, cu Culoarea 1.
+
+### Imagini din alte fișiere
+
+Poți aduce în desen o imagine salvată pe calculator: **Pornire → Lipire → Lipire din** și alegi fișierul. Imaginea apare **selectată**, așa că o poți muta, redimensiona sau roti imediat. Folosește doar imagini **ale tale** sau cu **licență liberă** și scrie sursa.
+
+### Organizarea spațiului vizual
+
+Un desen reușit nu înseamnă doar elemente frumoase, ci și **așezate bine** pe foaie. Când faci un afiș, o felicitare sau o ilustrație, respectă aceste reguli:
+
+1. **Citește cerința**: ce dimensiune trebuie să aibă desenul (de exemplu, 800 × 600 px), ce elemente sunt obligatorii, ce text trebuie să apară.
+2. **Elementul principal** este cel mai **mare** și stă în zona cea mai vizibilă (de obicei spre centru). Elementele secundare sunt mai mici.
+3. **Prim-plan și fundal**: întâi desenezi **fundalul** (cerul, iarba), apoi elementele din față. Ce e mai departe se desenează **mai mic** și mai sus pe foaie.
+4. **Echilibru**: nu aglomera o singură parte a foii; împarte elementele în stânga și în dreapta.
+5. **Aliniere și spații egale**: elementele asemănătoare stau pe aceeași linie, la distanțe egale. Te ajută **Vizualizare → Rigle** și **Liniatură cu pătrățele**.
+6. **Textul** (titlul) trebuie să se **citească ușor**: mărime potrivită, culoare care contrastează cu fundalul, fără să acopere elementele importante.
+7. **Culori potrivite**: puține culori care se potrivesc între ele (2–4 culori principale).
 
 ## Exemplu rezolvat: „Copacii gemeni”
 
@@ -143,6 +162,39 @@ A: „Salvare ca” salvează desenul într-un fișier nou.
 F: Dacă dai un clic cu radiera pe un cerc, se șterge tot cercul. | Radiera șterge doar ce atinge, nu toată forma.
 A: Trunchierea păstrează doar zona selectată din imagine.
 A: Cu „Menținere raport aspect”, imaginea nu se deformează la redimensionare.
+A: Cu Lipire → Lipire din poți aduce în desen o imagine salvată pe calculator.
+```
+
+```quiz
+# Organizarea spațiului vizual
+Faci un afiș pentru concursul de șah. Unde pui elementul principal (o piesă mare de șah)?
+* în zona centrală, mare, ca să se vadă primul
+- într-un colț, foarte mic
+- acoperit pe jumătate de titlu
+Explicație: Elementul principal este cel mai mare și stă în zona cea mai vizibilă.
+
+Ce desenezi primul într-un peisaj?
+- copacul din față
+* fundalul (cerul și iarba)
+- textul
+Explicație: Fundalul se desenează primul, apoi elementele din prim-plan, peste el.
+
+Ce te ajută să așezi elementele aliniate și la distanțe egale?
+* riglele și liniatura cu pătrățele din fila Vizualizare
+- radiera
+- selectorul de culoare
+```
+
+```categorii
+# Afiș bine organizat sau prost organizat?
+Bine organizat: titlul mare și ușor de citit, elementul principal în centru, elementele împărțite echilibrat, 3 culori care se potrivesc
+Prost organizat: textul galben pe fundal alb, toate elementele înghesuite în stânga, titlul peste fața personajului, 15 culori diferite
+```
+
+```eseu
+Sarcină practică: realizează în Paint un afiș de 800 × 600 px pentru „Ziua Pământului”. Cerințe: un fundal, cel puțin un element principal și două secundare desenate de tine (din forme), un element copiat și redimensionat, unul rotit sau răsturnat, o culoare creată cu Editare culori și titlul „Ziua Pământului”. Salvează-l ca ZiuaPamantului.png. Aici descrie cum ai organizat spațiul (unde ai pus fiecare element și de ce) și ce transformări ai folosit.
+Cuvinte: 50-180
+Barem: dimensiunea cerută (Fișier → Proprietăți); fundal desenat primul; element principal mare, în zona vizibilă; elemente secundare mai mici, așezate echilibrat; cel puțin o copiere cu redimensionare și o rotire sau răsturnare; culoare RGB creată; titlu lizibil, care contrastează cu fundalul; salvare în format .png cu numele cerut.
 ```
 
 ## Exersează
@@ -155,4 +207,4 @@ A: Cu „Menținere raport aspect”, imaginea nu se deformează la redimensiona
 
 ## Pe scurt
 
-În Paint salvezi cu **Ctrl + S** sau **Salvare ca**, iar culorile se formează din **RGB**. Desenezi **forme** (cu **Shift** pentru pătrat și cerc), **selectezi**, **copiezi**, **redimensionezi**, **trunchiezi** și **rotești**. **Culoarea 1** este pentru prim-plan, **Culoarea 2** pentru fundal.
+În Paint salvezi cu **Ctrl + S** sau **Salvare ca**, iar culorile se formează din **RGB**. Desenezi **forme** (cu **Shift** pentru pătrat și cerc), **selectezi**, **copiezi**, **redimensionezi**, **trunchiezi** și **rotești**. **Culoarea 1** este pentru prim-plan, **Culoarea 2** pentru fundal. Organizezi desenul după cerință: **elementul principal** mare și vizibil, **fundalul** desenat primul, elemente **echilibrate** și **aliniate**, text ușor de citit.

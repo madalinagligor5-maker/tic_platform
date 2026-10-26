@@ -10,6 +10,8 @@ descriere: Cum cauți pe internet cu cuvinte-cheie; regulile de căutare cu -, g
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.3
+
 ## Ce vei învăța azi
 
 - ce este un **motor de căutare** și cum faci o căutare cu **cuvinte-cheie**;
@@ -62,6 +64,8 @@ Google îți permite:
 - Autorii pot spune ce drepturi îți dau: folosire personală, școlară sau comercială, modificare, redistribuire.
 - Când folosești informații de pe internet într-un proiect școlar, le treci în **Bibliografie**: **autorul**, **titlul** și **site-ul**.
 - Programele de pe calculator trebuie să aibă **licență**, adică să fie originale, de la producător.
+
+> În lecția următoare înveți cum **salvezi** informațiile găsite în **formatul cerut**, cum verifici dacă o sursă este de încredere și cum **citezi** corect sursele.
 
 ## Exemplu rezolvat
 

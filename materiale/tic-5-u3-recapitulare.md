@@ -5,7 +5,7 @@ clasa: 5
 categorie: tic
 tip: test
 unitate: Unitatea 3 · Internet
-ordine: 304
+ordine: 305
 descriere: Exerciții recapitulative și interevaluare pentru Unitatea 3: rețele, servicii, navigare, siguranță, motoare de căutare și drepturi de autor.
 data: 2026-10-15
 ---

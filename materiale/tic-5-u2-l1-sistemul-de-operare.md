@@ -10,6 +10,8 @@ descriere: Ce este sistemul de operare și ce funcții are; desktopul, pictogram
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2
+
 ## Ce vei învăța azi
 
 - ce este **sistemul de operare** și care sunt cele patru funcții ale lui;

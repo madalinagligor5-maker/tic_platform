@@ -10,6 +10,8 @@ descriere: Ce este un algoritm, exemple din viața de zi cu zi și cele șase pr
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1
+
 ## Ce vei învăța azi
 
 - ce este un **algoritm**;

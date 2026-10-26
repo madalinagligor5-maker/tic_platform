@@ -275,6 +275,7 @@ section { padding: 56px 0; }
 .opt { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; margin: 6px 0; background: var(--card); border: 1.5px solid var(--line); border-radius: 10px; cursor: pointer; }
 .opt:hover { border-color: var(--charcoal); }
 .opt input { margin: 4px 0 0; accent-color: var(--red); width: 18px; height: 18px; flex: none; }
+.opt > span { min-width: 0; overflow-wrap: anywhere; }
 .opt.right { border-color: var(--teal); background: var(--t-aplicatii); }
 .opt.wrong { border-color: var(--red); background: var(--t-programare); }
 .quiz-q.ok .act-feedback { color: #0B6F68; }

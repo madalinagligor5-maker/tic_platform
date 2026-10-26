@@ -10,6 +10,8 @@ descriere: Ce este un mediu de dezvoltare, limbajul Scratch, interfața (paleta 
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 3.2
+
 ## Ce vei învăța azi
 
 - ce este un **mediu de dezvoltare** și ce este **Scratch**;

@@ -10,11 +10,14 @@ descriere: Fișiere, extensii și reguli pentru nume; foldere și subfoldere; un
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.2
+
 ## Ce vei învăța azi
 
 - ce este un **fișier** și ce ne spune **extensia** lui;
 - ce sunt **folderele** și **subfolderele** și de ce le folosim;
-- ce este **structura arborescentă** și cum scrii **calea** către un fișier.
+- ce este **structura arborescentă** și cum scrii **calea** către un fișier;
+- ce **reguli** respecți ca să îți organizezi bine datele.
 
 ## Să ne amintim
 
@@ -73,6 +76,29 @@ C:\Lucru\MUZICA\jazz.mp3
 
 **Câte fișiere încap?** Depinde de mărimea fișierelor și de capacitatea dispozitivului.
 
+### Reguli pentru structurarea datelor
+
+Un calculator „ordonat” te ajută să găsești repede orice fișier. Respectă aceste reguli:
+
+1. **Grupează după un criteriu clar**: pe discipline (`Matematica`, `TIC`, `Romana`), pe tipuri (`Poze`, `Muzica`) sau pe perioade (`2026-Septembrie`).
+2. **Dă nume sugestive**, care spun ce conține fișierul: `Tema_TIC_hardware.txt`, nu `fisier1.txt` sau `asdf.txt`.
+3. **Nu face prea multe niveluri** de subfoldere: 2–4 niveluri sunt de obicei suficiente.
+4. **Păstrează aceeași regulă de denumire** peste tot. De exemplu, data scrisă **an-lună-zi** (`2026-10-15_excursie.jpg`): așa, fișierele se ordonează singure în ordinea zilelor.
+5. **Nu ține fișiere „la grămadă”** pe desktop; mută-le în folderul potrivit.
+6. **Șterge copiile inutile** și fă **copii de siguranță** (backup) pentru fișierele importante, pe alt dispozitiv de stocare.
+
+**Exemplu de structură bună:**
+
+```
+C:\Scoala
+   \TIC
+      \Unitatea1
+      \Unitatea2
+   \Matematica
+   \Proiecte
+      \Mascota_clasei
+```
+
 ## Exemplu rezolvat
 
 Pe unitatea `C:` ai folderul `Lucru`, în el folderul `FOTO`, iar în `FOTO` creezi folderul `PRIMAVARA`, în care pui fișierul `InParc.jpg`.
@@ -127,6 +153,32 @@ F: În Windows, pașii dintr-o cale se despart cu „/”. | În Windows se folo
 ```completare
 # Completează textul.
 Datele sunt memorate în format electronic în [fișiere]. Mai multe fișiere pot fi grupate în [foldere|directoare]. Fiecare fișier are o [extensie] care îi indică tipul. Un folder aflat în alt folder se numește [subfolder|subdirector].
+```
+
+```categorii
+# Organizare bună sau organizare proastă?
+Bună: numele Tema_TIC_hardware.txt, foldere separate pe discipline, data scrisă an-lună-zi în numele fișierelor, o copie de siguranță pe un stick
+Proastă: zeci de fișiere puse la grămadă pe desktop, nume ca fisier1.txt sau asdf.txt, zece niveluri de subfoldere goale, trei copii identice ale aceluiași fișier în același folder
+```
+
+```quiz
+# Alege varianta cea mai bună.
+Ce nume este cel mai potrivit pentru o poză din excursia de pe 15 octombrie 2026?
+- IMG_4587.jpg
+- poza.jpg
+* 2026-10-15_excursie_Sinaia.jpg
+Explicație: Numele spune ce conține și, cu data scrisă an-lună-zi, pozele se ordonează singure.
+
+Unde salvezi tema la TIC, ca s-o găsești ușor?
+- direct pe desktop, cu celelalte fișiere
+* în folderul `Scoala\TIC`
+- în folderul Muzica
+```
+
+```eseu
+Ai pe desktop 40 de fișiere amestecate: teme la mai multe discipline, poze din vacanță, melodii și desene făcute în Paint. Descrie structura de foldere pe care o creezi ca să le organizezi (scrie numele folderelor și subfolderelor), regula după care denumești fișierele și scrie calea completă către un fișier ales de tine.
+Cuvinte: 40-150
+Barem: structură arborescentă logică (de exemplu C:\Personal cu Scoala\TIC, Scoala\Matematica, Poze\Vacanta_2026, Muzica, Desene); criteriu de grupare explicat; nume de foldere și fișiere valide (fără \ / : * ? " < > |) și sugestive; o regulă de denumire aplicată consecvent; o cale corectă scrisă cu \, de exemplu C:\Personal\Poze\Vacanta_2026\2026-07-20_mare.jpg.
 ```
 
 ## Exersează

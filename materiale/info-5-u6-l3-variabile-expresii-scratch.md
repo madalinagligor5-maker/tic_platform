@@ -10,6 +10,8 @@ descriere: Crearea și modificarea variabilelor, blocurile din categoria Operato
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 3.2
+
 ## Ce vei învăța azi
 
 - să **creezi** o variabilă în Scratch, să îi **dai o valoare** și să o **modifici**;

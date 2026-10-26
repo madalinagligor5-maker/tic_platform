@@ -10,6 +10,8 @@ descriere: Ce sunt rețelele de calculatoare și internetul; serviciile importan
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.3
+
 ## Ce vei învăța azi
 
 - ce este o **rețea de calculatoare** și ce este **internetul**;

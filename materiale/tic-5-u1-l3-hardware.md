@@ -10,10 +10,13 @@ descriere: Unitatea centrală, dispozitivele periferice de intrare, de ieșire �
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1
+
 ## Ce vei învăța azi
 
 - din ce părți hardware este format un calculator;
 - să deosebești dispozitivele periferice de **intrare**, de **ieșire** și de **intrare-ieșire**;
+- cum se **conectează** perifericele și cum alegi dispozitivele potrivite pentru o sarcină;
 - ce componente se află în **unitatea centrală** și la ce folosește fiecare.
 
 ## Să ne amintim
@@ -42,6 +45,27 @@ Partea hardware a unui calculator are:
 | **de intrare-ieșire** | fac **ambele** lucruri | monitorul tactil (ecranul tactil), căștile cu microfon, multifuncționalul (imprimantă + scaner) |
 
 **Scanerul este „opusul” imprimantei:** imprimanta tipărește pe hârtie ce e în calculator, iar scanerul introduce în calculator ce e scris sau desenat pe hârtie.
+
+### Cum se conectează perifericele
+
+Perifericele se leagă de unitatea centrală prin **porturi** (mufe) sau **fără fir**:
+
+| Legătură | Ce conectezi de obicei |
+|---|---|
+| **USB** | tastatura, mouse-ul, imprimanta, stickul de memorie, HDD-ul extern |
+| **HDMI** sau **VGA** | monitorul, videoproiectorul |
+| **mufa audio (jack)** | boxele, căștile, microfonul |
+| **fără fir (Bluetooth, Wi-Fi)** | mouse-ul și tastatura wireless, căștile wireless, imprimanta din rețea |
+
+Un dispozitiv nou funcționează după ce sistemul de operare îi instalează **driverul**, un mic program care îl „prezintă” calculatorului. De cele mai multe ori, Windows face asta singur când conectezi dispozitivul.
+
+### Alegem dispozitivele potrivite
+
+Când ai de rezolvat o sarcină nouă, te întrebi: **ce trebuie să intre în calculator** și **ce trebuie să iasă din el**? Așa alegi perifericele.
+
+- Vrei să trimiți profesorului o temă scrisă de mână → îți trebuie un **scaner** (sau camera telefonului), adică un dispozitiv de **intrare**.
+- Vrei ca toată clasa să vadă un film → îți trebuie un **videoproiector** și **boxe**, adică dispozitive de **ieșire**.
+- Vrei să vorbești cu bunicii prin video → îți trebuie **camera video**, **microfonul** (intrare), **boxele** sau **căștile** (ieșire).
 
 ### Ce găsim în unitatea centrală
 
@@ -107,12 +131,42 @@ Unitatea optică = Citește și scrie CD-uri, DVD-uri și discuri Blu-ray.
 HDD / SSD = Memoria permanentă, unde se păstrează datele.
 ```
 
+```categorii
+# Prin ce se conectează de obicei?
+USB: stickul de memorie, imprimanta, mouse-ul cu fir
+HDMI: monitorul, videoproiectorul
+Mufa audio (jack): căștile cu fir, boxele
+Fără fir (Bluetooth): căștile wireless, mouse-ul wireless
+```
+
+```quiz
+# Situații noi: ce dispozitive alegi?
+Vrei să pui în calculator un desen făcut pe hârtie. De ce dispozitiv ai nevoie?
+- imprimantă
+* scaner
+- boxe
+Explicație: Desenul trebuie să intre în calculator, deci îți trebuie un dispozitiv de intrare.
+
+Pregătești o prezentare pentru toată clasa. Ce dispozitive de ieșire folosești?
+* videoproiectorul
+* boxele
+- tastatura
+- scanerul
+```
+
+```eseu
+Clubul de jurnalism al școlii vrea să facă un „ziar video” cu interviuri. Alege dispozitivele de care are nevoie (cel puțin 5), spune pentru fiecare dacă este de intrare, de ieșire, de intrare-ieșire sau de stocare și explică la ce îl folosesc.
+Cuvinte: 40-150
+Barem: dispozitive potrivite, de exemplu camera video și microfonul (intrare, pentru filmare și sunet), căștile (ieșire, pentru verificarea sunetului), monitorul (ieșire), ecranul tactil al unei tablete (intrare-ieșire), stickul sau HDD-ul extern (stocare, pentru filmele mari), videoproiectorul (ieșire, pentru prezentare); fiecare dispozitiv clasificat corect și cu rolul explicat.
+```
+
 ## Exersează
 
 1. Care este rolul unității centrale în funcționarea unui calculator?
 2. Identifică părțile principale ale calculatorului la care lucrezi: unitatea centrală, monitorul, tastatura, mouse-ul. Monitorul tău este de ieșire sau de intrare-ieșire?
 3. Ce alte dispozitive periferice mai are calculatorul tău? Grupează-le pe tipuri. Care este folosit cel mai des într-o săptămână?
-4. **Portofoliu:** din materiale reciclabile, construiește o machetă care să reprezinte un calculator.
+4. Uită-te în spatele unității centrale (cu acordul profesorului, fără să scoți cabluri). Ce porturi recunoști? Ce dispozitiv este conectat la fiecare?
+5. **Portofoliu:** din materiale reciclabile, construiește o machetă care să reprezinte un calculator.
 
 ## Pe scurt
 

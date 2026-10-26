@@ -5,7 +5,7 @@ clasa: 5
 categorie: programare
 tip: proiect
 unitate: Jocuri și povești în Scratch
-ordine: 701
+ordine: 702
 descriere: Concurs pe echipe: realizați în Scratch un joc cu două personaje, după modelul „Prinde peștișorul”, evaluat de un juriu.
 data: 2026-10-15
 ---

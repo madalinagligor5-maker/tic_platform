@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Planul jocului Vânătoarea de stele: scena cu personajele și verificările făcute după fiecare mișcare</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="22" font-weight="800">Jocul „Vânătoarea de stele”, pe scurt</text>
+
+    <!-- scena -->
+    <rect x="40" y="76" width="360" height="270" rx="14" fill="#1E2A4A" stroke="#3EC6E0" stroke-width="3"/>
+    <g fill="#FFFFFF" opacity="0.7">
+      <circle cx="80" cy="110" r="2"/><circle cx="150" cy="140" r="1.5"/><circle cx="330" cy="100" r="2"/><circle cx="370" cy="200" r="1.5"/><circle cx="120" cy="250" r="1.5"/><circle cx="260" cy="300" r="2"/>
+    </g>
+    <!-- stea -->
+    <path d="M300 120l9 19 21 3-15 15 4 21-19-10-19 10 4-21-15-15 21-3z" fill="#F7C531" stroke="#A35F00" stroke-width="2"/>
+    <text x="300" y="196" text-anchor="middle" font-size="13" fill="#FFFFFF">steaua (+1 punct)</text>
+    <!-- crab -->
+    <ellipse cx="220" cy="232" rx="30" ry="18" fill="#E5533D"/>
+    <circle cx="210" cy="216" r="4" fill="#FFFFFF"/><circle cx="230" cy="216" r="4" fill="#FFFFFF"/>
+    <path d="M190 228l-16-10M250 228l16-10" stroke="#E5533D" stroke-width="6" stroke-linecap="round"/>
+    <text x="220" y="270" text-anchor="middle" font-size="13" fill="#FFFFFF">crabul (–1 viață)</text>
+    <!-- pisoi -->
+    <circle cx="95" cy="300" r="20" fill="#F29A1F"/>
+    <path d="M78 286l4-16 10 10zM112 286l-4-16-10 10z" fill="#F29A1F"/>
+    <circle cx="88" cy="298" r="3"/><circle cx="102" cy="298" r="3"/>
+    <text x="150" y="330" font-size="13" fill="#FFFFFF">pisoiul: săgeți, câte 10 px</text>
+    <!-- variabile -->
+    <rect x="52" y="88" width="96" height="26" rx="6" fill="#FF8C1A"/>
+    <text x="60" y="106" font-size="13" font-weight="800" fill="#FFFFFF">scor: 2</text>
+    <rect x="156" y="88" width="96" height="26" rx="6" fill="#FF8C1A"/>
+    <text x="164" y="106" font-size="13" font-weight="800" fill="#FFFFFF">vieți: 3</text>
+
+    <!-- plan -->
+    <rect x="40" y="366" width="360" height="148" rx="14" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="58" y="394" font-size="15" font-weight="800" fill="#0B6F68">Planul jocului</text>
+    <text x="58" y="420" font-size="13"><tspan font-weight="800">Scop:</tspan> prinde 5 stele</text>
+    <text x="58" y="444" font-size="13"><tspan font-weight="800">Câștig:</tspan> scor = 5</text>
+    <text x="58" y="468" font-size="13"><tspan font-weight="800">Pierdere:</tspan> vieți &lt; 1 sau cronometru &gt; 30</text>
+    <text x="58" y="492" font-size="13"><tspan font-weight="800">Date:</tspan> tastele (intrare), scor, vieți, mesajul</text>
+
+    <!-- fluxul -->
+    <rect x="440" y="76" width="480" height="44" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="680" y="104" text-anchor="middle" font-size="14" font-weight="800">săgeată apăsată → modifică x sau y → trimite „verifică”</text>
+    <path d="M680 122V140" stroke="#171416" stroke-width="2.5" marker-end="url(#a)"/>
+
+    <g font-size="13">
+      <rect x="440" y="146" width="480" height="52" rx="12" fill="#FFFFFF" stroke="#F29A1F" stroke-width="3"/>
+      <text x="458" y="168" font-weight="800">dacă atinge Star?</text>
+      <text x="458" y="188" fill="#0B6F68">→ modifică scor cu 1, steaua sare la o poziție aleatorie</text>
+
+      <rect x="440" y="208" width="480" height="52" rx="12" fill="#FFFFFF" stroke="#F29A1F" stroke-width="3"/>
+      <text x="458" y="230" font-weight="800">dacă atinge Crab?</text>
+      <text x="458" y="250" fill="#C8133A">→ modifică vieți cu -1, pisoiul revine la start</text>
+
+      <rect x="440" y="270" width="480" height="52" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+      <text x="458" y="292" font-weight="800">dacă scor = 5</text>
+      <text x="458" y="312" fill="#0B6F68">→ spune „Ai câștigat!”, oprește tot</text>
+
+      <rect x="440" y="332" width="480" height="52" rx="12" fill="#FDE7EC" stroke="#C8133A" stroke-width="3"/>
+      <text x="458" y="354" font-weight="800">dacă vieți &lt; 1</text>
+      <text x="458" y="374" fill="#C8133A">→ spune „Joc terminat!”, oprește tot</text>
+
+      <rect x="440" y="394" width="480" height="52" rx="12" fill="#FDE7EC" stroke="#C8133A" stroke-width="3"/>
+      <text x="458" y="416" font-weight="800">dacă cronometru &gt; 30</text>
+      <text x="458" y="436" fill="#C8133A">→ spune „Timpul a expirat!”, oprește tot</text>
+    </g>
+    <text x="680" y="482" text-anchor="middle" font-size="14" font-weight="800" fill="#0E7F96">La final: testezi fiecare regulă și îmbunătățești jocul</text>
+    <text x="680" y="506" text-anchor="middle" font-size="12" fill="#6B6460">condițiile folosesc operatorii relaționali =, &lt;, &gt;</text>
+  </g>
+</svg>

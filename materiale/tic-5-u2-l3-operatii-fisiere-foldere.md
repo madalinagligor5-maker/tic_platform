@@ -10,10 +10,13 @@ descriere: Lucrul în File Explorer: creare, deschidere, redenumire, copiere, mu
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1, CS 1.2
+
 ## Ce vei învăța azi
 
 - să folosești **File Explorer** ca să navighezi printre foldere;
 - să **creezi, deschizi, redenumești, copiezi, muți și ștergi** fișiere și foldere;
+- să copiezi fișiere pe un **stick** și să îl scoți **în siguranță**;
 - să **recuperezi** un fișier din Coșul de reciclare, să selectezi mai multe fișiere deodată și să **cauți** un fișier.
 
 ## Să ne amintim
@@ -52,6 +55,14 @@ Selectezi fișierul sau folderul → **clic dreapta** → **Proprietăți (Prope
 > **Copiere** = fișierul rămâne și în locul vechi, și apare în cel nou. **Mutare** = fișierul pleacă din locul vechi.
 
 ![La copiere fișierul rămâne și în folderul vechi, la mutare pleacă de acolo; un fișier șters ajunge în Coșul de reciclare, de unde poate fi restaurat.](fisiere/imagini/tic-5-u2-l3-operatii-fisiere-foldere.svg)
+
+### Lucrul cu un stick de memorie
+
+1. Introduci stickul în **portul USB**. În File Explorer apare o unitate nouă, de exemplu `E:`.
+2. **Copiezi** fișierele pe stick (Ctrl + C, deschizi `E:`, Ctrl + V). Atenție: dacă **tragi** un fișier pe **altă unitate de disc**, Windows îl **copiază**, nu îl mută.
+3. Înainte să scoți stickul, dai clic pe pictograma **Eliminare în siguranță a hardware-ului** din bara de activități (sau clic dreapta pe unitate → **Scoatere**). Așa nu se strică fișierele care încă se scriu.
+
+> Un fișier șters de pe stick **nu** ajunge în Coșul de reciclare: este șters definitiv. Verifică de două ori înainte să apeși Delete!
 
 ### Coșul de reciclare
 
@@ -125,6 +136,15 @@ Mutare: Ctrl + X apoi Ctrl + V, tragi fișierul fără Ctrl pe aceeași unitate 
 A: File Explorer este programul din Windows pentru lucrul cu fișiere și foldere.
 F: Un fișier se deschide cu un singur clic în partea dreaptă a File Explorer. | Un clic îl selectează; dublu clic îl deschide.
 A: Ctrl + A selectează toate fișierele din folderul curent.
+A: Dacă tragi un fișier de pe C: pe stickul E:, fișierul este copiat. | Între unități de disc diferite, tragerea face o copie.
+F: Poți scoate stickul din calculator oricând, chiar în timp ce se copiază fișiere. | Folosești întâi Eliminare în siguranță, altfel fișierele se pot strica.
+F: Un fișier șters de pe stick poate fi restaurat din Coșul de reciclare. | De pe stick, fișierele se șterg definitiv.
+```
+
+```eseu
+Sarcină practică: pe calculator, creează în folderul `Portofoliu` structura `TIC\Unitatea2`, apoi mută acolo trei fișiere create de tine, redenumește-le cu nume sugestive, copiază folderul `Unitatea2` pe un stick și scoate stickul în siguranță. Descrie aici, în ordine, ce operații ai făcut și ce combinații de taste sau comenzi ai folosit.
+Cuvinte: 40-150
+Barem: crearea folderelor (clic dreapta → Nou → Folder); mutarea cu Ctrl + X / Ctrl + V; redenumirea; copierea pe stick (Ctrl + C / Ctrl + V sau tragere pe altă unitate); Eliminare în siguranță; pașii sunt în ordinea corectă și numele respectă regulile.
 ```
 
 ## Exersează

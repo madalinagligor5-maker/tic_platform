@@ -10,6 +10,8 @@ descriere: Date de intrare, de ieșire și de manevră; constante și variabile;
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.2
+
 ## Ce vei învăța azi
 
 - ce sunt **datele** unui algoritm: **de intrare**, **de ieșire** și **de manevră**;
@@ -51,6 +53,25 @@ Stop
 ```
 
 ![Datele de intrare, de manevră și de ieșire la cumpărarea a trei produse și cele trei tipuri de date: numerice, de tip text și logice.](fisiere/imagini/info-5-u5-l4-date-constante-variabile.svg)
+
+### Cum identifici datele unui algoritm
+
+Pune-ți trei întrebări:
+
+1. **De ce am nevoie ca să pot începe?** → acestea sunt **datele de intrare**.
+2. **Ce trebuie să obțin la final?** → acestea sunt **datele de ieșire**.
+3. **Ce calculez sau notez „pe ciornă”, pe drum?** → acestea sunt **datele de manevră**.
+
+**Exemplu: media a trei note.** Ca să încep îmi trebuie cele trei note → **intrare**. La final vreau media → **ieșire**. Pe drum calculez suma notelor → **manevră**: fără ea nu pot afla media, dar nu ea este rezultatul cerut.
+
+| Situație | Date de intrare | Date de manevră | Date de ieșire |
+|---|---|---|---|
+| media a trei note | nota1, nota2, nota3 | suma notelor | media |
+| perimetrul unui dreptunghi | lungimea, lățimea | suma lungime + lățime | perimetrul |
+| timpul unui drum cu bicicleta | distanța, viteza | – | timpul |
+| restul primit la magazin | banii dați, prețul | – | restul |
+
+> **Rolul datelor:** datele de intrare **pornesc** prelucrarea, cele de manevră **păstrează rezultate intermediare**, iar cele de ieșire **răspund la cerința problemei**. Dacă lipsește o dată de intrare, algoritmul nu poate porni; dacă lipsește o dată de ieșire, nu aflăm rezultatul.
 
 ### Constante și variabile
 
@@ -109,6 +130,25 @@ F: Numele unei variabile se poate schimba în timpul algoritmului. | Numele răm
 ```completare
 # Calculează.
 Pe card ai si = 200 de lei, retragi e = 50 de lei, comisionul este c = 5 lei. Rămân sr = [145] de lei. Dacă B = 20 și B = (B × 2 + 6) × 5, noua valoare a lui B este [230].
+```
+
+```categorii
+# Media a trei note: clasifică datele.
+Date de intrare: nota1, nota2, nota3
+Dată de manevră: suma celor trei note
+Dată de ieșire: media
+```
+
+```categorii
+# Restul primit la magazin: clasifică datele.
+Intrare: banii dați casierei, prețul produsului
+Ieșire: restul primit
+```
+
+```eseu
+Algoritmul „Câte pachete de biscuiți pot cumpăra?”: introduci suma de bani și prețul unui pachet; calculezi câtul împărțirii sumei la preț; afișezi numărul de pachete și câți bani îți rămân (suma – numărul de pachete × preț). Clasifică toate datele (intrare, manevră, ieșire) și justifică pentru fiecare rolul ei în prelucrare. Ce se întâmplă dacă prețul este 0?
+Cuvinte: 40-150
+Barem: intrare: suma și prețul (fără ele algoritmul nu poate porni); ieșire: numărul de pachete și restul (răspund la cerință); manevră: eventual produsul număr de pachete × preț (rezultat intermediar pentru calculul restului); observația că prețul 0 face împărțirea imposibilă, deci algoritmul trebuie să verifice întâi că prețul > 0.
 ```
 
 ```quiz

@@ -10,6 +10,8 @@ descriere: Algoritmi în care pașii se execută unul după altul: regula celor 
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 2.1, CS 2.3
+
 ## Ce vei învăța azi
 
 - ce este un **algoritm secvențial**;

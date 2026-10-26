@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Ce poți salva dintr-o pagină web și în ce format, plus elementele unei citări corecte</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="22" font-weight="800">Salvezi informația în formatul cerut și notezi sursa</text>
+
+    <!-- pagina web -->
+    <rect x="40" y="80" width="330" height="290" rx="14" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="40" y="80" width="330" height="40" rx="14" fill="#E2F6FA"/>
+    <rect x="40" y="104" width="330" height="16" fill="#E2F6FA"/>
+    <circle cx="62" cy="100" r="6" fill="#C8133A"/><circle cx="82" cy="100" r="6" fill="#F29A1F"/><circle cx="102" cy="100" r="6" fill="#14A39A"/>
+    <rect x="120" y="90" width="236" height="20" rx="10" fill="#FFFFFF" stroke="#3EC6E0"/>
+    <text x="132" y="105" font-size="12" fill="#0B6F68">https://www.parc-natural.ro/urs</text>
+    <text x="60" y="152" font-size="17" font-weight="800">Ursul brun</text>
+    <rect x="60" y="166" width="150" height="10" rx="5" fill="#D9D3CC"/>
+    <rect x="60" y="184" width="150" height="10" rx="5" fill="#D9D3CC"/>
+    <rect x="60" y="202" width="130" height="10" rx="5" fill="#D9D3CC"/>
+    <rect x="60" y="220" width="150" height="10" rx="5" fill="#D9D3CC"/>
+    <rect x="230" y="160" width="120" height="90" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="2"/>
+    <circle cx="290" cy="200" r="22" fill="#8A5A3B"/><circle cx="274" cy="182" r="8" fill="#8A5A3B"/><circle cx="306" cy="182" r="8" fill="#8A5A3B"/>
+    <text x="290" y="242" text-anchor="middle" font-size="11" fill="#6B6460">foto: CC BY</text>
+    <text x="60" y="290" font-size="13" fill="#6B6460">Autor: Ana Pop</text>
+    <text x="60" y="312" font-size="13" fill="#6B6460">Actualizat: 2026</text>
+    <text x="205" y="352" text-anchor="middle" font-size="14" font-weight="800" fill="#0E7F96">o pagină web</text>
+
+    <!-- săgeți -->
+    <path d="M372 140L520 112" stroke="#171416" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+    <path d="M372 190L520 182" stroke="#171416" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+    <path d="M372 240L520 252" stroke="#171416" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+    <path d="M372 290L520 322" stroke="#171416" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+
+    <!-- formate -->
+    <rect x="528" y="84" width="392" height="56" rx="12" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="546" y="108" font-size="15" font-weight="800" fill="#0B6F68">Text → .txt</text>
+    <text x="546" y="129" font-size="13">Ctrl + C → Notepad → Ctrl + V → Salvare ca</text>
+
+    <rect x="528" y="154" width="392" height="56" rx="12" fill="#FFFFFF" stroke="#F29A1F" stroke-width="3"/>
+    <text x="546" y="178" font-size="15" font-weight="800" fill="#A35F00">Imagine → .jpg / .png</text>
+    <text x="546" y="199" font-size="13">clic dreapta → Salvare imagine ca…</text>
+
+    <rect x="528" y="224" width="392" height="56" rx="12" fill="#FFFFFF" stroke="#C8133A" stroke-width="3"/>
+    <text x="546" y="248" font-size="15" font-weight="800" fill="#C8133A">Toată pagina → .pdf</text>
+    <text x="546" y="269" font-size="13">Ctrl + P → Destinație: Salvare ca PDF</text>
+
+    <rect x="528" y="294" width="392" height="56" rx="12" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="546" y="318" font-size="15" font-weight="800" fill="#0E7F96">Adresa → Favorite ☆</text>
+    <text x="546" y="339" font-size="13">Ctrl + D sau steluța din bara de adrese</text>
+
+    <!-- citare -->
+    <rect x="40" y="394" width="880" height="118" rx="14" fill="#FFF0DB" stroke="#F29A1F" stroke-width="3"/>
+    <text x="60" y="424" font-size="16" font-weight="800">Bibliografie: notezi sursa fiecărei informații</text>
+    <g font-size="13" font-weight="700">
+      <rect x="60" y="440" width="140" height="34" rx="8" fill="#FFFFFF"/><text x="130" y="462" text-anchor="middle">autorul</text>
+      <rect x="212" y="440" width="160" height="34" rx="8" fill="#FFFFFF"/><text x="292" y="462" text-anchor="middle">„titlul paginii”</text>
+      <rect x="384" y="440" width="150" height="34" rx="8" fill="#FFFFFF"/><text x="459" y="462" text-anchor="middle">numele site-ului</text>
+      <rect x="546" y="440" width="160" height="34" rx="8" fill="#FFFFFF"/><text x="626" y="462" text-anchor="middle">adresa URL</text>
+      <rect x="718" y="440" width="182" height="34" rx="8" fill="#FFFFFF"/><text x="809" y="462" text-anchor="middle">data accesării</text>
+    </g>
+    <text x="60" y="498" font-size="13" fill="#6B6460">Compară cel puțin 3 surse de încredere și verifică licența imaginilor (©, Creative Commons, domeniu public).</text>
+  </g>
+</svg>

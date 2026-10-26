@@ -10,6 +10,8 @@ descriere: Blocurile „dacă... atunci” și „dacă... atunci... altfel”, 
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 3.2, CS 3.3
+
 ## Ce vei învăța azi
 
 - să folosești blocurile **„dacă… atunci”** și **„dacă… atunci… altfel”** din categoria **Control**;
@@ -46,7 +48,7 @@ scrie mx
 1. Creezi variabilele **a**, **b**, **mx**.
 2. La steagul verde, le **inițializezi cu 0** (script pus pe decor).
 3. Citești valorile: blocul **„întreabă (Care este primul număr?) și așteaptă”** din *Detectare*. Ce scrie utilizatorul ajunge în blocul **„răspuns”**, apoi: **„setează [a] la (răspuns)”**. La fel pentru b.
-4. Construiești condiția **a >= b**. În Scratch nu există blocul `>=`, așa că o scrii ca **(a > b) sau (a = b)**.
+4. Construiești condiția **a >= b**. În Scratch nu există blocul `>=`, așa că o scrii ca **(a > b) sau (a = b)** (sau ca **nu (a < b)**). La fel: `a <= b` devine **nu (a > b)**, iar `a <> b` (diferit) devine **nu (a = b)**.
 5. Pui structura **„dacă… atunci… altfel”**: pe *atunci* „setează [mx] la (a)”, pe *altfel* „setează [mx] la (b)”.
 6. Afișezi: **„spune (alătură „Nr. maxim este ” (mx))”** și pornești un sunet de felicitare.
 

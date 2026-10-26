@@ -10,6 +10,8 @@ descriere: De la Pascalina la telefonul inteligent: cum au evoluat calculatoarel
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.1
+
 ## Ce vei învăța azi
 
 - ce este un **sistem de calcul** și ce este un **sistem de comunicații**;

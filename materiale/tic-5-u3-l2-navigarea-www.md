@@ -10,6 +10,8 @@ descriere: Hipertext și hiperlinkuri, adresa URL, pagini și site-uri web, brow
 data: 2026-10-15
 ---
 
+> **Competențe specifice (Anexa 15):** CS 1.3
+
 ## Ce vei învăța azi
 
 - ce sunt **hipertextul**, **hiperlinkul**, **pagina web** și **site-ul web**;
@@ -43,6 +45,8 @@ http://www.edu.ro/invatamant-gimnazial
 - `edu`: numele site-ului;
 - `.ro`: țara căreia i se adresează site-ul (`.ro` pentru România) sau tipul site-ului (`.edu` educațional, `.com` comercial);
 - `/invatamant-gimnazial`: pagina din site pe care te afli.
+
+Adresa începe cu **protocolul**: `http://` sau `https://`. Litera **s** vine de la *secure* (sigur): datele schimbate cu site-ul sunt **criptate**, iar browserul arată un **lăcățel** lângă adresă. Pe un site care cere parole sau date personale, verifică întotdeauna că adresa începe cu `https://` și că numele site-ului este scris corect (de exemplu, `www.edu.ro`, nu `www.edu-ro.com`).
 
 ### Pagini și site-uri
 
@@ -103,6 +107,8 @@ A: Un site web poate avea o singură pagină web.
 F: Pentru realizarea unei pagini web se folosește programul Paint. | Paginile web se scriu în limbajul HTML.
 A: Între paginile web pot exista mai multe hiperlinkuri.
 F: Parola poate fi spusă colegului de bancă, dacă îi ești prieten. | Parolele sunt personale și nu se spun nimănui.
+A: O adresă care începe cu https:// folosește o conexiune criptată (sigură).
+F: Orice site cu un lăcățel lângă adresă spune numai adevărul. | Lăcățelul arată doar că legătura este criptată; informațiile tot trebuie verificate.
 ```
 
 ```categorii
