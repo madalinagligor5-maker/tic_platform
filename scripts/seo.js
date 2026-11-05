@@ -95,7 +95,8 @@ function page({ site, url, title, desc, body, crumbs = [] }) {
     ${crumbs.length ? `<nav class="crumbs" aria-label="Cale">${crumbs.map(([t, u]) => u ? `<a href="${u}">${esc(t)}</a>` : `<span>${esc(t)}</span>`).join(' / ')}</nav>` : ''}
     ${body}
   </main>
-  <footer class="site-footer"><div class="wrap footer-row"><span class="logo-word small">edudigi</span><p class="kicker">Informatică • TIC • Clasele V–XII</p><p class="muted">Resurse gratuite pentru elevi și profesori.</p></div></footer>
+  <footer class="site-footer"><div class="wrap footer-row"><span class="logo-word small">edudigi</span><p class="kicker">Informatică • TIC • Clasele V–XII</p><p class="muted">Resurse gratuite pentru elevi și profesori. <a href="#" data-cookie-setari>Statistici (cookie-uri)</a></p></div></footer>
+  <script src="/js/analytics.js"></script>
 </body>
 </html>
 `;
