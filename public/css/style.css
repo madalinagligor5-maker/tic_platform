@@ -1196,3 +1196,17 @@ body:has(.lab-ecran) { overflow: hidden; }
 .gal-item figcaption { flex: 1; margin: 8px 2px 0; font-size: .8rem; line-height: 1.35; color: var(--muted); }
 .gal-item .fig-actions { justify-content: flex-start; margin-top: 8px; }
 @media print { .fig-actions { display: none; } }
+
+/* Paginile statice pentru motoarele de căutare (public/lectii/) */
+.static-page .header-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.static-page .logo-word { text-decoration: none; color: var(--red); font-weight: 800; }
+.static-nav { display: flex; gap: 18px; }
+.static-nav a { color: var(--ink); font-weight: 700; text-decoration: none; }
+.static-main { padding: 28px 0 48px; }
+.static-main .crumbs { font-size: .88rem; color: var(--muted); margin-bottom: 16px; }
+.static-main .crumbs a { color: inherit; }
+.static-main .paper { padding: clamp(18px, 4vw, 40px); }
+.static-act a { display: inline-block; padding: 10px 16px; border-radius: 10px; background: var(--warm); color: var(--ink); font-weight: 700; text-decoration: none; }
+.static-cta { margin-top: 28px; }
+.static-unit ul, .static-clase { line-height: 1.9; }
+.static-main .table-wrap { overflow-x: auto; }

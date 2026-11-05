@@ -8,3 +8,6 @@ public/fisiere/
 .vercel/
 .neon
 lib/generated
+public/lectii/
+public/sitemap.xml
+public/robots.txt

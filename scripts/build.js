@@ -6,6 +6,7 @@
 //   public/date/materiale.json  lista materialelor (fără conținut)
 //   public/date/m/<id>.md       conținutul fiecărui material
 //   public/fisiere/             copia atașamentelor
+//   public/lectii/, public/sitemap.xml, public/robots.txt  pagini statice pentru Google (scripts/seo.js)
 //   lib/generated/teste.json    testele cu `mod: profesor` (cu răspunsuri): nu se publică, le folosește doar API-ul
 // Rulare: npm run build. La orice greșeală în antet, oprește construirea și spune ce e de corectat.
 const fs = require('fs');
@@ -14,6 +15,7 @@ const { extract, TYPES: ACTIVITATI } = require('../public/js/interactive');
 require('../public/js/office'); // înregistrează procesor-text și calcul-tabelar
 const Teste = require('../public/js/teste-core'); // înregistrează eseu
 const { extract: extractDecks } = require('../public/js/diapozitive');
+const Seo = require('./seo');
 
 const DISCIPLINE = { informatica: 'Informatică', tic: 'TIC' };
 const CATEGORII = { programare: 'Programare', tic: 'TIC', algoritmi: 'Algoritmi', aplicatii: 'Aplicații' };
@@ -158,6 +160,8 @@ function build({ src, out, teste: testeOut }) {
   fs.writeFileSync(path.join(dateDir, 'materiale.json'), JSON.stringify({ discipline: DISCIPLINE, categorii: CATEGORII, tipuri: TIPURI, materiale: materials }));
   for (const [id, body] of Object.entries(bodies)) if (body) fs.writeFileSync(path.join(dateDir, 'm', `${id}.md`), body);
   if (fs.existsSync(path.join(src, 'fisiere'))) fs.cpSync(path.join(src, 'fisiere'), fisDir, { recursive: true, filter: (p) => !path.basename(p).startsWith('.') });
+  // Paginile statice pentru Google, harta site-ului și robots.txt.
+  Seo.generate({ out, materials, bodies, discipline: DISCIPLINE, tipuri: TIPURI, interactiv: new Set([...Object.keys(ACTIVITATI), 'diapozitive']) });
   if (testeOut) {
     fs.mkdirSync(path.dirname(testeOut), { recursive: true });
     fs.writeFileSync(testeOut, JSON.stringify(testeProfesor));
