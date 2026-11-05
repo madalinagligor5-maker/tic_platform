@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 1.1
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Unde păstrăm datele?
+
+![Unde păstrăm datele?: ssd, stick usb, copie de siguranță.](fisiere/imagini/tic-5-u1-l4-dispozitive-de-stocare-atlas.svg)
+
+```explorare
+# Unde păstrăm datele?
+SSD | Stocare rapidă, fără piese în mișcare. | Sistemul de operare și aplicațiile.
+Stick USB | Stocare portabilă, conectată prin USB. | Transporți o prezentare la școală.
+Copie de siguranță | Păstrezi încă o copie pe un mediu separat. | Salvezi proiectul și pe un disc extern.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - care sunt dispozitivele de **stocare permanentă** a datelor și prin ce se deosebesc;

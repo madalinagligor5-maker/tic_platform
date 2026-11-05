@@ -53,6 +53,7 @@ function markdownHTML(src, interactiv, linkApp) {
       continue;
     }
     let m;
+    if (/^<!-- atlas-vizual:(start|end) -->$/.test(line)) { flush(); continue; }
     if (!line.trim()) { flush(); continue; }
     if ((m = /^(#{1,4})\s+(.*)$/.exec(line))) { flush(); const n = Math.min(m[1].length + 1, 4); out.push(`<h${n}>${inline(m[2])}</h${n}>`); continue; }
     if (/^\s*\|/.test(line)) { if (!table) flush(), (table = []); table.push(line); continue; }

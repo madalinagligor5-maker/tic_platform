@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 1.3
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Oprește-te înainte de clic
+
+![Oprește-te înainte de clic: observă, verifică, cere ajutor.](fisiere/imagini/tic-6-u3-l1-siguranta-pe-internet-atlas.svg)
+
+```explorare
+# Oprește-te înainte de clic
+Observă | Mesajele urgente pot încerca să te păcălească. | Ai câștigat! Introdu parola acum.
+Verifică | Controlează expeditorul și adresa destinației. | Un nume familiar nu dovedește autenticitatea.
+Cere ajutor | Nu trimite parola; discută cu un adult de încredere. | Raportezi mesajul și îl ștergi.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - ce este un program **malware** și cum ajunge pe calculator;

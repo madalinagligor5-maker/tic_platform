@@ -12,6 +12,19 @@ data: 2026-10-16
 
 > **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Trei etape de editare audio
+
+![Trei etape de editare audio: selectează, prelucrează, exportă.](fisiere/imagini/tic-7-u2-l3-prelucrarea-sunetelor-atlas.svg)
+
+```explorare
+# Trei etape de editare audio
+Selectează | Ascultă și identifică intervalul de prelucrat. | Marchezi pauza de la început.
+Prelucrează | Aplică operația doar pe selecția potrivită. | Elimini pauza sau reglezi volumul.
+Exportă | Păstrează proiectul și exportă o copie audio. | Un fișier WAV sau MP3 pentru ascultare.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - să **selectezi**, să **tai**, să **copiezi** și să **lipești** porțiuni de sunet;

@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Un diapozitiv ușor de citit
+
+![Un diapozitiv ușor de citit: ierarhie, contrast, spațiu.](fisiere/imagini/tic-6-u1-l4-design-prezentare-atlas.svg)
+
+```explorare
+# Un diapozitiv ușor de citit
+Ierarhie | Titlul anunță ideea principală. | Un titlu mare și câteva idei scurte.
+Contrast | Textul trebuie să se distingă de fundal. | Text închis pe un fundal luminos.
+Spațiu | Lasă loc între text și elementele vizuale. | O imagine relevantă, fără aglomerare.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - care sunt **criteriile** unei prezentări atractive;

@@ -12,6 +12,19 @@ data: 2026-10-16
 
 > **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 3.3
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Bucla while verifică înainte
+
+![Bucla while verifică înainte: condiție, corp, revenire.](fisiere/imagini/info-7-u4-l6-repetitiva-while-atlas.svg)
+
+```explorare
+# Bucla while verifică înainte
+Condiție | Verificarea are loc înainte de corpul buclei. | Cât timp n > 0.
+Corp | Dacă este adevărată, se execută instrucțiunile. | Afișezi n, apoi scazi 1 din n.
+Revenire | Verifici din nou; o condiție falsă oprește bucla. | Pentru n = 3 afișezi 3, 2, 1.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - să scrii instrucțiunea **while**;

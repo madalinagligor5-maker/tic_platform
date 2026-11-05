@@ -12,6 +12,19 @@ data: 2026-10-16
 
 > **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Mută textul fără să îl rescrii
+
+![Mută textul fără să îl rescrii: selectează, decupează, lipește.](fisiere/imagini/tic-7-u1-l4-editarea-documentului-atlas.svg)
+
+```explorare
+# Mută textul fără să îl rescrii
+Selectează | Marchează exact fragmentul pe care îl muți. | Selectezi un paragraf, fără titlul următor.
+Decupează | Comanda Decupare pregătește mutarea. | Ctrl + X
+Lipește | Poziționează cursorul și inserează fragmentul. | Ctrl + V la noua poziție.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - să te **deplasezi** repede în text și să **selectezi**;

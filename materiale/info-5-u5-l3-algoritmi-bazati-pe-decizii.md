@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 2.1, CS 2.3
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: O condiție, două drumuri
+
+![O condiție, două drumuri: întreabă, dacă da, dacă nu.](fisiere/imagini/info-5-u5-l3-algoritmi-bazati-pe-decizii-atlas.svg)
+
+```explorare
+# O condiție, două drumuri
+Întreabă | O condiție are valoarea adevărat sau fals. | Plouă afară?
+Dacă DA | Execută ramura pentru condiția adevărată. | Iei umbrela.
+Dacă NU | Execută alternativa, apoi continui algoritmul. | Pleci fără umbrelă.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - ce este **structura alternativă (decizională)**: **Dacă… Atunci… Altfel**;

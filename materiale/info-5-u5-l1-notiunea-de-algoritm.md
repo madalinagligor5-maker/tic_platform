@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 2.1
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Algoritmul unei dimineți
+
+![Algoritmul unei dimineți: date inițiale, pași preciși, rezultat.](fisiere/imagini/info-5-u5-l1-notiunea-de-algoritm-atlas.svg)
+
+```explorare
+# Algoritmul unei dimineți
+Date inițiale | Identifică ce ai la început. | Ai ghiozdanul și orarul zilei.
+Pași preciși | Ordonează acțiuni clare și realizabile. | Citești orarul, alegi cărțile, le pui în ghiozdan.
+Rezultat | Verifică dacă ai atins scopul. | Ghiozdanul conține materialele pentru ziua respectivă.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - ce este un **algoritm**;

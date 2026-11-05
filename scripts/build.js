@@ -12,6 +12,7 @@
 const fs = require('fs');
 const path = require('path');
 const { extract, TYPES: ACTIVITATI } = require('../public/js/interactive');
+require('../public/js/explorare');
 require('../public/js/office'); // înregistrează procesor-text și calcul-tabelar
 const Teste = require('../public/js/teste-core'); // înregistrează eseu
 const { extract: extractDecks } = require('../public/js/diapozitive');

@@ -12,6 +12,19 @@ data: 2026-10-16
 
 > **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 3.3
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Caută un element pas cu pas
+
+![Caută un element pas cu pas: țintă, compară, raportează.](fisiere/imagini/info-8-u3-l11-siruri-cautare-atlas.svg)
+
+```explorare
+# Caută un element pas cu pas
+Țintă | Stabilește valoarea căutată în șir. | Cauți 7 în șirul [4, 7, 2].
+Compară | Parcurge șirul și compară elementul curent. | 4 ≠ 7; apoi 7 = 7.
+Raportează | Precizează convenția de numerotare a pozițiilor. | De la 0: indicele 1; de la 1: poziția 2.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - să verifici dacă o valoare **există** într-un șir;

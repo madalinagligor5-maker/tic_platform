@@ -12,6 +12,19 @@ data: 2026-10-16
 
 > **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Alege reprezentarea potrivită
+
+![Alege reprezentarea potrivită: coloane, linii, sectoare.](fisiere/imagini/tic-8-u1-l6-diagrame-atlas.svg)
+
+```explorare
+# Alege reprezentarea potrivită
+Coloane | Compară valori din categorii diferite. | Numărul de cărți citite de fiecare clasă.
+Linii | Urmărește evoluția în timp. | Temperatura măsurată în fiecare zi.
+Sectoare | Arată părți din același întreg. | Repartizarea bugetului; totalul reprezintă 100%.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - de ce reprezentăm datele prin **diagrame**;

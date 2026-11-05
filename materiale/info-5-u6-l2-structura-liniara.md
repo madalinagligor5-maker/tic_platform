@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 3.2
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Instrucțiuni una după alta
+
+![Instrucțiuni una după alta: pornește, execută, observă.](fisiere/imagini/info-5-u6-l2-structura-liniara-atlas.svg)
+
+```explorare
+# Instrucțiuni una după alta
+Pornește | Evenimentul declanșează secvența în Scratch. | Când se apasă steagul verde.
+Execută | Blocurile se execută în ordinea așezării. | Mergi 10 pași, apoi rotește-te 15 grade.
+Observă | Schimbarea ordinii poate schimba rezultatul. | Compară rotirea înainte și după deplasare.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - să faci un program Scratch cu **structură liniară** (blocurile se execută pe rând, de sus în jos);

@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 1.3
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: O căutare mai bună
+
+![O căutare mai bună: formulează, compară, folosește corect.](fisiere/imagini/tic-5-u3-l3-motoare-de-cautare-atlas.svg)
+
+```explorare
+# O căutare mai bună
+Formulează | Alege cuvinte care descriu exact întrebarea. | reciclare plastic copii
+Compară | Consultă mai multe surse și verifică autorul. | Cine a publicat? Când? Cu ce dovezi?
+Folosește corect | Notează sursa și respectă drepturile de autor. | Menționezi autorul imaginii în proiect.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - ce este un **motor de căutare** și cum faci o căutare cu **cuvinte-cheie**;

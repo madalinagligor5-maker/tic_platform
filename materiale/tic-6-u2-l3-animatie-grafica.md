@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Cum apare mișcarea?
+
+![Cum apare mișcarea?: cadru inițial, cadre intermediare, redare.](fisiere/imagini/tic-6-u2-l3-animatie-grafica-atlas.svg)
+
+```explorare
+# Cum apare mișcarea?
+Cadru inițial | Stabilește poziția de început a obiectului. | Mingea este în stânga scenei.
+Cadre intermediare | Schimbă poziția treptat, între cadre. | Mingea avansează puțin în fiecare cadru.
+Redare | Succesiunea cadrelor creează impresia de mișcare. | Compară o redare lentă cu una rapidă.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - de ce începi orice animație cu un **scenariu**;

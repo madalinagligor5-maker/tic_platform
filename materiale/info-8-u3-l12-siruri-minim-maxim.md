@@ -12,6 +12,19 @@ data: 2026-10-16
 
 > **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 3.3
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Găsește maximul din șir
+
+![Găsește maximul din șir: inițializează, compară, finalizează.](fisiere/imagini/info-8-u3-l12-siruri-minim-maxim-atlas.svg)
+
+```explorare
+# Găsește maximul din șir
+Inițializează | Pornește cu primul element, pentru un șir nevid. | În [4, 9, 2], maximul inițial este 4.
+Compară | Înlocuiește maximul doar cu o valoare mai mare. | 9 > 4, deci maximul devine 9.
+Finalizează | După parcurgere ai maximul tuturor elementelor. | 2 < 9; rezultatul rămâne 9.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - să afli **maximul** și **minimul** dintr-un șir de valori;

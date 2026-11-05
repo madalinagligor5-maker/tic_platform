@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 3.1
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Construiește o imagine 2D
+
+![Construiește o imagine 2D: formă, culoare, export.](fisiere/imagini/tic-5-u4-l2-operatii-grafica-2d-atlas.svg)
+
+```explorare
+# Construiește o imagine 2D
+Formă | Pornește de la forme geometrice simple. | Un cerc și două triunghiuri devin o pisică.
+Culoare | Folosește contrast pentru a evidenția subiectul. | Un personaj turcoaz pe un fundal deschis.
+Export | Salvează o copie în formatul potrivit. | PNG păstrează transparența, dacă imaginea o are.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - să creezi, să deschizi, să salvezi și să tipărești un **fișier grafic**;

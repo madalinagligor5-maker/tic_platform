@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 1.3
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Trimite un mesaj clar
+
+![Trimite un mesaj clar: destinatar, conținut, atașament.](fisiere/imagini/tic-6-u3-l4-operatii-cu-mesaje-atlas.svg)
+
+```explorare
+# Trimite un mesaj clar
+Destinatar | Verifică adresa și persoanele din Cc. | Profesorul primește mesajul la adresa corectă.
+Conținut | Scrie un subiect precis și un mesaj politicos. | Subiect: Proiect TIC – clasa a VI-a.
+Atașament | Verifică fișierul înainte de trimitere. | Deschizi prezentarea atașată și verifici versiunea.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - să **compui** și să **trimiți** un e-mail, cu **atașamente**;

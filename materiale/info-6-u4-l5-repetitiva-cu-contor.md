@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 2.3, CS 3.3
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Urmărește contorul
+
+![Urmărește contorul: start, repetă, stop.](fisiere/imagini/info-6-u4-l5-repetitiva-cu-contor-atlas.svg)
+
+```explorare
+# Urmărește contorul
+Start | Contorul primește valoarea inițială. | i ← 1
+Repetă | Execută corpul pentru fiecare valoare admisă. | Pentru i de la 1 la 3: afișează i.
+Stop | După ultima iterație, continui după buclă. | Rezultatul afișat este 1, 2, 3.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - cum funcționează structura **„pentru”** (cu **contor**);

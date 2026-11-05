@@ -26,6 +26,40 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; font: 500 16px/1.6 var(--font); color: var(--charcoal); background: var(--warm); -webkit-font-smoothing: antialiased; }
 img, svg { display: block; max-width: 100%; }
+/* Atlasul vizual păstrează culorile și tipografia platformei. */
+.hero-grid > *, .header-row > *, .mat-card > * { min-width: 0; }
+.hero-visual { position: relative; }
+.hero-illustration { width: 100%; height: auto; border-radius: 24px; mix-blend-mode: multiply; }
+.hero-visual-link { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 18px; margin-top: 12px; background: var(--card); border-radius: 12px; text-decoration: none; font-weight: 700; }
+.hero-visual-link .ico { width: 24px; height: 24px; }
+.hero-visual-link:hover { background: var(--t-tic); }
+.visual-atlas { background: var(--beige); }
+.atlas-intro { max-width: 720px; color: var(--muted); margin: -8px 0 28px; }
+.atlas-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.atlas-link { text-decoration: none; }
+.atlas-link img { width: 100%; height: auto; border-radius: 16px; transition: transform .2s ease; }
+.atlas-link:hover img { transform: translateY(-4px); }
+.atlas-link > span { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 2px; }
+.atlas-link > span > span { color: var(--red-dark); font-size: .85rem; }
+.mat-card:has(.mat-cover) { display: flex; flex-direction: column; gap: 16px; }
+.mat-cover { width: 100%; height: auto; aspect-ratio: 1080 / 640; object-fit: contain; border-radius: 10px; background: var(--warm); }
+.explore-steps { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+.explore-step { display: flex; align-items: center; gap: 10px; flex: 1 1 145px; padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: white; text-align: left; cursor: pointer; font-size: .9rem; font-weight: 700; }
+.explore-step[aria-pressed="true"] { color: white; background: var(--charcoal); border-color: var(--charcoal); }
+.explore-number { font-family: var(--mono); opacity: .7; }
+.explore-stage { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 24px; padding: clamp(18px, 4vw, 32px); border-radius: 14px; background: var(--t-tic); min-height: 250px; align-items: start; }
+.explore-big { font: 800 clamp(2.5rem, 6vw, 4rem)/1 var(--font); color: var(--blue-ink); }
+.explore-stage h3 { margin-top: 0; }
+.explore-example { padding-top: 12px; border-top: 1px solid var(--blue-ink); overflow-wrap: anywhere; }
+.explore-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; }
+.explore-count { font-size: .8rem; color: var(--muted); }
+.explore-controls button:disabled { opacity: .45; cursor: default; }
+@media (max-width: 600px) {
+  .atlas-grid { grid-template-columns: minmax(0, 1fr); }
+  .explore-stage { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .explore-count { order: 3; flex-basis: 100%; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .atlas-link img { transition: none; } }
 a { color: inherit; }
 button, input, select { font: inherit; color: inherit; }
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
@@ -1210,3 +1244,13 @@ body:has(.lab-ecran) { overflow: hidden; }
 .static-cta { margin-top: 28px; }
 .static-unit ul, .static-clase { line-height: 1.9; }
 .static-main .table-wrap { overflow-x: auto; }
+
+/* Navigarea se strânge înainte ca legăturile să se suprapună. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .header-row { flex-wrap: wrap; gap: 10px 18px; padding-block: 12px; }
+  .main-nav { order: 3; width: 100%; justify-content: space-between; margin: 0; gap: 16px; }
+  .search { margin-left: auto; }
+}
+@media (max-width: 960px) {
+  .hero-visual { max-width: 560px; width: 100%; margin-inline: auto; }
+}

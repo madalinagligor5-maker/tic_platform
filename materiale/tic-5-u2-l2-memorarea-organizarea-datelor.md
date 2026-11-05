@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 1.2
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: De la folder la fișier
+
+![De la folder la fișier: folder, nume, extensie.](fisiere/imagini/tic-5-u2-l2-memorarea-organizarea-datelor-atlas.svg)
+
+```explorare
+# De la folder la fișier
+Folder | Grupează documente și alte foldere. | Școală → TIC → Proiecte.
+Nume | Un nume clar te ajută să regăsești fișierul. | proiect-energie-v2.pptx
+Extensie | Sugerează tipul fișierului și aplicația potrivită. | .png pentru imagini; .docx pentru documente.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - ce este un **fișier** și ce ne spune **extensia** lui;

@@ -12,6 +12,19 @@ data: 2026-10-16
 
 > **Competențe specifice (Anexa 15):** CS 1.3
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Lucrăm împreună în siguranță
+
+![Lucrăm împreună în siguranță: partajează, colaborează, verifică.](fisiere/imagini/tic-7-u3-l1-aplicatii-colaborative-atlas.svg)
+
+```explorare
+# Lucrăm împreună în siguranță
+Partajează | Acordă doar permisiunile necesare. | Cititor pentru consultare; editor pentru lucru.
+Colaborează | Folosește comentarii pentru feedback clar. | Indici paragraful și propui o corectură.
+Verifică | Consultă istoricul pentru a urmări modificările. | Identifici o versiune anterioară utilă.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - ce este o **aplicație colaborativă** și ce înseamnă **cloud**;

@@ -12,6 +12,19 @@ data: 2026-10-16
 
 > **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: De la text la document
+
+![De la text la document: caractere, paragrafe, pagină.](fisiere/imagini/tic-7-u1-l5-formatare-aspectul-paginii-atlas.svg)
+
+```explorare
+# De la text la document
+Caractere | Formatează literele pentru accent și lizibilitate. | Font, mărime, aldin.
+Paragrafe | Organizează ideile și distanțele dintre ele. | Aliniere, spațiere, liste.
+Pagină | Stabilește spațiul în care apare conținutul. | Margini, orientare, dimensiune.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - să formatezi **caracterele**: font, mărime, stil, culoare;

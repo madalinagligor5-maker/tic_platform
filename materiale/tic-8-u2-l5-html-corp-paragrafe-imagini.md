@@ -12,6 +12,19 @@ data: 2026-10-26
 
 > **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Trei elemente dintr-o pagină
+
+![Trei elemente dintr-o pagină: titlu, paragraf, imagine.](fisiere/imagini/tic-8-u2-l5-html-corp-paragrafe-imagini-atlas.svg)
+
+```explorare
+# Trei elemente dintr-o pagină
+Titlu | Un titlu descrie secțiunea paginii. | <h1>Clubul de lectură</h1>
+Paragraf | Un paragraf grupează textul unei idei. | <p>Ne întâlnim în fiecare joi.</p>
+Imagine | Imaginea are o sursă și o descriere alternativă. | <img src="carti.png" alt="Trei cărți deschise">
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - ce rol au **antetul** (`head`) și **corpul** (`body`) unei pagini;

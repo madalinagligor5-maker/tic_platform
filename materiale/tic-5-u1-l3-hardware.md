@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 1.1
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Cum circulă informația
+
+![Cum circulă informația: intrare, prelucrare, ieșire.](fisiere/imagini/tic-5-u1-l3-hardware-atlas.svg)
+
+```explorare
+# Cum circulă informația
+Intrare | Dispozitivele de intrare trimit date către calculator. | Tastatura trimite litera A.
+Prelucrare | Procesorul execută instrucțiuni folosind memoria de lucru. | Programul pregătește litera pentru afișare.
+Ieșire | Dispozitivele de ieșire prezintă rezultatul. | Monitorul afișează litera A.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - din ce părți hardware este format un calculator;

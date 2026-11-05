@@ -161,6 +161,7 @@
     const cells = (row) => row.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
+      if (/^<!-- atlas-vizual:(start|end) -->$/.test(line)) { flush(); continue; }
       if (line.startsWith('```')) {
         flush();
         const code = [];
@@ -226,7 +227,7 @@
   // ---------- Componente ----------
   function matCard(m, D) {
     return h('a', { class: 'mat-card', href: `#/m/${m.id}` },
-      h('span', { class: `ico-box ${m.categorie}`, html: ICONS[m.categorie] }),
+      m.imagini?.length ? h('img', { class: 'mat-cover', src: safeUrl(m.imagini.find((im) => im.src.endsWith('-atlas.svg'))?.src || m.imagini[0].src), alt: '', loading: 'lazy', width: '1080', height: '640' }) : h('span', { class: `ico-box ${m.categorie}`, html: ICONS[m.categorie] }),
       h('div', {},
         h('h3', {}, m.titlu),
         m.descriere ? h('p', {}, m.descriere) : null,
@@ -275,7 +276,9 @@
             h('a', { class: 'chip red', href: '#/materiale?d=informatica' }, 'Informatică'),
             h('a', { class: 'chip', href: '#/materiale?d=tic' }, 'TIC'),
             h('a', { class: 'chip', href: '#/clase' }, 'Clasele V–XII'))),
-        h('div', { html: HERO_ART }))),
+        h('div', { class: 'hero-visual' },
+          h('img', { class: 'hero-illustration', src: '/fisiere/imagini/edudigi-laborator.png', alt: 'Un laptop cu blocuri de programare, un robot educațional și un caiet cu diagrame.', width: '1536', height: '1024', fetchpriority: 'high' }),
+          h('a', { class: 'hero-visual-link', href: '#/imagini?c=5' }, 'Descoperă atlasul vizual', icon('arrow', 'ico'))))),
       h('section', { class: 'tagline-band' }, h('div', { class: 'wrap tagline-grid' },
         h('p', { class: 'tagline' }, h('span', { class: 't1' }, 'Înveți.'), h('span', { class: 't2' }, 'Creezi.'), h('span', { class: 't3' }, 'Progresezi.')),
         h('div', { html: gridArt() }))),
@@ -285,6 +288,16 @@
       h('section', { id: 'clase' }, h('div', { class: 'wrap' },
         h('div', { class: 'section-head' }, h('div', {}, h('p', { class: 'kicker' }, 'Clase'), h('h2', {}, 'Alege clasa'))),
         classGrid(D))),
+      h('section', { class: 'visual-atlas' }, h('div', { class: 'wrap' },
+        h('div', { class: 'section-head' }, h('div', {}, h('p', { class: 'kicker' }, 'Învață prin imagini'), h('h2', {}, 'O idee devine mai clară când o vezi.'))),
+        h('p', { class: 'atlas-intro' }, 'Planșe explicative, exemple concrete și explorări pas cu pas. Alege clasa și deschide o lecție pentru a exersa.'),
+        h('div', { class: 'atlas-grid' }, [5, 6, 7, 8].map((grade) => {
+          const featured = D.materiale.find((m) => m.clasa.includes(grade) && m.imagini?.some((im) => im.src.endsWith('-atlas.svg')));
+          const image = featured?.imagini.find((im) => im.src.endsWith('-atlas.svg'));
+          return image ? h('a', { class: 'atlas-link', href: `#/imagini?c=${grade}` },
+            h('img', { src: safeUrl(image.src), alt: image.alt, loading: 'lazy', width: '1080', height: '640' }),
+            h('span', {}, h('b', {}, `Clasa a ${ROMAN[grade]}-a`), h('span', {}, 'Explorează imaginile →'))) : null;
+        })))) ,
       h('section', {}, h('div', { class: 'wrap' },
         h('div', { class: 'section-head' },
           h('div', {}, h('p', { class: 'kicker' }, 'Noutăți'), h('h2', {}, 'Materiale recente')),

@@ -12,6 +12,19 @@ data: 2026-10-15
 
 > **Competențe specifice (Anexa 15):** CS 2.2
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: O variabilă își schimbă valoarea
+
+![O variabilă își schimbă valoarea: inițializare, actualizare, utilizare.](fisiere/imagini/info-5-u5-l4-date-constante-variabile-atlas.svg)
+
+```explorare
+# O variabilă își schimbă valoarea
+Inițializare | Variabila are un nume și o valoare. | punctaj ← 0
+Actualizare | O atribuire înlocuiește valoarea anterioară. | punctaj ← punctaj + 10
+Utilizare | Citești valoarea curentă când ai nevoie. | Acum afișezi 10, nu 0.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - ce sunt **datele** unui algoritm: **de intrare**, **de ieșire** și **de manevră**;

@@ -12,6 +12,19 @@ data: 2026-10-16
 
 > **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
 
+<!-- atlas-vizual:start -->
+## Explorează vizual: Din celule în rezultat
+
+![Din celule în rezultat: date, formulă, recalculare.](fisiere/imagini/tic-8-u1-l4-formatare-tipuri-date-formule-atlas.svg)
+
+```explorare
+# Din celule în rezultat
+Date | Introdu valori numerice în celule. | A1 conține 12; B1 conține 8.
+Formulă | O formulă începe cu semnul egal. | În C1 scrii =A1+B1.
+Recalculare | Rezultatul se actualizează când datele se schimbă. | C1 este 20; dacă A1 devine 15, C1 este 23.
+```
+<!-- atlas-vizual:end -->
+
 ## Ce vei învăța azi
 
 - ce **tipuri de date** poate conține o celulă;
