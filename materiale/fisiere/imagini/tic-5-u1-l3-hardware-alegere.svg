@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Alegem perifericele după sarcină: ce trebuie să intre în calculator și ce trebuie să iasă din el</title>
+  <defs>
+    <g id="scaner"><rect x="0" y="18" width="60" height="28" rx="6" fill="#fff" stroke="#0E7F96" stroke-width="3"/><rect x="0" y="10" width="60" height="10" rx="3" fill="#3EC6E0"/><path d="M8 34h44" stroke="#0E7F96" stroke-width="3" stroke-linecap="round"/></g>
+    <g id="camtel"><rect x="15" y="0" width="30" height="50" rx="6" fill="#171416"/><circle cx="30" cy="14" r="7" fill="#3EC6E0"/><circle cx="30" cy="14" r="3" fill="#171416"/></g>
+    <g id="proiector"><rect x="0" y="14" width="60" height="30" rx="7" fill="#fff" stroke="#C8133A" stroke-width="3"/><circle cx="18" cy="29" r="9" fill="#FDE7EC" stroke="#C8133A" stroke-width="3"/><path d="M36 24h16M36 34h16" stroke="#C8133A" stroke-width="3" stroke-linecap="round"/><path d="M14 44l-4 6M46 44l4 6" stroke="#C8133A" stroke-width="3" stroke-linecap="round"/></g>
+    <g id="boxe"><rect x="4" y="4" width="22" height="44" rx="5" fill="#fff" stroke="#C8133A" stroke-width="3"/><circle cx="15" cy="32" r="6" fill="none" stroke="#C8133A" stroke-width="3"/><circle cx="15" cy="14" r="3" fill="#C8133A"/><rect x="34" y="4" width="22" height="44" rx="5" fill="#fff" stroke="#C8133A" stroke-width="3"/><circle cx="45" cy="32" r="6" fill="none" stroke="#C8133A" stroke-width="3"/><circle cx="45" cy="14" r="3" fill="#C8133A"/></g>
+    <g id="webcam"><circle cx="30" cy="20" r="18" fill="#fff" stroke="#0E7F96" stroke-width="3"/><circle cx="30" cy="20" r="8" fill="#3EC6E0"/><path d="M30 38v6M18 48h24" stroke="#0E7F96" stroke-width="4" stroke-linecap="round"/></g>
+    <g id="microfon"><rect x="21" y="0" width="18" height="30" rx="9" fill="#3EC6E0"/><path d="M14 22a16 16 0 0 0 32 0" stroke="#0E7F96" stroke-width="3" fill="none"/><path d="M30 38v8M20 48h20" stroke="#0E7F96" stroke-width="4" stroke-linecap="round"/></g>
+    <g id="casti"><path d="M10 36v-8a20 20 0 0 1 40 0v8" stroke="#C8133A" stroke-width="4" fill="none"/><rect x="4" y="30" width="14" height="20" rx="5" fill="#C8133A"/><rect x="42" y="30" width="14" height="20" rx="5" fill="#C8133A"/></g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="190" y="52" text-anchor="middle" font-size="20" font-weight="800">Ce vrei să faci?</text>
+    <rect x="370" y="22" width="270" height="62" rx="14" fill="#E2F6FA"/>
+    <text x="505" y="48" text-anchor="middle" font-size="18" font-weight="800" fill="#0E7F96">INTRARE</text>
+    <text x="505" y="70" text-anchor="middle" font-size="14" fill="#6B6460">ce trebuie să intre?</text>
+    <rect x="660" y="22" width="270" height="62" rx="14" fill="#FDE7EC"/>
+    <text x="795" y="48" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">IEȘIRE</text>
+    <text x="795" y="70" text-anchor="middle" font-size="14" fill="#6B6460">ce trebuie să iasă?</text>
+
+    <g fill="#fff" stroke="#E8DFD3" stroke-width="3">
+      <rect x="30" y="100" width="900" height="128" rx="16"/>
+      <rect x="30" y="240" width="900" height="128" rx="16"/>
+      <rect x="30" y="380" width="900" height="128" rx="16"/>
+    </g>
+    <path d="M355 112v104M650 112v104M355 252v104M650 252v104M355 392v104M650 392v104" stroke="#E8DFD3" stroke-width="2"/>
+
+    <!-- rand 1 -->
+    <circle cx="60" cy="164" r="16" fill="#FFC83D"/><text x="60" y="170" text-anchor="middle" font-size="16" font-weight="800">1</text>
+    <text x="88" y="156" font-size="16" font-weight="700">Trimiți profesorului o</text>
+    <text x="88" y="178" font-size="16" font-weight="700">temă scrisă de mână</text>
+    <use href="#scaner" x="410" y="114"/>
+    <text x="440" y="190" text-anchor="middle" font-size="14" font-weight="700">scanerul</text>
+    <text x="505" y="152" text-anchor="middle" font-size="14" fill="#6B6460">sau</text>
+    <use href="#camtel" x="540" y="114"/>
+    <text x="570" y="190" text-anchor="middle" font-size="14" font-weight="700">camera</text>
+    <text x="570" y="208" text-anchor="middle" font-size="14" font-weight="700">telefonului</text>
+    <text x="795" y="170" text-anchor="middle" font-size="15" fill="#6B6460">nu e nevoie</text>
+
+    <!-- rand 2 -->
+    <circle cx="60" cy="304" r="16" fill="#FFC83D"/><text x="60" y="310" text-anchor="middle" font-size="16" font-weight="800">2</text>
+    <text x="88" y="296" font-size="16" font-weight="700">Toată clasa vrea</text>
+    <text x="88" y="318" font-size="16" font-weight="700">să vadă un film</text>
+    <text x="505" y="310" text-anchor="middle" font-size="15" fill="#6B6460">nu e nevoie</text>
+    <use href="#proiector" x="700" y="254"/>
+    <text x="730" y="330" text-anchor="middle" font-size="14" font-weight="700">videoproiectorul</text>
+    <use href="#boxe" x="830" y="254"/>
+    <text x="860" y="330" text-anchor="middle" font-size="14" font-weight="700">boxele</text>
+
+    <!-- rand 3 -->
+    <circle cx="60" cy="444" r="16" fill="#FFC83D"/><text x="60" y="450" text-anchor="middle" font-size="16" font-weight="800">3</text>
+    <text x="88" y="436" font-size="16" font-weight="700">Vorbești cu bunicii</text>
+    <text x="88" y="458" font-size="16" font-weight="700">prin video</text>
+    <use href="#webcam" x="410" y="394"/>
+    <text x="440" y="470" text-anchor="middle" font-size="14" font-weight="700">camera video</text>
+    <use href="#microfon" x="540" y="394"/>
+    <text x="570" y="470" text-anchor="middle" font-size="14" font-weight="700">microfonul</text>
+    <use href="#boxe" x="700" y="394"/>
+    <text x="730" y="470" text-anchor="middle" font-size="14" font-weight="700">boxele</text>
+    <text x="795" y="428" text-anchor="middle" font-size="14" fill="#6B6460">sau</text>
+    <use href="#casti" x="830" y="394"/>
+    <text x="860" y="470" text-anchor="middle" font-size="14" font-weight="700">căștile</text>
+  </g>
+</svg>

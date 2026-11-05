@@ -56,6 +56,8 @@ Pe internet oricine poate publica orice, așa că nu tot ce citești este adevă
 4. **Fii atent la titluri senzaționale** („Nu o să-ți vină să crezi!”): de multe ori ascund **știri false (fake news)**.
 5. **Notează sursa** fiecărei informații chiar în momentul în care o salvezi.
 
+![Cinci verificări pentru o informație de încredere: compari trei surse, vezi cine a scris și ce dată are, ești atent la titlurile senzaționale și notezi sursa.](fisiere/imagini/tic-5-u3-l4-salvarea-informatiilor-drepturi-de-autor-surse.svg)
+
 ### Drepturile de autor
 
 - Orice **operă** (text, poză, desen, melodie, film, program) este protejată de **drepturile de autor** din momentul în care a fost creată, chiar dacă nu scrie nicăieri **©**.
@@ -68,8 +70,12 @@ Pe internet oricine poate publica orice, așa că nu tot ce citești este adevă
 | **Creative Commons (CC)** | autorul îți dă voie să o folosești, cu condiții: **BY** = menționezi autorul; **NC** = doar în scop necomercial; **ND** = fără modificări; **SA** = distribui mai departe cu aceeași licență |
 | **Domeniul public** | o poți folosi liber; de exemplu, operele autorilor morți de peste **70 de ani** sau operele cu licența **CC0** |
 
+![Licența îți spune ce ai voie să faci: © toate drepturile rezervate, Creative Commons cu condițiile BY, NC, ND, SA, sau domeniul public, pe care îl folosești liber.](fisiere/imagini/tic-5-u3-l4-salvarea-informatiilor-drepturi-de-autor-licente.svg)
+
 - **Plagiatul** înseamnă să prezinți ca fiind al tău un text, o imagine sau o idee a altcuiva. Este necinstit, chiar dacă schimbi câteva cuvinte.
 - Cum eviți plagiatul: **scrii cu cuvintele tale** ce ai înțeles; când copiezi exact, pui textul **între ghilimele** și scrii sursa; treci toate sursele la **Bibliografie**.
+
+![Plagiatul înseamnă să semnezi cu numele tău un text copiat; corect scrii cu cuvintele tale, pui citatele între ghilimele și treci sursa în Bibliografie: titlul, site-ul, adresa și data accesării.](fisiere/imagini/tic-5-u3-l4-salvarea-informatiilor-drepturi-de-autor-citare.svg)
 
 ### Cum citezi o sursă
 

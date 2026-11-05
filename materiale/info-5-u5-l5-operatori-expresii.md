@@ -43,6 +43,8 @@ La matematică ai lucrat cu operații (+, –, ×, :) și cu comparații (=, ≠
 | `/` | împărțire întreagă (câtul) | 14 / 2 | 7 |
 | `%` | restul împărțirii întregi | 15 % 2 | 1 |
 
+![Cu 15 bomboane împărțite la 2 copii, 15 / 2 = 7 arată cât primește fiecare copil, iar 15 % 2 = 1 arată câte bomboane rămân.](fisiere/imagini/info-5-u5-l5-impartire.svg)
+
 **Ordinea operațiilor:**
 
 1. întâi **parantezele**, de la cele din interior spre exterior;
@@ -57,6 +59,8 @@ Exemplu: (10 + 2) / 2 = 12 / 2 = **6**.
 - (a + b) * 3 = 40 * 3 = **120**
 - ((b - a) + 2) / 2 = (20 + 2) / 2 = **11**
 - ((b % a) + 4) * 3 = (0 + 4) * 3 = **12**
+
+![Ordinea operațiilor și evaluarea pas cu pas a expresiei ((b - a) + 2) / 2 pentru a = 10 și b = 30.](fisiere/imagini/info-5-u5-l5-ordine-operatii.svg)
 
 ### Operatorii relaționali (de comparație)
 
@@ -83,6 +87,8 @@ Fie P: „Joc fotbal” și Q: „Joc tenis”.
 - **P sau Q** este adevărată dacă **cel puțin una** dintre propoziții este adevărată.
 - **P și Q** este adevărată doar dacă **amândouă** sunt adevărate.
 - **nu P** (negația) este adevărată când P este falsă și falsă când P este adevărată.
+
+![Operatorii logici ca întrerupătoare: la „și” becul se aprinde doar dacă ambele sunt închise, la „sau” ajunge unul, iar „nu” schimbă valoarea pe dos.](fisiere/imagini/info-5-u5-l5-logici.svg)
 
 **Reguli pentru negație:**
 

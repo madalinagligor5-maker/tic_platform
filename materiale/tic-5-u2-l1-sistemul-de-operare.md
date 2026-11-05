@@ -57,6 +57,8 @@ Partea **software** a unui sistem de calcul este formată din **sistemul de oper
 
 Windows are și programe incluse, în grupul **Accesorii Windows**: **Paint** (desen), **Notepad** și **WordPad** (texte).
 
+![Meniul Start cu Accesoriile Windows și butonul Alimentare, cu cele trei opțiuni: Închidere, Repornire și Repaus.](fisiere/imagini/tic-5-u2-l1-sistemul-de-operare-meniul-start.svg)
+
 ### Ferestrele
 
 Fiecare program se deschide într-o **fereastră**, un dreptunghi pe ecran. De aici vine și numele **Windows** („ferestre”). Poți lucra cu mai multe programe deodată; ferestrele se suprapun ca niște coli de hârtie. **Fereastra activă** este cea care primește comenzile tale.
@@ -73,7 +75,11 @@ Elementele unei ferestre:
 
 ![Desktopul cu pictograme, bara de activități și butonul Start, plus părțile unei ferestre: bara de titlu, butoanele, bara de meniuri, barele de derulare.](fisiere/imagini/tic-5-u2-l1-sistemul-de-operare-2.svg)
 
+![Ce fac butoanele ferestrei: minimizarea o trimite pe bara de activități, maximizarea o întinde pe tot ecranul, iar închiderea (sau Alt + F4) o închide.](fisiere/imagini/tic-5-u2-l1-sistemul-de-operare-butoane.svg)
+
 **Redimensionare:** dacă fereastra nu e minimizată sau maximizată, pui cursorul pe o margine și, când își schimbă forma, tragi ținând apăsat butonul stâng al mouse-ului. Dacă tragi de colț, se schimbă ambele dimensiuni.
+
+![Dacă tragi de o margine se schimbă o singură dimensiune a ferestrei, iar dacă tragi de un colț se schimbă ambele.](fisiere/imagini/tic-5-u2-l1-sistemul-de-operare-redimensionare.svg)
 
 ## Exemplu rezolvat
 

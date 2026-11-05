@@ -36,6 +36,8 @@ Pentru lucrul cu fișiere și foldere, Windows are programul **File Explorer**. 
 - În dreapta, **dublu clic** pe un folder îl deschide, iar **un clic** pe un fișier îl **selectează**.
 - Din meniul **Vizualizare (View)** alegi cum vezi fișierele: pictograme mari sau mici, listă, detalii.
 
+![Fereastra File Explorer: în stânga structura arborescentă, în dreapta conținutul folderului ales, sus caseta Căutare și meniul Vizualizare.](fisiere/imagini/tic-5-u2-l3-operatii-fisiere-foldere-file-explorer.svg)
+
 ### Proprietăți
 
 Selectezi fișierul sau folderul → **clic dreapta** → **Proprietăți (Properties)**. Vezi detalii, inclusiv **dimensiunea (Size)**.
@@ -62,6 +64,8 @@ Selectezi fișierul sau folderul → **clic dreapta** → **Proprietăți (Prope
 2. **Copiezi** fișierele pe stick (Ctrl + C, deschizi `E:`, Ctrl + V). Atenție: dacă **tragi** un fișier pe **altă unitate de disc**, Windows îl **copiază**, nu îl mută.
 3. Înainte să scoți stickul, dai clic pe pictograma **Eliminare în siguranță a hardware-ului** din bara de activități (sau clic dreapta pe unitate → **Scoatere**). Așa nu se strică fișierele care încă se scriu.
 
+![Cei trei pași pentru stick: îl introduci în portul USB, copiezi fișierele în E: și îl scoți doar după Eliminare în siguranță.](fisiere/imagini/tic-5-u2-l3-operatii-fisiere-foldere-stick.svg)
+
 > Un fișier șters de pe stick **nu** ajunge în Coșul de reciclare: este șters definitiv. Verifică de două ori înainte să apeși Delete!
 
 ### Coșul de reciclare
@@ -73,6 +77,8 @@ Un fișier șters ajunge în **Coșul de reciclare (Recycle Bin)**, de unde îl 
 - fișiere **unul după altul**: clic pe primul, ții apăsat **Shift**, clic pe ultimul;
 - fișiere **răzlețe**: clic pe primul, ții apăsat **Ctrl**, clic pe fiecare dintre celelalte;
 - **toate** fișierele din folder: **Ctrl + A**.
+
+![Selecția multiplă: cu Shift alegi fișiere unul după altul, cu Ctrl fișiere răzlețe, iar cu Ctrl + A toate fișierele.](fisiere/imagini/tic-5-u2-l3-operatii-fisiere-foldere-selectie.svg)
 
 ### Căutarea
 

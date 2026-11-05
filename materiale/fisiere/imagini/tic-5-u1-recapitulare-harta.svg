@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Harta unității 1: ergonomie, istoria calculatoarelor, hardware și stocarea datelor</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <g stroke="#C9C1BA" stroke-width="4" stroke-linecap="round">
+      <path d="M400 240L340 190M560 240L620 190M400 300L340 350M560 300L620 350"/>
+    </g>
+    <rect x="370" y="200" width="220" height="140" rx="70" fill="#171416"/>
+    <text x="480" y="252" text-anchor="middle" font-size="16" font-weight="700" fill="#FFC83D">Unitatea 1</text>
+    <text x="480" y="278" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">Sisteme de calcul</text>
+    <text x="480" y="302" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">și comunicații</text>
+
+    <!-- ergonomie -->
+    <rect x="30" y="30" width="330" height="222" rx="18" fill="#fff"/>
+    <path d="M30 80V48A18 18 0 0 1 48 30H342A18 18 0 0 1 360 48V80z" fill="#E0F4F2"/>
+    <rect x="30" y="30" width="330" height="222" rx="18" fill="none" stroke="#14A39A" stroke-width="3"/>
+    <text x="54" y="63" font-size="19" font-weight="800" fill="#0B6F68">1. Ergonomie și siguranță</text>
+    <g font-size="15" font-weight="700">
+      <text x="50" y="112">• lucrezi doar cu profesorul</text>
+      <text x="50" y="142">• spatele drept, picioarele pe podea</text>
+      <text x="50" y="172">• ecranul la 45–70 cm</text>
+      <text x="50" y="202">• marginea de sus la nivelul ochilor</text>
+      <text x="50" y="232">• capul drept la telefon</text>
+    </g>
+
+    <!-- istorie -->
+    <rect x="600" y="30" width="330" height="222" rx="18" fill="#fff"/>
+    <path d="M600 80V48A18 18 0 0 1 618 30H912A18 18 0 0 1 930 48V80z" fill="#FFF4D6"/>
+    <rect x="600" y="30" width="330" height="222" rx="18" fill="none" stroke="#FFC83D" stroke-width="3"/>
+    <text x="624" y="63" font-size="19" font-weight="800">2. Istoria calculatoarelor</text>
+    <g font-size="15" font-weight="700">
+      <text x="620" y="112">• 1642 Pascalina (mecanic)</text>
+      <text x="620" y="142">• 1946 ENIAC (electronic)</text>
+      <text x="620" y="172">• 1981 IBM PC (personal)</text>
+      <text x="620" y="202">• 1994 IBM Simon (smartphone)</text>
+      <text x="620" y="232">• azi: desktop, laptop, tabletă</text>
+    </g>
+
+    <!-- hardware -->
+    <rect x="30" y="288" width="330" height="222" rx="18" fill="#fff"/>
+    <path d="M30 338V306A18 18 0 0 1 48 288H342A18 18 0 0 1 360 306V338z" fill="#FDE7EC"/>
+    <rect x="30" y="288" width="330" height="222" rx="18" fill="none" stroke="#F21F4B" stroke-width="3"/>
+    <text x="54" y="321" font-size="19" font-weight="800" fill="#C8133A">3. Hardware</text>
+    <g font-size="15" font-weight="700">
+      <text x="50" y="370">• unitatea centrală + periferice</text>
+      <text x="50" y="400">• intrare: tastatura, mouse-ul</text>
+      <text x="50" y="430">• ieșire: monitorul, imprimanta</text>
+      <text x="50" y="460">• intrare-ieșire: ecranul tactil</text>
+      <text x="50" y="490">• RAM = memorie temporară</text>
+    </g>
+
+    <!-- stocare -->
+    <rect x="600" y="288" width="330" height="222" rx="18" fill="#fff"/>
+    <path d="M600 338V306A18 18 0 0 1 618 288H912A18 18 0 0 1 930 306V338z" fill="#E2F6FA"/>
+    <rect x="600" y="288" width="330" height="222" rx="18" fill="none" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="624" y="321" font-size="19" font-weight="800" fill="#0E7F96">4. Stocarea datelor</text>
+    <g font-size="15" font-weight="700">
+      <text x="620" y="370">• HDD: magnetic</text>
+      <text x="620" y="400">• SSD, stick, card: semiconductori</text>
+      <text x="620" y="430">• CD, DVD, Blu-ray: optic</text>
+      <text x="620" y="460">• 8 biți = 1 byte</text>
+      <text x="620" y="490">• 1 KB = 1024 B</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Plagiat sau citare corectă: textul copiat semnat cu numele tău este plagiat; corect scrii cu cuvintele tale, pui citatele între ghilimele și treci sursa în Bibliografie</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Plagiat sau citare corectă?</text>
+
+    <!-- gresit -->
+    <rect x="40" y="72" width="430" height="262" rx="20" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="76" cy="106" r="18" fill="#F21F4B"/>
+    <path d="M68 98l16 16M84 98l-16 16" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <text x="106" y="113" font-size="19" font-weight="800" fill="#C8133A">Greșit: plagiat</text>
+    <rect x="64" y="132" width="382" height="124" rx="12" fill="#FFFFFF"/>
+    <text x="84" y="160" font-size="15" font-weight="800">Proiect: Brâncuși</text>
+    <text x="84" y="186" font-size="14">Constantin Brâncuși a fost un sculptor</text>
+    <text x="84" y="206" font-size="14">român, unul dintre cei mai importanți...</text>
+    <text x="84" y="240" font-size="14" font-weight="700">Autor: Andrei (eu)</text>
+    <rect x="300" y="222" width="130" height="26" rx="8" fill="#F21F4B"/>
+    <text x="365" y="240" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF">copiat exact!</text>
+    <text x="64" y="286" font-size="15">Prezinți munca altcuiva ca fiind a ta.</text>
+    <text x="64" y="310" font-size="15">E necinstit, chiar dacă schimbi câteva cuvinte.</text>
+
+    <!-- corect -->
+    <rect x="490" y="72" width="430" height="262" rx="20" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="526" cy="106" r="18" fill="#14A39A"/>
+    <path d="M517 106l6 6l12-13" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="556" y="113" font-size="19" font-weight="800" fill="#0B6F68">Corect</text>
+    <g font-size="15">
+      <circle cx="526" cy="150" r="12" fill="#FFFFFF" stroke="#14A39A" stroke-width="2.5"/><text x="526" y="155" text-anchor="middle" font-size="14" font-weight="800" fill="#0B6F68">1</text>
+      <text x="550" y="155">Scrii <tspan font-weight="800">cu cuvintele tale</tspan> ce ai</text>
+      <text x="550" y="175">înțeles.</text>
+      <circle cx="526" cy="212" r="12" fill="#FFFFFF" stroke="#14A39A" stroke-width="2.5"/><text x="526" y="217" text-anchor="middle" font-size="14" font-weight="800" fill="#0B6F68">2</text>
+      <text x="550" y="217">Când copiezi exact, pui textul</text>
+      <text x="550" y="237"><tspan font-weight="800">„între ghilimele”</tspan> și scrii sursa.</text>
+      <circle cx="526" cy="274" r="12" fill="#FFFFFF" stroke="#14A39A" stroke-width="2.5"/><text x="526" y="279" text-anchor="middle" font-size="14" font-weight="800" fill="#0B6F68">3</text>
+      <text x="550" y="279">Treci toate sursele la</text>
+      <text x="550" y="299"><tspan font-weight="800">Bibliografie</tspan>.</text>
+    </g>
+
+    <!-- bibliografie -->
+    <rect x="40" y="354" width="880" height="160" rx="20" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="64" y="388" font-size="18" font-weight="800">Cum scrii o sursă în Bibliografie</text>
+    <g font-size="14" font-weight="700">
+      <rect x="64" y="408" width="176" height="40" rx="10" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="2"/>
+      <text x="152" y="433" text-anchor="middle">„Constantin Brâncuși”</text>
+      <rect x="250" y="408" width="104" height="40" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2"/>
+      <text x="302" y="433" text-anchor="middle">Wikipedia</text>
+      <rect x="364" y="408" width="356" height="40" rx="10" fill="#FFF4D6" stroke="#FFC83D" stroke-width="2"/>
+      <text x="542" y="433" text-anchor="middle" font-weight="400">https://ro.wikipedia.org/wiki/Constantin_Brâncuși</text>
+      <rect x="730" y="408" width="166" height="40" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="2"/>
+      <text x="813" y="433" text-anchor="middle">accesat la 15.10.2026</text>
+    </g>
+    <g font-size="14" text-anchor="middle" font-weight="800">
+      <text x="152" y="474" fill="#7A3FB8">titlul paginii</text>
+      <text x="302" y="474" fill="#0E7F96">site-ul</text>
+      <text x="542" y="474" fill="#171416">adresa URL</text>
+      <text x="813" y="474" fill="#0B6F68">data accesării</text>
+    </g>
+    <text x="64" y="500" font-size="14" fill="#6B6460">Dacă pagina are un autor, îl scrii primul.</text>
+  </g>
+</svg>

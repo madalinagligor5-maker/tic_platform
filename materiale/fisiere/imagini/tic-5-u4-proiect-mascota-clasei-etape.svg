@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Cele șase etape ale proiectului Mascota clasei, în trei săptămâni: chestionar, analiza răspunsurilor, documentare, desen în Paint, salvare și tipărire, prezentare și vot cu steluțe</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Proiectul „Mascota clasei” pas cu pas</text>
+
+    <!-- saptamani -->
+    <g font-size="15" font-weight="800" text-anchor="middle">
+      <rect x="40" y="70" width="288" height="34" rx="17" fill="#FDE7EC"/><text x="184" y="93" fill="#C8133A">Săptămâna 1</text>
+      <rect x="340" y="70" width="288" height="34" rx="17" fill="#E2F6FA"/><text x="484" y="93" fill="#0E7F96">Săptămâna 2</text>
+      <rect x="640" y="70" width="288" height="34" rx="17" fill="#E0F4F2"/><text x="784" y="93" fill="#0B6F68">Săptămâna 3</text>
+    </g>
+
+    <!-- drum -->
+    <path d="M110 230H850" stroke="#E8DFD3" stroke-width="10" stroke-linecap="round"/>
+
+    <!-- 1 chestionar -->
+    <rect x="40" y="130" width="140" height="100" rx="16" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <rect x="86" y="146" width="48" height="60" rx="5" fill="#FDE7EC" stroke="#C8133A" stroke-width="2.5"/>
+    <path d="M94 160h10M94 174h10M94 188h10" stroke="#C8133A" stroke-width="2.5"/>
+    <path d="M110 160h16M110 174h16M110 188h16" stroke="#6B6460" stroke-width="2.5"/>
+    <circle cx="110" cy="230" r="18" fill="#F21F4B" stroke="#FFF7EE" stroke-width="4"/>
+    <text x="110" y="237" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">1</text>
+    <text x="110" y="276" text-anchor="middle" font-size="15" font-weight="800">Chestionar</text>
+    <text x="110" y="298" text-anchor="middle" font-size="14">întrebi colegii</text>
+    <text x="110" y="316" text-anchor="middle" font-size="14">ce le place</text>
+
+    <!-- 2 analiza -->
+    <rect x="188" y="130" width="140" height="100" rx="16" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <rect x="222" y="176" width="16" height="30" fill="#F21F4B"/>
+    <rect x="242" y="156" width="16" height="50" fill="#C8133A"/>
+    <rect x="262" y="186" width="16" height="20" fill="#F21F4B"/>
+    <rect x="282" y="168" width="16" height="38" fill="#F21F4B"/>
+    <path d="M216 206h88" stroke="#171416" stroke-width="2.5"/>
+    <circle cx="258" cy="230" r="18" fill="#F21F4B" stroke="#FFF7EE" stroke-width="4"/>
+    <text x="258" y="237" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">2</text>
+    <text x="258" y="276" text-anchor="middle" font-size="15" font-weight="800">Analizezi</text>
+    <text x="258" y="298" text-anchor="middle" font-size="14">ce aleg cei</text>
+    <text x="258" y="316" text-anchor="middle" font-size="14">mai mulți</text>
+
+    <!-- 3 documentare -->
+    <rect x="340" y="130" width="140" height="100" rx="16" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <circle cx="402" cy="174" r="20" fill="none" stroke="#0E7F96" stroke-width="5"/>
+    <path d="M416 188l16 16" stroke="#0E7F96" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="410" cy="230" r="18" fill="#3EC6E0" stroke="#FFF7EE" stroke-width="4"/>
+    <text x="410" y="237" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">3</text>
+    <text x="410" y="276" text-anchor="middle" font-size="15" font-weight="800">Te documentezi</text>
+    <text x="410" y="298" text-anchor="middle" font-size="14">imaginile doar ca</text>
+    <text x="410" y="316" text-anchor="middle" font-size="14">inspirație</text>
+
+    <!-- 4 desen -->
+    <rect x="488" y="130" width="140" height="100" rx="16" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <circle cx="558" cy="178" r="30" fill="#FFC83D"/>
+    <circle cx="547" cy="172" r="4" fill="#171416"/><circle cx="569" cy="172" r="4" fill="#171416"/>
+    <path d="M546 186q12 10 24 0" fill="none" stroke="#171416" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="558" cy="230" r="18" fill="#3EC6E0" stroke="#FFF7EE" stroke-width="4"/>
+    <text x="558" y="237" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">4</text>
+    <text x="558" y="276" text-anchor="middle" font-size="15" font-weight="800">Desenezi</text>
+    <text x="558" y="298" text-anchor="middle" font-size="14">personajul</text>
+    <text x="558" y="316" text-anchor="middle" font-size="14">în Paint</text>
+
+    <!-- 5 salvare tiparire -->
+    <rect x="640" y="130" width="140" height="100" rx="16" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <rect x="676" y="168" width="68" height="34" rx="6" fill="#E0F4F2" stroke="#0B6F68" stroke-width="2.5"/>
+    <rect x="690" y="148" width="40" height="22" fill="#FFFFFF" stroke="#0B6F68" stroke-width="2.5"/>
+    <rect x="690" y="194" width="40" height="18" fill="#FFFFFF" stroke="#0B6F68" stroke-width="2"/>
+    <circle cx="710" cy="230" r="18" fill="#14A39A" stroke="#FFF7EE" stroke-width="4"/>
+    <text x="710" y="237" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">5</text>
+    <text x="710" y="276" text-anchor="middle" font-size="15" font-weight="800">Salvezi și</text>
+    <text x="710" y="296" text-anchor="middle" font-size="15" font-weight="800">tipărești</text>
+    <text x="710" y="316" text-anchor="middle" font-size="14">pe o foaie A4</text>
+
+    <!-- 6 prezentare -->
+    <rect x="788" y="130" width="140" height="100" rx="16" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <path d="M858 146l7 15l16 2l-12 11l3 16l-14-8l-14 8l3-16l-12-11l16-2z" fill="#FFC83D" stroke="#171416" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="858" cy="230" r="18" fill="#14A39A" stroke="#FFF7EE" stroke-width="4"/>
+    <text x="858" y="237" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">6</text>
+    <text x="858" y="276" text-anchor="middle" font-size="15" font-weight="800">Prezinți</text>
+    <text x="858" y="298" text-anchor="middle" font-size="14">și votați cu</text>
+    <text x="858" y="316" text-anchor="middle" font-size="14">steluțe</text>
+
+    <!-- regula votului -->
+    <rect x="40" y="350" width="880" height="164" rx="20" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="64" y="384" font-size="18" font-weight="800">Cum se alege mascota</text>
+    <g font-size="15">
+      <text x="64" y="416">Desenele se afișează pe un panou în clasă.</text>
+      <text x="64" y="442">Fiecare elev pune câte o <tspan font-weight="800">steluță</tspan> pe cele mai frumoase</text>
+      <text x="64" y="464"><tspan font-weight="800">trei</tspan> personaje (nu pe al lui).</text>
+      <text x="64" y="494">Câștigă personajul cu cele mai multe steluțe.</text>
+    </g>
+    <!-- panou -->
+    <rect x="600" y="370" width="296" height="126" rx="10" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+    <g stroke="#171416" stroke-width="2">
+      <rect x="620" y="390" width="72" height="88" fill="#FFFFFF"/>
+      <rect x="712" y="390" width="72" height="88" fill="#FFFFFF"/>
+      <rect x="804" y="390" width="72" height="88" fill="#FFFFFF"/>
+    </g>
+    <circle cx="656" cy="434" r="20" fill="#3EC6E0"/>
+    <circle cx="748" cy="434" r="20" fill="#F21F4B"/>
+    <circle cx="840" cy="434" r="20" fill="#14A39A"/>
+    <g fill="#FFC83D" stroke="#171416" stroke-width="1.5" stroke-linejoin="round">
+      <path d="M640 462l3 6l7 1l-5 5l1 7l-6-3l-6 3l1-7l-5-5l7-1z"/>
+      <path d="M732 462l3 6l7 1l-5 5l1 7l-6-3l-6 3l1-7l-5-5l7-1z"/>
+      <path d="M750 462l3 6l7 1l-5 5l1 7l-6-3l-6 3l1-7l-5-5l7-1z"/>
+      <path d="M768 462l3 6l7 1l-5 5l1 7l-6-3l-6 3l1-7l-5-5l7-1z"/>
+      <path d="M840 462l3 6l7 1l-5 5l1 7l-6-3l-6 3l1-7l-5-5l7-1z"/>
+    </g>
+  </g>
+</svg>

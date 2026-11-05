@@ -33,7 +33,11 @@ O **poveste animată** care să-i ajute pe colegi să înțeleagă **ce riscuri 
 7. **Testați** și **îmbunătățiți** proiectul.
 8. Pregătiți câteva propoziții de **prezentare** și exersați acasă.
 
+![Rolurile din echipă (scenarist, desenator, programator, sunetist) și cei opt pași ai proiectului.](fisiere/imagini/info-5-proiect-salvam-planeta-roluri.svg)
+
 **Ce puteți folosi din ce ați învățat:** structuri liniare (dialogul personajelor), **evenimente** (steag, taste, clic), **mesaje** cu „spune”, **schimbarea decorului**, **sunete**, **variabile** și **decizii** (de exemplu, un mic quiz la final).
+
+![Un scenariu în patru scene: două probleme ale planetei, soluțiile și un quiz final, cu blocurile Scratch care vă ajută.](fisiere/imagini/info-5-proiect-salvam-planeta-scenariu.svg)
 
 ## Cum prezentați
 

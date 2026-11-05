@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Harta Unității 5: proprietăți, structuri, date, operatori și moduri de reprezentare a algoritmilor</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="24" font-weight="800">Tot ce am învățat despre algoritmi</text>
+
+    <!-- legături -->
+    <g stroke="#B5ACA5" stroke-width="4" fill="none" stroke-linecap="round">
+      <path d="M410 215L320 170"/>
+      <path d="M550 215L640 170"/>
+      <path d="M408 290L320 340"/>
+      <path d="M552 290L640 340"/>
+      <path d="M480 330V400"/>
+    </g>
+
+    <!-- centru -->
+    <circle cx="480" cy="250" r="82" fill="#171416"/>
+    <text x="480" y="246" text-anchor="middle" font-size="22" font-weight="800" fill="#FFF7EE">ALGORITM</text>
+    <text x="480" y="272" text-anchor="middle" font-size="14" fill="#FFC83D">pași clari, în ordine</text>
+
+    <!-- proprietăți -->
+    <rect x="40" y="70" width="280" height="160" rx="16" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <rect x="40" y="70" width="280" height="44" rx="16" fill="#FDE7EC"/>
+    <text x="180" y="99" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">6 proprietăți</text>
+    <g font-size="15">
+      <text x="58" y="140">claritate · generalitate</text>
+      <text x="58" y="164">finitudine · unicitate</text>
+      <text x="58" y="188">succesiune determinată</text>
+      <text x="58" y="212">eficiență</text>
+    </g>
+
+    <!-- structuri -->
+    <rect x="640" y="70" width="280" height="160" rx="16" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="640" y="70" width="280" height="44" rx="16" fill="#E2F6FA"/>
+    <text x="780" y="99" text-anchor="middle" font-size="18" font-weight="800" fill="#0E7F96">Structuri</text>
+    <g font-size="15">
+      <text x="658" y="140"><tspan font-weight="800">secvențială:</tspan> pașii</text>
+      <text x="658" y="164">unul după altul</text>
+      <text x="658" y="188"><tspan font-weight="800">alternativă:</tspan> Dacă…</text>
+      <text x="658" y="212">Atunci… Altfel</text>
+    </g>
+
+    <!-- date -->
+    <rect x="40" y="290" width="280" height="150" rx="16" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="3"/>
+    <rect x="40" y="290" width="280" height="44" rx="16" fill="#F0E8FA"/>
+    <text x="180" y="319" text-anchor="middle" font-size="18" font-weight="800" fill="#7A3FB8">Date</text>
+    <g font-size="15">
+      <text x="58" y="360">intrare · manevră · ieșire</text>
+      <text x="58" y="386">constante și variabile</text>
+      <text x="58" y="412">numerice · text · logice</text>
+    </g>
+
+    <!-- operatori -->
+    <rect x="640" y="290" width="280" height="150" rx="16" fill="#FFFFFF" stroke="#FFC83D" stroke-width="3"/>
+    <rect x="640" y="290" width="280" height="44" rx="16" fill="#FFF4D6"/>
+    <text x="780" y="319" text-anchor="middle" font-size="18" font-weight="800" fill="#9A6B00">Operatori</text>
+    <g font-size="15">
+      <text x="658" y="360"><tspan font-weight="800">aritmetici:</tspan> + - * / %</text>
+      <text x="658" y="386"><tspan font-weight="800">relaționali:</tspan> = &lt;&gt; &lt; &gt; &lt;= &gt;=</text>
+      <text x="658" y="412"><tspan font-weight="800">logici:</tspan> și, sau, nu</text>
+    </g>
+
+    <!-- reprezentare -->
+    <rect x="320" y="400" width="320" height="112" rx="16" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <rect x="320" y="400" width="320" height="44" rx="16" fill="#E0F4F2"/>
+    <text x="480" y="429" text-anchor="middle" font-size="18" font-weight="800" fill="#0B6F68">Cum îl descriem</text>
+    <text x="480" y="468" text-anchor="middle" font-size="15">limbaj natural · pseudocod</text>
+    <text x="480" y="492" text-anchor="middle" font-size="15">schemă logică</text>
+  </g>
+</svg>

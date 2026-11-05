@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Instrumentele din Paint și ce face fiecare, plus diferența dintre Salvare și Salvare ca</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Instrumentele din Paint, pe scurt</text>
+
+    <g fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3">
+      <rect x="30" y="70" width="210" height="150" rx="18"/>
+      <rect x="256" y="70" width="210" height="150" rx="18"/>
+      <rect x="482" y="70" width="210" height="150" rx="18"/>
+      <rect x="708" y="70" width="222" height="150" rx="18"/>
+      <rect x="30" y="234" width="210" height="150" rx="18"/>
+      <rect x="256" y="234" width="210" height="150" rx="18"/>
+      <rect x="482" y="234" width="210" height="150" rx="18"/>
+      <rect x="708" y="234" width="222" height="150" rx="18"/>
+    </g>
+
+    <!-- creion -->
+    <path d="M110 136l40-40l12 12l-40 40l-16 4z" fill="#FFC83D" stroke="#171416" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M110 136l-4 16l16-4" fill="#171416"/>
+    <path d="M164 136q14-10 26 0" fill="none" stroke="#F21F4B" stroke-width="3" stroke-linecap="round"/>
+    <text x="135" y="182" text-anchor="middle" font-size="16" font-weight="800">Creion</text>
+    <text x="135" y="204" text-anchor="middle" font-size="14">linie liberă, Culoarea 1</text>
+
+    <!-- pensule -->
+    <path d="M336 146q30-40 60-10q20 16 40-6" fill="none" stroke="#7A3FB8" stroke-width="12" stroke-linecap="round"/>
+    <text x="361" y="182" text-anchor="middle" font-size="16" font-weight="800">Pensule</text>
+    <text x="361" y="204" text-anchor="middle" font-size="14">urme ca de pensulă</text>
+
+    <!-- umplere -->
+    <path d="M556 112l30-14l20 36l-30 14z" fill="#E2F6FA" stroke="#171416" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M606 134q14 4 10 18q-6 6-10-2z" fill="#3EC6E0" stroke="#0E7F96" stroke-width="2"/>
+    <text x="587" y="182" text-anchor="middle" font-size="16" font-weight="800">Umplere cu culoare</text>
+    <text x="587" y="204" text-anchor="middle" font-size="14">colorează o zonă închisă</text>
+
+    <!-- text -->
+    <text x="819" y="148" text-anchor="middle" font-size="46" font-weight="800" fill="#0E7F96">A</text>
+    <text x="819" y="182" text-anchor="middle" font-size="16" font-weight="800">Text</text>
+    <text x="819" y="204" text-anchor="middle" font-size="14">font, mărime, Aldin, Cursiv</text>
+
+    <!-- radiera -->
+    <path d="M110 300l26-26l30 30l-26 26h-14z" fill="#FDE7EC" stroke="#171416" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M110 300l16-16l30 30l-16 16" fill="#F21F4B"/>
+    <text x="135" y="346" text-anchor="middle" font-size="16" font-weight="800">Radieră</text>
+    <text x="135" y="368" text-anchor="middle" font-size="14">urma are Culoarea 2</text>
+
+    <!-- selector -->
+    <path d="M350 314l34-34l8 8l-34 34l-12 4z" fill="#FFFFFF" stroke="#171416" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="396" cy="276" r="9" fill="#14A39A" stroke="#171416" stroke-width="2.5"/>
+    <text x="361" y="346" text-anchor="middle" font-size="16" font-weight="800">Selector de culoare</text>
+    <text x="361" y="368" text-anchor="middle" font-size="14">preia o culoare din desen</text>
+
+    <!-- lupa -->
+    <circle cx="580" cy="292" r="20" fill="#E2F6FA" stroke="#171416" stroke-width="4"/>
+    <path d="M594 306l14 14" stroke="#171416" stroke-width="6" stroke-linecap="round"/>
+    <text x="587" y="346" text-anchor="middle" font-size="16" font-weight="800">Lupă</text>
+    <text x="587" y="368" text-anchor="middle" font-size="14">clic stânga mărește</text>
+
+    <!-- forme -->
+    <rect x="770" y="272" width="34" height="34" fill="none" stroke="#F21F4B" stroke-width="4"/>
+    <circle cx="840" cy="289" r="18" fill="#FFC83D"/>
+    <text x="819" y="346" text-anchor="middle" font-size="16" font-weight="800">Forme</text>
+    <text x="819" y="368" text-anchor="middle" font-size="14">cu Shift: pătrat, cerc</text>
+
+    <!-- salvare vs salvare ca -->
+    <rect x="30" y="400" width="440" height="114" rx="18" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <path d="M56 428h30l10 10v40h-40z" fill="#FFFFFF" stroke="#0B6F68" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="112" y="434" font-size="17" font-weight="800" fill="#0B6F68">Salvare (Ctrl + S)</text>
+    <text x="112" y="460" font-size="14">păstrează modificările</text>
+    <text x="112" y="480" font-size="14">în același fișier</text>
+
+    <rect x="490" y="400" width="440" height="114" rx="18" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="3"/>
+    <path d="M512 428h30l10 10v40h-40z" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M530 440h30l10 10v40h-40z" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="586" y="434" font-size="17" font-weight="800" fill="#7A3FB8">Salvare ca</text>
+    <text x="586" y="460" font-size="14">creează un fișier nou;</text>
+    <text x="586" y="480" font-size="14">cel vechi rămâne neschimbat</text>
+  </g>
+</svg>

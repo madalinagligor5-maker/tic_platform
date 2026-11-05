@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Drepturile de autor: autorul hotărăște ce drepturi îți dă, iar în proiectul școlar treci sursele în Bibliografie: autorul, titlul și site-ul</title>
+  <defs>
+    <g id="ok"><circle r="12" fill="#14A39A"/><path d="M-6 0l4 4l8-9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g id="no"><circle r="12" fill="#F21F4B"/><path d="M-5 -5l10 10M5 -5l-10 10" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Drepturile de autor</text>
+
+    <!-- autor -->
+    <rect x="40" y="76" width="270" height="300" rx="20" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <circle cx="175" cy="146" r="44" fill="#FFF4D6" stroke="#FFC83D" stroke-width="4"/>
+    <text x="175" y="166" text-anchor="middle" font-size="56" font-weight="800" fill="#171416">©</text>
+    <text x="175" y="222" text-anchor="middle" font-size="17" font-weight="800">Autorul</text>
+    <text x="175" y="248" text-anchor="middle" font-size="14">cel care a creat conținutul</text>
+    <text x="175" y="268" text-anchor="middle" font-size="14">(text, imagine, melodie)</text>
+    <rect x="60" y="290" width="230" height="68" rx="12" fill="#FDE7EC"/>
+    <text x="175" y="318" text-anchor="middle" font-size="14" font-weight="800" fill="#C8133A">Fără acordul lui:</text>
+    <text x="175" y="340" text-anchor="middle" font-size="14" font-weight="800" fill="#C8133A">împotriva legii!</text>
+
+    <!-- drepturi -->
+    <rect x="330" y="76" width="590" height="300" rx="20" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="354" y="110" font-size="18" font-weight="800">Autorul spune ce drepturi îți dă</text>
+    <text x="354" y="134" font-size="14" fill="#6B6460">exemplu: imaginea unui fotograf</text>
+    <g font-size="16">
+      <use href="#ok" x="370" y="172"/><text x="394" y="178">folosire personală</text>
+      <use href="#ok" x="370" y="216"/><text x="394" y="222">folosire școlară</text>
+      <use href="#no" x="370" y="260"/><text x="394" y="266">folosire comercială (vânzare)</text>
+      <use href="#no" x="370" y="304"/><text x="394" y="310">modificare</text>
+      <use href="#ok" x="370" y="348"/><text x="394" y="354">redistribuire (dai mai departe)</text>
+    </g>
+    <rect x="690" y="160" width="210" height="196" rx="16" fill="#E0F4F2"/>
+    <text x="795" y="194" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">Pentru proiectul</text>
+    <text x="795" y="214" text-anchor="middle" font-size="15" font-weight="800" fill="#0B6F68">de la școală:</text>
+    <text x="795" y="250" text-anchor="middle" font-size="14">o poți folosi,</text>
+    <text x="795" y="270" text-anchor="middle" font-size="14">dar nu o modifici</text>
+    <text x="795" y="290" text-anchor="middle" font-size="14">și nu o vinzi.</text>
+    <text x="795" y="326" text-anchor="middle" font-size="14" font-weight="700">Scrii sursa!</text>
+
+    <!-- bibliografie -->
+    <rect x="40" y="396" width="600" height="118" rx="20" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+    <text x="64" y="430" font-size="18" font-weight="800">Bibliografie (la finalul proiectului)</text>
+    <g font-size="15" font-weight="800" text-anchor="middle">
+      <rect x="64" y="448" width="160" height="44" rx="12" fill="#FFFFFF"/><text x="144" y="476">autorul</text>
+      <rect x="240" y="448" width="160" height="44" rx="12" fill="#FFFFFF"/><text x="320" y="476">titlul</text>
+      <rect x="416" y="448" width="200" height="44" rx="12" fill="#FFFFFF"/><text x="516" y="476">site-ul</text>
+    </g>
+
+    <!-- programe -->
+    <rect x="660" y="396" width="260" height="118" rx="20" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="3"/>
+    <rect x="684" y="420" width="44" height="34" rx="6" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="2.5"/>
+    <path d="M694 432h24M694 442h16" stroke="#7A3FB8" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="742" y="434" font-size="16" font-weight="800" fill="#7A3FB8">Programele</text>
+    <text x="742" y="454" font-size="14">au licență</text>
+    <text x="684" y="490" font-size="14">originale, de la producător</text>
+  </g>
+</svg>

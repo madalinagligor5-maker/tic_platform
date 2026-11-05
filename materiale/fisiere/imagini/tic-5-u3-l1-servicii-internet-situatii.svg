@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Ce serviciu al internetului folosești în fiecare situație: e-mail, FTP, WWW, IRC sau Telnet</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6B6460"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Ce serviciu folosești?</text>
+    <text x="250" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#6B6460">Situația</text>
+    <text x="760" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#6B6460">Serviciul</text>
+
+    <g font-size="15">
+      <!-- 1 -->
+      <rect x="40" y="100" width="520" height="70" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="62" y="130">Îi trimiți bunicii o fotografie din excursie,</text>
+      <text x="62" y="152">atașată la un mesaj.</text>
+      <path d="M570 135H626" stroke="#6B6460" stroke-width="3" marker-end="url(#a)"/>
+      <rect x="640" y="100" width="280" height="70" rx="14" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+      <rect x="660" y="122" width="34" height="26" rx="4" fill="#FFFFFF" stroke="#C8133A" stroke-width="2.5"/>
+      <path d="M660 124l17 12l17-12" fill="none" stroke="#C8133A" stroke-width="2.5"/>
+      <text x="710" y="132" font-size="18" font-weight="800" fill="#C8133A">E-mail</text>
+      <text x="710" y="154" font-size="14">poșta electronică</text>
+
+      <!-- 2 -->
+      <rect x="40" y="184" width="520" height="70" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="62" y="214">Muți multe fișiere mari pe alt calculator</text>
+      <text x="62" y="236">conectat la internet.</text>
+      <path d="M570 219H626" stroke="#6B6460" stroke-width="3" marker-end="url(#a)"/>
+      <rect x="640" y="184" width="280" height="70" rx="14" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+      <path d="M668 238V206M660 214l8-8l8 8M686 206v32M678 230l8 8l8-8" fill="none" stroke="#0B6F68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="710" y="216" font-size="18" font-weight="800" fill="#0B6F68">FTP</text>
+      <text x="710" y="238" font-size="14">transferul de fișiere</text>
+
+      <!-- 3 -->
+      <rect x="40" y="268" width="520" height="70" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="62" y="298">Citești o pagină despre dinozauri sau cauți</text>
+      <text x="62" y="320">programul unui muzeu.</text>
+      <path d="M570 303H626" stroke="#6B6460" stroke-width="3" marker-end="url(#a)"/>
+      <rect x="640" y="268" width="280" height="70" rx="14" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+      <circle cx="677" cy="303" r="16" fill="#FFFFFF" stroke="#0E7F96" stroke-width="2.5"/>
+      <ellipse cx="677" cy="303" rx="7" ry="16" fill="none" stroke="#0E7F96" stroke-width="2"/>
+      <path d="M661 303h32" stroke="#0E7F96" stroke-width="2"/>
+      <text x="710" y="300" font-size="18" font-weight="800" fill="#0E7F96">WWW (web)</text>
+      <text x="710" y="322" font-size="14">pagini legate între ele</text>
+
+      <!-- 4 -->
+      <rect x="40" y="352" width="520" height="70" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="62" y="382">Vorbești cu prietenii prin mesaje care</text>
+      <text x="62" y="404">ajung imediat, în timp real.</text>
+      <path d="M570 387H626" stroke="#6B6460" stroke-width="3" marker-end="url(#a)"/>
+      <rect x="640" y="352" width="280" height="70" rx="14" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="3"/>
+      <path d="M662 374h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4h-20l-10 8v-8h-2a4 4 0 0 1-4-4v-16a4 4 0 0 1 4-4z" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="2.5" stroke-linejoin="round"/>
+      <text x="710" y="384" font-size="18" font-weight="800" fill="#7A3FB8">IRC</text>
+      <text x="710" y="406" font-size="14">mesaje în timp real</text>
+
+      <!-- 5 -->
+      <rect x="40" y="436" width="520" height="70" rx="14" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+      <text x="62" y="466">Folosești de acasă un calculator aflat</text>
+      <text x="62" y="488">în alt oraș.</text>
+      <path d="M570 471H626" stroke="#6B6460" stroke-width="3" marker-end="url(#a)"/>
+      <rect x="640" y="436" width="280" height="70" rx="14" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+      <rect x="660" y="456" width="34" height="24" rx="3" fill="#FFFFFF" stroke="#171416" stroke-width="2.5"/>
+      <path d="M677 480v6M668 488h18" stroke="#171416" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="710" y="468" font-size="18" font-weight="800">Telnet</text>
+      <text x="710" y="490" font-size="14">calculator la distanță</text>
+    </g>
+  </g>
+</svg>

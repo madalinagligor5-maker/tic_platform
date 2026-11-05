@@ -20,6 +20,8 @@ Creezi un **personaj 2D** care să devină **mascota clasei**, un fel de „bran
 
 **Timp de lucru:** 3 săptămâni.
 
+![Proiectul are șase etape în trei săptămâni: chestionar, analiza răspunsurilor, documentare, desen în Paint, salvare și tipărire, prezentare; mascota se alege prin steluțe.](fisiere/imagini/tic-5-u4-proiect-mascota-clasei-etape.svg)
+
 ## Cum lucrezi
 
 1. **Află ce le place colegilor.** Folosește un chestionar sau interviuri. Exemplu de chestionar:
@@ -32,6 +34,8 @@ Creezi un **personaj 2D** care să devină **mascota clasei**, un fel de „bran
 4. **Desenează personajul în Paint.** Folosește forme, culori personalizate (RGB), copiere, răsturnare în oglindă și text.
 5. **Salvează și tipărește** desenul pe o foaie A4.
 6. **Pregătește prezentarea:** câteva propoziții despre personaj. Exersează acasă.
+
+![Pentru un personaj simetric desenezi o jumătate, o copiezi și o lipești, o răstorni orizontal, apoi alipești cele două jumătăți.](fisiere/imagini/tic-5-u4-proiect-mascota-clasei-simetrie.svg)
 
 ## Cum prezinți proiectul
 

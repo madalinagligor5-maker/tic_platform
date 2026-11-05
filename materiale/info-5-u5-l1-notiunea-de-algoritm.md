@@ -48,6 +48,8 @@ Pasul 4: Amestecăm și așteptăm patru minute.
 Stop
 ```
 
+![Algoritmul pentru prepararea ceaiului, desenat pas cu pas: Start, patru pași făcuți în ordine și Stop.](fisiere/imagini/info-5-u5-l1-ceai.svg)
+
 În ambele cazuri facem un **număr clar de pași**, într-o **ordine stabilită**.
 
 > Un **algoritm** este o succesiune de operații, într-o ordine bine precizată, prin care rezolvi o problemă sau îndeplinești o sarcină.
@@ -70,6 +72,8 @@ Stop
 | „Dacă ninge, stau acasă **sau** merg la teatru.” | **claritatea**: nu știi ce va face | „Dacă ninge sau dacă sunt obosit, stau acasă.” |
 | „Scrieți numerele naturale pare.” | **finitudinea**: nu se termină niciodată | „Scrieți numerele naturale pare mai mici decât 1000.” |
 | „Un vârf de cuțit de sare.” | **unicitatea**: fiecare pune altă cantitate | „2 grame de sare.” |
+
+![Trei formulări greșite, proprietatea care le lipsește și varianta corectată a fiecăreia.](fisiere/imagini/info-5-u5-l1-ambiguu.svg)
 
 ## Exemplu rezolvat
 

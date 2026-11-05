@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Organizarea spațiului vizual: un afiș aglomerat și greu de citit comparat cu unul cu element principal mare, fundal, echilibru, aliniere și titlu ușor de citit</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Așezarea elementelor pe foaie</text>
+
+    <!-- GRESIT -->
+    <circle cx="62" cy="86" r="16" fill="#F21F4B"/>
+    <path d="M55 79l14 14M69 79l-14 14" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+    <text x="88" y="93" font-size="19" font-weight="800" fill="#C8133A">Greșit</text>
+    <rect x="40" y="112" width="420" height="260" rx="6" fill="#FFFFFF" stroke="#171416" stroke-width="3"/>
+    <!-- elemente inghesuite in stanga -->
+    <rect x="58" y="250" width="34" height="34" fill="#7A3FB8"/>
+    <path d="M54 252l21-20l21 20z" fill="#14A39A"/>
+    <rect x="96" y="268" width="10" height="34" fill="#6B6460"/><circle cx="101" cy="258" r="18" fill="#FFC83D"/>
+    <rect x="114" y="276" width="10" height="30" fill="#6B6460"/><circle cx="119" cy="268" r="16" fill="#F21F4B"/>
+    <rect x="130" y="270" width="10" height="34" fill="#6B6460"/><circle cx="135" cy="262" r="16" fill="#3EC6E0"/>
+    <!-- soare urias peste titlu -->
+    <text x="300" y="140" font-size="14" fill="#FFC83D" font-weight="700">Ziua școlii</text>
+    <circle cx="350" cy="160" r="54" fill="#FFC83D" fill-opacity="0.9"/>
+    <circle cx="190" cy="330" r="20" fill="#C8133A"/>
+    <circle cx="420" cy="340" r="14" fill="#0E7F96"/>
+    <g font-size="14">
+      <text x="40" y="400"><tspan font-weight="800" fill="#C8133A">✗</tspan> totul înghesuit în stânga</text>
+      <text x="40" y="424"><tspan font-weight="800" fill="#C8133A">✗</tspan> elementul principal e mic</text>
+      <text x="40" y="448"><tspan font-weight="800" fill="#C8133A">✗</tspan> titlul mic, galben pe alb, acoperit</text>
+      <text x="40" y="472"><tspan font-weight="800" fill="#C8133A">✗</tspan> prea multe culori</text>
+    </g>
+
+    <!-- CORECT -->
+    <circle cx="522" cy="86" r="16" fill="#14A39A"/>
+    <path d="M514 86l6 6l11-12" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="548" y="93" font-size="19" font-weight="800" fill="#0B6F68">Corect</text>
+    <rect x="500" y="112" width="420" height="260" rx="6" fill="#E2F6FA" stroke="#171416" stroke-width="3"/>
+    <!-- fundal: iarba -->
+    <path d="M502 300H918V370H502z" fill="#E0F4F2"/>
+    <path d="M502 300H918" stroke="#14A39A" stroke-width="3"/>
+    <!-- departe, mic -->
+    <rect x="540" y="272" width="6" height="16" fill="#6B6460"/><circle cx="543" cy="266" r="11" fill="#14A39A"/>
+    <rect x="874" y="272" width="6" height="16" fill="#6B6460"/><circle cx="877" cy="266" r="11" fill="#14A39A"/>
+    <circle cx="866" cy="150" r="20" fill="#FFC83D"/>
+    <!-- elementul principal: scoala -->
+    <rect x="640" y="214" width="140" height="100" fill="#FFF4D6" stroke="#171416" stroke-width="2.5"/>
+    <path d="M626 216l84-52l84 52z" fill="#F21F4B" stroke="#171416" stroke-width="2.5" stroke-linejoin="round"/>
+    <rect x="696" y="266" width="28" height="48" fill="#0E7F96"/>
+    <rect x="654" y="234" width="26" height="22" fill="#FFFFFF" stroke="#171416" stroke-width="2"/>
+    <rect x="740" y="234" width="26" height="22" fill="#FFFFFF" stroke="#171416" stroke-width="2"/>
+    <!-- copaci in prim plan, aliniati -->
+    <rect x="583" y="300" width="10" height="40" fill="#6B6460"/><circle cx="588" cy="290" r="24" fill="#14A39A"/>
+    <rect x="827" y="300" width="10" height="40" fill="#6B6460"/><circle cx="832" cy="290" r="24" fill="#14A39A"/>
+    <!-- titlu -->
+    <text x="710" y="150" text-anchor="middle" font-size="26" font-weight="800" fill="#0B6F68">Ziua școlii</text>
+    <g font-size="14">
+      <text x="500" y="400"><tspan font-weight="800" fill="#0B6F68">✓</tspan> elementul principal mare, în centru</text>
+      <text x="500" y="424"><tspan font-weight="800" fill="#0B6F68">✓</tspan> fundal (cer, iarbă); ce e departe e mic</text>
+      <text x="500" y="448"><tspan font-weight="800" fill="#0B6F68">✓</tspan> echilibru stânga–dreapta, aliniere</text>
+      <text x="500" y="472"><tspan font-weight="800" fill="#0B6F68">✓</tspan> titlul mare, contrastant; 2–4 culori</text>
+    </g>
+
+    <text x="480" y="512" text-anchor="middle" font-size="14" fill="#6B6460">Te ajută Vizualizare → Rigle și Liniatură cu pătrățele.</text>
+  </g>
+</svg>

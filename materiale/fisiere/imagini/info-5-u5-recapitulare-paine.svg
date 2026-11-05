@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Formularea ambiguă a mamei poate fi înțeleasă în două feluri: o pâine și șase ouă sau șase pâini</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+    <g id="p">
+      <rect x="-30" y="-16" width="60" height="32" rx="16" fill="#D99A4E"/>
+      <path d="M-14 -10L-8 10M0 -10L6 10M14 -10L20 8" stroke="#A86A26" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g id="o">
+      <ellipse rx="13" ry="17" fill="#FFFFFF" stroke="#6B6460" stroke-width="2.5"/>
+    </g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="24" font-weight="800">De ce contează claritatea?</text>
+
+    <!-- mama -->
+    <circle cx="110" cy="112" r="34" fill="#7A3FB8"/>
+    <circle cx="99" cy="106" r="3.5" fill="#fff"/><circle cx="121" cy="106" r="3.5" fill="#fff"/>
+    <path d="M98 122Q110 132 122 122" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="110" y="168" text-anchor="middle" font-size="15" font-weight="700">Mama</text>
+    <path d="M168 84H900Q916 84 916 100V132Q916 148 900 148H168L150 116Z" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="3" stroke-linejoin="round"/>
+    <text x="534" y="123" text-anchor="middle" font-size="19" font-weight="700">„Te rog, cumpără pâine. Dacă au ouă, ia <tspan font-weight="800" fill="#C8133A">șase</tspan>.”</text>
+
+    <text x="480" y="200" text-anchor="middle" font-size="16" font-weight="700" fill="#6B6460">Magazinul are ouă. Ce aduce Vlad acasă?</text>
+
+    <!-- varianta 1 -->
+    <rect x="40" y="220" width="430" height="190" rx="18" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="255" y="252" text-anchor="middle" font-size="17" font-weight="800" fill="#0E7F96">Varianta 1: șase… ouă</text>
+    <use href="#p" x="110" y="320"/>
+    <text x="178" y="328" text-anchor="middle" font-size="22" font-weight="800">+</text>
+    <use href="#o" x="230" y="300"/><use href="#o" x="266" y="300"/><use href="#o" x="302" y="300"/>
+    <use href="#o" x="230" y="344"/><use href="#o" x="266" y="344"/><use href="#o" x="302" y="344"/>
+    <text x="380" y="328" text-anchor="middle" font-size="15">o pâine</text>
+    <text x="380" y="348" text-anchor="middle" font-size="15">și 6 ouă</text>
+    <text x="255" y="394" text-anchor="middle" font-size="14" fill="#6B6460">„șase” se referă la ouă</text>
+
+    <!-- varianta 2 -->
+    <rect x="490" y="220" width="430" height="190" rx="18" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <text x="705" y="252" text-anchor="middle" font-size="17" font-weight="800" fill="#C8133A">Varianta 2: șase… pâini</text>
+    <use href="#p" x="560" y="300"/><use href="#p" x="630" y="300"/><use href="#p" x="700" y="300"/>
+    <use href="#p" x="560" y="344"/><use href="#p" x="630" y="344"/><use href="#p" x="700" y="344"/>
+    <text x="830" y="328" text-anchor="middle" font-size="15">6 pâini,</text>
+    <text x="830" y="348" text-anchor="middle" font-size="15">niciun ou</text>
+    <text x="705" y="394" text-anchor="middle" font-size="14" fill="#6B6460">„șase” se referă la pâini</text>
+
+    <!-- formulare clară -->
+    <rect x="40" y="428" width="880" height="84" rx="16" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="80" cy="470" r="18" fill="#14A39A"/>
+    <path d="M71 470L77 476L89 463" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="114" y="462" font-size="16" font-weight="800" fill="#0B6F68">Fără ambiguitate:</text>
+    <text x="114" y="490" font-size="16">„Cumpără o pâine. Dacă au ouă, cumpără și șase ouă.”</text>
+  </g>
+</svg>

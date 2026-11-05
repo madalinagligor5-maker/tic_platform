@@ -71,6 +71,8 @@ Dacă temperatura < 0 °C,
 
 > **Atenție la „cel puțin” și „cel mult”!** „Poți intra dacă ai **cel puțin** 12 ani” înseamnă vârsta **≥ 12**: un copil de exact 12 ani **poate** intra. „Mai mare decât 12” (vârsta > 12) l-ar lăsa afară.
 
+![Pe axa vârstelor se vede diferența dintre „cel puțin 12 ani” (vârsta ≥ 12) și „mai mult de 12 ani” (vârsta > 12), alături de dicționarul operatorilor relaționali.](fisiere/imagini/info-5-u5-l3-cel-putin.svg)
+
 ### Condiții compuse (diverse)
 
 Uneori trebuie verificate **două condiții deodată**. Le legăm cu **și** sau cu **sau**:
@@ -85,6 +87,8 @@ Dacă vârsta ≥ 7 și vârsta ≤ 14,
 ```
 
 Pentru vârsta 10: 10 ≥ 7 este adevărat **și** 10 ≤ 14 este adevărat → bilet de copil. Pentru vârsta 16: 16 ≤ 14 este fals → bilet întreg.
+
+![La „și” trebuie ca ambele condiții să fie adevărate, iar la „sau” ajunge ca una să fie adevărată.](fisiere/imagini/info-5-u5-l3-si-sau.svg)
 
 ### A. Traversarea străzii la semafor
 
@@ -122,6 +126,8 @@ Stop
 ```
 
 Aici o structură alternativă este **cuprinsă în alta**.
+
+![Schema cumpărării fructelor: dacă cireșele sunt prea scumpe, pe ramura Nu se ia o a doua decizie, despre căpșuni.](fisiere/imagini/info-5-u5-l3-fructe.svg)
 
 ## Exemplu rezolvat
 

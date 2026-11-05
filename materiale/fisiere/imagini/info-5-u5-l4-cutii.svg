@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Datele algoritmului bancomatului desenate ca niște cutii cu etichetă: trei variabile și o constantă</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Variabilele și constantele, ca niște cutii cu etichetă</text>
+
+    <!-- bancomat -->
+    <rect x="40" y="110" width="160" height="270" rx="16" fill="#171416"/>
+    <rect x="58" y="130" width="124" height="70" rx="8" fill="#3EC6E0"/>
+    <text x="120" y="160" text-anchor="middle" font-size="14" font-weight="700" fill="#0B3F4A">Sold:</text>
+    <text x="120" y="184" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">200 lei</text>
+    <g fill="#6B6460">
+      <rect x="66" y="216" width="26" height="18" rx="4"/><rect x="107" y="216" width="26" height="18" rx="4"/><rect x="148" y="216" width="26" height="18" rx="4"/>
+      <rect x="66" y="242" width="26" height="18" rx="4"/><rect x="107" y="242" width="26" height="18" rx="4"/><rect x="148" y="242" width="26" height="18" rx="4"/>
+      <rect x="66" y="268" width="26" height="18" rx="4"/><rect x="107" y="268" width="26" height="18" rx="4"/><rect x="148" y="268" width="26" height="18" rx="4"/>
+    </g>
+    <rect x="60" y="306" width="120" height="10" rx="5" fill="#3B3638"/>
+    <rect x="80" y="316" width="80" height="44" rx="4" fill="#14A39A"/>
+    <circle cx="120" cy="338" r="10" fill="none" stroke="#E0F4F2" stroke-width="2.5"/>
+    <text x="120" y="408" text-anchor="middle" font-size="15" font-weight="700">Bancomatul</text>
+
+    <!-- cutia si -->
+    <path d="M230 190L250 160H360L380 190Z" fill="#B9E9F2"/>
+    <rect x="270" y="140" width="70" height="62" rx="6" fill="#fff" stroke="#0E7F96" stroke-width="2"/>
+    <text x="305" y="176" text-anchor="middle" font-size="22" font-weight="800">200</text>
+    <rect x="230" y="190" width="150" height="120" rx="8" fill="#3EC6E0"/>
+    <rect x="265" y="254" width="80" height="32" rx="8" fill="#fff"/>
+    <text x="305" y="277" text-anchor="middle" font-size="18" font-weight="800" fill="#0E7F96">si</text>
+
+    <!-- cutia e -->
+    <path d="M400 190L420 160H530L550 190Z" fill="#B9E9F2"/>
+    <rect x="440" y="140" width="70" height="62" rx="6" fill="#fff" stroke="#0E7F96" stroke-width="2"/>
+    <text x="475" y="176" text-anchor="middle" font-size="22" font-weight="800">50</text>
+    <rect x="400" y="190" width="150" height="120" rx="8" fill="#3EC6E0"/>
+    <rect x="435" y="254" width="80" height="32" rx="8" fill="#fff"/>
+    <text x="475" y="277" text-anchor="middle" font-size="18" font-weight="800" fill="#0E7F96">e</text>
+
+    <!-- cutia c (constantă) -->
+    <path d="M570 190L590 160H700L720 190Z" fill="#E8D9F7"/>
+    <rect x="610" y="140" width="70" height="62" rx="6" fill="#fff" stroke="#7A3FB8" stroke-width="2"/>
+    <text x="645" y="176" text-anchor="middle" font-size="22" font-weight="800">5</text>
+    <rect x="570" y="190" width="150" height="120" rx="8" fill="#7A3FB8"/>
+    <rect x="605" y="254" width="80" height="32" rx="8" fill="#fff"/>
+    <text x="645" y="277" text-anchor="middle" font-size="18" font-weight="800" fill="#7A3FB8">c</text>
+    <!-- lacăt -->
+    <path d="M686 214v-8a10 10 0 0 1 20 0v8" stroke="#FFC83D" stroke-width="4" fill="none"/>
+    <rect x="680" y="212" width="32" height="26" rx="5" fill="#FFC83D"/>
+    <circle cx="696" cy="224" r="4" fill="#7A3FB8"/>
+
+    <!-- cutia sr -->
+    <path d="M740 190L760 160H870L890 190Z" fill="#BDE8E4"/>
+    <rect x="780" y="140" width="70" height="62" rx="6" fill="#fff" stroke="#0B6F68" stroke-width="2"/>
+    <text x="815" y="176" text-anchor="middle" font-size="22" font-weight="800">145</text>
+    <rect x="740" y="190" width="150" height="120" rx="8" fill="#14A39A"/>
+    <rect x="775" y="254" width="80" height="32" rx="8" fill="#fff"/>
+    <text x="815" y="277" text-anchor="middle" font-size="18" font-weight="800" fill="#0B6F68">sr</text>
+
+    <!-- descrieri -->
+    <g font-size="15" text-anchor="middle">
+      <text x="305" y="336">suma de pe card</text>
+      <text x="475" y="336">suma retrasă</text>
+      <text x="645" y="336">comisionul fix</text>
+      <text x="815" y="336">suma rămasă</text>
+    </g>
+    <g font-size="15" font-weight="800" text-anchor="middle">
+      <text x="305" y="360" fill="#0E7F96">variabilă</text>
+      <text x="475" y="360" fill="#0E7F96">variabilă</text>
+      <text x="645" y="360" fill="#7A3FB8">constantă</text>
+      <text x="815" y="360" fill="#0B6F68">variabilă</text>
+    </g>
+
+    <!-- formula -->
+    <rect x="230" y="386" width="660" height="54" rx="14" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+    <text x="560" y="420" text-anchor="middle" font-size="19" font-weight="800">sr = si – e – c = 200 – 50 – 5 = 145</text>
+
+    <!-- legendă -->
+    <rect x="40" y="460" width="430" height="54" rx="14" fill="#E2F6FA"/>
+    <text x="255" y="483" text-anchor="middle" font-size="15"><tspan font-weight="800" fill="#0E7F96">Variabilă:</tspan> valoarea din cutie</text>
+    <text x="255" y="503" text-anchor="middle" font-size="15">se poate schimba.</text>
+    <rect x="490" y="460" width="430" height="54" rx="14" fill="#F0E8FA"/>
+    <text x="705" y="483" text-anchor="middle" font-size="15"><tspan font-weight="800" fill="#7A3FB8">Constantă:</tspan> cutia e „încuiată”,</text>
+    <text x="705" y="503" text-anchor="middle" font-size="15">valoarea rămâne aceeași.</text>
+  </g>
+</svg>

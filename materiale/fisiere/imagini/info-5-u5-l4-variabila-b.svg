@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Variabila B își schimbă valoarea după formula B = (B × 2 + 6) × 5: din 20 devine 230</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Cum își schimbă valoarea o variabilă</text>
+    <rect x="290" y="68" width="380" height="44" rx="22" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+    <text x="480" y="97" text-anchor="middle" font-size="20" font-weight="800">B = (B × 2 + 6) × 5</text>
+
+    <!-- cutia înainte -->
+    <text x="140" y="160" text-anchor="middle" font-size="16" font-weight="700" fill="#6B6460">la început</text>
+    <path d="M60 220L80 190H200L220 220Z" fill="#B9E9F2"/>
+    <rect x="100" y="172" width="80" height="62" rx="6" fill="#fff" stroke="#0E7F96" stroke-width="2"/>
+    <text x="140" y="210" text-anchor="middle" font-size="26" font-weight="800">20</text>
+    <rect x="60" y="220" width="160" height="120" rx="8" fill="#3EC6E0"/>
+    <rect x="100" y="286" width="80" height="34" rx="8" fill="#fff"/>
+    <text x="140" y="310" text-anchor="middle" font-size="20" font-weight="800" fill="#0E7F96">B</text>
+
+    <!-- calculul -->
+    <g font-size="17">
+      <rect x="270" y="160" width="420" height="52" rx="12" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="2.5"/>
+      <circle cx="298" cy="186" r="15" fill="#3EC6E0"/>
+      <text x="298" y="192" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">1</text>
+      <text x="326" y="192">întâi paranteza: 20 × 2 = <tspan font-weight="800">40</tspan></text>
+
+      <rect x="270" y="226" width="420" height="52" rx="12" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="2.5"/>
+      <circle cx="298" cy="252" r="15" fill="#3EC6E0"/>
+      <text x="298" y="258" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">2</text>
+      <text x="326" y="258">tot în paranteză: 40 + 6 = <tspan font-weight="800">46</tspan></text>
+
+      <rect x="270" y="292" width="420" height="52" rx="12" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="2.5"/>
+      <circle cx="298" cy="318" r="15" fill="#3EC6E0"/>
+      <text x="298" y="324" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">3</text>
+      <text x="326" y="324">apoi: 46 × 5 = <tspan font-weight="800">230</tspan></text>
+    </g>
+    <g stroke="#171416" stroke-width="3" fill="none">
+      <path d="M224 254H262" marker-end="url(#a)"/>
+      <path d="M694 254H732" marker-end="url(#a)"/>
+    </g>
+
+    <!-- cutia după -->
+    <text x="820" y="160" text-anchor="middle" font-size="16" font-weight="700" fill="#6B6460">la final</text>
+    <path d="M740 220L760 190H880L900 220Z" fill="#BDE8E4"/>
+    <rect x="780" y="172" width="80" height="62" rx="6" fill="#fff" stroke="#0B6F68" stroke-width="2"/>
+    <text x="820" y="210" text-anchor="middle" font-size="26" font-weight="800">230</text>
+    <rect x="740" y="220" width="160" height="120" rx="8" fill="#14A39A"/>
+    <rect x="780" y="286" width="80" height="34" rx="8" fill="#fff"/>
+    <text x="820" y="310" text-anchor="middle" font-size="20" font-weight="800" fill="#0B6F68">B</text>
+    <!-- valoarea veche, tăiată -->
+    <text x="820" y="366" text-anchor="middle" font-size="14" fill="#6B6460">valoarea veche (20)</text><text x="820" y="384" text-anchor="middle" font-size="14" fill="#6B6460">a fost înlocuită</text>
+
+    <!-- concluzii -->
+    <rect x="40" y="398" width="430" height="110" rx="16" fill="#E2F6FA"/>
+    <text x="255" y="432" text-anchor="middle" font-size="18" font-weight="800" fill="#0E7F96">B este variabilă</text>
+    <text x="255" y="460" text-anchor="middle" font-size="15">Numele B rămâne același;</text>
+    <text x="255" y="482" text-anchor="middle" font-size="15">se schimbă doar valoarea din cutie.</text>
+    <rect x="490" y="398" width="430" height="110" rx="16" fill="#F0E8FA"/>
+    <text x="705" y="432" text-anchor="middle" font-size="18" font-weight="800" fill="#7A3FB8">2, 6 și 5 sunt constante</text>
+    <text x="705" y="460" text-anchor="middle" font-size="15">Ele nu se schimbă, oricâte ori</text>
+    <text x="705" y="482" text-anchor="middle" font-size="15">am aplica formula.</text>
+  </g>
+</svg>

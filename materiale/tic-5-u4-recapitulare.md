@@ -12,6 +12,8 @@ data: 2026-10-15
 
 ## Recapitulare
 
+![Instrumentele din Paint și ce face fiecare: Creion, Pensule, Umplere cu culoare, Text, Radieră, Selector de culoare, Lupă și Forme; dedesubt, diferența dintre Salvare și Salvare ca.](fisiere/imagini/tic-5-u4-recapitulare-instrumente.svg)
+
 ```categorii
 # Ce extensii poate avea un fișier grafic creat în Paint?
 Fișier grafic: .jpg, .png, .tiff
@@ -43,6 +45,8 @@ A: Un om de zăpadă se poate desena din trei cercuri, cu tasta Shift apăsată.
 2. Desenează un peisaj de iarnă cu un om de zăpadă din trei cercuri. Salvează-l ca `Om_de_zapada.jpg`.
 3. Desenează un robot (capul și corpul din dreptunghiuri, mâinile și picioarele din linii groase) pe o foaie de **150 × 100 px**. Salvează-l ca `RoboTIC.jpg`.
 4. Desenează trei decoruri de **480 × 360 px** (de exemplu, o pădure, o plajă, un oraș) și salvează-le ca `decor1.jpg`, `decor2.jpg`, `decor3.jpg`. Le vei folosi în Scratch!
+
+![Omul de zăpadă se face din trei cercuri desenate cu Shift, robotul din dreptunghiuri și linii groase, iar decorurile pentru Scratch au 480 × 360 px.](fisiere/imagini/tic-5-u4-recapitulare-exersare.svg)
 
 ## Autoevaluare
 

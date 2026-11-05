@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Trei efecte ale folosirii greșite a dispozitivelor: dureri de ceafă și de spate, probleme de vedere și dependența</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Ce se întâmplă când folosim greșit dispozitivele</text>
+
+    <!-- 1 ceafa -->
+    <g transform="translate(40 74)">
+      <rect width="280" height="436" rx="18" fill="#fff"/>
+      <path d="M0 62V18A18 18 0 0 1 18 0H262A18 18 0 0 1 280 18V62z" fill="#FDE7EC"/>
+      <rect width="280" height="436" rx="18" fill="none" stroke="#F21F4B" stroke-width="3"/>
+      <text x="140" y="28" text-anchor="middle" font-size="17" font-weight="800" fill="#C8133A">Dureri de ceafă</text>
+      <text x="140" y="50" text-anchor="middle" font-size="17" font-weight="800" fill="#C8133A">și de spate</text>
+      <g stroke-linecap="round">
+        <path d="M52 230V170" stroke="#F21F4B" stroke-width="18"/>
+        <path d="M52 168L52 146" stroke="#171416" stroke-width="7"/>
+        <circle cx="52" cy="132" r="17" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+        <path d="M128 230V170" stroke="#F21F4B" stroke-width="18"/>
+        <path d="M128 168L140 150" stroke="#171416" stroke-width="7"/>
+        <circle cx="146" cy="138" r="17" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+        <path d="M205 230V170" stroke="#F21F4B" stroke-width="18"/>
+        <path d="M205 168L221 158" stroke="#171416" stroke-width="7"/>
+        <circle cx="229" cy="152" r="17" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+      </g>
+      <path d="M24 320H262" stroke="#E8DFD3" stroke-width="3"/>
+      <rect x="38" y="296" width="28" height="24" rx="4" fill="#FFC83D"/>
+      <rect x="114" y="270" width="28" height="50" rx="4" fill="#FFC83D"/>
+      <rect x="191" y="246" width="28" height="74" rx="4" fill="#F21F4B"/>
+      <text x="140" y="344" text-anchor="middle" font-size="14" fill="#6B6460">greutatea dusă de gât</text>
+      <text x="140" y="378" text-anchor="middle" font-size="15" font-weight="700">Cu cât apleci capul</text>
+      <text x="140" y="398" text-anchor="middle" font-size="15" font-weight="700">mai mult, cu atât gâtul</text>
+      <text x="140" y="418" text-anchor="middle" font-size="15" font-weight="700">duce o greutate mai mare.</text>
+    </g>
+
+    <!-- 2 vedere -->
+    <g transform="translate(340 74)">
+      <rect width="280" height="436" rx="18" fill="#fff"/>
+      <path d="M0 62V18A18 18 0 0 1 18 0H262A18 18 0 0 1 280 18V62z" fill="#E2F6FA"/>
+      <rect width="280" height="436" rx="18" fill="none" stroke="#3EC6E0" stroke-width="3"/>
+      <text x="140" y="39" text-anchor="middle" font-size="17" font-weight="800" fill="#0E7F96">Probleme de vedere</text>
+      <path d="M30 200Q75 150 120 200Q75 250 30 200z" fill="#fff" stroke="#171416" stroke-width="3"/>
+      <circle cx="75" cy="200" r="17" fill="#0E7F96"/><circle cx="75" cy="200" r="7" fill="#171416"/>
+      <path d="M40 150l8 14M75 140v16M110 150l-8 14" stroke="#F21F4B" stroke-width="4" stroke-linecap="round"/>
+      <rect x="160" y="150" width="96" height="72" rx="8" fill="#E2F6FA" stroke="#171416" stroke-width="3"/>
+      <path d="M176 172h64M176 188h48M176 204h56" stroke="#3EC6E0" stroke-width="5" stroke-linecap="round"/>
+      <path d="M208 222v14M188 240h40" stroke="#171416" stroke-width="5" stroke-linecap="round"/>
+      <path d="M126 266H154" stroke="#C8133A" stroke-width="3"/>
+      <path d="M122 266l8-6v12zM158 266l-8-6v12z" fill="#C8133A"/>
+      <text x="140" y="294" text-anchor="middle" font-size="14" font-weight="700" fill="#C8133A">prea aproape</text>
+      <text x="140" y="358" text-anchor="middle" font-size="15" font-weight="700">Ochii obosesc stând mult</text>
+      <text x="140" y="378" text-anchor="middle" font-size="15" font-weight="700">aproape de ecran și trecând</text>
+      <text x="140" y="398" text-anchor="middle" font-size="15" font-weight="700">des între lumini diferite.</text>
+      <text x="140" y="420" text-anchor="middle" font-size="15" fill="#0E7F96" font-weight="800">Poate apărea miopia.</text>
+    </g>
+
+    <!-- 3 dependenta -->
+    <g transform="translate(640 74)">
+      <rect width="280" height="436" rx="18" fill="#fff"/>
+      <path d="M0 62V18A18 18 0 0 1 18 0H262A18 18 0 0 1 280 18V62z" fill="#F0E8FA"/>
+      <rect width="280" height="436" rx="18" fill="none" stroke="#7A3FB8" stroke-width="3"/>
+      <text x="140" y="39" text-anchor="middle" font-size="17" font-weight="800" fill="#7A3FB8">Dependența</text>
+      <rect x="108" y="120" width="70" height="128" rx="12" fill="#171416"/>
+      <rect x="116" y="134" width="54" height="94" rx="4" fill="#F0E8FA"/>
+      <path d="M143 160l6 12l13 2l-10 9l3 13l-12-7l-12 7l3-13l-10-9l13-2z" fill="#FFC83D"/>
+      <circle cx="178" cy="122" r="15" fill="#F21F4B"/>
+      <text x="178" y="128" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">5</text>
+      <circle cx="60" cy="176" r="30" fill="#fff" stroke="#7A3FB8" stroke-width="4"/>
+      <path d="M60 158v18l12 8" stroke="#7A3FB8" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <rect x="196" y="186" width="70" height="30" rx="8" fill="#FFF4D6" stroke="#FFC83D" stroke-width="2"/>
+      <text x="231" y="206" text-anchor="middle" font-size="14" font-weight="700">nivel 9</text>
+      <text x="140" y="290" text-anchor="middle" font-size="14" fill="#6B6460">recompense · actualizări</text>
+      <text x="140" y="310" text-anchor="middle" font-size="14" fill="#6B6460">concursuri</text>
+      <text x="140" y="358" text-anchor="middle" font-size="15" font-weight="700">Jocurile și aplicațiile</text>
+      <text x="140" y="378" text-anchor="middle" font-size="15" font-weight="700">sunt făcute să te țină</text>
+      <text x="140" y="398" text-anchor="middle" font-size="15" font-weight="700">cât mai mult în fața</text>
+      <text x="140" y="418" text-anchor="middle" font-size="15" font-weight="700">ecranului.</text>
+    </g>
+  </g>
+</svg>

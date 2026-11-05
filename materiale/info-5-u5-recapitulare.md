@@ -12,6 +12,8 @@ data: 2026-10-15
 
 ## Recapitulare
 
+![Harta unității: proprietățile algoritmilor, structurile, datele, operatorii și modurile de a descrie un algoritm.](fisiere/imagini/info-5-u5-recapitulare-harta.svg)
+
 ```completare
 # Rebus: completează.
 1. Modul în care dai o valoare unei variabile: [atribuire|atribuirea]
@@ -77,3 +79,7 @@ Explicație: Nu se spune clar ce să ia „șase”: ouă sau pâini. Formularea
 # 3. Concursul școlar (punctaj maxim 50 pe probă; trece la proba a treia cine are peste 80 de puncte la primele două).
 Elevul are 40 de puncte la prima probă și 50 la a doua. Suma este [90]. Condiția suma > 80 este [Adevărat|adevărată]. Elevul [trece|poate trece] la proba a treia. Pragul de 80 de puncte este o [constantă].
 ```
+
+## De ce contează claritatea
+
+![Mesajul mamei poate fi înțeles în două feluri, o pâine și șase ouă sau șase pâini, de aceea pașii unui algoritm trebuie scriși fără ambiguități.](fisiere/imagini/info-5-u5-recapitulare-paine.svg)

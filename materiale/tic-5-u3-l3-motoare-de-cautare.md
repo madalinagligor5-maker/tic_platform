@@ -31,6 +31,8 @@ Un **motor de căutare** este un program cu care găsești informații pe intern
 
 **Cum funcționează:** scrii câteva **cuvinte-cheie**, adică o parte din textul pe care ar trebui să îl conțină paginile căutate. Motorul caută aceste cuvinte în paginile web și îți dă o **listă de adrese** ale paginilor care le conțin. **Primele rezultate** sunt cele considerate **cele mai relevante**. Tu deschizi paginile și o alegi pe cea cu informația corectă și completă.
 
+![Un motor de căutare lucrează în patru pași: scrii cuvintele-cheie, el caută în paginile web, îți dă lista de adrese, iar tu deschizi paginile și o alegi pe cea potrivită.](fisiere/imagini/tic-5-u3-l3-motoare-de-cautare-pasi.svg)
+
 Exemple: **Google** (`www.google.com`), **Bing** (`www.bing.com`), **Yahoo!** (`www.yahoo.com`).
 
 Google îți permite:
@@ -57,6 +59,8 @@ Google îți permite:
 - **Descărcarea (download)**: salvezi **pe calculatorul tău** fișiere găsite pe internet.
 - **Încărcarea (upload)**: **trimiți** fișiere de pe calculatorul tău **către alt calculator**, aflat la distanță.
 
+![Descărcarea aduce un fișier de pe internet pe calculatorul tău, iar încărcarea trimite un fișier de pe calculatorul tău către alt calculator.](fisiere/imagini/tic-5-u3-l3-motoare-de-cautare-descarcare.svg)
+
 ### Drepturile de autor
 
 - **Drepturile de autor** le are cel care a creat un conținut sau persoana căreia acesta i le-a dat legal.
@@ -64,6 +68,8 @@ Google îți permite:
 - Autorii pot spune ce drepturi îți dau: folosire personală, școlară sau comercială, modificare, redistribuire.
 - Când folosești informații de pe internet într-un proiect școlar, le treci în **Bibliografie**: **autorul**, **titlul** și **site-ul**.
 - Programele de pe calculator trebuie să aibă **licență**, adică să fie originale, de la producător.
+
+![Autorul hotărăște ce drepturi îți dă asupra operei lui, iar în Bibliografie treci autorul, titlul și site-ul; programele trebuie să aibă licență.](fisiere/imagini/tic-5-u3-l3-motoare-de-cautare-drepturi.svg)
 
 > În lecția următoare înveți cum **salvezi** informațiile găsite în **formatul cerut**, cum verifici dacă o sursă este de încredere și cum **citezi** corect sursele.
 

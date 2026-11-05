@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Selecția multiplă: cu Shift selectezi fișiere unul după altul, cu Ctrl fișiere răzlețe, cu Ctrl + A toate fișierele</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <rect x="30" y="30" width="280" height="480" rx="18" fill="#fff" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="107.5" y="50" width="125" height="46" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/>
+    <rect x="107.5" y="90" width="125" height="6" rx="3" fill="#171416"/>
+    <text x="170" y="80" text-anchor="middle" font-size="20" font-weight="800">Shift</text>
+    <text x="170" y="128" text-anchor="middle" font-size="16" font-weight="800" fill="#0E7F96">unul după altul</text>
+    <rect x="50" y="146" width="240" height="36" rx="6" fill="#fff" stroke="#E8DFD3" stroke-width="2"/>
+    <rect x="62" y="154" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="90" y="170" font-size="15" font-weight="700">poza1.jpg</text>
+    <rect x="50" y="190" width="240" height="36" rx="6" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2"/>
+    <rect x="62" y="198" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="90" y="214" font-size="15" font-weight="700">poza2.jpg</text>
+    <circle cx="266" cy="208" r="12" fill="#FFC83D"/><text x="266" y="213" text-anchor="middle" font-size="14" font-weight="800">1</text>
+    <rect x="50" y="234" width="240" height="36" rx="6" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2"/>
+    <rect x="62" y="242" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="90" y="258" font-size="15" font-weight="700">poza3.jpg</text>
+    <rect x="50" y="278" width="240" height="36" rx="6" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2"/>
+    <rect x="62" y="286" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="90" y="302" font-size="15" font-weight="700">poza4.jpg</text>
+    <rect x="50" y="322" width="240" height="36" rx="6" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2"/>
+    <rect x="62" y="330" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="90" y="346" font-size="15" font-weight="700">poza5.jpg</text>
+    <circle cx="266" cy="340" r="12" fill="#FFC83D"/><text x="266" y="345" text-anchor="middle" font-size="14" font-weight="800">2</text>
+    <rect x="50" y="366" width="240" height="36" rx="6" fill="#fff" stroke="#E8DFD3" stroke-width="2"/>
+    <rect x="62" y="374" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="90" y="390" font-size="15" font-weight="700">poza6.jpg</text>
+    <text x="170" y="440" text-anchor="middle" font-size="15" font-weight="700">clic pe primul, ții apăsat</text>
+    <text x="170" y="462" text-anchor="middle" font-size="15" font-weight="700">Shift, clic pe ultimul</text>
+    <rect x="340" y="30" width="280" height="480" rx="18" fill="#fff" stroke="#14A39A" stroke-width="3"/>
+    <rect x="424.0" y="50" width="112" height="46" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/>
+    <rect x="424.0" y="90" width="112" height="6" rx="3" fill="#171416"/>
+    <text x="480" y="80" text-anchor="middle" font-size="20" font-weight="800">Ctrl</text>
+    <text x="480" y="128" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">fișiere răzlețe</text>
+    <rect x="360" y="146" width="240" height="36" rx="6" fill="#E0F4F2" stroke="#14A39A" stroke-width="2"/>
+    <rect x="372" y="154" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="400" y="170" font-size="15" font-weight="700">poza1.jpg</text>
+    <circle cx="576" cy="164" r="12" fill="#FFC83D"/><text x="576" y="169" text-anchor="middle" font-size="14" font-weight="800">1</text>
+    <rect x="360" y="190" width="240" height="36" rx="6" fill="#fff" stroke="#E8DFD3" stroke-width="2"/>
+    <rect x="372" y="198" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="400" y="214" font-size="15" font-weight="700">poza2.jpg</text>
+    <rect x="360" y="234" width="240" height="36" rx="6" fill="#E0F4F2" stroke="#14A39A" stroke-width="2"/>
+    <rect x="372" y="242" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="400" y="258" font-size="15" font-weight="700">poza3.jpg</text>
+    <circle cx="576" cy="252" r="12" fill="#FFC83D"/><text x="576" y="257" text-anchor="middle" font-size="14" font-weight="800">2</text>
+    <rect x="360" y="278" width="240" height="36" rx="6" fill="#fff" stroke="#E8DFD3" stroke-width="2"/>
+    <rect x="372" y="286" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="400" y="302" font-size="15" font-weight="700">poza4.jpg</text>
+    <rect x="360" y="322" width="240" height="36" rx="6" fill="#fff" stroke="#E8DFD3" stroke-width="2"/>
+    <rect x="372" y="330" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="400" y="346" font-size="15" font-weight="700">poza5.jpg</text>
+    <rect x="360" y="366" width="240" height="36" rx="6" fill="#E0F4F2" stroke="#14A39A" stroke-width="2"/>
+    <rect x="372" y="374" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="400" y="390" font-size="15" font-weight="700">poza6.jpg</text>
+    <circle cx="576" cy="384" r="12" fill="#FFC83D"/><text x="576" y="389" text-anchor="middle" font-size="14" font-weight="800">3</text>
+    <text x="480" y="440" text-anchor="middle" font-size="15" font-weight="700">clic pe primul, ții apăsat</text>
+    <text x="480" y="462" text-anchor="middle" font-size="15" font-weight="700">Ctrl, clic pe celelalte</text>
+    <rect x="650" y="30" width="280" height="480" rx="18" fill="#fff" stroke="#7A3FB8" stroke-width="3"/>
+    <rect x="708.0" y="50" width="164" height="46" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/>
+    <rect x="708.0" y="90" width="164" height="6" rx="3" fill="#171416"/>
+    <text x="790" y="80" text-anchor="middle" font-size="20" font-weight="800">Ctrl + A</text>
+    <text x="790" y="128" text-anchor="middle" font-size="16" font-weight="800" fill="#7A3FB8">toate fișierele</text>
+    <rect x="670" y="146" width="240" height="36" rx="6" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="2"/>
+    <rect x="682" y="154" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="710" y="170" font-size="15" font-weight="700">poza1.jpg</text>
+    <rect x="670" y="190" width="240" height="36" rx="6" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="2"/>
+    <rect x="682" y="198" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="710" y="214" font-size="15" font-weight="700">poza2.jpg</text>
+    <rect x="670" y="234" width="240" height="36" rx="6" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="2"/>
+    <rect x="682" y="242" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="710" y="258" font-size="15" font-weight="700">poza3.jpg</text>
+    <rect x="670" y="278" width="240" height="36" rx="6" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="2"/>
+    <rect x="682" y="286" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="710" y="302" font-size="15" font-weight="700">poza4.jpg</text>
+    <rect x="670" y="322" width="240" height="36" rx="6" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="2"/>
+    <rect x="682" y="330" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="710" y="346" font-size="15" font-weight="700">poza5.jpg</text>
+    <rect x="670" y="366" width="240" height="36" rx="6" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="2"/>
+    <rect x="682" y="374" width="16" height="20" rx="2" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <text x="710" y="390" font-size="15" font-weight="700">poza6.jpg</text>
+    <text x="790" y="440" text-anchor="middle" font-size="15" font-weight="700">selectează toate</text>
+    <text x="790" y="462" text-anchor="middle" font-size="15" font-weight="700">fișierele din folder</text>
+    <text x="480" y="496" text-anchor="middle" font-size="14" fill="#6B6460">bulinele galbene arată ordinea clicurilor</text>
+  </g>
+</svg>

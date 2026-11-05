@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Trei moduri de a porni Paint: din meniul Start, Accesorii Windows; scriind Paint după Start și apăsând Enter; cu un clic pe pictograma din bara de activități</title>
+  <defs>
+    <g id="pal">
+      <path d="M0 -16c12 0 20 7 20 15c0 6-5 8-9 7c-4-1-6 3-3 6c2 3-1 6-7 6c-11 0-19-8-19-17s8-17 18-17z" fill="#FFF4D6" stroke="#171416" stroke-width="2"/>
+      <circle cx="-8" cy="-4" r="3" fill="#F21F4B"/><circle cx="0" cy="-9" r="3" fill="#3EC6E0"/><circle cx="9" cy="-6" r="3" fill="#14A39A"/><circle cx="-9" cy="6" r="3" fill="#7A3FB8"/>
+    </g>
+    <g id="cur"><path d="M0 0v24l6-6l5 11l5-2l-5-11h9z" fill="#FFFFFF" stroke="#171416" stroke-width="2" stroke-linejoin="round"/></g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Trei moduri de a porni Paint</text>
+
+    <!-- 1 meniul Start -->
+    <rect x="30" y="76" width="290" height="438" rx="20" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="66" cy="110" r="18" fill="#F21F4B"/><text x="66" y="117" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">1</text>
+    <text x="96" y="117" font-size="18" font-weight="800">Din meniul Start</text>
+    <rect x="54" y="144" width="242" height="250" rx="12" fill="#FFF7EE" stroke="#E8DFD3" stroke-width="2"/>
+    <g font-size="15">
+      <text x="72" y="176" fill="#6B6460">Toate aplicațiile</text>
+      <rect x="64" y="192" width="222" height="36" rx="8" fill="#FDE7EC"/>
+      <path d="M78 204l6 6l6-6" fill="none" stroke="#C8133A" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="98" y="216" font-weight="800">Accesorii Windows</text>
+      <text x="98" y="256" fill="#6B6460">Instrument de decupare</text>
+      <text x="98" y="290" fill="#6B6460">Notepad</text>
+      <rect x="86" y="304" width="200" height="38" rx="8" fill="#F21F4B"/>
+      <use href="#pal" x="110" y="324"/>
+      <text x="138" y="329" font-weight="800" fill="#FFFFFF">Paint</text>
+      <text x="98" y="374" fill="#6B6460">WordPad</text>
+    </g>
+    <use href="#cur" x="236" y="318"/>
+    <rect x="54" y="414" width="44" height="44" rx="10" fill="#0E7F96"/>
+    <g fill="#FFFFFF"><rect x="64" y="424" width="11" height="11"/><rect x="77" y="424" width="11" height="11"/><rect x="64" y="437" width="11" height="11"/><rect x="77" y="437" width="11" height="11"/></g>
+    <text x="110" y="434" font-size="14" font-weight="700">Start → Accesorii</text>
+    <text x="110" y="454" font-size="14" font-weight="700">Windows → Paint</text>
+
+    <!-- 2 scrii Paint -->
+    <rect x="335" y="76" width="290" height="438" rx="20" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <circle cx="371" cy="110" r="18" fill="#3EC6E0"/><text x="371" y="117" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">2</text>
+    <text x="401" y="117" font-size="18" font-weight="800">Scrii numele</text>
+    <rect x="359" y="150" width="242" height="48" rx="24" fill="#E2F6FA" stroke="#0E7F96" stroke-width="2.5"/>
+    <circle cx="384" cy="172" r="8" fill="none" stroke="#0E7F96" stroke-width="2.5"/><path d="M390 178l6 6" stroke="#0E7F96" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="406" y="180" font-size="18" font-weight="800">Paint</text>
+    <path d="M458 162v22" stroke="#171416" stroke-width="2"/>
+    <rect x="359" y="214" width="242" height="54" rx="10" fill="#FFF7EE" stroke="#E8DFD3" stroke-width="2"/>
+    <use href="#pal" x="390" y="241"/>
+    <text x="418" y="238" font-size="15" font-weight="800">Paint</text>
+    <text x="418" y="258" font-size="14" fill="#6B6460">Aplicație</text>
+    <!-- tasta Enter -->
+    <path d="M420 300h120v110h-60v-50h-60z" fill="#FFFFFF" stroke="#171416" stroke-width="3" stroke-linejoin="round"/>
+    <text x="500" y="340" text-anchor="middle" font-size="18" font-weight="800">Enter</text>
+    <path d="M524 370v18h-34" fill="none" stroke="#0E7F96" stroke-width="3" stroke-linecap="round"/>
+    <path d="M496 382l-8 6l8 6" fill="none" stroke="#0E7F96" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="480" y="444" text-anchor="middle" font-size="14" font-weight="700">Start → scrii Paint</text>
+    <text x="480" y="464" text-anchor="middle" font-size="14" font-weight="700">→ Enter</text>
+
+    <!-- 3 bara de activitati -->
+    <rect x="640" y="76" width="290" height="438" rx="20" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="676" cy="110" r="18" fill="#14A39A"/><text x="676" y="117" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">3</text>
+    <text x="706" y="117" font-size="18" font-weight="800">Din bara de</text>
+    <text x="706" y="139" font-size="18" font-weight="800">activități</text>
+    <!-- ecran -->
+    <rect x="664" y="166" width="242" height="200" rx="10" fill="#E2F6FA" stroke="#171416" stroke-width="3"/>
+    <rect x="667" y="326" width="236" height="37" fill="#171416"/>
+    <rect x="676" y="334" width="22" height="22" rx="4" fill="#0E7F96"/>
+    <rect x="710" y="334" width="22" height="22" rx="4" fill="#FFC83D"/>
+    <rect x="744" y="330" width="34" height="30" rx="6" fill="#FFFFFF"/>
+    <use href="#pal" x="761" y="346" transform="translate(761 346) scale(0.7) translate(-761 -346)"/>
+    <rect x="790" y="334" width="22" height="22" rx="4" fill="#6B6460"/>
+    <use href="#cur" x="770" y="346"/>
+    <text x="785" y="402" text-anchor="middle" font-size="14" font-weight="700">un clic pe pictograma</text>
+    <text x="785" y="422" text-anchor="middle" font-size="14" font-weight="700">Paint, dacă este acolo</text>
+    <text x="785" y="464" text-anchor="middle" font-size="14" fill="#6B6460">bara de activități =</text>
+    <text x="785" y="484" text-anchor="middle" font-size="14" fill="#6B6460">bara de jos a ecranului</text>
+  </g>
+</svg>

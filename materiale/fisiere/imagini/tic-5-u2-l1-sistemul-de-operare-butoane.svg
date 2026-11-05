@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Ce fac butoanele unei ferestre: minimizare, maximizare sau restaurare și închidere</title>
+  <defs>
+    <marker id="s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+    <g id="fer">
+      <rect x="0" y="0" width="150" height="96" rx="6" fill="#fff" stroke="#171416" stroke-width="3"/>
+      <path d="M1.5 22H148.5" stroke="#171416" stroke-width="3"/>
+      <path d="M12 44h80M12 58h110M12 72h64" stroke="#C9C1BA" stroke-width="5" stroke-linecap="round"/>
+      <path d="M96 12h10" stroke="#171416" stroke-width="3" stroke-linecap="round"/>
+      <rect x="112" y="6" width="11" height="11" fill="none" stroke="#171416" stroke-width="2.5"/>
+      <path d="M131 7l10 10M141 7l-10 10" stroke="#171416" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <g id="ecran">
+      <rect x="0" y="0" width="220" height="140" rx="8" fill="#E2F6FA" stroke="#171416" stroke-width="3"/>
+      <rect x="1.5" y="116" width="217" height="22.5" fill="#171416"/>
+      <g fill="#3EC6E0"><rect x="10" y="121" width="5" height="5"/><rect x="17" y="121" width="5" height="5"/><rect x="10" y="128" width="5" height="5"/><rect x="17" y="128" width="5" height="5"/></g>
+    </g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <!-- minimizare -->
+    <g transform="translate(30 30)">
+      <rect width="280" height="480" rx="18" fill="#fff" stroke="#3EC6E0" stroke-width="3"/>
+      <text x="140" y="38" text-anchor="middle" font-size="20" font-weight="800" fill="#0E7F96">Minimizare</text>
+      <use href="#fer" x="65" y="72"/>
+      <circle cx="166" cy="84" r="13" fill="none" stroke="#FFC83D" stroke-width="4"/>
+      <path d="M140 180V212" stroke="#171416" stroke-width="3" marker-end="url(#s)"/>
+      <use href="#ecran" x="30" y="222"/>
+      <rect x="80" y="340" width="26" height="18" rx="3" fill="#FFC83D"/>
+      <rect x="85" y="344" width="16" height="10" rx="1" fill="#fff"/>
+      <text x="140" y="400" text-anchor="middle" font-size="15" font-weight="700">Fereastra devine o pictogramă</text>
+      <text x="140" y="420" text-anchor="middle" font-size="15" font-weight="700">pe bara de activități.</text>
+      <text x="140" y="448" text-anchor="middle" font-size="14" fill="#6B6460">Un clic pe pictogramă</text>
+      <text x="140" y="466" text-anchor="middle" font-size="14" fill="#6B6460">o readuce.</text>
+    </g>
+    <!-- maximizare -->
+    <g transform="translate(340 30)">
+      <rect width="280" height="480" rx="18" fill="#fff" stroke="#14A39A" stroke-width="3"/>
+      <text x="140" y="38" text-anchor="middle" font-size="20" font-weight="800" fill="#0B6F68">Maximizare</text>
+      <use href="#fer" x="65" y="72"/>
+      <circle cx="182" cy="84" r="13" fill="none" stroke="#FFC83D" stroke-width="4"/>
+      <path d="M140 180V212" stroke="#171416" stroke-width="3" marker-end="url(#s)"/>
+      <use href="#ecran" x="30" y="222"/>
+      <rect x="33" y="225" width="214" height="111" fill="#fff"/>
+      <path d="M33 245H247" stroke="#171416" stroke-width="3"/>
+      <path d="M44 266h120M44 282h160M44 298h90M44 314h140" stroke="#C9C1BA" stroke-width="5" stroke-linecap="round"/>
+      <rect x="208" y="230" width="10" height="10" fill="none" stroke="#171416" stroke-width="2.5"/>
+      <text x="140" y="400" text-anchor="middle" font-size="15" font-weight="700">Fereastra ocupă</text>
+      <text x="140" y="420" text-anchor="middle" font-size="15" font-weight="700">tot ecranul.</text>
+      <text x="140" y="448" text-anchor="middle" font-size="14" fill="#6B6460">Apăsat din nou (restaurare),</text>
+      <text x="140" y="466" text-anchor="middle" font-size="14" fill="#6B6460">revine la mărimea de dinainte.</text>
+    </g>
+    <!-- inchidere -->
+    <g transform="translate(650 30)">
+      <rect width="280" height="480" rx="18" fill="#fff" stroke="#F21F4B" stroke-width="3"/>
+      <text x="140" y="38" text-anchor="middle" font-size="20" font-weight="800" fill="#C8133A">Închidere</text>
+      <use href="#fer" x="65" y="72"/>
+      <circle cx="201" cy="84" r="13" fill="none" stroke="#FFC83D" stroke-width="4"/>
+      <path d="M140 180V212" stroke="#171416" stroke-width="3" marker-end="url(#s)"/>
+      <use href="#ecran" x="30" y="222"/>
+      <rect x="62" y="262" width="62" height="40" rx="8" fill="#fff" stroke="#171416" stroke-width="3"/>
+      <text x="93" y="289" text-anchor="middle" font-size="16" font-weight="800">Alt</text>
+      <text x="140" y="290" text-anchor="middle" font-size="18" font-weight="800">+</text>
+      <rect x="156" y="262" width="62" height="40" rx="8" fill="#fff" stroke="#171416" stroke-width="3"/>
+      <text x="187" y="289" text-anchor="middle" font-size="16" font-weight="800">F4</text>
+      <text x="140" y="400" text-anchor="middle" font-size="15" font-weight="700">Fereastra se închide</text>
+      <text x="140" y="420" text-anchor="middle" font-size="15" font-weight="700">și dispare de pe ecran.</text>
+      <text x="140" y="448" text-anchor="middle" font-size="14" fill="#6B6460">La fel face combinația</text>
+      <text x="140" y="466" text-anchor="middle" font-size="14" fill="#6B6460">de taste Alt + F4.</text>
+    </g>
+  </g>
+</svg>

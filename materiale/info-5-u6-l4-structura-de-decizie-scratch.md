@@ -31,6 +31,8 @@ Structura alternativă: **Dacă** condiția este adevărată, **Atunci** se exec
 - **„dacă < > atunci”**: are o singură ramură;
 - **„dacă < > atunci … altfel …”**: are două ramuri.
 
+![Blocul „dacă… atunci” are o singură ramură, iar „dacă… atunci… altfel” are două; schemele arată ce se execută când condiția este adevărată sau falsă.](fisiere/imagini/info-5-u6-l4-decizie-doua-blocuri.svg)
+
 **Condiția** (o expresie relațională sau logică, din *Operatori* sau *Detectare*) se pune în spațiul **hexagonal** mai închis la culoare. E mai ușor să construiești întâi condiția și apoi să o tragi la locul ei.
 
 ### A. Maximul dintre două numere
@@ -53,6 +55,8 @@ scrie mx
 6. Afișezi: **„spune (alătură „Nr. maxim este ” (mx))”** și pornești un sunet de felicitare.
 
 ![Blocul „dacă… atunci… altfel” pentru maximul a două numere: condiția stă în spațiul hexagonal, iar ea decide care ramură se execută.](fisiere/imagini/info-5-u6-l4-structura-de-decizie-scratch.svg)
+
+![Condițiile a >= b, a <= b și a diferit de b se construiesc din blocurile <, >, =, sau și nu.](fisiere/imagini/info-5-u6-l4-conditii-compuse.svg)
 
 ### B. Deplasarea printr-un labirint
 
@@ -79,6 +83,8 @@ altfel
 ```
 
 Pentru stânga: x cu **–5**; pentru sus: y cu **5**; pentru jos: y cu **–5**. Aici o decizie este **cuprinsă în alta**.
+
+![Labirintul cu pereți negri și ieșire roșie și scriptul pentru săgeata dreapta: a doua decizie stă în ramura „altfel” a primei.](fisiere/imagini/info-5-u6-l4-labirint.svg)
 
 ## Exemplu rezolvat
 

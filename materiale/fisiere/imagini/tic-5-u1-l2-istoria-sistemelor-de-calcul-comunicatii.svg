@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Evoluția comunicațiilor: focuri și semnale de fum, telegraf, telefon, radio, televiziune, internet</title>
+  <defs>
+    <marker id="s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0E7F96"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="50" text-anchor="middle" font-size="24" font-weight="800">Evoluția comunicațiilor</text>
+    <text x="80" y="92" font-size="15" font-weight="700" fill="#6B6460">demult</text>
+    <text x="880" y="92" text-anchor="end" font-size="15" font-weight="700" fill="#6B6460">azi</text>
+
+    <path d="M60 296H910" stroke="#0E7F96" stroke-width="5" stroke-linecap="round" marker-end="url(#s)"/>
+
+    <g stroke-width="3">
+      <circle cx="100" cy="196" r="62" fill="#FFF4D6" stroke="#FFC83D"/>
+      <circle cx="252" cy="196" r="62" fill="#E2F6FA" stroke="#3EC6E0"/>
+      <circle cx="404" cy="196" r="62" fill="#FDE7EC" stroke="#F21F4B"/>
+      <circle cx="556" cy="196" r="62" fill="#F0E8FA" stroke="#7A3FB8"/>
+      <circle cx="708" cy="196" r="62" fill="#E0F4F2" stroke="#14A39A"/>
+      <circle cx="860" cy="196" r="62" fill="#E2F6FA" stroke="#0E7F96"/>
+    </g>
+    <g fill="#fff" stroke="#0E7F96" stroke-width="3">
+      <circle cx="100" cy="296" r="9"/><circle cx="252" cy="296" r="9"/><circle cx="404" cy="296" r="9"/><circle cx="556" cy="296" r="9"/><circle cx="708" cy="296" r="9"/><circle cx="860" cy="296" r="9"/>
+    </g>
+
+    <!-- foc si fum -->
+    <path d="M100 236c-22 0-30-16-24-32c4-10 12-14 12-26c10 8 12 16 10 22c6-4 8-10 8-16c12 10 20 22 16 34c-3 12-12 18-22 18z" fill="#F21F4B"/>
+    <path d="M100 236c-9 0-13-7-10-14c2-5 6-7 7-12c6 6 13 12 11 18c-1 5-4 8-8 8z" fill="#FFC83D"/>
+    <path d="M74 240h52" stroke="#6B6460" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="116" cy="158" r="9" fill="#C9C1BA"/><circle cx="128" cy="146" r="7" fill="#C9C1BA"/><circle cx="108" cy="146" r="6" fill="#C9C1BA"/>
+
+    <!-- telegraf -->
+    <rect x="212" y="206" width="80" height="20" rx="4" fill="#0E7F96"/>
+    <path d="M226 200L282 186" stroke="#171416" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="284" cy="186" r="8" fill="#171416"/>
+    <path d="M236 206v-10" stroke="#171416" stroke-width="5"/>
+    <g fill="#0E7F96"><circle cx="226" cy="160" r="5"/><rect x="238" y="156" width="22" height="8" rx="4"/><circle cx="272" cy="160" r="5"/></g>
+
+    <!-- telefon -->
+    <path d="M370 236l8-40h52l8 40z" fill="#F21F4B"/>
+    <circle cx="404" cy="216" r="12" fill="#fff"/>
+    <path d="M372 180c0-22 64-22 64 0" stroke="#C8133A" stroke-width="12" fill="none" stroke-linecap="round"/>
+
+    <!-- radio -->
+    <rect x="512" y="176" width="88" height="58" rx="10" fill="#7A3FB8"/>
+    <circle cx="538" cy="205" r="16" fill="#F0E8FA"/>
+    <path d="M566 194h22M566 206h22M566 218h22" stroke="#F0E8FA" stroke-width="4" stroke-linecap="round"/>
+    <path d="M590 176L604 144" stroke="#171416" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- televiziune -->
+    <rect x="666" y="174" width="84" height="62" rx="8" fill="#14A39A"/>
+    <rect x="676" y="184" width="64" height="42" rx="4" fill="#E0F4F2"/>
+    <path d="M692 174l16-22l16 22" stroke="#171416" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M688 236l-6 10M728 236l6 10" stroke="#171416" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- internet -->
+    <circle cx="860" cy="196" r="40" fill="#fff" stroke="#0E7F96" stroke-width="4"/>
+    <ellipse cx="860" cy="196" rx="16" ry="40" fill="none" stroke="#0E7F96" stroke-width="3"/>
+    <path d="M820 196h80M826 176h68M826 216h68" stroke="#0E7F96" stroke-width="3"/>
+
+    <g text-anchor="middle" font-weight="800" font-size="16">
+      <text x="100" y="338">focuri și</text><text x="100" y="358">semnale de fum</text>
+      <text x="252" y="338">telegraful</text>
+      <text x="404" y="338">telefonul</text>
+      <text x="556" y="338">radioul</text>
+      <text x="708" y="338">televiziunea</text>
+      <text x="860" y="338">internetul</text>
+    </g>
+    <g text-anchor="middle" font-size="14" fill="#6B6460">
+      <text x="404" y="358">cu fir și fără fir</text>
+      <text x="860" y="358">e-mail, mesaje,</text><text x="860" y="376">apeluri video</text>
+    </g>
+
+    <rect x="100" y="420" width="760" height="84" rx="16" fill="#fff" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="480" y="454" text-anchor="middle" font-size="17" font-weight="800">Calculatoarele și comunicațiile au evoluat împreună</text>
+    <text x="480" y="482" text-anchor="middle" font-size="16">și au devenit un singur sistem, folosit de toată lumea.</text>
+  </g>
+</svg>

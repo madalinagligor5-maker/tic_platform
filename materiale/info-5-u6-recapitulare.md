@@ -12,6 +12,8 @@ data: 2026-10-15
 
 ## Recapitulare
 
+![Harta unității: interfața Scratch, structura liniară, variabile și operatori, structura de decizie și extensiile Muzică și Creion.](fisiere/imagini/info-5-u6-recapitulare-harta.svg)
+
 ```completare
 # Completează.
 Cuvântul englezesc care înseamnă „zgârietură” și este și numele unui mediu de programare grafic este [Scratch]. Blocurile de decizie se găsesc în categoria [Control].
@@ -40,6 +42,8 @@ Explicație: (7 + 3) * 2 = 20, iar 20 > 15.
 
 1. Desenează în Paint un personaj, salvează-l ca `.jpg` și fă un program în care personajul se deplasează pe laturile unui **pătrat**.
 2. Fă un program care cântă gama Do major **în ordine inversă**, la **saxofon**.
+
+![Indiciu pentru exercițiul 1: personajul alunecă pe rând prin cele patru colțuri ale unui pătrat și se întoarce la start.](fisiere/imagini/info-5-u6-recapitulare-patrat.svg)
 
 ## Autoevaluare
 

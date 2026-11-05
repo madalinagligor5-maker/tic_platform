@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Același algoritm, „par sau impar”, descris în limbaj natural, în pseudocod și prin schemă logică</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="44" text-anchor="middle" font-size="24" font-weight="800">Un algoritm, trei moduri de a-l descrie</text>
+
+    <!-- coloana 1 -->
+    <rect x="40" y="66" width="280" height="370" rx="18" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="40" y="66" width="280" height="64" rx="18" fill="#E2F6FA"/>
+    <text x="180" y="94" text-anchor="middle" font-size="18" font-weight="800" fill="#0E7F96">Limbaj natural</text>
+    <text x="180" y="117" text-anchor="middle" font-size="14" fill="#6B6460">simplu, dar poate fi neclar</text>
+    <g font-size="15">
+      <text x="60" y="166"><tspan font-weight="800">1.</tspan> Citim numărul n.</text>
+      <text x="60" y="204"><tspan font-weight="800">2.</tspan> Calculăm restul</text>
+      <text x="80" y="226">împărțirii lui n la 2.</text>
+      <text x="60" y="264"><tspan font-weight="800">3.</tspan> Dacă restul este 0,</text>
+      <text x="80" y="286">afișăm „par”.</text>
+      <text x="60" y="324"><tspan font-weight="800">4.</tspan> Altfel afișăm</text>
+      <text x="80" y="346">„impar”.</text>
+    </g>
+
+    <!-- coloana 2 -->
+    <rect x="340" y="66" width="280" height="370" rx="18" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="3"/>
+    <rect x="340" y="66" width="280" height="64" rx="18" fill="#F0E8FA"/>
+    <text x="480" y="94" text-anchor="middle" font-size="18" font-weight="800" fill="#7A3FB8">Pseudocod</text>
+    <text x="480" y="117" text-anchor="middle" font-size="14" fill="#6B6460">cuvinte standard, cu reguli</text>
+    <rect x="358" y="146" width="244" height="210" rx="10" fill="#171416"/>
+    <g font-size="16" font-weight="700">
+      <text x="374" y="182" fill="#3EC6E0">citește <tspan fill="#fff">n</tspan></text>
+      <text x="374" y="222" fill="#3EC6E0">dacă <tspan fill="#fff">n % 2 = 0</tspan></text>
+      <text x="394" y="262" fill="#3EC6E0">atunci</text>
+      <text x="414" y="286" fill="#FFC83D">scrie <tspan fill="#fff">„par”</tspan></text>
+      <text x="394" y="318" fill="#3EC6E0">altfel</text>
+      <text x="414" y="342" fill="#FFC83D">scrie <tspan fill="#fff">„impar”</tspan></text>
+    </g>
+
+    <!-- coloana 3 -->
+    <rect x="640" y="66" width="280" height="370" rx="18" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <rect x="640" y="66" width="280" height="64" rx="18" fill="#E0F4F2"/>
+    <text x="780" y="94" text-anchor="middle" font-size="18" font-weight="800" fill="#0B6F68">Schemă logică</text>
+    <text x="780" y="117" text-anchor="middle" font-size="14" fill="#6B6460">desen din blocuri și săgeți</text>
+    <rect x="740" y="142" width="80" height="26" rx="13" fill="#171416"/>
+    <text x="780" y="160" text-anchor="middle" font-size="14" font-weight="800" fill="#FFF7EE">START</text>
+    <path d="M730 182H844L830 210H716Z" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="780" y="201" text-anchor="middle" font-size="14" font-weight="700">citește n</text>
+    <path d="M780 226L860 262L780 298L700 262Z" fill="#FFF4D6" stroke="#FFC83D" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="780" y="267" text-anchor="middle" font-size="14" font-weight="800">n % 2 = 0 ?</text>
+    <path d="M660 318H760L748 346H648Z" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="704" y="337" text-anchor="middle" font-size="14" font-weight="700">scrie „par”</text>
+    <path d="M808 318H908L896 346H796Z" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="852" y="337" text-anchor="middle" font-size="14" font-weight="700">scrie „impar”</text>
+    <text x="680" y="254" font-size="14" font-weight="800" fill="#0B6F68">Da</text>
+    <text x="862" y="254" font-size="14" font-weight="800" fill="#C8133A">Nu</text>
+    <rect x="740" y="396" width="80" height="26" rx="13" fill="#171416"/>
+    <text x="780" y="414" text-anchor="middle" font-size="14" font-weight="800" fill="#FFF7EE">STOP</text>
+    <g stroke="#171416" stroke-width="2.5" fill="none">
+      <path d="M780 168V179" marker-end="url(#a)"/>
+      <path d="M780 210V223" marker-end="url(#a)"/>
+      <path d="M700 262H704V315" marker-end="url(#a)"/>
+      <path d="M860 262H852V315" marker-end="url(#a)"/>
+      <path d="M704 346V374H852V346M780 374V393"/>
+    </g>
+
+    <!-- concluzie -->
+    <rect x="40" y="454" width="880" height="58" rx="14" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+    <text x="480" y="489" text-anchor="middle" font-size="16"><tspan font-weight="800">Pe scurt:</tspan> toate trei spun dacă un număr natural n este par sau impar.</text>
+  </g>
+</svg>

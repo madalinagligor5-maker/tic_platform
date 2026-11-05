@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Un site web este o colecție de pagini web legate prin hiperlinkuri; pagina de start duce spre celelalte pagini, iar fiecare pagină este scrisă în HTML</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0E7F96"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Pagini web și site-uri web</text>
+
+    <!-- site -->
+    <rect x="40" y="72" width="560" height="436" rx="20" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3" stroke-dasharray="10 7"/>
+    <text x="64" y="104" font-size="18" font-weight="800" fill="#0E7F96">Site-ul www.muzeu-exemplu.ro</text>
+    <text x="64" y="126" font-size="14" fill="#6B6460">o colecție de pagini web, legate prin hiperlinkuri</text>
+
+    <!-- legaturi -->
+    <g stroke="#0E7F96" stroke-width="3" fill="none">
+      <path d="M260 230L160 318" marker-end="url(#a)"/>
+      <path d="M320 238V312" marker-end="url(#a)"/>
+      <path d="M380 230L480 318" marker-end="url(#a)"/>
+      <path d="M200 400C240 440 400 440 440 400" stroke-dasharray="6 5" marker-end="url(#a)"/>
+    </g>
+
+    <!-- pagina de start -->
+    <rect x="250" y="146" width="140" height="92" rx="10" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+    <path d="M296 166l24-14l24 14v4h-48z" fill="#FFC83D"/>
+    <rect x="300" y="170" width="40" height="20" fill="#FFC83D"/>
+    <text x="320" y="210" text-anchor="middle" font-size="15" font-weight="800">Pagina de start</text>
+    <text x="320" y="228" text-anchor="middle" font-size="14">(home page)</text>
+
+    <!-- pagini -->
+    <g font-size="15" font-weight="700" text-anchor="middle">
+      <rect x="80" y="320" width="130" height="80" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+      <rect x="96" y="336" width="98" height="8" rx="4" fill="#3EC6E0"/>
+      <rect x="96" y="352" width="70" height="6" rx="3" fill="#FFFFFF"/>
+      <text x="145" y="386">Expoziții</text>
+
+      <rect x="255" y="320" width="130" height="80" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+      <rect x="271" y="336" width="98" height="8" rx="4" fill="#3EC6E0"/>
+      <rect x="271" y="352" width="70" height="6" rx="3" fill="#FFFFFF"/>
+      <text x="320" y="386">Program</text>
+
+      <rect x="430" y="320" width="130" height="80" rx="10" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+      <rect x="446" y="336" width="98" height="8" rx="4" fill="#3EC6E0"/>
+      <rect x="446" y="352" width="70" height="6" rx="3" fill="#FFFFFF"/>
+      <text x="495" y="386">Contact</text>
+    </g>
+    <text x="320" y="470" text-anchor="middle" font-size="14" fill="#0E7F96" font-weight="700">săgețile = hiperlinkuri între pagini</text>
+    <text x="320" y="492" text-anchor="middle" font-size="14" fill="#6B6460">Navigarea = parcurgerea paginilor.</text>
+
+    <!-- HTML -->
+    <rect x="630" y="72" width="290" height="236" rx="20" fill="#171416"/>
+    <text x="652" y="106" font-size="16" font-weight="800" fill="#FFC83D">Codul HTML al paginii</text>
+    <g font-family="Consolas, 'Courier New', monospace" font-size="15">
+      <text x="652" y="146" fill="#3EC6E0">&lt;h1&gt;<tspan fill="#FFFFFF">Program</tspan>&lt;/h1&gt;</text>
+      <text x="652" y="176" fill="#3EC6E0">&lt;p&gt;<tspan fill="#FFFFFF">Deschis zilnic</tspan>&lt;/p&gt;</text>
+      <text x="652" y="206" fill="#3EC6E0">&lt;a href="..."&gt;</text>
+      <text x="672" y="232" fill="#FFFFFF">Contact</text>
+      <text x="652" y="258" fill="#3EC6E0">&lt;/a&gt;</text>
+    </g>
+    <text x="652" y="290" font-size="14" fill="#E8DFD3">HTML = limbaj de marcare</text>
+
+    <!-- browser -->
+    <rect x="630" y="328" width="290" height="180" rx="20" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="652" y="362" font-size="16" font-weight="800" fill="#0B6F68">Browserul deschide pagina</text>
+    <g font-size="14">
+      <text x="652" y="392">Google Chrome</text>
+      <text x="652" y="416">Mozilla Firefox</text>
+      <text x="652" y="440">Microsoft Edge</text>
+      <text x="652" y="464">Safari, Opera</text>
+    </g>
+    <text x="652" y="492" font-size="14" fill="#6B6460">scrii adresa URL în bara de adrese</text>
+  </g>
+</svg>

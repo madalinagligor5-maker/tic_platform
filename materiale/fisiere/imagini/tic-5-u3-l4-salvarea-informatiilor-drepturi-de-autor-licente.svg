@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Trei tipuri de licențe: toate drepturile rezervate, Creative Commons cu condițiile BY, NC, ND și SA, și domeniul public</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Ce ai voie să faci cu o operă? Citește licența!</text>
+
+    <!-- semafor -->
+    <path d="M120 96H840" stroke="#E8DFD3" stroke-width="6" stroke-linecap="round"/>
+    <text x="120" y="82" font-size="14" fill="#C8133A" font-weight="700">mai puțină libertate</text>
+    <text x="840" y="82" text-anchor="end" font-size="14" fill="#0B6F68" font-weight="700">mai multă libertate</text>
+
+    <!-- © -->
+    <rect x="40" y="116" width="280" height="390" rx="20" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="180" cy="180" r="40" fill="#FFFFFF" stroke="#F21F4B" stroke-width="4"/>
+    <text x="180" y="200" text-anchor="middle" font-size="54" font-weight="800" fill="#C8133A">©</text>
+    <text x="180" y="254" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">Toate drepturile</text>
+    <text x="180" y="276" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">rezervate</text>
+    <text x="180" y="316" text-anchor="middle" font-size="15">Nu o folosești fără</text>
+    <text x="180" y="338" text-anchor="middle" font-size="15">acordul autorului.</text>
+    <rect x="60" y="370" width="240" height="116" rx="14" fill="#FFFFFF"/>
+    <text x="180" y="400" text-anchor="middle" font-size="14" font-weight="800">Excepție:</text>
+    <text x="180" y="424" text-anchor="middle" font-size="14">citatele scurte, între</text>
+    <text x="180" y="446" text-anchor="middle" font-size="14">ghilimele, cu sursa</text>
+    <text x="180" y="468" text-anchor="middle" font-size="14">scrisă</text>
+
+    <!-- CC -->
+    <rect x="340" y="116" width="280" height="390" rx="20" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+    <circle cx="480" cy="180" r="40" fill="#FFFFFF" stroke="#FFC83D" stroke-width="4"/>
+    <text x="480" y="193" text-anchor="middle" font-size="34" font-weight="800">CC</text>
+    <text x="480" y="254" text-anchor="middle" font-size="18" font-weight="800">Creative Commons</text>
+    <text x="480" y="280" text-anchor="middle" font-size="15">Ai voie, cu condiții:</text>
+    <g font-size="14">
+      <rect x="360" y="298" width="56" height="34" rx="8" fill="#171416"/><text x="388" y="320" text-anchor="middle" font-weight="800" fill="#FFFFFF">BY</text>
+      <text x="428" y="320">menționezi autorul</text>
+      <rect x="360" y="344" width="56" height="34" rx="8" fill="#171416"/><text x="388" y="366" text-anchor="middle" font-weight="800" fill="#FFFFFF">NC</text>
+      <text x="428" y="366">doar necomercial</text>
+      <rect x="360" y="390" width="56" height="34" rx="8" fill="#171416"/><text x="388" y="412" text-anchor="middle" font-weight="800" fill="#FFFFFF">ND</text>
+      <text x="428" y="412">fără modificări</text>
+      <rect x="360" y="436" width="56" height="34" rx="8" fill="#171416"/><text x="388" y="458" text-anchor="middle" font-weight="800" fill="#FFFFFF">SA</text>
+      <text x="428" y="452">dai mai departe cu</text>
+      <text x="428" y="472">aceeași licență</text>
+    </g>
+
+    <!-- domeniu public -->
+    <rect x="640" y="116" width="280" height="390" rx="20" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="780" cy="180" r="40" fill="#FFFFFF" stroke="#14A39A" stroke-width="4"/>
+    <path d="M760 182l14 14l26-30" fill="none" stroke="#14A39A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="780" y="254" text-anchor="middle" font-size="18" font-weight="800" fill="#0B6F68">Domeniul public</text>
+    <text x="780" y="294" text-anchor="middle" font-size="15">O poți folosi liber.</text>
+    <rect x="660" y="320" width="240" height="166" rx="14" fill="#FFFFFF"/>
+    <text x="780" y="350" text-anchor="middle" font-size="14" font-weight="800">Exemple:</text>
+    <text x="780" y="376" text-anchor="middle" font-size="14">operele autorilor morți</text>
+    <text x="780" y="398" text-anchor="middle" font-size="14">de peste 70 de ani</text>
+    <text x="780" y="434" text-anchor="middle" font-size="14">operele cu licența</text>
+    <text x="780" y="458" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">CC0</text>
+  </g>
+</svg>

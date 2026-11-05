@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Condiții compuse: la „și” trebuie ca ambele condiții să fie adevărate, la „sau” ajunge una</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Condiții compuse: „și” / „sau”</text>
+
+    <!-- ȘI -->
+    <rect x="40" y="70" width="430" height="440" rx="18" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="40" y="70" width="430" height="70" rx="18" fill="#E2F6FA"/>
+    <text x="255" y="100" text-anchor="middle" font-size="22" font-weight="800" fill="#0E7F96">ȘI</text>
+    <text x="255" y="126" text-anchor="middle" font-size="15">ambele condiții trebuie să fie adevărate</text>
+    <text x="255" y="172" text-anchor="middle" font-size="16" font-weight="800">vârsta ≥ 7 și vârsta ≤ 14</text>
+
+    <text x="58" y="214" font-size="15" font-weight="700" fill="#6B6460">Vârsta 10 ani:</text>
+    <rect x="56" y="226" width="116" height="44" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="2.5"/>
+    <text x="114" y="254" text-anchor="middle" font-size="15" font-weight="700">10 ≥ 7 · A</text>
+    <rect x="182" y="226" width="116" height="44" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="2.5"/>
+    <text x="240" y="254" text-anchor="middle" font-size="15" font-weight="700">10 ≤ 14 · A</text>
+    <path d="M304 248H330" stroke="#171416" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="336" y="222" width="118" height="52" rx="12" fill="#14A39A"/>
+    <text x="395" y="244" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">bilet</text>
+    <text x="395" y="262" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">de copil</text>
+
+    <text x="58" y="314" font-size="15" font-weight="700" fill="#6B6460">Vârsta 16 ani:</text>
+    <rect x="56" y="326" width="116" height="44" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="2.5"/>
+    <text x="114" y="354" text-anchor="middle" font-size="15" font-weight="700">16 ≥ 7 · A</text>
+    <rect x="182" y="326" width="116" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2.5"/>
+    <text x="240" y="354" text-anchor="middle" font-size="15" font-weight="700">16 ≤ 14 · F</text>
+    <path d="M304 348H330" stroke="#171416" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="336" y="322" width="118" height="52" rx="12" fill="#C8133A"/>
+    <text x="395" y="344" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">bilet</text>
+    <text x="395" y="362" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">întreg</text>
+
+    <rect x="56" y="408" width="398" height="82" rx="12" fill="#FFF4D6"/>
+    <text x="255" y="438" text-anchor="middle" font-size="15">A și A → <tspan font-weight="800">Adevărat</tspan></text>
+    <text x="255" y="470" text-anchor="middle" font-size="15">dacă una e F → <tspan font-weight="800">Fals</tspan></text>
+
+    <!-- SAU -->
+    <rect x="490" y="70" width="430" height="440" rx="18" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="3"/>
+    <rect x="490" y="70" width="430" height="70" rx="18" fill="#F0E8FA"/>
+    <text x="705" y="100" text-anchor="middle" font-size="22" font-weight="800" fill="#7A3FB8">SAU</text>
+    <text x="705" y="126" text-anchor="middle" font-size="15">ajunge ca una să fie adevărată</text>
+    <text x="705" y="172" text-anchor="middle" font-size="16" font-weight="800">plouă sau temperatura &lt; 5 °C</text>
+
+    <text x="508" y="214" font-size="15" font-weight="700" fill="#6B6460">Nu plouă, sunt 2 °C:</text>
+    <rect x="506" y="226" width="116" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2.5"/>
+    <text x="564" y="254" text-anchor="middle" font-size="15" font-weight="700">plouă · F</text>
+    <rect x="632" y="226" width="116" height="44" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="2.5"/>
+    <text x="690" y="254" text-anchor="middle" font-size="15" font-weight="700">2 &lt; 5 · A</text>
+    <path d="M754 248H780" stroke="#171416" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="786" y="222" width="118" height="52" rx="12" fill="#14A39A"/>
+    <text x="845" y="244" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">iau geaca</text>
+    <text x="845" y="262" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">groasă</text>
+
+    <text x="508" y="314" font-size="15" font-weight="700" fill="#6B6460">Nu plouă, sunt 15 °C:</text>
+    <rect x="506" y="326" width="116" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2.5"/>
+    <text x="564" y="354" text-anchor="middle" font-size="15" font-weight="700">plouă · F</text>
+    <rect x="632" y="326" width="116" height="44" rx="10" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2.5"/>
+    <text x="690" y="354" text-anchor="middle" font-size="15" font-weight="700">15 &lt; 5 · F</text>
+    <path d="M754 348H780" stroke="#171416" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="786" y="322" width="118" height="52" rx="12" fill="#C8133A"/>
+    <text x="845" y="344" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">nu iau geaca</text>
+    <text x="845" y="362" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">groasă</text>
+
+    <rect x="506" y="408" width="398" height="82" rx="12" fill="#FFF4D6"/>
+    <text x="705" y="438" text-anchor="middle" font-size="15">dacă una e A → <tspan font-weight="800">Adevărat</tspan></text>
+    <text x="705" y="470" text-anchor="middle" font-size="15">F sau F → <tspan font-weight="800">Fals</tspan></text>
+  </g>
+</svg>

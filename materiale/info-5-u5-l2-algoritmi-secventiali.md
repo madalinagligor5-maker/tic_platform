@@ -28,6 +28,8 @@ Proprietățile unui algoritm sunt: claritatea, generalitatea, finitudinea, succ
 
 Gândește-te cum te îmbraci dimineața: tricoul, șosetele, pantalonii, apoi pantofii. Dacă ai încălța întâi pantofii și apoi ai pune șosetele... ar fi o problemă! **Ordinea contează.**
 
+![Când te îmbraci, pașii au o ordine: dacă pui pantofii înaintea șosetelor, algoritmul nu mai funcționează.](fisiere/imagini/info-5-u5-l2-ordine.svg)
+
 > Un **algoritm secvențial** este un algoritm în care pașii se execută **liniar**, unul după altul, **în ordinea în care apar**, de la început până la sfârșit.
 
 ### A. Interschimbarea – regula celor 3 pahare
@@ -58,6 +60,8 @@ Pasul 4: Scriu codul găsit (01).
 Stop
 ```
 
+![Criptarea mesajului „da”: fiecare literă este înlocuită, pe rând, cu codul ei, iar rezultatul este 0401.](fisiere/imagini/info-5-u5-l2-criptare.svg)
+
 ### C. Tabla înmulțirii cu 5
 
 ```
@@ -82,6 +86,8 @@ Pasul 3: Calculăm aria = latura mică × latura mare.
 Pasul 4: Afișăm aria.
 Stop
 ```
+
+![Algoritmul pentru aria dreptunghiului urmărit pentru laturile de 3 cm și 5 cm, cu datele desenate ca niște cutii.](fisiere/imagini/info-5-u5-l2-arie.svg)
 
 ## Exemplu rezolvat
 

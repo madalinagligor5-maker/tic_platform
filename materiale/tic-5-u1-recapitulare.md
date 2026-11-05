@@ -14,6 +14,8 @@ data: 2026-10-15
 
 Rezolvă aplicațiile de mai jos. Dacă greșești, recitește lecția și încearcă din nou.
 
+![Harta unității 1: ergonomie și siguranță, istoria calculatoarelor, hardware și stocarea datelor, cu ideile principale din fiecare lecție.](fisiere/imagini/tic-5-u1-recapitulare-harta.svg)
+
 ```adevarat-fals
 # Adevărat sau fals?
 A: Normele de ergonomie și siguranță sunt reguli care ne protejează sănătatea în timpul lucrului.

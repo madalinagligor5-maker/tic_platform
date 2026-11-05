@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Cinci verificări când te documentezi: compari cel puțin trei surse, verifici cine a scris, verifici data, ești atent la titlurile senzaționale și notezi sursa</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Este informația de încredere? Verifică!</text>
+
+    <!-- 1 trei surse -->
+    <rect x="40" y="76" width="430" height="200" rx="20" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="76" cy="110" r="18" fill="#14A39A"/><text x="76" y="117" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">1</text>
+    <text x="106" y="117" font-size="18" font-weight="800">Compară cel puțin 3 surse</text>
+    <g font-size="14" font-weight="700" text-anchor="middle">
+      <rect x="64" y="140" width="110" height="70" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="2"/>
+      <text x="119" y="170">muzeu</text><text x="119" y="192" font-weight="400">ursul: omnivor</text>
+      <rect x="200" y="140" width="110" height="70" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="2"/>
+      <text x="255" y="170">enciclopedie</text><text x="255" y="192" font-weight="400">ursul: omnivor</text>
+      <rect x="336" y="140" width="110" height="70" rx="10" fill="#E0F4F2" stroke="#14A39A" stroke-width="2"/>
+      <text x="391" y="170">parc național</text><text x="391" y="192" font-weight="400">ursul: omnivor</text>
+    </g>
+    <text x="64" y="240" font-size="15">Dacă surse de încredere spun același lucru,</text>
+    <text x="64" y="260" font-size="15">informația este probabil corectă.</text>
+
+    <!-- 2 cine a scris -->
+    <rect x="490" y="76" width="430" height="128" rx="20" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <circle cx="526" cy="110" r="18" fill="#3EC6E0"/><text x="526" y="117" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">2</text>
+    <text x="556" y="117" font-size="18" font-weight="800">Cine a scris?</text>
+    <text x="514" y="150" font-size="15">o instituție, o enciclopedie, un autor cunoscut?</text>
+    <text x="514" y="176" font-size="15">Site-uri oficiale: <tspan font-weight="800" fill="#0E7F96">.gov.ro</tspan>, <tspan font-weight="800" fill="#0E7F96">.edu.ro</tspan></text>
+
+    <!-- 3 data -->
+    <rect x="490" y="218" width="430" height="58" rx="20" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="3"/>
+    <circle cx="526" cy="247" r="18" fill="#7A3FB8"/><text x="526" y="254" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">3</text>
+    <text x="556" y="253" font-size="18" font-weight="800">Ce dată are?</text>
+    <text x="690" y="253" font-size="15">Informația este actuală?</text>
+
+    <!-- 4 titluri -->
+    <rect x="40" y="296" width="430" height="218" rx="20" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="76" cy="330" r="18" fill="#F21F4B"/><text x="76" y="337" text-anchor="middle" font-size="18" font-weight="800" fill="#FFFFFF">4</text>
+    <text x="106" y="337" font-size="18" font-weight="800">Atenție la titlurile senzaționale</text>
+    <rect x="64" y="358" width="382" height="62" rx="12" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2" stroke-dasharray="7 5"/>
+    <text x="255" y="385" text-anchor="middle" font-size="16" font-weight="800" fill="#C8133A">„Nu o să-ți vină să crezi!</text>
+    <text x="255" y="407" text-anchor="middle" font-size="16" font-weight="800" fill="#C8133A">Ursul care vorbește!”</text>
+    <text x="64" y="454" font-size="15">De multe ori ascund <tspan font-weight="800">știri false</tspan></text>
+    <text x="64" y="476" font-size="15"><tspan font-weight="800">(fake news)</tspan>. Verifică în alte surse!</text>
+
+    <!-- 5 noteaza sursa -->
+    <rect x="490" y="296" width="430" height="218" rx="20" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+    <circle cx="526" cy="330" r="18" fill="#FFC83D"/><text x="526" y="337" text-anchor="middle" font-size="18" font-weight="800">5</text>
+    <text x="556" y="337" font-size="18" font-weight="800">Notează sursa imediat</text>
+    <rect x="514" y="358" width="382" height="134" rx="12" fill="#FFFFFF"/>
+    <path d="M534 382h120" stroke="#E8DFD3" stroke-width="8" stroke-linecap="round"/>
+    <path d="M534 402h200" stroke="#E8DFD3" stroke-width="8" stroke-linecap="round"/>
+    <path d="M534 422h160" stroke="#E8DFD3" stroke-width="8" stroke-linecap="round"/>
+    <text x="534" y="456" font-size="14" font-weight="800">Sursa:</text>
+    <text x="534" y="478" font-size="14">titlul, site-ul, adresa, data accesării</text>
+    <path d="M846 380l26 -26l12 12l-26 26l-16 4z" fill="#FFC83D" stroke="#171416" stroke-width="2.5" stroke-linejoin="round"/>
+  </g>
+</svg>

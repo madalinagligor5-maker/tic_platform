@@ -55,6 +55,8 @@ data: 2026-10-26
 
 Din categoria **Variabile** → **Creează o variabilă**: **scor** și **vieți**, „pentru toate personajele”. Lasă bifate căsuțele, ca jucătorul să le vadă pe scenă.
 
+![Scena jocului: pisoiul pornește de la (-200, -130), crabul stă la (0, 0), steaua la (100, 50), iar scor și vieți apar pe scenă.](fisiere/imagini/info-5-u7-l1-joc-digital-scena.svg)
+
 ### Pasul 4. Pornirea jocului (scriptul pisoiului)
 
 ```
@@ -124,6 +126,8 @@ mergi la x: (număr aleatoriu între -220 și 220) y: (număr aleatoriu între -
 
 Numerele aleatorii sunt alese astfel încât steaua să rămână pe scenă (scena are x între –240 și 240 și y între –180 și 180).
 
+![Mesajele leagă scripturile: fiecare săgeată trimite „verifică”, pisoiul verifică regulile, iar steaua primește „stea nouă” și sare la întâmplare.](fisiere/imagini/info-5-u7-l1-joc-digital-mesaje.svg)
+
 ### Pasul 8. Testăm jocul
 
 Un programator **testează** fiecare regulă. Completează un tabel ca acesta:
@@ -144,6 +148,8 @@ Dacă ceva nu merge, cauți greșeala (de exemplu, ai scris `-10` în loc de `10
 - **Bonus**, cu o **condiție compusă**: `dacă < (scor = 5) și (cronometru < 15) > atunci spune „Super rapid!”`.
 - **Niveluri**: când scorul ajunge la 3, schimbi decorul și mărești pasul pisoiului.
 - Un **decor de final**, diferit pentru câștig și pentru pierdere.
+
+![Cele opt etape ale creării jocului, de la planificare la îmbunătățiri; dacă un test nu merge, cauți greșeala și testezi din nou.](fisiere/imagini/info-5-u7-l1-joc-digital-etape.svg)
 
 ## Exemplu rezolvat
 

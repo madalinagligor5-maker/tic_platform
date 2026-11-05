@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Diferența dintre http și https: cu https datele sunt criptate și apare un lăcățel; verifici și că numele site-ului este scris corect</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">http:// sau https://? Verifică adresa!</text>
+
+    <!-- http -->
+    <rect x="40" y="76" width="430" height="230" rx="20" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <rect x="64" y="96" width="382" height="42" rx="21" fill="#FFF7EE" stroke="#6B6460" stroke-width="2"/>
+    <text x="88" y="123" font-size="16"><tspan font-weight="800" fill="#6B6460">http://</tspan>www.edu.ro</text>
+    <text x="64" y="172" font-size="16" font-weight="800">fără „s”: datele nu sunt criptate</text>
+    <!-- date necriptate -->
+    <rect x="64" y="196" width="60" height="44" rx="8" fill="#E2F6FA" stroke="#0E7F96" stroke-width="2.5"/>
+    <rect x="386" y="196" width="60" height="44" rx="8" fill="#E2F6FA" stroke="#0E7F96" stroke-width="2.5"/>
+    <path d="M128 218H380" stroke="#6B6460" stroke-width="3" stroke-dasharray="8 6"/>
+    <rect x="200" y="202" width="110" height="32" rx="8" fill="#FFF4D6" stroke="#FFC83D" stroke-width="2"/>
+    <text x="255" y="223" text-anchor="middle" font-size="14" font-weight="700">parola: ana12</text>
+    <text x="94" y="264" text-anchor="middle" font-size="14">tu</text>
+    <text x="416" y="264" text-anchor="middle" font-size="14">site-ul</text>
+    <text x="255" y="290" text-anchor="middle" font-size="14" fill="#6B6460">oricine o poate citi pe drum</text>
+
+    <!-- https -->
+    <rect x="490" y="76" width="430" height="230" rx="20" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <rect x="514" y="96" width="382" height="42" rx="21" fill="#FFFFFF" stroke="#14A39A" stroke-width="2"/>
+    <rect x="534" y="113" width="16" height="14" rx="2" fill="#0B6F68"/>
+    <path d="M537 113v-4a5 5 0 0 1 10 0v4" fill="none" stroke="#0B6F68" stroke-width="2.5"/>
+    <text x="560" y="123" font-size="16"><tspan font-weight="800" fill="#0B6F68">https://</tspan>www.edu.ro</text>
+    <text x="514" y="172" font-size="16" font-weight="800" fill="#0B6F68">cu „s” (secure): date criptate</text>
+    <rect x="514" y="196" width="60" height="44" rx="8" fill="#E2F6FA" stroke="#0E7F96" stroke-width="2.5"/>
+    <rect x="836" y="196" width="60" height="44" rx="8" fill="#E2F6FA" stroke="#0E7F96" stroke-width="2.5"/>
+    <path d="M578 218H830" stroke="#14A39A" stroke-width="5"/>
+    <rect x="650" y="202" width="110" height="32" rx="8" fill="#FFFFFF" stroke="#14A39A" stroke-width="2"/>
+    <text x="705" y="223" text-anchor="middle" font-size="14" font-weight="700" fill="#0B6F68">#k@9!x$2</text>
+    <text x="544" y="264" text-anchor="middle" font-size="14">tu</text>
+    <text x="866" y="264" text-anchor="middle" font-size="14">site-ul</text>
+    <text x="705" y="290" text-anchor="middle" font-size="14" fill="#0B6F68">pe drum, nimeni nu o înțelege</text>
+
+    <!-- nume corect/gresit -->
+    <text x="40" y="350" font-size="18" font-weight="800">Numele site-ului trebuie scris corect</text>
+    <rect x="40" y="368" width="430" height="128" rx="20" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="80" cy="408" r="18" fill="#14A39A"/>
+    <path d="M71 408l6 6l12-13" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="112" y="414" font-size="20" font-weight="800">www.edu.ro</text>
+    <text x="64" y="452" font-size="15">site-ul real, cu numele scris corect</text>
+    <text x="64" y="476" font-size="15">și terminația .ro</text>
+
+    <rect x="490" y="368" width="430" height="128" rx="20" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="530" cy="408" r="18" fill="#F21F4B"/>
+    <path d="M522 400l16 16M538 400l-16 16" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <text x="562" y="414" font-size="20" font-weight="800">www.edu<tspan fill="#C8133A">-ro.com</tspan></text>
+    <text x="514" y="452" font-size="15">seamănă, dar este alt site: poate fi</text>
+    <text x="514" y="476" font-size="15">o capcană pentru parole și date!</text>
+  </g>
+</svg>

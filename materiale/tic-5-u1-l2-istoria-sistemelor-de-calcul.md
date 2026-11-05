@@ -29,6 +29,8 @@ Folosim calculatorul, tableta și telefonul la teme, la calcule, ca să comunic�
 - Un **sistem de calcul** este format din **hardware** (partea fizică) și **software** (partea logică: sistemul de operare și programele). Cu el putem prelua, stoca, prelucra și transmite informații.
 - Un **sistem de comunicații** este ansamblul de echipamente prin care informația este transmisă între două sau mai multe puncte.
 
+![Sistemul de calcul este format din hardware și software și preia, stochează, prelucrează și transmite informații; sistemul de comunicații transmite informația între mai multe puncte.](fisiere/imagini/tic-5-u1-l2-istoria-sistemelor-de-calcul-definitii.svg)
+
 ### Evoluția sistemelor de calcul
 
 | Anul | Ce a apărut |
@@ -47,6 +49,8 @@ Folosim calculatorul, tableta și telefonul la teme, la calcule, ca să comunic�
 
 De la **focuri și semnale de fum**, oamenii au ajuns la **telegraf**, **telefon** (cu fir și fără fir), **radio** și **televiziune**, iar apoi la **internet**. Azi comunicăm prin e-mail, mesaje text și video și aplicații de mesagerie. Calculatoarele și comunicațiile au evoluat împreună și au devenit **un singur sistem**, folosit de toată lumea.
 
+![Comunicațiile au evoluat de la focuri și semnale de fum la telegraf, telefon, radio, televiziune și internet.](fisiere/imagini/tic-5-u1-l2-istoria-sistemelor-de-calcul-comunicatii.svg)
+
 ### Sistemele de calcul folosite azi
 
 - **Calculatorul personal de birou (desktop)**: pentru acasă sau birou; are putere de calcul mare, se poate conecta la multe dispozitive și rulează multe aplicații.
@@ -55,6 +59,8 @@ De la **focuri și semnale de fum**, oamenii au ajuns la **telegraf**, **telefon
 - **Telefonul inteligent (smartphone)**: telefon mobil multifuncțional, cu aparat foto, calculator, calendar, GPS, agendă și multe altele.
 
 Le folosim peste tot: în medicină (aparatură, evidența pacienților), în bănci (conturi, carduri) și în școli (evidența elevilor, materiale, lecții online).
+
+![Desktopul, laptopul, tableta și telefonul inteligent, cu principalele lor caracteristici.](fisiere/imagini/tic-5-u1-l2-istoria-sistemelor-de-calcul-sisteme-azi.svg)
 
 ## Exemplu rezolvat
 

@@ -45,9 +45,11 @@ Dimensiunea desenului se stabilește din **Fișier → Proprietăți** (de exemp
 - **Culoarea 1**: culoarea de **prim-plan** (linii, contururi, text).
 - **Culoarea 2**: culoarea de **fundal** (umplerea formelor, urma radierei).
 
+![Culoarea 1 desenează linii, contururi și text; Culoarea 2 umple formele și este culoarea urmei lăsate de radieră.](fisiere/imagini/tic-5-u4-l2-operatii-grafica-2d-2.svg)
+
 Toate culorile se obțin din trei culori de bază: **Roșu (Red)**, **Verde (Green)** și **Albastru (Blue)**, fiecare în cantități de la **0 la 255**. Combinația se numește **RGB**. O culoare nouă o creezi din **Pornire → Culori → Editare culori**: scrii valorile R, G, B, apoi apeși **Adăugare la culori particularizate**.
 
-![Culoarea 1 desenează linii, contururi și text; Culoarea 2 umple formele și este culoarea urmei lăsate de radieră.](fisiere/imagini/tic-5-u4-l2-operatii-grafica-2d-2.svg)
+![Din roșu, verde și albastru, fiecare cu valori de la 0 la 255, se obțin toate culorile; o culoare nouă o creezi din Pornire → Culori → Editare culori.](fisiere/imagini/tic-5-u4-l2-operatii-grafica-2d-rgb.svg)
 
 ### Formele
 
@@ -56,6 +58,8 @@ Toate culorile se obțin din trei culori de bază: **Roșu (Red)**, **Verde (Gre
 - **Conturul** se desenează cu Culoarea 1; îi alegi **grosimea** (**Dimensiune**) și stilul (**Contur**).
 - **Umplerea** formelor închise se face cu Culoarea 2: fără umplere, culoare unică, creion cerat, acuarelă etc.
 - Cât timp forma este încă selectată, îi poți schimba culorile și stilul; un clic în afara ei o fixează.
+
+![Cu Shift apăsat, elipsa devine cerc, dreptunghiul devine pătrat și linia devine dreaptă; conturul are Culoarea 1, iar umplerea Culoarea 2.](fisiere/imagini/tic-5-u4-l2-operatii-grafica-2d-forme.svg)
 
 ### Selecție și transformări
 
@@ -95,6 +99,8 @@ Un desen reușit nu înseamnă doar elemente frumoase, ci și **așezate bine** 
 5. **Aliniere și spații egale**: elementele asemănătoare stau pe aceeași linie, la distanțe egale. Te ajută **Vizualizare → Rigle** și **Liniatură cu pătrățele**.
 6. **Textul** (titlul) trebuie să se **citească ușor**: mărime potrivită, culoare care contrastează cu fundalul, fără să acopere elementele importante.
 7. **Culori potrivite**: puține culori care se potrivesc între ele (2–4 culori principale).
+
+![Un afiș greșit, aglomerat și cu titlul greu de citit, alături de unul corect, cu elementul principal mare în centru, fundal, echilibru și titlu clar.](fisiere/imagini/tic-5-u4-l2-operatii-grafica-2d-spatiu.svg)
 
 ## Exemplu rezolvat: „Copacii gemeni”
 

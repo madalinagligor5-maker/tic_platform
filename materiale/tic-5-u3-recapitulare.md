@@ -12,6 +12,8 @@ data: 2026-10-15
 
 ## Recapitulare
 
+![Harta unității: internetul și serviciile lui, navigarea pe web, căutarea, siguranța și drepturile de autor.](fisiere/imagini/tic-5-u3-recapitulare-harta.svg)
+
 ```quiz
 # Alege varianta corectă.
 Internetul este o rețea de calculatoare la nivel:
@@ -53,6 +55,8 @@ Alege site-ul potrivit pentru tine:
 - un site de știri despre accidente și dezastre
 - un site de socializare unde vorbești cu necunoscuți
 ```
+
+![Schema site-ului de la exercițiul 2: săgețile arată linkurile A → B, A → C, B → D și C → A.](fisiere/imagini/tic-5-u3-recapitulare-site.svg)
 
 ```adevarat-fals
 # 2. Un site are paginile A, B, C și D. Din A ai link spre B și C, din B spre D, iar din C spre A.

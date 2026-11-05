@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Cum funcționează un motor de căutare, în patru pași: scrii cuvintele-cheie, motorul caută în paginile web, primești lista de adrese, deschizi paginile și alegi informația corectă</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6B6460"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Cum funcționează un motor de căutare</text>
+
+
+    <!-- pas 1 -->
+    <rect x="30" y="80" width="210" height="360" rx="20" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="135" cy="116" r="20" fill="#F21F4B"/><text x="135" y="123" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">1</text>
+    <text x="135" y="164" text-anchor="middle" font-size="17" font-weight="800">Scrii</text>
+    <text x="135" y="186" text-anchor="middle" font-size="17" font-weight="800">cuvintele-cheie</text>
+    <rect x="50" y="220" width="170" height="40" rx="20" fill="#FDE7EC" stroke="#F21F4B" stroke-width="2.5"/>
+    <text x="68" y="246" font-size="15" font-weight="700">urs brun hrană</text>
+    <circle cx="200" cy="238" r="8" fill="none" stroke="#C8133A" stroke-width="2.5"/><path d="M206 244l6 6" stroke="#C8133A" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="135" y="300" text-anchor="middle" font-size="14">câteva cuvinte pe care</text>
+    <text x="135" y="320" text-anchor="middle" font-size="14">ar trebui să le conțină</text>
+    <text x="135" y="340" text-anchor="middle" font-size="14">paginile căutate</text>
+
+    <!-- pas 2 -->
+    <rect x="258" y="80" width="210" height="360" rx="20" fill="#FFFFFF" stroke="#FFC83D" stroke-width="3"/>
+    <circle cx="363" cy="116" r="20" fill="#FFC83D"/><text x="363" y="123" text-anchor="middle" font-size="20" font-weight="800">2</text>
+    <text x="363" y="164" text-anchor="middle" font-size="17" font-weight="800">Motorul caută</text>
+    <text x="363" y="186" text-anchor="middle" font-size="17" font-weight="800">în paginile web</text>
+    <g fill="#FFF4D6" stroke="#FFC83D" stroke-width="2.5">
+      <rect x="290" y="210" width="44" height="54" rx="5"/>
+      <rect x="342" y="210" width="44" height="54" rx="5"/>
+      <rect x="394" y="210" width="44" height="54" rx="5"/>
+    </g>
+    <circle cx="372" cy="246" r="22" fill="none" stroke="#171416" stroke-width="4"/>
+    <path d="M388 262l16 16" stroke="#171416" stroke-width="6" stroke-linecap="round"/>
+    <text x="363" y="316" text-anchor="middle" font-size="14">găsește paginile care</text>
+    <text x="363" y="336" text-anchor="middle" font-size="14">conțin cuvintele-cheie</text>
+
+    <!-- pas 3 -->
+    <rect x="486" y="80" width="210" height="360" rx="20" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <circle cx="591" cy="116" r="20" fill="#3EC6E0"/><text x="591" y="123" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">3</text>
+    <text x="591" y="164" text-anchor="middle" font-size="17" font-weight="800">Primești o listă</text>
+    <text x="591" y="186" text-anchor="middle" font-size="17" font-weight="800">de adrese</text>
+    <g font-size="14" font-weight="800">
+      <rect x="506" y="206" width="170" height="30" rx="8" fill="#E2F6FA" stroke="#0E7F96" stroke-width="2"/>
+      <text x="518" y="226" fill="#0E7F96">1. cel mai relevant</text>
+      <rect x="506" y="242" width="170" height="26" rx="8" fill="#E2F6FA"/>
+      <text x="518" y="260" font-weight="400">2. ...</text>
+      <rect x="506" y="274" width="170" height="26" rx="8" fill="#E2F6FA"/>
+      <text x="518" y="292" font-weight="400">3. ...</text>
+    </g>
+    <text x="591" y="330" text-anchor="middle" font-size="14">primele rezultate sunt</text>
+    <text x="591" y="350" text-anchor="middle" font-size="14">considerate cele mai</text>
+    <text x="591" y="370" text-anchor="middle" font-size="14">relevante</text>
+
+    <!-- pas 4 -->
+    <rect x="714" y="80" width="216" height="360" rx="20" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="822" cy="116" r="20" fill="#14A39A"/><text x="822" y="123" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">4</text>
+    <text x="822" y="164" text-anchor="middle" font-size="17" font-weight="800">Deschizi paginile</text>
+    <text x="822" y="186" text-anchor="middle" font-size="17" font-weight="800">și alegi</text>
+    <rect x="770" y="208" width="104" height="72" rx="8" fill="#E0F4F2" stroke="#14A39A" stroke-width="2.5"/>
+    <rect x="782" y="222" width="80" height="7" rx="3" fill="#14A39A"/>
+    <rect x="782" y="236" width="60" height="6" rx="3" fill="#FFFFFF"/>
+    <rect x="782" y="248" width="70" height="6" rx="3" fill="#FFFFFF"/>
+    <circle cx="866" cy="276" r="16" fill="#14A39A" stroke="#FFFFFF" stroke-width="3"/>
+    <path d="M858 276l6 6l10-11" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="822" y="330" text-anchor="middle" font-size="14">pagina cu informația</text>
+    <text x="822" y="350" text-anchor="middle" font-size="14">corectă și completă</text>
+
+    <!-- sageti -->
+    <circle cx="249" cy="260" r="15" fill="#6B6460" stroke="#FFF7EE" stroke-width="3"/><path d="M245 252l8 8l-8 8" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="477" cy="260" r="15" fill="#6B6460" stroke="#FFF7EE" stroke-width="3"/><path d="M473 252l8 8l-8 8" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="705" cy="260" r="15" fill="#6B6460" stroke="#FFF7EE" stroke-width="3"/><path d="M701 252l8 8l-8 8" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- exemple -->
+    <rect x="30" y="460" width="900" height="54" rx="16" fill="#F0E8FA"/>
+    <text x="480" y="493" text-anchor="middle" font-size="16"><tspan font-weight="800" fill="#7A3FB8">Motoare de căutare:</tspan>  Google (www.google.com) · Bing (www.bing.com) · Yahoo! (www.yahoo.com)</text>
+  </g>
+</svg>

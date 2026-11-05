@@ -34,10 +34,14 @@ Dispozitivele de stocare diferă prin felul în care memorează datele, prin **c
 4. **Cardurile de memorie** (SD, mini SD, micro SD, Compact Flash, MMC): pe semiconductori; le folosim la telefoane, tablete, aparate foto și laptopuri.
 5. **Discurile optice**: **CD**, **DVD**, **Blu-ray (BD)**. Datele se scriu și se citesc cu o **rază laser** în unitatea optică. Informația este codificată prin 0 și 1, ca „găuri” și „plinuri” pe suprafața discului.
 
+![Cele cinci tipuri de dispozitive de stocare: HDD-ul magnetic, SSD-ul, stickul și cardurile pe semiconductori și discurile optice citite cu laser.](fisiere/imagini/tic-5-u1-l4-dispozitive-de-stocare-tipuri.svg)
+
 ### Unitățile de măsură pentru stocare
 
 - **Bitul (b)** este cea mai mică unitate de măsură a informației. Un bit poate fi doar **0** sau **1**.
 - **8 biți = 1 byte (B)**, numit și **octet**. Byte-ul este cea mai mică unitate de stocare pe care calculatorul o poate adresa separat. De exemplu, o literă ocupă 1 byte.
+
+![Un bit este 0 sau 1, 8 biți formează un byte (cât ocupă o literă), iar 1 KB are 1024 B, nu 1000.](fisiere/imagini/tic-5-u1-l4-dispozitive-de-stocare-bit-byte.svg)
 
 Calculatorul folosește doar cifrele 0 și 1, de aceea multiplii byte-ului se obțin **înmulțind cu 1024** (adică 2¹⁰), nu cu 1000:
 
@@ -64,6 +68,8 @@ Calculatorul folosește doar cifrele 0 și 1, de aceea multiplii byte-ului se ob
 - **HDD**: de obicei de la 120 GB până la 8 TB (azi există și HDD-uri mai mari)
 - **SSD**: de la 32 GB până la 4 TB
 - **stickuri și carduri**: de obicei de la câțiva GB până la 1–2 TB
+
+![Comparație între HDD și SSD: cum memorează datele, piese în mișcare, viteză, rezistență la șocuri și capacitate obișnuită.](fisiere/imagini/tic-5-u1-l4-dispozitive-de-stocare-hdd-ssd.svg)
 
 ## Exemplu rezolvat
 

@@ -59,6 +59,8 @@ Perifericele se leagă de unitatea centrală prin **porturi** (mufe) sau **făr�
 
 Un dispozitiv nou funcționează după ce sistemul de operare îi instalează **driverul**, un mic program care îl „prezintă” calculatorului. De cele mai multe ori, Windows face asta singur când conectezi dispozitivul.
 
+![Perifericele se conectează prin USB, prin HDMI sau VGA, prin mufa audio jack sau fără fir, prin Wi-Fi și Bluetooth.](fisiere/imagini/tic-5-u1-l3-hardware-porturi.svg)
+
 ### Alegem dispozitivele potrivite
 
 Când ai de rezolvat o sarcină nouă, te întrebi: **ce trebuie să intre în calculator** și **ce trebuie să iasă din el**? Așa alegi perifericele.
@@ -66,6 +68,8 @@ Când ai de rezolvat o sarcină nouă, te întrebi: **ce trebuie să intre în c
 - Vrei să trimiți profesorului o temă scrisă de mână → îți trebuie un **scaner** (sau camera telefonului), adică un dispozitiv de **intrare**.
 - Vrei ca toată clasa să vadă un film → îți trebuie un **videoproiector** și **boxe**, adică dispozitive de **ieșire**.
 - Vrei să vorbești cu bunicii prin video → îți trebuie **camera video**, **microfonul** (intrare), **boxele** sau **căștile** (ieșire).
+
+![Pentru fiecare sarcină te întrebi ce trebuie să intre în calculator și ce trebuie să iasă din el, apoi alegi perifericele potrivite.](fisiere/imagini/tic-5-u1-l3-hardware-alegere.svg)
 
 ### Ce găsim în unitatea centrală
 
@@ -76,6 +80,8 @@ Când ai de rezolvat o sarcină nouă, te întrebi: **ce trebuie să intre în c
 5. **Sursa de alimentare**: dă energia electrică necesară.
 6. **Unitatea optică**: citește și scrie discuri CD, DVD sau Blu-ray.
 7. **HDD și/sau SSD**: **memoria permanentă**, unde se păstrează datele.
+
+![Interiorul unității centrale cu cele șapte componente numerotate: microprocesorul, placa de bază, memoria RAM, plăcile de extensie, sursa, unitatea optică și HDD-ul sau SSD-ul.](fisiere/imagini/tic-5-u1-l3-hardware-unitatea-centrala.svg)
 
 ## Exemplu rezolvat
 

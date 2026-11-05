@@ -38,6 +38,8 @@ data: 2026-10-15
 10. Ai grijă de echipamentul la care lucrezi și nu iei nimic din laborator.
 11. La final, lași laboratorul **în ordine și curat**.
 
+![Șase reguli ale laboratorului: lucrezi doar cu profesorul, nu intri cu mâncare sau băuturi, nu instalezi programe, nu atingi prizele, nu desfaci componentele și anunți orice defecțiune.](fisiere/imagini/tic-5-u1-l1-norme-ergonomie-siguranta-reguli.svg)
+
 ### B. Ergonomia
 
 **Ergonomia** este știința care studiază legătura dintre oameni și obiectele pe care le folosesc, ca munca să fie sigură și sănătoasă.
@@ -57,11 +59,15 @@ data: 2026-10-15
 - ridici dispozitivul sau îl pui pe un suport, ca să **nu apleci capul înainte**;
 - ții **capul drept** când privești ecranul.
 
+![Greșit: telefonul ținut jos, cu capul aplecat înainte; corect: telefonul ridicat la nivelul ochilor, cu capul drept.](fisiere/imagini/tic-5-u1-l1-norme-ergonomie-siguranta-telefon.svg)
+
 ### C. Ce se întâmplă când folosim greșit dispozitivele
 
 - **Dureri de ceafă și de spate**: cu cât apleci capul mai mult, cu atât gâtul duce o greutate mai mare.
 - **Probleme de vedere**: ochii obosesc când stau mult timp aproape de ecran și trec des între lumina ecranului și cea din cameră; așa poate apărea **miopia**.
 - **Dependența**: jocurile și aplicațiile sunt făcute să te țină cât mai mult în fața ecranului (recompense, actualizări, concursuri). Mai există și riscul să întâlnești online un limbaj sau comportamente nepotrivite.
+
+![Cele trei efecte ale folosirii greșite a dispozitivelor: dureri de ceafă și de spate, probleme de vedere (miopia) și dependența.](fisiere/imagini/tic-5-u1-l1-norme-ergonomie-siguranta-efecte.svg)
 
 ## Exemplu rezolvat
 

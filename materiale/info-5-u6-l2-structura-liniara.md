@@ -37,6 +37,8 @@ Pasul n: se execută acțiunea n
 - Și **decorurile** pot avea scripturi.
 - În fiecare script, blocurile se execută **liniar**, de sus în jos.
 
+![Pașii algoritmului secvențial devin blocuri Scratch executate pe rând, iar fiecare script pornește la un eveniment: steagul verde, o tastă sau un clic pe personaj.](fisiere/imagini/info-5-u6-l2-structura-liniara-algoritm.svg)
+
 ### Program: „RoboTIC se prezintă”
 
 **Problema:** RoboTIC (robotul desenat de tine în Paint) coboară din partea de sus a ecranului. Când ajunge pe pământ, se prezintă copiilor.
@@ -75,6 +77,8 @@ Salvezi proiectul ca `Prezentare RoboTIC.sb3`. Apeși **steagul verde**, apoi **
 
 ![Scriptul 1 pornește la steagul verde, scriptul 2 la tasta Spațiu; blocurile se execută pe rând: RoboTIC alunecă, vorbește, apoi scoate un sunet.](fisiere/imagini/info-5-u6-l2-structura-liniara.svg)
 
+![Pe un decor albastru, un personaj desenat pe fundal alb lasă un dreptunghi alb, iar unul cu fundal transparent se vede curat.](fisiere/imagini/info-5-u6-l2-structura-liniara-transparent.svg)
+
 ### Sunetul tău
 
 Dacă ai microfon: **fila Sunete → Înregistrare**, apeși **Înregistrează**, apoi **Oprește** și **Salvează**. Sunetul apare în lista personajului.
@@ -94,6 +98,8 @@ pornește sunetul Pop
 ```
 
 Este o **structură liniară**: blocurile se execută **unul după altul**.
+
+![Traseul din exemplul rezolvat: personajul pornește de la (10, 10) și alunecă pe rând la (-100, 10), (100, 10), (100, 120) și (100, -100).](fisiere/imagini/info-5-u6-l2-structura-liniara-traseu.svg)
 
 ## Aplicații interactive
 

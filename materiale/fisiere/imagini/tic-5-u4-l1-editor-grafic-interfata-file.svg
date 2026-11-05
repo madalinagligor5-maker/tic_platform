@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Ce conțin filele panglicii din Paint: Fișier, Pornire și Vizualizare</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Filele panglicii din Paint</text>
+
+    <!-- Fisier -->
+    <rect x="30" y="76" width="230" height="438" rx="20" fill="#FFFFFF" stroke="#0E7F96" stroke-width="3"/>
+    <rect x="30" y="76" width="230" height="56" rx="20" fill="#0E7F96"/>
+    <rect x="30" y="110" width="230" height="22" fill="#0E7F96"/>
+    <text x="145" y="112" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">Fișier</text>
+    <text x="145" y="160" text-anchor="middle" font-size="14" fill="#6B6460">lucrul cu fișierul</text>
+    <g font-size="15">
+      <rect x="50" y="178" width="190" height="38" rx="10" fill="#E2F6FA"/><text x="66" y="203">Nou</text>
+      <rect x="50" y="224" width="190" height="38" rx="10" fill="#E2F6FA"/><text x="66" y="249">Deschidere</text>
+      <rect x="50" y="270" width="190" height="38" rx="10" fill="#E2F6FA"/><text x="66" y="295">Salvare</text>
+      <rect x="50" y="316" width="190" height="38" rx="10" fill="#E2F6FA"/><text x="66" y="341">Salvare ca</text>
+      <rect x="50" y="362" width="190" height="38" rx="10" fill="#E2F6FA"/><text x="66" y="387">Tipărire</text>
+      <rect x="50" y="408" width="190" height="38" rx="10" fill="#E2F6FA"/><text x="66" y="433">Proprietăți</text>
+    </g>
+    <text x="145" y="476" text-anchor="middle" font-size="14" fill="#6B6460">dimensiuni, culori</text>
+    <text x="145" y="496" text-anchor="middle" font-size="14" fill="#6B6460">(la Proprietăți)</text>
+
+    <!-- Pornire -->
+    <rect x="280" y="76" width="400" height="438" rx="20" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <rect x="280" y="76" width="400" height="56" rx="20" fill="#F21F4B"/>
+    <rect x="280" y="110" width="400" height="22" fill="#F21F4B"/>
+    <text x="480" y="112" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">Pornire</text>
+    <text x="480" y="160" text-anchor="middle" font-size="14" fill="#6B6460">tot ce îți trebuie pentru desen</text>
+    <g font-size="14">
+      <rect x="298" y="176" width="364" height="44" rx="10" fill="#FDE7EC"/>
+      <text x="312" y="203"><tspan font-weight="800">Clipboard:</tspan> Lipire, Decupare, Copiere</text>
+      <rect x="298" y="226" width="364" height="44" rx="10" fill="#FDE7EC"/>
+      <text x="312" y="245"><tspan font-weight="800">Imagine:</tspan> Selectare, Trunchiere,</text>
+      <text x="312" y="263">Redimensionare, Rotire</text>
+      <rect x="298" y="276" width="364" height="62" rx="10" fill="#FDE7EC"/>
+      <text x="312" y="296"><tspan font-weight="800">Instrumente:</tspan> Creion, Umplere cu</text>
+      <text x="312" y="314">culoare, Text, Radieră, Selector de</text>
+      <text x="312" y="332">culoare (pipetă), Lupă</text>
+      <rect x="298" y="344" width="176" height="36" rx="10" fill="#FDE7EC"/>
+      <text x="312" y="367" font-weight="800">Pensule</text>
+      <rect x="486" y="344" width="176" height="36" rx="10" fill="#FDE7EC"/>
+      <text x="500" y="367"><tspan font-weight="800">Dimensiune</tspan> (grosime)</text>
+      <rect x="298" y="386" width="364" height="44" rx="10" fill="#FDE7EC"/>
+      <text x="312" y="413"><tspan font-weight="800">Forme:</tspan> forma, conturul, umplerea</text>
+      <rect x="298" y="436" width="364" height="62" rx="10" fill="#FDE7EC"/>
+      <text x="312" y="456"><tspan font-weight="800">Culori:</tspan> Culoarea 1, Culoarea 2,</text>
+      <text x="312" y="474">paleta de culori, Editare culori</text>
+    </g>
+    <g>
+      <rect x="616" y="446" width="14" height="14" fill="#F21F4B"/><rect x="632" y="446" width="14" height="14" fill="#3EC6E0"/><rect x="648" y="446" width="14" height="14" fill="#FFC83D"/>
+    </g>
+
+    <!-- Vizualizare -->
+    <rect x="700" y="76" width="230" height="438" rx="20" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <rect x="700" y="76" width="230" height="56" rx="20" fill="#14A39A"/>
+    <rect x="700" y="110" width="230" height="22" fill="#14A39A"/>
+    <text x="815" y="112" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF">Vizualizare</text>
+    <text x="815" y="160" text-anchor="middle" font-size="14" fill="#6B6460">cum vezi desenul</text>
+    <g font-size="15">
+      <rect x="720" y="178" width="190" height="38" rx="10" fill="#E0F4F2"/><text x="736" y="203">Mărire / Micșorare</text>
+      <rect x="720" y="224" width="190" height="38" rx="10" fill="#E0F4F2"/><text x="736" y="249">100%</text>
+      <rect x="720" y="270" width="190" height="38" rx="10" fill="#E0F4F2"/><text x="736" y="295">Rigle</text>
+      <rect x="720" y="316" width="190" height="56" rx="10" fill="#E0F4F2"/><text x="736" y="339">Liniatură cu</text><text x="736" y="359">pătrățele</text>
+      <rect x="720" y="380" width="190" height="38" rx="10" fill="#E0F4F2"/><text x="736" y="405">Bara de stare</text>
+      <rect x="720" y="426" width="190" height="38" rx="10" fill="#E0F4F2"/><text x="736" y="451">Ecran complet</text>
+    </g>
+    <!-- grila -->
+    <g stroke="#14A39A" stroke-width="1.5"><path d="M880 330h20M880 340h20M880 350h20M884 326v28M892 326v28"/></g>
+  </g>
+</svg>

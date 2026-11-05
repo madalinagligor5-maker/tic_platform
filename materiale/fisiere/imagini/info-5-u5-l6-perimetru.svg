@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Schema logică pentru perimetrul pătratului și traseul datelor pentru a = 0 și pentru a = 20</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="40" y="44" font-size="24" font-weight="800">Perimetrul pătratului: urmărim datele</text>
+
+    <!-- schema -->
+    <rect x="230" y="66" width="100" height="30" rx="15" fill="#171416"/>
+    <text x="280" y="86" text-anchor="middle" font-size="14" font-weight="800" fill="#FFF7EE">START</text>
+    <path d="M214 112H360L346 148H200Z" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3" stroke-linejoin="round"/>
+    <text x="280" y="136" text-anchor="middle" font-size="15" font-weight="700">citește a</text>
+    <path d="M280 170L380 216L280 262L180 216Z" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3" stroke-linejoin="round"/>
+    <text x="280" y="222" text-anchor="middle" font-size="17" font-weight="800">a = 0 ?</text>
+    <path d="M58 296H248L236 340H46Z" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3" stroke-linejoin="round"/>
+    <text x="147" y="323" text-anchor="middle" font-size="14" font-weight="700">scrie „Număr incorect”</text>
+    <rect x="356" y="296" width="148" height="42" rx="6" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <text x="430" y="323" text-anchor="middle" font-size="16" font-weight="700">P ← 4 * a</text>
+    <path d="M370 360H504L490 396H356Z" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3" stroke-linejoin="round"/>
+    <text x="430" y="384" text-anchor="middle" font-size="15" font-weight="700">scrie P</text>
+    <text x="146" y="204" font-size="15" font-weight="800" fill="#0B6F68">Da</text>
+    <text x="392" y="204" font-size="15" font-weight="800" fill="#C8133A">Nu</text>
+    <rect x="230" y="444" width="100" height="30" rx="15" fill="#171416"/>
+    <text x="280" y="464" text-anchor="middle" font-size="14" font-weight="800" fill="#FFF7EE">STOP</text>
+    <g stroke="#171416" stroke-width="3" fill="none">
+      <path d="M280 96V108" marker-end="url(#a)"/>
+      <path d="M280 148V166" marker-end="url(#a)"/>
+      <path d="M180 216H147V292" marker-end="url(#a)"/>
+      <path d="M380 216H430V292" marker-end="url(#a)"/>
+      <path d="M430 338V356" marker-end="url(#a)"/>
+      <path d="M147 340V420H430V396M280 420V440"/>
+    </g>
+
+    <!-- traseu a = 0 -->
+    <rect x="540" y="66" width="380" height="196" rx="18" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="560" y="98" font-size="18" font-weight="800" fill="#C8133A">Intrare: a = 0</text>
+    <rect x="800" y="80" width="96" height="58" rx="10" fill="#fff" stroke="#3EC6E0" stroke-width="2.5"/>
+    <text x="814" y="100" font-size="14" font-weight="700" fill="#0E7F96">a</text>
+    <text x="848" y="128" text-anchor="middle" font-size="22" font-weight="800">0</text>
+    <g font-size="15">
+      <text x="560" y="134">0 = 0 ? → <tspan font-weight="800">Adevărat</tspan> (Da)</text>
+      <text x="560" y="162">mergem pe ramura Da</text>
+    </g>
+    <rect x="560" y="182" width="340" height="56" rx="12" fill="#fff"/>
+    <text x="574" y="206" font-size="14" fill="#6B6460">Se afișează:</text>
+    <text x="574" y="228" font-size="17" font-weight="800" fill="#C8133A">„Număr incorect”</text>
+
+    <!-- traseu a = 20 -->
+    <rect x="540" y="280" width="380" height="226" rx="18" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="560" y="312" font-size="18" font-weight="800" fill="#0B6F68">Intrare: a = 20</text>
+    <rect x="740" y="294" width="76" height="58" rx="10" fill="#fff" stroke="#3EC6E0" stroke-width="2.5"/>
+    <text x="752" y="314" font-size="14" font-weight="700" fill="#0E7F96">a</text>
+    <text x="778" y="342" text-anchor="middle" font-size="22" font-weight="800">20</text>
+    <rect x="824" y="294" width="76" height="58" rx="10" fill="#fff" stroke="#14A39A" stroke-width="2.5"/>
+    <text x="836" y="314" font-size="14" font-weight="700" fill="#0B6F68">P</text>
+    <text x="862" y="342" text-anchor="middle" font-size="22" font-weight="800">80</text>
+    <g font-size="15">
+      <text x="560" y="350">20 = 0 ? → <tspan font-weight="800">Fals</tspan></text>
+      <text x="560" y="378">ramura Nu:</text>
+      <text x="560" y="402">P ← 4 * 20 = <tspan font-weight="800">80</tspan></text>
+    </g>
+    <rect x="560" y="424" width="340" height="56" rx="12" fill="#fff"/>
+    <text x="574" y="448" font-size="14" fill="#6B6460">Se afișează:</text>
+    <text x="574" y="470" font-size="17" font-weight="800" fill="#0B6F68">80</text>
+  </g>
+</svg>

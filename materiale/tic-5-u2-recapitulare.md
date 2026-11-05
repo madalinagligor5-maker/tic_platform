@@ -12,6 +12,8 @@ data: 2026-10-15
 
 ## Recapitulare
 
+![Combinațiile de taste din unitatea 2: Ctrl + C, Ctrl + X, Ctrl + V, Ctrl + A, Alt + F4, Windows + E, Delete și Enter.](fisiere/imagini/tic-5-u2-recapitulare-taste.svg)
+
 ```quiz
 # Alege răspunsul corect.
 Ce program interpretează comenzile utilizatorului și face legătura dintre echipamentele fizice și utilizator?

@@ -48,12 +48,16 @@ http://www.edu.ro/invatamant-gimnazial
 
 Adresa începe cu **protocolul**: `http://` sau `https://`. Litera **s** vine de la *secure* (sigur): datele schimbate cu site-ul sunt **criptate**, iar browserul arată un **lăcățel** lângă adresă. Pe un site care cere parole sau date personale, verifică întotdeauna că adresa începe cu `https://` și că numele site-ului este scris corect (de exemplu, `www.edu.ro`, nu `www.edu-ro.com`).
 
+![Cu http:// datele circulă necriptate, iar cu https:// sunt criptate și apare un lăcățel; www.edu.ro este site-ul corect, iar www.edu-ro.com este alt site.](fisiere/imagini/tic-5-u3-l2-navigarea-www-https.svg)
+
 ### Pagini și site-uri
 
 - Informația de pe web este organizată în **pagini web**, asemănătoare cu paginile unei cărți. Paginile web sunt scrise în **HTML** (HyperText Markup Language), un **limbaj de marcare**.
 - Un **site web** este o colecție de pagini web, legate prin hiperlinkuri, care aparțin de obicei unei persoane sau organizații. Exemple: `www.cfr.ro`, `www.wikipedia.org`.
 - **Navigarea** înseamnă parcurgerea paginilor web. Prima pagină a unui site se numește **pagina de start (home page)**.
 - Paginile se deschid cu un **program de navigare (browser)**, scriind adresa URL: Google Chrome, Mozilla Firefox, Microsoft Edge, Safari, Opera.
+
+![Un site web este o colecție de pagini legate prin hiperlinkuri, pornind de la pagina de start; fiecare pagină este scrisă în HTML și se deschide cu un browser.](fisiere/imagini/tic-5-u3-l2-navigarea-www-site.svg)
 
 > Curiozitate: în browser, clic dreapta pe o pagină → **Vezi sursa paginii** și vezi codul HTML al paginii.
 
@@ -75,6 +79,8 @@ Adresa începe cu **protocolul**: `http://` sau `https://`. Litera **s** vine de
 | **Conținutul nepotrivit** | informații dăunătoare, chiar ilegale, care pot îndemna la violență sau la consum de alcool și droguri | folosești site-uri de încredere, potrivite vârstei; **verifici** informațiile înainte să le folosești |
 | **Furtul de identitate** | infractorii copiază datele personale (nume, adresă, parole, date de card) și le folosesc ca să facă rău | **nu dai date personale**; parolele sunt **secrete** și **complexe** (litere, cifre, simboluri); te înregistrezi pe site-uri doar cu acordul părinților; folosești **firewall**, antivirus și antispyware |
 | **Hărțuirea online (cyberbullying)** | intimidarea și abuzarea cuiva prin internet | alegi atent cu cine te împrietenești online; vorbești politicos; **nu răspunzi** la mesaje care te supără și **ceri ajutorul unui adult**; nu publici nimic care te poate pune în pericol |
+
+![Patru pericole de pe internet (viruși, conținut nepotrivit, furt de identitate și hărțuire online) și regulile care te protejează de fiecare.](fisiere/imagini/tic-5-u3-l2-navigarea-www-siguranta.svg)
 
 ## Exemplu rezolvat
 

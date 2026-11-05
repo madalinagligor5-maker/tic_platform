@@ -30,6 +30,8 @@ data: 2026-10-15
 2. **Îi dai o valoare** cu blocul **„setează [a] la (10)”**; aceasta este **atribuirea**.
 3. **O modifici** cu blocul **„modifică [a] cu (1)”**, care adună 1 la valoarea ei.
 
+![Variabila este ca o cutie cu nume: o creezi, „setează a la 10” pune în ea valoarea 10, iar „modifică a cu 1” o face 11; bifată, valoarea apare pe scenă.](fisiere/imagini/info-5-u6-l3-variabile-cutie.svg)
+
 ### Operatorii (categoria Operatori)
 
 | Tip | Blocuri |
@@ -37,6 +39,8 @@ data: 2026-10-15
 | aritmetici | `( ) + ( )`, `( ) - ( )`, `( ) * ( )`, `( ) / ( )`, `( ) mod ( )` (restul împărțirii) |
 | relaționali | `( ) < ( )`, `( ) > ( )`, `( ) = ( )` |
 | logici | `< > și < >`, `< > sau < >`, `nu < >` |
+
+![Operatorii aritmetici, cu blocuri rotunjite, dau un număr; operatorii relaționali și logici, cu blocuri hexagonale, dau Adevărat sau Fals.](fisiere/imagini/info-5-u6-l3-operatori-tipuri.svg)
 
 Blocurile se pot **pune unul în altul**: tragi al doilea bloc în locul unui operand din primul. Așa construiești **expresii complexe**. Expresiile logice și relaționale vor fi **condiții** în structurile decizionale.
 
@@ -88,6 +92,8 @@ Mai sunt blocuri pentru **culoarea** și **grosimea** liniei. În „Stiloul mag
 - –278 + 116 = **–162**.
 
 În Scratch construiești expresia din blocuri de operatori puse unul în altul și o pui într-un bloc „spune”, la apăsarea tastei 1.
+
+![Expresia (100 – 7 * 54) + 2 * (2 + 7 * 8) din blocuri puse unul în altul se calculează începând cu blocurile din interior: rezultatul este –162.](fisiere/imagini/info-5-u6-l3-expresie-pas-cu-pas.svg)
 
 ## Aplicații interactive
 

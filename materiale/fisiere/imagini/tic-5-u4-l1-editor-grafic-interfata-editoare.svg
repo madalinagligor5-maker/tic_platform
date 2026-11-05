@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Editorul grafic creează, modifică și salvează imagini; exemple de editoare grafice și extensiile fișierelor salvate din Paint</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6B6460"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Ce face un editor grafic?</text>
+
+    <!-- 3 pasi -->
+    <g stroke="#6B6460" stroke-width="4" fill="none">
+      <path d="M306 170H340" marker-end="url(#a)"/>
+      <path d="M620 170H654" marker-end="url(#a)"/>
+    </g>
+    <rect x="40" y="76" width="260" height="190" rx="20" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <rect x="110" y="96" width="120" height="90" rx="6" fill="#FFF7EE" stroke="#E8DFD3" stroke-width="3"/>
+    <path d="M150 168l40-48" stroke="#F21F4B" stroke-width="10" stroke-linecap="round"/>
+    <path d="M144 176l4-12l8 6z" fill="#171416"/>
+    <text x="170" y="222" text-anchor="middle" font-size="20" font-weight="800" fill="#C8133A">Creezi</text>
+    <text x="170" y="246" text-anchor="middle" font-size="14">desenezi o imagine nouă</text>
+
+    <rect x="350" y="76" width="260" height="190" rx="20" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="420" y="96" width="120" height="90" rx="6" fill="#FFF7EE" stroke="#E8DFD3" stroke-width="3"/>
+    <circle cx="460" cy="140" r="22" fill="#FFC83D"/>
+    <circle cx="500" cy="140" r="22" fill="#3EC6E0" fill-opacity="0.8"/>
+    <text x="480" y="222" text-anchor="middle" font-size="20" font-weight="800" fill="#0E7F96">Modifici</text>
+    <text x="480" y="246" text-anchor="middle" font-size="14">schimbi culori, forme</text>
+
+    <rect x="660" y="76" width="260" height="190" rx="20" fill="#FFFFFF" stroke="#14A39A" stroke-width="3"/>
+    <path d="M750 100h50l20 20v62h-70z" fill="#E0F4F2" stroke="#14A39A" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M800 100v20h20" fill="none" stroke="#14A39A" stroke-width="3"/>
+    <text x="785" y="162" text-anchor="middle" font-size="14" font-weight="800" fill="#0B6F68">.png</text>
+    <text x="790" y="222" text-anchor="middle" font-size="20" font-weight="800" fill="#0B6F68">Salvezi</text>
+    <text x="790" y="246" text-anchor="middle" font-size="14">într-un fișier grafic</text>
+
+    <!-- exemple editoare -->
+    <rect x="40" y="290" width="440" height="224" rx="20" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="3"/>
+    <text x="64" y="324" font-size="18" font-weight="800" fill="#7A3FB8">Exemple de editoare grafice</text>
+    <g font-size="15" font-weight="700" text-anchor="middle">
+      <rect x="64" y="344" width="122" height="44" rx="12" fill="#FFFFFF"/><text x="125" y="372">Paint</text>
+      <rect x="198" y="344" width="122" height="44" rx="12" fill="#FFFFFF"/><text x="259" y="372">Paint.NET</text>
+      <rect x="332" y="344" width="124" height="44" rx="12" fill="#FFFFFF"/><text x="394" y="372">Inkscape</text>
+      <rect x="64" y="400" width="122" height="44" rx="12" fill="#FFFFFF"/><text x="125" y="428">GIMP</text>
+      <rect x="198" y="400" width="122" height="44" rx="12" fill="#FFFFFF"/><text x="259" y="428">Tux Paint</text>
+      <rect x="332" y="400" width="124" height="44" rx="12" fill="#FFFFFF"/><text x="394" y="428">Photoshop</text>
+    </g>
+    <text x="64" y="480" font-size="14" fill="#6B6460">Paint este inclus în Windows,</text>
+    <text x="64" y="500" font-size="14" fill="#6B6460">în grupul Accesorii Windows.</text>
+
+    <!-- extensii -->
+    <rect x="500" y="290" width="420" height="224" rx="20" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="524" y="324" font-size="18" font-weight="800">Din Paint salvezi ca:</text>
+    <g font-size="15" font-weight="800" text-anchor="middle">
+      <g fill="#FFF4D6" stroke="#FFC83D" stroke-width="3" stroke-linejoin="round">
+        <path d="M528 350h46l14 14v66h-60z"/>
+        <path d="M604 350h46l14 14v66h-60z"/>
+        <path d="M680 350h46l14 14v66h-60z"/>
+        <path d="M756 350h46l14 14v66h-60z"/>
+        <path d="M832 350h46l14 14v66h-60z"/>
+      </g>
+      <text x="558" y="404">.png</text>
+      <text x="634" y="404">.jpg</text>
+      <text x="710" y="404">.bmp</text>
+      <text x="786" y="404">.gif</text>
+      <text x="862" y="404">.tiff</text>
+    </g>
+    <text x="524" y="470" font-size="15">Extensia arată tipul fișierului grafic.</text>
+    <text x="524" y="494" font-size="14" fill="#6B6460">Exemplu: Copaci_gemeni.jpg</text>
+  </g>
+</svg>

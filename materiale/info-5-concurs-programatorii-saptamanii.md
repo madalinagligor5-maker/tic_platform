@@ -15,6 +15,8 @@ data: 2026-10-15
 - Alegeți un **juriu** de cinci membri (ei nu concurează).
 - Formați **echipe de 4–5 elevi**. Fiecare echipă își alege prin vot un **manager de proiect** și un **nume**.
 
+![Organizarea concursului: juriul de cinci membri, echipele de 4–5 elevi cu manager de proiect, pașii de lucru și criteriile juriului.](fisiere/imagini/info-5-concurs-programatorii-saptamanii-organizare.svg)
+
 ## Tema
 
 Realizați în Scratch un **joc cu două personaje**. Exemplu: **„Prinde peștișorul”**.
@@ -41,6 +43,8 @@ modifică [pași] cu 1
 dacă < atinge Fish? > atunci
    spune (alătură „Prins! Pași: ” (pași))
 ```
+
+![Jocul „Prinde peștișorul”: pisoiul scufundător ajunge la pește numărând pașii, alături de scripturile peștelui și ale pisoiului.](fisiere/imagini/info-5-concurs-programatorii-saptamanii-joc.svg)
 
 ## Cum lucrați
 

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Șase reguli importante din laboratorul de informatică, desenate ca semne</title>
+  <defs>
+    <g id="nu"><circle cx="140" cy="76" r="54" fill="none" stroke="#F21F4B" stroke-width="9"/><path d="M102 38L178 114" stroke="#F21F4B" stroke-width="9" stroke-linecap="round"/></g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Regulile laboratorului de informatică</text>
+
+    <!-- 1 profesor -->
+    <g transform="translate(40 74)">
+      <rect width="280" height="210" rx="18" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+      <circle cx="116" cy="48" r="16" fill="#0B6F68"/><rect x="96" y="68" width="40" height="62" rx="16" fill="#0B6F68"/>
+      <circle cx="170" cy="70" r="12" fill="#3EC6E0"/><rect x="155" y="86" width="30" height="44" rx="12" fill="#3EC6E0"/>
+      <text x="140" y="164" text-anchor="middle" font-size="16" font-weight="800">Lucrezi doar sub</text>
+      <text x="140" y="186" text-anchor="middle" font-size="16" font-weight="800">supravegherea profesorului</text>
+    </g>
+    <!-- 2 mancare -->
+    <g transform="translate(340 74)">
+      <rect width="280" height="210" rx="18" fill="#fff" stroke="#F21F4B" stroke-width="3"/>
+      <path d="M108 58h36l-4 46h-28z" fill="#3EC6E0"/><path d="M134 58l8-20" stroke="#6B6460" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="166" cy="86" r="16" fill="#14A39A"/><path d="M166 70l4-10" stroke="#0B6F68" stroke-width="4" stroke-linecap="round"/>
+      <use href="#nu"/>
+      <text x="140" y="164" text-anchor="middle" font-size="16" font-weight="800">Nu intri cu mâncare</text>
+      <text x="140" y="186" text-anchor="middle" font-size="16" font-weight="800">sau băuturi</text>
+    </g>
+    <!-- 3 programe -->
+    <g transform="translate(640 74)">
+      <rect width="280" height="210" rx="18" fill="#fff" stroke="#F21F4B" stroke-width="3"/>
+      <rect x="106" y="46" width="68" height="48" rx="6" fill="#E2F6FA" stroke="#171416" stroke-width="3"/>
+      <path d="M140 94v10M124 106h32" stroke="#171416" stroke-width="4" stroke-linecap="round"/>
+      <path d="M140 54v24M130 70l10 10l10-10" stroke="#0E7F96" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <use href="#nu"/>
+      <text x="140" y="164" text-anchor="middle" font-size="16" font-weight="800">Nu instalezi și nu</text>
+      <text x="140" y="186" text-anchor="middle" font-size="16" font-weight="800">copiezi programe</text>
+    </g>
+    <!-- 4 prize -->
+    <g transform="translate(40 304)">
+      <rect width="280" height="210" rx="18" fill="#fff" stroke="#F21F4B" stroke-width="3"/>
+      <path d="M128 42v18M152 42v18" stroke="#6B6460" stroke-width="5" stroke-linecap="round"/>
+      <rect x="118" y="58" width="44" height="36" rx="8" fill="#6B6460"/>
+      <path d="M140 94c0 14-20 10-20 24" stroke="#6B6460" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M176 48l-10 20h10l-8 18" stroke="#FFC83D" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <use href="#nu"/>
+      <text x="140" y="164" text-anchor="middle" font-size="16" font-weight="800">Nu atingi prizele</text>
+      <text x="140" y="186" text-anchor="middle" font-size="16" font-weight="800">și cablurile electrice</text>
+    </g>
+    <!-- 5 componente -->
+    <g transform="translate(340 304)">
+      <rect width="280" height="210" rx="18" fill="#fff" stroke="#F21F4B" stroke-width="3"/>
+      <rect x="106" y="42" width="38" height="64" rx="19" fill="#fff" stroke="#171416" stroke-width="3"/>
+      <path d="M125 42v22M106 64h38" stroke="#171416" stroke-width="3"/>
+      <path d="M160 102l18-40" stroke="#6B6460" stroke-width="5" stroke-linecap="round"/>
+      <path d="M156 110l8-14" stroke="#FFC83D" stroke-width="10" stroke-linecap="round"/>
+      <use href="#nu"/>
+      <text x="140" y="164" text-anchor="middle" font-size="16" font-weight="800">Nu desfaci și nu schimbi</text>
+      <text x="140" y="186" text-anchor="middle" font-size="16" font-weight="800">componentele între ele</text>
+    </g>
+    <!-- 6 anunti -->
+    <g transform="translate(640 304)">
+      <rect width="280" height="210" rx="18" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+      <circle cx="140" cy="76" r="46" fill="#FFC83D"/>
+      <text x="140" y="96" text-anchor="middle" font-size="56" font-weight="800">!</text>
+      <text x="140" y="164" text-anchor="middle" font-size="16" font-weight="800">Anunți profesorul</text>
+      <text x="140" y="186" text-anchor="middle" font-size="16" font-weight="800">despre orice defecțiune</text>
+    </g>
+  </g>
+</svg>

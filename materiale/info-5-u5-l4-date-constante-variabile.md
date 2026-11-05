@@ -71,6 +71,8 @@ Pune-ți trei întrebări:
 | timpul unui drum cu bicicleta | distanța, viteza | – | timpul |
 | restul primit la magazin | banii dați, prețul | – | restul |
 
+![La media a trei note, notele sunt date de intrare, suma lor este dată de manevră, iar media este dată de ieșire.](fisiere/imagini/info-5-u5-l4-media.svg)
+
 > **Rolul datelor:** datele de intrare **pornesc** prelucrarea, cele de manevră **păstrează rezultate intermediare**, iar cele de ieșire **răspund la cerința problemei**. Dacă lipsește o dată de intrare, algoritmul nu poate porni; dacă lipsește o dată de ieșire, nu aflăm rezultatul.
 
 ### Constante și variabile
@@ -83,6 +85,8 @@ Pune-ți trei întrebări:
 - `sr = si – e – c`: suma rămasă (**variabilă**).
 
 > **Constantele** nu își schimbă valoarea în timpul algoritmului (un comision fix, o reducere fixă, dimensiunile unui labirint). **Variabilele** își schimbă valoarea în timpul algoritmului (suma de pe card, distanța parcursă de un personaj).
+
+![Datele algoritmului bancomatului desenate ca niște cutii cu etichetă: si, e și sr sunt variabile, iar comisionul c este o constantă.](fisiere/imagini/info-5-u5-l4-cutii.svg)
 
 - Fiecare constantă sau variabilă are un **nume**, care **nu se schimbă** pe parcursul algoritmului.
 - Numele trebuie să fie **unic**: nu pot exista două date cu același nume în același algoritm.
@@ -102,6 +106,8 @@ Pune-ți trei întrebări:
 B = (20 × 2 + 6) × 5 = (40 + 6) × 5 = 46 × 5 = **230**.
 
 Aici **B** este **variabilă** (își schimbă valoarea), iar **2**, **6** și **5** sunt **constante**.
+
+![Variabila B își schimbă valoarea după formula B = (B × 2 + 6) × 5: din 20 devine 230, iar numele ei rămâne același.](fisiere/imagini/info-5-u5-l4-variabila-b.svg)
 
 ## Aplicații interactive
 

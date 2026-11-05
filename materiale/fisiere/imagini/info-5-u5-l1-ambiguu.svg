@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Trei formulări greșite, proprietatea care le lipsește și varianta corectată</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6B6460"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="48" text-anchor="middle" font-size="24" font-weight="800">Repară formularea!</text>
+
+    <!-- capete de coloană -->
+    <text x="215" y="96" text-anchor="middle" font-size="18" font-weight="800" fill="#C8133A">Greșit</text>
+    <text x="480" y="96" text-anchor="middle" font-size="18" font-weight="800" fill="#7A3FB8">Ce lipsește?</text>
+    <text x="745" y="96" text-anchor="middle" font-size="18" font-weight="800" fill="#0B6F68">Corect</text>
+
+    <!-- rândul 1 -->
+    <rect x="40" y="114" width="350" height="92" rx="14" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="74" cy="160" r="16" fill="#F21F4B"/>
+    <path d="M67 153L81 167M81 153L67 167" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+    <text x="102" y="154" font-size="16">„Dacă ninge, stau acasă</text>
+    <text x="102" y="178" font-size="16"><tspan font-weight="800">sau</tspan> merg la teatru.”</text>
+    <rect x="410" y="128" width="140" height="64" rx="32" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="3"/>
+    <text x="480" y="167" text-anchor="middle" font-size="16" font-weight="800" fill="#7A3FB8">claritatea</text>
+    <rect x="570" y="114" width="350" height="92" rx="14" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="604" cy="160" r="16" fill="#14A39A"/>
+    <path d="M596 160L602 166L613 154" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="632" y="154" font-size="16">„Dacă ninge sau dacă sunt</text>
+    <text x="632" y="178" font-size="16">obosit, stau acasă.”</text>
+
+    <!-- rândul 2 -->
+    <rect x="40" y="226" width="350" height="92" rx="14" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="74" cy="272" r="16" fill="#F21F4B"/>
+    <path d="M67 265L81 279M81 265L67 279" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+    <text x="102" y="266" font-size="16">„Scrieți numerele</text>
+    <text x="102" y="290" font-size="16">naturale pare.”</text>
+    <text x="300" y="284" font-size="15" fill="#C8133A" font-weight="700">2, 4, 6…</text>
+    <rect x="410" y="240" width="140" height="64" rx="32" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="3"/>
+    <text x="480" y="279" text-anchor="middle" font-size="16" font-weight="800" fill="#7A3FB8">finitudinea</text>
+    <rect x="570" y="226" width="350" height="92" rx="14" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="604" cy="272" r="16" fill="#14A39A"/>
+    <path d="M596 272L602 278L613 266" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="632" y="266" font-size="16">„Scrieți numerele naturale</text>
+    <text x="632" y="290" font-size="16">pare mai mici decât 1000.”</text>
+
+    <!-- rândul 3 -->
+    <rect x="40" y="338" width="350" height="92" rx="14" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="74" cy="384" r="16" fill="#F21F4B"/>
+    <path d="M67 377L81 391M81 377L67 391" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+    <text x="102" y="378" font-size="16">„Un vârf de cuțit</text>
+    <text x="102" y="402" font-size="16">de sare.”</text>
+    <!-- solniță -->
+    <path d="M318 368H350L356 414H312Z" fill="#fff" stroke="#6B6460" stroke-width="2.5"/>
+    <rect x="320" y="358" width="28" height="12" rx="5" fill="#6B6460"/>
+    <text x="334" y="400" text-anchor="middle" font-size="14" font-weight="800" fill="#C8133A">?</text>
+    <rect x="410" y="352" width="140" height="64" rx="32" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="3"/>
+    <text x="480" y="391" text-anchor="middle" font-size="16" font-weight="800" fill="#7A3FB8">unicitatea</text>
+    <rect x="570" y="338" width="350" height="92" rx="14" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="604" cy="384" r="16" fill="#14A39A"/>
+    <path d="M596 384L602 390L613 378" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="632" y="390" font-size="16">„2 grame de sare.”</text>
+
+    <!-- săgeți -->
+    <g stroke="#6B6460" stroke-width="3" fill="none">
+      <path d="M392 160H406" marker-end="url(#a)"/>
+      <path d="M552 160H566" marker-end="url(#a)"/>
+      <path d="M392 272H406" marker-end="url(#a)"/>
+      <path d="M552 272H566" marker-end="url(#a)"/>
+      <path d="M392 384H406" marker-end="url(#a)"/>
+      <path d="M552 384H566" marker-end="url(#a)"/>
+    </g>
+
+    <!-- concluzie -->
+    <rect x="40" y="454" width="880" height="56" rx="14" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+    <text x="480" y="489" text-anchor="middle" font-size="16" font-weight="700">Un algoritm bun nu lasă loc de ghicit: oricine îl citește face exact același lucru.</text>
+  </g>
+</svg>

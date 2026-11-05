@@ -30,6 +30,8 @@ Un **editor grafic** este un program cu care **creezi, modifici și salvezi** im
 
 Imaginile se salvează în **fișiere grafice**. Din Paint poți salva cu extensiile `.png`, `.jpg`, `.bmp`, `.gif`, `.tiff`.
 
+![Cu un editor grafic creezi, modifici și salvezi imagini; exemple de editoare grafice și extensiile cu care salvezi din Paint.](fisiere/imagini/tic-5-u4-l1-editor-grafic-interfata-editoare.svg)
+
 ### 2D și 3D
 
 - O imagine **2D** (în două dimensiuni) are **lățime** și **înălțime**, ca desenele pe hârtie.
@@ -42,6 +44,8 @@ Imaginile se salvează în **fișiere grafice**. Din Paint poți salva cu extens
 - **Start** → **Accesorii Windows** → **Paint**;
 - **Start** → scrii `Paint` → **Enter**;
 - clic pe pictograma Paint din bara de activități, dacă este acolo.
+
+![Paint pornește din meniul Start → Accesorii Windows, scriind „Paint” și apăsând Enter sau cu un clic pe pictograma din bara de activități.](fisiere/imagini/tic-5-u4-l1-editor-grafic-interfata-pornire.svg)
 
 ### Interfața Paint
 
@@ -68,6 +72,8 @@ Imaginile se salvează în **fișiere grafice**. Din Paint poți salva cu extens
 - **Culori**: **Culoarea 1** (prim-plan), **Culoarea 2** (fundal), **paleta de culori** și **Editare culori**.
 
 **Vizualizare (View):** **mărire**, **micșorare**, **100%**, **rigle**, **liniatură cu pătrățele**, **bara de stare** și **ecran complet**.
+
+![Ce găsești în fiecare filă a panglicii: Fișier pentru lucrul cu fișierul, Pornire pentru desen și Vizualizare pentru felul în care vezi desenul.](fisiere/imagini/tic-5-u4-l1-editor-grafic-interfata-file.svg)
 
 ## Exemplu rezolvat
 

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">„Cel puțin 12 ani” înseamnă vârsta ≥ 12, iar „mai mare decât 12” înseamnă vârsta &gt; 12; dicționarul operatorilor relaționali</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">„Cel puțin” sau „mai mare decât”?</text>
+
+    <!-- rândul ≥ -->
+    <rect x="40" y="72" width="560" height="196" rx="18" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="64" y="106" font-size="17" font-weight="800">Poți intra dacă ai cel puțin 12 ani.</text>
+    <rect x="430" y="86" width="150" height="34" rx="17" fill="#14A39A"/>
+    <text x="505" y="109" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">vârsta ≥ 12</text>
+    <path d="M70 186H570" stroke="#6B6460" stroke-width="3"/>
+    <g font-size="16" font-weight="800" text-anchor="middle">
+      <circle cx="100" cy="186" r="22" fill="#fff" stroke="#6B6460" stroke-width="3"/><text x="100" y="192" fill="#6B6460">9</text>
+      <circle cx="176" cy="186" r="22" fill="#fff" stroke="#6B6460" stroke-width="3"/><text x="176" y="192" fill="#6B6460">10</text>
+      <circle cx="252" cy="186" r="22" fill="#fff" stroke="#6B6460" stroke-width="3"/><text x="252" y="192" fill="#6B6460">11</text>
+      <circle cx="328" cy="186" r="26" fill="#14A39A" stroke="#0B6F68" stroke-width="4"/><text x="328" y="192" fill="#fff">12</text>
+      <circle cx="404" cy="186" r="22" fill="#14A39A"/><text x="404" y="192" fill="#fff">13</text>
+      <circle cx="480" cy="186" r="22" fill="#14A39A"/><text x="480" y="192" fill="#fff">14</text>
+      <circle cx="556" cy="186" r="22" fill="#14A39A"/><text x="556" y="192" fill="#fff">15</text>
+    </g>
+    <text x="328" y="244" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">12 poate intra</text>
+    <text x="176" y="244" text-anchor="middle" font-size="15" fill="#6B6460">nu intră</text>
+    <text x="480" y="244" text-anchor="middle" font-size="15" fill="#0B6F68">intră</text>
+
+    <!-- rândul > -->
+    <rect x="40" y="286" width="560" height="196" rx="18" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <text x="64" y="320" font-size="17" font-weight="800">Poți intra dacă ai mai mult de 12 ani.</text>
+    <rect x="430" y="334" width="150" height="34" rx="17" fill="#F21F4B"/>
+    <text x="505" y="357" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">vârsta &gt; 12</text>
+    <path d="M70 400H570" stroke="#6B6460" stroke-width="3"/>
+    <g font-size="16" font-weight="800" text-anchor="middle">
+      <circle cx="100" cy="400" r="22" fill="#fff" stroke="#6B6460" stroke-width="3"/><text x="100" y="406" fill="#6B6460">9</text>
+      <circle cx="176" cy="400" r="22" fill="#fff" stroke="#6B6460" stroke-width="3"/><text x="176" y="406" fill="#6B6460">10</text>
+      <circle cx="252" cy="400" r="22" fill="#fff" stroke="#6B6460" stroke-width="3"/><text x="252" y="406" fill="#6B6460">11</text>
+      <circle cx="328" cy="400" r="26" fill="#fff" stroke="#C8133A" stroke-width="4"/><text x="328" y="406" fill="#C8133A">12</text>
+      <circle cx="404" cy="400" r="22" fill="#F21F4B"/><text x="404" y="406" fill="#fff">13</text>
+      <circle cx="480" cy="400" r="22" fill="#F21F4B"/><text x="480" y="406" fill="#fff">14</text>
+      <circle cx="556" cy="400" r="22" fill="#F21F4B"/><text x="556" y="406" fill="#fff">15</text>
+    </g>
+    <text x="328" y="458" text-anchor="middle" font-size="16" font-weight="800" fill="#C8133A">12 rămâne afară</text>
+    <text x="480" y="458" text-anchor="middle" font-size="15" fill="#C8133A">intră</text>
+
+    <!-- dicționar -->
+    <rect x="624" y="72" width="296" height="410" rx="18" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="3"/>
+    <text x="772" y="106" text-anchor="middle" font-size="18" font-weight="800" fill="#7A3FB8">Din cuvinte în semne</text>
+    <g font-size="16">
+      <text x="648" y="152">este egal cu</text>
+      <text x="648" y="206">este diferit de</text>
+      <text x="648" y="260">mai mic decât</text>
+      <text x="648" y="314">mai mare decât</text>
+      <text x="648" y="368">cel mult</text>
+      <text x="648" y="422">cel puțin</text>
+    </g>
+    <g fill="#F0E8FA">
+      <rect x="836" y="128" width="64" height="36" rx="10"/>
+      <rect x="836" y="182" width="64" height="36" rx="10"/>
+      <rect x="836" y="236" width="64" height="36" rx="10"/>
+      <rect x="836" y="290" width="64" height="36" rx="10"/>
+      <rect x="836" y="344" width="64" height="36" rx="10"/>
+      <rect x="836" y="398" width="64" height="36" rx="10"/>
+    </g>
+    <g font-size="22" font-weight="800" text-anchor="middle" fill="#7A3FB8">
+      <text x="868" y="154">=</text>
+      <text x="868" y="208">≠</text>
+      <text x="868" y="262">&lt;</text>
+      <text x="868" y="316">&gt;</text>
+      <text x="868" y="370">≤</text>
+      <text x="868" y="424">≥</text>
+    </g>
+    <text x="772" y="464" text-anchor="middle" font-size="14" fill="#6B6460">Răspunsul unei condiții: Da sau Nu.</text>
+
+    <rect x="40" y="498" width="880" height="1" fill="none"/>
+    <text x="480" y="520" text-anchor="middle" font-size="15" fill="#6B6460">Semnul „≥” cuprinde și valoarea egală: 12 ≥ 12 este adevărat, dar 12 &gt; 12 este fals.</text>
+  </g>
+</svg>

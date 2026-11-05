@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Combinațiile de taste din unitatea 2: Ctrl + C, Ctrl + X, Ctrl + V, Ctrl + A, Alt + F4, Windows + E, Delete și Enter</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="50" text-anchor="middle" font-size="24" font-weight="800">Tastele de reținut din unitatea 2</text>
+    <rect x="30" y="80" width="210" height="196" rx="18" fill="#fff" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="42" y="92" width="186" height="110" rx="12" fill="#E2F6FA"/>
+    <rect x="60.0" y="120" width="72" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="60.0" y="164" width="72" height="6" rx="3" fill="#171416"/><text x="96.0" y="152" text-anchor="middle" font-size="18" font-weight="800">Ctrl</text>
+    <text x="146.0" y="152" text-anchor="middle" font-size="20" font-weight="800" fill="#6B6460">+</text>
+    <rect x="160.0" y="120" width="50" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="160.0" y="164" width="50" height="6" rx="3" fill="#171416"/><text x="185.0" y="152" text-anchor="middle" font-size="18" font-weight="800">C</text>
+    <text x="135" y="244" text-anchor="middle" font-size="16" font-weight="800" fill="#0E7F96">Copiere</text>
+    <rect x="258" y="80" width="210" height="196" rx="18" fill="#fff" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="270" y="92" width="186" height="110" rx="12" fill="#E2F6FA"/>
+    <rect x="288.0" y="120" width="72" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="288.0" y="164" width="72" height="6" rx="3" fill="#171416"/><text x="324.0" y="152" text-anchor="middle" font-size="18" font-weight="800">Ctrl</text>
+    <text x="374.0" y="152" text-anchor="middle" font-size="20" font-weight="800" fill="#6B6460">+</text>
+    <rect x="388.0" y="120" width="50" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="388.0" y="164" width="50" height="6" rx="3" fill="#171416"/><text x="413.0" y="152" text-anchor="middle" font-size="18" font-weight="800">X</text>
+    <text x="363" y="232" text-anchor="middle" font-size="16" font-weight="800" fill="#0E7F96">Tăiere</text>
+    <text x="363" y="254" text-anchor="middle" font-size="16" font-weight="800" fill="#0E7F96">(decupare)</text>
+    <rect x="486" y="80" width="210" height="196" rx="18" fill="#fff" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="498" y="92" width="186" height="110" rx="12" fill="#E2F6FA"/>
+    <rect x="516.0" y="120" width="72" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="516.0" y="164" width="72" height="6" rx="3" fill="#171416"/><text x="552.0" y="152" text-anchor="middle" font-size="18" font-weight="800">Ctrl</text>
+    <text x="602.0" y="152" text-anchor="middle" font-size="20" font-weight="800" fill="#6B6460">+</text>
+    <rect x="616.0" y="120" width="50" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="616.0" y="164" width="50" height="6" rx="3" fill="#171416"/><text x="641.0" y="152" text-anchor="middle" font-size="18" font-weight="800">V</text>
+    <text x="591" y="244" text-anchor="middle" font-size="16" font-weight="800" fill="#0E7F96">Lipire</text>
+    <rect x="714" y="80" width="210" height="196" rx="18" fill="#fff" stroke="#14A39A" stroke-width="3"/>
+    <rect x="726" y="92" width="186" height="110" rx="12" fill="#E0F4F2"/>
+    <rect x="744.0" y="120" width="72" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="744.0" y="164" width="72" height="6" rx="3" fill="#171416"/><text x="780.0" y="152" text-anchor="middle" font-size="18" font-weight="800">Ctrl</text>
+    <text x="830.0" y="152" text-anchor="middle" font-size="20" font-weight="800" fill="#6B6460">+</text>
+    <rect x="844.0" y="120" width="50" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="844.0" y="164" width="50" height="6" rx="3" fill="#171416"/><text x="869.0" y="152" text-anchor="middle" font-size="18" font-weight="800">A</text>
+    <text x="819" y="244" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">Selectezi tot</text>
+    <rect x="30" y="294" width="210" height="196" rx="18" fill="#fff" stroke="#F21F4B" stroke-width="3"/>
+    <rect x="42" y="306" width="186" height="110" rx="12" fill="#FDE7EC"/>
+    <rect x="66.0" y="334" width="60" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="66.0" y="378" width="60" height="6" rx="3" fill="#171416"/><text x="96.0" y="366" text-anchor="middle" font-size="18" font-weight="800">Alt</text>
+    <text x="140.0" y="366" text-anchor="middle" font-size="20" font-weight="800" fill="#6B6460">+</text>
+    <rect x="154.0" y="334" width="50" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="154.0" y="378" width="50" height="6" rx="3" fill="#171416"/><text x="179.0" y="366" text-anchor="middle" font-size="18" font-weight="800">F4</text>
+    <text x="135" y="446" text-anchor="middle" font-size="16" font-weight="800" fill="#C8133A">Închizi</text>
+    <text x="135" y="468" text-anchor="middle" font-size="16" font-weight="800" fill="#C8133A">fereastra</text>
+    <rect x="258" y="294" width="210" height="196" rx="18" fill="#fff" stroke="#7A3FB8" stroke-width="3"/>
+    <rect x="270" y="306" width="186" height="110" rx="12" fill="#F0E8FA"/>
+    <rect x="280" y="334" width="100" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="280" y="378" width="100" height="6" rx="3" fill="#171416"/><text x="330" y="366" text-anchor="middle" font-size="17" font-weight="800">Windows</text>
+    <text x="393" y="366" text-anchor="middle" font-size="20" font-weight="800" fill="#6B6460">+</text>
+    <rect x="406" y="334" width="44" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="406" y="378" width="44" height="6" rx="3" fill="#171416"/><text x="428" y="366" text-anchor="middle" font-size="18" font-weight="800">E</text>
+    <text x="363" y="446" text-anchor="middle" font-size="16" font-weight="800" fill="#7A3FB8">Pornești</text>
+    <text x="363" y="468" text-anchor="middle" font-size="16" font-weight="800" fill="#7A3FB8">File Explorer</text>
+    <rect x="486" y="294" width="210" height="196" rx="18" fill="#fff" stroke="#F21F4B" stroke-width="3"/>
+    <rect x="498" y="306" width="186" height="110" rx="12" fill="#FDE7EC"/>
+    <rect x="532.0" y="334" width="118" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="532.0" y="378" width="118" height="6" rx="3" fill="#171416"/><text x="591.0" y="366" text-anchor="middle" font-size="18" font-weight="800">Delete</text>
+    <text x="591" y="458" text-anchor="middle" font-size="16" font-weight="800" fill="#C8133A">Ștergi fișierul</text>
+    <rect x="714" y="294" width="210" height="196" rx="18" fill="#fff" stroke="#14A39A" stroke-width="3"/>
+    <rect x="726" y="306" width="186" height="110" rx="12" fill="#E0F4F2"/>
+    <rect x="766.5" y="334" width="105" height="50" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/><rect x="766.5" y="378" width="105" height="6" rx="3" fill="#171416"/><text x="819.0" y="366" text-anchor="middle" font-size="18" font-weight="800">Enter</text>
+    <text x="819" y="446" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">Confirmi</text>
+    <text x="819" y="468" text-anchor="middle" font-size="16" font-weight="800" fill="#0B6F68">numele nou</text>
+  </g>
+</svg>

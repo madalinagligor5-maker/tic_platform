@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Date organizate greșit, la grămadă pe desktop, și corect, în foldere cu nume sugestive</title>
+  <defs>
+    <g id="doc"><path d="M0 0h20l8 8v28H0z" fill="#fff" stroke="#171416" stroke-width="2.5" stroke-linejoin="round"/><path d="M5 16h18M5 23h14" stroke="#C9C1BA" stroke-width="3" stroke-linecap="round"/></g>
+    <g id="img"><rect x="0" y="0" width="30" height="34" rx="3" fill="#fff" stroke="#171416" stroke-width="2.5"/><path d="M4 28l8-10l6 7l4-4l5 7z" fill="#14A39A"/><circle cx="21" cy="9" r="3.5" fill="#FFC83D"/></g>
+    <g id="fd"><path d="M0 4a3 3 0 0 1 3-3h10l4 4h15a3 3 0 0 1 3 3v17a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3z" fill="#FFC83D"/></g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <!-- gresit -->
+    <rect x="30" y="30" width="420" height="410" rx="18" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="66" cy="66" r="18" fill="#F21F4B"/>
+    <path d="M59 59l14 14M73 59l-14 14" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+    <text x="96" y="74" font-size="20" font-weight="800" fill="#C8133A">Așa NU: totul pe desktop</text>
+    <rect x="50" y="100" width="380" height="320" rx="10" fill="#E2F6FA"/>
+    <g font-size="14" font-weight="700" text-anchor="middle">
+      <use href="#doc" x="76" y="116"/><text x="90" y="170">fisier1.txt</text>
+      <use href="#img" x="196" y="122"/><text x="211" y="176">poza.jpg</text>
+      <use href="#doc" x="316" y="112"/><text x="330" y="166">asdf.txt</text>
+      <use href="#img" x="106" y="196"/><text x="121" y="250">poza (2).jpg</text>
+      <use href="#doc" x="250" y="200"/><text x="264" y="254">tema final2.txt</text>
+      <use href="#doc" x="356" y="214"/><text x="370" y="268">Doc1.txt</text>
+      <use href="#img" x="70" y="284"/><text x="86" y="338">IMG_1.jpg</text>
+      <use href="#doc" x="186" y="290"/><text x="200" y="344">copie tema.txt</text>
+      <use href="#doc" x="320" y="300"/><text x="334" y="354">fisier2.txt</text>
+    </g>
+    <text x="240" y="400" text-anchor="middle" font-size="15" font-weight="800" fill="#C8133A">Unde e tema la TIC?</text>
+
+    <!-- corect -->
+    <rect x="470" y="30" width="460" height="410" rx="18" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="506" cy="66" r="18" fill="#14A39A"/>
+    <path d="M497 66l6 7l12-13" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="536" y="74" font-size="20" font-weight="800" fill="#0B6F68">Așa DA: în foldere</text>
+    <rect x="490" y="100" width="420" height="320" rx="10" fill="#fff"/>
+    <g stroke="#6B6460" stroke-width="2" fill="none">
+      <path d="M522 142V348M522 164H544M522 312H544M522 348H544"/>
+      <path d="M562 178V276M562 200H584M562 276H584"/>
+      <path d="M602 214V240H624"/>
+      <path d="M562 362V389H588"/>
+    </g>
+    <g font-size="15" font-weight="700">
+      <use href="#fd" x="506" y="114"/><text x="548" y="134" font-weight="800">C:\Scoala</text>
+      <use href="#fd" x="546" y="150"/><text x="588" y="170">TIC</text>
+      <use href="#fd" x="586" y="186"/><text x="628" y="206">Unitatea1</text>
+      <use href="#doc" x="626" y="222"/><text x="664" y="246" font-weight="800" fill="#0B6F68">Tema_TIC_hardware.txt</text>
+      <use href="#fd" x="586" y="262"/><text x="628" y="282">Unitatea2</text>
+      <use href="#fd" x="546" y="298"/><text x="588" y="318">Matematica</text>
+      <use href="#fd" x="546" y="334"/><text x="588" y="354">Poze</text>
+      <use href="#img" x="590" y="372"/><text x="630" y="396">2026-10-15_excursie.jpg</text>
+    </g>
+  </g>
+  <g font-family="Montserrat, Arial, sans-serif" font-size="15" font-weight="800" text-anchor="middle" fill="#171416">
+    <rect x="30" y="458" width="282" height="52" rx="26" fill="#FFF4D6" stroke="#FFC83D" stroke-width="2"/>
+    <text x="171" y="490">nume sugestive</text>
+    <rect x="339" y="458" width="282" height="52" rx="26" fill="#FFF4D6" stroke="#FFC83D" stroke-width="2"/>
+    <text x="480" y="490">2–4 niveluri de foldere</text>
+    <rect x="648" y="458" width="282" height="52" rx="26" fill="#FFF4D6" stroke="#FFC83D" stroke-width="2"/>
+    <text x="789" y="490">data scrisă an-lună-zi</text>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Comparație cu o bibliotecă: raftul, biblioraftul și dosarul sunt ca folderele, iar paginile sunt ca fișierele</title>
+  <defs>
+    <marker id="s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6B6460"/></marker>
+    <g id="fold"><path d="M0 12a6 6 0 0 1 6-6h28l8 8h44a6 6 0 0 1 6 6v50a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6z" fill="#FFC83D"/><path d="M0 26h92v44a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6z" fill="#F5B21F"/></g>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="42" text-anchor="middle" font-size="24" font-weight="800">E ca într-o bibliotecă</text>
+
+    <circle cx="356" cy="74" r="8" fill="#7A3FB8"/><text x="372" y="80" font-size="16" font-weight="800" fill="#7A3FB8">în bibliotecă</text>
+    <circle cx="510" cy="74" r="8" fill="#3EC6E0"/><text x="526" y="80" font-size="16" font-weight="800" fill="#0E7F96">în calculator</text>
+    
+
+    <g fill="#fff" stroke-width="3">
+      <rect x="40" y="94" width="200" height="170" rx="16" stroke="#7A3FB8"/>
+      <rect x="270" y="94" width="200" height="170" rx="16" stroke="#7A3FB8"/>
+      <rect x="500" y="94" width="200" height="170" rx="16" stroke="#7A3FB8"/>
+      <rect x="730" y="94" width="200" height="170" rx="16" stroke="#7A3FB8"/>
+      <rect x="40" y="312" width="200" height="170" rx="16" stroke="#3EC6E0"/>
+      <rect x="270" y="312" width="200" height="170" rx="16" stroke="#3EC6E0"/>
+      <rect x="500" y="312" width="200" height="170" rx="16" stroke="#3EC6E0"/>
+      <rect x="730" y="312" width="200" height="170" rx="16" stroke="#3EC6E0"/>
+    </g>
+
+    <!-- raft -->
+    <rect x="76" y="112" width="128" height="104" rx="4" fill="none" stroke="#8A6510" stroke-width="5"/>
+    <path d="M76 164h128" stroke="#8A6510" stroke-width="5"/>
+    <rect x="86" y="122" width="16" height="40" rx="2" fill="#7A3FB8"/><rect x="106" y="126" width="16" height="36" rx="2" fill="#F21F4B"/><rect x="126" y="122" width="16" height="40" rx="2" fill="#14A39A"/>
+    <rect x="86" y="172" width="16" height="42" rx="2" fill="#3EC6E0"/><rect x="106" y="172" width="16" height="42" rx="2" fill="#FFC83D"/><rect x="152" y="176" width="40" height="38" rx="2" fill="#B08AD9"/>
+    <!-- biblioraft -->
+    <rect x="342" y="110" width="56" height="108" rx="6" fill="#7A3FB8"/>
+    <rect x="352" y="124" width="36" height="30" rx="4" fill="#fff"/>
+    <circle cx="370" cy="190" r="8" fill="#F0E8FA"/>
+    <!-- dosar -->
+    <path d="M548 120h80l14 14v84h-94z" fill="#fff" stroke="#6B6460" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M540 128h86v94h-86z" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="3"/>
+    <path d="M552 150h60M552 166h50M552 182h62" stroke="#B08AD9" stroke-width="4" stroke-linecap="round"/>
+    <!-- pagini -->
+    <rect x="800" y="116" width="64" height="88" rx="4" fill="#fff" stroke="#6B6460" stroke-width="3"/>
+    <rect x="790" y="124" width="64" height="88" rx="4" fill="#fff" stroke="#171416" stroke-width="3"/>
+    <path d="M800 144h44M800 158h36M800 172h44M800 186h30" stroke="#C9C1BA" stroke-width="4" stroke-linecap="round"/>
+
+    <g text-anchor="middle" font-size="17" font-weight="800">
+      <text x="140" y="248">raftul</text><text x="370" y="248">biblioraftul</text><text x="600" y="248">dosarul</text><text x="830" y="248">paginile</text>
+    </g>
+
+    <!-- calculator -->
+    <use href="#fold" x="94" y="334"/>
+    <use href="#fold" x="324" y="334"/>
+    <use href="#fold" x="554" y="334"/>
+    <rect x="808" y="330" width="44" height="58" rx="4" fill="#fff" stroke="#171416" stroke-width="3"/>
+    <rect x="818" y="338" width="44" height="58" rx="4" fill="#fff" stroke="#171416" stroke-width="3"/>
+    <rect x="798" y="346" width="64" height="66" rx="4" fill="#fff" stroke="#171416" stroke-width="3"/>
+    <path d="M808 366h40M808 380h32M808 394h40" stroke="#3EC6E0" stroke-width="4" stroke-linecap="round"/>
+    <g text-anchor="middle" font-size="17" font-weight="800">
+      <text x="140" y="448">folder</text><text x="370" y="448">subfolder</text><text x="600" y="448">subfolder</text><text x="830" y="448">fișiere</text>
+    </g>
+    <g text-anchor="middle" font-size="14" fill="#6B6460">
+      <text x="140" y="468">pe unitatea C:</text><text x="370" y="468">în folder</text><text x="600" y="468">în subfolder</text><text x="830" y="468">datele propriu-zise</text>
+    </g>
+
+    <g stroke="#6B6460" stroke-width="3" marker-end="url(#s)">
+      <path d="M242 180H264"/><path d="M472 180H494"/><path d="M702 180H724"/>
+      <path d="M242 398H264"/><path d="M472 398H494"/><path d="M702 398H724"/>
+    </g>
+    <g font-size="22" font-weight="800" text-anchor="middle" fill="#6B6460">
+      <text x="140" y="294">=</text><text x="370" y="294">=</text><text x="600" y="294">=</text><text x="830" y="294">=</text>
+    </g>
+    <text x="480" y="516" text-anchor="middle" font-size="15" font-weight="700">Fiecare săgeată înseamnă „conține”: un folder poate conține alte foldere și fișiere.</text>
+  </g>
+</svg>

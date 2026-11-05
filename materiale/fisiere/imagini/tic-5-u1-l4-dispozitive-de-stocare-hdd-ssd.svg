@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Comparație între HDD și SSD: cum memorează datele, piese în mișcare, viteză, rezistență și capacitate</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="170" y="96" text-anchor="middle" font-size="26" font-weight="800">HDD sau SSD?</text>
+    <text x="170" y="124" text-anchor="middle" font-size="15" fill="#6B6460">amândouă păstrează datele</text>
+    <text x="170" y="144" text-anchor="middle" font-size="15" fill="#6B6460">permanent</text>
+
+    <!-- capete coloane -->
+    <rect x="330" y="30" width="290" height="130" rx="18" fill="#FDE7EC"/>
+    <rect x="360" y="52" width="92" height="86" rx="10" fill="#6B6460"/>
+    <circle cx="400" cy="95" r="30" fill="#E8DFD3"/>
+    <circle cx="400" cy="95" r="6" fill="#6B6460"/>
+    <path d="M442 62L410 100" stroke="#FFC83D" stroke-width="5" stroke-linecap="round"/>
+    <text x="536" y="96" text-anchor="middle" font-size="28" font-weight="800" fill="#C8133A">HDD</text>
+    <text x="536" y="120" text-anchor="middle" font-size="14" fill="#6B6460">Hard-Disk Drive</text>
+
+    <rect x="640" y="30" width="290" height="130" rx="18" fill="#E2F6FA"/>
+    <rect x="664" y="62" width="104" height="66" rx="8" fill="#171416"/>
+    <rect x="676" y="74" width="24" height="20" rx="3" fill="#3EC6E0"/><rect x="704" y="74" width="24" height="20" rx="3" fill="#3EC6E0"/><rect x="732" y="74" width="24" height="20" rx="3" fill="#3EC6E0"/>
+    <rect x="676" y="100" width="52" height="16" rx="3" fill="#E2F6FA"/>
+    <text x="848" y="96" text-anchor="middle" font-size="28" font-weight="800" fill="#0E7F96">SSD</text>
+    <text x="848" y="120" text-anchor="middle" font-size="14" fill="#6B6460">Solid-State Drive</text>
+
+    <!-- randuri -->
+    <g fill="#fff" stroke="#E8DFD3" stroke-width="2">
+      <rect x="30" y="176" width="900" height="60" rx="12"/>
+      <rect x="30" y="244" width="900" height="60" rx="12"/>
+      <rect x="30" y="312" width="900" height="60" rx="12"/>
+      <rect x="30" y="380" width="900" height="60" rx="12"/>
+      <rect x="30" y="448" width="900" height="60" rx="12"/>
+    </g>
+    <g fill="#E0F4F2">
+      <rect x="642" y="316" width="284" height="52" rx="10"/>
+      <rect x="642" y="384" width="284" height="52" rx="10"/>
+      <rect x="642" y="248" width="284" height="52" rx="10"/>
+    </g>
+    <g font-size="16" font-weight="800">
+      <text x="54" y="212">Cum memorează datele</text>
+      <text x="54" y="280">Piese în mișcare</text>
+      <text x="54" y="348">Viteza</text>
+      <text x="54" y="416">Rezistența la șocuri</text>
+      <text x="54" y="484">Capacitate obișnuită</text>
+    </g>
+    <g font-size="16" font-weight="700" text-anchor="middle">
+      <text x="475" y="212">magnetic</text>
+      <text x="785" y="212">semiconductori (Flash)</text>
+      <text x="475" y="280">da: discuri care se rotesc</text>
+      <text x="785" y="280">nu</text>
+      <text x="475" y="348">mai lent</text>
+      <text x="785" y="348">mai rapid</text>
+      <text x="475" y="416">mai mică</text>
+      <text x="785" y="416">mai mare (și la temperatură)</text>
+      <text x="475" y="484">120 GB – 8 TB</text>
+      <text x="785" y="484">32 GB – 4 TB</text>
+    </g>
+    <path d="M630 184v316" stroke="#E8DFD3" stroke-width="2"/>
+    <path d="M320 184v316" stroke="#E8DFD3" stroke-width="2"/>
+  </g>
+</svg>

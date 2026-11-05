@@ -33,6 +33,8 @@ Apeși **Adaugă o extensie** (jos, în stânga) și alegi **Muzică**. Primeșt
 - **„pauză (0.25) bătăi”**: o pauză între note;
 - **„setează tempoul la ()”**: viteza cântecului.
 
+![Blocurile extensiei Muzică: setează instrumentul, cântă nota, pauză și setează tempoul.](fisiere/imagini/info-5-u6-l6-muzica-blocuri.svg)
+
 Când dai clic pe numărul notei, apare o **claviatură de pian** din care alegi nota.
 
 ### Notele și numerele lor
@@ -41,6 +43,8 @@ Când dai clic pe numărul notei, apare o **claviatură de pian** din care alegi
 |---|---|---|---|---|---|---|---|---|
 | joase | 48 | 50 | 52 | 53 | 55 | 57 | 59 | 60 |
 | înalte | 60 | 62 | 64 | 65 | 67 | 69 | 71 | 72 |
+
+![Claviatura din Scratch: Do jos are numărul 48, Do din mijloc 60, iar gama Do major merge de la 60 la 72.](fisiere/imagini/info-5-u6-l6-muzica-claviatura.svg)
 
 ### Durata notelor și a pauzelor
 
@@ -77,6 +81,8 @@ cântă nota 72 (Do) → 71 (Si) → 69 (La) → 67 (Sol) → 65 (Fa) → 64 (Mi
 ```
 
 Folosești aceleași blocuri, dar notele merg **descrescător**, de la 72 la 60.
+
+![Gama Do major cântată crescător la pian (de la 60 la 72) și descrescător la saxofon (de la 72 la 60).](fisiere/imagini/info-5-u6-l6-muzica-gama.svg)
 
 ## Aplicații interactive
 

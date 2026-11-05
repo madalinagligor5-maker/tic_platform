@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Cum ții telefonul: greșit, cu capul aplecat, și corect, cu telefonul ridicat și capul drept</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Cum ții telefonul sau tableta</text>
+
+    <!-- GRESIT -->
+    <rect x="40" y="70" width="430" height="440" rx="20" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="82" cy="108" r="20" fill="#F21F4B"/>
+    <path d="M74 100l16 16M90 100l-16 16" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+    <text x="114" y="116" font-size="22" font-weight="800" fill="#C8133A">GREȘIT</text>
+
+    <path d="M100 440H420" stroke="#E8DFD3" stroke-width="6" stroke-linecap="round"/>
+    <path d="M210 300L210 400" stroke="#171416" stroke-width="22" stroke-linecap="round"/>
+    <path d="M210 214L210 320" stroke="#F21F4B" stroke-width="36" stroke-linecap="round"/>
+    <path d="M212 206L240 184" stroke="#F1E9DF" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="258" cy="180" r="27" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+    <circle cx="272" cy="190" r="4" fill="#171416"/>
+    <path d="M214 240L250 290L290 278" stroke="#C8133A" stroke-width="13" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="286" y="258" width="18" height="34" rx="4" fill="#171416" transform="rotate(-25 295 275)"/>
+    <path d="M276 196L292 258" stroke="#C8133A" stroke-width="2.5" stroke-dasharray="6 5"/>
+    <path d="M196 212a40 40 0 0 1 54-46" stroke="#C8133A" stroke-width="4" fill="none" stroke-dasharray="2 6" stroke-linecap="round"/>
+    <rect x="312" y="150" width="138" height="54" rx="12" fill="#fff" stroke="#F21F4B" stroke-width="2"/>
+    <text x="381" y="173" text-anchor="middle" font-size="14" font-weight="700">gâtul duce</text>
+    <text x="381" y="192" text-anchor="middle" font-size="14" font-weight="700">o greutate mare</text>
+
+    <text x="255" y="472" text-anchor="middle" font-size="16" font-weight="800">capul aplecat înainte</text>
+    <text x="255" y="494" text-anchor="middle" font-size="15" fill="#6B6460">dureri de ceafă și de spate</text>
+
+    <!-- CORECT -->
+    <rect x="490" y="70" width="430" height="440" rx="20" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <circle cx="532" cy="108" r="20" fill="#14A39A"/>
+    <path d="M522 108l7 8l13-15" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="564" y="116" font-size="22" font-weight="800" fill="#0B6F68">CORECT</text>
+
+    <path d="M550 440H870" stroke="#E8DFD3" stroke-width="6" stroke-linecap="round"/>
+    <path d="M660 300L660 400" stroke="#171416" stroke-width="22" stroke-linecap="round"/>
+    <path d="M660 214L660 320" stroke="#14A39A" stroke-width="36" stroke-linecap="round"/>
+    <path d="M660 206V190" stroke="#F1E9DF" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="660" cy="166" r="27" fill="#F1E9DF" stroke="#171416" stroke-width="3"/>
+    <circle cx="674" cy="162" r="4" fill="#171416"/>
+    <path d="M664 236L730 250L752 190" stroke="#0B6F68" stroke-width="13" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="752" y="144" width="20" height="38" rx="4" fill="#171416"/>
+    <path d="M680 162H748" stroke="#0B6F68" stroke-width="2.5" stroke-dasharray="6 5"/>
+    <rect x="782" y="190" width="120" height="54" rx="12" fill="#fff" stroke="#14A39A" stroke-width="2"/>
+    <text x="842" y="213" text-anchor="middle" font-size="14" font-weight="700">ecranul la</text>
+    <text x="842" y="232" text-anchor="middle" font-size="14" font-weight="700">nivelul ochilor</text>
+
+    <text x="705" y="472" text-anchor="middle" font-size="16" font-weight="800">ridici dispozitivul</text>
+    <text x="705" y="494" text-anchor="middle" font-size="15" fill="#6B6460">capul stă drept, gâtul nu obosește</text>
+  </g>
+</svg>

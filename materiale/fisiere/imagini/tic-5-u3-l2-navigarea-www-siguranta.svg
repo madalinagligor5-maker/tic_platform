@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Patru pericole de pe internet și cum te protejezi: virușii informatici, conținutul nepotrivit, furtul de identitate și hărțuirea online</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Pericole pe internet și scutul tău</text>
+
+    <!-- card 1 virusi -->
+    <rect x="40" y="72" width="430" height="210" rx="20" fill="#FFFFFF" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="90" cy="120" r="22" fill="#FDE7EC" stroke="#C8133A" stroke-width="3"/>
+    <g stroke="#C8133A" stroke-width="3" stroke-linecap="round"><path d="M90 92v-8M90 148v8M62 120h-8M118 120h8M70 100l-6-6M110 140l6 6M110 100l6-6M70 140l-6 6"/></g>
+    <circle cx="84" cy="114" r="4" fill="#C8133A"/><circle cx="98" cy="124" r="3" fill="#C8133A"/>
+    <text x="134" y="116" font-size="18" font-weight="800" fill="#C8133A">Virușii informatici</text>
+    <text x="134" y="138" font-size="14" fill="#6B6460">programe care strică</text>
+    <text x="134" y="156" font-size="14" fill="#6B6460">hardware-ul sau software-ul</text>
+    <rect x="60" y="176" width="390" height="88" rx="14" fill="#E0F4F2"/>
+    <path d="M80 190l16 6v14c0 10-7 16-16 20c-9-4-16-10-16-20v-14z" fill="#14A39A"/>
+    <text x="110" y="202" font-size="15">instalezi un <tspan font-weight="800">antivirus</tspan>;</text>
+    <text x="110" y="224" font-size="15">nu deschizi linkuri nesigure sau</text>
+    <text x="110" y="246" font-size="15">fișiere de la necunoscuți</text>
+
+    <!-- card 2 continut -->
+    <rect x="490" y="72" width="430" height="210" rx="20" fill="#FFFFFF" stroke="#FFC83D" stroke-width="3"/>
+    <path d="M540 98l24 42h-48z" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M540 112v14" stroke="#171416" stroke-width="3" stroke-linecap="round"/><circle cx="540" cy="133" r="2" fill="#171416"/>
+    <text x="584" y="116" font-size="18" font-weight="800">Conținutul nepotrivit</text>
+    <text x="584" y="138" font-size="14" fill="#6B6460">informații dăunătoare,</text>
+    <text x="584" y="156" font-size="14" fill="#6B6460">chiar ilegale</text>
+    <rect x="510" y="176" width="390" height="88" rx="14" fill="#E0F4F2"/>
+    <path d="M530 190l16 6v14c0 10-7 16-16 20c-9-4-16-10-16-20v-14z" fill="#14A39A"/>
+    <text x="560" y="202" font-size="15">folosești site-uri de încredere,</text>
+    <text x="560" y="224" font-size="15">potrivite vârstei;</text>
+    <text x="560" y="246" font-size="15"><tspan font-weight="800">verifici</tspan> informațiile</text>
+
+    <!-- card 3 identitate -->
+    <rect x="40" y="300" width="430" height="210" rx="20" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="3"/>
+    <rect x="70" y="330" width="40" height="32" rx="5" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="3"/>
+    <path d="M78 330v-8a12 12 0 0 1 24 0v8" fill="none" stroke="#7A3FB8" stroke-width="3"/>
+    <circle cx="90" cy="346" r="4" fill="#7A3FB8"/>
+    <text x="134" y="344" font-size="18" font-weight="800" fill="#7A3FB8">Furtul de identitate</text>
+    <text x="134" y="366" font-size="14" fill="#6B6460">cineva îți folosește</text>
+    <text x="134" y="384" font-size="14" fill="#6B6460">datele personale și parolele</text>
+    <rect x="60" y="404" width="390" height="88" rx="14" fill="#E0F4F2"/>
+    <path d="M80 418l16 6v14c0 10-7 16-16 20c-9-4-16-10-16-20v-14z" fill="#14A39A"/>
+    <text x="110" y="430" font-size="15"><tspan font-weight="800">nu dai date personale</tspan>;</text>
+    <text x="110" y="452" font-size="15">parole <tspan font-weight="800">secrete</tspan> și <tspan font-weight="800">complexe</tspan>;</text>
+    <text x="110" y="474" font-size="15">firewall, antivirus, antispyware</text>
+
+    <!-- card 4 hartuire -->
+    <rect x="490" y="300" width="430" height="210" rx="20" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <path d="M520 328h40a5 5 0 0 1 5 5v22a5 5 0 0 1-5 5h-26l-12 10v-10h-2a5 5 0 0 1-5-5v-22a5 5 0 0 1 5-5z" fill="#E2F6FA" stroke="#0E7F96" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M530 340l6 6M536 340l-6 6M546 340l6 6M552 340l-6 6" stroke="#0E7F96" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="584" y="344" font-size="18" font-weight="800" fill="#0E7F96">Hărțuirea online</text>
+    <text x="584" y="366" font-size="14" fill="#6B6460">(cyberbullying): intimidarea</text>
+    <text x="584" y="384" font-size="14" fill="#6B6460">cuiva prin internet</text>
+    <rect x="510" y="404" width="390" height="88" rx="14" fill="#E0F4F2"/>
+    <path d="M530 418l16 6v14c0 10-7 16-16 20c-9-4-16-10-16-20v-14z" fill="#14A39A"/>
+    <text x="560" y="430" font-size="15"><tspan font-weight="800">nu răspunzi</tspan> la mesaje urâte;</text>
+    <text x="560" y="452" font-size="15"><tspan font-weight="800">ceri ajutorul unui adult</tspan>;</text>
+    <text x="560" y="474" font-size="15">vorbești politicos</text>
+  </g>
+</svg>

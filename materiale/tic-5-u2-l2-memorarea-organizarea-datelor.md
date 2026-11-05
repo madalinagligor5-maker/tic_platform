@@ -46,6 +46,8 @@ nume propriu-zis . extensie
 | audio (sunet, muzică) | .mp3, .wav, .ogg, .m4a |
 | video (filme) | .avi, .mp4, .ogv, .mov, .mpg |
 
+![Numele unui fișier are numele propriu-zis, punctul și extensia; nu poate conține caractere interzise, cum ar fi semnul întrebării sau bara oblică.](fisiere/imagini/tic-5-u2-l2-memorarea-organizarea-datelor-nume-fisier.svg)
+
 ### Folderele
 
 Când ai foarte multe fișiere, e greu să găsești ce cauți. De aceea le grupăm în **foldere** (numite și **directoare**).
@@ -53,6 +55,8 @@ Când ai foarte multe fișiere, e greu să găsești ce cauți. De aceea le grup
 Un **folder** poate conține fișiere și/sau alte foldere. Un folder aflat în alt folder se numește **subfolder**. Numele unui folder respectă aceleași reguli: cel mult 255 de caractere, fără `\ / : * ? " < > |`.
 
 **E ca într-o bibliotecă:** rafturile, bibliorafturile și dosarele sunt folderele, iar paginile sunt fișierele.
+
+![Raftul, biblioraftul și dosarul sunt ca folderele și subfolderele, iar paginile sunt ca fișierele.](fisiere/imagini/tic-5-u2-l2-memorarea-organizarea-datelor-biblioteca.svg)
 
 ### Unitățile de disc
 
@@ -86,6 +90,8 @@ Un calculator „ordonat” te ajută să găsești repede orice fișier. Respec
 4. **Păstrează aceeași regulă de denumire** peste tot. De exemplu, data scrisă **an-lună-zi** (`2026-10-15_excursie.jpg`): așa, fișierele se ordonează singure în ordinea zilelor.
 5. **Nu ține fișiere „la grămadă”** pe desktop; mută-le în folderul potrivit.
 6. **Șterge copiile inutile** și fă **copii de siguranță** (backup) pentru fișierele importante, pe alt dispozitiv de stocare.
+
+![Greșit: fișiere cu nume fără sens, la grămadă pe desktop; corect: foldere pe discipline și fișiere cu nume sugestive.](fisiere/imagini/tic-5-u2-l2-memorarea-organizarea-datelor-ordine.svg)
 
 **Exemplu de structură bună:**
 

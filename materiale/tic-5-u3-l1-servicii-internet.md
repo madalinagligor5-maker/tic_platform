@@ -33,6 +33,8 @@ Oamenii au vrut să ajungă la cât mai multe informații, așa că au legat cal
 
 Îți poți imagina internetul ca pe un calculator uriaș care unește calculatoarele din toată lumea și pe care îl poți folosi de acasă. Scopul lui este o **comunitate globală**, în care toți pot împărtăși informații și pot comunica.
 
+![În laboratorul școlii, calculatoarele sunt legate într-o rețea și folosesc împreună imprimanta, fișierele și legătura la internet.](fisiere/imagini/tic-5-u3-l1-servicii-internet-retea.svg)
+
 ### Cele mai importante servicii ale internetului
 
 1. **E-mailul (poșta electronică)**: trimiți și primești mesaje electronice oriunde în lume, repede și ieftin.
@@ -49,11 +51,15 @@ Oamenii au vrut să ajungă la cât mai multe informații, așa că au legat cal
 - Bazele internetului au fost puse în anii '70, tot într-un proiect ARPA, care urmărea o rețea cât mai sigură.
 - Primul **e-mail** a fost trimis în **1971** de programatorul american **Ray Tomlinson**.
 
+![Pe axa timpului: în 1969 apare ARPANET, în 1971 Ray Tomlinson trimite primul e-mail, în anii '70 se pun bazele internetului, iar în 1989 apare WWW.](fisiere/imagini/tic-5-u3-l1-servicii-internet-istorie.svg)
+
 ## Exemplu rezolvat
 
 **Situație:** vrei să trimiți bunicii o fotografie din excursie. Ce serviciu folosești?
 
 Poți folosi **e-mailul**: scrii un mesaj și atașezi fotografia. Dacă ar fi vorba de multe fișiere mari, trimise între calculatoare, ar fi potrivit un serviciu de **transfer de fișiere (FTP)**.
+
+![Pentru fiecare situație alegi serviciul potrivit: e-mail, FTP, WWW, IRC sau Telnet.](fisiere/imagini/tic-5-u3-l1-servicii-internet-situatii.svg)
 
 ## Aplicații interactive
 

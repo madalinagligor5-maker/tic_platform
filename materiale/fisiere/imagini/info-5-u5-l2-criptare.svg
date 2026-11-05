@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Criptarea unui mesaj: fiecare literă este înlocuită cu codul ei, iar „da” devine 0401</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="48" text-anchor="middle" font-size="24" font-weight="800">Criptarea unui mesaj</text>
+
+    <!-- tabelul de coduri -->
+    <text x="60" y="92" font-size="16" font-weight="800" fill="#7A3FB8">Regula de codificare</text>
+    <g stroke="#7A3FB8" stroke-width="2.5">
+      <rect x="60" y="104" width="110" height="74" rx="10" fill="#fff"/>
+      <rect x="180" y="104" width="80" height="74" rx="10" fill="#fff"/>
+      <rect x="270" y="104" width="80" height="74" rx="10" fill="#fff"/>
+      <rect x="360" y="104" width="80" height="74" rx="10" fill="#fff"/>
+      <rect x="450" y="104" width="80" height="74" rx="10" fill="#F0E8FA"/>
+      <rect x="540" y="104" width="80" height="74" rx="10" fill="#fff"/>
+      <rect x="630" y="104" width="80" height="74" rx="10" fill="#fff"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="115" y="134" font-size="16" font-weight="700">spațiu</text>
+      <text x="115" y="164" font-size="18" font-weight="800" fill="#7A3FB8">00</text>
+      <text x="220" y="136" font-size="20" font-weight="800">a</text>
+      <text x="220" y="164" font-size="18" font-weight="800" fill="#7A3FB8">01</text>
+      <text x="310" y="136" font-size="20" font-weight="800">b</text>
+      <text x="310" y="164" font-size="18" font-weight="800" fill="#7A3FB8">02</text>
+      <text x="400" y="136" font-size="20" font-weight="800">c</text>
+      <text x="400" y="164" font-size="18" font-weight="800" fill="#7A3FB8">03</text>
+      <text x="490" y="136" font-size="20" font-weight="800">d</text>
+      <text x="490" y="164" font-size="18" font-weight="800" fill="#7A3FB8">04</text>
+      <text x="580" y="136" font-size="20" font-weight="800">e</text>
+      <text x="580" y="164" font-size="18" font-weight="800" fill="#7A3FB8">05</text>
+      <text x="670" y="136" font-size="20" font-weight="800">f</text>
+      <text x="670" y="164" font-size="18" font-weight="800" fill="#7A3FB8">06</text>
+      <text x="760" y="150" font-size="26" font-weight="800" fill="#6B6460">…</text>
+    </g>
+
+    <!-- exemplul "da" -->
+    <rect x="40" y="204" width="420" height="300" rx="18" fill="#FFFFFF" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="250" y="238" text-anchor="middle" font-size="17" font-weight="800" fill="#0E7F96">Mesajul „da”</text>
+    <rect x="110" y="254" width="70" height="70" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="145" y="301" text-anchor="middle" font-size="32" font-weight="800">d</text>
+    <rect x="200" y="254" width="70" height="70" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="235" y="301" text-anchor="middle" font-size="32" font-weight="800">a</text>
+    <g stroke="#171416" stroke-width="3" fill="none">
+      <path d="M145 326V358" marker-end="url(#a)"/>
+      <path d="M235 326V358" marker-end="url(#a)"/>
+      <path d="M276 397H312" marker-end="url(#a)"/>
+    </g>
+    <rect x="110" y="362" width="70" height="70" rx="12" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="3"/>
+    <text x="145" y="408" text-anchor="middle" font-size="28" font-weight="800" fill="#7A3FB8">04</text>
+    <rect x="200" y="362" width="70" height="70" rx="12" fill="#F0E8FA" stroke="#7A3FB8" stroke-width="3"/>
+    <text x="235" y="408" text-anchor="middle" font-size="28" font-weight="800" fill="#7A3FB8">01</text>
+    <rect x="316" y="362" width="120" height="70" rx="12" fill="#FFC83D"/>
+    <text x="376" y="408" text-anchor="middle" font-size="28" font-weight="800">0401</text>
+    <text x="250" y="474" text-anchor="middle" font-size="15" fill="#6B6460">literă cu literă, de la stânga la dreapta</text>
+
+    <!-- pașii -->
+    <text x="490" y="238" font-size="17" font-weight="800">Algoritmul, pas cu pas</text>
+    <rect x="490" y="254" width="430" height="44" rx="10" fill="#E2F6FA"/>
+    <text x="508" y="282" font-size="16"><tspan font-weight="800">Pasul 1:</tspan> Caut codul literei „d”.</text>
+    <rect x="490" y="306" width="430" height="44" rx="10" fill="#F0E8FA"/>
+    <text x="508" y="334" font-size="16"><tspan font-weight="800">Pasul 2:</tspan> Scriu codul găsit (04).</text>
+    <rect x="490" y="358" width="430" height="44" rx="10" fill="#E2F6FA"/>
+    <text x="508" y="386" font-size="16"><tspan font-weight="800">Pasul 3:</tspan> Caut codul literei „a”.</text>
+    <rect x="490" y="410" width="430" height="44" rx="10" fill="#F0E8FA"/>
+    <text x="508" y="438" font-size="16"><tspan font-weight="800">Pasul 4:</tspan> Scriu codul găsit (01).</text>
+    <text x="490" y="490" font-size="15" fill="#6B6460">Încearcă și tu: „bac” devine 02 01 03.</text>
+  </g>
+</svg>

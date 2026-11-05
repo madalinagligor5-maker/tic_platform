@@ -93,6 +93,8 @@ dacă a = 0
 | a = 0 | Adevărat | „Număr incorect” |
 | a = 20 | Fals | P = 4 * 20 = **80** |
 
+![Schema logică pentru perimetrul pătratului și traseul datelor pentru a = 0 și pentru a = 20.](fisiere/imagini/info-5-u5-l6-perimetru.svg)
+
 ### Cum descrii în cuvinte ce face un algoritm
 
 Când primești un algoritm scris de altcineva, îl poți explica în **limbaj natural** urmând patru pași:
@@ -113,6 +115,8 @@ dacă n % 2 = 0
 
 **Descrierea:** algoritmul primește un număr natural n. Calculează restul împărțirii lui n la 2 și verifică dacă este egal cu 0. Dacă da, numărul se împarte exact la 2 și se afișează „par”; altfel se afișează „impar”. **Pe scurt: algoritmul spune dacă un număr este par sau impar.**
 
+![Același algoritm, care spune dacă un număr este par sau impar, scris în limbaj natural, în pseudocod și ca schemă logică.](fisiere/imagini/info-5-u5-l6-trei-moduri.svg)
+
 ## Exemplu rezolvat
 
 **Care este rezultatul pentru a = 3, b = 2, c = 9?**
@@ -127,6 +131,8 @@ altfel
 
 - b > 7 → 2 > 7 este **Fals**, deci mergem pe „altfel”.
 - a > 0 → 3 > 0 este **Adevărat**, deci r ← 9 % 3 + 2 = 0 + 2 = **2**.
+
+![Drumul datelor prin cele două decizii pentru a = 3, b = 2 și c = 9: linia groasă arată pașii executați, iar rezultatul este r = 2.](fisiere/imagini/info-5-u5-l6-exemplu.svg)
 
 ## Aplicații interactive
 

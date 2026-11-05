@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Sistemele de calcul folosite azi: desktopul, laptopul, tableta și telefonul inteligent</title>
+  <defs>
+    <marker id="s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6B6460"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Sistemele de calcul folosite azi</text>
+
+    <g stroke-width="3">
+      <rect x="30" y="70" width="210" height="380" rx="18" fill="#fff" stroke="#3EC6E0"/>
+      <rect x="255" y="70" width="210" height="380" rx="18" fill="#fff" stroke="#14A39A"/>
+      <rect x="480" y="70" width="210" height="380" rx="18" fill="#fff" stroke="#7A3FB8"/>
+      <rect x="705" y="70" width="210" height="380" rx="18" fill="#fff" stroke="#F21F4B"/>
+    </g>
+
+    <!-- desktop -->
+    <rect x="60" y="100" width="104" height="72" rx="6" fill="#E2F6FA" stroke="#171416" stroke-width="3"/>
+    <path d="M112 172v14M90 188h44" stroke="#171416" stroke-width="5" stroke-linecap="round"/>
+    <rect x="176" y="96" width="36" height="92" rx="6" fill="#171416"/>
+    <circle cx="194" cy="170" r="6" fill="none" stroke="#3EC6E0" stroke-width="3"/>
+    <rect x="64" y="196" width="96" height="14" rx="4" fill="#fff" stroke="#171416" stroke-width="2"/>
+    <!-- laptop -->
+    <rect x="300" y="112" width="120" height="76" rx="6" fill="#E0F4F2" stroke="#171416" stroke-width="3"/>
+    <path d="M284 196h152l-10 12H294z" fill="#171416"/>
+    <!-- tableta -->
+    <rect x="540" y="96" width="90" height="118" rx="10" fill="#171416"/>
+    <rect x="548" y="106" width="74" height="96" rx="4" fill="#F0E8FA"/>
+    <circle cx="590" cy="160" r="9" fill="#7A3FB8"/>
+    <path d="M598 168l14 14" stroke="#7A3FB8" stroke-width="4" stroke-linecap="round"/>
+    <!-- smartphone -->
+    <rect x="782" y="96" width="56" height="112" rx="10" fill="#171416"/>
+    <rect x="788" y="108" width="44" height="86" rx="3" fill="#FDE7EC"/>
+    <rect x="794" y="116" width="14" height="14" rx="3" fill="#F21F4B"/><rect x="812" y="116" width="14" height="14" rx="3" fill="#FFC83D"/>
+    <rect x="794" y="136" width="14" height="14" rx="3" fill="#3EC6E0"/><rect x="812" y="136" width="14" height="14" rx="3" fill="#14A39A"/>
+
+    <g text-anchor="middle" font-size="18" font-weight="800">
+      <text x="135" y="250" fill="#0E7F96">Desktopul</text>
+      <text x="360" y="250" fill="#0B6F68">Laptopul</text>
+      <text x="585" y="250" fill="#7A3FB8">Tableta</text>
+      <text x="810" y="250" fill="#C8133A">Smartphone-ul</text>
+    </g>
+    <g text-anchor="middle" font-size="14" fill="#6B6460">
+      <text x="135" y="272">calculatorul de birou</text>
+      <text x="360" y="272">calculator portabil</text>
+      <text x="585" y="272">și mai mică</text>
+      <text x="810" y="272">telefonul inteligent</text>
+    </g>
+    <g font-size="14" font-weight="700">
+      <text x="50" y="310">• putere de calcul</text><text x="62" y="330">mare</text>
+      <text x="50" y="358">• se conectează la</text><text x="62" y="378">multe dispozitive</text>
+      <text x="50" y="406">• acasă sau la birou</text>
+
+      <text x="275" y="310">• mic și ușor</text>
+      <text x="275" y="338">• fără cabluri</text>
+      <text x="275" y="366">• consumă puțină</text><text x="287" y="386">energie</text>
+
+      <text x="500" y="310">• ecran tactil</text><text x="512" y="330">(touchscreen)</text>
+      <text x="500" y="358">• se conectează</text><text x="512" y="378">mai greu prin fir</text>
+
+      <text x="725" y="310">• multifuncțional</text>
+      <text x="725" y="338">• aparat foto, GPS</text>
+      <text x="725" y="366">• calendar, agendă,</text><text x="737" y="386">calculator</text>
+    </g>
+
+    <path d="M120 484H840" stroke="#6B6460" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#s)"/>
+    <rect x="290" y="468" width="380" height="32" rx="16" fill="#FFF7EE"/>
+    <text x="480" y="490" text-anchor="middle" font-size="15" font-weight="700" fill="#6B6460">tot mai mici și mai ușor de purtat</text>
+  </g>
+</svg>

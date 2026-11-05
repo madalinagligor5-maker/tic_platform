@@ -37,6 +37,8 @@ data: 2026-10-15
 - **prod** este produsul calculat de program: îl folosim ca să verificăm răspunsul și îl afișăm când jucătorul greșește, deci este și **dată de ieșire**;
 - tot date de ieșire sunt **mesajul** afișat („Bravo! Ești tare!” sau „Fii mai atent!”) și, după îmbunătățire, **scorul**.
 
+![Datele jocului: x, y și răspuns intră în program, programul calculează prod și îl compară cu răspunsul, iar mesajul, prod și scorul sunt date de ieșire.](fisiere/imagini/info-5-u6-l5-matematica-date.svg)
+
 **Scriptul**, care pornește la clic pe RoboY:
 
 ```
@@ -75,11 +77,15 @@ altfel
 | 6 | 8 | 48 | 30 | nu | rămâne **1** |
 | 4 | 3 | 12 | 12 | da | 1 + 1 = **2** |
 
+![Variabila rezultat pornește de la 0, crește cu 1 la fiecare răspuns corect și rămâne la fel la un răspuns greșit.](fisiere/imagini/info-5-u6-l5-matematica-scor.svg)
+
 ## Exemplu rezolvat
 
 **Ce schimbi ca să ai doar exerciții din tabla înmulțirii cu 5?**
 
 Înlocuiești „setează [x] la (număr aleatoriu între 4 și 10)” cu **„setează [x] la 5”**. Acum **x** devine practic o **constantă** (mereu 5), iar **y**, **prod** și **răspuns** rămân **variabile**.
+
+![Numărul aleatoriu poate fi orice valoare din interval: x între 4 și 10, y între 3 și 10; cu „setează x la 5”, x devine practic o constantă.](fisiere/imagini/info-5-u6-l5-matematica-aleatoriu.svg)
 
 ## Aplicații interactive
 

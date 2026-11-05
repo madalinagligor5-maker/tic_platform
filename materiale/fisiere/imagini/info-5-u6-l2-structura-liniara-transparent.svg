@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Comparație: un personaj cu fundal alb arată un dreptunghi alb pe decor, unul cu fundal transparent se vede curat</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6B6460"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+<text x="480" y="44" font-size="24" font-weight="800" text-anchor="middle">De ce personajele au fundal transparent</text><circle cx="70" cy="84" r="16" fill="#F21F4B"/><path d="M63 77l14 14M77 77l-14 14" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><text x="96" y="91" font-size="19" font-weight="800" fill="#C8133A">Fundal alb</text><rect x="50" y="110" width="400" height="270" rx="8" fill="#BFE9F3" stroke="#3EC6E0" stroke-width="3"/><rect x="52" y="310" width="396" height="68" rx="6" fill="#9ED9A6"/><circle cx="390" cy="160" r="26" fill="#FFC83D"/><rect x="178" y="178" width="144" height="150" rx="2" fill="#fff" stroke="#D9D2CA" stroke-width="1.5"/><g transform="translate(250 230) scale(1)"><path d="M0 -8v-10" stroke="#171416" stroke-width="3"/><circle cx="0" cy="-20" r="4" fill="#F21F4B"/>
+<rect x="-22" y="-8" width="44" height="32" rx="8" fill="#3EC6E0" stroke="#171416" stroke-width="3"/>
+<circle cx="-9" cy="6" r="4" fill="#171416"/><circle cx="9" cy="6" r="4" fill="#171416"/>
+<rect x="-26" y="28" width="52" height="40" rx="8" fill="#0E7F96" stroke="#171416" stroke-width="3"/>
+<path d="M-12 68v16M12 68v16" stroke="#171416" stroke-width="5" stroke-linecap="round"/></g><text x="250" y="412" font-size="15" font-weight="700" text-anchor="middle">Se vede un dreptunghi alb</text><text x="250" y="434" font-size="15" font-weight="700" text-anchor="middle">în jurul lui RoboTIC.</text><circle cx="530" cy="84" r="16" fill="#14A39A"/><path d="M522 84l6 6l10 -12" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="556" y="91" font-size="19" font-weight="800" fill="#0B6F68">Fundal transparent</text><rect x="510" y="110" width="400" height="270" rx="8" fill="#BFE9F3" stroke="#3EC6E0" stroke-width="3"/><rect x="512" y="310" width="396" height="68" rx="6" fill="#9ED9A6"/><circle cx="850" cy="160" r="26" fill="#FFC83D"/><g transform="translate(710 230) scale(1)"><path d="M0 -8v-10" stroke="#171416" stroke-width="3"/><circle cx="0" cy="-20" r="4" fill="#F21F4B"/>
+<rect x="-22" y="-8" width="44" height="32" rx="8" fill="#3EC6E0" stroke="#171416" stroke-width="3"/>
+<circle cx="-9" cy="6" r="4" fill="#171416"/><circle cx="9" cy="6" r="4" fill="#171416"/>
+<rect x="-26" y="28" width="52" height="40" rx="8" fill="#0E7F96" stroke="#171416" stroke-width="3"/>
+<path d="M-12 68v16M12 68v16" stroke="#171416" stroke-width="5" stroke-linecap="round"/></g><text x="710" y="412" font-size="15" font-weight="700" text-anchor="middle">Se vede doar RoboTIC,</text><text x="710" y="434" font-size="15" font-weight="700" text-anchor="middle">pe cerul albastru.</text><rect x="50" y="460" width="860" height="54" rx="14" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/><text x="480" y="493" font-size="15" font-weight="700" text-anchor="middle">Un desen făcut în Paint pe fundal alb păstrează albul și pe scenă.</text>
+  </g>
+</svg>

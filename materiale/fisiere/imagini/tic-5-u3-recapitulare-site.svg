@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Schema unui site cu paginile A, B, C și D: din A ai link spre B și C, din B spre D, iar din C spre A</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0E7F96"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Schema site-ului: urmărește săgețile</text>
+
+    <!-- legaturi -->
+    <g stroke="#0E7F96" stroke-width="4" fill="none">
+      <path d="M200 236C260 180 320 160 384 156" marker-end="url(#a)"/>
+      <path d="M200 304C260 360 320 380 384 384" marker-end="url(#a)"/>
+      <path d="M496 156H644" marker-end="url(#a)"/>
+      <path d="M386 418C270 480 140 440 132 326" stroke-dasharray="9 6" marker-end="url(#a)"/>
+    </g>
+    <g font-size="14" font-weight="700" fill="#0E7F96">
+      <text x="236" y="176">A → B</text>
+      <text x="272" y="330">A → C</text>
+      <text x="570" y="142" text-anchor="middle">B → D</text>
+      <text x="232" y="482">C → A</text>
+    </g>
+
+    <!-- pagini -->
+    <g font-size="34" font-weight="800" text-anchor="middle">
+      <rect x="90" y="220" width="110" height="100" rx="14" fill="#FFF4D6" stroke="#FFC83D" stroke-width="4"/>
+      <text x="145" y="282">A</text>
+      <rect x="386" y="106" width="110" height="100" rx="14" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="4"/>
+      <text x="441" y="168">B</text>
+      <rect x="386" y="334" width="110" height="100" rx="14" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="4"/>
+      <text x="441" y="396">C</text>
+      <rect x="646" y="106" width="110" height="100" rx="14" fill="#E0F4F2" stroke="#14A39A" stroke-width="4"/>
+      <text x="701" y="168">D</text>
+    </g>
+    <text x="145" y="208" text-anchor="middle" font-size="14" font-weight="700">pagina de start</text>
+
+    <!-- indicii -->
+    <rect x="560" y="260" width="360" height="220" rx="20" fill="#FFFFFF" stroke="#E8DFD3" stroke-width="3"/>
+    <text x="584" y="296" font-size="18" font-weight="800">Cum citești schema</text>
+    <g font-size="15">
+      <text x="584" y="330">Fiecare săgeată este un hiperlink.</text>
+      <text x="584" y="356">Mergi doar în sensul săgeții.</text>
+      <text x="584" y="390">Numără paginile prin care treci,</text>
+      <text x="584" y="412">inclusiv pe cea de la început.</text>
+      <text x="584" y="446" fill="#6B6460">Întrebare: din C poți ajunge</text>
+      <text x="584" y="468" fill="#6B6460">direct în D?</text>
+    </g>
+  </g>
+</svg>

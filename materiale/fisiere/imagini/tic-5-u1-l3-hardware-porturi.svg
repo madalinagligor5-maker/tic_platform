@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Cum se conectează perifericele: prin USB, HDMI sau VGA, mufa audio jack sau fără fir</title>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="46" text-anchor="middle" font-size="24" font-weight="800">Cum se conectează perifericele</text>
+
+    <g stroke-width="3">
+      <rect x="30" y="70" width="210" height="350" rx="18" fill="#fff" stroke="#3EC6E0"/>
+      <rect x="260" y="70" width="210" height="350" rx="18" fill="#fff" stroke="#F21F4B"/>
+      <rect x="490" y="70" width="210" height="350" rx="18" fill="#fff" stroke="#7A3FB8"/>
+      <rect x="720" y="70" width="210" height="350" rx="18" fill="#fff" stroke="#14A39A"/>
+    </g>
+    <g stroke-width="0">
+      <rect x="40" y="80" width="190" height="130" rx="12" fill="#E2F6FA"/>
+      <rect x="270" y="80" width="190" height="130" rx="12" fill="#FDE7EC"/>
+      <rect x="500" y="80" width="190" height="130" rx="12" fill="#F0E8FA"/>
+      <rect x="730" y="80" width="190" height="130" rx="12" fill="#E0F4F2"/>
+    </g>
+
+    <!-- USB -->
+    <rect x="90" y="110" width="90" height="40" rx="5" fill="#fff" stroke="#171416" stroke-width="4"/>
+    <rect x="102" y="120" width="66" height="14" rx="2" fill="#0E7F96"/>
+    <text x="135" y="182" text-anchor="middle" font-size="14" font-weight="700" fill="#0E7F96">portul USB</text>
+    <!-- HDMI si VGA -->
+    <path d="M290 122h74v18l-8 10h-58l-8-10z" fill="#fff" stroke="#171416" stroke-width="4"/>
+    <rect x="300" y="128" width="54" height="8" rx="2" fill="#C8133A"/>
+    <text x="327" y="182" text-anchor="middle" font-size="14" font-weight="700" fill="#C8133A">HDMI</text>
+    <path d="M374 120h76l-8 34h-60z" fill="#fff" stroke="#171416" stroke-width="4"/>
+    <g fill="#C8133A"><circle cx="390" cy="130" r="3"/><circle cx="401" cy="130" r="3"/><circle cx="412" cy="130" r="3"/><circle cx="423" cy="130" r="3"/><circle cx="434" cy="130" r="3"/>
+      <circle cx="394" cy="143" r="3"/><circle cx="406" cy="143" r="3"/><circle cx="418" cy="143" r="3"/><circle cx="430" cy="143" r="3"/></g>
+    <text x="412" y="182" text-anchor="middle" font-size="14" font-weight="700" fill="#C8133A">VGA</text>
+    <!-- jack -->
+    <circle cx="560" cy="142" r="26" fill="#fff" stroke="#171416" stroke-width="4"/>
+    <circle cx="560" cy="142" r="8" fill="#171416"/>
+    <path d="M600 142h22" stroke="#7A3FB8" stroke-width="10" stroke-linecap="round"/>
+    <rect x="620" y="128" width="42" height="28" rx="6" fill="#7A3FB8"/>
+    <path d="M662 142h18" stroke="#7A3FB8" stroke-width="6" stroke-linecap="round"/>
+    <path d="M598 142h-6" stroke="#171416" stroke-width="10" stroke-linecap="round"/>
+    <text x="595" y="194" text-anchor="middle" font-size="14" font-weight="700" fill="#7A3FB8">mufa și ștecherul jack</text>
+    <!-- fara fir -->
+    <path d="M770 132a40 40 0 0 1 56 0M780 144a26 26 0 0 1 36 0M790 156a12 12 0 0 1 16 0" stroke="#0B6F68" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="798" cy="168" r="5" fill="#0B6F68"/>
+    <path d="M858 128l20 18l-12 10v-40l12 10l-20 18" stroke="#0B6F68" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+    <text x="798" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="#0B6F68">Wi-Fi</text>
+    <text x="866" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="#0B6F68">Bluetooth</text>
+
+    <g text-anchor="middle" font-size="20" font-weight="800">
+      <text x="135" y="246" fill="#0E7F96">USB</text>
+      <text x="365" y="246" fill="#C8133A">HDMI sau VGA</text>
+      <text x="595" y="246" fill="#7A3FB8">mufa audio (jack)</text>
+      <text x="825" y="246" fill="#0B6F68">fără fir</text>
+    </g>
+    <g font-size="15" font-weight="700">
+      <text x="50" y="282">• tastatura</text>
+      <text x="50" y="306">• mouse-ul</text>
+      <text x="50" y="330">• imprimanta</text>
+      <text x="50" y="354">• stickul de memorie</text>
+      <text x="50" y="378">• HDD-ul extern</text>
+
+      <text x="280" y="282">• monitorul</text>
+      <text x="280" y="306">• videoproiectorul</text>
+
+      <text x="510" y="282">• boxele</text>
+      <text x="510" y="306">• căștile</text>
+      <text x="510" y="330">• microfonul</text>
+
+      <text x="740" y="282">• mouse-ul și</text>
+      <text x="752" y="304">tastatura wireless</text>
+      <text x="740" y="330">• căștile wireless</text>
+      <text x="740" y="356">• imprimanta</text>
+      <text x="752" y="378">din rețea</text>
+    </g>
+
+    <rect x="30" y="440" width="900" height="70" rx="16" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+    <text x="480" y="470" text-anchor="middle" font-size="16" font-weight="800">Un dispozitiv nou merge după ce sistemul de operare îi instalează driverul,</text>
+    <text x="480" y="494" text-anchor="middle" font-size="15">un mic program care îl „prezintă” calculatorului.</text>
+  </g>
+</svg>

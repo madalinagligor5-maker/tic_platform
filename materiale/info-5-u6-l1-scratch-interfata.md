@@ -69,6 +69,8 @@ Cu butonul cu **globul pământesc** alegi **limba română**. Personajul care a
 | **Blocurile mele** | blocuri create de tine |
 | **Extensii** | blocuri în plus: **Muzică**, **Creion**, Detectare video, Text în vorbire, Traducere |
 
+![Cele opt categorii principale de blocuri, fiecare cu culoarea ei și cu un bloc-exemplu: Mișcare, Evenimente, Aspect, Control, Sunet, Detectare, Variabile și Operatori.](fisiere/imagini/info-5-u6-l1-scratch-categorii.svg)
+
 ### Scena
 
 - Scena este un dreptunghi de **480 × 360 pixeli**. Un **pixel (px)** este un punct mic dintr-o imagine (*PICture ELement*).
@@ -82,6 +84,8 @@ Cu butonul cu **globul pământesc** alegi **limba română**. Personajul care a
 - Un personaj îl poți **încărca** de pe calculator, alege **Surpriză**, **desena** sau **alege** din bibliotecă.
 - Un personaj poate avea mai multe **costume** (ipostaze). O **animație** este o succesiune de costume.
 - Decorurile se gestionează la fel ca personajele.
+
+![Trei costume ale aceluiași personaj, schimbate unul după altul, formează o animație; un personaj nou îl poți încărca, alege Surpriză, desena sau alege din bibliotecă.](fisiere/imagini/info-5-u6-l1-scratch-costume.svg)
 
 ### Instrucțiunile se execută în ordine
 
@@ -97,6 +101,8 @@ Un personaj poate avea **mai multe scripturi**. Blocurile dintr-un script se exe
 2. Din **Mișcare** tragi „mergi la x: … y: …” și îl lipești dedesubt; scrii **x = 150**.
 3. Din **Sunet** tragi „pornește sunetul Miau”.
 4. Apeși **steagul verde**: pisoiul se mută la dreapta și miaună. 🎉
+
+![Primul program: blocul din Evenimente, apoi cel din Mișcare și cel din Sunet, lipite de sus în jos; la steagul verde pisoiul ajunge la x = 150 și miaună.](fisiere/imagini/info-5-u6-l1-scratch-primul-program.svg)
 
 ## Aplicații interactive
 

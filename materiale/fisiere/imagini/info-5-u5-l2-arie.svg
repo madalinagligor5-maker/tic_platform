@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Algoritmul secvențial pentru aria dreptunghiului, urmărit pentru laturile 3 și 5</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="480" y="48" text-anchor="middle" font-size="24" font-weight="800">Aria dreptunghiului, pas cu pas</text>
+
+    <!-- pașii -->
+    <rect x="190" y="70" width="100" height="34" rx="17" fill="#171416"/>
+    <text x="240" y="92" text-anchor="middle" font-size="15" font-weight="800" fill="#FFF7EE">Start</text>
+    <rect x="40" y="124" width="400" height="58" rx="12" fill="#fff" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="58" y="149" font-size="15" font-weight="800" fill="#0E7F96">Pasul 1</text>
+    <text x="58" y="171" font-size="15">Introducem latura mică: 3 cm.</text>
+    <rect x="40" y="204" width="400" height="58" rx="12" fill="#fff" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="58" y="229" font-size="15" font-weight="800" fill="#0E7F96">Pasul 2</text>
+    <text x="58" y="251" font-size="15">Introducem latura mare: 5 cm.</text>
+    <rect x="40" y="284" width="400" height="58" rx="12" fill="#fff" stroke="#14A39A" stroke-width="3"/>
+    <text x="58" y="309" font-size="15" font-weight="800" fill="#0B6F68">Pasul 3</text>
+    <text x="58" y="331" font-size="15">Calculăm aria = 3 × 5 = 15.</text>
+    <rect x="40" y="364" width="400" height="58" rx="12" fill="#fff" stroke="#F21F4B" stroke-width="3"/>
+    <text x="58" y="389" font-size="15" font-weight="800" fill="#C8133A">Pasul 4</text>
+    <text x="58" y="411" font-size="15">Afișăm aria: 15 cm².</text>
+    <rect x="190" y="444" width="100" height="34" rx="17" fill="#171416"/>
+    <text x="240" y="466" text-anchor="middle" font-size="15" font-weight="800" fill="#FFF7EE">Stop</text>
+    <g stroke="#171416" stroke-width="3" fill="none">
+      <path d="M240 104V120" marker-end="url(#a)"/>
+      <path d="M240 182V200" marker-end="url(#a)"/>
+      <path d="M240 262V280" marker-end="url(#a)"/>
+      <path d="M240 342V360" marker-end="url(#a)"/>
+      <path d="M240 422V440" marker-end="url(#a)"/>
+    </g>
+
+    <!-- desenul -->
+    <text x="700" y="96" text-anchor="middle" font-size="17" font-weight="800">Desenul problemei</text>
+    <g fill="#E2F6FA" stroke="#3EC6E0" stroke-width="2">
+      <rect x="575" y="130" width="50" height="50"/><rect x="625" y="130" width="50" height="50"/><rect x="675" y="130" width="50" height="50"/><rect x="725" y="130" width="50" height="50"/><rect x="775" y="130" width="50" height="50"/>
+      <rect x="575" y="180" width="50" height="50"/><rect x="625" y="180" width="50" height="50"/><rect x="675" y="180" width="50" height="50"/><rect x="725" y="180" width="50" height="50"/><rect x="775" y="180" width="50" height="50"/>
+      <rect x="575" y="230" width="50" height="50"/><rect x="625" y="230" width="50" height="50"/><rect x="675" y="230" width="50" height="50"/><rect x="725" y="230" width="50" height="50"/><rect x="775" y="230" width="50" height="50"/>
+    </g>
+    <rect x="575" y="130" width="250" height="150" fill="none" stroke="#0E7F96" stroke-width="4"/>
+    <text x="700" y="306" text-anchor="middle" font-size="15" font-weight="700" fill="#0E7F96">latura mare = 5 cm</text>
+    <text x="560" y="210" text-anchor="end" font-size="15" font-weight="700" fill="#0E7F96">3 cm</text>
+    <text x="560" y="230" text-anchor="end" font-size="14" fill="#6B6460">latura</text>
+    <text x="560" y="248" text-anchor="end" font-size="14" fill="#6B6460">mică</text>
+
+    <!-- cutiile -->
+    <text x="700" y="352" text-anchor="middle" font-size="17" font-weight="800">Datele, ca niște cutii</text>
+    <rect x="520" y="368" width="116" height="74" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="578" y="392" text-anchor="middle" font-size="14" fill="#0E7F96" font-weight="700">latura mică</text>
+    <text x="578" y="428" text-anchor="middle" font-size="26" font-weight="800">3</text>
+    <rect x="644" y="368" width="116" height="74" rx="12" fill="#E2F6FA" stroke="#3EC6E0" stroke-width="3"/>
+    <text x="702" y="392" text-anchor="middle" font-size="14" fill="#0E7F96" font-weight="700">latura mare</text>
+    <text x="702" y="428" text-anchor="middle" font-size="26" font-weight="800">5</text>
+    <rect x="768" y="368" width="116" height="74" rx="12" fill="#E0F4F2" stroke="#14A39A" stroke-width="3"/>
+    <text x="826" y="392" text-anchor="middle" font-size="14" fill="#0B6F68" font-weight="700">aria</text>
+    <text x="826" y="428" text-anchor="middle" font-size="26" font-weight="800">15</text>
+    <text x="702" y="478" text-anchor="middle" font-size="15" fill="#6B6460">15 pătrățele de câte 1 cm²</text>
+  </g>
+</svg>

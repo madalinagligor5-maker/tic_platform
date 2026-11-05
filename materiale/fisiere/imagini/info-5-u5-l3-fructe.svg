@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t">
+  <title id="t">Decizii una în alta: cumpărarea fructelor cu 10 lei, întâi cireșe, apoi căpșuni</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171416"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="#FFF7EE"/>
+  <g font-family="Montserrat, Arial, sans-serif" fill="#171416">
+    <text x="40" y="46" font-size="24" font-weight="800">Decizii una în alta: la piață</text>
+
+    <!-- cadru decizie interioară -->
+    <rect x="330" y="182" width="510" height="232" rx="16" fill="#F0E8FA" opacity="0.55" stroke="#7A3FB8" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <text x="566" y="404" font-size="15" font-weight="700" fill="#7A3FB8">o decizie în alta</text>
+
+    <rect x="120" y="66" width="100" height="32" rx="16" fill="#171416"/>
+    <text x="170" y="87" text-anchor="middle" font-size="15" font-weight="800" fill="#FFF7EE">Start</text>
+    <rect x="80" y="116" width="180" height="40" rx="10" fill="#fff" stroke="#171416" stroke-width="3"/>
+    <text x="170" y="142" text-anchor="middle" font-size="15">Merg la piață.</text>
+
+    <!-- romb 1 -->
+    <path d="M170 190L300 250L170 310L40 250Z" fill="#FDE7EC" stroke="#F21F4B" stroke-width="3" stroke-linejoin="round"/>
+    <text x="170" y="246" text-anchor="middle" font-size="15" font-weight="800">Prețul cireșelor</text>
+    <text x="170" y="266" text-anchor="middle" font-size="15" font-weight="800">≤ 10 lei/kg?</text>
+    <!-- cireșe -->
+    <rect x="80" y="350" width="180" height="44" rx="10" fill="#fff" stroke="#F21F4B" stroke-width="3"/>
+    <circle cx="104" cy="378" r="9" fill="#C8133A"/><circle cx="120" cy="380" r="9" fill="#F21F4B"/>
+    <path d="M104 369Q110 356 116 358M120 371Q118 360 116 358" stroke="#0B6F68" stroke-width="2" fill="none"/>
+    <text x="186" y="378" text-anchor="middle" font-size="15" font-weight="700">Cumpăr cireșe.</text>
+
+    <!-- romb 2 -->
+    <path d="M470 190L600 250L470 310L340 250Z" fill="#FFFFFF" stroke="#7A3FB8" stroke-width="3" stroke-linejoin="round"/>
+    <text x="470" y="246" text-anchor="middle" font-size="15" font-weight="800">Prețul căpșunilor</text>
+    <text x="470" y="266" text-anchor="middle" font-size="15" font-weight="800">≤ 10 lei/kg?</text>
+    <rect x="380" y="350" width="180" height="44" rx="10" fill="#fff" stroke="#7A3FB8" stroke-width="3"/>
+    <path d="M404 370Q394 370 396 380Q400 392 404 392Q408 392 412 380Q414 370 404 370Z" fill="#F21F4B"/>
+    <path d="M398 370L404 364L410 370" stroke="#14A39A" stroke-width="3" fill="none"/>
+    <text x="490" y="378" text-anchor="middle" font-size="15" font-weight="700">Cumpăr căpșuni.</text>
+
+    <rect x="640" y="228" width="180" height="44" rx="10" fill="#fff" stroke="#6B6460" stroke-width="3"/>
+    <text x="730" y="256" text-anchor="middle" font-size="15" font-weight="700">Nu cumpăr nimic.</text>
+
+    <g font-size="15" font-weight="800">
+      <text x="180" y="334" fill="#0B6F68">Da</text>
+      <text x="306" y="240" fill="#C8133A">Nu</text>
+      <text x="480" y="334" fill="#0B6F68">Da</text>
+      <text x="606" y="240" fill="#C8133A">Nu</text>
+    </g>
+
+    <rect x="395" y="450" width="100" height="32" rx="16" fill="#171416"/>
+    <text x="445" y="471" text-anchor="middle" font-size="15" font-weight="800" fill="#FFF7EE">Stop</text>
+
+    <g stroke="#171416" stroke-width="3" fill="none">
+      <path d="M170 98V112" marker-end="url(#a)"/>
+      <path d="M170 156V186" marker-end="url(#a)"/>
+      <path d="M170 310V346" marker-end="url(#a)"/>
+      <path d="M300 250H336" marker-end="url(#a)"/>
+      <path d="M470 310V346" marker-end="url(#a)"/>
+      <path d="M600 250H636" marker-end="url(#a)"/>
+      <path d="M170 394V432H730V272M470 394V432"/>
+      <path d="M445 432V446" marker-end="url(#a)"/>
+    </g>
+
+    <!-- exemplu -->
+    <rect x="620" y="64" width="300" height="104" rx="14" fill="#FFF4D6" stroke="#FFC83D" stroke-width="3"/>
+    <text x="638" y="90" font-size="15" font-weight="800">Ai 10 lei. Exemplu:</text>
+    <text x="638" y="114" font-size="15">cireșe 12 lei → 12 ≤ 10? <tspan font-weight="800" fill="#C8133A">Nu</tspan></text>
+    <text x="638" y="136" font-size="15">căpșuni 9 lei → 9 ≤ 10? <tspan font-weight="800" fill="#0B6F68">Da</tspan></text>
+    <text x="638" y="158" font-size="15" font-weight="800">Cumperi căpșuni!</text>
+  </g>
+</svg>
