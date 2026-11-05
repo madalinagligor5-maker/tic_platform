@@ -119,6 +119,31 @@
     out.push(text.slice(last));
     return out;
   }
+  // Descărcarea imaginilor din lecții: PNG (bun pentru Word, PowerPoint, fișe) sau SVG (calitate maximă).
+  const imgName = (src) => decodeURIComponent(src.split('/').pop()).replace(/\.svg$/i, '');
+  async function downloadPNG(src) {
+    const img = new Image();
+    img.src = src;
+    await img.decode();
+    const w = 1920, hgt = Math.round(w * (img.naturalHeight || 540) / (img.naturalWidth || 960));
+    const c = document.createElement('canvas');
+    c.width = w; c.height = hgt;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, w, hgt);
+    ctx.drawImage(img, 0, 0, w, hgt);
+    const blob = await new Promise((r) => c.toBlob(r, 'image/png'));
+    const a = h('a', { href: URL.createObjectURL(blob), download: imgName(src) + '.png' });
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  }
+  function imgActions(src) {
+    if (!/\.svg$/i.test(src)) return h('div', { class: 'fig-actions' }, h('a', { class: 'chip small', href: src, download: '' }, h('span', { html: ICONS.download }), 'Descarcă'));
+    return h('div', { class: 'fig-actions' },
+      h('button', { class: 'chip small', type: 'button', title: 'Imagine PNG, pentru Word, PowerPoint sau fișe', onclick: (e) => { e.currentTarget.disabled = true; const b = e.currentTarget; downloadPNG(src).finally(() => { b.disabled = false; }); } }, h('span', { html: ICONS.download }), 'PNG'),
+      h('a', { class: 'chip small', href: src, download: imgName(src) + '.svg', title: 'Imagine vectorială, la orice mărime' }, h('span', { html: ICONS.download }), 'SVG'));
+  }
+
   function markdown(src) {
     const root = h('div', { class: 'prose' });
     const lines = src.replace(/\r/g, '').split('\n');
@@ -128,7 +153,7 @@
       const fig = /^!\[([^\]]*)\]\(([^)\s]+)\)$/.exec(txt);
       // Un paragraf care conține doar o imagine devine figură, cu explicația (textul alternativ) dedesubt.
       // La clic (sau atingere pe telefon), imaginea se deschide mare, într-o filă nouă.
-      if (fig && safeUrl(fig[2])) root.append(h('figure', { class: 'fig' }, h('a', { href: safeUrl(fig[2]), target: '_blank', rel: 'noopener', title: 'Deschide imaginea mare' }, h('img', { src: safeUrl(fig[2]), alt: fig[1], loading: 'lazy' })), fig[1] ? h('figcaption', {}, fig[1]) : null));
+      if (fig && safeUrl(fig[2])) root.append(h('figure', { class: 'fig' }, h('a', { href: safeUrl(fig[2]), target: '_blank', rel: 'noopener', title: 'Deschide imaginea mare' }, h('img', { src: safeUrl(fig[2]), alt: fig[1], loading: 'lazy' })), fig[1] ? h('figcaption', {}, fig[1]) : null, imgActions(safeUrl(fig[2]))));
       else if (para.length) root.append(h('p', {}, inline(para.join(' '))));
       para = [];
       list = null;
@@ -314,9 +339,41 @@
         chipRow('Clasa', 'c', GRADES.map((g) => [String(g), ROMAN[g]])),
         chipRow('Domeniu', 'cat', Object.entries(D.categorii)),
         chipRow('Tip', 't', Object.entries(D.tipuri))),
-      h('p', { class: 'result-count', 'aria-live': 'polite' }, `${list.length} ${list.length === 1 ? 'material' : 'materiale'}`),
+      h('p', { class: 'result-count', 'aria-live': 'polite' }, `${list.length} ${list.length === 1 ? 'material' : 'materiale'}`,
+        f.c && D.materiale.some((m) => m.clasa.includes(Number(f.c)) && m.imagini?.length) ? h('a', { class: 'chip small gal-link', href: `#/imagini?c=${f.c}` }, 'Galeria de imagini a clasei') : null),
       list.length ? groupedList(list, D, Boolean(f.c))
         : emptyState(D.materiale.length ? 'Încearcă alte filtre sau alt cuvânt de căutare.' : 'Primele materiale vor apărea aici în curând.')));
+  }
+
+  // Galeria de imagini a unei clase: toate imaginile din lecții, grupate pe unități, gata de descărcat.
+  async function pageImagini(params) {
+    const D = await data();
+    const c = Number(params.get('c')) || 5;
+    const mats = D.materiale.filter((m) => m.clasa.includes(c) && m.imagini?.length)
+      .sort((a, b) => (a.ordine ?? 1e9) - (b.ordine ?? 1e9) || a.titlu.localeCompare(b.titlu, 'ro'));
+    const total = mats.reduce((n, m) => n + m.imagini.length, 0);
+    const groups = new Map();
+    for (const m of mats) {
+      const key = m.unitate || 'Alte materiale';
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(m);
+    }
+    document.title = `Imagini – clasa a ${ROMAN[c]}-a · edudigi`;
+    show(h('div', { class: 'wrap gal-page' },
+      h('div', { class: 'page-head' }, h('p', { class: 'kicker' }, 'Galerie de imagini'), h('h1', {}, `Imagini pentru clasa a ${ROMAN[c]}-a`),
+        h('p', { class: 'muted' }, `${total} imagini din lecții, de folosit la ore, în fișe sau în prezentări. PNG se lipește direct în Word sau PowerPoint; SVG rămâne clar la orice mărime.`)),
+      h('div', { class: 'filters compact' }, h('div', { class: 'filter-row' }, h('span', { class: 'kicker' }, 'Clasa'),
+        GRADES.filter((g) => D.materiale.some((m) => m.clasa.includes(g) && m.imagini?.length)).map((g) => h('a', { class: 'chip small', href: `#/imagini?c=${g}`, 'aria-pressed': String(g === c) }, ROMAN[g])))),
+      total ? h('div', { class: 'unit-groups' }, [...groups].map(([name, items]) => h('section', { class: 'unit-group' },
+        h('h2', {}, name, h('span', { class: 'unit-count' }, `${items.reduce((n, m) => n + m.imagini.length, 0)} imagini`)),
+        items.map((m) => h('div', { class: 'gal-lesson' },
+          h('h3', {}, h('a', { href: `#/m/${m.id}` }, m.titlu)),
+          h('div', { class: 'gal-grid' }, m.imagini.map((im) => {
+            const src = safeUrl(im.src);
+            return h('figure', { class: 'gal-item' },
+              h('a', { href: src, target: '_blank', rel: 'noopener', title: 'Deschide imaginea mare' }, h('img', { src, alt: im.alt, loading: 'lazy' })),
+              h('figcaption', {}, im.alt), imgActions(src));
+          }))))))) : emptyState('Lecțiile acestei clase nu au încă imagini.')));
   }
 
   // Lecția anterioară / următoare, după „ordine”, în aceeași clasă.
@@ -399,7 +456,8 @@
               h('a', { class: 'btn ghost', href: fileUrl, target: '_blank', rel: 'noopener' }, h('span', { html: ICONS.open }), 'Deschide'))) : null,
           related.length ? h('div', { class: 'box' }, h('h3', {}, 'Din același domeniu'),
             h('div', { class: 'related' }, related.map((r) => h('a', { href: `#/m/${r.id}` }, r.titlu)))) : null,
-          h('a', { class: 'btn ghost', href: `#/materiale?c=${m.clasa[0]}` }, `Vezi toată clasa a ${ROMAN[m.clasa[0]]}-a`)))));
+          h('a', { class: 'btn ghost', href: `#/materiale?c=${m.clasa[0]}` }, `Vezi toată clasa a ${ROMAN[m.clasa[0]]}-a`),
+          m.imagini?.length ? h('a', { class: 'btn ghost', href: `#/imagini?c=${m.clasa[0]}` }, `Imaginile clasei a ${ROMAN[m.clasa[0]]}-a`) : null))));
     if (hooks.material) hooks.material(m);
   }
 
@@ -454,6 +512,7 @@
       else if (pathPart === '/' || pathPart === '') await pageHome();
       else if (pathPart === '/materiale') await pageList(params);
       else if (pathPart === '/clase') await pageClase();
+      else if (pathPart === '/imagini') await pageImagini(params);
       else if ((m = /^\/m\/([a-z0-9-]+)$/.exec(pathPart))) await pageMaterial(m[1]);
       else pageNotFound();
     } catch (e) {

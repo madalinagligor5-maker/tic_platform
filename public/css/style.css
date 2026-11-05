@@ -1176,3 +1176,23 @@ body:has(.lab-ecran) { overflow: hidden; }
 .prose pre { max-width: 100%; overflow-x: auto; }
 .prose figure.fig a { display: block; cursor: zoom-in; }
 @media (max-width: 600px) { .prose figure.fig { padding: 6px; margin-inline: -8px; } .prose figure.fig figcaption { padding: 0 6px 4px; } }
+
+/* Descărcarea imaginilor și galeria de imagini a clasei */
+.fig-actions { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
+.fig-actions .chip { color: var(--ink); text-decoration: none; }
+.fig-actions .chip svg { width: 15px; height: 15px; }
+.fig-actions .chip:disabled { opacity: .5; cursor: progress; }
+.prose figure.fig .fig-actions a { display: inline-flex; cursor: pointer; }
+.result-count { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.gal-link { color: var(--ink); text-decoration: none; }
+.gal-lesson { margin: 0 0 22px; }
+.gal-lesson h3 { margin: 0 0 10px; font-size: 1rem; font-weight: 800; }
+.gal-lesson h3 a { color: inherit; text-decoration: none; }
+.gal-lesson h3 a:hover { color: var(--red); }
+.gal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.gal-item { margin: 0; padding: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; display: flex; flex-direction: column; }
+.gal-item img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.gal-item a { cursor: zoom-in; }
+.gal-item figcaption { flex: 1; margin: 8px 2px 0; font-size: .8rem; line-height: 1.35; color: var(--muted); }
+.gal-item .fig-actions { justify-content: flex-start; margin-top: 8px; }
+@media print { .fig-actions { display: none; } }

@@ -67,8 +67,11 @@ function readMaterial(dir, file) {
   }
   if (!body && !meta.fisier) err('materialul nu are nici conținut, nici atașament („fisier”)');
   // Imaginile din text (![descriere](fisiere/...)) trebuie să existe și să aibă descriere.
+  // Lista lor ajunge și în materiale.json, pentru galeria de imagini a clasei.
+  const imagini = [];
   for (const m of body.matchAll(/!\[([^\]]*)\]\(([^)\s]+)\)/g)) {
     if (/^https?:\/\//.test(m[2])) continue;
+    imagini.push({ src: m[2], alt: m[1].trim() });
     const rel = m[2].replace(/^\/?fisiere\//, '');
     if (rel.includes('..') || !fs.existsSync(path.join(dir, 'fisiere', rel))) err(`imaginea „${m[2]}” nu există în materiale/fisiere/`);
     if (!m[1].trim()) err(`imaginea „${m[2]}” nu are descriere (textul dintre [ ])`);
@@ -123,6 +126,7 @@ function readMaterial(dir, file) {
       aplicatii: activitati.length,
       ...(mod ? { mod, timp, puncte: info.puncte, nrItemi: info.nrItemi } : {}),
       diapozitive: prezentari.reduce((n, d) => n + d.slides.length, 0),
+      ...(imagini.length ? { imagini } : {}),
     },
     body,
     activitati,
