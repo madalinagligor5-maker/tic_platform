@@ -5,7 +5,7 @@ clasa: 7
 categorie: aplicatii
 tip: test
 unitate: Unitatea 1 · Editorul de texte
-ordine: 107
+ordine: 108
 descriere: Exerciții recapitulative și autoevaluare pentru Unitatea 1: interfața Word, gestionarea documentelor, editarea și formatarea, aspectul paginii.
 data: 2026-10-16
 ---

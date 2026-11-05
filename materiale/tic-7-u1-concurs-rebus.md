@@ -5,7 +5,7 @@ clasa: 7
 categorie: aplicatii
 tip: proiect
 unitate: Unitatea 1 · Editorul de texte
-ordine: 106
+ordine: 107
 descriere: Concurs pe echipe: realizați în Word un rebus despre editorul de texte, cu tabel, formatare, imagini și dezlegare, apoi îl schimbați cu altă echipă și îl rezolvați.
 data: 2026-10-16
 ---
