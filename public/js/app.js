@@ -277,7 +277,7 @@
             h('a', { class: 'chip', href: '#/materiale?d=tic' }, 'TIC'),
             h('a', { class: 'chip', href: '#/clase' }, 'Clasele V–XII'))),
         h('div', { class: 'hero-visual' },
-          h('img', { class: 'hero-illustration', src: '/fisiere/imagini/edudigi-laborator.png', alt: 'Un laptop cu blocuri de programare, un robot educațional și un caiet cu diagrame.', width: '1536', height: '1024', fetchpriority: 'high' }),
+          h('img', { class: 'hero-illustration', src: '/fisiere/imagini/edudigi-laborator.jpg', alt: 'Un laptop cu blocuri de programare, un robot educațional și un caiet cu diagrame.', width: '1536', height: '1024', fetchpriority: 'high' }),
           h('a', { class: 'hero-visual-link', href: '#/imagini?c=5' }, 'Descoperă atlasul vizual', icon('arrow', 'ico'))))),
       h('section', { class: 'tagline-band' }, h('div', { class: 'wrap tagline-grid' },
         h('p', { class: 'tagline' }, h('span', { class: 't1' }, 'Înveți.'), h('span', { class: 't2' }, 'Creezi.'), h('span', { class: 't3' }, 'Progresezi.')),
