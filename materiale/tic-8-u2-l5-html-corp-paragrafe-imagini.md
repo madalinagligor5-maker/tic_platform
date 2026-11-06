@@ -15,7 +15,7 @@ data: 2026-10-26
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Trei elemente dintr-o pagină
 
-![Trei elemente dintr-o pagină: titlu, paragraf, imagine.](fisiere/imagini/tic-8-u2-l5-html-corp-paragrafe-imagini-atlas.svg)
+![Trei elemente dintr-o pagină: titlu, paragraf, imagine.](fisiere/imagini/tic-8-u2-l5-html-corp-paragrafe-imagini-atlas-v2.jpg)
 
 ```explorare
 # Trei elemente dintr-o pagină

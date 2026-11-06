@@ -120,8 +120,9 @@ function svg(title, steps, number) {
   }).join('')}<text x="42" y="620" fill="#6B6460" font-size="14">Observă. Înțelege. Aplică.</text></g></svg>`;
 }
 for (const [index, [id, title, steps]] of lessons.entries()) {
-  const name = `${id}-atlas.svg`;
-  fs.writeFileSync(path.join(root, 'materiale/fisiere/imagini', name), svg(title, steps, index + 1));
+  const illustrated = `${id}-atlas-v2.jpg`;
+  const name = fs.existsSync(path.join(root, 'materiale/fisiere/imagini', illustrated)) ? illustrated : `${id}-atlas.svg`;
+  if (name.endsWith('.svg')) fs.writeFileSync(path.join(root, 'materiale/fisiere/imagini', name), svg(title, steps, index + 1));
   const file = path.join(root, 'materiale', `${id}.md`);
   let source = fs.readFileSync(file, 'utf8');
   const start = '<!-- atlas-vizual:start -->', end = '<!-- atlas-vizual:end -->';

@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Instrucțiuni una după alta
 
-![Instrucțiuni una după alta: pornește, execută, observă.](fisiere/imagini/info-5-u6-l2-structura-liniara-atlas.svg)
+![Instrucțiuni una după alta: pornește, execută, observă.](fisiere/imagini/info-5-u6-l2-structura-liniara-atlas-v2.jpg)
 
 ```explorare
 # Instrucțiuni una după alta

@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Trimite un mesaj clar
 
-![Trimite un mesaj clar: destinatar, conținut, atașament.](fisiere/imagini/tic-6-u3-l4-operatii-cu-mesaje-atlas.svg)
+![Trimite un mesaj clar: destinatar, conținut, atașament.](fisiere/imagini/tic-6-u3-l4-operatii-cu-mesaje-atlas-v2.jpg)
 
 ```explorare
 # Trimite un mesaj clar

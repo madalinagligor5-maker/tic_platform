@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: O condiție, două drumuri
 
-![O condiție, două drumuri: întreabă, dacă da, dacă nu.](fisiere/imagini/info-5-u5-l3-algoritmi-bazati-pe-decizii-atlas.svg)
+![O condiție, două drumuri: întreabă, dacă da, dacă nu.](fisiere/imagini/info-5-u5-l3-algoritmi-bazati-pe-decizii-atlas-v2.jpg)
 
 ```explorare
 # O condiție, două drumuri

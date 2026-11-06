@@ -15,7 +15,7 @@ data: 2026-10-16
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Bucla while verifică înainte
 
-![Bucla while verifică înainte: condiție, corp, revenire.](fisiere/imagini/info-7-u4-l6-repetitiva-while-atlas.svg)
+![Bucla while verifică înainte: condiție, corp, revenire.](fisiere/imagini/info-7-u4-l6-repetitiva-while-atlas-v2.jpg)
 
 ```explorare
 # Bucla while verifică înainte

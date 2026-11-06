@@ -15,7 +15,7 @@ data: 2026-10-16
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Găsește maximul din șir
 
-![Găsește maximul din șir: inițializează, compară, finalizează.](fisiere/imagini/info-8-u3-l12-siruri-minim-maxim-atlas.svg)
+![Găsește maximul din șir: inițializează, compară, finalizează.](fisiere/imagini/info-8-u3-l12-siruri-minim-maxim-atlas-v2.jpg)
 
 ```explorare
 # Găsește maximul din șir

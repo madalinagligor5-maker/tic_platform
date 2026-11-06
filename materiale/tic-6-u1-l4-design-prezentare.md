@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Un diapozitiv ușor de citit
 
-![Un diapozitiv ușor de citit: ierarhie, contrast, spațiu.](fisiere/imagini/tic-6-u1-l4-design-prezentare-atlas.svg)
+![Un diapozitiv ușor de citit: ierarhie, contrast, spațiu.](fisiere/imagini/tic-6-u1-l4-design-prezentare-atlas-v2.jpg)
 
 ```explorare
 # Un diapozitiv ușor de citit

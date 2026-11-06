@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: O căutare mai bună
 
-![O căutare mai bună: formulează, compară, folosește corect.](fisiere/imagini/tic-5-u3-l3-motoare-de-cautare-atlas.svg)
+![O căutare mai bună: formulează, compară, folosește corect.](fisiere/imagini/tic-5-u3-l3-motoare-de-cautare-atlas-v2.jpg)
 
 ```explorare
 # O căutare mai bună

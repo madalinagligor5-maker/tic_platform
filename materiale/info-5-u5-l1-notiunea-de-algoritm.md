@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Algoritmul unei dimineți
 
-![Algoritmul unei dimineți: date inițiale, pași preciși, rezultat.](fisiere/imagini/info-5-u5-l1-notiunea-de-algoritm-atlas.svg)
+![Algoritmul unei dimineți: date inițiale, pași preciși, rezultat.](fisiere/imagini/info-5-u5-l1-notiunea-de-algoritm-atlas-v2.jpg)
 
 ```explorare
 # Algoritmul unei dimineți

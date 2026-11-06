@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: De la folder la fișier
 
-![De la folder la fișier: folder, nume, extensie.](fisiere/imagini/tic-5-u2-l2-memorarea-organizarea-datelor-atlas.svg)
+![De la folder la fișier: folder, nume, extensie.](fisiere/imagini/tic-5-u2-l2-memorarea-organizarea-datelor-atlas-v2.jpg)
 
 ```explorare
 # De la folder la fișier

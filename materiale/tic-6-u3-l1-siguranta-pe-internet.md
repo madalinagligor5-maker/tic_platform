@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Oprește-te înainte de clic
 
-![Oprește-te înainte de clic: observă, verifică, cere ajutor.](fisiere/imagini/tic-6-u3-l1-siguranta-pe-internet-atlas.svg)
+![Oprește-te înainte de clic: observă, verifică, cere ajutor.](fisiere/imagini/tic-6-u3-l1-siguranta-pe-internet-atlas-v2.jpg)
 
 ```explorare
 # Oprește-te înainte de clic

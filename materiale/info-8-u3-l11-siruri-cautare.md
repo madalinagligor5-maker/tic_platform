@@ -15,7 +15,7 @@ data: 2026-10-16
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Caută un element pas cu pas
 
-![Caută un element pas cu pas: țintă, compară, raportează.](fisiere/imagini/info-8-u3-l11-siruri-cautare-atlas.svg)
+![Caută un element pas cu pas: țintă, compară, raportează.](fisiere/imagini/info-8-u3-l11-siruri-cautare-atlas-v2.jpg)
 
 ```explorare
 # Caută un element pas cu pas

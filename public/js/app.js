@@ -225,9 +225,11 @@
   }
 
   // ---------- Componente ----------
+  const isAtlas = (im) => /-atlas(?:-v2)?\.(svg|jpg)$/i.test(im.src);
+  const isIllustration = (im) => /-atlas-v2\.jpg$/i.test(im.src);
   function matCard(m, D) {
     return h('a', { class: 'mat-card', href: `#/m/${m.id}` },
-      m.imagini?.length ? h('img', { class: 'mat-cover', src: safeUrl(m.imagini.find((im) => im.src.endsWith('-atlas.svg'))?.src || m.imagini[0].src), alt: '', loading: 'lazy', width: '1080', height: '640' }) : h('span', { class: `ico-box ${m.categorie}`, html: ICONS[m.categorie] }),
+      m.imagini?.length ? h('img', { class: 'mat-cover', src: safeUrl(m.imagini.find(isAtlas)?.src || m.imagini[0].src), alt: '', loading: 'lazy', width: '1536', height: '1024' }) : h('span', { class: `ico-box ${m.categorie}`, html: ICONS[m.categorie] }),
       h('div', {},
         h('h3', {}, m.titlu),
         m.descriere ? h('p', {}, m.descriere) : null,
@@ -292,10 +294,10 @@
         h('div', { class: 'section-head' }, h('div', {}, h('p', { class: 'kicker' }, 'Învață prin imagini'), h('h2', {}, 'O idee devine mai clară când o vezi.'))),
         h('p', { class: 'atlas-intro' }, 'Planșe explicative, exemple concrete și explorări pas cu pas. Alege clasa și deschide o lecție pentru a exersa.'),
         h('div', { class: 'atlas-grid' }, [5, 6, 7, 8].map((grade) => {
-          const featured = D.materiale.find((m) => m.clasa.includes(grade) && m.imagini?.some((im) => im.src.endsWith('-atlas.svg')));
-          const image = featured?.imagini.find((im) => im.src.endsWith('-atlas.svg'));
+          const featured = D.materiale.find((m) => m.clasa.includes(grade) && m.imagini?.some(isAtlas));
+          const image = featured?.imagini.find(isAtlas);
           return image ? h('a', { class: 'atlas-link', href: `#/imagini?c=${grade}` },
-            h('img', { src: safeUrl(image.src), alt: image.alt, loading: 'lazy', width: '1080', height: '640' }),
+            h('img', { src: safeUrl(image.src), alt: image.alt, loading: 'lazy', width: '1536', height: '1024' }),
             h('span', {}, h('b', {}, `Clasa a ${ROMAN[grade]}-a`), h('span', {}, 'Explorează imaginile →'))) : null;
         })))) ,
       h('section', {}, h('div', { class: 'wrap' },
@@ -362,7 +364,11 @@
   async function pageImagini(params) {
     const D = await data();
     const c = Number(params.get('c')) || 5;
+    const hasIllustrations = D.materiale.some((m) => m.clasa.includes(c) && m.imagini?.some(isIllustration));
+    const illustrated = hasIllustrations && params.get('toate') !== '1';
     const mats = D.materiale.filter((m) => m.clasa.includes(c) && m.imagini?.length)
+      .map((m) => ({ ...m, imagini: illustrated ? m.imagini.filter(isIllustration) : m.imagini }))
+      .filter((m) => m.imagini.length)
       .sort((a, b) => (a.ordine ?? 1e9) - (b.ordine ?? 1e9) || a.titlu.localeCompare(b.titlu, 'ro'));
     const total = mats.reduce((n, m) => n + m.imagini.length, 0);
     const groups = new Map();
@@ -371,22 +377,26 @@
       if (!groups.has(key)) groups.set(key, []);
       groups.get(key).push(m);
     }
-    document.title = `Imagini – clasa a ${ROMAN[c]}-a · edudigi`;
-    show(h('div', { class: 'wrap gal-page' },
-      h('div', { class: 'page-head' }, h('p', { class: 'kicker' }, 'Galerie de imagini'), h('h1', {}, `Imagini pentru clasa a ${ROMAN[c]}-a`),
-        h('p', { class: 'muted' }, `${total} imagini din lecții, de folosit la ore, în fișe sau în prezentări. PNG se lipește direct în Word sau PowerPoint; SVG rămâne clar la orice mărime.`)),
+    document.title = `Atlas vizual – clasa a ${ROMAN[c]}-a · edudigi`;
+    show(h('div', { class: `wrap gal-page${illustrated ? ' illustrated-gallery' : ''}` },
+      h('div', { class: 'page-head' }, h('p', { class: 'kicker' }, 'Atlas vizual'), h('h1', {}, `Descoperă vizual clasa a ${ROMAN[c]}-a`),
+        h('p', { class: 'muted' }, illustrated ? `${total} ilustrații pentru ideile pe care le înveți la Informatică și TIC. Deschide o imagine ca să o privești în detaliu sau intră în lecție și explorează explicațiile.` : `${total} imagini din lecții, de descărcat și folosit la ore, în fișe sau în prezentări.`)),
       h('div', { class: 'filters compact' }, h('div', { class: 'filter-row' }, h('span', { class: 'kicker' }, 'Clasa'),
-        GRADES.filter((g) => D.materiale.some((m) => m.clasa.includes(g) && m.imagini?.length)).map((g) => h('a', { class: 'chip small', href: `#/imagini?c=${g}`, 'aria-pressed': String(g === c) }, ROMAN[g])))),
+        GRADES.filter((g) => D.materiale.some((m) => m.clasa.includes(g) && m.imagini?.length)).map((g) => h('a', { class: 'chip small', href: `#/imagini?c=${g}${params.get('toate') === '1' ? '&toate=1' : ''}`, 'aria-pressed': String(g === c) }, ROMAN[g]))),
+        hasIllustrations ? h('div', { class: 'filter-row' },
+          h('a', { class: 'chip small', href: `#/imagini?c=${c}`, 'aria-current': illustrated ? 'page' : null }, 'Ilustrații'),
+          h('a', { class: 'chip small', href: `#/imagini?c=${c}&toate=1`, 'aria-current': !illustrated ? 'page' : null }, 'Toate imaginile')) : null),
       total ? h('div', { class: 'unit-groups' }, [...groups].map(([name, items]) => h('section', { class: 'unit-group' },
         h('h2', {}, name, h('span', { class: 'unit-count' }, `${items.reduce((n, m) => n + m.imagini.length, 0)} imagini`)),
-        items.map((m) => h('div', { class: 'gal-lesson' },
+        h('div', { class: illustrated ? 'atlas-gallery-items' : '' }, items.map((m) => h('div', { class: 'gal-lesson' },
           h('h3', {}, h('a', { href: `#/m/${m.id}` }, m.titlu)),
           h('div', { class: 'gal-grid' }, m.imagini.map((im) => {
             const src = safeUrl(im.src);
             return h('figure', { class: 'gal-item' },
               h('a', { href: src, target: '_blank', rel: 'noopener', title: 'Deschide imaginea mare' }, h('img', { src, alt: im.alt, loading: 'lazy' })),
-              h('figcaption', {}, im.alt), imgActions(src));
-          }))))))) : emptyState('Lecțiile acestei clase nu au încă imagini.')));
+              h('figcaption', {}, im.alt), imgActions(src),
+              illustrated ? h('a', { class: 'atlas-lesson-link', href: `#/m/${m.id}` }, 'Explorează lecția →') : null);
+          })))))))) : emptyState('Lecțiile acestei clase nu au încă imagini.')));
   }
 
   // Lecția anterioară / următoare, după „ordine”, în aceeași clasă.

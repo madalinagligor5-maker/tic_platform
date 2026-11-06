@@ -15,7 +15,7 @@ data: 2026-10-16
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Alege reprezentarea potrivită
 
-![Alege reprezentarea potrivită: coloane, linii, sectoare.](fisiere/imagini/tic-8-u1-l6-diagrame-atlas.svg)
+![Alege reprezentarea potrivită: coloane, linii, sectoare.](fisiere/imagini/tic-8-u1-l6-diagrame-atlas-v2.jpg)
 
 ```explorare
 # Alege reprezentarea potrivită

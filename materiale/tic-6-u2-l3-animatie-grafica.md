@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Cum apare mișcarea?
 
-![Cum apare mișcarea?: cadru inițial, cadre intermediare, redare.](fisiere/imagini/tic-6-u2-l3-animatie-grafica-atlas.svg)
+![Cum apare mișcarea?: cadru inițial, cadre intermediare, redare.](fisiere/imagini/tic-6-u2-l3-animatie-grafica-atlas-v2.jpg)
 
 ```explorare
 # Cum apare mișcarea?

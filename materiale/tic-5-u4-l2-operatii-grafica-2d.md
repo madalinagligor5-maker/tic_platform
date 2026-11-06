@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Construiește o imagine 2D
 
-![Construiește o imagine 2D: formă, culoare, export.](fisiere/imagini/tic-5-u4-l2-operatii-grafica-2d-atlas.svg)
+![Construiește o imagine 2D: formă, culoare, export.](fisiere/imagini/tic-5-u4-l2-operatii-grafica-2d-atlas-v2.jpg)
 
 ```explorare
 # Construiește o imagine 2D

@@ -15,7 +15,7 @@ data: 2026-10-16
 <!-- atlas-vizual:start -->
 ## Explorează vizual: De la text la document
 
-![De la text la document: caractere, paragrafe, pagină.](fisiere/imagini/tic-7-u1-l5-formatare-aspectul-paginii-atlas.svg)
+![De la text la document: caractere, paragrafe, pagină.](fisiere/imagini/tic-7-u1-l5-formatare-aspectul-paginii-atlas-v2.jpg)
 
 ```explorare
 # De la text la document

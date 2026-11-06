@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Urmărește contorul
 
-![Urmărește contorul: start, repetă, stop.](fisiere/imagini/info-6-u4-l5-repetitiva-cu-contor-atlas.svg)
+![Urmărește contorul: start, repetă, stop.](fisiere/imagini/info-6-u4-l5-repetitiva-cu-contor-atlas-v2.jpg)
 
 ```explorare
 # Urmărește contorul

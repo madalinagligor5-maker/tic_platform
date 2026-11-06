@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Unde păstrăm datele?
 
-![Unde păstrăm datele?: ssd, stick usb, copie de siguranță.](fisiere/imagini/tic-5-u1-l4-dispozitive-de-stocare-atlas.svg)
+![Unde păstrăm datele?: ssd, stick usb, copie de siguranță.](fisiere/imagini/tic-5-u1-l4-dispozitive-de-stocare-atlas-v2.jpg)
 
 ```explorare
 # Unde păstrăm datele?

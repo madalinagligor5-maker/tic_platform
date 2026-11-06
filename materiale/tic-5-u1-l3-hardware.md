@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Cum circulă informația
 
-![Cum circulă informația: intrare, prelucrare, ieșire.](fisiere/imagini/tic-5-u1-l3-hardware-atlas.svg)
+![Cum circulă informația: intrare, prelucrare, ieșire.](fisiere/imagini/tic-5-u1-l3-hardware-atlas-v2.jpg)
 
 ```explorare
 # Cum circulă informația

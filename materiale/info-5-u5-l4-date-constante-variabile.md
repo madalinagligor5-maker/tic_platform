@@ -15,7 +15,7 @@ data: 2026-10-15
 <!-- atlas-vizual:start -->
 ## Explorează vizual: O variabilă își schimbă valoarea
 
-![O variabilă își schimbă valoarea: inițializare, actualizare, utilizare.](fisiere/imagini/info-5-u5-l4-date-constante-variabile-atlas.svg)
+![O variabilă își schimbă valoarea: inițializare, actualizare, utilizare.](fisiere/imagini/info-5-u5-l4-date-constante-variabile-atlas-v2.jpg)
 
 ```explorare
 # O variabilă își schimbă valoarea

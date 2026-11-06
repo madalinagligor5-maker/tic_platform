@@ -15,7 +15,7 @@ data: 2026-10-16
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Din celule în rezultat
 
-![Din celule în rezultat: date, formulă, recalculare.](fisiere/imagini/tic-8-u1-l4-formatare-tipuri-date-formule-atlas.svg)
+![Din celule în rezultat: date, formulă, recalculare.](fisiere/imagini/tic-8-u1-l4-formatare-tipuri-date-formule-atlas-v2.jpg)
 
 ```explorare
 # Din celule în rezultat

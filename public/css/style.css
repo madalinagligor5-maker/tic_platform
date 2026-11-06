@@ -42,7 +42,7 @@ img, svg { display: block; max-width: 100%; }
 .atlas-link > span { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 2px; }
 .atlas-link > span > span { color: var(--red-dark); font-size: .85rem; }
 .mat-card:has(.mat-cover) { display: flex; flex-direction: column; gap: 16px; }
-.mat-cover { width: 100%; height: auto; aspect-ratio: 1080 / 640; object-fit: contain; border-radius: 10px; background: var(--warm); }
+.mat-cover { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; border-radius: 10px; background: var(--warm); }
 .explore-steps { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
 .explore-step { display: flex; align-items: center; gap: 10px; flex: 1 1 145px; padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: white; text-align: left; cursor: pointer; font-size: .9rem; font-weight: 700; }
 .explore-step[aria-pressed="true"] { color: white; background: var(--charcoal); border-color: var(--charcoal); }
@@ -1259,3 +1259,20 @@ body:has(.lab-ecran) { overflow: hidden; }
 .cookie-bar p { flex: 1 1 320px; margin: 0; font-size: .9rem; line-height: 1.45; }
 .cookie-actions { display: flex; gap: 8px; }
 @media print { .cookie-bar { display: none; } }
+
+/* Atlas ilustrat: spațiu pentru imagini și acces direct la lecție. */
+.atlas-gallery-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+.illustrated-gallery .gal-lesson { min-width: 0; margin: 0; display: flex; flex-direction: column; }
+.illustrated-gallery .gal-lesson h3 { min-height: 3em; font-size: 1.05rem; line-height: 1.5; }
+.illustrated-gallery .gal-grid { display: flex; flex: 1; }
+.illustrated-gallery .gal-item { width: 100%; padding: 0 0 18px; overflow: hidden; border: 0; border-radius: 18px; background: #fff; }
+.illustrated-gallery .gal-item img { width: 100%; aspect-ratio: 3 / 2; object-fit: contain; border-radius: 0; background: var(--warm); transition: transform .25s ease; }
+.illustrated-gallery .gal-item > a:first-child { overflow: hidden; }
+.illustrated-gallery .gal-item > a:first-child:hover img { transform: scale(1.025); }
+.illustrated-gallery .gal-item figcaption { padding: 8px 18px 0; font-size: .9rem; }
+.illustrated-gallery .fig-actions { padding-inline: 18px; }
+.atlas-lesson-link { padding: 12px 18px 0; color: var(--red-dark); font-weight: 700; text-decoration: none; cursor: pointer !important; }
+.gal-page .chip[aria-current="page"] { background: var(--charcoal); color: #fff; }
+.atlas-link img { aspect-ratio: 3 / 2; object-fit: contain; background: var(--warm); }
+@media (max-width: 680px) { .atlas-gallery-items { grid-template-columns: minmax(0, 1fr); } .illustrated-gallery .gal-lesson h3 { min-height: 0; } }
+@media (prefers-reduced-motion: reduce) { .illustrated-gallery .gal-item img { transition: none; } }

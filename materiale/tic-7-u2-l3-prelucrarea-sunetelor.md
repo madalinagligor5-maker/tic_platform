@@ -15,7 +15,7 @@ data: 2026-10-16
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Trei etape de editare audio
 
-![Trei etape de editare audio: selectează, prelucrează, exportă.](fisiere/imagini/tic-7-u2-l3-prelucrarea-sunetelor-atlas.svg)
+![Trei etape de editare audio: selectează, prelucrează, exportă.](fisiere/imagini/tic-7-u2-l3-prelucrarea-sunetelor-atlas-v2.jpg)
 
 ```explorare
 # Trei etape de editare audio

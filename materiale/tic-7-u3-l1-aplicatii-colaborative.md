@@ -15,7 +15,7 @@ data: 2026-10-16
 <!-- atlas-vizual:start -->
 ## Explorează vizual: Lucrăm împreună în siguranță
 
-![Lucrăm împreună în siguranță: partajează, colaborează, verifică.](fisiere/imagini/tic-7-u3-l1-aplicatii-colaborative-atlas.svg)
+![Lucrăm împreună în siguranță: partajează, colaborează, verifică.](fisiere/imagini/tic-7-u3-l1-aplicatii-colaborative-atlas-v2.jpg)
 
 ```explorare
 # Lucrăm împreună în siguranță
