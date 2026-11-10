@@ -170,7 +170,12 @@ test('teste lansate de profesor: lansare → rezolvare → corectare → eseu', 
   // Elevul nu vede testele nelansate.
   assert.deepStrictEqual((await call('GET', '/api/elev/teste', null, te)).body, []);
 
-  const l = await call('POST', `/api/profesor/clase/${k.id}/lansari`, { testId: 'tic-5-evaluare-profesor' }, tp);
+  // Implicit, notele rămân ascunse elevilor până le publică profesorul.
+  const ascuns = await call('POST', `/api/profesor/clase/${k.id}/lansari`, { testId: 'tic-5-evaluare-profesor' }, tp);
+  assert.strictEqual(ascuns.body.arataRezultate, false);
+  assert.strictEqual((await call('DELETE', `/api/profesor/lansari/${ascuns.body.id}`, null, tp)).status, 200);
+
+  const l = await call('POST', `/api/profesor/clase/${k.id}/lansari`, { testId: 'tic-5-evaluare-profesor', arataRezultate: true }, tp);
   assert.strictEqual(l.status, 200);
   assert.strictEqual(l.body.timp, 40);
   const lid = l.body.id;

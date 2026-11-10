@@ -283,7 +283,7 @@
                 !t.deschisa && t.stare !== 'predat' ? C.tag('oprit de profesor') : null),
               t.rezultat && t.rezultat.nota != null
                 ? h('p', { class: 'test-mark' }, `Nota ${fmtNota(t.rezultat.nota)} · ${fmtPuncte(t.rezultat.punctaj)} din ${fmtPuncte(t.rezultat.total)} puncte`, t.rezultat.inAsteptare ? ' (provizoriu)' : '')
-                : t.stare === 'predat' ? h('p', { class: 'muted small' }, 'Predat. Profesorul îți va comunica rezultatul.') : null,
+                : t.stare === 'predat' ? h('p', { class: 'muted small' }, 'Predat. Nota apare aici după ce o publică profesorul.') : null,
               t.stare !== 'predat' && t.deschisa ? h('a', { class: 'btn small', href: `#/test/${t.id}` }, t.stare === 'nou' ? 'Începe testul' : 'Continuă testul') : null))))
         : h('div', { class: 'empty' }, h('h3', {}, 'Niciun test deocamdată'), h('p', { class: 'muted' }, 'Când profesorul lansează un test, îl vei găsi aici.'))));
   } });
@@ -353,7 +353,7 @@
           ? [scorTotal(rez), h('div', { class: 'table-scroll' }, h('table', { class: 'data-table' },
               h('thead', {}, h('tr', {}, h('th', {}, 'Item'), h('th', {}, 'Punctaj'))),
               h('tbody', {}, rez.detalii.map((d, i) => h('tr', {}, h('td', {}, `${i + 1}. ${d.titlu.replace(/^Item(ul)?\s*\d+\.\s*/i, '')}`), h('td', {}, d.punctaj == null ? 'se corectează' : `${fmtPuncte(d.punctaj)} / ${fmtPuncte(d.max)}`))))))]
-          : h('div', { class: 'empty' }, h('h3', {}, 'Testul a fost predat'), h('p', { class: 'muted' }, 'Profesorul îți va comunica rezultatul.')),
+          : h('div', { class: 'empty' }, h('h3', {}, 'Testul a fost predat'), h('p', { class: 'muted' }, 'Nota apare în „Testele mele” după ce o publică profesorul.')),
         h('p', {}, h('a', { class: 'btn ghost', href: '#/teste' }, 'Înapoi la teste'))));
     }
     const btn = h('button', { class: 'btn', type: 'button', onclick: () => preda(false) }, 'Predă testul');
@@ -399,7 +399,7 @@
         h('label', { class: 'field' }, h('span', {}, 'Test'), sel),
         info,
         h('label', { class: 'field' }, h('span', {}, 'Timp de lucru (minute; 0 = fără limită)'), timp),
-        h('label', { class: 'check' }, h('input', { type: 'checkbox', name: 'arata', checked: true }), h('span', {}, 'Elevii își văd nota imediat după predare')),
+        h('label', { class: 'check' }, h('input', { type: 'checkbox', name: 'arata' }), h('span', {}, 'Elevii își văd nota imediat după predare (altfel notele rămân ascunse până le publici tu)')),
         prev,
       ], 'Lansează testul', async (d) => {
         const l = await C.api('POST', `/api/profesor/clase/${id}/lansari`, { testId: d.testId, timp: d.timp === '' ? null : Number(d.timp), arataRezultate: Boolean(d.arata) });
@@ -409,12 +409,13 @@
         h('h2', {}, 'Teste'),
         h('p', { class: 'muted small' }, 'Testul lansat apare elevilor clasei în „Testele mele”. Corectarea se face automat; răspunsurile deschise le punctezi tu.'),
         lansari.length ? h('div', { class: 'table-scroll' }, h('table', { class: 'data-table' },
-          h('thead', {}, h('tr', {}, ['Test', 'Lansat', 'Stare', 'Predate', 'Media notelor'].map((x) => h('th', {}, x)))),
+          h('thead', {}, h('tr', {}, ['Test', 'Lansat', 'Stare', 'Predate', 'Note', 'Media notelor'].map((x) => h('th', {}, x)))),
           h('tbody', {}, lansari.map((l) => h('tr', {},
             h('td', {}, h('a', { href: `#/profesor/lansare/${l.id}` }, l.titlu)),
             h('td', {}, C.cand(l.creatLa)),
             h('td', {}, l.deschisa ? C.tag('deschis', 'gata') : C.tag('oprit')),
             h('td', {}, `${l.predate} (${l.incepute} începute)`),
+            h('td', {}, l.arataRezultate ? C.tag('publicate', 'gata') : C.tag('nepublicate')),
             h('td', {}, fmtNota(l.mediaNota))))))) : null,
         h('details', { class: 'launch', open: !lansari.length }, h('summary', {}, 'Lansează un test nou'), formLansare));
     })().catch((e) => umple(sec, h('h2', {}, 'Teste'), h('p', { class: 'error' }, e.message)));
@@ -448,10 +449,12 @@
       await C.api('POST', `/api/profesor/lansari/${lid}/stare`, { deschisa: !l.deschisa });
       render();
     } }, l.deschisa ? 'Oprește testul' : 'Redeschide testul');
-    const arataBtn = h('button', { class: 'btn ghost small', type: 'button', onclick: async () => {
+    // Notele ajung la elevi doar când profesorul le publică (după ce verifică și punctează răspunsurile deschise).
+    const arataBtn = h('button', { class: l.arataRezultate ? 'btn ghost small' : 'btn small', type: 'button', onclick: async () => {
+      if (!l.arataRezultate && !confirm('Publici notele? Fiecare elev își va vedea nota și punctajul pe itemi.')) return;
       await C.api('POST', `/api/profesor/lansari/${lid}/stare`, { deschisa: l.deschisa, arataRezultate: !l.arataRezultate });
       render();
-    } }, l.arataRezultate ? 'Ascunde notele de elevi' : 'Arată notele elevilor');
+    } }, l.arataRezultate ? 'Ascunde notele de elevi' : 'Publică notele elevilor');
     const exportCsv = () => {
       const cap = ['Elev', 'Stare', 'Început', 'Predat', ...(test ? test.itemi.map((it, i) => `Item ${i + 1} (${T.puncteItem(it)}p)`) : []), 'Punctaj', 'Total', 'Nota'];
       const randuri = r.elevi.map((e) => [e.pseudonim, e.predat_la ? 'predat' : e.inceput_la ? 'în lucru' : 'neînceput',
@@ -522,7 +525,7 @@
         C.stat(fmtNota(media), 'media notelor'),
         C.stat(l.timp ? `${l.timp} min` : 'fără limită', 'timp de lucru')),
       h('div', { class: 'row-actions' },
-        l.deschisa ? C.tag('deschis', 'gata') : C.tag('oprit'), stareBtn, arataBtn,
+        l.deschisa ? C.tag('deschis', 'gata') : C.tag('oprit'), l.arataRezultate ? C.tag('note publicate', 'gata') : C.tag('note ascunse elevilor'), stareBtn, arataBtn,
         h('button', { class: 'btn ghost small', type: 'button', onclick: exportCsv }, '⬇ Export CSV (Excel)'),
         test ? h('a', { class: 'btn ghost small', href: `#/profesor/test/${test.id}` }, 'Vezi testul') : null,
         h('button', { class: 'btn ghost small danger', type: 'button', onclick: async () => {
