@@ -2080,7 +2080,7 @@ button.ap-posta-eticheta-camp:hover { background: var(--ap-hover); }
 .ap-posta-b.pericol { background: var(--red-dark); border-color: var(--red-dark); color: #fff !important; }
 .ap-posta-camp-dialog { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; font-weight: 600; font-size: .88rem; }
 .ap-posta-camp-dialog input, .ap-posta-camp-dialog select { padding: 9px 10px; border: 1px solid #CFC5B9; border-radius: 8px; font: inherit; font-weight: 500; }
-.ap-posta-toasturi { position: absolute; left: 50%; bottom: 16px; z-index: 60; display: flex; flex-direction: column; align-items: center; gap: 8px; transform: translateX(-50%); width: max-content; max-width: calc(100% - 32px); pointer-events: none; }
+.ap-posta-toasturi { position: absolute; left: 50%; top: 66px; z-index: 60; display: flex; flex-direction: column; align-items: center; gap: 8px; transform: translateX(-50%); width: max-content; max-width: min(620px, calc(100% - 32px)); pointer-events: none; }
 .ap-posta-toast { display: flex; align-items: center; gap: 10px; padding: 9px 8px 9px 16px; border-radius: 10px; background: #2B2729; color: #fff; font-size: .88rem; box-shadow: 0 6px 20px rgba(23, 20, 22, .3); pointer-events: auto; }
 .ap-posta-toast.ok { background: #1E7145; }
 .ap-posta-toast.err { background: #A3102F; }
@@ -2103,7 +2103,7 @@ button.ap-posta-eticheta-camp:hover { background: var(--ap-hover); }
 
 /* Ecrane mai mici (Chromebook 1024 px, tabletă, telefon) */
 @media (max-width: 1100px) {
-  .ap-posta-corp { grid-template-columns: 180px minmax(250px, 320px) minmax(0, 1fr); }
+  .ap-posta-corp { grid-template-columns: 196px minmax(250px, 310px) minmax(0, 1fr); }
   .ap-posta-logo > span:last-child { display: none; }
   .ap-posta-btn-sus span:not(.ap-posta-ico) { display: none; }
   .ap-posta-unealta span:not(.ap-posta-ico) { display: none; }
@@ -2129,6 +2129,12 @@ button.ap-posta-eticheta-camp:hover { background: var(--ap-hover); }
   .doar-ingust { display: inline-flex !important; }
   .ap-posta-compune { right: 0; width: 100%; height: 100%; border-radius: 0; }
   .ap-posta-antet > time { display: none; }
+  .ap-posta-toasturi { top: auto; bottom: 64px; }
+}
+@media (max-width: 480px) {
+  .ap-posta-sus { gap: 8px; padding: 8px 10px; }
+  .ap-posta-logo b { display: none; }
+  .ap-posta-toasturi { left: 8px; right: 8px; max-width: none; width: auto; transform: none; }
 }
 /* Sfârșit: Aplicația Poștă */
 
