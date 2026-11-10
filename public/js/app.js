@@ -528,7 +528,7 @@
     document.title = 'edudigi – Informatică și TIC, clasele V–VIII';
     onSolved = null;
     for (const a of document.querySelectorAll('.main-nav a')) a.removeAttribute('aria-current');
-    const navMatch = pathPart === '/clase' ? '#/clase' : pathPart.startsWith('/laborator') ? '#/laborator' : pathPart.startsWith('/atelier') ? '#/atelier' : pathPart === '/materiale' && params.get('d') ? `#/materiale?d=${params.get('d')}` : null;
+    const navMatch = pathPart === '/clase' ? '#/clase' : /^\/(laborator|atelier|aplicatii)/.test(pathPart) ? '#/aplicatii' : pathPart === '/materiale' && params.get('d') ? `#/materiale?d=${params.get('d')}` : null;
     if (navMatch) document.querySelector(`.main-nav a[href="${navMatch}"]`)?.setAttribute('aria-current', 'page');
     document.getElementById('nav').classList.remove('open');
     document.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');

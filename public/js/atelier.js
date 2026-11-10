@@ -926,7 +926,13 @@
 
     function deseneazaTot() { deseneazaFile(); deseneazaPanglica(); deseneazaMiniaturi(); deseneazaCanvas(); deseneazaVedere(); actualizeazaStatus(); actualizeazaIstoric(); }
 
-    show(h('div', { class: 'pp-aplicatie' }, barTitlu, file, panglica, corpEditor, status, imgInput));
+    // Predare la sarcină: prezentarea se salvează în cont, iar profesorul o deschide de acolo.
+    const baraSarcina = window.EduSarcini?.bara('atelier', async () => {
+      await salveazaAcum();
+      if (!/^[0-9a-f-]{36}$/.test(id)) throw new Error('Intră în contul de elev ca să poți preda prezentarea.');
+      return { titlu: p.titlu, tip: 'prezentare', id };
+    });
+    show(h('div', { class: 'pp-aplicatie' }, baraSarcina, barTitlu, file, panglica, corpEditor, status, imgInput));
     deseneazaTot();
     requestAnimationFrame(aplicaZoom);
   } });

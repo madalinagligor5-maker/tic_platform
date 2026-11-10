@@ -113,3 +113,30 @@ CREATE TABLE IF NOT EXISTS prezentari (
   actualizat_la  timestamptz NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS prezentari_elev_idx ON prezentari (elev_id);
+
+-- Sarcini de lucru date de profesor unei clase: o lecție de parcurs și/sau o lucrare făcută într-o aplicație.
+CREATE TABLE IF NOT EXISTS sarcini (
+  id            uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  clasa_id      uuid NOT NULL REFERENCES clase(id) ON DELETE CASCADE,
+  titlu         text NOT NULL,
+  instructiuni  text NOT NULL DEFAULT '',
+  material_id   text,                 -- lecția de parcurs (opțional)
+  aplicatie     text,                 -- aplicația în care se lucrează (opțional): desen, posta, audio, cpp, html, text, tabel
+  termen        timestamptz,          -- NULL = fără termen
+  deschisa      boolean NOT NULL DEFAULT true,
+  creat_la      timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS sarcini_clasa_idx ON sarcini (clasa_id);
+
+-- Ce a predat elevul la o sarcină și cum a evaluat-o profesorul.
+CREATE TABLE IF NOT EXISTS predari (
+  sarcina_id    uuid NOT NULL REFERENCES sarcini(id) ON DELETE CASCADE,
+  elev_id       uuid NOT NULL REFERENCES elevi(id) ON DELETE CASCADE,
+  raspuns       text NOT NULL DEFAULT '',
+  lucrare       jsonb,                -- { aplicatie, titlu, tip, date, ... } verificată de API
+  predat_la     timestamptz NOT NULL DEFAULT now(),
+  nota          numeric(4,2),
+  feedback      text,
+  evaluat_la    timestamptz,
+  PRIMARY KEY (sarcina_id, elev_id)
+);

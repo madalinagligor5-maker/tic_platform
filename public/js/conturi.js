@@ -86,7 +86,7 @@
     } }, 'Ieșire');
     if (!sesiune) z.replaceChildren(h('a', { class: 'chip small red', href: '#/intra' }, 'Intră în cont'));
     else if (sesiune.rol === 'profesor') z.replaceChildren(h('a', { class: 'chip small', href: '#/profesor' }, 'Panoul profesorului'), iesire);
-    else z.replaceChildren(h('a', { class: 'chip small', href: '#/teste' }, 'Testele mele'), h('a', { class: 'chip small', href: '#/elev', title: 'Progresul meu' }, `👤 ${sesiune.nume}`), iesire);
+    else z.replaceChildren(h('a', { class: 'chip small', href: '#/sarcini' }, 'Sarcinile mele'), h('a', { class: 'chip small', href: '#/teste' }, 'Testele mele'), h('a', { class: 'chip small', href: '#/elev', title: 'Progresul meu' }, `👤 ${sesiune.nume}`), iesire);
   }
 
   // ---------- Progresul elevului (cache pentru carduri) ----------
@@ -235,7 +235,7 @@
     }
     show(h('div', { class: 'wrap list-page' },
       h('div', { class: 'page-head' }, h('p', { class: 'kicker' }, `${sesiune.numeClasa || ''} · ${clasaLabel([sesiune.clasa])}`), h('h1', {}, 'Progresul meu')),
-      h('div', { class: 'row-actions' }, h('a', { class: 'btn ghost small', href: '#/atelier' }, 'Prezentările mele din Atelier')),
+      h('div', { class: 'row-actions' }, h('a', { class: 'btn small', href: '#/sarcini' }, 'Sarcinile mele'), h('a', { class: 'btn ghost small', href: '#/aplicatii' }, 'Aplicații'), h('a', { class: 'btn ghost small', href: '#/atelier' }, 'Prezentările mele din Atelier')),
       h('div', { class: 'stat-grid' },
         stat(`${term}/${lectii.length}`, 'lecții terminate'),
         stat(`${procent(term, lectii.length) ?? 0}%`, 'din lecțiile clasei'),
@@ -420,6 +420,7 @@
             codEl.textContent = k.clasa.cod;
           } }, 'Generează alt cod'))),
       hooks.panouClasa ? hooks.panouClasa(k, id) : null,
+      (hooks.panouriClasa || []).map((f) => f(k, id)),
       zona));
   } });
   const bara = (p) => h('span', { class: 'mini-bar' }, h('i', { style: null, 'data-w': p ?? 0 }));

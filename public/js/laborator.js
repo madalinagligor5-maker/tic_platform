@@ -183,6 +183,17 @@
   routes.push({ pattern: /^\/laborator\/text$/, handler: ecranStart('text') });
   routes.push({ pattern: /^\/laborator\/tabel$/, handler: ecranStart('tabel') });
 
+  // Celulele folosite ale foii, ca tabel (rânduri × coloane) pentru predare.
+  function tabelPentruPredare(cells) {
+    const poz = Object.keys(cells || {}).map((k) => /^([A-Z]+)(\d+)$/.exec(k)).filter(Boolean);
+    if (!poz.length) return [];
+    const col = (s) => [...s].reduce((n, c) => n * 26 + c.charCodeAt(0) - 64, 0);
+    const maxR = Math.min(200, Math.max(...poz.map((m) => Number(m[2])))), maxC = Math.min(40, Math.max(...poz.map((m) => col(m[1]))));
+    const lit = (n) => { let s = ''; while (n > 0) { const r = (n - 1) % 26; s = String.fromCharCode(65 + r) + s; n = Math.floor((n - 1) / 26); } return s; };
+    const val = (c) => (c == null ? '' : typeof c === 'object' ? String(c.raw ?? '') : String(c)); // formulele rămân vizibile pentru profesor
+    return Array.from({ length: maxR }, (_, r) => Array.from({ length: maxC }, (_, c) => val(cells[lit(c + 1) + (r + 1)])));
+  }
+
   // ---------- Editorul ----------
   let laIesire = null;
   window.addEventListener('hashchange', () => { if (laIesire) { const f = laIesire; laIesire = null; f(); } });
@@ -216,7 +227,11 @@
       app = tip === 'text' ? O.createDocEditor(opt) : O.createSheet({ ...opt, grid: [], cols: 26, rows: 100 });
       app.setStareSalvare('Salvat pe acest calculator');
       document.title = `${f.titlu} – edudigi`;
-      show(h('div', { class: 'lab-ecran' }, app.el));
+      // Predare la sarcină (dacă documentul a fost deschis dintr-o sarcină).
+      const bara = window.EduSarcini?.bara(tip, async () => (tip === 'text'
+        ? { titlu: f.titlu, tip: 'document', date: app.html() }
+        : { titlu: f.titlu, tip: 'tabel', date: tabelPentruPredare(app.getCells()) }));
+      show(h('div', { class: 'lab-ecran' }, bara, app.el));
       laIesire = () => { if (tSalvare) salveaza(); };
       window.addEventListener('beforeunload', () => { if (tSalvare) salveaza(); }, { once: true });
       if (tip === 'text') app.editor.focus();

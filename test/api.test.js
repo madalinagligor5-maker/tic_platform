@@ -291,3 +291,50 @@ test('parolă uitată: resetare cu ADMIN_RESET_CODE', async () => {
     delete process.env.ADMIN_RESET_CODE;
   }
 });
+
+test('sarcini: profesorul dă o sarcină, elevul predă o lucrare, profesorul o evaluează', async () => {
+  const tp = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof S', utilizator: 'prof.sarcini', parola: 'parola-sigura' })).body.token;
+  const tAlt = (await call('POST', '/api/profesor/inregistrare', { nume: 'Alt S', utilizator: 'alt.sarcini', parola: 'parola-sigura' })).body.token;
+  const k = (await call('POST', '/api/profesor/clase', { nume: '5S', clasa: 5 }, tp)).body;
+  const te = (await call('POST', '/api/elev/inscriere', { cod: k.cod, pseudonim: 'Desenatorul', pin: '1111' })).body.token;
+
+  assert.deepStrictEqual((await call('GET', '/api/elev/sarcini', null, te)).body, []);
+  assert.strictEqual((await call('POST', `/api/profesor/clase/${k.id}/sarcini`, { titlu: 'X', aplicatie: 'virus' }, tp)).status, 400);
+  const s = (await call('POST', `/api/profesor/clase/${k.id}/sarcini`, {
+    titlu: 'Desenează mascota clasei', instructiuni: 'Folosește cel puțin 3 forme.', materialId: 'tic-5-u4-l2-operatii-grafica-2d', aplicatie: 'desen', termen: '2030-01-01T10:00:00Z',
+  }, tp)).body;
+  assert.strictEqual(s.aplicatie, 'desen');
+  assert.strictEqual((await call('GET', `/api/profesor/sarcini/${s.id}`, null, tAlt)).status, 404);
+
+  const lista = (await call('GET', '/api/elev/sarcini', null, te)).body;
+  assert.strictEqual(lista.length, 1);
+  assert.strictEqual(lista[0].predare, null);
+
+  // Lucrări invalide sunt refuzate; o imagine PNG validă se primește.
+  assert.strictEqual((await call('POST', `/api/elev/sarcini/${s.id}/predare`, { lucrare: { tip: 'imagine', date: 'data:text/html;base64,PHA+' } }, te)).status, 400);
+  assert.strictEqual((await call('POST', `/api/elev/sarcini/${s.id}/predare`, {}, te)).status, 400);
+  const png = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==';
+  const p = await call('POST', `/api/elev/sarcini/${s.id}/predare`, { raspuns: 'Am folosit 4 forme.', lucrare: { aplicatie: 'desen', titlu: 'Mascota', tip: 'imagine', date: png } }, te);
+  assert.strictEqual(p.status, 200);
+  assert.strictEqual(p.body.intarziat, false);
+
+  const r = (await call('GET', `/api/profesor/sarcini/${s.id}`, null, tp)).body;
+  assert.strictEqual(r.elevi[0].tip_lucrare, 'imagine');
+  const eid = r.elevi[0].id;
+  assert.strictEqual((await call('GET', `/api/profesor/sarcini/${s.id}/elevi/${eid}`, null, tp)).body.predare.lucrare.date, png);
+  assert.strictEqual((await call('GET', `/api/profesor/clase/${k.id}/sarcini`, null, tp)).body[0].predate, 1);
+
+  // Evaluarea; după ea elevul nu mai poate repreda până nu i se redeschide.
+  assert.strictEqual((await call('POST', `/api/profesor/sarcini/${s.id}/elevi/${eid}/evaluare`, { nota: 11 }, tp)).status, 400);
+  assert.strictEqual((await call('POST', `/api/profesor/sarcini/${s.id}/elevi/${eid}/evaluare`, { nota: 9.5, feedback: 'Foarte frumos!' }, tp)).body.nota, 9.5);
+  assert.strictEqual((await call('GET', '/api/elev/sarcini', null, te)).body[0].predare.feedback, 'Foarte frumos!');
+  assert.strictEqual((await call('POST', `/api/elev/sarcini/${s.id}/predare`, { raspuns: 'încă o dată' }, te)).status, 409);
+  await call('POST', `/api/profesor/sarcini/${s.id}/elevi/${eid}/redeschide`, {}, tp);
+  assert.strictEqual((await call('POST', `/api/elev/sarcini/${s.id}/predare`, { raspuns: 'refăcut' }, te)).status, 200);
+
+  // Sarcina închisă nu mai primește lucrări; ștergerea o scoate de la elev.
+  await call('POST', `/api/profesor/sarcini/${s.id}/stare`, { deschisa: false }, tp);
+  assert.strictEqual((await call('POST', `/api/elev/sarcini/${s.id}/predare`, { raspuns: 'târziu' }, te)).status, 409);
+  await call('DELETE', `/api/profesor/sarcini/${s.id}`, null, tp);
+  assert.deepStrictEqual((await call('GET', '/api/elev/sarcini', null, te)).body, []);
+});
