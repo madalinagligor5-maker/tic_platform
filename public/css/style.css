@@ -1897,7 +1897,7 @@ body:has(.lab-ecran) { overflow: hidden; }
 .ap-posta-avatar.c4 { background: #1E7145; } .ap-posta-avatar.c5 { background: #E2711D; } .ap-posta-avatar.c6 { background: #5B4B8A; } .ap-posta-avatar.c7 { background: #A8326E; }
 
 /* Cele trei panouri */
-.ap-posta-corp { flex: 1; min-height: 0; display: grid; grid-template-columns: 210px minmax(280px, 380px) minmax(0, 1fr); }
+.ap-posta-corp { position: relative; flex: 1; min-height: 0; display: grid; grid-template-columns: 210px minmax(280px, 380px) minmax(0, 1fr); }
 .ap-posta-dosare { padding: 12px 8px; overflow-y: auto; }
 .ap-posta-scrie { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 14px 4px; padding: 14px 22px; border: 0; border-radius: 16px; background: #FFE1E8; color: var(--red-dark) !important; font-weight: 700 !important; cursor: pointer; box-shadow: 0 1px 3px rgba(23, 20, 22, .15); }
 .ap-posta-scrie:hover { box-shadow: 0 3px 8px rgba(23, 20, 22, .2); }
@@ -1910,7 +1910,7 @@ body:has(.lab-ecran) { overflow: hidden; }
 .ap-posta-dosar[aria-current="true"] { background: #FDE0E6; color: var(--red-dark); font-weight: 700; }
 .ap-posta-dosar-nou { display: flex; align-items: center; gap: 10px; margin-top: 6px; padding: 7px 12px; border: 0; background: none; color: var(--muted) !important; cursor: pointer; font-size: .88rem; }
 .ap-posta-dosar-nou:hover { color: var(--charcoal) !important; }
-.ap-posta-lista, .ap-posta-citire { min-height: 0; overflow-y: auto; background: #fff; }
+.ap-posta-lista, .ap-posta-citire { padding: 0; min-height: 0; overflow-y: auto; background: #fff; }
 .ap-posta-lista { border-radius: 14px 0 0 0; border-right: 1px solid var(--line); margin-top: 8px; }
 .ap-posta-citire { margin-top: 8px; position: relative; }
 .ap-posta-lista-cap { display: flex; align-items: center; gap: 10px; padding: 12px 14px 4px; }
@@ -2131,3 +2131,132 @@ button.ap-posta-eticheta-camp:hover { background: var(--ap-hover); }
   .ap-posta-antet > time { display: none; }
 }
 /* Sfârșit: Aplicația Poștă */
+
+/* Aplicația Editor C++ */
+.ap-cpp { position: relative; flex: 1; display: flex; flex-direction: column; min-width: 0; min-height: 0; background: #fff; font: 500 14px/1.4 var(--font); color: var(--charcoal);  font-variant-ligatures: none; --ap-fs: 15px; --ap-lh: calc(var(--ap-fs) * 1.5); }
+.ap-cpp button { font: inherit; color: inherit; }
+.ap-cpp kbd { font: 700 11px var(--mono); padding: 1px 5px; border-radius: 4px; border: 1px solid var(--line); background: #fff; color: var(--charcoal); }
+.ap-cpp-spatiu { flex: 1; }
+.ap-cpp [hidden] { display: none !important; }
+.ap-cpp-ic { display: inline-flex; width: 18px; height: 18px; flex: none; }
+.ap-cpp-ic svg { width: 100%; height: 100%; }
+.ap-cpp-bara { display: flex; align-items: center; gap: 10px; padding: 6px 12px; background: var(--charcoal); color: #fff; min-height: 50px; }
+.ap-cpp-inapoi { color: #fff; text-decoration: none; font-weight: 700; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
+.ap-cpp-inapoi:hover, .ap-cpp-inapoi:focus-visible { background: rgba(255, 255, 255, .14); }
+.ap-cpp-sigla { display: inline-grid; place-items: center; width: 34px; height: 30px; border-radius: 8px; background: #0E7F96; font: 800 12px var(--mono); }
+.ap-cpp-numeapp { white-space: nowrap; }
+.ap-cpp-nume { width: 220px; min-width: 80px; padding: 6px 10px; border: 1px solid transparent; border-radius: 8px; background: rgba(255, 255, 255, .1); color: #fff; font: 600 14px var(--font); }
+.ap-cpp-nume:hover { border-color: rgba(255, 255, 255, .3); }
+.ap-cpp-nume:focus { outline: none; border-color: var(--blue); background: rgba(255, 255, 255, .16); }
+.ap-cpp-salv { font-size: 12px; color: #c9c2bb; white-space: nowrap; }
+.ap-cpp-salv.err { color: #ffb3c1; font-weight: 700; }
+.ap-cpp-run, .ap-cpp-stop { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 0; border-radius: 9px; background: var(--red); color: #fff !important; font-weight: 800 !important; cursor: pointer; white-space: nowrap; }
+.ap-cpp-run:hover { background: var(--red-dark); }
+.ap-cpp-run:disabled { opacity: .6; cursor: progress; }
+.ap-cpp-run kbd { background: rgba(255, 255, 255, .2); border-color: transparent; color: #fff; }
+.ap-cpp-stop { background: #fff; color: var(--charcoal) !important; }
+.ap-cpp-stop:hover { background: var(--beige); }
+.ap-cpp-run:focus-visible, .ap-cpp-stop:focus-visible, .ap-cpp-u:focus-visible, .ap-cpp-mic:focus-visible, .ap-cpp-rand:focus-visible, .ap-cpp-ex:focus-visible, .ap-cpp-item:focus-visible { outline: 2px solid var(--blue-ink); outline-offset: 2px; }
+.ap-cpp-unelte { display: flex; align-items: center; gap: 2px; padding: 5px 10px; border-bottom: 1px solid var(--line); background: var(--warm); overflow-x: auto; scrollbar-width: thin; }
+.ap-cpp-u { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 10px; border: 1px solid transparent; border-radius: 8px; background: none; cursor: pointer; font-weight: 600 !important; font-size: 13px !important; white-space: nowrap; flex: none; }
+.ap-cpp-u:hover { background: #fff; border-color: var(--line); }
+.ap-cpp-sep { width: 1px; height: 22px; margin: 0 5px; background: var(--line); flex: none; }
+.ap-cpp-corp { flex: 1; display: flex; min-height: 0; }
+.ap-cpp-st { flex: 1 1 60%; min-width: 0; min-height: 0; overflow: hidden; display: flex; flex-direction: column; border-right: 1px solid var(--line); }
+.ap-cpp-dr { flex: 1 1 40%; min-width: 0; min-height: 0; max-width: 560px; display: flex; flex-direction: column; background: #FBF8F4; }
+.ap-cpp-cap { display: flex; align-items: center; gap: 6px; padding: 4px 8px 4px 12px; min-height: 34px; font-size: 13px; border-bottom: 1px solid var(--line); background: #fff; }
+.ap-cpp-mic { display: inline-flex; align-items: center; gap: 4px; min-width: 26px; height: 26px; padding: 0 7px; border: 0; border-radius: 6px; background: none; cursor: pointer; color: var(--muted) !important; font-weight: 700; font-size: 12px; flex: none; }
+.ap-cpp-mic:hover { background: var(--line); color: var(--charcoal) !important; }
+.ap-cpp-mic .ap-cpp-ic { width: 15px; height: 15px; }
+/* zona de cod: textarea transparentă peste <pre> colorat */
+.ap-cpp-editor { flex: 1; display: flex; min-height: 0; background: #FFFDFB; }
+.ap-cpp-gutter { flex: none; overflow: hidden; padding: 10px 0; min-width: 46px; background: #F6F1EB; border-right: 1px solid var(--line); color: #A39A92; font: var(--ap-fs)/1.5 var(--mono); text-align: right; user-select: none; }
+.ap-cpp-nr div { padding: 0 10px 0 16px; position: relative; height: var(--ap-lh); }
+.ap-cpp-nr div.eroare { color: #fff; background: var(--red); font-weight: 700; }
+.ap-cpp-nr div.atentie { color: #8A5A00; background: #FCE6B8; font-weight: 700; }
+.ap-cpp-strat { position: relative; flex: 1; min-width: 0; overflow: hidden; }
+.ap-cpp-pre, .ap-cpp-ta { position: absolute; inset: 0; margin: 0; padding: 10px 14px; border: 0; font: var(--ap-fs)/1.5 var(--mono); font-variant-ligatures: none; letter-spacing: 0; tab-size: 4; white-space: pre; overflow-wrap: normal; word-break: normal; }
+.ap-cpp-pre { overflow: hidden; pointer-events: none; color: var(--charcoal); background: transparent; }
+.ap-cpp-pre code { display: block; position: relative; font: inherit; will-change: transform; }
+.ap-cpp-marcaj { position: absolute; left: 0; right: -4000px; top: 10px; will-change: transform; }
+.ap-cpp-marcaj div { position: absolute; left: 0; right: 0; height: var(--ap-lh); background: #FDE7EC; }
+.ap-cpp-marcaj div.atentie { background: #FFF3D6; }
+.ap-cpp-ta { resize: none; overflow: auto; color: transparent; background: transparent; caret-color: var(--charcoal); outline: none; }
+.ap-cpp-ta::selection { background: rgba(62, 198, 224, .3); color: transparent; }
+.ap-cpp-pre .c { color: #8C857F; font-style: italic; }
+.ap-cpp-pre .pp { color: #A3368F; }
+.ap-cpp-pre .inc { color: #14794A; }
+.ap-cpp-pre .s { color: #14794A; }
+.ap-cpp-pre .n { color: #C2410C; }
+.ap-cpp-pre .k { color: #1D4ED8; font-weight: 700; }
+.ap-cpp-pre .t { color: #0E7F96; font-weight: 700; }
+.ap-cpp-pre .b { color: #7C3AED; }
+.ap-cpp-pre .f { color: #9A3412; }
+/* date de intrare și consolă */
+.ap-cpp-intrare { flex: 0 0 auto; height: 22%; min-height: 70px; resize: vertical; margin: 0; padding: 8px 12px; border: 0; border-bottom: 1px solid var(--line); background: #fff; font: calc(var(--ap-fs) - 1px)/1.45 var(--mono); color: var(--charcoal); }
+.ap-cpp-intrare:focus { outline: 2px solid var(--blue); outline-offset: -2px; }
+.ap-cpp-intrare::placeholder { font: 12px/1.45 var(--font); color: var(--muted); white-space: pre-wrap; }
+.ap-cpp-consola { flex: 1; min-height: 0; overflow: auto; padding: 10px 12px 16px; background: #171416; color: #F3EEE8; font: calc(var(--ap-fs) - 1px)/1.5 var(--mono); }
+.ap-cpp-consola:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.ap-cpp-start { color: #8C857F; font-size: 12px; margin-bottom: 6px; }
+.ap-cpp-out { margin: 0; font: inherit; white-space: pre-wrap; word-break: break-word; color: #F3EEE8; }
+.ap-cpp-out .in { color: #7FE0A8; font-weight: 700; }
+.ap-cpp-tastare { width: 12ch; min-width: 60px; padding: 0 4px; border: 0; border-bottom: 2px solid #7FE0A8; background: rgba(127, 224, 168, .12); color: #7FE0A8; font: inherit; font-weight: 700; outline: none; }
+.ap-cpp-cere { margin-top: 10px; color: #9BDDF0; font: 600 12px/1.4 var(--font); }
+.ap-cpp-msg { margin-top: 12px; padding: 8px 10px; border-radius: 8px; font: 600 13px/1.45 var(--font); }
+.ap-cpp-msg.ok { color: #A9DCC2; background: rgba(20, 163, 154, .14); font-weight: 500; font-size: 12px; }
+.ap-cpp-msg.err { color: #FFD0DA; background: rgba(242, 31, 75, .2); border-left: 4px solid var(--red); }
+.ap-cpp-msg.err div { margin-top: 3px; font-weight: 500; color: #fff; }
+.ap-cpp-avert { margin: 4px 0 8px; padding: 6px 10px; border-radius: 8px; background: rgba(242, 154, 31, .16); color: #FCD9A0; font: 500 12.5px/1.45 var(--font); }
+.ap-cpp-avert div + div { margin-top: 3px; }
+.ap-cpp-rand { padding: 0 4px; border: 0; border-radius: 4px; background: rgba(255, 255, 255, .14); color: inherit; font-weight: 700 !important; text-decoration: underline; cursor: pointer; }
+.ap-cpp-rand:hover { background: rgba(255, 255, 255, .26); }
+.ap-cpp-indiciu { margin: 6px 0 0; color: #A39A92; font: 500 12.5px/1.5 var(--font); }
+.ap-cpp-status { display: flex; align-items: center; gap: 12px; padding: 3px 12px; min-height: 30px; border-top: 1px solid var(--line); background: var(--warm); font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; }
+.ap-cpp-stmesaj { font-weight: 700; overflow: hidden; text-overflow: ellipsis; }
+.ap-cpp-stmesaj.err { color: var(--red-dark); }
+.ap-cpp-stmesaj.ok { color: #14794A; }
+.ap-cpp.ruleaza .ap-cpp-consola { cursor: progress; }
+/* dialoguri și mesaje */
+.ap-cpp-toast { position: absolute; left: 50%; bottom: 44px; transform: translateX(-50%); z-index: 5; max-width: min(92%, 480px); padding: 10px 16px; border-radius: 10px; background: var(--charcoal); color: #fff; font-weight: 600; box-shadow: var(--shadow); transition: opacity .5s; }
+.ap-cpp-toast.err { background: var(--red-dark); }
+.ap-cpp-toast.gone { opacity: 0; }
+.ap-cpp-dlg { width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 40px); padding: 18px 20px 20px; border: 0; border-radius: var(--radius); box-shadow: 0 20px 60px rgba(23, 20, 22, .3); color: var(--charcoal); font: 500 14px/1.5 var(--font); }
+.ap-cpp-dlg.lat { width: min(820px, calc(100vw - 32px)); }
+.ap-cpp-dlg::backdrop { background: rgba(23, 20, 22, .45); }
+.ap-cpp-dlgcap { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.ap-cpp-dlgcap h2 { margin: 0; font-size: 1.25rem; }
+.ap-cpp-dlg h3 { margin: 14px 0 4px; font-size: 1rem; }
+.ap-cpp-dlg ul { margin: 0; padding-left: 20px; }
+.ap-cpp-dlgbtn { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
+.ap-cpp-fisiere { list-style: none !important; padding: 0 !important; margin: 0; max-height: 50vh; overflow-y: auto; border: 1px solid var(--line); border-radius: 10px; }
+.ap-cpp-fisiere li { display: flex; align-items: center; gap: 4px; padding: 2px 8px 2px 2px; border-bottom: 1px solid var(--line); }
+.ap-cpp-fisiere li:last-child { border-bottom: 0; }
+.ap-cpp-fisiere li.activ { background: #E2F6FA; }
+.ap-cpp-item { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; padding: 8px; border: 0; background: none; cursor: pointer; text-align: left; border-radius: 8px; }
+.ap-cpp-item:hover { background: var(--warm); }
+.ap-cpp-item .n { min-width: 0; display: flex; flex-direction: column; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-cpp-item .n small { font-weight: 500; color: var(--muted); font-size: 12px; }
+.ap-cpp-tipf { flex: none; padding: 3px 5px; border-radius: 5px; background: #0E7F96; color: #fff; font: 800 10px var(--mono); }
+.ap-cpp-exemple { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; max-height: 62vh; overflow-y: auto; padding: 2px; }
+.ap-cpp-ex { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: #fff; cursor: pointer; text-align: left; }
+.ap-cpp-ex:hover { border-color: #0E7F96; background: #F3FBFD; }
+.ap-cpp-ex span { font-size: 12.5px; color: var(--muted); }
+.ap-cpp-ex code { display: block; width: 100%; margin-top: 4px; padding: 6px 8px; border-radius: 6px; background: var(--warm); font: 11.5px/1.4 var(--mono); white-space: pre; overflow: hidden; text-overflow: ellipsis; color: var(--charcoal); }
+.ap-cpp-ajutor p { margin: 8px 0; }
+@media (max-width: 1100px) { .ap-cpp-numeapp, .ap-cpp-salv { display: none; } }
+@media (max-width: 860px) {
+  .ap-cpp-u .lung { display: none; }
+  .ap-cpp-corp { flex-direction: column; }
+  .ap-cpp-st { flex: 1 1 55%; border-right: 0; border-bottom: 1px solid var(--line); }
+  .ap-cpp-dr { flex: 1 1 45%; max-width: none; }
+  .ap-cpp-intrare { height: 64px; }
+}
+@media (max-width: 560px) {
+  .ap-cpp-bara { gap: 6px; padding: 6px 8px; }
+  .ap-cpp-sigla { display: none; }
+  .ap-cpp-nume { width: auto; flex: 1; }
+  .ap-cpp-run .lung, .ap-cpp-run kbd, .ap-cpp-stop .lung { display: none; }
+  .ap-cpp-status .muted { display: none; }
+}
+/* Sfârșit: Aplicația Editor C++ */
