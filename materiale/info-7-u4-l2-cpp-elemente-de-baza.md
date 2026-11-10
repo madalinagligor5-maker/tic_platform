@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 4 · Limbajul de programare
 ordine: 402
 descriere: Structura unui program C++, identificatori, tipuri de date (int, double, char, bool), declararea variabilelor și constantelor, operatori aritmetici (inclusiv / și %), relaționali și logici, expresii și comentarii.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.4, CS 2.1, CS 2.2
@@ -45,7 +45,7 @@ int main()               // aici începe programul
 
 ### Identificatori
 
-Numele variabilelor se numesc **identificatori**. Reguli: conțin **litere**, **cifre** și **_**, **nu încep cu o cifră**, nu au spații sau diacritice și nu sunt cuvinte rezervate (`int`, `return`…). Corecte: `suma`, `nr_elevi`, `x1`. Greșite: `1x`, `nr elevi`, `int`.
+Numele variabilelor se numesc **identificatori**. Reguli: conțin **litere**, **cifre** și **_**, **nu încep cu o cifră**, nu au spații sau alte semne (de exemplu `-`) și nu sunt cuvinte rezervate (`int`, `return`…). Evită **diacriticele** (`mărime`): unele compilatoare nu le acceptă, iar la concursuri și la examene nu se folosesc. Corecte: `suma`, `nr_elevi`, `x1`. Greșite: `1x`, `nr elevi`, `nota-finala`, `int`.
 
 ### Tipuri de date
 
@@ -196,7 +196,7 @@ F: Tipul char poate păstra un cuvânt întreg, de exemplu "școala". | char pă
 ```categorii
 # Corect sau greșit ca identificator?
 Corect: suma, x1, nr_elevi, Medie
-Greșit: 1x, nr elevi, int, mărime
+Greșit: 1x, nr elevi, int, nota-finala
 ```
 
 ```adevarat-fals

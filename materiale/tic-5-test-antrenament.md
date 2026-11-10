@@ -9,7 +9,7 @@ timp: 25
 unitate: Recapitulare și evaluare finală
 ordine: 901
 descriere: Test cu notă, de exersat oricând: răspunzi la toți itemii, apeși „Predă testul” și vezi nota, corectura și explicațiile.
-data: 2026-10-22
+data: 2026-11-10
 ---
 
 ## Cum funcționează
@@ -29,7 +29,7 @@ Explicație: Procesorul execută instrucțiunile programelor.
 Ce memorie se golește când închidem calculatorul?
 * Memoria RAM
 - Hard diskul
-- Stick-ul USB
+- Stickul USB
 Explicație: RAM este memorie volatilă.
 
 Care sunt dispozitive de ieșire? (mai multe răspunsuri)

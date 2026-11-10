@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Sisteme de calcul și comunicații
 ordine: 102
 descriere: De la Pascalina la telefonul inteligent: cum au evoluat calculatoarele și mijloacele de comunicare și care sunt sistemele de calcul folosite azi.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1
@@ -35,9 +35,9 @@ Folosim calculatorul, tableta și telefonul la teme, la calcule, ca să comunic�
 
 | Anul | Ce a apărut |
 |---|---|
-| 1642 | **Pascalina**, primul calculator mecanic, construit de francezul **Blaise Pascal** |
+| 1642 | **Pascalina**, unul dintre primele calculatoare mecanice, construită de francezul **Blaise Pascal** |
 | 1946 | **ENIAC**, primul calculator electronic de uz general, numeric (digital), creat pentru armata SUA |
-| 1981 | **IBM PC**, primul calculator personal asemănător celor de azi; tot atunci apare **Osborne 1**, primul calculator portabil |
+| 1981 | **IBM PC**, primul calculator personal asemănător celor de azi; tot atunci apare **Osborne 1**, primul calculator portabil vândut în număr mare |
 | 1984 | **Macintosh 128K**, primul calculator Apple din seria Macintosh |
 | 1993 | primul calculator personal cu procesor **Intel Pentium**; **Newton MessagePad**, prima tabletă Apple |
 | 1994 | **IBM Simon**, primul telefon inteligent |
@@ -54,7 +54,7 @@ De la **focuri și semnale de fum**, oamenii au ajuns la **telegraf**, **telefon
 ### Sistemele de calcul folosite azi
 
 - **Calculatorul personal de birou (desktop)**: pentru acasă sau birou; are putere de calcul mare, se poate conecta la multe dispozitive și rulează multe aplicații.
-- **Laptopul**: calculator personal **portabil**; e mic, fără cabluri și consumă puțină energie. Din aceeași familie fac parte notebookul, netbookul și ultrabookul.
+- **Laptopul**: calculator personal **portabil**; e mic, fără cabluri și consumă puțină energie. Din aceeași familie fac parte notebookul și ultrabookul (netbookurile, mai mici și mai slabe, nu se mai fabrică).
 - **Tableta**: și mai mică, are **ecran tactil** (touchscreen), dar se poate conecta mai greu prin fir la alte dispozitive.
 - **Telefonul inteligent (smartphone)**: telefon mobil multifuncțional, cu aparat foto, calculator, calendar, GPS, agendă și multe altele.
 
@@ -72,7 +72,7 @@ Le folosim peste tot: în medicină (aparatură, evidența pacienților), în b�
 
 ```ordonare
 # Pune invențiile în ordine cronologică (de la cea mai veche).
-Pascalina, primul calculator mecanic (1642)
+Pascalina, calculatorul mecanic al lui Blaise Pascal (1642)
 ENIAC, primul calculator electronic de uz general (1946)
 IBM PC, primul calculator personal ca cele de azi (1981)
 Macintosh 128K (1984)
@@ -100,7 +100,7 @@ Care a fost primul calculator electronic de uz general?
 ```
 
 ```completare
-# Alege forma corectă și scrie-o.
+# Completează cuvintele lipsă.
 Laptopul este un calculator personal [portabil]. Tableta are un ecran [tactil]. Telefonul inteligent este un telefon [mobil].
 ```
 
@@ -128,4 +128,4 @@ Smartphone = Telefon mobil multifuncțional: foto, GPS, calendar, aplicații.
 
 ## Pe scurt
 
-Primul calculator mecanic a fost **Pascalina** (1642), primul calculator electronic de uz general **ENIAC** (1946), iar primul calculator personal ca cele de azi **IBM PC** (1981). Astăzi folosim cel mai des desktopul, laptopul, tableta și telefonul inteligent, care sunt și sisteme de calcul, și mijloace de comunicare.
+Unul dintre primele calculatoare mecanice a fost **Pascalina** (1642), primul calculator electronic de uz general **ENIAC** (1946), iar primul calculator personal ca cele de azi **IBM PC** (1981). Astăzi folosim cel mai des desktopul, laptopul, tableta și telefonul inteligent, care sunt și sisteme de calcul, și mijloace de comunicare.

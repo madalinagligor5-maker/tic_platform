@@ -7,7 +7,7 @@ tip: proiect
 unitate: Proiect și evaluare finală
 ordine: 701
 descriere: Proiect de final de an: o poveste animată amuzantă în Scratch, cu 2–3 personaje, dialoguri și cel puțin un personaj 3D desenat în Paint 3D, prezentată colegilor cu PowerPoint.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Ce vei face
@@ -33,6 +33,8 @@ La final, dai câte o notă tuturor celorlalte proiecte (nu și propriului proie
    - fă pânza **transparentă**;
    - desenează personajul și **exportă-l** ca **.png**, cu fundal transparent.
    - Pentru animație, salvează mai multe **poziții** ale personajului: vor fi **costumele** lui.
+
+   Dacă nu ai Paint 3D (nu mai poate fi descărcat din Microsoft Store), modelează personajul în **Tinkercad**, fă o captură de ecran (**Windows + Shift + S**) și salveaz-o ca **.png**, apoi șterge fundalul cu radiera, în editorul de costume din Scratch.
 4. **Programează în Scratch.** Încarcă personajele și costumele, alege decorurile și sunetele potrivite. Folosește:
    - **„spune … pentru … secunde”** pentru dialoguri;
    - **„difuzează”** și **„când primesc”**, ca personajele să-și răspundă la rând;

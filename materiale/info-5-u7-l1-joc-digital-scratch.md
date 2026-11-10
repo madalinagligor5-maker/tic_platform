@@ -7,7 +7,7 @@ tip: lectie
 unitate: Jocuri și povești în Scratch
 ordine: 701
 descriere: Pas cu pas, jocul „Vânătoarea de stele”: planificarea jocului, personaje, variabile pentru scor și vieți, mișcare cu săgețile, decizii cu operatori relaționali, câștig și pierdere, testare și îmbunătățiri.
-data: 2026-10-26
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 2.2, CS 3.2, CS 3.3
@@ -110,6 +110,7 @@ dacă < (cronometru) > 30 > atunci
 - `scor = 5`, `vieți < 1`, `cronometru > 30` sunt condiții cu **operatori relaționali** (din *Operatori*).
 - Blocul **„cronometru”** este în *Detectare*; el numără secundele de la ultima resetare.
 - **„oprește [tot]”** (din *Control*) oprește toate scripturile: jocul s-a terminat.
+- Sunetele **Collect** și **Oops** nu sunt de la început la pisoi: le adaugi din **fila Sunete → Alege un sunet**.
 - Verificările se fac **după fiecare mișcare** a pisoiului. Dacă jucătorul nu apasă nicio tastă, timpul expirat se anunță la următoarea apăsare. (În clasa a VI-a vei învăța **repetiția**, cu care poți verifica timpul tot timpul.)
 
 ### Pasul 7. Steaua care sare
@@ -230,7 +231,7 @@ Barem: plan complet și coerent (scop, personaje, comenzi, reguli, condiții de 
 
 1. Construiește jocul „Vânătoarea de stele” urmând pașii 2–8. Completează tabelul de testare.
 2. Schimbă regula de câștig: jucătorul câștigă la **10** stele și are **45** de secunde. Ce blocuri modifici?
-3. Adaugă o a doua stea, de altă culoare, care valorează **2 puncte**.
+3. Adaugă o a doua stea, de altă culoare, care valorează **2 puncte**. Atenție: acum scorul poate sări de la 4 la 6, așa că schimbă condiția de câștig în `scor > 4`.
 4. Fă crabul să alunece la o poziție aleatorie de fiecare dată când este prinsă o stea.
 5. Joacă jocul unui coleg și dă-i două sugestii de îmbunătățire.
 6. **Portofoliu:** salvează jocul ca `VanatoareaDeStele.sb3` în folderul `Portofoliu`.

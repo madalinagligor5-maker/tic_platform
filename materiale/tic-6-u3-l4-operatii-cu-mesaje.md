@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 3 · Internet
 ordine: 304
 descriere: Compunerea și trimiterea unui e-mail (Către, CC, CCI, Subiect, atașamente), deschiderea, răspunsul, redirecționarea, salvarea și ștergerea mesajelor, agenda de adrese.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.3
@@ -95,7 +95,7 @@ Când citești un mesaj poți: să te întorci la listă, să-l raportezi ca **s
 ### D. Salvare și ștergere
 
 - În **Outlook** salvezi un mesaj pe calculator trăgându-l într-un folder sau din **Fișier → Salvare ca**.
-- **Ștergerea**: unul câte unul, mai multe odată (le selectezi întâi) sau din fereastra mesajului, cu **Șterge**. Odată cu mesajul se șterg și atașamentele.
+- **Ștergerea**: unul câte unul, mai multe deodată (le selectezi întâi) sau din fereastra mesajului, cu **Șterge**. Odată cu mesajul se șterg și atașamentele.
 - Mesajele șterse ajung în **Mesaje șterse** / **Coș de gunoi**. De acolo le poți **recupera**. Dispar **definitiv** doar dacă le ștergi și din coș.
 
 Fă ordine din când în când, ca să ai loc pentru mesaje noi.
@@ -104,7 +104,7 @@ Fă ordine din când în când, ca să ai loc pentru mesaje noi.
 
 **Agenda** (*Address Book*, *Contacte*) păstrează datele persoanelor cu care corespondezi.
 
-- **Adăugare manuală**: în Gmail, **Creează contact**, completezi numele și adresa → **Salvează**; în Outlook, **Agendă → Fișier → Intrare nouă → Persoană de contact nouă**.
+- **Adăugare manuală**: în Gmail, **Creează contact**, completezi numele și adresa → **Salvează**; în Outlook, deschizi **Persoane** (pictograma cu două persoane din stânga) → **Contact nou**, completezi datele → **Salvare**.
 - **Adăugare automată**: din mesajul primit, clic (dreapta) pe adresa expeditorului → **Adaugă la contacte**.
 - **Cel mai util**: când scrii un mesaj, apeși **Către** și alegi destinatarul din agendă. Adresa se completează **corect**, fără greșeli de tastare.
 

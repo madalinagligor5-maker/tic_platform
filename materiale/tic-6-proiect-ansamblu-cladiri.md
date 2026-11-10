@@ -7,7 +7,7 @@ tip: proiect
 unitate: Recapitulare sumativă · TIC
 ordine: 391
 descriere: Proiect în echipă care recapitulează tot TIC-ul: proiectați în Paint 3D un ansamblu de clădiri, îl promovați cu o prezentare PowerPoint și cereți feedback colegilor pe e-mail.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Ce vei face
@@ -24,7 +24,7 @@ La final, fiecare elev dă o notă proiectelor celorlalte echipe (nu și propriu
 
 1. **Formați echipa** și împărțiți rolurile. Faceți un plan de lucru. Ascultați ideile tuturor.
 2. **Documentați-vă**: căutați imagini și idei de clădiri. Respectați **drepturile de autor** și notați sursele. Navigați în siguranță: nu descărcați programe necunoscute, nu dați clic pe reclame.
-3. **Lucrați în Paint 3D.** Fiecare membru realizează o parte a ansamblului (un bloc, teatrul, parcul dintre ele). Folosiți forme 3D, modele din Biblioteca 3D, texturi și text 3D.
+3. **Lucrați în Paint 3D** (sau în Tinkercad, dacă nu aveți Paint 3D). Fiecare membru realizează o parte a ansamblului (un bloc, teatrul, parcul dintre ele). Folosiți forme 3D, modele din Biblioteca 3D, texturi și text 3D.
 4. **Reuniți** părțile într-o singură lucrare.
 5. **Verificați și îmbunătățiți** proiectul cât timp mai aveți.
 

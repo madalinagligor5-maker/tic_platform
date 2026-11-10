@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 4 · Editare grafică
 ordine: 401
 descriere: Ce este un editor grafic, imagini 2D și 3D, cum pornești Paint și ce găsești în interfața lui: panglica, filele Fișier, Pornire și Vizualizare.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 3.1
@@ -20,7 +20,7 @@ data: 2026-10-15
 
 ## Să ne amintim
 
-**Paint** este unul dintre programele incluse în Windows, în grupul **Accesorii Windows**. Fișierele imagine au extensii ca `.png`, `.jpg`, `.bmp`, `.gif`.
+**Paint** este unul dintre programele incluse în Windows (în Windows 10, în grupul **Accesorii Windows**). Fișierele imagine au extensii ca `.png`, `.jpg`, `.bmp`, `.gif`.
 
 ## Lecția pe scurt
 
@@ -41,13 +41,15 @@ Imaginile se salvează în **fișiere grafice**. Din Paint poți salva cu extens
 
 ### Cum pornești Paint
 
-- **Start** → **Accesorii Windows** → **Paint**;
+- **Start** → **Accesorii Windows** → **Paint** (Windows 10) sau **Start** → **Toate aplicațiile** → **Paint** (Windows 11);
 - **Start** → scrii `Paint` → **Enter**;
 - clic pe pictograma Paint din bara de activități, dacă este acolo.
 
 ![Paint pornește din meniul Start → Accesorii Windows, scriind „Paint” și apăsând Enter sau cu un clic pe pictograma din bara de activități.](fisiere/imagini/tic-5-u4-l1-editor-grafic-interfata-pornire.svg)
 
 ### Interfața Paint
+
+> **Paint în Windows 11.** Lecția descrie Paint cu panglică și file, din Windows 10. În Windows 11, Paint are o interfață nouă: comenzile din fila **Pornire** stau direct pe **bara de instrumente**, în aceleași grupuri (Imagine, Instrumente, Pensule, Forme, Dimensiune, Culori), iar **Fișier** și **Vizualizare** sunt meniuri în partea de sus. Noul Paint are în plus **straturi** și **eliminarea fundalului**. Programul Paint 3D nu mai există: a fost scos din Windows și din Microsoft Store.
 
 1. **Bara de acces rapid**: comenzi folosite des.
 2. **Bara de titlu**: numele fișierului la care lucrezi și butoanele de minimizare, maximizare/restaurare și închidere.

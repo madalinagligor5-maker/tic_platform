@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Editorul de texte
 ordine: 101
 descriere: Ce înseamnă să editezi și să tehnoredactezi un document, ce este un editor de texte, exemple de aplicații și reguli de bază pentru scrierea pe calculator.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1
@@ -37,8 +37,10 @@ Un **document** este un fișier care conține text și, eventual, imagini, tabel
 | | Editor de texte simplu | Procesor de texte |
 |---|---|---|
 | Ce face | scrie și modifică text simplu | scrie, formatează și aranjează în pagină |
-| Exemple | Notepad, Notepad++ | Microsoft Word, LibreOffice Writer, Google Docs, WordPad |
+| Exemple | Notepad, Notepad++ | Microsoft Word, LibreOffice Writer, Google Docs |
 | Fișiere | `.txt` | `.docx`, `.odt`, `.pdf` (la export) |
+
+**WordPad**, procesorul de texte simplu din Windows, a fost eliminat din Windows 11 începând cu 2024; în locul lui folosești Word, LibreOffice Writer sau Google Docs.
 
 În limbajul obișnuit, programele ca Word se numesc tot **editoare de texte**. În această unitate lucrăm cu **Microsoft Word**; comenzile sunt foarte asemănătoare în **LibreOffice Writer** (gratuit) și în **Google Docs** (online).
 

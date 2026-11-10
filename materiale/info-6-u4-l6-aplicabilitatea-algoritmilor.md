@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 4 · Algoritmi și programare
 ordine: 406
 descriere: Jocul „Minecraft 3D” în Scratch: personaje desenate în Paint 3D, controlul din taste, straturi, mesaje difuzate, limitarea mișcării și a mărimii, teleportarea cu efect fantomă.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 2.1, CS 2.3, CS 3.3
@@ -22,7 +22,7 @@ data: 2026-10-15
 
 ## Să ne amintim
 
-În Paint 3D ai desenat, pe pânză transparentă, un **copac**, o **mână**, o **țintă** și **iarbă**, salvate ca `.png`. Azi le folosești într-un joc Scratch. Mai știi blocurile **„dacă… atunci”**, **„la infinit”** și **„atinge ( )?”**.
+În Paint 3D (sau în alt program de desen) ai desenat, pe pânză transparentă, un **copac**, o **mână**, o **țintă** și **iarbă**, salvate ca `.png`. Azi le folosești într-un joc Scratch. Mai știi blocurile **„dacă… atunci”**, **„la infinit”** și **„atinge ( )?”**.
 
 ## Lecția pe scurt
 
@@ -78,7 +78,7 @@ Fără limite, copacii ar ieși de pe ecran sau ar crește la nesfârșit. De ac
 
 - la **stânga/dreapta**: mutarea se face doar dacă x nu a trecut de o valoare maximă (o afli mutând copacul cu mouse-ul până la margine și citind x);
 - la **mărire/micșorare**: doar dacă mărimea e între o valoare minimă și una maximă;
-- la **sus/jos**: iarba nu urcă mai sus de **y = 0**, ca să nu se vadă cerul jos.
+- la **sus/jos**: iarba nu urcă mai sus de **y = 0**, ca să nu apară un spațiu gol sub ea.
 
 Pentru o mișcare mai naturală se adaugă un mic **„recul”**: personajul se mișcă puțin sus-jos înainte să se oprească (două blocuri **„repetă (10)”**).
 
@@ -173,7 +173,7 @@ Barem: 2p personaje și scenă descrise (măr, coș, decor); 2p controlul coșul
 1. Mărește cu 100 limita la dreapta. Ce se întâmplă cu copacii când ajungi la noua limită?
 2. Elimină limita ierbii (y = 0) la mișcarea în sus. Ce se vede dacă apeși de mai multe ori tasta **J**?
 3. Schimbă efectul de la teleportare din **fantomă** în **culoare** sau **vârtej**.
-4. Desenează în Paint 3D un obiect nou (o casă, o tufă) și adaugă-l în joc, cu același comportament ca un copac.
+4. Desenează în Paint 3D (sau în editorul de costume din Scratch) un obiect nou (o casă, o tufă) și adaugă-l în joc, cu același comportament ca un copac.
 5. Dă două exemple de jocuri în care e nevoie de limitarea mișcării.
 6. **Portofoliu:** fă o animație cu personaje 3D desenate de tine, controlate din **tastatură**. Pregătește și o scurtă prezentare a ei pentru colegi.
 

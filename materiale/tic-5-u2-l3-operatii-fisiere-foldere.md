@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 2 · Sistemul de operare
 ordine: 203
 descriere: Lucrul în File Explorer: creare, deschidere, redenumire, copiere, mutare, ștergere și restaurare, selecție multiplă și căutare.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1, CS 1.2
@@ -49,7 +49,7 @@ Selectezi fișierul sau folderul → **clic dreapta** → **Proprietăți (Prope
 | **Creare folder** | clic dreapta → **Nou (New)** → **Folder** → scrii numele → **Enter** |
 | **Creare fișier** | clic dreapta → **Nou** → alegi tipul (de exemplu, *Document text*) |
 | **Deschidere** | **dublu clic** pe fișier; se deschide în aplicația cu care a fost creat |
-| **Redenumire** | selectezi → clic pe nume → scrii numele nou → **Enter** |
+| **Redenumire** | selectezi → clic pe nume (sau tasta **F2**) → scrii numele nou → **Enter** |
 | **Copiere** | **Ctrl + C**, apoi în folderul destinație **Ctrl + V**; sau tragi fișierul ținând apăsat **Ctrl**; sau clic dreapta → **Copiere** / **Lipire** |
 | **Mutare** | **Ctrl + X**, apoi **Ctrl + V**; sau tragi fișierul în alt folder de pe aceeași unitate de disc (drag and drop); sau clic dreapta → **Decupare** / **Lipire** |
 | **Ștergere** | tasta **Delete**, sau clic dreapta → **Ștergere (Delete)** |

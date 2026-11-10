@@ -8,7 +8,7 @@ mod: profesor
 timp: 40
 unitate: Evaluare
 descriere: Test cu itemi variați (alegere, adevărat/fals, asociere, ordonare, completare, procesor de text, răspuns deschis), lansat de profesor clasei.
-data: 2026-10-22
+data: 2026-11-10
 ---
 
 ```quiz puncte=10
@@ -16,7 +16,7 @@ data: 2026-10-22
 Care dintre următoarele este un dispozitiv de stocare a datelor?
 - Monitorul
 - Tastatura
-* Stick-ul USB
+* Stickul USB
 - Boxele
 
 Ce face sistemul de operare?

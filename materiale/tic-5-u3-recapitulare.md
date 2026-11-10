@@ -7,7 +7,7 @@ tip: test
 unitate: Unitatea 3 · Internet
 ordine: 305
 descriere: Exerciții recapitulative și interevaluare pentru Unitatea 3: rețele, servicii, navigare, siguranță, motoare de căutare și drepturi de autor.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Recapitulare
@@ -68,5 +68,5 @@ A: Cel mai scurt drum de la A la D este A → B → D.
 ```categorii
 # 3. Care aplicații sunt motoare de căutare?
 Motor de căutare: Bing, Google
-Nu este motor de căutare: Paint, File Explorer, WordPad, Notepad
+Nu este motor de căutare: Paint, File Explorer, Word, Notepad
 ```

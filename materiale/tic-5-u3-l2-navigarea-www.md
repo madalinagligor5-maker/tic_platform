@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 3 · Internet
 ordine: 302
 descriere: Hipertext și hiperlinkuri, adresa URL, pagini și site-uri web, browserul și butoanele lui; regulile de siguranță pe internet.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.3
@@ -46,7 +46,7 @@ http://www.edu.ro/invatamant-gimnazial
 - `.ro`: țara căreia i se adresează site-ul (`.ro` pentru România) sau tipul site-ului (`.edu` educațional, `.com` comercial);
 - `/invatamant-gimnazial`: pagina din site pe care te afli.
 
-Adresa începe cu **protocolul**: `http://` sau `https://`. Litera **s** vine de la *secure* (sigur): datele schimbate cu site-ul sunt **criptate**, iar browserul arată un **lăcățel** lângă adresă. Pe un site care cere parole sau date personale, verifică întotdeauna că adresa începe cu `https://` și că numele site-ului este scris corect (de exemplu, `www.edu.ro`, nu `www.edu-ro.com`).
+Adresa începe cu **protocolul**: `http://` sau `https://`. Litera **s** vine de la *secure* (sigur): datele schimbate cu site-ul sunt **criptate**, iar browserul arată un **lăcățel** lângă adresă (în Google Chrome, din 2023, lăcățelul a fost înlocuit cu o pictogramă de setări, dar adresa începe tot cu `https://`). Pe un site care cere parole sau date personale, verifică întotdeauna că adresa începe cu `https://` și că numele site-ului este scris corect (de exemplu, `www.edu.ro`, nu `www.edu-ro.com`).
 
 ![Cu http:// datele circulă necriptate, iar cu https:// sunt criptate și apare un lăcățel; www.edu.ro este site-ul corect, iar www.edu-ro.com este alt site.](fisiere/imagini/tic-5-u3-l2-navigarea-www-https.svg)
 
@@ -75,7 +75,7 @@ Adresa începe cu **protocolul**: `http://` sau `https://`. Litera **s** vine de
 
 | Pericol | Ce este | Cum te protejezi |
 |---|---|---|
-| **Virușii informatici** | programe care se instalează fără permisiune și strică hardware-ul sau software-ul | instalezi un **antivirus**; nu deschizi linkuri nesigure sau fișiere de la necunoscuți |
+| **Virușii informatici** | programe care se instalează fără permisiune, strică programele și datele și pot fura informații | folosești un **antivirus** (Windows are deja unul, **Securitate Windows**); nu deschizi linkuri nesigure sau fișiere de la necunoscuți |
 | **Conținutul nepotrivit** | informații dăunătoare, chiar ilegale, care pot îndemna la violență sau la consum de alcool și droguri | folosești site-uri de încredere, potrivite vârstei; **verifici** informațiile înainte să le folosești |
 | **Furtul de identitate** | infractorii copiază datele personale (nume, adresă, parole, date de card) și le folosesc ca să facă rău | **nu dai date personale**; parolele sunt **secrete** și **complexe** (litere, cifre, simboluri); te înregistrezi pe site-uri doar cu acordul părinților; folosești **firewall**, antivirus și antispyware |
 | **Hărțuirea online (cyberbullying)** | intimidarea și abuzarea cuiva prin internet | alegi atent cu cine te împrietenești online; vorbești politicos; **nu răspunzi** la mesaje care te supără și **ceri ajutorul unui adult**; nu publici nimic care te poate pune în pericol |

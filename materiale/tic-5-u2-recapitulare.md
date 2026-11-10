@@ -7,7 +7,7 @@ tip: test
 unitate: Unitatea 2 · Sistemul de operare
 ordine: 204
 descriere: Exerciții recapitulative și autoevaluare pentru Unitatea 2: sistemul de operare, ferestre, fișiere, foldere și operații cu ele.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Recapitulare
@@ -27,7 +27,7 @@ Care sunt operații principale cu fișiere și foldere?
 - ștergerea, curățarea, segmentarea, memorarea
 - tipărirea, scanarea, procesarea, editarea
 
-Care este un nume corect de fișier în Windows 10?
+Care este un nume corect de fișier în Windows?
 * `ExperimentBun!_1.txt`
 - `ExperimentBun?_1.txt`
 - `ExperimentBun->1.txt`

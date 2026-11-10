@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 2 · Sistemul de operare
 ordine: 202
 descriere: Fișiere, extensii și reguli pentru nume; foldere și subfoldere; unități de disc, structura arborescentă și calea către un fișier.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.2
@@ -49,7 +49,7 @@ nume propriu-zis . extensie
    tema_mea       .   txt
 ```
 
-- **Numele propriu-zis** are cel mult **255 de caractere** și **nu poate conține** caracterele `\ / : * ? " < > |`.
+- **Numele complet** (cu tot cu punct și extensie) are cel mult **255 de caractere** și **nu poate conține** caracterele `\ / : * ? " < > |`.
 - **Extensia** ne spune **ce tip** de fișier este:
 
 | Tip | Extensii |

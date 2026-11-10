@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 2 · Animații grafice și modele 3D
 ordine: 204
 descriere: Realitatea virtuală, ochelarii VR, ce este un infografic și cum se realizează un infografic 3D în CoSpaces Edu: mediu, bibliotecă, obiecte proprii, rulare și distribuire.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
@@ -29,7 +29,7 @@ Un obiect **3D** are lățime, înălțime și adâncime și îl poți privi din
 
 **Realitatea virtuală** (în engleză, *Virtual Reality*, prescurtat **VR**) este un spațiu creat pe calculator, în care te poți uita în jur ca și cum ai fi acolo. Se folosește la jocuri, expoziții virtuale, povești, simulări de experimente sau fenomene, modelări de obiecte și infografice.
 
-Programe pentru VR: **CoSpaces Edu**, Unity, Unreal Engine, Google VR SDK și altele.
+Programe pentru VR: **CoSpaces Edu**, Unity, Unreal Engine, A-Frame (pentru VR în browser) și altele.
 
 Ca să vezi un proiect în VR ai nevoie de **ochelari VR**. Unii se fac chiar din **carton**, în care pui un telefon inteligent.
 

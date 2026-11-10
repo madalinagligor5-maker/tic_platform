@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 2 · Aplicații de prelucrare audio-video
 ordine: 203
 descriere: Selectarea, tăierea, copierea și lipirea unei porțiuni de sunet, ștergerea liniștii, amplificarea, normalizarea, estomparea, reducerea zgomotului, efecte și combinarea a două sunete.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
@@ -49,7 +49,7 @@ Pe **forma de undă**, zonele înalte sunt sunete puternice, iar cele plate sunt
 ### Volumul (fila Nivel)
 
 - **Amplificare** (*Amplify*): faci sunetul mai tare sau mai încet, în procente sau decibeli (dB);
-- **Normalizare** (*Normalize*): aduce sunetul la un volum maxim egal, fără să-l distorsioneze;
+- **Normalizare** (*Normalize*): mărește (sau micșorează) la fel tot sunetul, până când partea cea mai tare atinge nivelul maxim ales, fără să-l distorsioneze;
 - **Estompare la intrare** (*Fade In*): sunetul pornește încet și crește;
 - **Estompare la ieșire** (*Fade Out*): sunetul scade treptat la final.
 
@@ -78,7 +78,7 @@ Pentru proiecte cu multe surse, folosești o aplicație **multipistă**: **Audac
 - **Fișier → Import → Audio** aduce fiecare fișier pe o **pistă nouă**;
 - **muți** fiecare bucată în timp (o tragi spre stânga sau spre dreapta), ca să înceapă exact când vrei;
 - fiecare pistă are **volumul** ei (cursorul *Gain*), ca vocea să fie mai tare decât muzica, și butoanele **Mute** (amuțire) și **Solo** (asculți doar acea pistă);
-- la **export** (**Fișier → Export → MP3**), toate pistele se **amestecă** într-un singur fișier.
+- la **export** (în Audacity, **Fișier → Exportă audio**, apoi alegi formatul **MP3**), toate pistele se **amestecă** într-un singur fișier.
 
 **Organizează secvențele după cerință.** Înainte de montaj scrii un **plan** (scenariu audio): ce sursă se aude, când și cât timp. De exemplu, pentru un podcast de 1 minut:
 
@@ -142,7 +142,7 @@ Asculți din nou zona
 ```
 
 ```adevarat-fals
-A: Normalizarea aduce sunetul la un volum maxim egal, fără distorsiuni.
+A: Normalizarea reglează volumul întregului sunet astfel încât partea cea mai tare să atingă nivelul maxim ales, fără distorsiuni.
 F: După ce ai aplicat un efect, nu-l mai poți anula. | Ctrl + Z anulează ultima operație.
 A: Reducerea zgomotului poate scoate zumzetul unui ventilator.
 ```

@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 4 · Limbajul de programare
 ordine: 411
 descriere: Probleme de geografie rezolvate în C++: scara hărții, densitatea populației, temperatura după altitudine, amplitudinea și media temperaturilor, creșterea populației în timp și diferența de fus orar.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 2.1, CS 2.2, CS 3.3
@@ -166,7 +166,7 @@ La scara 1 : 200 000, 5 cm pe hartă înseamnă [10] km. Dacă la bază sunt 20 
 1. Citește distanța de pe hartă (cm) și scara; afișează distanța reală în km.
 2. Citește populația și suprafața a trei județe; afișează județul cu **densitatea cea mai mare**.
 3. Citește cantitatea de precipitații din fiecare lună a anului; afișează **totalul**, **luna cea mai ploioasă** și câte luni au avut sub 30 mm.
-4. **Fusul orar:** Bucureștiul e cu 7 ore înaintea New York-ului. Citește ora din București (0–23) și afișează ora din New York (atenție la ore ca 3, care devin 20 în ziua dinainte).
+4. **Fusul orar:** Bucureștiul e, de cele mai multe ori, cu 7 ore înaintea New York-ului. Citește ora din București (0–23) și afișează ora din New York (atenție la ore ca 3, care devin 20 în ziua dinainte).
 5. O pădure de 1200 ha pierde 3% pe an prin defrișare. După câți ani rămâne sub 1000 ha?
 6. **Portofoliu:** alege un oraș din România, caută temperaturile medii lunare și fă un program care afișează media anuală, luna cea mai caldă, cea mai rece și amplitudinea.
 

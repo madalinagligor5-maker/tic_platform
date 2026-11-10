@@ -7,7 +7,7 @@ tip: test
 unitate: Recapitulare sumativă · TIC
 ordine: 391
 descriere: Evaluarea întregii părți de TIC (unitățile 1–3): editorul de texte Word, prelucrarea audio în WavePad, montajul video în VideoPad, aplicații colaborative Google și GIS.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 ## Recapitulare rapidă
@@ -18,7 +18,7 @@ Editor de texte = aplicație pentru scrierea, modificarea și formatarea documen
 Formatare = schimbarea aspectului textului: font, mărime, culoare, aliniere, spațiere
 Orientare = poziția paginii: portret (în picioare; în Word: Tip portret) sau peisaj (culcată; în Word: Tip vedere)
 MP3 = format audio comprimat, cu fișiere mici
-Normalizare = aduce sunetul la un volum maxim egal, fără distorsiuni
+Normalizare = reglează volumul întregului sunet până când partea cea mai tare atinge nivelul maxim ales, fără distorsiuni
 Cronologie = zona din VideoPad cu pistele video și audio, în timp
 Export = transformarea proiectului într-un film MP4
 Cloud = stocarea fișierelor pe servere, pe internet

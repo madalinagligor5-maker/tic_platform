@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 3 · Aplicații colaborative
 ordine: 301
 descriere: Ce înseamnă lucrul colaborativ online, cloud-ul și stocarea în nori, exemple de aplicații colaborative, partajarea cu drepturi (vizualizare, comentarii, editare), istoricul versiunilor și reguli de lucru în echipă.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.3
@@ -69,7 +69,7 @@ Servicii de stocare: **Google Drive**, **OneDrive**, **Dropbox**, **iCloud**.
 
 Butonul **Partajare** (*Share*) trimite fișierul altor persoane. Pentru fiecare alegi un drept:
 
-- **Vizualizator** (*Viewer*): doar citește;
+- **Vizualizator** (*Viewer*; în Google Drive, în română: **Cititor**): doar citește;
 - **Comentator** (*Commenter*): citește și lasă **comentarii** și **sugestii**;
 - **Editor**: poate modifica tot.
 
@@ -116,7 +116,7 @@ Aplicația **salvează automat** și păstrează **istoricul versiunilor**: vezi
 4. Nu partajezi date personale și nu dai linkul de editare persoanelor străine.
 5. La final, citiți toți documentul și îl uniformizați.
 
-> **Atenție la vârstă:** multe conturi (de exemplu, un cont Google personal) se pot crea singur doar de la o anumită vârstă (în România, de regulă **16 ani**). La școală folosești **contul școlii** sau, acasă, contul administrat de părinți.
+> **Atenție la vârstă:** multe conturi (de exemplu, un cont Google personal) le poți crea singur doar de la o anumită vârstă (în România, de regulă **16 ani**). La școală folosești **contul școlii** sau, acasă, contul administrat de părinți.
 
 ## Exemplu rezolvat: un afiș al clasei, făcut în echipă
 

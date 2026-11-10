@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Prezentări
 ordine: 104
 descriere: Criterii de design, formatarea diapozitivelor, a textului și a obiectelor, efecte de animație și de tranziție, reguli de design și greșeli de evitat.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
@@ -168,8 +168,8 @@ Totul **fără greșeli** de ortografie sau de gramatică. Ca reper de timp: cam
 Îmbunătățești `Prezentarea mea` din lecția trecută:
 
 1. Adaugi un diapozitiv nou și îl muți pe **primul loc**.
-2. Scrii pe el titlul, iar dedesubt numele tău, clasa și data. Titlul: **24**, **Aldin (Bold)**.
-3. Toate celelalte texte: **18**.
+2. Scrii pe el titlul, iar dedesubt numele tău, clasa și data. Titlul: **40**, **Aldin (Bold)**.
+3. Toate celelalte texte: cel puțin **24**.
 4. Creezi un diapozitiv final cu **Mulțumesc!** și o imagine.
 5. Pui aceeași **tranziție** (de exemplu, *Estompare*) la toate diapozitivele.
 6. Adaugi o **animație** pe textul de pe al doilea diapozitiv și o verifici cu **Previzualizare**.
@@ -179,7 +179,7 @@ Totul **fără greșeli** de ortografie sau de gramatică. Ca reper de timp: cam
 
 ```categorii
 # Respectă regulile de design?
-Respectă: font de 24 pentru titlu, cel mult trei culori, aceeași tranziție peste tot, text închis pe fundal deschis
+Respectă: font de 40 pentru titlu, cel mult trei culori, aceeași tranziție peste tot, text închis pe fundal deschis
 Nu respectă: 120 de cuvinte pe un diapozitiv, font de 10, șapte fonturi diferite, text galben pe fundal alb
 ```
 

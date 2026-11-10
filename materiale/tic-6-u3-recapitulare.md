@@ -7,7 +7,7 @@ tip: test
 unitate: Unitatea 3 · Internet
 ordine: 306
 descriere: Exerciții recapitulative și interevaluare pentru Unitatea 3: siguranța pe internet, poșta electronică, Outlook și Gmail, operații cu mesaje și netichetă.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Recapitulare
@@ -18,7 +18,7 @@ data: 2026-10-15
 
 2. Aici păstrezi adresele cunoscuților (în engleză, Address Book): [Agenda|Agendă|Contacte]
 
-3. Program client de e-mail din Microsoft Office: [Outlook]
+3. Program client de e-mail de la Microsoft (din pachetul Microsoft 365): [Outlook]
 
 4. Scrisoare electronică (în engleză): [e-mail|email]
 

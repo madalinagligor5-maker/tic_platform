@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 5 · Algoritmi
 ordine: 505
 descriere: Operatori aritmetici (+, -, *, /, %), relaționali (=, <>, <, >, <=, >=) și logici (și, sau, nu); ordinea operațiilor, tabele de adevăr și evaluarea expresiilor.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 2.1, CS 2.3
@@ -125,7 +125,7 @@ Logic: și, sau, nu
 ```adevarat-fals
 # Valoarea de adevăr
 F: 7 este număr impar și 13 este număr par. | „și” cere ca ambele să fie adevărate, dar 13 este impar.
-A: Pământul se rotește în jurul Soarelui sau Soarele se rotește în jurul Pământului. | Pentru „sau” ajunge ca o propoziție să fie adevărată.
+A: Pământul se învârte în jurul Soarelui sau Soarele se învârte în jurul Pământului. | Pentru „sau” ajunge ca o propoziție să fie adevărată.
 A: 1 = 1 și 7 < 12.
 F: „+” și „–” sunt operatori relaționali. | Sunt operatori aritmetici.
 A: „și”, „sau”, „nu” sunt operatori logici.

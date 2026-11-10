@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 2 · Aplicații de prelucrare audio-video
 ordine: 205
 descriere: Tăierea și scurtarea clipurilor, împărțirea, mutarea și ștergerea pe cronologie, tranziții între clipuri, text și titluri, sunet, apoi exportul filmului în MP4.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
@@ -53,7 +53,7 @@ Alegi fontul, mărimea, culoarea și poziția; textul are propria **pistă** și
 
 ### Exportul (fila Export)
 
-**Export → Fișier video**: alegi formatul **MP4**, rezoluția (**720p** sau **1080p**) și numărul de cadre pe secundă, apoi **Creare**. Exportul durează puțin, în funcție de lungimea filmului.
+**Export → Fișier video**: alegi formatul **MP4**, rezoluția (**720p** sau **1080p**) și numărul de cadre pe secundă, apoi **Creare**. Exportul poate dura de la câteva secunde la câteva minute, în funcție de lungimea filmului și de rezoluție.
 
 ![Pe cronologie: titlu, tranziție între clipuri, o bucată împărțită și ștearsă, muzică cu estompare, apoi exportul filmului în MP4.](fisiere/imagini/tic-7-u2-l5-prelucrarea-video.svg)
 

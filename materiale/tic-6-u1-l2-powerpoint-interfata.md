@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Prezentări
 ordine: 102
 descriere: Pornirea PowerPoint, ecranul de start și fereastra aplicației: bara de titlu, panglica cu file, panoul de miniaturi, panoul de note și bara de stare.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1
@@ -27,9 +27,9 @@ O **aplicație de prezentare** are un **editor** pentru diapozitive și un siste
 
 ### Ce este PowerPoint?
 
-**Microsoft PowerPoint** face parte din pachetul **Microsoft Office** și servește la realizarea și expunerea prezentărilor electronice. O prezentare se salvează într-un fișier cu extensia **.pptx** (sau mai vechea **.ppt**, ori **.pptm**).
+**Microsoft PowerPoint** face parte din pachetul **Microsoft Office** și servește la realizarea și expunerea prezentărilor electronice. O prezentare se salvează într-un fișier cu extensia **.pptx**. Vei mai întâlni și formatul mai vechi **.ppt** sau formatul **.pptm** (o prezentare cu macrocomenzi).
 
-Lecțiile folosesc PowerPoint din Office 2021, pe Windows 11. În alte versiuni (sau în LibreOffice Impress și Google Slides) butoanele sunt foarte asemănătoare.
+Lecțiile folosesc PowerPoint din **Microsoft 365** (sau Office 2024), pe Windows 11. În alte versiuni (sau în LibreOffice Impress și Google Slides) butoanele sunt foarte asemănătoare.
 
 ### Pornirea aplicației
 
@@ -48,7 +48,7 @@ Dacă alegi prezentarea necompletată, se deschide **Prezentare1**, încă nesal
 
 ![Cele șase elemente ale ferestrei PowerPoint: bara de titlu, panglica, bara de stare și panourile de miniaturi, de note și diapozitiv.](fisiere/imagini/tic-6-u1-l2-powerpoint-interfata.svg)
 
-1. **Bara de titlu**: numele fișierului, caseta de căutare, contul Office și butoanele de minimizare, maximizare, închidere. În stânga are **Bara de acces rapid**: Salvare (**Ctrl + S**), Anulare (**Ctrl + Z**), Refacere (**Ctrl + Y**), Pornire de la început (**F5**).
+1. **Bara de titlu**: numele fișierului, caseta de căutare, contul Office și butoanele de minimizare, maximizare, închidere. În stânga are **Bara de acces rapid**: Salvare (**Ctrl + S**), Anulare (**Ctrl + Z**), Refacere (**Ctrl + Y**), Pornire de la început (**F5**). Dacă nu vezi bara, dă clic dreapta pe panglică și alege **Afișare bară de instrumente Acces rapid**.
 2. **Panglica** (*Ribbon*): comenzile, grupate pe **file** (*tabs*).
 3. **Bara de stare**: jos, cu numărul diapozitivului curent, limba, butonul **Note**, modurile de vizualizare și panoramarea (zoom).
 4. **Panoul de miniaturi**: în stânga, câte o imagine mică pentru fiecare diapozitiv. Clic pe una și o editezi.
@@ -81,7 +81,7 @@ Dacă alegi prezentarea necompletată, se deschide **Prezentare1**, încă nesal
 
 ## Exemplu rezolvat
 
-**Sarcina:** vrei să vezi toate diapozitivele odată, ca să le schimbi ordinea.
+**Sarcina:** vrei să vezi toate diapozitivele deodată, ca să le schimbi ordinea.
 
 1. Te uiți jos, pe **bara de stare**, la zona cu modurile de vizualizare.
 2. Alegi **Sortare diapozitive** (*Slide Sorter*). Același mod îl găsești și în fila **Vizualizare**.

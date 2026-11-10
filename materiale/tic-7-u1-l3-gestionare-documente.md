@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Editorul de texte
 ordine: 103
 descriere: Crearea, deschiderea, salvarea (Salvare și Salvare ca), salvarea în alt format (PDF, ODT), salvarea automată, tipărirea și închiderea unui document Word.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1
@@ -51,7 +51,7 @@ Comenzile pentru fișiere sunt în fila **Fișier** (vizualizarea **Backstage**)
 
 ### Salvarea automată și recuperarea
 
-Word salvează automat, din câteva în câteva minute, o copie de siguranță. Dacă se închide brusc calculatorul, la repornire îți propune **documentele recuperate**. Dacă documentul e salvat în OneDrive, butonul **Salvare automată** din bara de titlu păstrează fiecare modificare.
+Word salvează automat, din câteva în câteva minute, o copie de siguranță. Dacă se închide brusc calculatorul, la repornire îți propune **documentele recuperate**. Dacă documentul e salvat în OneDrive, butonul **Salvare automată** din bara de titlu păstrează fiecare modificare. Când Salvare automată este activată, în fila Fișier comanda **Salvare ca** poate apărea ca **Salvare copie**.
 
 ### Tipărirea
 

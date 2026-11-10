@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 3 · Internet
 ordine: 303
 descriere: Cum cauți pe internet cu cuvinte-cheie; regulile de căutare cu -, ghilimele și *; descărcare și încărcare; drepturi de autor și bibliografie.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.3
@@ -57,6 +57,8 @@ Google îți permite:
 - să cauți prin **voce**, dacă ai un microfon;
 - să alegi doar **imagini**, **hărți** sau **videoclipuri**.
 
+Multe motoare de căutare afișează azi, deasupra rezultatelor, și un **rezumat generat de inteligența artificială**. Și acesta poate conține greșeli, așa că verifici informația în paginile din care provine.
+
 ### Reguli pentru o căutare mai bună
 
 | Regulă | Ce face | Exemplu |
@@ -80,7 +82,7 @@ Google îți permite:
 - Este **împotriva legii** să folosești ceva creat de altcineva **fără acordul** celui care deține drepturile.
 - Autorii pot spune ce drepturi îți dau: folosire personală, școlară sau comercială, modificare, redistribuire.
 - Când folosești informații de pe internet într-un proiect școlar, le treci în **Bibliografie**: **autorul**, **titlul** și **site-ul**.
-- Programele de pe calculator trebuie să aibă **licență**, adică să fie originale, de la producător.
+- Programele de pe calculator se folosesc conform **licenței** lor: cele plătite trebuie cumpărate legal, iar altele sunt gratuite sau libere (de exemplu, GIMP, Inkscape, Scratch).
 
 ![Autorul hotărăște ce drepturi îți dă asupra operei lui, iar în Bibliografie treci autorul, titlul și site-ul; programele trebuie să aibă licență.](fisiere/imagini/tic-5-u3-l3-motoare-de-cautare-drepturi.svg)
 

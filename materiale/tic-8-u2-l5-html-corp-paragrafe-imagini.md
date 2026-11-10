@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 2 · Pagini web
 ordine: 205
 descriere: Scrii o pagină web într-un editor de text: corpul paginii (body), titluri, paragrafe (p), imagini (img cu src, alt, width), inserarea și ștergerea elementelor și formatări de bază (aldin, cursiv, culoare, aliniere, fundal).
-data: 2026-10-26
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
@@ -48,7 +48,7 @@ Ai nevoie doar de un **editor de text** (Notepad, Notepad++, Visual Studio Code)
 3. dai **dublu clic** pe fișier: se deschide în browser;
 4. după fiecare modificare **salvezi** (Ctrl + S) și **reîmprospătezi** pagina în browser (**F5**).
 
-Există și **editoare vizuale** (Google Sites, editorul unui blog, BlueGriffon), în care formatezi ca în Word, iar aplicația scrie codul HTML.
+Există și **editoare vizuale** (Google Sites, editorul unui blog sau al platformei WordPress), în care formatezi ca în Word, iar aplicația scrie codul HTML.
 
 ### Scheletul paginii: head și body
 

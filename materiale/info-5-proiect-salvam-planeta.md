@@ -7,7 +7,7 @@ tip: proiect
 unitate: Jocuri și povești în Scratch
 ordine: 703
 descriere: Proiect pe echipe: o poveste animată în Scratch despre riscurile la care este expusă Terra și soluțiile pentru salvarea ei.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Ce veți face
@@ -16,7 +16,7 @@ Un proiect **în echipe de 3–5 elevi**: o **poveste animată în Scratch**, c�
 
 ## Contextul
 
-**Stratul de ozon** se subțiază, **calota glaciară** se micșorează, iar mii de **specii de plante și animale** sunt pe cale de dispariție. Vă pasă de viitorul planetei și vreți să le vorbiți colegilor despre aceste probleme.
+**Clima se încălzește**, **calota glaciară** se micșorează, iar mii de **specii de plante și animale** sunt pe cale de dispariție. Există și vești bune: **stratul de ozon**, subțiat grav în secolul trecut, se reface încet, pentru că țările lumii au interzis substanțele care îl distrugeau. Asta arată că, atunci când oamenii acționează împreună, planeta poate fi ajutată. Vă pasă de viitorul planetei și vreți să le vorbiți colegilor despre aceste probleme.
 
 ## Tema
 
@@ -66,7 +66,7 @@ Cum treceți de la o scenă la alta?
 
 ```categorii
 # Probleme ale planetei și soluții
-Probleme: subțierea stratului de ozon, topirea calotei glaciare, dispariția speciilor
+Probleme: încălzirea climei, topirea calotei glaciare, dispariția speciilor
 Soluții: reciclăm, economisim energia, protejăm plantele și animalele
 ```
 

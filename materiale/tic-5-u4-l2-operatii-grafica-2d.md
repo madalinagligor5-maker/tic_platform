@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 4 · Editare grafică
 ordine: 402
 descriere: Lucrul cu fișiere grafice, culori RGB, forme, selecție, copiere, redimensionare, rotire și text în Paint, cu desenul „Copacii gemeni” pas cu pas.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 3.1
@@ -76,7 +76,7 @@ Toate culorile se obțin din trei culori de bază: **Roșu (Red)**, **Verde (Gre
 
 ### Selecție și transformări
 
-- **Selectare** (**Pornire → Imagine**): **dreptunghiulară**, **liberă**, **totală**, **inversată**, **transparentă** (fundalul alb devine transparent).
+- **Selectare** (**Pornire → Imagine**): **dreptunghiulară**, **liberă**, **totală**, **inversată**, **transparentă** (culoarea de fundal, Culoarea 2, de obicei albul, devine transparentă).
 - **Copiere**: **Ctrl + C**, apoi **Ctrl + V**. **Mutare**: **Ctrl + X**, apoi **Ctrl + V**. **Ștergere**: tasta **Delete**.
 - **Redimensionare**: în **procente** sau **pixeli**; cu **Menținere raport aspect** forma nu se deformează. Tot aici poți **înclina** imaginea.
 - **Trunchiere**: selectezi ce vrei să **rămână**, apoi **Trunchiere**.
@@ -99,7 +99,7 @@ Cu instrumentul **Text** dai clic pe desen și scrii. Apare fila **Instrumente t
 
 ### Imagini din alte fișiere
 
-Poți aduce în desen o imagine salvată pe calculator: **Pornire → Lipire → Lipire din** și alegi fișierul. Imaginea apare **selectată**, așa că o poți muta, redimensiona sau roti imediat. Folosește doar imagini **ale tale** sau cu **licență liberă** și scrie sursa.
+Poți aduce în desen o imagine salvată pe calculator: **Pornire → Lipire → Lipire din** și alegi fișierul (în Paint din Windows 11, comanda de import a unei imagini se află în meniul **Fișier**). Imaginea apare **selectată**, așa că o poți muta, redimensiona sau roti imediat. Folosește doar imagini **ale tale** sau cu **licență liberă** și scrie sursa.
 
 ### Organizarea spațiului vizual
 

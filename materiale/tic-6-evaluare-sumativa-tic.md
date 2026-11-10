@@ -7,7 +7,7 @@ tip: test
 unitate: Recapitulare sumativă · TIC
 ordine: 392
 descriere: Evaluarea întregii părți de TIC (unitățile 1–3): prezentări electronice, grafică 3D și animații, realitate virtuală, siguranță pe internet și poștă electronică.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Recapitulare rapidă
@@ -77,4 +77,4 @@ Numim [prezentare] electronică acea prezentare realizată cu mijloace [electron
 
 7. **(10 puncte)** Lucrezi la un proiect cu un coleg care a întârziat cu partea lui și riscați să nu predați la timp. Scrie-i un **e-mail** după regulile de netichetă: află de ce a întârziat și spune-i, politicos, că ești îngrijorat.
 
-8. **(10 puncte)** Realizează în Paint 3D un **banner 3D** care promovează un produs. Folosește un model din **Biblioteca 3D** și unul desenat de tine.
+8. **(10 puncte)** Realizează în Paint 3D (sau în Tinkercad) un **banner 3D** care promovează un produs. Folosește un model gata făcut (din **Biblioteca 3D** a Paint 3D sau din galeria Tinkercad) și unul desenat de tine.

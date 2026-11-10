@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 3 · Internet
 ordine: 305
 descriere: Neticheta și regulile unui e-mail politicos: subiect, formule de adresare și de încheiere, semnătură, atașamente, CCI, Răspunde tuturor și verificarea înainte de trimitere.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.3
@@ -56,7 +56,7 @@ Un mesaj are **antet** (Către, CC, CCI, Subiect) și **corp**. Adresele din **C
 
 - le dai **nume sugestive** (`Proiect_apa_6B.pptx`, nu `doc1.pptx`);
 - fișierele mari le **arhivezi** (de exemplu, `.zip`);
-- nu trimiți atașamente de peste **10 MB** în total; pentru fișiere mari folosești un serviciu de transfer și trimiți doar **linkul**.
+- nu trimiți atașamente de peste **10 MB** în total (chiar dacă Gmail acceptă până la 25 MB, mesajele mari se încarcă greu); pentru fișiere mari folosești un serviciu de transfer și trimiți doar **linkul**.
 
 **Destinatarii**
 
@@ -66,7 +66,7 @@ Un mesaj are **antet** (Către, CC, CCI, Subiect) și **corp**. Adresele din **C
 
 **Înainte să apeși Trimite**
 
-„**Măsoară de trei ori și taie o dată**.” **Recitești** mesajul. După ce l-ai trimis, nu-l mai poți întoarce sau corecta.
+„**Măsoară de trei ori și taie o dată**.” **Recitești** mesajul. După ce l-ai trimis, nu-l mai poți corecta (unele servicii, precum Gmail, îți dau doar câteva secunde ca să anulezi trimiterea).
 
 ## Exemplu rezolvat: un e-mail către profesoară
 

@@ -7,7 +7,7 @@ tip: proiect
 unitate: Jocuri și povești în Scratch
 ordine: 702
 descriere: Concurs pe echipe: realizați în Scratch un joc cu două personaje, după modelul „Prinde peștișorul”, evaluat de un juriu.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Organizare
@@ -21,7 +21,7 @@ data: 2026-10-15
 
 Realizați în Scratch un **joc cu două personaje**. Exemplu: **„Prinde peștișorul”**.
 
-- Pisoiul Scratch este scufundător, iar al doilea personaj este un pește.
+- Pisoiul Scratch este scafandru, iar al doilea personaj este un pește.
 - La **steagul verde**, peștele **alunecă la o poziție aleatoare**.
 - Jucătorul îl conduce pe pisoi cu **săgețile** până la pește, din **cât mai puțini pași**.
 - Câștigă cine face **cei mai puțini pași**.
@@ -44,7 +44,7 @@ dacă < atinge Fish? > atunci
    spune (alătură „Prins! Pași: ” (pași))
 ```
 
-![Jocul „Prinde peștișorul”: pisoiul scufundător ajunge la pește numărând pașii, alături de scripturile peștelui și ale pisoiului.](fisiere/imagini/info-5-concurs-programatorii-saptamanii-joc.svg)
+![Jocul „Prinde peștișorul”: pisoiul scafandru ajunge la pește numărând pașii, alături de scripturile peștelui și ale pisoiului.](fisiere/imagini/info-5-concurs-programatorii-saptamanii-joc.svg)
 
 ## Cum lucrați
 
@@ -66,7 +66,7 @@ Echipa cu cel mai mare punctaj devine **„Programatorii săptămânii”**! �
 
 ## Hour of Code (Ora de programare)
 
-**Hour of Code** este o inițiativă mondială care îi încurajează pe copii să programeze; în România se organizează din 2014. Organizați și voi o oră de programare cu tutorialele gratuite de pe `code.org`, de exemplu **Flappy Bird** (`hourofcode.com/flap`) sau **Artist** (`hourofcode.com/art`).
+**Hour of Code** este o inițiativă mondială, pornită în 2013 de organizația Code.org, care îi încurajează pe copii să programeze. Din 2025, ea continuă și sub numele **Hour of AI** (Ora de inteligență artificială). Organizați și voi o oră de programare cu tutorialele gratuite de pe `code.org`, de exemplu **Flappy Bird** sau **Artist**.
 
 ## Verifică-te
 

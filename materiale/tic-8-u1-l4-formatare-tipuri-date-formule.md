@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Calcul tabelar
 ordine: 104
 descriere: Tipuri de date (număr, text, dată, procent, monedă), formatarea celulelor (font, aliniere, îmbinare, borduri, umplere, format numeric), formule cu operatori, ordinea operațiilor, adrese relative și absolute ($) și mesaje de eroare.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
@@ -95,6 +95,8 @@ Uneori vrei ca o adresă să rămână **fixă** (de exemplu, cursul euro dintr-
 | `#NAME?` | ai scris greșit numele unei funcții |
 | `#VALUE!` | ai făcut un calcul cu un text |
 | `#REF!` | formula se referă la o celulă ștearsă |
+
+În Excel în limba română, unele erori apar traduse: `#NUME?` în loc de `#NAME?` și `#VALOARE!` în loc de `#VALUE!`.
 
 ## Exemplu rezolvat: factura de la librărie
 

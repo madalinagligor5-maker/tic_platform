@@ -7,7 +7,7 @@ tip: test
 unitate: Proiect și evaluare finală
 ordine: 801
 descriere: Recapitularea și evaluarea finală a anului: prezentări, grafică 3D, e-mail și netichetă, structuri repetitive și programe Scratch.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Recapitulare finală
@@ -16,7 +16,7 @@ data: 2026-10-15
 2. Citește un număr natural **x > 45**. Afișează „Cifre în ordine crescătoare”, „Cifre în ordine descrescătoare”, „Cifrele sunt egale” sau „Cifre neordonate”. Exemple: 79 → crescătoare, 88 → egale.
 3. Simulează în Scratch **împărțirea** lui a la b prin **scăderi repetate**: afișează câtul și restul.
 4. Alege și rezolvă în Scratch: suma **7 + 15 + 23 + … + 863** cu structura condiționată anterior, sau **înmulțirea** lui a cu b prin **adunări repetate**.
-5. Creează în Paint 3D un **decor de 480 × 360 px** și folosește-l într-un program Scratch.
+5. Creează în Paint 3D (sau în alt editor grafic) un **decor de 480 × 360 px** și folosește-l într-un program Scratch.
 6. Fă o animație și trimite-o pe e-mail prietenului A, cu adresa prietenului B la **CCI**. Vede A că ai trimis-o și lui B?
 
 ```quiz

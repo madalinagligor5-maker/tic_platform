@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 2 · Animații grafice și modele 3D
 ordine: 202
 descriere: În Paint 3D: gestionarea fișierelor, text 2D și 3D, forme 2D și 3D, cele patru mișcări ale unui obiect, Biblioteca 3D, copiere, mutare, ștergere și animații 3D salvate ca video.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
@@ -22,7 +22,7 @@ data: 2026-10-15
 
 ## Să ne amintim
 
-În Paint ai învățat să **creezi**, **deschizi**, **salvezi** și **tipărești** un fișier, să inserezi **forme**, să **selectezi**, **redimensionezi**, **copiezi**, **muți**, **ștergi** și **rotești**. În Paint 3D le faci la fel, dar și în **adâncime**.
+În Paint ai învățat să **creezi**, **deschizi**, **salvezi** și **tipărești** un fișier, să inserezi **forme**, să **selectezi**, **redimensionezi**, **copiezi**, **muți**, **ștergi** și **rotești**. În Paint 3D le faci la fel, dar și în **adâncime**. Dacă nu ai Paint 3D pe calculator, exersează aceleași operații în **Tinkercad** (vezi lecția anterioară).
 
 ## Lecția pe scurt
 

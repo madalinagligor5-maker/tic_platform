@@ -6,8 +6,8 @@ categorie: tic
 tip: lectie
 unitate: Unitatea 2 · Sistemul de operare
 ordine: 201
-descriere: Ce este sistemul de operare și ce funcții are; desktopul, pictogramele, bara de activități, meniul Start și elementele unei ferestre în Windows 10.
-data: 2026-10-15
+descriere: Ce este sistemul de operare și ce funcții are; desktopul, pictogramele, bara de activități, meniul Start și elementele unei ferestre în Windows 11 și Windows 10.
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.2
@@ -44,7 +44,9 @@ Partea **software** a unui sistem de calcul este formată din **sistemul de oper
 
 ![Sistemul de operare face legătura dintre utilizator, aplicații și hardware; are patru funcții și poate avea interfață text sau grafică.](fisiere/imagini/tic-5-u2-l1-sistemul-de-operare.svg)
 
-### Interfața Windows 10
+### Interfața Windows
+
+> **Atenție:** Windows 10 nu mai primește actualizări gratuite de securitate din 14 octombrie 2025. Pe calculatoarele noi găsești **Windows 11**: butonul Start și pictogramele din bara de activități sunt așezate **la mijloc**, iar meniul Start arată puțin altfel, dar elementele de mai jos sunt aceleași.
 
 1. **Suprafața de lucru (desktopul)**: ecranul principal al sistemului de operare.
 2. **Pictogramele**: imagini mici de pe desktop; cu **dublu clic** deschizi programe sau date. Pictograma **Coșului de reciclare (Recycle Bin)** este o scurtătură către locul unde ajung temporar fișierele șterse.
@@ -55,7 +57,7 @@ Partea **software** a unui sistem de calcul este formată din **sistemul de oper
    - **Repornire (Restart)**: repornirea sistemului de operare;
    - **Repaus (Sleep)**: consum redus de energie, când pleci pentru puțin timp.
 
-Windows are și programe incluse, în grupul **Accesorii Windows**: **Paint** (desen), **Notepad** și **WordPad** (texte).
+Windows are și programe incluse, de exemplu **Paint** (desen) și **Notepad** (texte simple). În Windows 10 le găsești în grupul **Accesorii Windows**, iar în Windows 11 direct în lista **Toate aplicațiile** din meniul Start. Programul **WordPad**, prezent în Windows 10, a fost scos din Windows 11 în 2024.
 
 ![Meniul Start cu Accesoriile Windows și butonul Alimentare, cu cele trei opțiuni: Închidere, Repornire și Repaus.](fisiere/imagini/tic-5-u2-l1-sistemul-de-operare-meniul-start.svg)
 
@@ -141,8 +143,8 @@ F: Un meniu este o pictogramă de pe desktop. | Un meniu este o listă de comenz
 1. Dă exemple de două funcții ale unui sistem de operare.
 2. Ce este un meniu?
 3. Pornește calculatorul și enumeră elementele de pe ecranul Windows. Apasă Start și vezi ce aplicații ai instalate.
-4. Deschide Paint, Notepad și WordPad. Redimensionează-le astfel încât să fie toate pe ecran, fără să se suprapună, doar atingându-se la margini.
-5. **Știai că?** Windows a apărut în noiembrie 1985, ca interfață grafică pentru MS-DOS. Primul sistem de operare Mac OS a apărut în 1984, pentru calculatoarele Apple Macintosh.
+4. Deschide Paint, Notepad și Calculator. Redimensionează-le astfel încât să fie toate pe ecran, fără să se suprapună, doar atingându-se la margini.
+5. **Știai că?** Windows a apărut în noiembrie 1985, ca interfață grafică pentru MS-DOS. Primul sistem de operare al calculatoarelor Apple Macintosh a apărut în 1984; mai târziu a primit numele Mac OS, iar azi se numește macOS.
 6. **Portofoliu:** fă un colaj „Desktopul meu”, cu cinci pictograme, două ferestre deschise ale aplicațiilor preferate și pictograma Coșului de reciclare.
 
 ## Pe scurt

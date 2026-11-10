@@ -3,7 +3,7 @@
 (() => {
   const main = document.getElementById('continut');
   const ROMAN = { 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII', 9: 'IX', 10: 'X', 11: 'XI', 12: 'XII' };
-  const GRADES = [5, 6, 7, 8, 9, 10, 11, 12];
+  const GRADES = [5, 6, 7, 8];
   const hooks = {};
   const routes = [];
 
@@ -258,9 +258,7 @@
         return h('a', { class: `class-card ${g <= 8 ? 'gimnaziu' : 'liceu'}`, href: `#/materiale?c=${g}`, 'aria-label': `Clasa a ${ROMAN[g]}-a, ${n} materiale` },
           h('b', {}, ROMAN[g]), h('span', {}, `${n} ${n === 1 ? 'material' : 'materiale'}`));
       })),
-      h('div', { class: 'class-legend' },
-        h('span', {}, h('i', { class: 'lg-g' }), 'Gimnaziu (V–VIII)'),
-        h('span', {}, h('i', { class: 'lg-l' }), 'Liceu (IX–XII)')),
+      h('p', { class: 'class-legend' }, 'Gimnaziu · conform programei școlare și standardelor naționale de evaluare (Anexa 15)'),
     ];
   }
 
@@ -271,13 +269,13 @@
     show(
       h('section', { class: 'hero' }, h('div', { class: 'wrap hero-grid' },
         h('div', {},
-          h('p', { class: 'kicker' }, 'Informatică • TIC • Clasele V–XII'),
+          h('p', { class: 'kicker' }, 'Informatică • TIC • Clasele V–VIII'),
           h('h1', {}, 'Resurse gratuite pentru Informatică și TIC.'),
-          h('p', { class: 'lead' }, 'Lecții, fișe de lucru, teste și prezentări pentru elevi și profesori. Fără cont, gata de folosit la clasă.'),
+          h('p', { class: 'lead' }, 'Lecții conforme cu programa, exerciții interactive, teste pe unități și laborator Word/Excel în browser. Gratuit, gata de folosit la clasă, inclusiv pe Chromebook.'),
           h('div', { class: 'chips' },
             h('a', { class: 'chip red', href: '#/materiale?d=informatica' }, 'Informatică'),
             h('a', { class: 'chip', href: '#/materiale?d=tic' }, 'TIC'),
-            h('a', { class: 'chip', href: '#/clase' }, 'Clasele V–XII'))),
+            h('a', { class: 'chip', href: '#/clase' }, 'Clasele V–VIII'))),
         h('div', { class: 'hero-visual' },
           h('img', { class: 'hero-illustration', src: '/fisiere/imagini/edudigi-laborator.jpg', alt: 'Un laptop cu blocuri de programare, un robot educațional și un caiet cu diagrame.', width: '1536', height: '1024', fetchpriority: 'high' }),
           h('a', { class: 'hero-visual-link', href: '#/imagini?c=5' }, 'Descoperă atlasul vizual', icon('arrow', 'ico'))))),
@@ -290,6 +288,14 @@
       h('section', { id: 'clase' }, h('div', { class: 'wrap' },
         h('div', { class: 'section-head' }, h('div', {}, h('p', { class: 'kicker' }, 'Clase'), h('h2', {}, 'Alege clasa'))),
         classGrid(D))),
+      h('section', { class: 'teacher-band' }, h('div', { class: 'wrap' },
+        h('div', { class: 'section-head' }, h('div', {}, h('p', { class: 'kicker' }, 'Pentru profesori'), h('h2', {}, 'Clasa ta, pe edudigi'))),
+        h('div', { class: 'feature-grid' },
+          [['Teste pe fiecare unitate', 'Teste grilă gata făcute, corectate automat. Notele le vezi tu primul și le publici elevilor doar când dai OK.'],
+            ['Clase și progres', 'Creezi clasa, elevii intră cu un cod și un PIN (fără e-mail). Vezi ce lecții au rezolvat și rezultatele la teste.'],
+            ['Laborator și Atelier', 'Procesor de text, foaie de calcul și prezentări direct în browser; elevii își salvează lucrările, tu le vezi.']]
+            .map(([t, d], i) => h('div', { class: `feature f${i + 1}` }, h('b', {}, t), h('p', {}, d)))),
+        h('p', {}, h('a', { class: 'btn', href: '#/intra' }, 'Intră în cont ca profesor')))),
       h('section', { class: 'visual-atlas' }, h('div', { class: 'wrap' },
         h('div', { class: 'section-head' }, h('div', {}, h('p', { class: 'kicker' }, 'Învață prin imagini'), h('h2', {}, 'O idee devine mai clară când o vezi.'))),
         h('p', { class: 'atlas-intro' }, 'Planșe explicative, exemple concrete și explorări pas cu pas. Alege clasa și deschide o lecție pentru a exersa.'),
@@ -311,7 +317,7 @@
   async function pageClase() {
     const D = await data();
     show(h('div', { class: 'wrap' },
-      h('div', { class: 'page-head' }, h('p', { class: 'kicker' }, 'Clasele V–XII'), h('h1', {}, 'Alege clasa'),
+      h('div', { class: 'page-head' }, h('p', { class: 'kicker' }, 'Clasele V–VIII'), h('h1', {}, 'Alege clasa'),
         h('p', { class: 'muted' }, 'Toate materialele, grupate pe clase.')),
       h('section', {}, classGrid(D))));
   }
@@ -519,7 +525,7 @@
     const raw = location.hash.replace(/^#/, '') || '/';
     const [pathPart, query] = raw.split('?');
     const params = new URLSearchParams(query || '');
-    document.title = 'edudigi – Informatică și TIC, clasele V–XII';
+    document.title = 'edudigi – Informatică și TIC, clasele V–VIII';
     onSolved = null;
     for (const a of document.querySelectorAll('.main-nav a')) a.removeAttribute('aria-current');
     const navMatch = pathPart === '/clase' ? '#/clase' : pathPart.startsWith('/laborator') ? '#/laborator' : pathPart.startsWith('/atelier') ? '#/atelier' : pathPart === '/materiale' && params.get('d') ? `#/materiale?d=${params.get('d')}` : null;

@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 2 · Animații grafice și modele 3D
 ordine: 201
 descriere: Imagini 2D și 3D, avantajele graficii 3D, ce este o animație, aplicații pentru 3D și animație, interfața Paint 3D și meniurile sale.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
@@ -47,13 +47,13 @@ Dezavantaj: se lucrează mai **greu** și mai **mult**, iar tu ai nevoie de **ve
 
 ### Aplicații pentru 3D și animații
 
-Paint 3D, Tinkercad, Scratch, Toontastic, Alice, Pivot Animator, Unity, Autodesk 123 Design, Minecraft Education, Google Web Designer și altele. Unele se folosesc **online**, altele se **instalează**.
+Paint 3D, Tinkercad, Scratch, Toontastic, Alice, Pivot Animator, Unity, Blender, Minecraft Education, Google Web Designer și altele. Unele se folosesc **online**, altele se **instalează**.
 
 ### Paint 3D
 
 **Paint 3D** este un editor grafic de la Microsoft, apărut în 2017, în Windows 10. Cu el creezi grafică **2D** și **3D**, transformi imagini 2D în 3D și faci **animații 3D**.
 
-> **Atenție:** Windows 11 nu mai include Paint 3D, iar din 2024 Microsoft nu îl mai oferă în Microsoft Store. Dacă nu îl ai deja pe calculator, poți folosi în loc **Tinkercad** (gratuit, online), unde găsești aceleași idei: forme 3D, mutare, rotire, redimensionare. Pentru un cont Tinkercad cere ajutorul profesorului.
+> **Atenție:** Paint 3D nu vine instalat în Windows 11, iar din noiembrie 2024 Microsoft nu îl mai oferă în Microsoft Store. Dacă îl ai deja instalat, funcționează în continuare. Dacă nu îl ai pe calculator, poți folosi în loc **Tinkercad** (gratuit, online), unde găsești aceleași idei: forme 3D, mutare, rotire, redimensionare. Pentru un cont Tinkercad cere ajutorul profesorului.
 
 **Pornire:** **Start → Toate aplicațiile → Paint 3D**, sau **Start**, scrii `Paint 3D` și apeși **Enter**.
 

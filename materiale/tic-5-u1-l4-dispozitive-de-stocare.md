@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Sisteme de calcul și comunicații
 ordine: 104
 descriere: HDD, SSD, stickul de memorie, cardurile și discurile optice; bitul, byte-ul și multiplii lui, cu transformări.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1
@@ -52,7 +52,7 @@ Dispozitivele de stocare diferă prin felul în care memorează datele, prin **c
 ### Unitățile de măsură pentru stocare
 
 - **Bitul (b)** este cea mai mică unitate de măsură a informației. Un bit poate fi doar **0** sau **1**.
-- **8 biți = 1 byte (B)**, numit și **octet**. Byte-ul este cea mai mică unitate de stocare pe care calculatorul o poate adresa separat. De exemplu, o literă ocupă 1 byte.
+- **8 biți = 1 byte (B)**, numit și **octet**. Byte-ul este cea mai mică unitate de stocare pe care calculatorul o poate adresa separat. De exemplu, o literă fără diacritice ocupă, de obicei, 1 byte.
 
 ![Un bit este 0 sau 1, 8 biți formează un byte (cât ocupă o literă), iar 1 KB are 1024 B, nu 1000.](fisiere/imagini/tic-5-u1-l4-dispozitive-de-stocare-bit-byte.svg)
 
@@ -71,15 +71,17 @@ Calculatorul folosește doar cifrele 0 și 1, de aceea multiplii byte-ului se ob
 
 > Atenție: 1 km = **1000** m, dar 1 KB = **1024** B.
 
+> **Știai că?** Pe cutia unui stick sau a unui HDD, producătorii socotesc de obicei 1 GB = 1000 MB. De aceea, un stick de „64 GB” apare în Windows cu ceva mai puțin spațiu (cam 59 GB).
+
 ![Spre unități mai mari împarți la 1024 (la 8 între bit și byte), spre unități mai mici înmulțești; jos sunt exemple și capacități obișnuite.](fisiere/imagini/tic-5-u1-l4-dispozitive-de-stocare.svg)
 
 ### Capacități obișnuite
 
 - **CD**: 700 MB
 - **DVD**: 4,7 GB
-- **Blu-ray**: 25 GB
-- **HDD**: de obicei de la 120 GB până la 8 TB (azi există și HDD-uri mai mari)
-- **SSD**: de la 32 GB până la 4 TB
+- **Blu-ray**: 25 GB (cu un singur strat; 50 GB cu două straturi)
+- **HDD**: de obicei de la 500 GB până la 20 TB (există și HDD-uri de peste 30 TB)
+- **SSD**: de obicei de la 256 GB până la 4 TB (există și SSD-uri de 8 TB sau mai mari)
 - **stickuri și carduri**: de obicei de la câțiva GB până la 1–2 TB
 
 ![Comparație între HDD și SSD: cum memorează datele, piese în mișcare, viteză, rezistență la șocuri și capacitate obișnuită.](fisiere/imagini/tic-5-u1-l4-dispozitive-de-stocare-hdd-ssd.svg)

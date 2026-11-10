@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 3 · Internet
 ordine: 301
 descriere: Ce sunt rețelele de calculatoare și internetul; serviciile importante: e-mail, WWW, FTP, Telnet și IRC.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.3
@@ -43,12 +43,14 @@ Oamenii au vrut să ajungă la cât mai multe informații, așa că au legat cal
 4. **Telnet**: te conectezi de la calculatorul tău la **un calculator aflat la distanță** și îi folosești serviciile.
 5. **IRC (Internet Relay Chat)**: oameni din toată lumea își trimit **mesaje în timp real**.
 
+> **Azi:** Telnet și IRC se folosesc rar. În locul lor avem conexiuni securizate la distanță (SSH), aplicații de mesagerie și de videoconferință, iar fișierele mari le trimitem des prin servicii de stocare în cloud (de exemplu, OneDrive sau Google Drive).
+
 ![Internetul leagă între ele rețele de calculatoare prin standardul TCP/IP; în dreapta sunt cele cinci servicii importante ale lui.](fisiere/imagini/tic-5-u3-l1-servicii-internet.svg)
 
 ### Știai că?
 
-- Prima rețea de calculatoare, **ARPANET**, a apărut în **1969**, în SUA, la Agenția pentru Proiecte de Cercetare Avansată (ARPA).
-- Bazele internetului au fost puse în anii '70, tot într-un proiect ARPA, care urmărea o rețea cât mai sigură.
+- **ARPANET**, rețeaua din care s-a dezvoltat internetul, a apărut în **1969**, în SUA, la Agenția pentru Proiecte de Cercetare Avansată (ARPA).
+- Bazele internetului, adică standardul **TCP/IP**, au fost puse în anii '70, tot într-un proiect ARPA, care urmărea o rețea cât mai sigură.
 - Primul **e-mail** a fost trimis în **1971** de programatorul american **Ray Tomlinson**.
 
 ![Pe axa timpului: în 1969 apare ARPANET, în 1971 Ray Tomlinson trimite primul e-mail, în anii '70 se pun bazele internetului, iar în 1989 apare WWW.](fisiere/imagini/tic-5-u3-l1-servicii-internet-istorie.svg)
@@ -101,7 +103,7 @@ FTP: muți multe fișiere mari pe alt calculator din rețea
 
 ```completare
 # Completează.
-Internetul folosește standardul de comunicare [TCP/IP]. Prima rețea de calculatoare s-a numit [ARPANET|ARPANet] și a apărut în anul [1969]. Primul e-mail a fost trimis în [1971] de [Ray Tomlinson|Tomlinson].
+Internetul folosește standardul de comunicare [TCP/IP]. Rețeaua din care s-a dezvoltat internetul s-a numit [ARPANET|ARPANet] și a apărut în anul [1969]. Primul e-mail a fost trimis în [1971] de [Ray Tomlinson|Tomlinson].
 ```
 
 ```adevarat-fals

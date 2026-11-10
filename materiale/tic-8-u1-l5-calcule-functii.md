@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Calcul tabelar
 ordine: 105
 descriere: Funcții în Excel (SUM, AVERAGE, MIN, MAX, COUNT, COUNTIF, IF, ROUND), butonul AutoSum, inserarea unei funcții, sortarea și filtrarea datelor, plus un catalog cu medii și situația școlară.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
@@ -33,7 +33,7 @@ O **funcție** este o formulă gata făcută, cu un **nume** și **argumente** �
 
 În loc de `=B2+B3+B4+B5+B6+B7+B8+B9+B10` scrii `=SUM(B2:B10)`.
 
-> În Excel cu setări românești, argumentele se despart prin **punct și virgulă**: `=IF(B2>=5;"Promovat";"Corigent")`. În Google Sheets sau Excel în engleză se folosește virgula.
+> În Excel cu setări românești, argumentele se despart prin **punct și virgulă**: `=IF(B2>=5;"Promovat";"Corigent")`. În Excel sau Google Sheets cu setări în limba engleză se folosește virgula.
 
 ### Funcții de bază
 

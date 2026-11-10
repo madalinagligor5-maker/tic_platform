@@ -1276,3 +1276,17 @@ body:has(.lab-ecran) { overflow: hidden; }
 .atlas-link img { aspect-ratio: 3 / 2; object-fit: contain; background: var(--warm); }
 @media (max-width: 680px) { .atlas-gallery-items { grid-template-columns: minmax(0, 1fr); } .illustrated-gallery .gal-lesson h3 { min-height: 0; } }
 @media (prefers-reduced-motion: reduce) { .illustrated-gallery .gal-item img { transition: none; } }
+.static-tldr { margin: 16px 0; padding: 14px 18px; border-left: 4px solid var(--red); background: var(--warm); border-radius: 0 12px 12px 0; line-height: 1.55; }
+.static-faq { margin-top: 32px; }
+.static-faq details { border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 0 0 10px; background: var(--card); }
+.static-faq summary { font-weight: 700; cursor: pointer; }
+.static-faq details p { margin: 10px 0 0; }
+
+/* Secțiunea „Pentru profesori” de pe prima pagină */
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 22px; }
+.feature { padding: 22px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--card); }
+.feature b { display: block; font-size: 1.08rem; margin-bottom: 6px; }
+.feature p { margin: 0; color: var(--muted); line-height: 1.5; }
+.feature.f1 { border-top: 4px solid var(--red); }
+.feature.f2 { border-top: 4px solid #0E7F96; }
+.feature.f3 { border-top: 4px solid #14A39A; }

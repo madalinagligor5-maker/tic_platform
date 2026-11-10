@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Editorul de texte
 ordine: 102
 descriere: Pornirea aplicației Word, ecranul de start și elementele ferestrei: bara de titlu, bara de acces rapid, panglica cu file, rigla, zona documentului, bara de stare și modurile de vizualizare.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1
@@ -21,7 +21,7 @@ data: 2026-10-16
 
 ## Să ne amintim
 
-În PowerPoint ai lucrat cu **bara de titlu**, **panglica** cu **file** și **bara de stare**. Word face parte tot din pachetul **Microsoft Office**, așa că fereastra lui seamănă foarte mult.
+În PowerPoint ai lucrat cu **bara de titlu**, **panglica** cu **file** și **bara de stare**. Word face parte tot din pachetul **Microsoft 365** (numit înainte **Microsoft Office**), așa că fereastra lui seamănă foarte mult.
 
 ## Lecția pe scurt
 

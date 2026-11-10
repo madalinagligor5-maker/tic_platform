@@ -7,7 +7,7 @@ tip: test
 unitate: Unitatea 2 · Animații grafice și modele 3D
 ordine: 205
 descriere: Exerciții recapitulative și interevaluare pentru Unitatea 2: grafică 3D, Paint 3D, animații în Toontastic și realitate virtuală în CoSpaces Edu.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Recapitulare
@@ -45,8 +45,8 @@ A: Un proiect CoSpaces poate fi distribuit printr-un cod QR.
 
 ## Exersează
 
-1. Realizează în Paint 3D un **brad de Crăciun** cu trei globuri de culori diferite.
-2. Proiectează în Paint 3D un **avatar al clasei**.
+1. Realizează în Paint 3D (sau în Tinkercad) un **brad de Crăciun** cu trei globuri de culori diferite.
+2. Proiectează în Paint 3D (sau în Tinkercad) un **avatar al clasei**.
 3. Fă o prezentare PowerPoint cu cinci acțiuni pe care le poți face în Paint 3D.
 4. Fă o prezentare PowerPoint despre animația românească. Caută informații despre **Ion Popescu-Gopo**, autorul „omulețului” desenat, premiat la **Cannes** în **1957** pentru „Scurtă istorie”. Arată diferențele dintre animația **2D** și cea **3D**.
 5. Care sunt cele trei tipuri de povești din Toontastic?

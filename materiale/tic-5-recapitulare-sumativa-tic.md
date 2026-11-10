@@ -7,7 +7,7 @@ tip: test
 unitate: Unitatea 4 · Editare grafică
 ordine: 405
 descriere: Recapitularea și evaluarea întregii părți de TIC (unitățile 1–4): sisteme de calcul, sistemul de operare, internet și editare grafică.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Recapitulare sumativă
@@ -83,7 +83,7 @@ Punctaj maxim: 100 de puncte. Insuficient: sub 50 · Suficient: 50–69 · Bine:
 
 10. O culoare nouă se creează cu comanda:
 * Editare culori
-- Editare cu Paint 3D
+- Trunchiere
 - Selectare
 ```
 

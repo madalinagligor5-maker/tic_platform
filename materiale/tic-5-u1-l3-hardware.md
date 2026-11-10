@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Sisteme de calcul și comunicații
 ordine: 103
 descriere: Unitatea centrală, dispozitivele periferice de intrare, de ieșire și de intrare-ieșire și componentele din interiorul calculatorului.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1
@@ -65,8 +65,8 @@ Perifericele se leagă de unitatea centrală prin **porturi** (mufe) sau **făr�
 
 | Legătură | Ce conectezi de obicei |
 |---|---|
-| **USB** | tastatura, mouse-ul, imprimanta, stickul de memorie, HDD-ul extern |
-| **HDMI** sau **VGA** | monitorul, videoproiectorul |
+| **USB** (tot mai des, cu mufa **USB-C**) | tastatura, mouse-ul, imprimanta, stickul de memorie, HDD-ul extern, telefonul |
+| **HDMI** sau **DisplayPort** (la echipamentele vechi, **VGA**) | monitorul, videoproiectorul |
 | **mufa audio (jack)** | boxele, căștile, microfonul |
 | **fără fir (Bluetooth, Wi-Fi)** | mouse-ul și tastatura wireless, căștile wireless, imprimanta din rețea |
 
@@ -91,7 +91,7 @@ Când ai de rezolvat o sarcină nouă, te întrebi: **ce trebuie să intre în c
 3. **Memoria RAM**: **memoria de lucru**; păstrează **temporar** datele de care au nevoie programele care rulează.
 4. **Plăcile de extensie**: placa video, placa de sunet, placa de rețea, tunerul TV; adaugă funcții noi.
 5. **Sursa de alimentare**: dă energia electrică necesară.
-6. **Unitatea optică**: citește și scrie discuri CD, DVD sau Blu-ray.
+6. **Unitatea optică**: citește și scrie discuri CD, DVD sau Blu-ray. Multe calculatoare noi nu o mai au; la nevoie, se conectează una externă, prin USB.
 7. **HDD și/sau SSD**: **memoria permanentă**, unde se păstrează datele.
 
 ![Interiorul unității centrale cu cele șapte componente numerotate: microprocesorul, placa de bază, memoria RAM, plăcile de extensie, sursa, unitatea optică și HDD-ul sau SSD-ul.](fisiere/imagini/tic-5-u1-l3-hardware-unitatea-centrala.svg)

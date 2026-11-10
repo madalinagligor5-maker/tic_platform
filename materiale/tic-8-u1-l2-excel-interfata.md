@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Calcul tabelar
 ordine: 102
 descriere: Fereastra Excel: bara de titlu, panglica cu file, caseta de nume, bara de formule, antetele de rânduri și coloane, celula activă, filele foilor, bara de stare și modurile de vizualizare, plus deplasarea și selectarea.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1
@@ -35,7 +35,7 @@ Word și PowerPoint au **bara de titlu**, **panglica** cu **file** și **bara de
 6. **Antetele de coloane** (A, B, C…) și **de rânduri** (1, 2, 3…).
 7. **Celula activă**: chenarul verde; colțul din dreapta jos este **mânerul de umplere**.
 8. **Filele foilor** (jos): Foaie1, Foaie2 și butonul **+** pentru o foaie nouă.
-9. **Bara de stare** (jos): pentru celulele selectate cu numere arată automat **Medie**, **Număr** și **Sumă**; în dreapta, modurile de vizualizare și **zoomul**.
+9. **Bara de stare** (jos): pentru celulele selectate cu numere arată automat **Medie**, **Contor** (câte celule sunt completate) și **Sumă**; în dreapta, modurile de vizualizare și **zoomul**.
 
 ![Elementele ferestrei de calcul tabelar: bara de titlu, panglica, caseta de nume, bara de formule, antetele, celula activă, filele foilor, bara de stare.](fisiere/imagini/tic-8-u1-l2-excel-interfata.svg)
 
@@ -68,7 +68,7 @@ Word și PowerPoint au **bara de titlu**, **panglica** cu **file** și **bara de
 2. În **A3** scrii `=A1+A2` și apeși **Enter**.
 3. În celula A3 apare **50**.
 4. Selectezi A3: **caseta de nume** arată `A3`, iar **bara de formule** arată `=A1+A2`.
-5. Selectezi A1:A2: **bara de stare** arată `Medie: 25  Număr: 2  Sumă: 50`.
+5. Selectezi A1:A2: **bara de stare** arată `Medie: 25  Contor: 2  Sumă: 50`.
 
 ## Aplicații interactive
 

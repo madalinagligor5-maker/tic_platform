@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 3 · Internet
 ordine: 301
 descriere: Serviciile internetului, programele malware (virus, vierme, troian, spyware), parolele sigure, firewall-ul și antivirusul.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.3
@@ -39,8 +39,8 @@ Cere ajutor | Nu trimite parola; discută cu un adult de încredere. | Raportezi
 - **e-mail**: poșta electronică;
 - **WWW** (*World Wide Web*): documente legate între ele;
 - **FTP**: transferul fișierelor;
-- **Telnet**: lucrul de la distanță pe alt calculator;
-- **IRC**: mesaje în timp real (chat).
+- **Telnet**: lucrul de la distanță pe alt calculator (astăzi se folosește varianta securizată, **SSH**);
+- **IRC**: mesaje în timp real (chat); astăzi se folosesc mai ales aplicațiile de mesagerie.
 
 ## Lecția pe scurt
 
@@ -70,8 +70,9 @@ Numele **troianului** vine din mitologia greacă: grecii au lăsat la porțile T
 ### Parolele
 
 - Parolele sunt **personale** și **secrete**. Nu le spui nici celui mai bun prieten.
-- O parolă bună are **cel puțin 8 caractere** și amestecă **litere mari**, **litere mici**, **cifre** și **caractere speciale**.
+- O parolă bună are **cel puțin 12 caractere** și amestecă **litere mari**, **litere mici**, **cifre** și **caractere speciale**.
 - **Nu** folosești în parolă numele tău, al familiei sau data nașterii: se ghicesc ușor.
+- Folosești o parolă **diferită** pentru fiecare cont și, unde se poate, activezi **verificarea în doi pași** (un cod primit pe telefon).
 - Te înscrii pe site-uri doar **cu acordul părinților sau al profesorului**.
 
 ### Măsuri de protecție
@@ -111,7 +112,7 @@ Care parolă este cea mai sigură?
 - ana2012
 - 12345678
 * T!gru_Verde7
-Explicație: Are peste 8 caractere, litere mari și mici, cifre și caractere speciale, și nu conține date personale.
+Explicație: Are 12 caractere, litere mari și mici, cifre și caractere speciale, și nu conține date personale.
 
 Ce site este potrivit vârstei tale?
 - un site de știri despre dezastre
@@ -132,7 +133,7 @@ Malware = program răuvoitor, instalat fără permisiunea ta
 Furt de identitate = cineva îți fură datele și se folosește de ele în locul tău
 Firewall = sistem care oprește accesul nedorit la calculator
 Antivirus = program care găsește și șterge programele malware
-Parolă sigură = cel puțin 8 caractere amestecate, fără date personale
+Parolă sigură = cel puțin 12 caractere amestecate, fără date personale
 ```
 
 ## Exersează

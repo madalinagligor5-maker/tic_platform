@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 3 · Internet
 ordine: 302
 descriere: Ce este e-mailul, avantajele față de poșta clasică, ce îți trebuie ca să-l folosești, client de e-mail și webmail, adresa de e-mail și folderele căsuței poștale.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.3
@@ -49,7 +49,7 @@ Poșta electronică (**e-mailul**) trimite o scrisoare **în formă electronică
 
 ### Client de e-mail sau webmail?
 
-1. **Clientul de e-mail** este un program instalat pe dispozitiv: **Outlook** (Microsoft Office), Windows Mail, Mozilla Thunderbird, eM Client și altele.
+1. **Clientul de e-mail** este un program instalat pe dispozitiv: **Outlook** (din Microsoft 365, sau noul Outlook pentru Windows, care a înlocuit vechea aplicație Mail din Windows), Mozilla Thunderbird, eM Client și altele.
 2. **Webmail** înseamnă că intri în căsuța poștală dintr-un **browser**, pe site-ul furnizorului (Gmail, Outlook.com, Yahoo! Mail).
 
 | Client de e-mail | Webmail (în browser) |

@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 6 · Primii pași în programare
 ordine: 604
 descriere: Blocurile „dacă... atunci” și „dacă... atunci... altfel”, citirea datelor cu „întreabă și așteaptă”, maximul a două numere și jocul Labirint.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 3.2, CS 3.3
@@ -125,7 +125,7 @@ Ce condiție folosești în Scratch pentru a >= b?
 - (a > b) și (a = b)
 - nu (a > b)
 
-În labirint, personajul apasă săgeata sus și atinge negrul. Ce trebuie să facă?
+În labirint, apeși săgeata sus, iar personajul atinge negrul. Ce trebuie să facă programul?
 - modifică y cu 5
 * modifică y cu -5, adică se întoarce
 - spune „Bravo!”

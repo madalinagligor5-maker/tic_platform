@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Calcul tabelar
 ordine: 101
 descriere: Ce este o foaie de calcul tabelar, la ce folosește, aplicații (Excel, Google Sheets, LibreOffice Calc), registru, foaie, rânduri, coloane, celule și adrese, plus avantajele calculului automat.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1, CS 3.1
@@ -38,7 +38,7 @@ La ce folosește:
 
 ### Aplicații
 
-- **Microsoft Excel** (în Microsoft 365, și online);
+- **Microsoft Excel** (aplicația din Microsoft 365 sau varianta gratuită din browser, Excel pentru web);
 - **Google Sheets** (Foi de calcul Google), colaborativ, în browser;
 - **LibreOffice Calc** (gratuit);
 - **Numbers** (pe Mac și iPad).

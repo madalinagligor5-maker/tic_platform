@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 3 · Internet
 ordine: 304
 descriere: Cum salvezi texte, imagini și pagini web în formatul cerut, cum te documentezi din mai multe surse sigure și cum respecți drepturile de autor, cu citarea corectă a surselor.
-data: 2026-10-26
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.2, CS 1.3
@@ -31,7 +31,7 @@ Profesorul îți poate cere informația într-un anumit **format** (tip de fiși
 
 | Ce salvezi | Cum faci | Formatul obținut |
 |---|---|---|
-| **un text** | selectezi textul → **Ctrl + C** → deschizi **Notepad** sau **WordPad** → **Ctrl + V** → **Fișier → Salvare ca** | `.txt` (Notepad), `.rtf` (WordPad) |
+| **un text** | selectezi textul → **Ctrl + C** → deschizi **Notepad** (sau **Word**) → **Ctrl + V** → **Fișier → Salvare ca** | `.txt` (Notepad), `.docx` (Word) |
 | **o imagine** | **clic dreapta** pe imagine → **Salvare imagine ca…** → alegi folderul și numele → **Salvare** | de obicei `.jpg` sau `.png` |
 | **o pagină întreagă** | **Ctrl + P** (Imprimare) → la *Destinație* alegi **Salvare ca PDF** → **Salvare** | `.pdf` |
 | **o pagină, ca să o deschizi fără internet** | **Ctrl + S** → *Pagină web, completă* | `.html` (plus un folder cu imaginile) |
@@ -87,7 +87,7 @@ Exemplu:
 
 > „Constantin Brâncuși”, Wikipedia, https://ro.wikipedia.org/wiki/Constantin_Brâncuși, accesat la 15.10.2026.
 
-Pentru o imagine, scrii sub ea: *Imagine: numele autorului, licența, site-ul* (de exemplu: *Imagine: Ana Pop, CC BY, pixabay.com*).
+Pentru o imagine, scrii sub ea: *Imagine: numele autorului, licența, site-ul* (de exemplu: *Imagine: Ana Pop, CC BY, commons.wikimedia.org*).
 
 ## Exemplu rezolvat
 

@@ -71,7 +71,7 @@
         if (!cur) cur = { q: '', options: [], explain: '' };
         if (/^[-*]\s+/.test(l)) cur.options.push({ text: l.replace(/^[-*]\s+/, ''), correct: l[0] === '*' });
         else if (/^explica[tț]ie\s*:/i.test(l)) cur.explain = l.replace(/^explica[tț]ie\s*:\s*/i, '');
-        else if (!cur.options.length) cur.q = (cur.q ? cur.q + ' ' : '') + l.replace(/^(Î|I|\?)\s*[:.]?\s*/, '');
+        else if (!cur.options.length) cur.q = (cur.q ? cur.q + ' ' : '') + l.replace(/^(?:[ÎI]\s*[:.]|\?)\s*/, '');
         else errors.push(`rândul „${l}” nu e nici variantă (- sau *), nici „Explicație:”`);
       }
       push();

@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 3 · Aplicații colaborative
 ordine: 302
 descriere: Google Drive, Google Docs și Google Slides: crearea unui fișier, interfața, partajarea, lucrul simultan, comentarii, modul Sugestii, istoricul versiunilor și descărcarea în format Word, PDF sau PowerPoint.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.3, CS 3.1
@@ -47,7 +47,7 @@ Seamănă cu PowerPoint: **panoul cu miniaturi** (stânga), **diapozitivul** (ce
 
 ### Lucrul împreună
 
-- **Distribuiți**: scrii adresele colegilor și alegi **Editor**, **Comentator** sau **Persoană care vede**.
+- **Distribuiți**: scrii adresele colegilor și alegi **Editor**, **Comentator** sau **Cititor** (doar vede documentul).
 - **Comentariu**: selectezi textul → **Inserați → Comentariu** (**Ctrl + Alt + M**). Poți scrie **@nume** ca să anunți un coleg. Când problema e rezolvată, apeși **✓ Rezolvă**.
 - **Modul Sugestii** (creionul din dreapta sus → **Sugerare**): modificările tale apar colorate, ca propuneri; autorul le **acceptă** sau le **respinge**.
 - **Istoricul versiunilor**: **Fișier → Istoricul versiunilor**; vezi cine ce a scris, cu altă culoare, și poți **restabili** o versiune.
@@ -106,7 +106,7 @@ Butonul Distribuiți: adăugarea colegilor cu drepturi
 
 ```adevarat-fals
 A: O prezentare Google Slides se poate descărca în format PowerPoint.
-F: În Google Docs nu poate lucra mai mult de o persoană odată. | Pot lucra simultan mai multe persoane.
+F: În Google Docs nu poate lucra mai mult de o persoană în același timp. | Pot lucra simultan mai multe persoane.
 A: Un comentariu rezolvat dispare din pagină, dar rămâne în istoric.
 A: Fiecare coleg din document are un cursor de altă culoare.
 ```

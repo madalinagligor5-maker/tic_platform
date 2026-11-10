@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 5 · Algoritmi
 ordine: 506
 descriere: Cum descriem un algoritm: limbaj natural, pseudocod și schemă logică; urmărirea datelor prin algoritm (maximul a două numere, perimetrul pătratului).
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 2.2, CS 2.3
@@ -214,7 +214,7 @@ Barem: datele de intrare a, b, c și de ieșire mx; mx primește întâi valoare
 1. Modifică Studiul de caz 1 astfel încât să afișeze **maximul a trei numere**.
 2. Scrie algoritmul și schema logică pentru interschimbarea valorilor a două variabile a și b. Exemplu: intrare a = 10, b = 20; ieșire a = 20, b = 10. Gândește-te la regula celor 3 pahare!
 3. Afișează **ultima cifră** a unui număr x, folosind `%`. Exemplu: x = 345 → 5.
-4. Calculează-ți **media** pe semestru din trei note. Exemplu: 9, 10, 10 → media 9,67, care rotunjită dă 10.
+4. Calculează **media** a trei note. Exemplu: 9, 10, 10 → media 9,67, care, rotunjită la un număr întreg, dă 10.
 5. Se dau a și b. Dacă **ambele sunt pare**, afișează triplul sumei lor; dacă **ambele sunt impare**, afișează diferența lor; altfel, afișează câtul împărțirii lui a la b.
 6. **Portofoliu:** care sunt datele de intrare, de ieșire și cazurile speciale în algoritmul care afișează **predecesorul** și **succesorul** unui număr natural? (Indiciu: 0 nu are predecesor natural.)
 

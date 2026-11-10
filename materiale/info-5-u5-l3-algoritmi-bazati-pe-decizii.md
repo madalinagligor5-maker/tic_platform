@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 5 · Algoritmi
 ordine: 503
 descriere: Structura alternativă Dacă... Atunci... Altfel: traversarea străzii, labirintul și decizii una în alta (cumpărarea fructelor).
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 2.1, CS 2.3
@@ -86,7 +86,7 @@ Dacă temperatura < 0 °C,
 
 ![Pe axa vârstelor se vede diferența dintre „cel puțin 12 ani” (vârsta ≥ 12) și „mai mult de 12 ani” (vârsta > 12), alături de dicționarul operatorilor relaționali.](fisiere/imagini/info-5-u5-l3-cel-putin.svg)
 
-### Condiții compuse (diverse)
+### Condiții compuse
 
 Uneori trebuie verificate **două condiții deodată**. Le legăm cu **și** sau cu **sau**:
 

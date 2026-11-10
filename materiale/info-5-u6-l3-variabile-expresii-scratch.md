@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 6 · Primii pași în programare
 ordine: 603
 descriere: Crearea și modificarea variabilelor, blocurile din categoria Operatori și programele „RoboOperații” și „Stiloul magic”.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 3.2
@@ -72,7 +72,7 @@ spune (alătură „a mod b=” (a mod b)) timp de 2 secunde
 
 Blocul **„alătură () ()”** lipește un text de o valoare. De exemplu, „a+b=” lângă 26 dă „a+b=26”.
 
-> **Atenție:** în Scratch, blocul `/` dă rezultatul **cu zecimale**: 20 / 6 = 3,333... Restul împărțirii îl afli cu `mod`: 20 mod 6 = 2.
+> **Atenție:** în Scratch, blocul `/` dă rezultatul **cu zecimale**: 20 / 6 = 3,333... (Scratch scrie zecimalele cu punct: 3.333...). Restul împărțirii îl afli cu `mod`: 20 mod 6 = 2.
 
 ### „Stiloul magic” (extensia Creion)
 

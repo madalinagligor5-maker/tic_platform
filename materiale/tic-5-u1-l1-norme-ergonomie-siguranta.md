@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 1 · Sisteme de calcul și comunicații
 ordine: 101
 descriere: Regulile din laboratorul de informatică, poziția corectă la calculator, tabletă și telefon și efectele folosirii greșite a dispozitivelor.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.1
@@ -64,8 +64,8 @@ data: 2026-10-15
 ### C. Ce se întâmplă când folosim greșit dispozitivele
 
 - **Dureri de ceafă și de spate**: cu cât apleci capul mai mult, cu atât gâtul duce o greutate mai mare.
-- **Probleme de vedere**: ochii obosesc când stau mult timp aproape de ecran și trec des între lumina ecranului și cea din cameră; așa poate apărea **miopia**.
-- **Dependența**: jocurile și aplicațiile sunt făcute să te țină cât mai mult în fața ecranului (recompense, actualizări, concursuri). Mai există și riscul să întâlnești online un limbaj sau comportamente nepotrivite.
+- **Probleme de vedere**: ochii obosesc când stau mult timp aproape de ecran și trec des între lumina ecranului și cea din cameră; așa poate apărea sau se poate agrava **miopia**.
+- **Dependența**: jocurile și aplicațiile sunt făcute să te țină cât mai mult în fața ecranului (recompense, actualizări, concursuri). Mai există și riscul să întâlnești online un limbaj nepotrivit sau comportamente nepotrivite.
 
 ![Cele trei efecte ale folosirii greșite a dispozitivelor: dureri de ceafă și de spate, probleme de vedere (miopia) și dependența.](fisiere/imagini/tic-5-u1-l1-norme-ergonomie-siguranta-efecte.svg)
 

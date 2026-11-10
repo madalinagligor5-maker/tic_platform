@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 3 · Internet
 ordine: 303
 descriere: Cum se creează un cont de e-mail (cu acordul părinților), cum intri în căsuța poștală, elementele interfeței Gmail și Outlook, etichete și foldere.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.3
@@ -32,7 +32,7 @@ Poți folosi e-mailul printr-un **client de e-mail** (Outlook) sau prin **webmai
 Pașii la crearea unui cont (asemănători la toți furnizorii):
 
 1. Intri pe site-ul furnizorului (de exemplu, `google.com`) → **Conectare** → **Creează un cont**.
-2. Completezi **prenumele**, **numele**, **numele de utilizator** (devine adresa ta) și **parola** (de cel puțin 8 caractere, scrisă de două ori). Dacă numele de utilizator e deja luat, alegi altul.
+2. Completezi **prenumele**, **numele**, **numele de utilizator** (devine adresa ta) și **parola** (o parolă sigură, de preferat de cel puțin 12 caractere, scrisă de două ori). Dacă numele de utilizator e deja luat, alegi altul.
 3. Data nașterii, genul (poți alege „Prefer să nu spun”), eventual un număr de telefon de recuperare.
 4. Citești **condițiile de utilizare** și apeși **Sunt de acord** doar dacă ești de acord.
 
@@ -64,7 +64,7 @@ Un mesaj îl deschizi cu un **clic** pe el.
 
 ### Interfața Outlook
 
-**Outlook** (din Microsoft Office) are aceleași elemente principale: buton pentru **mesaj nou**, foldere (**Inbox**, **Sent**, **Drafts**, **Mesaje șterse**), **căutare** și lista de mesaje.
+**Outlook** (din Microsoft 365 sau noul Outlook pentru Windows) are aceleași elemente principale: buton pentru **mesaj nou**, foldere (**Inbox**, **Sent**, **Drafts**, **Elemente șterse**), **căutare** și lista de mesaje.
 
 - Selectezi un mesaj: îi vezi conținutul în **panoul de citire**;
 - **dublu clic** pe el: se deschide într-o fereastră separată.

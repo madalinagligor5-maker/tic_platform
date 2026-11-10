@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 6 · Primii pași în programare
 ordine: 601
 descriere: Ce este un mediu de dezvoltare, limbajul Scratch, interfața (paleta de blocuri, zona de program, scena, personaje, decoruri) și primul tău program.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 3.2
@@ -50,7 +50,7 @@ Cu butonul cu **globul pământesc** alegi **limba română**. Personajul care a
 5. **Zona decorurilor**;
 6. **Fila Costume**;
 7. **Fila Sunete**;
-8. **Rucsacul**: muți personaje, sunete și scripturi dintr-un proiect în altul.
+8. **Rucsacul**: muți personaje, sunete și scripturi dintr-un proiect în altul (apare doar când ești conectat cu un cont Scratch).
 
 ![Interfața Scratch, simplificată: paleta de blocuri, zona de program, scena, zonele personajelor și decorurilor, filele Costume și Sunete, rucsacul.](fisiere/imagini/info-5-u6-l1-scratch-interfata.svg)
 

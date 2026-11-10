@@ -7,7 +7,7 @@ tip: test
 unitate: Unitatea 3 · Aplicații colaborative
 ordine: 304
 descriere: Exerciții recapitulative și autoevaluare pentru Unitatea 3: cloud, partajare și drepturi, Google Docs și Slides, comentarii și sugestii, GIS și hărți colaborative.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 ## Recapitulare
@@ -53,7 +53,7 @@ Lucrați în echipe de câte patru:
 
 1. Un elev creează în Drive folderul echipei și îl **distribuie** colegilor.
 2. Faceți împreună un **Document Google** cu programul excursiei, regulile și lista de bagaje. Folosiți **comentarii** cu **@nume** pentru întrebări.
-3. Faceți o **Prezentare Google** de 5 diapozitive, câte unul fiecare, despre locurile vizitate.
+3. Faceți o **Prezentare Google** de cel puțin 5 diapozitive despre locurile vizitate, la care lucrează fiecare membru al echipei.
 4. Faceți o hartă în **Google My Maps** cu traseul (linie) și opririle (puncte).
 5. Distribuiți totul profesorului ca **Comentator** și descărcați documentul ca **PDF**.
 

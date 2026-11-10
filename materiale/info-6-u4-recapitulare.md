@@ -7,7 +7,7 @@ tip: test
 unitate: Unitatea 4 · Algoritmi și programare
 ordine: 408
 descriere: Exerciții recapitulative și autoevaluare pentru Unitatea 4: structuri repetitive, algoritmi cu cifre, sume și produse, programe Scratch cu taste, mesaje și limite.
-data: 2026-10-15
+data: 2026-11-10
 ---
 
 ## Recapitulare
@@ -56,7 +56,7 @@ Ce valoare are 9046 % 10?
 3. Fă o **invitație animată** cu două pagini: pe prima, numele tău din litere colorate animate; pe a doua, textul invitației. Între pagini te muți cu săgețile.
 4. Citește două numere naturale nenule și formează numărul alcătuit din **prima cifră** a fiecăruia, folosind structura condiționată anterior. Exemplu: din 273 și 745 se obține **27**.
 5. În curtea bunicii sunt capre, oi și gâște. Numărul caprelor este par, este **dublul** numărului gâștelor și cu **10 mai mic** decât numărul oilor. Citești numărul caprelor; câte **picioare** au în total? Exemplu: pentru 4 capre (deci 2 gâște și 14 oi) se afișează **76**.
-6. Desenează un personaj în Paint 3D și programează-l să se miște cu **săgețile**, fără să iasă de pe ecran. Când atinge alt personaj, scoate un sunet.
+6. Desenează un personaj în Paint 3D (sau în editorul de costume din Scratch) și programează-l să se miște cu **săgețile**, fără să iasă de pe ecran. Când atinge alt personaj, scoate un sunet.
 
 ## Autoevaluare
 

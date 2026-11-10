@@ -7,7 +7,7 @@ tip: lectie
 unitate: Unitatea 2 · Pagini web
 ordine: 204
 descriere: Harta unui site, pagini și subpagini, meniul de navigare, legături între pagini, aspect unitar, încorporarea documentelor și formularelor Google, editarea colaborativă a site-ului și publicarea actualizărilor.
-data: 2026-10-16
+data: 2026-11-10
 ---
 
 > **Competențe specifice (Anexa 15):** CS 1.2, CS 3.2
@@ -60,7 +60,7 @@ Acasă
 
 ### Încorporarea conținutului
 
-Din **Inserare** adaugi direct din Drive: **Documente**, **Prezentări**, **Foi de calcul** (de exemplu, un tabel Excel urcat în Drive și deschis cu Foi de calcul Google), **Diagrame**, **Formulare** (un chestionar sau o înscriere), **Calendar**, **YouTube**, **Hartă**. Când modifici documentul original, se actualizează și pe site.
+Din **Inserare** adaugi direct din Drive: **Documente**, **Prezentări**, **Foi de calcul** (de exemplu, un tabel Excel încărcat în Drive și deschis cu Foi de calcul Google), **Diagrame**, **Formulare** (un chestionar sau o înscriere), **Calendar**, **YouTube**, **Hartă**. Când modifici documentul original, se actualizează și pe site.
 
 ### Lucrul colaborativ
 
