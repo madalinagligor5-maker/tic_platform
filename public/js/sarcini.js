@@ -10,6 +10,7 @@
   // Aplicațiile în care se poate lucra o sarcină (ruta lor și cum se numesc pentru elevi).
   const APLICATII = {
     desen: { nume: 'Desen (editor grafic)', ruta: '#/aplicatii/desen' },
+    animatie: { nume: 'Studio de animație', ruta: '#/aplicatii/animatie' },
     posta: { nume: 'Poștă electronică (simulator)', ruta: '#/aplicatii/posta' },
     audio: { nume: 'Editor audio', ruta: '#/aplicatii/audio' },
     cpp: { nume: 'Editor C++', ruta: '#/aplicatii/cpp' },
@@ -104,6 +105,18 @@
     if (l.tip === 'imagine' && /^data:image\/(png|jpeg);/.test(l.date || '')) {
       corp = h('div', {}, h('img', { class: 'lucrare-img', src: l.date, alt: l.titlu || 'Desenul elevului' }),
         h('p', {}, h('a', { class: 'chip small', href: l.date, download: `${l.titlu || 'desen'}.png` }, 'Descarcă imaginea')));
+    } else if (l.tip === 'animatie' && Array.isArray(l.cadre) && l.cadre.length) {
+      // Redăm cadrele unul după altul, cu viteza aleasă de elev (FPS).
+      const img = h('img', { class: 'lucrare-img', src: l.cadre[0], alt: l.titlu || 'Animația elevului' });
+      let i = 0, t = null;
+      const btn = h('button', { class: 'chip small', type: 'button' }, '▶ Redă');
+      const opreste = () => { clearInterval(t); t = null; btn.textContent = '▶ Redă'; };
+      btn.addEventListener('click', () => {
+        if (t) return opreste();
+        btn.textContent = '⏸ Pauză';
+        t = setInterval(() => { if (!img.isConnected) return opreste(); i = (i + 1) % l.cadre.length; img.src = l.cadre[i]; }, 1000 / (l.fps || 8));
+      });
+      corp = h('div', {}, img, h('p', {}, btn, h('span', { class: 'muted small' }, ` ${l.cadre.length} cadre · ${l.fps || 8} cadre pe secundă`)));
     } else if (l.tip === 'audio' && /^data:audio\//.test(l.date || '')) {
       corp = h('div', {}, h('audio', { controls: true, src: l.date, preload: 'metadata' }), l.durata ? h('p', { class: 'muted small' }, `Durata: ${Math.round(l.durata)} s`) : null);
     } else if (l.tip === 'cod') {

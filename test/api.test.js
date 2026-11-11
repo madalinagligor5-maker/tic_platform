@@ -332,6 +332,11 @@ test('sarcini: profesorul dă o sarcină, elevul predă o lucrare, profesorul o 
   await call('POST', `/api/profesor/sarcini/${s.id}/elevi/${eid}/redeschide`, {}, tp);
   assert.strictEqual((await call('POST', `/api/elev/sarcini/${s.id}/predare`, { raspuns: 'refăcut' }, te)).status, 200);
 
+  // O animație: cadre PNG și viteza de redare.
+  const anim = await call('POST', `/api/elev/sarcini/${s.id}/predare`, { lucrare: { aplicatie: 'animatie', titlu: 'Mingea', tip: 'animatie', cadre: [png, png], fps: 12 } }, te);
+  assert.strictEqual(anim.body.lucrare.fps, 12);
+  assert.strictEqual((await call('POST', `/api/elev/sarcini/${s.id}/predare`, { lucrare: { tip: 'animatie', cadre: ['nu e imagine'] } }, te)).status, 400);
+
   // Sarcina închisă nu mai primește lucrări; ștergerea o scoate de la elev.
   await call('POST', `/api/profesor/sarcini/${s.id}/stare`, { deschisa: false }, tp);
   assert.strictEqual((await call('POST', `/api/elev/sarcini/${s.id}/predare`, { raspuns: 'târziu' }, te)).status, 409);
