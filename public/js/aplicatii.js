@@ -6,6 +6,7 @@
 
   const APLICATII = [
     { id: 'desen', ruta: '#/aplicatii/desen', nume: 'Desen', inlocuieste: 'Paint', clase: [5, 6], culoare: 'c1', desc: 'Editor grafic 2D: creion, pensulă, forme, umplere, text, selecție, rotire și răsturnare.' },
+    { id: 'animatie', ruta: '#/aplicatii/animatie', nume: 'Studio de animație', inlocuieste: 'Paint 3D / Toontastic', clase: [6], culoare: 'c9', desc: 'Animație cadru cu cadru și scene cu personaje, efecte, temporizare și cronologie; export GIF și video.' },
     { id: 'text', ruta: '#/laborator/text', nume: 'Document', inlocuieste: 'Word', clase: [5, 6, 7, 8], culoare: 'c2', desc: 'Procesor de text cu formatare, imagini, tabele; se descarcă .docx.' },
     { id: 'atelier', ruta: '#/atelier', nume: 'Prezentare', inlocuieste: 'PowerPoint', clase: [6, 7, 8], culoare: 'c3', desc: 'Diapozitive cu teme, imagini, forme, tranziții; se salvează în contul elevului.' },
     { id: 'posta', ruta: '#/aplicatii/posta', nume: 'Poștă electronică', inlocuieste: 'Gmail / Outlook', clase: [6], culoare: 'c4', desc: 'Simulator sigur: Către, CC, CCI, răspuns, redirecționare, atașamente, spam și phishing, cu misiuni.' },
