@@ -250,6 +250,8 @@ Barem: 3p scenariu coerent (început, mijloc, sfârșit) cu cel puțin două per
 
 ## Exersează
 
+> **Lucrează direct pe site:** în **Aplicații → Studio de animație** poți face o animație **cadru cu cadru** (cu foaie de ceapă și FPS reglabil) sau o poveste cu **personaje, decoruri și efecte cu temporizare** (Start, Durată, Întârziere, cronologie), apoi o descarci ca GIF sau video.
+
 1. Fă după pașii de mai sus o poveste scurtă în Toontastic (sau în Scratch).
 2. Creează o **poveste clasică**. Adaugă-i încă un cadru de tip **Încercare**, cu un scenariu al tău. Schimbă melodia unui cadru.
 3. Adaugă două personaje „spectatori”. Mută unul în alt loc al scenei și șterge-l pe celălalt.
