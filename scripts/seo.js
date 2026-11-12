@@ -5,7 +5,7 @@
 //   public/lectii/<id>.html       teoria fiecărui material + legătura spre varianta interactivă
 //   public/sitemap.xml (cu imagini), public/robots.txt (inclusiv roboții AI), public/llms.txt (rezumat pentru asistenții AI)
 // Fiecare pagină are date structurate schema.org (JSON-LD), întrebări și răspunsuri și un rezumat la început (AEO).
-// Adresa site-ului vine din SITE_URL (implicit https://edudigi.ro).
+// Adresa site-ului vine din SITE_URL (implicit https://www.edudigi.ro).
 const fs = require('fs');
 const { extract } = require('../public/js/interactive');
 const path = require('path');
@@ -141,8 +141,10 @@ function page({ site, url, title, desc, body, crumbs = [], ld = [], type = 'arti
 `;
 }
 
-function generate({ out, materials, bodies, discipline, tipuri, interactiv, site = process.env.SITE_URL || 'https://edudigi.ro' }) {
-  site = site.replace(/\/+$/, '');
+function generate({ out, materials, bodies, discipline, tipuri, interactiv, site = process.env.SITE_URL || 'https://www.edudigi.ro' }) {
+  // Domeniul fără www redirecționează permanent: nu îl propunem ca URL canonic,
+  // nici dacă o configurare SITE_URL mai veche îl specifică încă.
+  site = site.replace(/\/+$/, '').replace(/^https?:\/\/(?:www\.)?edudigi\.ro$/i, 'https://www.edudigi.ro');
   const dir = path.join(out, 'lectii');
   fs.rmSync(dir, { recursive: true, force: true });
   fs.mkdirSync(dir, { recursive: true });
@@ -232,7 +234,7 @@ function generate({ out, materials, bodies, discipline, tipuri, interactiv, site
 
   // llms.txt: rezumatul site-ului pentru asistenții AI (https://llmstxt.org).
   const llms = [`# edudigi – Informatică și TIC, clasele V–VIII`, '', `> ${despre}`, '',
-    'Toate materialele sunt gratuite și în limba română. Fiecare lecție are o variantă statică (text, imagini, întrebări și răspunsuri) la adresele de mai jos și o variantă interactivă în aplicație (https://edudigi.ro/#/m/<id>).', '',
+    'Toate materialele sunt gratuite și în limba română. Fiecare lecție are o variantă statică (text, imagini, întrebări și răspunsuri) la adresele de mai jos și o variantă interactivă în aplicație (https://www.edudigi.ro/#/m/<id>).', '',
     '## Pagini principale', '', `- [Toate lecțiile](${site}/lectii/): lista pe clase`, ...clase.map((c) => `- [Clasa a ${ROMAN[c]}-a](${site}/lectii/clasa-${c}.html): lecții, recapitulări și teste pe unități`), ''];
   for (const c of clase) {
     llms.push(`## Clasa a ${ROMAN[c]}-a`, '');
