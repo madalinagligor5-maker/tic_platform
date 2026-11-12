@@ -13,6 +13,7 @@
     class EroareCompilare extends Error { constructor(rand, mesaj) { super(mesaj); this.rand = rand; } }
     class EroareRulare extends Error { constructor(rand, mesaj) { super(mesaj); this.rand = rand; } }
     class CereIntrare extends Error { }
+    class Pauza extends Error { constructor(date) { super('pauză'); this.date = date; } } // depanatorul s-a oprit la un rând
     const err = (rand, mesaj) => { throw new EroareCompilare(rand, mesaj); };
 
     // ---------- Lexer ----------
@@ -270,8 +271,8 @@
           if (pk().k === 'eof') err(t.rand, `lipsește '}': acolada deschisă la rândul ${t.rand} nu este închisă`);
           inst.push(instr());
         }
-        p++;
-        return { k: 'bloc', inst, rand: t.rand };
+        const fin = ia().rand;
+        return { k: 'bloc', inst, rand: t.rand, fin };
       }
       function instr() {
         const t = pk();
@@ -478,7 +479,7 @@
       floor: Math.floor, ceil: Math.ceil, trunc: Math.trunc, fabs: Math.abs, round: (x) => (x < 0 ? -Math.round(-x) : Math.round(x)) };
     const CONSTANTE = { INT_MAX: ['int', 2147483647], INT_MIN: ['int', -2147483648], LLONG_MAX: ['ll', 9223372036854775807n], LLONG_MIN: ['ll', -9223372036854775808n], UINT_MAX: ['uint', 4294967295], M_PI: ['double', Math.PI] };
 
-    function compileaza(src) {
+    function compileaza(src, DBG = false) {
       const includes = [];
       const toks = lexeaza(src, new Map(), includes);
       for (const inc of includes) if (!BIBLIOTECI.has(inc.nume)) err(inc.rand, `biblioteca <${inc.nume}> nu este disponibilă în acest editor (poți folosi iostream, cmath, iomanip, climits, algorithm)`);
@@ -488,7 +489,7 @@
       // starea de rulare (comună tuturor funcțiilor compilate)
       const R = { pasi: 0, start: 0, iesire: [], lungIesire: 0, avert: new Set(), adancime: 0, ret: undefined,
         st: { prec: 6, mod: '', latime: 0, umplere: ' ', stanga: false, boolalpha: false },
-        in: '', poz: 0, fail: false, interactiv: false, linii: [], ecou: 0 };
+        in: '', poz: 0, fail: false, interactiv: false, linii: [], ecou: 0, ev: 0, dbg: null, stiva: [] };
       const G = [];
       let nrGlobale = 0;
       const domenii = [new Map()]; // domeniul global e domenii[0]
@@ -511,6 +512,55 @@
         if (++R.pasi > MAX_PASI) throw new EroareRulare(rand, `programul a fost oprit după ${(MAX_PASI).toLocaleString('ro-RO')} de pași (repetări). Probabil are o buclă infinită: verifică dacă se schimbă variabila din condiția de oprire.`);
         if ((R.pasi & 8191) === 0 && Date.now() - R.start > MAX_TIMP) throw new EroareRulare(rand, 'programul a fost oprit după 3 secunde. Probabil are o buclă infinită (sau face prea multe calcule).');
       };
+
+      // ----- depanatorul (doar când DBG): un „cârlig” înaintea fiecărei instrucțiuni -----
+      // Rularea pas cu pas se face reluând programul de la început și oprindu-l la evenimentul următor
+      // (programele sunt deterministe), deci interpretorul rămâne la fel de rapid în modul obișnuit.
+      const liniiEv = new Set();
+      const NUME_C = { int: 'int', uint: 'unsigned int', ll: 'long long', ull: 'unsigned long long', short: 'short', char: 'char', bool: 'bool', float: 'float', double: 'double' };
+      function vizibile() { // variabilele vizibile acum (cea mai interioară câștigă)
+        const m = new Map();
+        for (let i = 0; i < domenii.length; i++) for (const [n, s] of domenii[i]) if (s.k === 'var') { m.delete(n); m.set(n, s); }
+        return [...m].map(([nume, s]) => ({ nume, s }));
+      }
+      function afisDbg(t, v) {
+        if (typeof v === 'bigint') return v.toString();
+        switch (t) {
+          case 'bool': return v ? 'true' : 'false';
+          case 'char': { const c = v & 255; const esc = { 0: '\\000', 9: '\\t', 10: '\\n', 13: '\\r', 39: "\\'", 92: '\\\\' }; return `${v} '${esc[c] || (c >= 32 && c < 127 ? String.fromCharCode(c) : `\\${c.toString(8).padStart(3, '0')}`)}'`; }
+          case 'float': return Number.isFinite(v) ? String(Number(v.toPrecision(9))) : Number.isNaN(v) ? 'nan' : v < 0 ? '-inf' : 'inf';
+          case 'double': return Number.isFinite(v) ? String(v) : Number.isNaN(v) ? 'nan' : v < 0 ? '-inf' : 'inf';
+          default: return String(v);
+        }
+      }
+      function instantaneu(f, viz) {
+        return viz.map(({ nume, s }) => {
+          let v = s.global ? G[s.slot] : f ? f[s.slot] : undefined;
+          const o = { nume, tip: NUME_C[s.tip] || s.tip, grup: s.global ? 'global' : s.param ? 'arg' : 'local' };
+          if (s.dims) {
+            if (v && v.d) { o.dims = v.dims.slice(); o.tab = Array.from(v.d.subarray(0, Math.min(v.d.length, 2000)), (x) => afisDbg(s.tip, x)); o.tip += ` [${v.dims.join('][')}]`; } else { o.val = '?'; o.tip += ' []'; }
+          } else {
+            if (s.ref && v) { v = v.c[v.i]; o.tip += ' &'; }
+            o.val = v === undefined ? '?' : afisDbg(s.tip, v);
+          }
+          return o;
+        });
+      }
+      function carlig(rand, viz = vizibile()) {
+        liniiEv.add(rand);
+        return (f) => {
+          R.ev++;
+          const D = R.dbg;
+          if (R.ev <= D.dupa) return;
+          const acelasi = rand === D.rand && R.adancime === D.ad; // gdb trece la rândul următor, nu la aceeași linie
+          if (D.bp.has(rand) || (!acelasi && (D.mod === 'into' || (D.mod === 'next' && R.adancime <= D.ad))) || (D.mod === 'out' && R.adancime < D.ad) || (D.mod === 'cursor' && rand === D.linie)) {
+            const st = R.stiva, stiva = []; let rr = rand;
+            for (let i = st.length - 1; i >= 0; i--) { stiva.push({ nume: st[i].nume, rand: rr }); rr = st[i].apel; }
+            throw new Pauza({ rand, ev: R.ev, ad: R.adancime, vars: instantaneu(f, viz), stiva });
+          }
+        };
+      }
+      const cuCarlig = (c, rand) => { const ca = carlig(rand); return (f) => { ca(f); return c(f); }; };
 
       function cauta(n) { for (let i = domenii.length - 1; i >= 0; i--) { const s = domenii[i].get(n); if (s) return s; } return null; }
       function declara(n, sym) {
@@ -984,7 +1034,9 @@
           for (let k = 0; k < nr; k++) nf[k] = fargs[k](f);
           if (++R.adancime > MAX_ADANCIME) throw new EroareRulare(r, `prea multe apeluri de funcție unul în altul (peste ${MAX_ADANCIME}): probabil funcția ${s.nume} se apelează pe ea însăși fără să se oprească`);
           pas(r);
+          if (DBG) R.stiva.push({ nume: s.nume, apel: r });
           def.corp(nf);
+          if (DBG) R.stiva.pop();
           R.adancime--;
           const v = R.ret; R.ret = undefined;
           return v === undefined ? def.implicit : v;
@@ -1061,6 +1113,15 @@
 
       let inBucla = 0, inSwitch = 0;
       function instr(s) {
+        if (!DBG || !fc) return instr0(s);
+        const k = s.k;
+        if (k === 'bloc' || k === 'gol' || k === 'for' || k === 'while' || k === 'do' || (k === 'decl' && !s.lista.some((v) => v.init))) return instr0(s);
+        let ca = k === 'decl' ? null : carlig(s.rand);
+        const g = instr0(s);
+        if (!ca) ca = carlig(s.rand); // la o declarație, variabilele noi apar deja în Watches (încă fără valoare)
+        return (f) => { ca(f); return g(f); };
+      }
+      function instr0(s) {
         switch (s.k) {
           case 'gol': return () => 0;
           case 'decl': return decl(s);
@@ -1072,6 +1133,7 @@
           case 'bloc': {
             domenii.push(new Map());
             const l = s.inst.map(instr);
+            if (DBG) s.vizFin = vizibile();
             domenii.pop();
             const n = l.length;
             if (n === 0) return () => 0;
@@ -1089,7 +1151,7 @@
           case 'while': case 'do': {
             if (s.c.k === 'atr' && s.c.op === '=') avertizareCompilare(s.rand, 'în condiție ai scris = (atribuire). Pentru comparare se folosește ==');
             if (s.gol) avertizareCompilare(s.rand, 'după while (...) ai pus ; – bucla nu are corp și poate fi infinită');
-            const c = conditie(s.c);
+            const c = DBG && fc ? cuCarlig(conditie(s.c), s.k === 'do' ? s.c.rand : s.rand) : conditie(s.c);
             inBucla++; domenii.push(new Map()); const corp = instr(s.corp); domenii.pop(); inBucla--;
             const r = s.rand;
             if (s.k === 'while') return (f) => { while (c(f)) { pas(r); const k = corp(f); if (k === 1) break; if (k === 3) return 3; } return 0; };
@@ -1097,10 +1159,11 @@
           }
           case 'for': {
             domenii.push(new Map());
-            const init = s.init ? instr(s.init) : null;
+            const init = s.init ? instr0(s.init) : null;
             if (s.c && s.c.k === 'atr' && s.c.op === '=') avertizareCompilare(s.rand, 'în condiția lui for ai scris = (atribuire). Pentru comparare se folosește == sau <=');
             if (s.gol) avertizareCompilare(s.rand, 'după for (...) ai pus ; – instrucțiunea de după se execută o singură dată, după terminarea buclei');
-            const c = s.c ? conditie(s.c) : () => true;
+            const c0 = s.c ? conditie(s.c) : () => true;
+            const c = DBG && fc ? cuCarlig(c0, s.rand) : c0;
             const p = s.pas ? expresie(s.pas).f : null;
             inBucla++; domenii.push(new Map()); const corp = instr(s.corp); domenii.pop(); inBucla--;
             domenii.pop();
@@ -1174,11 +1237,12 @@
         domenii.push(new Map());
         for (const p of s.params) {
           if (p.tip === 'void') err(p.rand, 'un parametru nu poate fi de tip void');
-          const sym = { k: 'var', tip: p.tip, cnst: p.cnst, ref: p.ref && !p.dims.length, rand: p.rand, slot: fc.sloturi++ };
+          const sym = { k: 'var', tip: p.tip, cnst: p.cnst, ref: p.ref && !p.dims.length, rand: p.rand, slot: fc.sloturi++, param: true };
           if (p.dims.length) { sym.dims = p.dims; if (p.dims.length > 2) err(p.rand, 'cel mult 2 dimensiuni'); }
           declara(p.nume, sym);
         }
-        const corp = instr(s.corp);
+        let corp = instr(s.corp);
+        if (DBG) { const ca = carlig(s.corp.fin, s.corp.vizFin), c0 = corp; corp = (f) => { const k = c0(f); ca(f); return k; }; } // oprire la } de la final
         domenii.pop();
         s.def.sloturi = fc.sloturi; s.def.corp = corp;
         fc = null;
@@ -1189,7 +1253,7 @@
       if (main.params.length) err(main.rand, 'în acest editor funcția main se scrie fără parametri: int main()');
 
       // ----- rularea -----
-      function ruleaza(intrare, interactive = []) {
+      function ruleaza(intrare, interactive = [], dbg = null) {
         R.pasi = 0; R.start = Date.now(); R.iesire = []; R.lungIesire = 0; R.avert = new Set(); R.adancime = 0; R.ret = undefined;
         R.st = { prec: 6, mod: '', latime: 0, umplere: ' ', stanga: false, boolalpha: false };
         R.fail = false; R.poz = 0; R.ecou = 0; R.linii = [];
@@ -1201,8 +1265,14 @@
           R.in = s;
         } else R.in = intrare;
         G.length = 0;
+        R.ev = 0; R.stiva = [{ nume: 'main' }];
+        if (DBG) {
+          const d = dbg || {}, ev = [...liniiEv].sort((a, b) => a - b);
+          const lipeste = (l) => ev.find((x) => x >= l); // punctul de oprire pe un rând fără cod trece pe următorul rând cu cod
+          R.dbg = { dupa: d.dupa || 0, mod: d.mod || 'bp', ad: d.ad || 0, rand: d.rand || 0, linie: d.linie ? lipeste(d.linie) : -1, bp: new Set((d.bp || []).map(lipeste).filter((x) => x != null)) };
+        }
         for (const w of avertComp) R.iesire.push({ k: 'w', s: `Atenție (rândul ${w.rand}): ${w.mesaj}`, rand: w.rand });
-        let stare = 'gata', cod = 0, eroare = null;
+        let stare = 'gata', cod = 0, eroare = null, pauza = null;
         try {
           for (const g of initGlobale) g(null);
           const f = new Array(main.def.sloturi);
@@ -1210,36 +1280,43 @@
           if (R.ret !== undefined) cod = R.ret;
         } catch (e) {
           if (e instanceof CereIntrare) stare = 'intrare';
+          else if (e instanceof Pauza) { stare = 'pauza'; pauza = e.date; }
           else if (e instanceof EroareRulare) { stare = 'eroare'; eroare = { rand: e.rand, mesaj: e.message }; }
           else if (e instanceof RangeError && /call stack/i.test(e.message)) { stare = 'eroare'; eroare = { rand: null, mesaj: 'prea multe apeluri de funcție unul în altul: probabil o funcție se apelează pe ea însăși fără să se oprească' }; }
           else throw e;
         }
         let intrareInsuf = false;
         if (stare === 'gata' && R.fail && !R.interactiv) intrareInsuf = true;
-        return { stare, cod, eroare, iesire: R.iesire, timp: Date.now() - R.start, pasi: R.pasi, intrareInsuf };
+        return { stare, cod, eroare, iesire: R.iesire, timp: Date.now() - R.start, pasi: R.pasi, intrareInsuf, pauza };
       }
       return { ruleaza, avertizari: avertComp };
     }
 
     // compilează și rulează; întoarce un rezultat simplu (folosit de worker, de interfață și de teste)
-    function executa(cod, intrare = '', interactive = []) {
+    function executa(cod, intrare = '', interactive = [], dbg = null) {
       let prog;
-      try { prog = compileaza(cod); } catch (e) {
+      try { prog = compileaza(cod, !!dbg); } catch (e) {
         if (e instanceof EroareCompilare) return { stare: 'compilare', eroare: { rand: e.rand, mesaj: e.message }, iesire: [] };
         return { stare: 'compilare', eroare: { rand: null, mesaj: `eroare internă a editorului: ${e.message}` }, iesire: [] };
       }
-      try { return prog.ruleaza(intrare, interactive); } catch (e) {
+      try { return prog.ruleaza(intrare, interactive, dbg); } catch (e) {
         return { stare: 'eroare', eroare: { rand: null, mesaj: `eroare internă a editorului: ${e.message}` }, iesire: [] };
       }
     }
+    // doar compilarea (Build): erori și avertismente, fără rulare
+    function verifica(cod) {
+      try { const p = compileaza(cod); return { ok: true, avertizari: p.avertizari.slice() }; } catch (e) {
+        return { ok: false, eroare: e instanceof EroareCompilare ? { rand: e.rand, mesaj: e.message } : { rand: null, mesaj: `eroare internă a editorului: ${e.message}` }, avertizari: [] };
+      }
+    }
     const textIesire = (r) => r.iesire.filter((s) => s.k === 'o' || s.k === 'i').map((s) => s.s).join('');
-    return { executa, textIesire, formatReal, lexeaza };
+    return { executa, verifica, textIesire, formatReal, lexeaza };
   })();
 
   // Același fișier, încărcat ca Web Worker (fără window) sau în Node (pentru teste).
   if (typeof window === 'undefined') {
     if (typeof module !== 'undefined' && module.exports) module.exports = CPP;
-    else if (typeof self !== 'undefined') self.onmessage = (e) => { const d = e.data || {}; self.postMessage({ id: d.id, rez: CPP.executa(String(d.cod || ''), String(d.intrare || ''), Array.isArray(d.interactive) ? d.interactive.map(String) : []) }); };
+    else if (typeof self !== 'undefined') self.onmessage = (e) => { const d = e.data || {}; self.postMessage({ id: d.id, rez: CPP.executa(String(d.cod || ''), String(d.intrare || ''), Array.isArray(d.interactive) ? d.interactive.map(String) : [], d.dbg && typeof d.dbg === 'object' ? d.dbg : null) }); };
     return;
   }
   if (!window.EduApp) return;
@@ -1316,11 +1393,14 @@
   const numeFisier = (t) => `${(t || 'program').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^\w.-]+/g, '_').replace(/^_+|_+$/g, '') || 'program'}.cpp`;
 
   const SABLON = '#include <iostream>\nusing namespace std;\n\nint main()\n{\n    \n    return 0;\n}\n';
+  // programul pe care Code::Blocks îl pune în main.cpp la un proiect nou (Console application)
+  const SABLON_CB = '#include <iostream>\n\nusing namespace std;\n\nint main()\n{\n    cout << "Hello world!" << endl;\n    return 0;\n}\n';
+  const DIR = 'C:\\Users\\Elev\\Documents\\CodeBlocks';
 
-  // ---------- Colorarea sintaxei ----------
-  const KW = new Set(['if', 'else', 'while', 'do', 'for', 'switch', 'case', 'default', 'break', 'continue', 'return', 'using', 'namespace', 'true', 'false', 'const', 'static', 'static_cast', 'sizeof', 'struct', 'class', 'new', 'delete', 'goto']);
-  const TIPURI = new Set(['int', 'long', 'short', 'unsigned', 'signed', 'float', 'double', 'char', 'bool', 'void', 'auto', 'string']);
-  const STD = new Set(['cout', 'cin', 'endl', 'std', 'fixed', 'scientific', 'setprecision', 'setw', 'setfill', 'left', 'right', 'main', 'sqrt', 'pow', 'abs', 'fabs', 'floor', 'ceil', 'round', 'max', 'min', 'swap', 'INT_MAX', 'INT_MIN']);
+  // ---------- Colorarea sintaxei (tema implicită din Code::Blocks) ----------
+  const KW = new Set(['if', 'else', 'while', 'do', 'for', 'switch', 'case', 'default', 'break', 'continue', 'return', 'using', 'namespace', 'true', 'false', 'const', 'static', 'static_cast', 'sizeof', 'struct', 'class', 'new', 'delete', 'goto',
+    'int', 'long', 'short', 'unsigned', 'signed', 'float', 'double', 'char', 'bool', 'void', 'auto', 'string', 'public', 'private', 'template', 'typedef', 'enum', 'inline', 'this', 'nullptr']);
+  const OPC = '+-*/%=<>!&|^~?:;,.()[]{}';
   function coloreaza(src) {
     let o = '', i = 0;
     const n = src.length;
@@ -1334,8 +1414,9 @@
       if (c === '/' && src[i + 1] === '*') { let j = src.indexOf('*/', i + 2); j = j < 0 ? n : j + 2; o += sp('c', src.slice(i, j)); i = j; continue; }
       if (c === '#' && inceputRand) {
         let j = src.indexOf('\n', i); if (j < 0) j = n;
-        const l = src.slice(i, j), m = /^(#\s*\w+)(\s*)(<[^>]*>?|"[^"]*"?)?(.*)$/.exec(l);
-        o += m ? sp('pp', m[1]) + m[2] + (m[3] ? sp('inc', m[3]) : '') + esc(m[4]) : sp('pp', l);
+        let l = src.slice(i, j), com = '';
+        const k = l.indexOf('//'); if (k > 0) { com = l.slice(k); l = l.slice(0, k); }
+        o += sp('pp', l) + (com ? sp('c', com) : '');
         i = j; continue;
       }
       inceputRand = false;
@@ -1343,7 +1424,7 @@
         let j = i + 1;
         while (j < n && src[j] !== c && src[j] !== '\n') j += src[j] === '\\' ? 2 : 1;
         if (src[j] === c) j++;
-        o += sp('s', src.slice(i, j)); i = j; continue;
+        o += sp(c === '"' ? 's' : 'ch', src.slice(i, j)); i = j; continue;
       }
       if (/[0-9]/.test(c) || (c === '.' && /[0-9]/.test(src[i + 1] || ''))) {
         const m = /^(0[xX][0-9a-fA-F]+|\d*\.?\d+(?:[eE][+-]?\d+)?|\d+\.)[uUlLfF]*/.exec(src.slice(i, i + 40));
@@ -1352,17 +1433,88 @@
       if (/[A-Za-z_]/.test(c)) {
         let j = i + 1; while (j < n && /\w/.test(src[j])) j++;
         const w = src.slice(i, j);
-        let k = j; while (src[k] === ' ') k++;
-        if (KW.has(w)) o += sp('k', w);
-        else if (TIPURI.has(w)) o += sp('t', w);
-        else if (STD.has(w)) o += sp('b', w);
-        else if (src[k] === '(') o += sp('f', w);
-        else o += esc(w);
+        o += KW.has(w) ? sp('k', w) : esc(w);
         i = j; continue;
       }
+      if (OPC.includes(c)) { let j = i + 1; while (j < n && OPC.includes(src[j]) && !(src[j] === '/' && (src[j + 1] === '/' || src[j + 1] === '*'))) j++; o += sp('o', src.slice(i, j)); i = j; continue; }
       o += esc(c); i++;
     }
     return `${o}\n`;
+  }
+
+  // ---------- Formatarea codului (Plugins → Source code formatter (AStyle), stil Allman) ----------
+  function faraTexte(l) { // înlocuiește textele și caracterele, ca să nu încurce acoladele; scoate comentariul //
+    let o = '', i = 0;
+    while (i < l.length) {
+      const c = l[i];
+      if (c === '"' || c === "'") { let j = i + 1; while (j < l.length && l[j] !== c) j += l[j] === '\\' ? 2 : 1; o += c + '_'.repeat(Math.max(0, Math.min(j, l.length) - i - 1)) + (j < l.length ? c : ''); i = j + 1; continue; }
+      if (c === '/' && l[i + 1] === '/') break;
+      if (c === '/' && l[i + 1] === '*') { const j = l.indexOf('*/', i + 2); if (j < 0) break; o += ' '.repeat(j + 2 - i); i = j + 2; continue; }
+      o += c; i++;
+    }
+    return o.trimEnd();
+  }
+  function desparteAllman(t) {
+    if (!t || t[0] === '#' || t.startsWith('//') || t.startsWith('/*') || t.startsWith('*')) return [t];
+    const cod = faraTexte(t), com = t.slice(cod.length);
+    if (cod.length > 1 && cod[0] === '}' && !/^}\s*[;,)]/.test(cod)) return ['}', ...desparteAllman(t.slice(1).trim())];
+    if (cod.length > 1 && cod.endsWith('{') && !/=\s*\{$/.test(cod) && !cod.slice(0, -1).includes('{')) return [cod.slice(0, -1).trimEnd() + com, '{'];
+    return [t];
+  }
+  function astyle(src) {
+    const intrare = src.replace(/\t/g, '    ').split('\n').flatMap((l) => desparteAllman(l.trim()));
+    const IN = '    ', out = [];
+    const stiva = []; // acoladele deschise: { ind, sw, ifs, inCase }
+    let pend = 0, contin = false, ultimSw = false;
+    for (const t of intrare) {
+      if (!t) { out.push(''); continue; }
+      if (t[0] === '#') { out.push(t); continue; }
+      const cod = faraTexte(t) || t;
+      const fr = stiva[stiva.length - 1];
+      const baza = fr ? fr.ind + 1 + (fr.inCase ? 1 : 0) : 0;
+      const pune = (n) => out.push(IN.repeat(Math.max(0, n)) + t);
+      if (cod.startsWith('//') || cod.startsWith('/*') || !cod.trim()) { pune(baza + pend); continue; }
+      if (cod[0] === '}') { const f = stiva.pop(); pune(f ? f.ind : 0); pend = 0; contin = false; continue; }
+      if (cod[0] === '{') {
+        const ind = pend ? baza + pend - 1 : baza;
+        pune(ind);
+        const deschise = (cod.match(/\{/g) || []).length - (cod.match(/\}/g) || []).length;
+        if (deschise > 0) stiva.push({ ind, sw: ultimSw, ifs: [], inCase: false });
+        pend = 0; ultimSw = false; contin = false; continue;
+      }
+      if (fr && fr.sw && /^(case\b[^:]*|default\s*):/.test(cod)) { fr.inCase = true; out.push(IN.repeat(fr.ind + 1) + t); pend = 0; continue; }
+      let ind = baza + pend + (contin ? 1 : 0);
+      const lista = fr ? fr.ifs : radacinaIfs;
+      if (/^else\b/.test(cod) && lista.length) { ind = lista.pop(); pend = ind - baza; }
+      const eIf = /^(else\s+)?if\s*\(/.test(cod);
+      if (eIf) (fr ? fr.ifs : radacinaIfs).push(ind);
+      out.push(IN.repeat(Math.max(0, ind)) + t);
+      const antet = (/^(else\s+)?(if|for|while|switch)\s*\(.*\)$/.test(cod) && !/;$/.test(cod)) || /^(else|do)$/.test(cod);
+      if (antet) { pend = ind - baza + 1; ultimSw = /^switch\b/.test(cod); contin = false; continue; }
+      ultimSw = false;
+      if (/[;}]$/.test(cod) || /:$/.test(cod)) { pend = 0; contin = false; } else contin = true;
+    }
+    radacinaIfs.length = 0;
+    return out.join('\n').replace(/\n{3,}/g, '\n\n');
+  }
+  const radacinaIfs = [];
+
+  // funcțiile din program (pentru Symbols și bara de completare): { nume, tip, params, rand }
+  function functiiDin(cod) {
+    const rez = [];
+    const re = /^[ \t]*((?:(?:unsigned|signed|long|short|const|static)\s+)*(?:int|void|double|float|char|bool|long|short|unsigned))\s+([A-Za-z_]\w*)\s*\(([^)]*)\)\s*(\{|$)/gm;
+    let m;
+    while ((m = re.exec(cod))) rez.push({ nume: m[2], tip: m[1].replace(/\s+/g, ' '), params: m[3].trim(), rand: cod.slice(0, m.index).split('\n').length + (/^\n/.test(m[0]) ? 1 : 0) });
+    return rez;
+  }
+  function globaleDin(cod) {
+    const rez = []; let ad = 0;
+    cod.split('\n').forEach((l, i) => {
+      const c = faraTexte(l.trim());
+      if (ad === 0) { const m = /^(?:const\s+)?(?:unsigned\s+|signed\s+)?(?:long\s+long|long|int|double|float|char|bool|short)\s+([^;(]+);/.exec(c); if (m) for (const p of m[1].split(',')) { const n = /^\s*([A-Za-z_]\w*)/.exec(p); if (n) rez.push({ nume: n[1], rand: i + 1 }); } }
+      for (const ch of c) { if (ch === '{') ad++; else if (ch === '}') ad = Math.max(0, ad - 1); }
+    });
+    return rez;
   }
 
   // ---------- Rularea: într-un Web Worker (același fișier), cu rezervă pe firul principal ----------
@@ -1373,249 +1525,843 @@
     try {
       worker = new Worker(SCRIPT);
       worker.onmessage = (e) => { if (asteptare && e.data.id === asteptare.id) { const a = asteptare; asteptare = null; clearTimeout(a.ceas); a.res(e.data.rez); } };
-      worker.onerror = () => { worker = false; if (asteptare) { const a = asteptare; asteptare = null; clearTimeout(a.ceas); a.res(CPP.executa(a.cod, a.intrare, a.interactive)); } };
+      worker.onerror = () => { worker = false; if (asteptare) { const a = asteptare; asteptare = null; clearTimeout(a.ceas); a.res(CPP.executa(a.cod, a.intrare, a.interactive, a.dbg)); } };
     } catch { worker = false; }
     return worker;
   }
   function opresteWorker() { if (worker) worker.terminate(); worker = null; }
-  function executa(cod, intrare, interactive) {
+  function executa(cod, intrare, interactive, dbg = null) {
     const w = porneste();
-    if (!w) return new Promise((res) => setTimeout(() => res(CPP.executa(cod, intrare, interactive)), 20));
+    if (!w) return new Promise((res) => setTimeout(() => res(CPP.executa(cod, intrare, interactive, dbg)), 20));
     return new Promise((res) => {
       const id = ++cerere;
       // paznic: dacă programul nu se oprește singur (de ex. calcule foarte lungi), oprim worker-ul
       const ceas = setTimeout(() => { if (asteptare?.id === id) { asteptare = null; opresteWorker(); res({ stare: 'eroare', eroare: { rand: null, mesaj: 'programul a fost oprit pentru că rula de prea mult timp (probabil o buclă infinită)' }, iesire: [] }); } }, 9000);
-      asteptare = { id, res, ceas, cod, intrare, interactive };
-      w.postMessage({ id, cod, intrare, interactive });
+      asteptare = { id, res, ceas, cod, intrare, interactive, dbg };
+      w.postMessage({ id, cod, intrare, interactive, dbg });
     });
   }
 
-  // ---------- Iconițe ----------
-  const SV = (p) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+  // ---------- Pictograme (SVG desenate, în stilul celor din Code::Blocks) ----------
+  const S16 = (p) => `<svg viewBox="0 0 16 16" aria-hidden="true">${p}</svg>`;
+  const ROTITA = (cx, cy, r, cul) => { let d = ''; for (let k = 0; k < 8; k++) { const a = k * Math.PI / 4; d += `<rect x="${cx - 1.3}" y="${cy - r - 1.8}" width="2.6" height="3" rx=".5" fill="${cul}" transform="rotate(${a * 180 / Math.PI} ${cx} ${cy})"/>`; } return `${d}<circle cx="${cx}" cy="${cy}" r="${r}" fill="${cul}"/><circle cx="${cx}" cy="${cy}" r="${r * 0.42}" fill="#fff"/>`; };
   const ICO = {
-    nou: SV('<path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M12 11v6M9 14h6"/>'),
-    fisiere: SV('<path d="M3 7a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>'),
-    exemple: SV('<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 8h6"/>'),
-    incarca: SV('<path d="M12 16V4M7 9l5-5 5 5M5 20h14"/>'),
-    descarca: SV('<path d="M12 4v12M7 11l5 5 5-5M5 20h14"/>'),
-    ruleaza: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg>',
-    opreste: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>',
-    sterge: SV('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>'),
-    ajutor: SV('<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/>'),
+    nou: S16('<path d="M3 1.5h6.5L13 5v9.5H3z" fill="#fff" stroke="#6b7a8c"/><path d="M9.5 1.5V5H13" fill="#dfe6ee" stroke="#6b7a8c"/><path d="M12.5 8.2l.8 1.7 1.8.2-1.4 1.2.4 1.8-1.6-.9-1.6.9.4-1.8-1.4-1.2 1.8-.2z" fill="#f5c400" stroke="#b88a00" stroke-width=".5"/>'),
+    deschide: S16('<path d="M1 3.5h5l1.2 1.5H14v8.5H1z" fill="#f0c45a" stroke="#a87b16"/><path d="M2.8 7h12.4l-2 6.5H1z" fill="#ffdc7a" stroke="#a87b16"/>'),
+    salveaza: S16('<path d="M1.5 1.5h11l2 2v11h-13z" fill="#3d6fb8" stroke="#22457e"/><rect x="4" y="1.5" width="7" height="4.5" fill="#e8eef7"/><rect x="8.5" y="2.3" width="1.6" height="3" fill="#3d6fb8"/><rect x="3.5" y="8.5" width="9" height="6" fill="#fff"/>'),
+    salveazaTot: S16('<path d="M4.5 .8h8l1.8 1.8v8.2h-9.8z" fill="#7d9fd0" stroke="#22457e" stroke-width=".8"/><path d="M1.5 4.5h8l1.8 1.8v8.7H1.5z" fill="#3d6fb8" stroke="#22457e"/><rect x="3.5" y="4.5" width="5" height="3" fill="#e8eef7"/><rect x="3" y="10" width="6.5" height="5" fill="#fff"/>'),
+    anuleaza: S16('<path d="M5.5 3.5L2 7l3.5 3.5" fill="none" stroke="#2f6fc2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 7h6.5a4 4 0 0 1 0 8H7" fill="none" stroke="#2f6fc2" stroke-width="2" stroke-linecap="round"/>'),
+    refa: S16('<path d="M10.5 3.5L14 7l-3.5 3.5" fill="none" stroke="#2f6fc2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.5 7H7a4 4 0 0 0 0 8h2" fill="none" stroke="#2f6fc2" stroke-width="2" stroke-linecap="round"/>'),
+    taie: S16('<circle cx="4.5" cy="12" r="2.3" fill="none" stroke="#c0392b" stroke-width="1.4"/><circle cx="11.5" cy="12" r="2.3" fill="none" stroke="#c0392b" stroke-width="1.4"/><path d="M6 10.3L11.5 1.5M10 10.3L4.5 1.5" stroke="#555" stroke-width="1.3"/>'),
+    copiaza: S16('<path d="M2 1.5h6.5v9H2z" fill="#fff" stroke="#6b7a8c"/><path d="M6.5 5.5H13v9H6.5z" fill="#fff" stroke="#6b7a8c"/><path d="M8 8h3.5M8 10h3.5M8 12h2.5" stroke="#9aa7b5"/>'),
+    lipeste: S16('<rect x="2" y="2.5" width="10" height="12" rx="1" fill="#c99a5b" stroke="#7b5a2c"/><rect x="5" y="1.2" width="4" height="2.6" rx=".6" fill="#ddd" stroke="#666" stroke-width=".7"/><path d="M6.5 6h7.5v8.5H6.5z" fill="#fff" stroke="#6b7a8c"/>'),
+    cauta: S16('<circle cx="6.5" cy="6.5" r="4.3" fill="#e9f4ff" stroke="#4a6a8c" stroke-width="1.6"/><path d="M9.8 9.8l4.5 4.5" stroke="#6b4a2a" stroke-width="2.4" stroke-linecap="round"/>'),
+    inlocuieste: S16('<circle cx="5.5" cy="5.5" r="3.6" fill="#e9f4ff" stroke="#4a6a8c" stroke-width="1.4"/><path d="M8.3 8.3l2.7 2.7" stroke="#6b4a2a" stroke-width="2" stroke-linecap="round"/><path d="M9 14.5h6M12.5 12l2.5 2.5-2.5 2.5" fill="none" stroke="#2f8a2f" stroke-width="1.4"/>'),
+    build: S16(ROTITA(8, 8, 4.6, '#d9a520') + '<circle cx="8" cy="8" r="4.6" fill="none" stroke="#8a6410" stroke-width=".6"/>'),
+    run: S16('<path d="M3.5 1.8v12.4L14 8z" fill="#2fb52f" stroke="#17761a" stroke-linejoin="round"/>'),
+    buildRun: S16(ROTITA(6, 6, 3.6, '#d9a520') + '<path d="M8 6.8v8.4l7-4.2z" fill="#2fb52f" stroke="#17761a" stroke-linejoin="round"/>'),
+    rebuild: S16('<path d="M13.2 6.5A5.5 5.5 0 0 0 3.3 4.8" fill="none" stroke="#2f6fc2" stroke-width="1.9"/><path d="M2 2.2l.8 4 3.8-1.2z" fill="#2f6fc2"/><path d="M2.8 9.5a5.5 5.5 0 0 0 9.9 1.7" fill="none" stroke="#2f6fc2" stroke-width="1.9"/><path d="M14 13.8l-.8-4-3.8 1.2z" fill="#2f6fc2"/>'),
+    abort: S16('<circle cx="8" cy="8" r="6.6" fill="#e0302a" stroke="#931b16"/><path d="M5.3 5.3l5.4 5.4M10.7 5.3l-5.4 5.4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>'),
+    debug: S16('<path d="M3.5 1.8v12.4L14 8z" fill="#e0302a" stroke="#931b16" stroke-linejoin="round"/>'),
+    laCursor: S16('<path d="M1.5 8h8" stroke="#2f6fc2" stroke-width="2"/><path d="M8 4.5L11.5 8 8 11.5z" fill="#2f6fc2"/><path d="M13.5 2v12M12 2h3M12 14h3" stroke="#333" stroke-width="1.2"/>'),
+    urmator: S16('<path d="M3 9.5V7a4 4 0 0 1 8 0v1.5" fill="none" stroke="#2f6fc2" stroke-width="1.8"/><path d="M8.3 7.5h5.4L11 11z" fill="#2f6fc2"/><path d="M1.5 13h13M1.5 15h9" stroke="#777" stroke-width="1"/>'),
+    intra: S16('<path d="M4 1v8" stroke="#2f6fc2" stroke-width="1.8"/><path d="M1.2 7.5h5.6L4 11z" fill="#2f6fc2"/><path d="M10 3c-1.5 0-1.5 1-1.5 2.5S8 8 7 8c1 0 1.5 1 1.5 2.5S8.5 13 10 13M12 3c1.5 0 1.5 1 1.5 2.5S14 8 15 8c-1 0-1.5 1-1.5 2.5S13.5 13 12 13" fill="none" stroke="#555" stroke-width="1.1"/>'),
+    iese: S16('<path d="M4 12V4" stroke="#2f6fc2" stroke-width="1.8"/><path d="M1.2 5.5h5.6L4 2z" fill="#2f6fc2"/><path d="M10 3c-1.5 0-1.5 1-1.5 2.5S8 8 7 8c1 0 1.5 1 1.5 2.5S8.5 13 10 13M12 3c1.5 0 1.5 1 1.5 2.5S14 8 15 8c-1 0-1.5 1-1.5 2.5S13.5 13 12 13" fill="none" stroke="#555" stroke-width="1.1"/>'),
+    instr: S16('<path d="M2 3h8M2 6h8M2 9h8M2 12h8" stroke="#888" stroke-width="1.2"/><path d="M11 6.5v5" stroke="#2f6fc2" stroke-width="1.6"/><path d="M9 10.5h4l-2 3z" fill="#2f6fc2"/>'),
+    pauza: S16('<rect x="3.5" y="2.5" width="3" height="11" fill="#e28b1c" stroke="#8a520e" stroke-width=".7"/><rect x="9.5" y="2.5" width="3" height="11" fill="#e28b1c" stroke="#8a520e" stroke-width=".7"/>'),
+    stop: S16('<rect x="2.5" y="2.5" width="11" height="11" rx="1" fill="#e0302a" stroke="#931b16"/>'),
+    ferestre: S16('<rect x="1.5" y="2.5" width="13" height="11" fill="#fff" stroke="#4a6a8c"/><rect x="1.5" y="2.5" width="13" height="2.5" fill="#3d6fb8"/><path d="M5 8h6M5 10.5h4" stroke="#999"/>'),
+    info: S16('<circle cx="8" cy="8" r="6.5" fill="#2f6fc2" stroke="#1d4a85"/><circle cx="8" cy="4.8" r="1.1" fill="#fff"/><rect x="7" y="6.8" width="2" height="5.5" fill="#fff"/>'),
+    workspace: S16('<rect x="1.5" y="5.5" width="5" height="5" fill="#e04b3b" stroke="#8a2a20" stroke-width=".7"/><rect x="6.5" y="1.5" width="5" height="5" fill="#3d9a3d" stroke="#1f5e1f" stroke-width=".7"/><rect x="9.5" y="8.5" width="5" height="5" fill="#3d6fb8" stroke="#22457e" stroke-width=".7"/><rect x="4" y="10.5" width="5" height="4" fill="#f0c020" stroke="#8a6c10" stroke-width=".7"/>'),
+    proiect: S16('<rect x="1.5" y="2.5" width="13" height="11" rx="1" fill="#fff" stroke="#4a6a8c"/><rect x="1.5" y="2.5" width="13" height="3" fill="#6a8fc4"/><path d="M4 8.5l2 1.5-2 1.5M7.5 12h4" fill="none" stroke="#333" stroke-width="1.1"/>'),
+    dosar: S16('<path d="M1 3h5l1.2 1.5H15V13.5H1z" fill="#f0c45a" stroke="#a87b16"/><path d="M1 6h14" stroke="#c9972b"/>'),
+    dosarDeschis: S16('<path d="M1 3h5l1.2 1.5H14v9H1z" fill="#f0c45a" stroke="#a87b16"/><path d="M2.8 7h12.4l-2 6.5H1z" fill="#ffdc7a" stroke="#a87b16"/>'),
+    cpp: S16('<path d="M3 1.5h6.5L13 5v9.5H3z" fill="#fff" stroke="#6b7a8c"/><path d="M9.5 1.5V5H13" fill="#dfe6ee" stroke="#6b7a8c"/><text x="8" y="12.4" font-size="5.6" font-family="Arial" font-weight="700" fill="#2f6fc2" text-anchor="middle">c++</text>'),
+    cbp: S16('<path d="M3 1.5h6.5L13 5v9.5H3z" fill="#fff" stroke="#6b7a8c"/>' + ROTITA(8, 10, 2.4, '#3d9a3d')),
+    functie: S16('<rect x="2" y="2" width="12" height="12" rx="2" fill="#8a4fd1" stroke="#5a2c96"/><text x="8" y="11.6" font-size="8.5" font-family="Arial" font-weight="700" font-style="italic" fill="#fff" text-anchor="middle">f</text>'),
+    variabila: S16('<rect x="2" y="2" width="12" height="12" rx="2" fill="#2f9a8f" stroke="#1d6058"/><text x="8" y="11.6" font-size="8.5" font-family="Arial" font-weight="700" fill="#fff" text-anchor="middle">v</text>'),
+    cuvant: S16('<rect x="2" y="2" width="12" height="12" rx="2" fill="#3d6fb8" stroke="#22457e"/><text x="8" y="11.6" font-size="8" font-family="Arial" font-weight="700" fill="#fff" text-anchor="middle">k</text>'),
+    exemple: S16('<path d="M2 2.5h5.5a1.5 1.5 0 0 1 1.5 1.5v10a1.5 1.5 0 0 0-1.5-1.5H2zM15 2.5H10.5A1.5 1.5 0 0 0 9 4v10a1.5 1.5 0 0 1 1.5-1.5H15z" fill="#fff" stroke="#3d6fb8"/>'),
+    sigla: '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="15" width="13" height="13" fill="#e04b3b"/><rect x="15" y="3" width="13" height="13" fill="#3d9a3d"/><rect x="24" y="19" width="13" height="13" fill="#3d6fb8"/><rect x="11" y="25" width="13" height="12" fill="#f0c020"/></svg>',
+    consola: S16('<rect x="1" y="2" width="14" height="12" fill="#0c0c0c" stroke="#555"/><path d="M3.5 6l2.5 2-2.5 2M7 11h4" fill="none" stroke="#ccc" stroke-width="1.2"/>'),
+    intrebare: '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#2f6fc2"/><text x="16" y="23" font-size="19" font-family="Arial" font-weight="700" fill="#fff" text-anchor="middle">?</text></svg>',
+    eroare: '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#e0302a"/><path d="M10.5 10.5l11 11M21.5 10.5l-11 11" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/></svg>',
+    informatie: '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#2f6fc2"/><circle cx="16" cy="9.5" r="2" fill="#fff"/><rect x="14.2" y="13" width="3.6" height="11" fill="#fff"/></svg>',
+    atentie: '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3L30 28H2z" fill="#f2c010" stroke="#9a7a00"/><rect x="14.4" y="11" width="3.2" height="9" fill="#222"/><rect x="14.4" y="22" width="3.2" height="3" fill="#222"/></svg>',
   };
-  const ic = (k) => h('span', { class: 'ap-cpp-ic', html: ICO[k] });
+  const ic = (k, cls = 'ap-cpp-ic') => h('span', { class: cls, html: ICO[k] || '' });
 
-  // ---------- Pagina aplicației ----------
+  // =====================================================================
+  // PAGINA APLICAȚIEI: un Code::Blocks în browser
+  // =====================================================================
   routes.push({ pattern: /^\/aplicatii\/cpp$/, handler: async (m, params) => {
-    const pref = lsCiteste(LS_PREF, { fs: 15 });
-    let F = null; // fișierul deschis
-    let tSalv = null, ultimaRulare = null, ruleaza = false, asteaptaDate = false, liniiConsola = [], idRulare = 0;
+    const pref = Object.assign({ fs: 15, mgmt: window.innerWidth > 760, logs: true, logH: 0, mgmtW: 0, compl: true, linieCur: true, tinta: 'Debug', ws: null, tabs: null, start: true, watches: [], watchW: 0 }, lsCiteste(LS_PREF, {}));
+    const salvPref = () => lsScrie(LS_PREF, pref);
 
-    // fișierul curent (sau unul nou)
-    async function incarcaInitial() {
-      try {
-        const id = lsCiteste(LS_CURENT, null);
-        if (id) F = await store.get(id);
-        if (!F) { const toate = await store.toate(); F = toate.sort((a, b) => b.actualizat - a.actualizat)[0] || null; }
-      } catch { F = null; }
-      if (!F) F = { id: idNou(), titlu: 'Primul meu program', cod: SABLON, intrare: '', creat: Date.now(), actualizat: Date.now(), nou: true };
+    // ----- datele: toate programele salvate (fiecare = un proiect cu main.cpp sau un fișier .cpp separat) -----
+    const db = new Map();
+    try { for (const f of await store.toate()) if (f && f.id) db.set(f.id, f); } catch { /* fără stocare */ }
+    const recente = () => [...db.values()].sort((a, b) => (b.actualizat || 0) - (a.actualizat || 0));
+    let curId = lsCiteste(LS_CURENT, null);
+    if (!db.has(curId)) curId = recente()[0]?.id || null;
+    if (!curId) { // primul program (salvat abia la prima modificare, ca înainte)
+      const f = { id: idNou(), titlu: 'Primul meu program', cod: SABLON, intrare: '', creat: Date.now(), actualizat: Date.now(), nou: true };
+      db.set(f.id, f); curId = f.id;
     }
-    await incarcaInitial();
+    const eProiect = (f) => f && !f.fisier;
+    pref.ws = (Array.isArray(pref.ws) ? pref.ws : [curId]).filter((id) => eProiect(db.get(id)));
+    if (eProiect(db.get(curId)) && !pref.ws.includes(curId)) pref.ws.push(curId);
+    let tabs = (Array.isArray(pref.tabs) ? pref.tabs : [curId]).filter((id) => db.has(id));
+    if (!tabs.includes(curId)) tabs.push(curId);
+    let activ = null; // fila activă (id de fișier sau 'start'); se alege la pornire
+    let F = db.get(curId); // fișierul din editor
+    const stareFila = new Map(); // id → { sel, sus, st, mod, erori }
+    const sf = (id) => { if (!stareFila.has(id)) stareFila.set(id, { sel: [0, 0], sus: 0, st: 0, mod: false, erori: new Map() }); return stareFila.get(id); };
+    const exe = new Map(); // id → codul de la ultimul Build (executabilul)
+    let tSalv = null, ultimaRulare = null, idRulare = 0;
+    let con = null; // fereastra consolei
+    let dbg = null; // sesiunea de depanare
 
-    // ----- elemente -----
-    const numeIn = h('input', { class: 'ap-cpp-nume', type: 'text', maxlength: '60', 'aria-label': 'Numele programului', spellcheck: 'false' });
-    const salvEl = h('span', { class: 'ap-cpp-salv', role: 'status' });
-    const btnRun = h('button', { type: 'button', class: 'ap-cpp-run', title: 'Compilează și rulează programul (F9)', onclick: () => ruleazaProgram() }, ic('ruleaza'), h('span', { class: 'lung' }, 'Compilează și rulează'), h('kbd', {}, 'F9'));
-    const btnStop = h('button', { type: 'button', class: 'ap-cpp-stop', title: 'Oprește programul', hidden: true, onclick: () => opresteRularea() }, ic('opreste'), h('span', { class: 'lung' }, 'Oprește'));
-    const unealta = (k, text, titlu, fn) => h('button', { type: 'button', class: 'ap-cpp-u', title: titlu, onclick: fn }, ic(k), h('span', { class: 'lung' }, text));
-    const fisierIn = h('input', { type: 'file', accept: '.cpp,.cc,.c,.h,.txt,text/plain', hidden: true, onchange: () => incarcaDeLaCalculator() });
-    const bara = h('div', { class: 'ap-cpp-bara' },
-      h('a', { class: 'ap-cpp-inapoi', href: '#/aplicatii' }, '← Aplicații'),
-      h('span', { class: 'ap-cpp-sigla', 'aria-hidden': 'true' }, 'C++'),
-      h('b', { class: 'ap-cpp-numeapp' }, 'Editor C++'),
-      numeIn, salvEl, h('span', { class: 'ap-cpp-spatiu' }), btnStop, btnRun);
-    const unelte = h('div', { class: 'ap-cpp-unelte', role: 'toolbar', 'aria-label': 'Unelte' },
-      unealta('nou', 'Nou', 'Program nou', () => fisierNou()),
-      unealta('fisiere', 'Fișierele mele', 'Programele salvate în acest browser', () => dialogFisiere()),
-      unealta('exemple', 'Exemple', 'Programe din lecții', () => dialogExemple()),
-      h('span', { class: 'ap-cpp-sep' }),
-      unealta('incarca', 'Deschide .cpp', 'Deschide un fișier .cpp de pe calculator', () => fisierIn.click()),
-      unealta('descarca', 'Descarcă .cpp', 'Descarcă programul ca fișier .cpp (se deschide și în Code::Blocks)', () => descarca()),
-      h('span', { class: 'ap-cpp-spatiu' }),
-      unealta('ajutor', 'Ajutor', 'Ce știe editorul și scurtături', () => dialogAjutor()), fisierIn);
+    const numeProj = (f) => numeFisier(f.titlu).replace(/\.cpp$/, '');
+    const numeSursa = (f) => (f.fisier ? numeFisier(f.titlu) : 'main.cpp');
+    const caleProiect = (f) => (f.fisier ? DIR : `${DIR}\\${numeProj(f)}`);
+    const caleSursa = (f) => `${caleProiect(f)}\\${numeSursa(f)}`;
+    const caleExe = (f) => (f.fisier ? `${DIR}\\${numeProj(f)}.exe` : `${caleProiect(f)}\\bin\\${pref.tinta}\\${numeProj(f)}.exe`);
+    const exeRel = (f) => (f.fisier ? caleExe(f) : `bin\\${pref.tinta}\\${numeProj(f)}.exe`);
+    const bps = (f) => (Array.isArray(f.bp) ? f.bp : (f.bp = []));
 
-    // editorul de cod: textarea transparentă peste un <pre> colorat
-    const ta = h('textarea', { class: 'ap-cpp-ta', spellcheck: 'false', autocapitalize: 'off', autocomplete: 'off', autocorrect: 'off', wrap: 'off', 'aria-label': 'Codul programului C++' });
-    const codEl = h('code', {});
-    const marcaj = h('div', { class: 'ap-cpp-marcaj', 'aria-hidden': 'true' });
-    const pre = h('pre', { class: 'ap-cpp-pre', 'aria-hidden': 'true' }, marcaj, codEl);
-    const nrRand = h('div', { class: 'ap-cpp-nr' });
-    const gutter = h('div', { class: 'ap-cpp-gutter', 'aria-hidden': 'true' }, nrRand);
-    const editor = h('div', { class: 'ap-cpp-editor' }, gutter, h('div', { class: 'ap-cpp-strat' }, pre, ta));
+    // ----- elemente de bază -----
+    const app = h('div', { class: 'ap-cpp', tabindex: '-1' });
+    const titluEl = h('span', { class: 'ap-cpp-titlutext' });
+    const barTitlu = h('div', { class: 'ap-cpp-titlu' },
+      h('a', { class: 'ap-cpp-inapoi', href: '#/aplicatii', title: 'Înapoi la aplicații' }, '← Aplicații'),
+      h('span', { class: 'ap-cpp-sigla', html: ICO.sigla }), titluEl, h('span', { class: 'ap-cpp-spatiu' }),
+      h('button', { type: 'button', class: 'ap-cpp-fbtn', title: 'Ecran complet', 'aria-label': 'Ecran complet', onclick: () => ecranComplet() }, '▢'),
+      h('a', { class: 'ap-cpp-fbtn x', href: '#/aplicatii', title: 'Închide (înapoi la aplicații)', 'aria-label': 'Închide' }, '✕'));
+    const barMeniu = h('div', { class: 'ap-cpp-meniu', role: 'menubar' });
+    const barUnelte = h('div', { class: 'ap-cpp-tb' });
+    const stCale = h('span', { class: 'ap-cpp-st-cale' }), stPoz = h('span', {}), stMesaj = h('span', { class: 'ap-cpp-st-msg' }), stMod = h('span', {});
+    const status = h('div', { class: 'ap-cpp-status' }, stCale, h('span', { class: 'ap-cpp-st-sep' }, 'C/C++'), h('span', { class: 'ap-cpp-st-sep' }, 'Windows (CR+LF)'), h('span', { class: 'ap-cpp-st-sep l' }, 'WINDOWS-1252'),
+      h('span', { class: 'ap-cpp-st-sep' }, stPoz), h('span', { class: 'ap-cpp-st-sep' }, 'Insert'), h('span', { class: 'ap-cpp-st-sep l' }, stMod), h('span', { class: 'ap-cpp-st-sep l' }, 'default'), stMesaj);
 
-    const intrareTa = h('textarea', { class: 'ap-cpp-intrare', spellcheck: 'false', wrap: 'off', placeholder: 'Scrie aici datele pe care le citește cin >>, separate prin spații sau pe rânduri (de ex. 5 3).\nDacă lași caseta goală, le scrii în consolă când programul le cere.', 'aria-label': 'Date de intrare' });
-    const consola = h('div', { class: 'ap-cpp-consola', role: 'log', 'aria-live': 'polite', 'aria-label': 'Ieșirea programului', tabindex: '0' });
-    const colDr = h('div', { class: 'ap-cpp-dr' },
-      h('div', { class: 'ap-cpp-cap' }, h('b', {}, 'Date de intrare'), h('span', { class: 'ap-cpp-spatiu' }),
-        h('button', { type: 'button', class: 'ap-cpp-mic', title: 'Golește datele de intrare', onclick: () => { intrareTa.value = ''; laSchimbare(); intrareTa.focus(); } }, 'Golește')),
-      intrareTa,
-      h('div', { class: 'ap-cpp-cap' }, h('b', {}, 'Ieșire'), h('span', { class: 'ap-cpp-spatiu' }),
-        h('button', { type: 'button', class: 'ap-cpp-mic', title: 'Șterge ce este în consolă', onclick: () => { umple(consola); consolaGoala(); } }, ic('sterge'), 'Șterge')),
-      consola);
-    const colSt = h('div', { class: 'ap-cpp-st' }, editor);
-    const corp = h('div', { class: 'ap-cpp-corp' }, colSt, colDr);
-
-    const stPoz = h('span', {});
-    const stMesaj = h('span', { class: 'ap-cpp-stmesaj' });
-    const status = h('div', { class: 'ap-cpp-status' }, stPoz, stMesaj, h('span', { class: 'ap-cpp-spatiu' }),
-      h('span', { class: 'muted' }, 'Mărime text:'),
-      h('button', { type: 'button', class: 'ap-cpp-mic', 'aria-label': 'Micșorează textul', onclick: () => zoom(-1) }, 'A−'),
-      h('button', { type: 'button', class: 'ap-cpp-mic', 'aria-label': 'Mărește textul', onclick: () => zoom(1) }, 'A+'));
-    const app = h('div', { class: 'ap-cpp' }, bara, unelte, corp, status);
-
-    // bara pentru predarea la sarcină
-    if (params?.get('sarcina') && window.EduSarcini?.bara) {
-      try {
-        const b = await window.EduSarcini.bara('cpp', async () => lucrare());
-        if (b instanceof Node) bara.after(b);
-      } catch { /* fără bară */ }
-    }
-    show(h('div', { class: 'lab-ecran' }, app));
-    document.title = 'Editor C++ – edudigi';
-
-    function lucrare() {
-      return { titlu: F.titlu, tip: 'cod', limbaj: 'cpp', date: ta.value, intrare: intrareTa.value, iesire: ultimaRulare ? ultimaRulare.text : '' };
-    }
-
-    // ----- mesaje și dialoguri -----
+    // ----- mesaje scurte -----
     function toast(text, tip = '') {
       const t = h('div', { class: `ap-cpp-toast ${tip}`, role: 'status' }, text);
       app.append(t);
       setTimeout(() => t.classList.add('gone'), 2600);
       setTimeout(() => t.remove(), 3200);
     }
-    function dialog(titlu, continut, cls = '') {
-      const d = h('dialog', { class: `ap-cpp-dlg ${cls}` },
-        h('div', { class: 'ap-cpp-dlgcap' }, h('h2', {}, titlu), h('button', { type: 'button', class: 'ap-cpp-mic', 'aria-label': 'Închide', onclick: () => d.close() }, '✕')),
-        continut);
-      d.addEventListener('close', () => { d.remove(); ta.focus(); });
-      app.append(d);
-      d.showModal();
+    const stareStatus = (t, cls = '') => { stMesaj.textContent = t; stMesaj.className = `ap-cpp-st-msg ${cls}`; };
+
+    // =====================================================================
+    // DIALOGURI în stil Windows
+    // =====================================================================
+    let dlgDeschise = 0;
+    function fereastra(titlu, continut, { cls = '', butoane = null, modal = true, laInchidere = null } = {}) {
+      const d = h('dialog', { class: `ap-cpp-dlg ${cls}` });
+      const inchide = (v) => { if (d.open) { d.dataset.v = v ?? ''; d.close(); } };
+      d.append(h('div', { class: 'ap-cpp-dlg-bara' }, h('span', { class: 'ap-cpp-dlg-titlu' }, titlu),
+        h('button', { type: 'button', class: 'ap-cpp-dlg-x', 'aria-label': 'Închide', onclick: () => inchide('') }, '✕')), h('div', { class: 'ap-cpp-dlg-corp' }, continut));
+      if (butoane) d.append(h('div', { class: 'ap-cpp-dlg-btn' }, butoane));
+      d.addEventListener('close', () => { dlgDeschise--; d.remove(); laInchidere?.(d.dataset.v); if (!dlgDeschise && activ !== 'start' && !con?.areFocus) ta.focus({ preventScroll: true }); });
+      d.addEventListener('keydown', (e) => e.stopPropagation());
+      app.append(d); dlgDeschise++;
+      if (modal) d.showModal(); else d.show();
+      d.inchide = inchide;
       return d;
     }
-
-    // ----- salvare -----
-    function stareSalv(t, e = false) { salvEl.textContent = t; salvEl.classList.toggle('err', e); }
-    async function salveaza() {
-      clearTimeout(tSalv); tSalv = null;
-      F.cod = ta.value; F.intrare = intrareTa.value; F.actualizat = Date.now();
-      delete F.nou;
-      try { await store.put(F); lsScrie(LS_CURENT, F.id); stareSalv('Salvat'); } catch { stareSalv('Nesalvat!', true); }
+    const buton = (t, f, cls = '') => h('button', { type: 'button', class: `ap-cpp-wbtn ${cls}`, onclick: f }, t);
+    // mesaj cu butoane (ca wxMessageBox): întoarce eticheta butonului apăsat
+    function intreaba(titlu, text, butoane = ['OK'], icon = 'informatie') {
+      return new Promise((res) => {
+        const d = fereastra(titlu, h('div', { class: 'ap-cpp-mbox' }, h('span', { class: 'ap-cpp-mbox-ic', html: ICO[icon] }), h('div', { class: 'ap-cpp-mbox-text' }, text)),
+          { cls: 'mic', butoane: butoane.map((b, i) => buton(b, () => d.inchide(b), i === 0 ? 'impl' : '')), laInchidere: (v) => res(v || (butoane.includes('Cancel') ? 'Cancel' : butoane[butoane.length - 1])) });
+        d.querySelector('.ap-cpp-wbtn')?.focus();
+      });
     }
-    function laSchimbare() { stareSalv('Se salvează…'); clearTimeout(tSalv); tSalv = setTimeout(salveaza, 700); }
-    const laIesire = () => { if (tSalv) salveaza(); };
-    window.addEventListener('hashchange', function x() { laIesire(); window.removeEventListener('hashchange', x); });
-    window.addEventListener('beforeunload', laIesire);
+    function cereText(titlu, eticheta, valoare = '', verifica = null) {
+      return new Promise((res) => {
+        const inp = h('input', { type: 'text', class: 'ap-cpp-winp', value: valoare, spellcheck: 'false' });
+        const err = h('div', { class: 'ap-cpp-dlg-err' });
+        const ok = () => { const v = inp.value.trim(); const e = verifica?.(v); if (e) { err.textContent = e; inp.focus(); return; } d.inchide('ok'); res(v); };
+        const d = fereastra(titlu, h('label', { class: 'ap-cpp-camp' }, eticheta, inp, err), { cls: 'mic', butoane: [buton('OK', ok, 'impl'), buton('Cancel', () => d.inchide(''))], laInchidere: (v) => { if (v !== 'ok') res(null); } });
+        inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); ok(); } });
+        inp.focus(); inp.select();
+      });
+    }
 
-    async function deschide(f) {
-      if (tSalv) await salveaza();
-      F = f;
-      lsScrie(LS_CURENT, F.id);
-      numeIn.value = F.titlu;
-      ta.value = F.cod || '';
-      intrareTa.value = F.intrare || '';
-      ultimaRulare = null;
-      liniiConsola = [];
-      stergeMarcaje();
-      umple(consola); consolaGoala();
-      reda();
-      ta.setSelectionRange(0, 0); ta.scrollTop = 0; ta.scrollLeft = 0;
-      sincronizeaza();
-      stareSalv(F.nou ? '' : 'Salvat');
+    // =====================================================================
+    // MENIURI (bara de meniu, submeniuri, meniul de context)
+    // =====================================================================
+    let meniuDeschis = null; // { el, buton }
+    function inchideMeniuri() {
+      if (!meniuDeschis) return;
+      app.querySelectorAll('.ap-cpp-dd').forEach((x) => x.remove());
+      meniuDeschis.buton?.classList.remove('deschis');
+      meniuDeschis = null;
+    }
+    function listaMeniu(itemi, x, y, nivel = 0) {
+      const el = h('div', { class: 'ap-cpp-dd', role: 'menu' });
+      el.dataset.nivel = nivel;
+      for (const it of (typeof itemi === 'function' ? itemi() : itemi)) {
+        if (it === '-') { el.append(h('div', { class: 'ap-cpp-dd-sep' })); continue; }
+        const dis = it.dis?.() || (!it.f && !it.sub);
+        const b = h('button', { type: 'button', role: 'menuitem', class: `ap-cpp-dd-it${it.sub ? ' sub' : ''}`, disabled: dis || null },
+          h('span', { class: 'ap-cpp-dd-ic' }, it.chk ? (it.chk() ? '✓' : '') : it.ic ? ic(it.ic) : ''),
+          h('span', { class: 'ap-cpp-dd-t' }, it.t), h('span', { class: 'ap-cpp-dd-k' }, it.k || ''), h('span', { class: 'ap-cpp-dd-sag' }, it.sub ? '▸' : ''));
+        if (it.sub) {
+          const deschide = () => {
+            el.querySelectorAll('.ap-cpp-dd-it.sub.ac').forEach((z) => z.classList.remove('ac'));
+            app.querySelectorAll('.ap-cpp-dd').forEach((z) => { if (+z.dataset.nivel > nivel) z.remove(); });
+            b.classList.add('ac');
+            const r = b.getBoundingClientRect(), ra = app.getBoundingClientRect();
+            const s = listaMeniu(it.sub, r.right - ra.left - 2, r.top - ra.top - 3, nivel + 1);
+            return s;
+          };
+          b.addEventListener('mouseenter', deschide);
+          b.addEventListener('click', () => deschide().querySelector('button:not(:disabled)')?.focus());
+          b.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); deschide().querySelector('button:not(:disabled)')?.focus(); } });
+        } else {
+          b.addEventListener('mouseenter', () => { app.querySelectorAll('.ap-cpp-dd').forEach((z) => { if (+z.dataset.nivel > nivel) z.remove(); }); el.querySelectorAll('.ac').forEach((z) => z.classList.remove('ac')); });
+          b.addEventListener('click', () => { inchideMeniuri(); it.f(); });
+        }
+        el.append(b);
+      }
+      el.addEventListener('keydown', (e) => {
+        const bs = [...el.querySelectorAll(':scope > button:not(:disabled)')];
+        const i = bs.indexOf(document.activeElement);
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); e.stopPropagation(); bs[(i + (e.key === 'ArrowDown' ? 1 : bs.length - 1)) % bs.length]?.focus(); }
+        else if (e.key === 'ArrowLeft' && nivel > 0) { e.preventDefault(); e.stopPropagation(); el.remove(); app.querySelector(`.ap-cpp-dd[data-nivel="${nivel - 1}"] .ac`)?.focus(); }
+        else if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && nivel === 0 && meniuDeschis?.buton) { e.preventDefault(); e.stopPropagation(); const tb = [...barMeniu.children]; const k = tb.indexOf(meniuDeschis.buton); const urm = tb[(k + (e.key === 'ArrowRight' ? 1 : tb.length - 1)) % tb.length]; deschideMeniu(urm, true); }
+        else if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); const bt = meniuDeschis?.buton; inchideMeniuri(); (bt || ta).focus(); }
+      });
+      app.append(el);
+      // să nu iasă din ecran
+      const ra = app.getBoundingClientRect();
+      const w = el.offsetWidth, hh = el.offsetHeight;
+      if (x + w > ra.width) x = nivel ? x - w - (el.previousSibling?.offsetWidth || 200) + 6 : ra.width - w - 2;
+      if (y + hh > ra.height) y = Math.max(0, ra.height - hh - 2);
+      el.style.left = `${Math.max(0, x)}px`; el.style.top = `${y}px`;
+      if (!meniuDeschis) meniuDeschis = { el };
+      return el;
+    }
+    function deschideMeniu(b, focus = false) {
+      inchideMeniuri();
+      const r = b.getBoundingClientRect(), ra = app.getBoundingClientRect();
+      meniuDeschis = { buton: b };
+      b.classList.add('deschis');
+      const el = listaMeniu(b.itemi, r.left - ra.left, r.bottom - ra.top);
+      meniuDeschis.el = el;
+      if (focus) el.querySelector('button:not(:disabled)')?.focus();
+    }
+    function meniuContext(itemi, e) {
+      e.preventDefault();
+      inchideMeniuri();
+      const ra = app.getBoundingClientRect();
+      meniuDeschis = { buton: null };
+      meniuDeschis.el = listaMeniu(itemi, e.clientX - ra.left, e.clientY - ra.top);
+    }
+    document.addEventListener('pointerdown', function laClic(e) {
+      if (!app.isConnected) { document.removeEventListener('pointerdown', laClic, true); return; }
+      if (meniuDeschis && !e.target.closest('.ap-cpp-dd') && !e.target.closest('.ap-cpp-meniu > button')) inchideMeniuri();
+    }, true);
+
+    // ----- conținutul meniurilor (denumirile din Code::Blocks, ca în lecții) -----
+    const faraFisier = () => !F || activ === 'start';
+    const arePrj = () => eProiect(F);
+    const MENIURI = [
+      ['File', [
+        { t: 'New', ic: 'nou', sub: [{ t: 'Project...', ic: 'proiect', f: () => proiectNou() }, '-', { t: 'Empty file', k: 'Ctrl+Shift+N', ic: 'nou', f: () => fisierGol() }, '-', { t: 'Exemple din lecții...', ic: 'exemple', f: () => dialogExemple() }] },
+        { t: 'Open...', k: 'Ctrl+O', ic: 'deschide', f: () => dialogDeschide() },
+        { t: 'Import .cpp de pe calculator...', f: () => fisierIn.click() },
+        { t: 'Recent projects', sub: () => { const r = recente().filter(eProiect).slice(0, 9); return r.length ? r.map((f, i) => ({ t: `${i + 1} ${caleProiect(f)}\\${numeProj(f)}.cbp`, f: () => deschideProiect(f.id) })) : [{ t: '(niciun proiect)' }]; } },
+        { t: 'Recent files', sub: () => { const r = recente().slice(0, 9); return r.map((f, i) => ({ t: `${i + 1} ${caleSursa(f)}`, f: () => deschideFila(f.id) })); } },
+        '-',
+        { t: 'Save file', k: 'Ctrl+S', ic: 'salveaza', f: () => salveazaExplicit(), dis: faraFisier },
+        { t: 'Save file as... (descarcă .cpp)', f: () => descarca(), dis: faraFisier },
+        { t: 'Save project', f: () => salveazaExplicit(), dis: () => !arePrj() },
+        { t: 'Save all files', k: 'Ctrl+Shift+S', ic: 'salveazaTot', f: () => salveazaTot() },
+        '-',
+        { t: 'Close file', f: () => inchideFila(activ), dis: () => activ === 'start' && !tabs.length },
+        { t: 'Close all files', f: () => { for (const id of [...tabs]) inchideFila(id); } },
+        { t: 'Close project', f: () => inchideProiect(F.id), dis: () => !arePrj() },
+        '-',
+        { t: 'Print...', ic: null },
+        '-',
+        { t: 'Quit', k: 'Ctrl+Q', f: () => { location.hash = '#/aplicatii'; } },
+      ]],
+      ['Edit', [
+        { t: 'Undo', k: 'Ctrl+Z', ic: 'anuleaza', f: () => comandaText('undo') },
+        { t: 'Redo', k: 'Ctrl+Shift+Z', ic: 'refa', f: () => comandaText('redo') },
+        '-',
+        { t: 'Cut', k: 'Ctrl+X', ic: 'taie', f: () => comandaText('cut') },
+        { t: 'Copy', k: 'Ctrl+C', ic: 'copiaza', f: () => comandaText('copy') },
+        { t: 'Paste', k: 'Ctrl+V', ic: 'lipeste', f: () => lipeste() },
+        '-',
+        { t: 'Select all', k: 'Ctrl+A', f: () => { ta.focus(); ta.select(); } },
+        '-',
+        { t: 'Comment', k: 'Ctrl+Shift+C', f: () => comenteaza(true) },
+        { t: 'Uncomment', k: 'Ctrl+Shift+X', f: () => comenteaza(false) },
+        { t: 'Toggle comment', k: 'Ctrl+/', f: () => comenteaza(null) },
+        '-',
+        { t: 'Duplicate line', k: 'Ctrl+D', f: () => dubleazaRand() },
+        { t: 'Complete code', k: 'Ctrl+Space', f: () => completare(true) },
+      ].map((it) => (it === '-' || !it.f ? it : { ...it, dis: faraFisier }))],
+      ['View', [
+        { t: 'Manager', k: 'Shift+F2', chk: () => pref.mgmt, f: () => comuta('mgmt') },
+        { t: 'Logs', k: 'F2', chk: () => pref.logs, f: () => comuta('logs') },
+        { t: 'Status bar', chk: () => !status.hidden, f: () => { status.hidden = !status.hidden; } },
+        '-',
+        { t: 'Zoom in', k: 'Ctrl++', f: () => zoom(1) },
+        { t: 'Zoom out', k: 'Ctrl+-', f: () => zoom(-1) },
+        { t: 'Reset zoom', k: 'Ctrl+0', f: () => zoom(0) },
+        '-',
+        { t: 'Full screen', f: () => ecranComplet() },
+        { t: 'Start page', f: () => { pref.start = true; activeaza('start'); } },
+      ]],
+      ['Search', [
+        { t: 'Find...', k: 'Ctrl+F', ic: 'cauta', f: () => dialogCauta(false) },
+        { t: 'Find next', k: 'F3', f: () => cautaUrmator(1) },
+        { t: 'Find previous', k: 'Shift+F3', f: () => cautaUrmator(-1) },
+        '-',
+        { t: 'Replace...', k: 'Ctrl+R', ic: 'inlocuieste', f: () => dialogCauta(true) },
+        '-',
+        { t: 'Goto line...', k: 'Ctrl+G', f: () => dialogRand() },
+        { t: 'Goto function...', k: 'Ctrl+Shift+G', f: () => dialogFunctie() },
+      ].map((it) => (it === '-' ? it : { ...it, dis: faraFisier }))],
+      ['Project', [
+        { t: 'Activate project', f: () => activeazaProiect(F.id), dis: () => !arePrj() },
+        { t: 'Rename project...', f: () => redenumeste(F), dis: () => !arePrj() },
+        { t: 'Close project', f: () => inchideProiect(F.id), dis: () => !arePrj() },
+        '-',
+        { t: 'Build options...' },
+        { t: 'Set programs\' arguments...' },
+        '-',
+        { t: 'Properties...', f: () => proprietati(F), dis: faraFisier },
+      ]],
+      ['Build', [
+        { t: 'Build', k: 'Ctrl+F9', ic: 'build', f: () => build() },
+        { t: 'Compile current file', k: 'Ctrl+Shift+F9', f: () => build() },
+        { t: 'Run', k: 'Ctrl+F10', ic: 'run', f: () => run() },
+        { t: 'Build and run', k: 'F9', ic: 'buildRun', f: () => buildRun() },
+        { t: 'Rebuild', k: 'Ctrl+F11', ic: 'rebuild', f: () => build({ rebuild: true }) },
+        { t: 'Clean', f: () => clean() },
+        '-',
+        { t: 'Abort', ic: 'abort', f: () => abort(), dis: () => !ruleaza() },
+        '-',
+        { t: 'Select target', sub: () => ['Debug', 'Release'].map((t) => ({ t, chk: () => pref.tinta === t, f: () => alegeTinta(t) })) },
+      ].map((it) => (it === '-' || it.t === 'Abort' || it.t === 'Select target' ? it : { ...it, dis: () => faraFisier() || !!dbg }))],
+      ['Debug', [
+        { t: 'Start / Continue', k: 'F8', ic: 'debug', f: () => depaneaza('bp'), dis: faraFisier },
+        { t: 'Break debugger', ic: 'pauza' },
+        { t: 'Stop debugger', k: 'Shift+F8', ic: 'stop', f: () => opresteDepanarea(), dis: () => !dbg },
+        '-',
+        { t: 'Run to cursor', k: 'F4', ic: 'laCursor', f: () => depaneaza('cursor'), dis: faraFisier },
+        { t: 'Next line', k: 'F7', ic: 'urmator', f: () => depaneaza('next'), dis: faraFisier },
+        { t: 'Step into', k: 'Shift+F7', ic: 'intra', f: () => depaneaza('into'), dis: faraFisier },
+        { t: 'Step out', k: 'Ctrl+Shift+F7', ic: 'iese', f: () => depaneaza('out'), dis: () => !dbg },
+        { t: 'Continue', k: 'Ctrl+F7', f: () => depaneaza('bp'), dis: () => !dbg },
+        '-',
+        { t: 'Toggle breakpoint', k: 'F5', f: () => comutaBp(randCursor()), dis: faraFisier },
+        { t: 'Remove all breakpoints', f: () => { for (const f of db.values()) if (f.bp?.length) { f.bp = []; salveazaCurand(f); } redaGutter(); }, dis: faraFisier },
+        '-',
+        { t: 'Debugging windows', ic: 'ferestre', sub: [{ t: 'Watches', chk: () => !watches.hidden, f: () => arataWatches(watches.hidden) }, { t: 'Call stack', chk: () => !watches.hidden, f: () => arataWatches(true) }, { t: 'Breakpoints', f: () => listaBp() }] },
+      ]],
+      ['Tools', [{ t: 'Configure tools...' }, { t: 'Tools+' }]],
+      ['Plugins', [
+        { t: 'Code statistics', f: () => statistici(), dis: faraFisier },
+        { t: 'Source code formatter (AStyle)', f: () => formateaza(), dis: faraFisier },
+        { t: 'Code profiler' }, { t: 'Code snippets' }, { t: 'Find broken files in project' },
+      ]],
+      ['Settings', [
+        { t: 'Environment...' },
+        { t: 'Editor...', f: () => setariEditor() },
+        { t: 'Compiler...', f: () => setariCompilator() },
+        { t: 'Debugger...' },
+      ]],
+      ['Help', [
+        { t: 'Ajutor: ce știe acest Code::Blocks', ic: 'info', f: () => dialogAjutor() },
+        { t: 'Scurtături de la tastatură', f: () => dialogAjutor(true) },
+        '-',
+        { t: 'About...', f: () => despre() },
+      ]],
+    ];
+    for (const [nume, itemi] of MENIURI) {
+      const b = h('button', { type: 'button', role: 'menuitem', class: 'ap-cpp-mb' }, nume);
+      b.itemi = itemi;
+      b.addEventListener('click', () => (meniuDeschis?.buton === b ? inchideMeniuri() : deschideMeniu(b)));
+      b.addEventListener('mouseenter', () => { if (meniuDeschis?.buton && meniuDeschis.buton !== b) deschideMeniu(b); });
+      b.addEventListener('keydown', (e) => { if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); deschideMeniu(b, true); } });
+      barMeniu.append(b);
+    }
+
+    // =====================================================================
+    // BARELE DE INSTRUMENTE
+    // =====================================================================
+    const unealta = (ico, titlu, f, cls = '') => {
+      const b = h('button', { type: 'button', class: `ap-cpp-tbb ${cls}`, title: titlu, 'aria-label': titlu, onclick: () => { f(); } }, ic(ico));
+      b.addEventListener('mouseenter', () => { if (!b.disabled) stareStatus(titlu.replace(/ \(.*\)$/, '')); });
+      return b;
+    };
+    const grup = (...c) => h('div', { class: 'ap-cpp-tbg' }, h('span', { class: 'ap-cpp-tbg-maner' }), ...c);
+    const B = {
+      nou: unealta('nou', 'New file (Ctrl+Shift+N)', () => fisierGol()),
+      deschide: unealta('deschide', 'Open (Ctrl+O)', () => dialogDeschide()),
+      salveaza: unealta('salveaza', 'Save (Ctrl+S)', () => salveazaExplicit()),
+      salveazaTot: unealta('salveazaTot', 'Save all (Ctrl+Shift+S)', () => salveazaTot()),
+      undo: unealta('anuleaza', 'Undo (Ctrl+Z)', () => comandaText('undo')),
+      redo: unealta('refa', 'Redo (Ctrl+Shift+Z)', () => comandaText('redo')),
+      taie: unealta('taie', 'Cut (Ctrl+X)', () => comandaText('cut')),
+      copiaza: unealta('copiaza', 'Copy (Ctrl+C)', () => comandaText('copy')),
+      lipeste: unealta('lipeste', 'Paste (Ctrl+V)', () => lipeste()),
+      cauta: unealta('cauta', 'Find (Ctrl+F)', () => dialogCauta(false)),
+      inloc: unealta('inlocuieste', 'Replace (Ctrl+R)', () => dialogCauta(true)),
+      build: unealta('build', 'Build (Ctrl+F9)', () => build()),
+      run: unealta('run', 'Run (Ctrl+F10)', () => run()),
+      buildRun: unealta('buildRun', 'Build and run (F9)', () => buildRun()),
+      rebuild: unealta('rebuild', 'Rebuild (Ctrl+F11)', () => build({ rebuild: true })),
+      abort: unealta('abort', 'Abort', () => abort()),
+      debug: unealta('debug', 'Debug / Continue (F8)', () => depaneaza('bp')),
+      cursor: unealta('laCursor', 'Run to cursor (F4)', () => depaneaza('cursor')),
+      next: unealta('urmator', 'Next line (F7)', () => depaneaza('next')),
+      into: unealta('intra', 'Step into (Shift+F7)', () => depaneaza('into')),
+      out: unealta('iese', 'Step out (Ctrl+Shift+F7)', () => depaneaza('out')),
+      instr: unealta('instr', 'Next instruction (Alt+F7)', () => depaneaza('next')),
+      pauza: unealta('pauza', 'Break debugger', () => {}),
+      stop: unealta('stop', 'Stop debugger (Shift+F8)', () => opresteDepanarea()),
+      ferestre: unealta('ferestre', 'Debugging windows: Watches', () => arataWatches(watches.hidden)),
+      info: unealta('info', 'Various info: breakpoints', () => listaBp()),
+    };
+    B.pauza.disabled = true;
+    const tintaSel = h('select', { class: 'ap-cpp-sel', 'aria-label': 'Build target', onchange: (e) => alegeTinta(e.target.value) }, h('option', { value: 'Debug' }, 'Debug'), h('option', { value: 'Release' }, 'Release'));
+    const scopSel = h('select', { class: 'ap-cpp-sel lat', 'aria-label': 'Scope' }, h('option', {}, '<global>'));
+    const functSel = h('select', { class: 'ap-cpp-sel lat2', 'aria-label': 'Funcția', onchange: () => { const r = +functSel.value; if (r) mergiLaRand(r); } });
+    barUnelte.append(
+      grup(B.nou, B.deschide, B.salveaza, B.salveazaTot, h('span', { class: 'ap-cpp-tbsep' }), B.undo, B.redo, h('span', { class: 'ap-cpp-tbsep' }), B.taie, B.copiaza, B.lipeste, h('span', { class: 'ap-cpp-tbsep' }), B.cauta, B.inloc),
+      grup(B.build, B.run, B.buildRun, B.rebuild, B.abort, h('span', { class: 'ap-cpp-tbsep' }), h('span', { class: 'ap-cpp-tbl' }, 'Build target:'), tintaSel),
+      grup(B.debug, B.cursor, B.next, B.instr, B.into, B.out, B.pauza, B.stop, h('span', { class: 'ap-cpp-tbsep' }), B.ferestre, B.info),
+      h('div', { class: 'ap-cpp-tbg cc' }, h('span', { class: 'ap-cpp-tbg-maner' }), scopSel, functSel));
+
+    // =====================================================================
+    // PANOUL MANAGEMENT (Projects / Symbols / Files)
+    // =====================================================================
+    const mgmtCorp = h('div', { class: 'ap-cpp-mg-corp', role: 'tree' });
+    let mgFila = 'Projects';
+    const mgTaburi = h('div', { class: 'ap-cpp-ptabs' }, ['Projects', 'Symbols', 'Files'].map((t) => h('button', { type: 'button', class: t === mgFila ? 'activ' : '', onclick: (e) => { mgFila = t; for (const x of mgTaburi.children) x.classList.toggle('activ', x === e.currentTarget); redaMgmt(); } }, t)));
+    const mgmt = h('div', { class: 'ap-cpp-mg' },
+      h('div', { class: 'ap-cpp-pcap' }, h('span', {}, 'Management'), h('button', { type: 'button', class: 'ap-cpp-px', title: 'Închide (Shift+F2)', onclick: () => comuta('mgmt') }, '✕')),
+      mgTaburi, mgmtCorp);
+    const deschiseNod = new Set(['ws', ...pref.ws.map((id) => `p:${id}`), ...pref.ws.map((id) => `s:${id}`), 'dir', ...pref.ws.map((id) => `d:${id}`), 'sf', 'sv']);
+    function nod(cheie, eticheta, icon, copii, { activ: act = false, bold = false, laDublu = null, laContext = null, titlu = null } = {}) {
+      const are = copii && copii.length;
+      const desc = deschiseNod.has(cheie);
+      const r = h('div', { class: `ap-cpp-nod${act ? ' sel' : ''}${bold ? ' b' : ''}`, role: 'treeitem', tabindex: '0', title: titlu, 'aria-expanded': are ? String(desc) : null },
+        h('span', { class: `ap-cpp-semn${are ? (desc ? ' minus' : ' plus') : ''}`, onclick: (e) => { e.stopPropagation(); if (are) { if (desc) deschiseNod.delete(cheie); else deschiseNod.add(cheie); redaMgmt(); } } }),
+        ic(icon), h('span', { class: 'ap-cpp-nod-t' }, eticheta));
+      r.addEventListener('click', () => { mgmtCorp.querySelectorAll('.sel').forEach((x) => x.classList.remove('sel')); r.classList.add('sel'); });
+      r.addEventListener('dblclick', () => { if (laDublu) laDublu(); else if (are) { if (desc) deschiseNod.delete(cheie); else deschiseNod.add(cheie); redaMgmt(); } });
+      r.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); r.dispatchEvent(new MouseEvent('dblclick')); } });
+      if (laContext) r.addEventListener('contextmenu', (e) => { r.click(); meniuContext(laContext, e); });
+      const w = h('div', { class: 'ap-cpp-ramura' }, r);
+      if (are && desc) w.append(h('div', { class: 'ap-cpp-copii' }, copii));
+      return w;
+    }
+    function meniuProiect(f) {
+      return [
+        { t: 'Activate project', f: () => activeazaProiect(f.id) },
+        '-',
+        { t: 'Build', ic: 'build', f: () => { activeazaProiect(f.id); build(); } },
+        { t: 'Rebuild', ic: 'rebuild', f: () => { activeazaProiect(f.id); build({ rebuild: true }); } },
+        { t: 'Clean', f: () => { activeazaProiect(f.id); clean(); } },
+        '-',
+        { t: 'Rename project...', f: () => redenumeste(f) },
+        { t: 'Close project', f: () => inchideProiect(f.id) },
+        { t: 'Șterge proiectul de pe disc...', f: () => stergeFisier(f) },
+        '-',
+        { t: 'Properties...', f: () => proprietati(f) },
+      ];
+    }
+    function redaMgmt() {
+      if (mgFila === 'Projects') {
+        const proiecte = pref.ws.map((id) => db.get(id)).filter(Boolean);
+        umple(mgmtCorp, nod('ws', 'Workspace', 'workspace', proiecte.map((f) => nod(`p:${f.id}`, f.titlu, 'proiect',
+          [nod(`s:${f.id}`, 'Sources', 'dosar', [nod(`f:${f.id}`, 'main.cpp', 'cpp', null, { activ: activ === f.id, titlu: caleSursa(f), laDublu: () => deschideFila(f.id), laContext: [{ t: 'Open main.cpp', f: () => deschideFila(f.id) }, { t: 'Properties...', f: () => proprietati(f) }] })])],
+          { bold: f.id === F?.id || (activ === 'start' && f.id === curId), titlu: `${caleProiect(f)}\\${numeProj(f)}.cbp`, laDublu: () => activeazaProiect(f.id), laContext: meniuProiect(f) })),
+        { laContext: [{ t: 'New project...', f: () => proiectNou() }, { t: 'Open project...', f: () => dialogDeschide() }, { t: 'Close workspace', f: () => { for (const id of [...pref.ws]) inchideProiect(id); } }] }));
+        if (!proiecte.length) mgmtCorp.append(h('p', { class: 'ap-cpp-gol' }, 'Niciun proiect deschis. File → New → Project… sau File → Open…'));
+      } else if (mgFila === 'Symbols') {
+        if (!F || activ === 'start') { umple(mgmtCorp, h('p', { class: 'ap-cpp-gol' }, 'Deschide un fișier.')); return; }
+        const fn = functiiDin(ta.value), gl = globaleDin(ta.value);
+        umple(mgmtCorp, nod('sym', numeSursa(F), 'cpp', [
+          nod('sf', 'Global functions', 'dosar', fn.map((x) => nod(`sf:${x.nume}`, `${x.nume}(${x.params}) : ${x.tip}`, 'functie', null, { laDublu: () => mergiLaRand(x.rand) }))),
+          nod('sv', 'Global variables', 'dosar', gl.map((x) => nod(`sv:${x.nume}`, x.nume, 'variabila', null, { laDublu: () => mergiLaRand(x.rand) }))),
+        ]));
+        deschiseNod.add('sym');
+      } else {
+        const toate = recente().sort((a, b) => a.titlu.localeCompare(b.titlu, 'ro'));
+        umple(mgmtCorp, nod('dir', DIR, 'dosarDeschis', toate.map((f) => (f.fisier
+          ? nod(`x:${f.id}`, numeSursa(f), 'cpp', null, { laDublu: () => deschideFila(f.id), titlu: caleSursa(f), laContext: [{ t: 'Open', f: () => deschideFila(f.id) }, { t: 'Rename...', f: () => redenumeste(f) }, { t: 'Delete...', f: () => stergeFisier(f) }] })
+          : nod(`d:${f.id}`, numeProj(f), 'dosar', [
+            nod(`dc:${f.id}`, 'main.cpp', 'cpp', null, { laDublu: () => deschideFila(f.id), titlu: caleSursa(f) }),
+            nod(`db:${f.id}`, `${numeProj(f)}.cbp`, 'cbp', null, { laDublu: () => deschideProiect(f.id) }),
+          ], { laContext: [{ t: 'Open project', f: () => deschideProiect(f.id) }, { t: 'Delete...', f: () => stergeFisier(f) }] })))));
+      }
+    }
+
+    // =====================================================================
+    // EDITORUL (file, margine cu numere și puncte de oprire, cod colorat)
+    // =====================================================================
+    const taburi = h('div', { class: 'ap-cpp-etabs', role: 'tablist' });
+    const ta = h('textarea', { class: 'ap-cpp-ta', spellcheck: 'false', autocapitalize: 'off', autocomplete: 'off', autocorrect: 'off', wrap: 'off', 'aria-label': 'Codul programului C++' });
+    const codEl = h('code', {});
+    const marcaj = h('div', { class: 'ap-cpp-marcaj', 'aria-hidden': 'true' });
+    const pre = h('pre', { class: 'ap-cpp-pre', 'aria-hidden': 'true' }, marcaj, codEl);
+    const nrRand = h('div', { class: 'ap-cpp-nr' });
+    const gutter = h('div', { class: 'ap-cpp-gutter', title: 'Clic: pune / scoate un punct de oprire (F5)' }, nrRand);
+    const masura = h('span', { class: 'ap-cpp-masura', 'aria-hidden': 'true' }, 'X'.repeat(40));
+    const popup = h('div', { class: 'ap-cpp-compl', role: 'listbox', hidden: true });
+    const strat = h('div', { class: 'ap-cpp-strat' }, pre, ta, masura, popup);
+    const editor = h('div', { class: 'ap-cpp-editor' }, gutter, strat);
+    const startPag = h('div', { class: 'ap-cpp-startpag', hidden: true });
+    const edZona = h('div', { class: 'ap-cpp-edz' }, taburi, editor, startPag);
+
+    // fereastra Watches (depanatorul)
+    const watchCorp = h('div', { class: 'ap-cpp-w-corp' });
+    const stivaCorp = h('div', { class: 'ap-cpp-w-stiva' });
+    const watches = h('div', { class: 'ap-cpp-w', hidden: true },
+      h('div', { class: 'ap-cpp-pcap' }, h('span', {}, 'Watches'), h('button', { type: 'button', class: 'ap-cpp-px', title: 'Închide', onclick: () => arataWatches(false) }, '✕')),
+      h('div', { class: 'ap-cpp-w-cap' }, h('span', {}, 'Watch'), h('span', {}, 'Value'), h('span', {}, 'Type')),
+      watchCorp,
+      h('div', { class: 'ap-cpp-pcap mic' }, h('span', {}, 'Call stack')),
+      stivaCorp);
+
+    // panoul de jos: Logs & others
+    const logTab = {};
+    const logCorp = h('div', { class: 'ap-cpp-log-corp' });
+    const logCB = h('div', { class: 'ap-cpp-log txt' });
+    const logCautare = h('div', { class: 'ap-cpp-log' });
+    const logBuild = h('div', { class: 'ap-cpp-log txt' });
+    const mesajeT = h('tbody', {});
+    const logMesaje = h('div', { class: 'ap-cpp-log' }, h('table', { class: 'ap-cpp-mesaje' }, h('thead', {}, h('tr', {}, h('th', {}, 'File'), h('th', {}, 'Line'), h('th', {}, 'Message'))), mesajeT));
+    const logDbg = h('div', { class: 'ap-cpp-log txt' });
+    const intrareTa = h('textarea', { class: 'ap-cpp-intrare', spellcheck: 'false', wrap: 'off', placeholder: 'Opțional: scrie aici datele pe care le citește cin >> (separate prin spații sau pe rânduri).\nDacă lași caseta goală, le scrii în consolă când programul le cere – ca în Code::Blocks.', 'aria-label': 'Date de intrare' });
+    const logIntrare = h('div', { class: 'ap-cpp-log in' }, h('div', { class: 'ap-cpp-in-cap' }, h('span', {}, 'Date de intrare pentru program (stdin) – ajutor edudigi, nu există în Code::Blocks'), h('span', { class: 'ap-cpp-spatiu' }),
+      h('button', { type: 'button', class: 'ap-cpp-wbtn mic', onclick: () => { intrareTa.value = ''; laIntrare(); intrareTa.focus(); } }, 'Golește')), intrareTa);
+    const LOGURI = [['Code::Blocks', logCB], ['Search results', logCautare], ['Build log', logBuild], ['Build messages', logMesaje], ['Debugger', logDbg], ['Date de intrare', logIntrare]];
+    const logTaburi = h('div', { class: 'ap-cpp-ptabs jos', role: 'tablist' });
+    for (const [n, el] of LOGURI) {
+      logTab[n] = h('button', { type: 'button', role: 'tab', onclick: () => arataLog(n) }, ic(n === 'Build log' ? 'build' : n === 'Build messages' ? 'atentieMic' : n === 'Debugger' ? 'debug' : n === 'Search results' ? 'cauta' : n === 'Date de intrare' ? 'consola' : 'sigla16'), n);
+      logTaburi.append(logTab[n]);
+      logCorp.append(el);
+    }
+    const logs = h('div', { class: 'ap-cpp-logs' },
+      h('div', { class: 'ap-cpp-pcap' }, h('span', {}, 'Logs & others'), h('button', { type: 'button', class: 'ap-cpp-px', title: 'Închide (F2)', onclick: () => comuta('logs') }, '✕')),
+      logTaburi, logCorp);
+    function arataLog(n) {
+      for (const [k, el] of LOGURI) { el.hidden = k !== n; logTab[k].classList.toggle('activ', k === n); logTab[k].setAttribute('aria-selected', String(k === n)); }
+      if (!pref.logs) comuta('logs');
+    }
+    ICO.atentieMic = S16('<path d="M8 1.5L15 14H1z" fill="#f2c010" stroke="#9a7a00"/><rect x="7.2" y="5.5" width="1.6" height="4.5" fill="#222"/><rect x="7.2" y="11" width="1.6" height="1.6" fill="#222"/>');
+    ICO.sigla16 = ICO.sigla;
+    for (const [n] of LOGURI) logTab[n].querySelector('.ap-cpp-ic').innerHTML = ICO[n === 'Build log' ? 'build' : n === 'Build messages' ? 'atentieMic' : n === 'Debugger' ? 'debug' : n === 'Search results' ? 'cauta' : n === 'Date de intrare' ? 'consola' : 'sigla16'];
+
+    const desp1 = h('div', { class: 'ap-cpp-desp v', title: 'Trage ca să schimbi lățimea' });
+    const desp2 = h('div', { class: 'ap-cpp-desp o', title: 'Trage ca să schimbi înălțimea' });
+    const desp3 = h('div', { class: 'ap-cpp-desp v w' });
+    const sus = h('div', { class: 'ap-cpp-sus' }, edZona, desp3, watches);
+    const centru = h('div', { class: 'ap-cpp-centru' }, sus, desp2, logs);
+    const corp = h('div', { class: 'ap-cpp-corp' }, mgmt, desp1, centru);
+    const fisierIn = h('input', { type: 'file', accept: '.cpp,.cc,.c,.h,.txt,text/plain', hidden: true, onchange: () => incarcaDeLaCalculator() });
+    app.append(barTitlu, barMeniu, barUnelte, corp, status, fisierIn);
+
+    // bara pentru predarea la sarcină
+    if (params?.get('sarcina') && window.EduSarcini?.bara) {
+      try {
+        const b = await window.EduSarcini.bara('cpp', async () => lucrare());
+        if (b instanceof Node) app.prepend(b);
+      } catch { /* fără bară */ }
+    }
+    show(h('div', { class: 'lab-ecran' }, app));
+    document.title = 'Code::Blocks (C++) – edudigi';
+
+    function lucrare() {
+      const f = F || db.get(curId);
+      if (f && f === F && activ !== 'start') f.cod = ta.value;
+      return { titlu: f?.titlu || 'Program', tip: 'cod', limbaj: 'cpp', date: f?.cod || '', intrare: f?.intrare || '', iesire: ultimaRulare ? ultimaRulare.text : '' };
+    }
+
+    // ----- aspect: panouri, despărțitoare, zoom -----
+    function aplicaAspect() {
+      mgmt.hidden = !pref.mgmt; desp1.hidden = !pref.mgmt;
+      logs.hidden = !pref.logs; desp2.hidden = !pref.logs;
+      desp3.hidden = watches.hidden;
+      if (pref.mgmtW) mgmt.style.width = `${pref.mgmtW}px`;
+      if (pref.logH) logs.style.height = `${pref.logH}px`;
+      if (pref.watchW) watches.style.width = `${pref.watchW}px`;
+    }
+    function comuta(k) { pref[k] = !pref[k]; salvPref(); aplicaAspect(); sincronizeaza(); }
+    function trage(el, fn) {
+      el.addEventListener('pointerdown', (e) => {
+        e.preventDefault(); el.setPointerCapture(e.pointerId); el.classList.add('trage');
+        const x0 = e.clientX, y0 = e.clientY, st = fn(0, 0, true);
+        const mut = (ev) => fn(ev.clientX - x0, ev.clientY - y0, false, st);
+        const gata = () => { el.classList.remove('trage'); el.removeEventListener('pointermove', mut); el.removeEventListener('pointerup', gata); el.removeEventListener('pointercancel', gata); salvPref(); sincronizeaza(); };
+        el.addEventListener('pointermove', mut); el.addEventListener('pointerup', gata); el.addEventListener('pointercancel', gata);
+      });
+    }
+    trage(desp1, (dx, dy, init, st) => { if (init) return mgmt.offsetWidth; pref.mgmtW = Math.max(130, Math.min(480, st + dx)); mgmt.style.width = `${pref.mgmtW}px`; });
+    trage(desp2, (dx, dy, init, st) => { if (init) return logs.offsetHeight; pref.logH = Math.max(70, Math.min(app.offsetHeight - 160, st - dy)); logs.style.height = `${pref.logH}px`; });
+    trage(desp3, (dx, dy, init, st) => { if (init) return watches.offsetWidth; pref.watchW = Math.max(180, Math.min(520, st - dx)); watches.style.width = `${pref.watchW}px`; });
+    let lh = 20, cw = 8;
+    function zoom(d) {
+      if (d !== null) pref.fs = d === 0 ? 15 : Math.min(26, Math.max(10, (pref.fs || 15) + d));
+      lh = Math.round(pref.fs * 1.45);
+      app.style.setProperty('--ap-fs', `${pref.fs}px`);
+      app.style.setProperty('--ap-lh', `${lh}px`);
+      salvPref();
+      cw = masura.getBoundingClientRect().width / 40 || pref.fs * 0.6;
+      sincronizeaza(); redaMarcaje();
+    }
+    function ecranComplet() {
+      try { if (document.fullscreenElement) document.exitFullscreen(); else app.closest('.lab-ecran')?.requestFullscreen?.(); } catch { /* nepermis */ }
+    }
+
+    // =====================================================================
+    // FIȘIERE ȘI PROIECTE
+    // =====================================================================
+    function stareSalv() { stMod.textContent = F && activ !== 'start' ? (sf(F.id).mod ? 'Modified' : 'Read/Write') : ''; }
+    async function salveazaInreg(f) {
+      delete f.nou;
+      try { await store.put(f); lsScrie(LS_CURENT, curId); return true; } catch { toast('Nu am putut salva: spațiul din browser este plin.', 'err'); return false; }
+    }
+    // salvare automată (ca lucrul să nu se piardă), dar „*” rămâne până la Save / Build, ca în Code::Blocks
+    function salveazaCurand(f = F) { clearTimeout(tSalv); tSalv = setTimeout(() => { tSalv = null; f.actualizat = Date.now(); salveazaInreg(f); }, 700); }
+    function scrieInF() { if (F && activ === F.id) F.cod = ta.value; }
+    async function salveazaExplicit(f = F) {
+      if (!f) return true;
+      if (f === F) scrieInF();
+      if (f.nesalvat) { const ok = await salveazaCaNume(f); if (!ok) return false; }
+      clearTimeout(tSalv); tSalv = null;
+      f.actualizat = Date.now();
+      const ok = await salveazaInreg(f);
+      if (ok) { sf(f.id).mod = false; redaTaburi(); stareSalv(); logCbScrie(`Saved ${caleSursa(f)}`); }
+      return ok;
+    }
+    async function salveazaTot() { scrieInF(); for (const id of tabs) { const f = db.get(id); if (f && (sf(id).mod || f.nesalvat)) await salveazaExplicit(f); } toast('Toate fișierele au fost salvate.'); }
+    async function salveazaCaNume(f) {
+      const n = await cereText('Save file', `Numele fișierului (se salvează în ${DIR}):`, `${f.titlu}.cpp`, (v) => (!v.replace(/\.cpp$/i, '').trim() ? 'Scrie un nume.' : null));
+      if (!n) return false;
+      f.titlu = n.replace(/\.(cpp|cc|c)$/i, '').slice(0, 60);
+      delete f.nesalvat;
+      redaTot();
+      return true;
     }
     async function numeLiber(baza) {
-      const toate = (await store.toate().catch(() => [])).map((f) => f.titlu);
-      if (!toate.includes(baza)) return baza;
-      let i = 2; while (toate.includes(`${baza} ${i}`)) i++;
-      return `${baza} ${i}`;
+      const t = [...db.values()].map((f) => f.titlu);
+      if (!t.includes(baza)) return baza;
+      let i = 2; while (t.includes(`${baza}${/\d$/.test(baza) ? '_' : ''}${i}`)) i++;
+      return `${baza}${/\d$/.test(baza) ? '_' : ''}${i}`;
     }
-    async function creeaza(titlu, cod, intrare = '') {
-      if (tSalv) await salveaza();
-      const f = { id: idNou(), titlu: await numeLiber(titlu), cod, intrare, creat: Date.now(), actualizat: Date.now() };
-      try { await store.put(f); } catch { toast('Nu am putut salva: spațiul din browser este plin.', 'err'); }
-      await deschide(f);
+    async function creeaza(titlu, cod, intrare = '', extra = {}) {
+      const f = { id: idNou(), titlu: await numeLiber(titlu), cod, intrare, creat: Date.now(), actualizat: Date.now(), ...extra };
+      db.set(f.id, f);
+      await salveazaInreg(f);
+      if (eProiect(f)) { pref.ws.push(f.id); deschiseNod.add(`p:${f.id}`); deschiseNod.add(`s:${f.id}`); }
+      deschideFila(f.id);
       return f;
     }
-    async function fisierNou() {
-      await creeaza('Program nou', SABLON);
-      const poz = SABLON.indexOf('    \n') + 4;
-      ta.focus(); ta.setSelectionRange(poz, poz); pozitie();
+    async function fisierGol() {
+      let i = 1; const t = new Set([...db.values()].map((f) => f.titlu)); while (t.has(`Untitled${i}`)) i++;
+      const f = await creeaza(`Untitled${i}`, '', '', { fisier: true, nesalvat: true });
+      sf(f.id).mod = true; redaTaburi();
+      logCbScrie(`New file: Untitled${i} (salvează-l cu Ctrl+S, cu extensia .cpp)`);
     }
-
-    async function dialogFisiere() {
-      const lista = h('ul', { class: 'ap-cpp-fisiere' });
-      async function redaLista() {
-        const toate = (await store.toate().catch(() => [])).sort((a, b) => b.actualizat - a.actualizat);
-        if (!toate.some((x) => x.id === F.id)) toate.unshift(F);
-        umple(lista, toate.map((f) => h('li', { class: f.id === F.id ? 'activ' : '' },
-          h('button', { type: 'button', class: 'ap-cpp-item', onclick: async () => { d.close(); if (f.id !== F.id) await deschide(f); } },
-            h('span', { class: 'ap-cpp-tipf' }, 'C++'), h('span', { class: 'n' }, f.titlu, h('small', {}, f.id === F.id ? 'deschis acum' : cand(f.actualizat)))),
-          h('button', { type: 'button', class: 'ap-cpp-mic', title: 'Redenumește', onclick: async () => {
-            const t = prompt('Numele nou:', f.titlu);
-            if (!t || !t.trim()) return;
-            f.titlu = t.trim().slice(0, 60);
-            if (f.id === F.id) { F.titlu = f.titlu; numeIn.value = F.titlu; await salveaza(); } else await store.put(f);
-            redaLista();
-          } }, 'Redenumește'),
-          h('button', { type: 'button', class: 'ap-cpp-mic', title: 'Șterge', onclick: async () => {
-            if (!confirm(`Ștergi programul „${f.titlu}”? Nu poate fi recuperat.`)) return;
-            await store.del(f.id);
-            if (f.id === F.id) {
-              const rest = (await store.toate().catch(() => [])).sort((a, b) => b.actualizat - a.actualizat);
-              if (rest.length) await deschide(rest[0]); else { F = { id: idNou(), titlu: 'Program nou', cod: SABLON, intrare: '', creat: Date.now(), actualizat: Date.now(), nou: true }; await deschide(F); }
-            }
-            redaLista();
-          } }, ic('sterge')))));
+    function deschideFila(id) {
+      if (!db.has(id)) return;
+      if (!tabs.includes(id)) tabs.push(id);
+      const f = db.get(id);
+      if (eProiect(f) && !pref.ws.includes(id)) pref.ws.push(id);
+      activeaza(id);
+    }
+    function deschideProiect(id) { const f = db.get(id); if (!f) return; if (!pref.ws.includes(id)) { pref.ws.push(id); logCbScrie(`Opening ${caleProiect(f)}\\${numeProj(f)}.cbp`); } deschiseNod.add(`p:${id}`); deschiseNod.add(`s:${id}`); deschideFila(id); }
+    function activeazaProiect(id) { deschideFila(id); }
+    function activeaza(id) {
+      if (activ !== 'start' && F && db.has(activ)) { scrieInF(); const s = sf(F.id); s.sel = [ta.selectionStart, ta.selectionEnd]; s.sus = ta.scrollTop; s.st = ta.scrollLeft; }
+      inchideCompletare();
+      activ = id;
+      if (id === 'start') { editor.hidden = true; startPag.hidden = false; redaStart(); }
+      else {
+        F = db.get(id); curId = id; lsScrie(LS_CURENT, id);
+        editor.hidden = false; startPag.hidden = true;
+        const s = sf(id);
+        ta.value = F.cod || '';
+        intrareTa.value = F.intrare || '';
+        nrLinii = -1; reda();
+        ta.setSelectionRange(...s.sel); ta.scrollTop = s.sus; ta.scrollLeft = s.st;
+        sincronizeaza(); pozitie();
       }
-      const d = dialog('Fișierele mele', h('div', {},
-        h('p', { class: 'muted' }, 'Programele se păstrează în acest browser, pe acest calculator. Ca să le iei cu tine, folosește „Descarcă .cpp”.'),
-        lista,
-        h('div', { class: 'ap-cpp-dlgbtn' }, h('button', { type: 'button', class: 'btn small', onclick: () => { d.close(); fisierNou(); } }, '+ Program nou'))));
-      await redaLista();
+      pref.tabs = tabs; salvPref();
+      redaTot();
+    }
+    function inchideFila(id) {
+      if (id === 'start') { pref.start = false; salvPref(); if (activ === 'start') activeaza(tabs[tabs.length - 1] || 'start'); else redaTaburi(); if (!tabs.length && activ === 'start') redaTot(); return; }
+      const k = tabs.indexOf(id); if (k < 0) return;
+      if (id === activ) scrieInF();
+      const f = db.get(id);
+      if (f && (sf(id).mod || tSalv)) { clearTimeout(tSalv); tSalv = null; f.actualizat = Date.now(); salveazaInreg(f); }
+      tabs.splice(k, 1); sf(id).mod = false;
+      if (dbg && dbg.id === id) opresteDepanarea();
+      if (id === activ) { const urm = tabs[Math.min(k, tabs.length - 1)]; if (urm) activeaza(urm); else { pref.start = true; activeaza('start'); } }
+      else { pref.tabs = tabs; salvPref(); redaTaburi(); }
+    }
+    function inchideProiect(id) {
+      pref.ws = pref.ws.filter((x) => x !== id);
+      if (tabs.includes(id)) inchideFila(id);
+      salvPref(); redaTot();
+      const f = db.get(id); if (f) logCbScrie(`Closed project ${numeProj(f)}`);
+    }
+    async function redenumeste(f) {
+      const t = await cereText(f.fisier ? 'Rename file' : 'Rename project', f.fisier ? 'Numele nou al fișierului:' : 'Numele nou al proiectului:', f.titlu, (v) => (!v ? 'Scrie un nume.' : [...db.values()].some((x) => x !== f && x.titlu === v) ? 'Există deja un program cu acest nume.' : null));
+      if (!t) return;
+      f.titlu = t.slice(0, 60); delete f.nesalvat;
+      await salveazaInreg(f); redaTot();
+    }
+    async function stergeFisier(f) {
+      const r = await intreaba('Delete', `Ștergi definitiv ${f.fisier ? 'fișierul' : 'proiectul'} „${f.titlu}”?\n${f.fisier ? caleSursa(f) : caleProiect(f)}\n\nNu poate fi recuperat.`, ['Yes', 'No'], 'atentie');
+      if (r !== 'Yes') return false;
+      if (dbg?.id === f.id) opresteDepanarea();
+      if (tabs.includes(f.id)) { sf(f.id).mod = false; clearTimeout(tSalv); tSalv = null; tabs = tabs.filter((x) => x !== f.id); }
+      pref.ws = pref.ws.filter((x) => x !== f.id);
+      db.delete(f.id); exe.delete(f.id);
+      try { await store.del(f.id); } catch { /* */ }
+      if (activ === f.id) { const urm = tabs[tabs.length - 1]; if (urm) activeaza(urm); else { pref.start = true; activeaza('start'); } } else { pref.tabs = tabs; salvPref(); redaTot(); }
+      return true;
+    }
+    function proprietati(f) {
+      const rand = (a, b) => h('tr', {}, h('th', {}, a), h('td', {}, b));
+      fereastra(f.fisier ? 'File properties' : 'Project/targets options', h('table', { class: 'ap-cpp-prop' },
+        rand(f.fisier ? 'File name:' : 'Title:', f.fisier ? numeSursa(f) : f.titlu),
+        rand('Location:', f.fisier ? caleSursa(f) : `${caleProiect(f)}\\${numeProj(f)}.cbp`),
+        f.fisier ? null : rand('Sources:', 'main.cpp'),
+        rand('Output filename:', caleExe(f)),
+        rand('Type:', 'Console application'),
+        rand('Compiler:', 'GNU GCC Compiler'),
+        rand('Lines:', String((f === F ? ta.value : f.cod || '').split('\n').length)),
+        rand('Created:', cand(f.creat || Date.now())), rand('Last modified:', cand(f.actualizat || Date.now()))), { butoane: [buton('OK', () => app.querySelector('dialog[open]')?.close(), 'impl')] });
     }
 
+    // ----- File → New → Project (asistentul Console application) -----
+    function proiectNou() {
+      const sabloane = [['Console application', 'consola', true], ['Empty project', 'proiect', false], ['Static library', 'cbp', false], ['Win32 GUI project', 'ferestre', false], ['GLUT project', 'workspace', false], ['wxWidgets project', 'workspace', false], ['Qt4 project', 'workspace', false], ['Fortran application', 'cbp', false], ['ARM Project', 'cbp', false], ['AVR Project', 'cbp', false], ['Code::Blocks plugin', 'workspace', false], ['Direct/X project', 'ferestre', false]];
+      let ales = 'Console application';
+      const grila = h('div', { class: 'ap-cpp-sabloane' }, sabloane.map(([n, i, ok]) => {
+        const b = h('button', { type: 'button', class: `ap-cpp-sablon${n === ales ? ' sel' : ''}`, onclick: () => { ales = n; grila.querySelectorAll('.sel').forEach((x) => x.classList.remove('sel')); b.classList.add('sel'); }, ondblclick: () => go() }, h('span', { class: 'ap-cpp-sablon-ic', html: ICO[i] }), n);
+        b.dataset.ok = ok ? '1' : '';
+        return b;
+      }));
+      const go = async () => {
+        if (ales !== 'Console application') { await intreaba('Information', `Șablonul „${ales}” nu este disponibil în acest simulator.\nLa ora de informatică folosești Console application.`, ['OK']); return; }
+        d.inchide('go'); asistent();
+      };
+      const d = fereastra('New from template', h('div', { class: 'ap-cpp-nft' },
+        h('div', { class: 'ap-cpp-nft-cat' }, h('b', {}, 'Category:'), h('div', { class: 'ap-cpp-lista' }, h('div', { class: 'sel' }, 'Projects'), h('div', {}, 'Build targets'), h('div', {}, 'Files'), h('div', {}, 'Custom'), h('div', {}, 'User templates'))),
+        h('div', { class: 'ap-cpp-nft-dr' }, h('p', { class: 'ap-cpp-mic' }, 'Alege Console application și apasă Go.'), grila)),
+      { cls: 'lat', butoane: [buton('Go', go, 'impl'), buton('Cancel', () => d.inchide(''))] });
+      grila.querySelector('.sel')?.focus();
+    }
+    function asistent() {
+      let pas = 0, limbaj = 'C++';
+      const titluIn = h('input', { type: 'text', class: 'ap-cpp-winp', spellcheck: 'false', maxlength: '60' });
+      const cbpIn = h('input', { type: 'text', class: 'ap-cpp-winp', readonly: true });
+      const rezIn = h('input', { type: 'text', class: 'ap-cpp-winp', readonly: true });
+      const avert = h('div', { class: 'ap-cpp-dlg-err' });
+      titluIn.addEventListener('input', () => {
+        const t = titluIn.value.trim(); const n = numeFisier(t || 'x').replace(/\.cpp$/, '');
+        cbpIn.value = t ? `${n}.cbp` : ''; rezIn.value = t ? `${DIR}\\${n}\\${n}.cbp` : '';
+        avert.textContent = /\s|[ăâîșțşţĂÂÎȘȚ]/.test(t) ? 'Sfat: în lecție, numele proiectului se scrie fără spații și fără diacritice (altfel depanatorul poate să nu meargă).' : '';
+      });
+      const pagini = [
+        () => h('div', {}, h('h3', {}, 'Welcome to the new console application wizard!'), h('p', {}, 'This wizard will guide you to create a new console application.'), h('p', {}, 'When you \'re ready to proceed, please click "Next"...')),
+        () => h('div', {}, h('p', {}, 'Please select the language you want to use.'), h('div', { class: 'ap-cpp-lista mare' }, ['C', 'C++'].map((l) => h('div', { class: l === limbaj ? 'sel' : '', tabindex: '0', onclick: (e) => { limbaj = l; e.currentTarget.parentNode.querySelectorAll('.sel').forEach((x) => x.classList.remove('sel')); e.currentTarget.classList.add('sel'); } }, l)))),
+        () => h('div', { class: 'ap-cpp-form' }, h('p', {}, 'Please select the folder where you want the new project to be created as well as its title.'),
+          h('label', { class: 'ap-cpp-camp' }, 'Project title:', titluIn), h('label', { class: 'ap-cpp-camp' }, 'Folder to create project in:', h('input', { type: 'text', class: 'ap-cpp-winp', readonly: true, value: DIR })),
+          h('label', { class: 'ap-cpp-camp' }, 'Project filename:', cbpIn), h('label', { class: 'ap-cpp-camp' }, 'Resulting filename:', rezIn), avert),
+        () => h('div', { class: 'ap-cpp-form' }, h('p', {}, 'Please select the compiler to use and which configurations you want enabled in your project.'),
+          h('label', { class: 'ap-cpp-camp' }, 'Compiler:', h('select', { class: 'ap-cpp-winp' }, h('option', {}, 'GNU GCC Compiler'))),
+          h('label', { class: 'ap-cpp-chk' }, h('input', { type: 'checkbox', checked: true, disabled: true }), ' Create "Debug" configuration: Debug'),
+          h('div', { class: 'ap-cpp-mic' }, 'Output dir.: bin\\Debug\\   Objects output dir.: obj\\Debug\\'),
+          h('label', { class: 'ap-cpp-chk' }, h('input', { type: 'checkbox', checked: true, disabled: true }), ' Create "Release" configuration: Release'),
+          h('div', { class: 'ap-cpp-mic' }, 'Output dir.: bin\\Release\\   Objects output dir.: obj\\Release\\')),
+      ];
+      const zona = h('div', { class: 'ap-cpp-wiz-pag' });
+      const inapoi = buton('< Back', () => { if (pas > 0) { pas--; arata(); } });
+      const inainte = buton('Next >', () => urmator(), 'impl');
+      const d = fereastra('Console application', h('div', { class: 'ap-cpp-wiz' }, h('div', { class: 'ap-cpp-wiz-img' }, h('span', { html: ICO.consola }), h('b', {}, 'Console')), zona),
+        { cls: 'lat', butoane: [inapoi, inainte, buton('Cancel', () => d.inchide(''))] });
+      async function urmator() {
+        if (pas === 1 && limbaj === 'C') { await intreaba('Information', 'În acest simulator poți crea doar proiecte C++ (la ora de informatică folosim C++).', ['OK']); return; }
+        if (pas === 2) {
+          const t = titluIn.value.trim();
+          if (!t) { await intreaba('Error', 'Please select a valid title for the project.', ['OK'], 'eroare'); titluIn.focus(); return; }
+          if ([...db.values()].some((f) => !f.fisier && numeProj(f) === numeFisier(t).replace(/\.cpp$/, ''))) { await intreaba('Error', `The directory\n${DIR}\\${numeFisier(t).replace(/\.cpp$/, '')}\nalready exists. Alege alt nume pentru proiect.`, ['OK'], 'eroare'); titluIn.focus(); return; }
+        }
+        if (pas < pagini.length - 1) { pas++; arata(); return; }
+        d.inchide('gata');
+        const f = await creeaza(titluIn.value.trim().slice(0, 60), SABLON_CB);
+        logCbScrie(`Project ${numeProj(f)} created: ${caleProiect(f)}\\${numeProj(f)}.cbp`);
+        toast('Proiect creat. Deschide Sources → main.cpp și apasă F9 (Build and run).');
+      }
+      function arata() {
+        umple(zona, pagini[pas]());
+        inapoi.disabled = pas === 0;
+        inainte.textContent = pas === pagini.length - 1 ? 'Finish' : 'Next >';
+        if (pas === 2) titluIn.focus(); else inainte.focus();
+      }
+      titluIn.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); urmator(); } });
+      arata();
+    }
+
+    // ----- File → Open (fereastra de deschidere, cu toate programele salvate) -----
+    function dialogDeschide() {
+      let sel = null;
+      const tb = h('tbody', {});
+      const numeIn = h('input', { type: 'text', class: 'ap-cpp-winp', readonly: true });
+      function redaLista() {
+        const toate = recente();
+        umple(tb, toate.map((f) => {
+          const r = h('tr', { tabindex: '0', class: sel === f.id ? 'sel' : '' },
+            h('td', {}, ic(f.fisier ? 'cpp' : 'cbp'), f.fisier ? numeSursa(f) : `${numeProj(f)}.cbp`, f.fisier ? '' : h('small', {}, `  (${f.titlu})`)),
+            h('td', {}, cand(f.actualizat || f.creat || Date.now())), h('td', {}, f.fisier ? 'C/C++ source file' : 'Code::Blocks project'));
+          r.addEventListener('click', () => { sel = f.id; numeIn.value = f.fisier ? numeSursa(f) : `${numeProj(f)}.cbp`; tb.querySelectorAll('.sel').forEach((x) => x.classList.remove('sel')); r.classList.add('sel'); });
+          r.addEventListener('dblclick', () => { sel = f.id; deschide(); });
+          r.addEventListener('keydown', (e) => { if (e.key === 'Enter') { sel = f.id; deschide(); } });
+          return r;
+        }));
+        if (!toate.length) tb.append(h('tr', {}, h('td', { colspan: '3', class: 'ap-cpp-gol' }, 'Nu ai încă programe salvate.')));
+      }
+      const deschide = () => { if (!sel) return; d.inchide('ok'); const f = db.get(sel); if (f.fisier) deschideFila(f.id); else deschideProiect(f.id); };
+      const d = fereastra('Open file', h('div', { class: 'ap-cpp-open' },
+        h('div', { class: 'ap-cpp-open-sus' }, h('span', {}, 'Look in:'), h('span', { class: 'ap-cpp-winp cale' }, ic('dosarDeschis'), DIR), h('span', { class: 'ap-cpp-spatiu' }),
+          buton('Din calculator...', () => { d.inchide(''); fisierIn.click(); }),
+          buton('Redenumește', async () => { if (sel) { await redenumeste(db.get(sel)); redaLista(); } }),
+          buton('Șterge', async () => { if (sel && await stergeFisier(db.get(sel))) { sel = null; redaLista(); } })),
+        h('div', { class: 'ap-cpp-open-lista' }, h('table', { class: 'ap-cpp-tabel' }, h('thead', {}, h('tr', {}, h('th', {}, 'Name'), h('th', {}, 'Date modified'), h('th', {}, 'Type'))), tb)),
+        h('label', { class: 'ap-cpp-camp rand' }, 'File name:', numeIn),
+        h('label', { class: 'ap-cpp-camp rand' }, 'Files of type:', h('select', { class: 'ap-cpp-winp' }, h('option', {}, 'All known files'), h('option', {}, 'Code::Blocks project files (*.cbp)'), h('option', {}, 'C/C++ files (*.c;*.cpp;*.h)'))),
+        h('p', { class: 'ap-cpp-mic' }, 'Programele se păstrează în acest browser, pe acest calculator. Ca să le iei cu tine, folosește File → Save file as… (descarcă .cpp).')),
+      { cls: 'lat', butoane: [buton('Open', deschide, 'impl'), buton('Cancel', () => d.inchide(''))] });
+      redaLista();
+      tb.querySelector('tr')?.focus();
+    }
     function dialogExemple() {
-      const d = dialog('Exemple din lecții', h('div', {},
-        h('p', { class: 'muted' }, 'Alege un program: se deschide ca fișier nou, cu datele de intrare completate. Apoi apasă F9.'),
+      const d = fereastra('Exemple din lecții', h('div', {},
+        h('p', { class: 'ap-cpp-mic' }, 'Alege un program: se deschide ca proiect nou (cu datele de intrare completate, dacă are). Apoi apasă F9 – Build and run.'),
         h('div', { class: 'ap-cpp-exemple' }, EXEMPLE.map((x) => h('button', { type: 'button', class: 'ap-cpp-ex', onclick: async () => {
-          d.close();
+          d.inchide('ok');
           await creeaza(x.titlu, x.cod, x.intrare);
-          toast(x.intrare ? 'Exemplul are deja date de intrare. Apasă F9 ca să-l rulezi.' : 'Apasă F9 ca să-l rulezi.');
-        } }, h('b', {}, x.titlu), h('span', {}, x.desc), h('code', {}, x.cod.split('\n').filter((l) => l.trim() && !/^#|^using|^int main|^\{|^\}/.test(l.trim())).slice(1, 4).map((l) => l.trim()).join('\n')))))), 'lat');
-      return d;
+          toast(x.intrare ? 'Exemplul are deja date de intrare (fila Date de intrare). Apasă F9.' : 'Apasă F9 (Build and run) ca să-l rulezi.');
+        } }, h('b', {}, x.titlu), h('span', {}, x.desc), h('code', {}, x.cod.split('\n').filter((l) => l.trim() && !/^#|^using|^int main|^\{|^\}/.test(l.trim())).slice(1, 4).map((l) => l.trim()).join('\n')))))), { cls: 'lat' });
     }
-
-    function dialogAjutor() {
-      const li = (...c) => h('li', {}, ...c);
-      dialog('Cum folosești editorul', h('div', { class: 'ap-cpp-ajutor' },
-        h('p', {}, 'Scrii programul în stânga, apeși ', h('b', {}, 'Compilează și rulează'), ' (sau ', h('kbd', {}, 'F9'), '), iar rezultatul apare în ', h('b', {}, 'Ieșire'), '. Erorile apar cu roșu, cu numărul rândului: dă clic pe ele ca să ajungi la rândul greșit.'),
-        h('h3', {}, 'Datele de intrare (cin >>)'),
-        h('ul', {}, li('Scrie-le în caseta ', h('b', {}, 'Date de intrare'), ', separate prin spații sau pe rânduri.'),
-          li('Sau las-o goală: când programul ajunge la cin >>, scrii valoarea direct în consolă și apeși Enter, ca în Code::Blocks.')),
-        h('h3', {}, 'Ce cunoaște editorul'),
-        h('ul', {}, li('#include <iostream>, <cmath>, <iomanip>, using namespace std;, int main()'),
-          li('tipurile int, long long, unsigned, float, double, char, bool, const; tablouri cu una sau două dimensiuni'),
-          li('if / else, switch, while, do … while, for, break, continue, operatorul ?:'),
-          li('cout cu endl, setprecision, fixed, setw; funcțiile sqrt, pow, abs, fabs, floor, ceil, round, max, min, swap'),
-          li('funcții scrise de tine, cu parametri prin valoare sau prin referință (&)')),
-        h('h3', {}, 'Scurtături'),
-        h('ul', {}, li(h('kbd', {}, 'F9'), ' sau ', h('kbd', {}, 'Ctrl'), '+', h('kbd', {}, 'Enter'), ' – compilează și rulează'),
-          li(h('kbd', {}, 'Tab'), ' / ', h('kbd', {}, 'Shift'), '+', h('kbd', {}, 'Tab'), ' – mută rândurile la dreapta / la stânga'),
-          li(h('kbd', {}, 'Ctrl'), '+', h('kbd', {}, '/'), ' – transformă rândurile în comentariu (și înapoi)'),
-          li(h('kbd', {}, 'Ctrl'), '+', h('kbd', {}, 'S'), ' – salvează (oricum se salvează singur)')),
-        h('p', { class: 'muted' }, 'Programul rulează în browser, nu pe un compilator adevărat. Un program care repetă de prea multe ori (peste 5 milioane de pași sau 3 secunde) este oprit, ca să nu se blocheze calculatorul.')));
-    }
-
     async function incarcaDeLaCalculator() {
       const f = fisierIn.files[0];
       fisierIn.value = '';
@@ -1626,98 +2372,245 @@
       toast(`Am deschis „${f.name}”.`);
     }
     function descarca() {
-      const a = h('a', { href: URL.createObjectURL(new Blob([ta.value], { type: 'text/plain;charset=utf-8' })), download: numeFisier(F.titlu) });
+      if (!F) return;
+      scrieInF();
+      const a = h('a', { href: URL.createObjectURL(new Blob([F.cod], { type: 'text/plain;charset=utf-8' })), download: F.fisier ? numeSursa(F) : numeFisier(F.titlu) });
       document.body.append(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(a.href), 2000);
     }
 
-    // ----- editorul -----
-    function zoom(d) {
-      pref.fs = Math.min(26, Math.max(11, (pref.fs || 15) + d));
-      app.style.setProperty('--ap-fs', `${pref.fs}px`);
-      lsScrie(LS_PREF, pref);
-      sincronizeaza();
+    // ----- titlul ferestrei, filele, pagina de start -----
+    function redaTitlu() {
+      const f = activ === 'start' ? null : F;
+      titluEl.textContent = f ? `${f.fisier ? numeSursa(f) : `main.cpp [${f.titlu}]`} - Code::Blocks 20.03` : 'Start here - Code::Blocks 20.03';
+      stCale.textContent = f ? caleSursa(f) : '';
+      stareSalv();
     }
-    let erori = new Map(); // rând → 'eroare' | 'atentie'
-    function stergeMarcaje() { erori = new Map(); redaMarcaje(); }
+    function redaTaburi() {
+      const lista = [...(pref.start ? ['start'] : []), ...tabs];
+      const numeFila = (f) => {
+        const n = numeSursa(f);
+        return tabs.filter((id) => db.get(id) && numeSursa(db.get(id)) === n).length > 1 && !f.fisier ? `${n} [${f.titlu}]` : n;
+      };
+      umple(taburi, lista.map((id) => {
+        const f = id === 'start' ? null : db.get(id);
+        if (id !== 'start' && !f) return null;
+        const t = h('div', { class: `ap-cpp-etab${id === activ ? ' activ' : ''}`, role: 'tab', 'aria-selected': String(id === activ), tabindex: '0', title: f ? caleSursa(f) : 'Start here' },
+          f ? ic('cpp') : ic('sigla'), h('span', {}, f ? `${sf(id).mod || f.nesalvat ? '*' : ''}${numeFila(f)}` : 'Start here'),
+          h('button', { type: 'button', class: 'ap-cpp-etab-x', 'aria-label': 'Închide fila', title: 'Close', onclick: (e) => { e.stopPropagation(); inchideFila(id); } }, '✕'));
+        t.addEventListener('click', () => { if (id !== activ) activeaza(id); });
+        t.addEventListener('auxclick', (e) => { if (e.button === 1) inchideFila(id); });
+        t.addEventListener('keydown', (e) => { if (e.key === 'Enter') activeaza(id); });
+        t.addEventListener('contextmenu', (e) => meniuContext([{ t: 'Close', f: () => inchideFila(id) }, { t: 'Close all', f: () => { for (const x of [...tabs]) inchideFila(x); } }, { t: 'Close all others', f: () => { for (const x of [...tabs]) if (x !== id) inchideFila(x); } }, '-', { t: 'Save', f: () => salveazaExplicit(f), dis: () => !f }, { t: 'Properties...', f: () => proprietati(f), dis: () => !f }], e));
+        return t;
+      }));
+      if (!lista.length) { pref.start = true; redaTaburi(); }
+    }
+    function redaStart() {
+      const rec = recente().slice(0, 10);
+      umple(startPag, h('div', { class: 'ap-cpp-sp' },
+        h('div', { class: 'ap-cpp-sp-sigla' }, h('span', { html: ICO.sigla }), h('div', {}, h('b', {}, 'Code::Blocks'), h('span', {}, 'The open source, cross-platform IDE'))),
+        h('div', { class: 'ap-cpp-sp-col' },
+          h('button', { type: 'button', class: 'ap-cpp-sp-link', onclick: () => proiectNou() }, ic('proiect'), 'Create a new project'),
+          h('button', { type: 'button', class: 'ap-cpp-sp-link', onclick: () => dialogDeschide() }, ic('deschide'), 'Open an existing project'),
+          h('button', { type: 'button', class: 'ap-cpp-sp-link', onclick: () => dialogExemple() }, ic('exemple'), 'Exemple din lecții'),
+          h('button', { type: 'button', class: 'ap-cpp-sp-link', onclick: () => dialogAjutor() }, ic('info'), 'Ajutor: cum lucrezi în acest Code::Blocks')),
+        h('h3', {}, 'Recent projects / files'),
+        rec.length ? h('ul', { class: 'ap-cpp-sp-rec' }, rec.map((f) => h('li', {}, h('button', { type: 'button', class: 'ap-cpp-sp-link mic', onclick: () => (f.fisier ? deschideFila(f.id) : deschideProiect(f.id)) }, f.fisier ? caleSursa(f) : `${caleProiect(f)}\\${numeProj(f)}.cbp`), h('small', {}, ` – ${f.titlu}, ${cand(f.actualizat || Date.now())}`)))) : h('p', { class: 'ap-cpp-gol' }, 'No recent projects'),
+        h('p', { class: 'ap-cpp-sp-nota' }, 'Simulator Code::Blocks 20.03 pentru browser (edudigi): programele rulează într-un interpretor C++ pentru lecțiile de gimnaziu, nu cu compilatorul GCC.')));
+    }
+    function redaTot() { redaTitlu(); redaTaburi(); redaMgmt(); actualizeazaUnelte(); redaFunctii(); }
+    function actualizeazaUnelte() {
+      const fara = !F || activ === 'start';
+      for (const k of ['salveaza', 'undo', 'redo', 'taie', 'copiaza', 'lipeste', 'cauta', 'inloc', 'cursor', 'next', 'into', 'instr']) B[k].disabled = fara;
+      for (const k of ['build', 'run', 'buildRun', 'rebuild']) B[k].disabled = fara || !!dbg;
+      B.debug.disabled = fara; B.abort.disabled = !ruleaza(); B.stop.disabled = !dbg; B.out.disabled = !dbg;
+      tintaSel.value = pref.tinta;
+    }
+    function redaFunctii() {
+      if (!F || activ === 'start') { umple(functSel); return; }
+      const fn = functiiDin(ta.value), r = randCursor();
+      let cur = null; for (const x of fn) if (x.rand <= r) cur = x;
+      umple(functSel, fn.length ? fn.map((x) => h('option', { value: String(x.rand), selected: x === cur || null }, `${x.nume}(${x.params}) : ${x.tip}`)) : h('option', { value: '' }, ''));
+      if (!cur) functSel.selectedIndex = -1;
+    }
+
+    // =====================================================================
+    // EDITORUL: desenare, margine, puncte de oprire
+    // =====================================================================
+    let nrLinii = -1;
+    const erori = () => (F ? sf(F.id).erori : new Map());
+    function redaGutter() {
+      if (!F || activ === 'start') return;
+      const n = nrLinii;
+      const bp = new Set(bps(F)), er = erori();
+      const cur = dbg && dbg.id === F.id && dbg.pauza ? dbg.pauza.rand : 0;
+      const o = [];
+      for (let i = 1; i <= n; i++) {
+        const c = `${bp.has(i) ? ' bp' : ''}${i === cur ? ' cur' : ''}${er.has(i) ? ` ${er.get(i)}` : ''}`;
+        o.push(c ? `<div class="${c.trim()}">${i}</div>` : `<div>${i}</div>`);
+      }
+      nrRand.innerHTML = o.join('');
+    }
     function redaMarcaje() {
-      const n = ta.value.split('\n').length;
-      const nr = [];
-      for (let i = 1; i <= n; i++) nr.push(`<div${erori.has(i) ? ` class="${erori.get(i)}"` : ''}>${i}</div>`);
-      nrRand.innerHTML = nr.join('');
-      umple(marcaj, [...erori].map(([r, cls]) => { const d = h('div', { class: cls }); d.style.top = `calc(${r - 1} * var(--ap-lh))`; return d; }));
+      if (!F || activ === 'start') return;
+      const benzi = [];
+      const pune = (r, cls) => { const d = h('div', { class: cls }); d.style.top = `${(r - 1) * lh}px`; benzi.push(d); };
+      if (pref.linieCur && document.activeElement === ta) pune(randCursor(), 'linie');
+      for (const [r, cls] of erori()) pune(r, cls);
+      if (dbg && dbg.id === F.id && dbg.pauza) pune(dbg.pauza.rand, 'dbg');
+      umple(marcaj, benzi);
     }
-    let nrLinii = 0;
     function reda() {
       codEl.innerHTML = coloreaza(ta.value);
       const n = ta.value.split('\n').length;
-      if (n !== nrLinii) { nrLinii = n; redaMarcaje(); }
+      if (n !== nrLinii) { nrLinii = n; redaGutter(); }
+      redaMarcaje();
     }
     function sincronizeaza() {
       const t = `translate(${-ta.scrollLeft}px, ${-ta.scrollTop}px)`;
       codEl.style.transform = t; marcaj.style.transform = t;
       nrRand.style.transform = `translateY(${-ta.scrollTop}px)`;
+      if (!popup.hidden) pozitioneazaPopup();
     }
+    const randCursor = () => ta.value.slice(0, ta.selectionStart).split('\n').length;
+    let ultimRandCursor = 0;
     function pozitie() {
+      if (!F || activ === 'start') { stPoz.textContent = ''; return; }
       const p = ta.selectionStart, inainte = ta.value.slice(0, p);
       const r = inainte.split('\n').length, c = p - inainte.lastIndexOf('\n');
-      stPoz.textContent = `Rândul ${r}, coloana ${c}`;
+      stPoz.textContent = `Line ${r}, Col ${c}, Pos ${p}`;
+      if (r !== ultimRandCursor) { ultimRandCursor = r; redaMarcaje(); redaFunctii(); }
     }
-    function mergiLaRand(r) {
+    function arataRand(r) {
+      const v = ta.scrollTop, hh = ta.clientHeight;
+      const y = (r - 1) * lh;
+      if (y < v || y + lh > v + hh) ta.scrollTop = Math.max(0, y - hh / 3);
+      sincronizeaza();
+    }
+    function mergiLaRand(r, selecteaza = true) {
+      if (!F || activ === 'start') return;
       const linii = ta.value.split('\n');
       r = Math.max(1, Math.min(r, linii.length));
       let p = 0; for (let i = 0; i < r - 1; i++) p += linii[i].length + 1;
       const ind = (linii[r - 1].match(/^\s*/) || [''])[0].length;
-      ta.focus();
-      ta.setSelectionRange(p + ind, p + linii[r - 1].length);
-      const lh = parseFloat(getComputedStyle(ta).lineHeight) || 22;
+      ta.focus({ preventScroll: true });
+      if (selecteaza) ta.setSelectionRange(p + ind, p + linii[r - 1].length); else ta.setSelectionRange(p + ind, p + ind);
       ta.scrollTop = Math.max(0, (r - 1) * lh - ta.clientHeight / 3);
       sincronizeaza(); pozitie();
     }
-    // înlocuiește textul [a, b) păstrând Undo (Ctrl+Z) acolo unde browserul permite
+    function comutaBp(r) {
+      if (!F || activ === 'start' || !r) return;
+      const l = bps(F), k = l.indexOf(r);
+      if (k >= 0) l.splice(k, 1); else l.push(r);
+      redaGutter(); salveazaCurand(F);
+      if (dbg) logDbgScrie(k >= 0 ? `Breakpoint removed: ${numeSursa(F)}:${r}` : `Breakpoint 1 at ${numeSursa(F)}, line ${r}.`);
+    }
+    gutter.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      const r = Math.floor((e.clientY - gutter.getBoundingClientRect().top - 2 + ta.scrollTop) / lh) + 1;
+      if (r >= 1 && r <= nrLinii) comutaBp(r);
+    });
+    gutter.addEventListener('contextmenu', (e) => {
+      const r = Math.floor((e.clientY - gutter.getBoundingClientRect().top - 2 + ta.scrollTop) / lh) + 1;
+      meniuContext([{ t: bps(F).includes(r) ? 'Remove breakpoint' : 'Add breakpoint', f: () => comutaBp(r) }, { t: 'Remove all breakpoints', f: () => { F.bp = []; redaGutter(); salveazaCurand(F); } }], e);
+    });
+    // punctele de oprire și marcajele se mută odată cu rândurile când scrii
+    let textVechi = '';
+    function ajusteazaRanduri(vechi, nou) {
+      if (!F) return;
+      let a = 0; const n = Math.min(vechi.length, nou.length);
+      while (a < n && vechi[a] === nou[a]) a++;
+      const randSch = vechi.slice(0, a).split('\n').length;
+      const delta = nou.split('\n').length - vechi.split('\n').length;
+      if (!delta) return;
+      const lin = (r) => (r > randSch ? r + delta : r);
+      if (bps(F).length) {
+        const sters = delta < 0 ? (r) => r > randSch && r <= randSch - delta : () => false;
+        F.bp = [...new Set(bps(F).filter((r) => !sters(r) || r === randSch).map(lin))];
+      }
+    }
+
+    // ----- tastatura în editor -----
     function insereaza(text, a = ta.selectionStart, b = ta.selectionEnd) {
+      if (document.activeElement !== ta) ta.focus({ preventScroll: true });
       ta.setSelectionRange(a, b);
       let ok = false;
       try { ok = document.execCommand('insertText', false, text); } catch { ok = false; }
       if (!ok) { ta.setRangeText(text, a, b, 'end'); ta.dispatchEvent(new Event('input')); }
     }
+    function comandaText(c) {
+      if (!F || activ === 'start') return;
+      ta.focus();
+      let ok = false;
+      try { ok = document.execCommand(c); } catch { ok = false; }
+      if (!ok && (c === 'cut' || c === 'copy')) toast(`Folosește ${c === 'cut' ? 'Ctrl+X' : 'Ctrl+C'} de la tastatură.`);
+    }
+    async function lipeste() {
+      ta.focus();
+      try { const t = await navigator.clipboard.readText(); if (t) insereaza(t.replace(/\r\n?/g, '\n')); } catch { toast('Browserul nu permite lipirea din meniu: folosește Ctrl+V.'); }
+    }
     const IND = '    ';
-    function linii(a, b) { // începutul primului rând și sfârșitul ultimului rând din selecție
+    function linii(a, b) {
       const v = ta.value;
       const s = v.lastIndexOf('\n', a - 1) + 1;
       let e = v.indexOf('\n', b > a && v[b - 1] === '\n' ? b - 1 : b); if (e < 0) e = v.length;
       return [s, e];
     }
     function modificaLinii(fn) {
-      const a = ta.selectionStart, b = ta.selectionEnd;
-      const [s, e] = linii(a, b);
-      const vechi = ta.value.slice(s, e).split('\n');
-      const noi = fn(vechi);
-      insereaza(noi.join('\n'), s, e);
-      ta.setSelectionRange(s, s + noi.join('\n').length);
+      const [s, e] = linii(ta.selectionStart, ta.selectionEnd);
+      const noi = fn(ta.value.slice(s, e).split('\n')).join('\n');
+      insereaza(noi, s, e);
+      ta.setSelectionRange(s, s + noi.length);
+    }
+    // Edit → Comment (Ctrl+Shift+C) pune // la începutul rândului, ca în Code::Blocks; Uncomment îl scoate
+    function comenteaza(mod) {
+      if (!F || activ === 'start') return;
+      ta.focus();
+      modificaLinii((ls) => {
+        const toate = ls.filter((l) => l.trim()).every((l) => /^\s*\/\//.test(l));
+        const pune = mod === true || (mod === null && !toate);
+        return ls.map((l) => (pune ? (l.trim() || ls.length === 1 ? `//${l}` : l) : l.replace(/^(\s*)\/\/ ?/, '$1')));
+      });
+    }
+    function dubleazaRand() {
+      if (!F || activ === 'start') return;
+      const [s, e] = linii(ta.selectionStart, ta.selectionStart);
+      const p = ta.selectionStart;
+      insereaza(`\n${ta.value.slice(s, e)}`, e, e);
+      ta.setSelectionRange(p, p);
+    }
+    function indentPereche(s) {
+      const v = ta.value; let k = 0;
+      for (let i = s - 1; i >= 0; i--) {
+        const c = v[i];
+        if (c === '}') k++;
+        else if (c === '{') { if (k === 0) { const ls = v.lastIndexOf('\n', i - 1) + 1; return (v.slice(ls, i).match(/^[ \t]*/) || [''])[0]; } k--; }
+      }
+      return '';
+    }
+    function indentAnterior(s) {
+      const v = ta.value; let e = s - 1;
+      while (e > 0) {
+        const ls = v.lastIndexOf('\n', e - 1) + 1;
+        const l = v.slice(ls, e);
+        if (l.trim()) { const ind = (l.match(/^[ \t]*/) || [''])[0]; return /\{\s*$/.test(l) ? ind + IND : ind; }
+        e = ls - 1;
+      }
+      return null;
     }
     ta.addEventListener('keydown', (e) => {
-      if (e.key === 'F9' || (e.key === 'Enter' && (e.ctrlKey || e.metaKey))) { e.preventDefault(); ruleazaProgram(); return; }
-      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) { e.preventDefault(); salveaza().then(() => toast('Salvat în acest browser.')); return; }
-      if ((e.ctrlKey || e.metaKey) && e.key === '/') {
-        e.preventDefault();
-        modificaLinii((ls) => {
-          const toate = ls.filter((l) => l.trim()).every((l) => /^\s*\/\//.test(l));
-          return ls.map((l) => (!l.trim() ? l : toate ? l.replace(/^(\s*)\/\/ ?/, '$1') : l.replace(/^(\s*)/, '$1// ')));
-        });
-        return;
-      }
+      if (!popup.hidden && tastaCompletare(e)) return;
       if (e.key === 'Tab' && !e.ctrlKey && !e.altKey) {
-        if (e.key === 'Tab' && ta.dataset.tabIese === '1') return;
+        if (ta.dataset.tabIese === '1') return;
         e.preventDefault();
         const a = ta.selectionStart, b = ta.selectionEnd;
-        if (!e.shiftKey && a === b) { insereaza(IND); return; }
-        if (!e.shiftKey && !ta.value.slice(a, b).includes('\n')) { insereaza(IND); return; }
+        if (!e.shiftKey && (a === b || !ta.value.slice(a, b).includes('\n'))) { insereaza(IND); return; }
         modificaLinii((ls) => ls.map((l) => (e.shiftKey ? l.replace(/^( {1,4}|\t)/, '') : (l.trim() ? IND + l : l))));
         return;
       }
       if (e.key === 'Escape') { ta.dataset.tabIese = '1'; return; } // Esc, apoi Tab: ieși din editor cu tastatura
-      if (e.key === 'Enter' && !e.shiftKey && !e.altKey) {
+      if (e.key === 'Enter' && !e.shiftKey && !e.altKey && !e.ctrlKey && !e.metaKey) {
         e.preventDefault();
         const a = ta.selectionStart, v = ta.value;
         const s = v.lastIndexOf('\n', a - 1) + 1;
@@ -1728,12 +2621,11 @@
         if (ultim === '{') {
           if (urm && urm[1] === '}') { insereaza(`\n${ind}${IND}\n${ind}`); const p = ta.selectionStart - ind.length - 1; ta.setSelectionRange(p, p); return; }
           ind += IND;
-        } else if (/^\s*(if|while|for|else)\b.*\)\s*$|^\s*else\s*$/.test(rand) && ultim !== ';') ind += IND; // if (...) fără acoladă
+        } else if (/^\s*(if|while|for|else)\b.*\)\s*$|^\s*else\s*$/.test(rand) && ultim !== ';') ind += IND;
         insereaza(`\n${ind}`);
         return;
       }
       if ((e.key === '}' || e.key === '{') && !e.ctrlKey && !e.metaKey) {
-        // acolada pe un rând gol se aliniază: } sub perechea ei {, iar { sub instrucțiunea de deasupra (if, for…)
         const a = ta.selectionStart, v = ta.value;
         const s = v.lastIndexOf('\n', a - 1) + 1;
         const rand = v.slice(s, a);
@@ -1743,143 +2635,826 @@
         }
       }
     });
-    function indentPereche(s) { // indentarea rândului care conține { -ul nepereche de dinainte de poziția s
-      const v = ta.value;
-      let k = 0;
-      for (let i = s - 1; i >= 0; i--) {
-        const c = v[i];
-        if (c === '}') k++;
-        else if (c === '{') { if (k === 0) { const ls = v.lastIndexOf('\n', i - 1) + 1; return (v.slice(ls, i).match(/^[ \t]*/) || [''])[0]; } k--; }
-      }
-      return '';
-    }
-    function indentAnterior(s) {
-      const v = ta.value;
-      let e = s - 1;
-      while (e > 0) {
-        const ls = v.lastIndexOf('\n', e - 1) + 1;
-        const l = v.slice(ls, e);
-        if (l.trim()) {
-          const ind = (l.match(/^[ \t]*/) || [''])[0];
-          return /\{\s*$/.test(l) ? ind + IND : ind;
-        }
-        e = ls - 1;
-      }
-      return null;
-    }
     ta.addEventListener('keyup', (e) => { if (e.key !== 'Escape' && e.key !== 'Tab') delete ta.dataset.tabIese; });
-    ta.addEventListener('input', () => {
-      reda();
-      if (erori.size) stergeMarcaje();
-      laSchimbare(); pozitie();
+    ta.addEventListener('input', (e) => {
+      const nou = ta.value;
+      ajusteazaRanduri(textVechi, nou); textVechi = nou;
+      if (F) {
+        F.cod = nou;
+        const s = sf(F.id);
+        if (s.erori.size) s.erori = new Map();
+        if (!s.mod) { s.mod = true; redaTaburi(); stareSalv(); }
+        salveazaCurand(F);
+      }
+      nrLinii = -1; reda(); pozitie();
+      if (!popup.hidden) completare(false);
+      else if (pref.compl && e.inputType === 'insertText' && /\w/.test(e.data || '')) {
+        const pref3 = ta.value.slice(0, ta.selectionStart).match(/[A-Za-z_]\w*$/);
+        if (pref3 && pref3[0].length >= 3 && !/^\d/.test(pref3[0])) completare(false, true);
+      }
+      clearTimeout(tSim); tSim = setTimeout(() => { if (mgFila === 'Symbols') redaMgmt(); redaFunctii(); }, 600);
     });
+    let tSim = null;
     ta.addEventListener('scroll', sincronizeaza);
-    for (const ev of ['keyup', 'click', 'select', 'focus']) ta.addEventListener(ev, pozitie);
-    intrareTa.addEventListener('input', laSchimbare);
-    intrareTa.addEventListener('keydown', (e) => { if (e.key === 'F9' || (e.key === 'Enter' && (e.ctrlKey || e.metaKey))) { e.preventDefault(); ruleazaProgram(); } });
-    numeIn.addEventListener('change', () => { const t = numeIn.value.trim().slice(0, 60); F.titlu = t || 'Program'; numeIn.value = F.titlu; salveaza(); });
-    numeIn.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); ta.focus(); } });
-    app.addEventListener('keydown', (e) => { if (e.key === 'F9' && e.target !== ta && e.target !== intrareTa) { e.preventDefault(); ruleazaProgram(); } });
+    for (const ev of ['keyup', 'click', 'select']) ta.addEventListener(ev, pozitie);
+    ta.addEventListener('focus', () => { ultimRandCursor = 0; pozitie(); });
+    ta.addEventListener('blur', () => { setTimeout(() => { if (document.activeElement !== ta) { redaMarcaje(); if (!popup.contains(document.activeElement)) inchideCompletare(); } }, 150); });
+    ta.addEventListener('contextmenu', (e) => {
+      const r = randCursor();
+      meniuContext([
+        { t: 'Undo', k: 'Ctrl+Z', ic: 'anuleaza', f: () => comandaText('undo') }, { t: 'Redo', k: 'Ctrl+Shift+Z', ic: 'refa', f: () => comandaText('redo') }, '-',
+        { t: 'Cut', k: 'Ctrl+X', ic: 'taie', f: () => comandaText('cut') }, { t: 'Copy', k: 'Ctrl+C', ic: 'copiaza', f: () => comandaText('copy') }, { t: 'Paste', k: 'Ctrl+V', ic: 'lipeste', f: () => lipeste() }, '-',
+        { t: 'Select all', k: 'Ctrl+A', f: () => { ta.focus(); ta.select(); } }, '-',
+        { t: bps(F).includes(r) ? 'Remove breakpoint' : 'Add breakpoint', k: 'F5', f: () => comutaBp(r) }, { t: 'Run to cursor', k: 'F4', ic: 'laCursor', f: () => depaneaza('cursor') }, '-',
+        { t: 'Comment', k: 'Ctrl+Shift+C', f: () => comenteaza(true) }, { t: 'Uncomment', k: 'Ctrl+Shift+X', f: () => comenteaza(false) }, '-',
+        { t: 'Format use AStyle', f: () => formateaza() }, { t: 'Swap header/source', dis: () => true },
+      ], e);
+    });
+    intrareTa.addEventListener('input', laIntrare);
+    function laIntrare() { if (F) { F.intrare = intrareTa.value; salveazaCurand(F); } }
 
-    // ----- consola -----
-    function consolaGoala() {
-      consola.append(h('p', { class: 'ap-cpp-indiciu' }, 'Aici apare ce afișează programul cu cout. Apasă ', h('b', {}, 'Compilează și rulează'), ' (F9).'));
+    // ----- completarea automată (Ctrl+Space) -----
+    const CUVINTE = ['include', 'iostream', 'cmath', 'iomanip', 'using', 'namespace', 'std', 'int', 'long', 'short', 'unsigned', 'float', 'double', 'char', 'bool', 'void', 'const', 'if', 'else', 'while', 'do', 'for', 'switch', 'case', 'default', 'break', 'continue', 'return', 'true', 'false', 'main',
+      'cout', 'cin', 'endl', 'fixed', 'setprecision', 'setw', 'setfill', 'sqrt', 'pow', 'abs', 'fabs', 'floor', 'ceil', 'round', 'max', 'min', 'swap', 'INT_MAX', 'INT_MIN', 'LLONG_MAX', 'static_cast'];
+    const CUV_K = new Set([...KW, 'include', 'namespace', 'std']);
+    let compl = { lista: [], i: 0, start: 0 };
+    function completare(fortat, auto = false) {
+      if (!F || activ === 'start') return;
+      const p = ta.selectionStart;
+      const m = ta.value.slice(0, p).match(/[A-Za-z_]\w*$/);
+      const pref0 = m ? m[0] : '';
+      if (!pref0 && !fortat) { inchideCompletare(); return; }
+      const ids = new Set(CUVINTE);
+      for (const w of ta.value.match(/[A-Za-z_]\w*/g) || []) ids.add(w);
+      const fn = new Set(functiiDin(ta.value).map((x) => x.nume).concat(['sqrt', 'pow', 'abs', 'fabs', 'floor', 'ceil', 'round', 'max', 'min', 'swap', 'setprecision', 'setw', 'setfill', 'main']));
+      const mic = pref0.toLowerCase();
+      const lista = [...ids].filter((w) => w.toLowerCase().startsWith(mic) && w !== pref0)
+        .sort((a, b) => (b.startsWith(pref0) - a.startsWith(pref0)) || a.localeCompare(b)).slice(0, 60);
+      if (!lista.length) { inchideCompletare(); if (fortat) stareStatus('Code completion: nu am găsit nimic potrivit.'); return; }
+      if (auto && lista.length === 0) return;
+      compl = { lista: lista.map((w) => ({ w, tip: CUV_K.has(w) ? 'cuvant' : fn.has(w) ? 'functie' : 'variabila' })), i: 0, start: p - pref0.length };
+      redaCompletare();
     }
-    const linkRand = (r) => (r ? h('button', { type: 'button', class: 'ap-cpp-rand', title: 'Mergi la rândul din cod', onclick: () => mergiLaRand(r) }, `rândul ${r}`) : null);
-    function opresteRularea() {
-      if (!ruleaza && !asteaptaDate) return;
-      asteaptaDate = false;
+    function redaCompletare() {
+      umple(popup, compl.lista.map((x, i) => {
+        const r = h('div', { class: `ap-cpp-compl-it${i === compl.i ? ' sel' : ''}`, role: 'option', 'aria-selected': String(i === compl.i) }, ic(x.tip), x.w);
+        r.addEventListener('mousedown', (e) => { e.preventDefault(); compl.i = i; accepta(); });
+        return r;
+      }));
+      popup.hidden = false;
+      pozitioneazaPopup();
+      popup.children[compl.i]?.scrollIntoView({ block: 'nearest' });
+    }
+    function pozitioneazaPopup() {
+      const v = ta.value.slice(0, compl.start);
+      const r = v.split('\n').length - 1;
+      const col = v.slice(v.lastIndexOf('\n') + 1).replace(/\t/g, '    ').length;
+      const cs = getComputedStyle(ta);
+      let x = parseFloat(cs.paddingLeft) + col * cw - ta.scrollLeft - 22;
+      let y = parseFloat(cs.paddingTop) + (r + 1) * lh - ta.scrollTop + 2;
+      const W = strat.clientWidth, Hh = strat.clientHeight;
+      x = Math.max(0, Math.min(x, W - popup.offsetWidth - 4));
+      if (y + popup.offsetHeight > Hh && y - lh - popup.offsetHeight - 4 > 0) y = y - lh - popup.offsetHeight - 4;
+      popup.style.left = `${x}px`; popup.style.top = `${y}px`;
+    }
+    function inchideCompletare() { popup.hidden = true; }
+    function accepta() {
+      const x = compl.lista[compl.i]; if (!x) return;
+      const p = ta.selectionStart;
+      let e = p; while (/\w/.test(ta.value[e] || '')) e++;
+      inchideCompletare();
+      insereaza(x.w, compl.start, e);
+      ta.focus();
+    }
+    function tastaCompletare(e) {
+      const n = compl.lista.length;
+      if (e.key === 'ArrowDown') compl.i = (compl.i + 1) % n;
+      else if (e.key === 'ArrowUp') compl.i = (compl.i + n - 1) % n;
+      else if (e.key === 'PageDown') compl.i = Math.min(n - 1, compl.i + 8);
+      else if (e.key === 'PageUp') compl.i = Math.max(0, compl.i - 8);
+      else if (e.key === 'Enter' || e.key === 'Tab') { e.preventDefault(); accepta(); return true; }
+      else if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); inchideCompletare(); return true; }
+      else return false;
+      e.preventDefault(); redaCompletare(); return true;
+    }
+
+    // ----- Search: Find / Replace / Goto line -----
+    let cautare = { text: '', caz: false, cuvant: false, inapoi: false };
+    function gasesteToate(text, o = cautare) {
+      if (!text) return [];
+      const esc = text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const re = new RegExp(o.cuvant ? `\\b${esc}\\b` : esc, o.caz ? 'g' : 'gi');
+      const rez = []; let m;
+      while ((m = re.exec(ta.value))) { rez.push([m.index, m.index + m[0].length]); if (!m[0].length) re.lastIndex++; }
+      return rez;
+    }
+    async function cautaUrmator(dir = 1) {
+      if (!F || activ === 'start') return;
+      if (!cautare.text) { dialogCauta(false); return; }
+      const toate = gasesteToate(cautare.text);
+      if (!toate.length) { await intreaba('Information', `Not found: ${cautare.text}`, ['OK']); return; }
+      const p = dir > 0 ? ta.selectionEnd : ta.selectionStart;
+      let g = dir > 0 ? toate.find(([a]) => a >= p) : [...toate].reverse().find(([, b]) => b <= p);
+      if (!g) { g = dir > 0 ? toate[0] : toate[toate.length - 1]; stareStatus(dir > 0 ? 'Căutarea a ajuns la sfârșit și a reluat de la început.' : 'Căutarea a reluat de la sfârșit.'); }
+      ta.focus({ preventScroll: true }); ta.setSelectionRange(g[0], g[1]);
+      arataRand(ta.value.slice(0, g[0]).split('\n').length); pozitie();
+    }
+    function dialogCauta(inlocuire) {
+      if (!F || activ === 'start') return;
+      const selText = ta.value.slice(ta.selectionStart, ta.selectionEnd);
+      const txt = h('input', { type: 'text', class: 'ap-cpp-winp', value: selText && !selText.includes('\n') ? selText : cautare.text, spellcheck: 'false' });
+      const cu = h('input', { type: 'text', class: 'ap-cpp-winp', spellcheck: 'false' });
+      const chk = (et, k) => { const c = h('input', { type: 'checkbox', checked: cautare[k] || null }); c.addEventListener('change', () => { cautare[k] = c.checked; }); return h('label', { class: 'ap-cpp-chk' }, c, ` ${et}`); };
+      const dirF = h('input', { type: 'radio', name: 'dir', checked: !cautare.inapoi || null }), dirB = h('input', { type: 'radio', name: 'dir', checked: cautare.inapoi || null });
+      const ok = async () => {
+        cautare.text = txt.value; cautare.inapoi = dirB.checked;
+        if (!cautare.text) return;
+        listeazaRezultate();
+        d.inchide('ok'); await cautaUrmator(cautare.inapoi ? -1 : 1);
+      };
+      const inlocToate = async () => {
+        cautare.text = txt.value; if (!cautare.text) return;
+        const toate = gasesteToate(cautare.text);
+        d.inchide('ok');
+        if (!toate.length) { await intreaba('Information', `Not found: ${cautare.text}`, ['OK']); return; }
+        let v = ta.value, o = '', k = 0;
+        for (const [a, b] of toate) { o += v.slice(k, a) + cu.value; k = b; }
+        o += v.slice(k);
+        insereaza(o, 0, v.length); ta.setSelectionRange(0, 0);
+        await intreaba('Information', `Replaced ${toate.length} occurrence(s) of "${cautare.text}".`, ['OK']);
+      };
+      const d = fereastra(inlocuire ? 'Replace text' : 'Find text', h('div', { class: 'ap-cpp-form' },
+        h('label', { class: 'ap-cpp-camp' }, 'Text to search for:', txt),
+        inlocuire ? h('label', { class: 'ap-cpp-camp' }, 'Replace with:', cu) : null,
+        h('fieldset', { class: 'ap-cpp-fs' }, h('legend', {}, 'Options'), chk('Whole word', 'cuvant'), chk('Match case', 'caz')),
+        inlocuire ? null : h('fieldset', { class: 'ap-cpp-fs' }, h('legend', {}, 'Direction'), h('label', { class: 'ap-cpp-chk' }, dirF, ' Forward'), h('label', { class: 'ap-cpp-chk' }, dirB, ' Backward'))),
+      { cls: 'mic', butoane: inlocuire ? [buton('Replace all', inlocToate, 'impl'), buton('Find next', ok), buton('Cancel', () => d.inchide(''))] : [buton('OK', ok, 'impl'), buton('Cancel', () => d.inchide(''))] });
+      txt.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); (inlocuire ? inlocToate : ok)(); } });
+      txt.focus(); txt.select();
+    }
+    function listeazaRezultate() {
+      const toate = gasesteToate(cautare.text);
+      const linii0 = ta.value.split('\n');
+      const randuri = [...new Set(toate.map(([a]) => ta.value.slice(0, a).split('\n').length))];
+      umple(logCautare, h('table', { class: 'ap-cpp-mesaje' }, h('thead', {}, h('tr', {}, h('th', {}, 'File'), h('th', {}, 'Line'), h('th', {}, 'Text'))),
+        h('tbody', {}, h('tr', { class: 'info' }, h('td', { colspan: '3' }, `Searching for "${cautare.text}" in ${caleSursa(F)}: ${toate.length} match(es)`)),
+          randuri.map((r) => { const tr = h('tr', { tabindex: '0' }, h('td', {}, caleSursa(F)), h('td', {}, String(r)), h('td', {}, linii0[r - 1].trim())); tr.addEventListener('click', () => mergiLaRand(r)); return tr; }))));
+    }
+    function dialogRand() {
+      if (!F || activ === 'start') return;
+      cereText('Goto line', `Line (1 - ${nrLinii}):`, String(randCursor()), (v) => (!/^\d+$/.test(v) || +v < 1 ? 'Scrie un număr de rând.' : null)).then((v) => { if (v) mergiLaRand(+v, false); });
+    }
+    function dialogFunctie() {
+      if (!F || activ === 'start') return;
+      const fn = functiiDin(ta.value);
+      const d = fereastra('Select function...', h('div', { class: 'ap-cpp-lista mare' }, fn.map((x) => h('div', { tabindex: '0', onclick: () => { d.inchide('ok'); mergiLaRand(x.rand, false); } }, ic('functie'), ` ${x.nume}(${x.params}) : ${x.tip}`))), { cls: 'mic' });
+    }
+
+    // ----- Plugins, Settings, Help -----
+    function formateaza() {
+      if (!F || activ === 'start') return;
+      const v = ta.value, nou = astyle(v);
+      if (nou === v) { stareStatus('AStyle: codul era deja formatat.'); return; }
+      const r = randCursor();
+      insereaza(nou, 0, v.length);
+      mergiLaRand(Math.min(r, nou.split('\n').length), false);
+      stareStatus('Source code formatter (AStyle): codul a fost aliniat.', 'ok');
+    }
+    function statistici() {
+      const l = ta.value.split('\n');
+      const com = l.filter((x) => /^\s*(\/\/|\/\*|\*)/.test(x)).length, gol = l.filter((x) => !x.trim()).length;
+      fereastra('Code statistics', h('table', { class: 'ap-cpp-prop' }, h('tr', {}, h('th', {}, 'File:'), h('td', {}, caleSursa(F))),
+        h('tr', {}, h('th', {}, 'Total lines:'), h('td', {}, String(l.length))), h('tr', {}, h('th', {}, 'Code lines:'), h('td', {}, String(l.length - com - gol))),
+        h('tr', {}, h('th', {}, 'Comment lines:'), h('td', {}, String(com))), h('tr', {}, h('th', {}, 'Empty lines:'), h('td', {}, String(gol)))), { cls: 'mic', butoane: [buton('OK', () => app.querySelector('dialog[open]')?.close(), 'impl')] });
+    }
+    function setariEditor() {
+      const fs = h('input', { type: 'number', class: 'ap-cpp-winp scurt', min: '10', max: '26', value: String(pref.fs) });
+      const c1 = h('input', { type: 'checkbox', checked: pref.linieCur || null }), c2 = h('input', { type: 'checkbox', checked: pref.compl || null });
+      const d = fereastra('Configure editor', h('div', { class: 'ap-cpp-form' },
+        h('fieldset', { class: 'ap-cpp-fs' }, h('legend', {}, 'Font'), h('label', { class: 'ap-cpp-camp rand' }, 'Size:', fs)),
+        h('fieldset', { class: 'ap-cpp-fs' }, h('legend', {}, 'Other options'), h('label', { class: 'ap-cpp-chk' }, c1, ' Highlight caret line'), h('label', { class: 'ap-cpp-chk' }, c2, ' Code completion: automatically launch after typing 3 letters'))),
+      { cls: 'mic', butoane: [buton('OK', () => { pref.linieCur = c1.checked; pref.compl = c2.checked; const v = +fs.value; if (v >= 10 && v <= 26) pref.fs = v; zoom(null); d.inchide('ok'); }, 'impl'), buton('Cancel', () => d.inchide(''))] });
+    }
+    function setariCompilator() {
+      fereastra('Global compiler settings', h('div', { class: 'ap-cpp-form' },
+        h('label', { class: 'ap-cpp-camp' }, 'Selected compiler:', h('select', { class: 'ap-cpp-winp' }, h('option', {}, 'GNU GCC Compiler'))),
+        h('fieldset', { class: 'ap-cpp-fs' }, h('legend', {}, 'Compiler flags'),
+          ...[['Enable all common compiler warnings (overrides many other settings) [-Wall]', true], ['Have g++ follow the C++11 ISO C++ language standard [-std=c++11]', false], ['Optimize even more (for speed) [-O2]', false], ['Produce debugging symbols [-g]', true]].map(([t, c]) => h('label', { class: 'ap-cpp-chk' }, h('input', { type: 'checkbox', checked: c || null, disabled: true }), ` ${t}`))),
+        h('p', { class: 'ap-cpp-mic' }, 'În simulator, setările compilatorului sunt fixe: programele rulează într-un interpretor pentru C++ de gimnaziu.')),
+      { butoane: [buton('OK', () => app.querySelector('dialog[open]')?.close(), 'impl')] });
+    }
+    function despre() {
+      fereastra('About', h('div', { class: 'ap-cpp-despre' }, h('span', { html: ICO.sigla }), h('div', {}, h('h3', {}, 'Code::Blocks'), h('p', {}, 'Version 20.03 – simulator pentru browser'),
+        h('p', {}, 'Acest program imită interfața mediului de dezvoltare Code::Blocks (codeblocks.org), ca să exersezi la ora de informatică pe orice calculator, inclusiv pe Chromebook. Nu este programul original: codul C++ rulează într-un interpretor scris pentru lecțiile de gimnaziu (iostream, cmath, iomanip, tablouri, funcții).'),
+        h('p', { class: 'ap-cpp-mic' }, 'edudigi · lucrările se păstrează în acest browser.'))), { cls: 'mic', butoane: [buton('OK', () => app.querySelector('dialog[open]')?.close(), 'impl')] });
+    }
+    function dialogAjutor(doarTaste = false) {
+      const li = (...c) => h('li', {}, ...c);
+      const taste = h('table', { class: 'ap-cpp-prop taste' }, [
+        ['F9', 'Build and run – compilează și rulează'], ['Ctrl+F9', 'Build – doar compilează'], ['Ctrl+F10', 'Run – rulează ultimul executabil'], ['Ctrl+F11', 'Rebuild'],
+        ['F5', 'Toggle breakpoint – punct de oprire'], ['F8', 'Start / Continue depanatorul'], ['F7', 'Next line'], ['Shift+F7', 'Step into'], ['Ctrl+Shift+F7', 'Step out'], ['F4', 'Run to cursor'], ['Ctrl+F7', 'Continue'], ['Shift+F8', 'Stop debugger'],
+        ['Ctrl+Space', 'Completare automată'], ['Ctrl+Shift+C / Ctrl+Shift+X', 'Comment / Uncomment'], ['Ctrl+/', 'Comentează sau decomentează'], ['Ctrl+F / Ctrl+R', 'Find / Replace'], ['F3', 'Find next'], ['Ctrl+G', 'Goto line'], ['Ctrl+D', 'Duplicate line'],
+        ['Ctrl+S', 'Save file'], ['Ctrl+Shift+S', 'Save all files'], ['Ctrl+O', 'Open'], ['Ctrl+Shift+N', 'Empty file'], ['F2 / Shift+F2', 'Logs / Manager'], ['Ctrl+Enter', 'Build and run (pentru tastaturi fără F9)'],
+      ].map(([a, b]) => h('tr', {}, h('th', {}, a), h('td', {}, b))));
+      if (doarTaste) { fereastra('Scurtături de la tastatură', taste, { butoane: [buton('OK', () => app.querySelector('dialog[open]')?.close(), 'impl')] }); return; }
+      fereastra('Ajutor – Code::Blocks în browser', h('div', { class: 'ap-cpp-ajutor' },
+        h('p', {}, 'Lucrezi ca în Code::Blocks: ', h('b', {}, 'File → New → Project… → Console application'), ', apoi deschizi ', h('b', {}, 'Sources → main.cpp'), ' în panoul Management și apeși ', h('b', {}, 'Build and run'), ' (', h('kbd', {}, 'F9'), '). Programul pornește într-o ', h('b', {}, 'consolă'), ' neagră, separată.'),
+        h('h3', {}, 'Erori'),
+        h('ul', {}, li('Dacă ai greșit, apar în fila ', h('b', {}, 'Build messages'), ' (jos) rândurile cu ', h('b', {}, 'error'), ': dă clic pe ele ca să ajungi la rândul greșit (uită-te și la rândul de deasupra).'),
+          li('Avertismentele (', h('b', {}, 'warning'), ') nu opresc programul, dar citește-le!')),
+        h('h3', {}, 'Datele de intrare (cin >>)'),
+        h('ul', {}, li('Le scrii direct în consolă când programul le cere, apoi apeși Enter.'), li('Sau le scrii dinainte în fila ', h('b', {}, 'Date de intrare'), ' din panoul de jos (ajutor edudigi).')),
+        h('h3', {}, 'Depanatorul (Debug)'),
+        h('ul', {}, li('Clic în marginea cu numere (sau ', h('kbd', {}, 'F5'), ') pune un ', h('b', {}, 'punct de oprire'), ' roșu.'),
+          li(h('kbd', {}, 'F8'), ' pornește depanarea: programul se oprește la punctul de oprire; săgeata galbenă arată rândul care urmează.'),
+          li(h('kbd', {}, 'F7'), ' – rândul următor, ', h('kbd', {}, 'Shift'), '+', h('kbd', {}, 'F7'), ' – intri în funcție, ', h('kbd', {}, 'F4'), ' – rulează până la cursor. În fereastra ', h('b', {}, 'Watches'), ' vezi valorile variabilelor (cele schimbate apar cu roșu).')),
+        h('h3', {}, 'Ce cunoaște compilatorul simulat'),
+        h('ul', {}, li('#include <iostream>, <cmath>, <iomanip>, <climits>, <algorithm>, using namespace std;, int main()'),
+          li('int, long long, unsigned, float, double, char, bool, const; tablouri cu una sau două dimensiuni'),
+          li('if / else, switch, while, do … while, for, break, continue, ?:; funcții scrise de tine (prin valoare sau prin referință &)'),
+          li('cout cu endl, setprecision, fixed, setw; sqrt, pow, abs, fabs, floor, ceil, round, max, min, swap')),
+        h('h3', {}, 'Scurtături'), taste,
+        h('p', { class: 'ap-cpp-mic' }, 'Un program care repetă de prea multe ori (peste 5 milioane de pași sau 3 secunde) este oprit, ca să nu se blocheze calculatorul. Ca în Code::Blocks, îl poți opri și tu cu Ctrl+C în consolă sau cu butonul Abort.')), { cls: 'lat', butoane: [buton('OK', () => app.querySelector('dialog[open]')?.close(), 'impl')] });
+    }
+
+    // =====================================================================
+    // LOGS & OTHERS (Build log, Build messages, Debugger…)
+    // =====================================================================
+    const durata = (ms) => `${Math.floor(ms / 60000)} minute(s), ${Math.floor(ms / 1000) % 60} second(s)`;
+    function scrieLog(el, t, cls = '') {
+      el.append(h('div', { class: cls }, t || '\u00a0'));
+      while (el.childElementCount > 600) el.firstElementChild.remove();
+      el.scrollTop = el.scrollHeight;
+    }
+    const logB = (t, cls) => scrieLog(logBuild, t, cls);
+    const logCbScrie = (t) => scrieLog(logCB, t);
+    const logDbgScrie = (t, cls) => scrieLog(logDbg, t, cls);
+    function mesaj(fis, rand, text, cls = '', idF = null) {
+      const tr = h('tr', { class: cls, tabindex: rand ? '0' : null }, h('td', {}, fis), h('td', {}, rand ? String(rand) : ''), h('td', {}, text));
+      if (rand) {
+        const du = () => { mesajeT.querySelectorAll('.sel').forEach((x) => x.classList.remove('sel')); tr.classList.add('sel'); if (idF && idF !== activ) deschideFila(idF); mergiLaRand(rand); };
+        tr.addEventListener('click', du);
+        tr.addEventListener('keydown', (e) => { if (e.key === 'Enter') du(); });
+      }
+      mesajeT.append(tr);
+      logMesaje.scrollTop = logMesaje.scrollHeight;
+    }
+    // antetul funcției, ca la GCC: In function 'int suma(int, int)':
+    function inFunctie(cod, rand) {
+      const fn = functiiDin(cod).filter((x) => x.rand <= rand).pop();
+      if (!fn) return null;
+      const tipuri = fn.params && fn.params !== 'void' ? fn.params.split(',').map((p) => { const t = p.trim(); const arr = /\[/.test(t); const ref = /&/.test(t); return t.replace(/\[.*$/, '').replace(/&/, ' ').replace(/\s+[A-Za-z_]\w*\s*$/, '').trim() + (arr ? '*' : '') + (ref ? '&' : ''); }).join(', ') : '';
+      return `In function '${fn.tip} ${fn.nume}(${tipuri})':`;
+    }
+    const pauzaScurta = (ms) => new Promise((r) => setTimeout(r, ms));
+    function ruleaza() { return !!(con && !con.gata); }
+
+    // =====================================================================
+    // BUILD / RUN
+    // =====================================================================
+    let inBuild = false;
+    async function build({ rebuild = false } = {}) {
+      if (!F || activ === 'start' || inBuild) return false;
+      if (dbg) { await intreaba('Information', 'Depanatorul rulează. Oprește-l întâi (Debug → Stop debugger, Shift+F8).', ['OK']); return false; }
+      const f = F;
+      if (!(await salveazaExplicit(f))) return false;
+      if (ruleaza()) inchideConsola(true);
+      inBuild = true;
+      try {
+        const t0 = Date.now();
+        umple(logBuild); umple(mesajeT);
+        sf(f.id).erori = new Map(); redaGutter(); redaMarcaje();
+        arataLog('Build log');
+        const proj = numeProj(f), cale = caleSursa(f), tinta = pref.tinta;
+        const titluB = f.fisier ? 'Build file: "no target" in "no project" (compiler: unknown)' : `Build: ${tinta} in ${proj} (compiler: GNU GCC Compiler)`;
+        if (rebuild && !f.fisier) {
+          logB(`-------------- Clean: ${tinta} in ${proj} (compiler: GNU GCC Compiler)---------------`, 'cap'); logB('');
+          logB(`Cleaned "${proj} - ${tinta}"`); logB('');
+          exe.delete(f.id);
+        }
+        logB(`-------------- ${titluB}---------------`, 'cap'); logB('');
+        mesaj('', '', `=== ${titluB} ===`, 'info');
+        const e0 = exe.get(f.id);
+        if (!rebuild && e0 && e0.cod === f.cod) {
+          logB('Target is up to date.'); logB('Nothing to be done (all items are up-to-date).'); logB('');
+          mesaj('', '', '=== Build finished: 0 error(s), 0 warning(s) (0 minute(s), 0 second(s)) ===', 'info');
+          stareStatus('Target is up to date.');
+          return true;
+        }
+        stareStatus('Building...'); app.classList.add('ocupat');
+        await pauzaScurta(180);
+        const r = CPP.verifica(f.cod);
+        const flags = tinta === 'Debug' ? '-Wall -fexceptions -g' : '-Wall -fexceptions -O2';
+        const obj = f.fisier ? cale.replace(/\.cpp$/, '.o') : `obj\\${tinta}\\main.o`;
+        logB(f.fisier ? `mingw32-g++.exe     -c ${cale} -o ${obj}` : `mingw32-g++.exe ${flags}  -c ${cale} -o ${obj}`);
+        const av = (r.avertizari || []).slice().sort((a, b) => a.rand - b.rand);
+        const lista = av.map((w) => ({ ...w, tip: 'warning' }));
+        if (!r.ok) lista.push({ ...r.eroare, tip: 'error' });
+        lista.sort((a, b) => (a.rand || 0) - (b.rand || 0));
+        let fnAnt = null;
+        for (const x of lista) {
+          const fn = x.rand ? inFunctie(f.cod, x.rand) : null;
+          if (fn && fn !== fnAnt) { logB(`${cale}: ${fn}`); mesaj(cale, '', fn); fnAnt = fn; }
+          logB(`${cale}:${x.rand || 1}: ${x.tip}: ${x.mesaj}`, x.tip === 'error' ? 'err' : 'warn');
+          mesaj(cale, x.rand, `${x.tip}: ${x.mesaj}`, x.tip === 'error' ? 'err' : 'warn', f.id);
+          if (x.rand) sf(f.id).erori.set(x.rand, x.tip === 'error' ? 'eroare' : (sf(f.id).erori.get(x.rand) || 'atentie'));
+        }
+        const dur = durata(Date.now() - t0);
+        if (!r.ok) {
+          logB(`Process terminated with status 1 (${dur})`, 'err');
+          logB(`1 error(s), ${av.length} warning(s) (${dur})`, 'err'); logB('');
+          mesaj('', '', `=== Build failed: 1 error(s), ${av.length} warning(s) (${dur}) ===`, 'err b');
+          exe.delete(f.id);
+          redaGutter(); redaMarcaje();
+          arataLog('Build messages');
+          if (r.eroare.rand) { mergiLaRand(r.eroare.rand); mesajeT.querySelector('tr.err')?.classList.add('sel'); }
+          stareStatus(`Build failed: 1 error(s), ${av.length} warning(s)`, 'err');
+          ultimaRulare = { text: `Eroare de compilare${r.eroare.rand ? ` – rândul ${r.eroare.rand}` : ''}: ${r.eroare.mesaj}` };
+          return false;
+        }
+        logB(f.fisier ? `mingw32-g++.exe  -o ${caleExe(f)} ${obj}   ` : `mingw32-g++.exe  -o ${exeRel(f)} ${obj}   `);
+        logB(`Output file is ${exeRel(f)} with size ${(1.4 + (f.cod.length % 97) / 100).toFixed(2)} MB`);
+        logB(`Process terminated with status 0 (${dur})`);
+        logB(`0 error(s), ${av.length} warning(s) (${dur})`, av.length ? 'warn' : ''); logB('');
+        mesaj('', '', `=== Build finished: 0 error(s), ${av.length} warning(s) (${dur}) ===`, 'info b');
+        exe.set(f.id, { cod: f.cod });
+        redaGutter(); redaMarcaje();
+        if (av.length) arataLog('Build messages');
+        stareStatus(`Build finished: 0 error(s), ${av.length} warning(s)`, 'ok');
+        return true;
+      } finally { inBuild = false; app.classList.remove('ocupat'); actualizeazaUnelte(); }
+    }
+    function clean() {
+      if (!F || activ === 'start') return;
+      umple(logBuild); arataLog('Build log');
+      logB(`-------------- Clean: ${pref.tinta} in ${numeProj(F)} (compiler: GNU GCC Compiler)---------------`, 'cap'); logB('');
+      logB(`Cleaned "${numeProj(F)} - ${pref.tinta}"`); logB(''); logB('Done.');
+      exe.delete(F.id);
+    }
+    function alegeTinta(t) { if (t === pref.tinta) return; pref.tinta = t; exe.clear(); salvPref(); actualizeazaUnelte(); stareStatus(`Build target: ${t}`); }
+    async function run() {
+      if (!F || activ === 'start' || dbg) return;
+      const e = exe.get(F.id);
+      if (!e) {
+        const r = await intreaba('Question', 'It seems that this project has not been built yet.\nDo you want to build it now?', ['Yes', 'No', 'Cancel'], 'intrebare');
+        if (r === 'Yes') await buildRun();
+        return;
+      }
+      pornesteConsola(F, e.cod);
+    }
+    async function buildRun() {
+      if (!F || activ === 'start' || dbg) return;
+      const f = F;
+      if (await build()) pornesteConsola(f, exe.get(f.id).cod);
+    }
+    function abort() { if (ruleaza()) { inchideConsola(true); stareStatus('Aborted.'); } }
+
+    // =====================================================================
+    // CONSOLA (fereastra neagră, separată, ca în Windows)
+    // =====================================================================
+    function pornesteConsola(f, cod, cuDepanare = false) {
+      inchideConsola(true);
+      if (!cuDepanare) {
+        logB(`-------------- Run: ${pref.tinta} in ${numeProj(f)} (compiler: GNU GCC Compiler)---------------`, 'cap'); logB('');
+        logB(`Checking for existence: ${caleExe(f)}`);
+        logB(`Executing: "C:\\Program Files\\CodeBlocks/cb_console_runner.exe" "${caleExe(f)}"  (in ${caleProiect(f)}\\.)`);
+      }
+      const out = h('span', {}), err = h('span', { class: 'err' }), fin = h('span', {}), tastat = h('span', {}), cursor = h('span', { class: 'ap-cpp-con-cursor' }, '_');
+      const ecran = h('pre', { class: 'ap-cpp-con-ecran' }, out, err, fin, tastat, cursor);
+      const inp = h('input', { type: 'text', class: 'ap-cpp-con-inp', spellcheck: 'false', autocomplete: 'off', autocapitalize: 'off', 'aria-label': 'Tastează în consolă (datele cerute de program), apoi Enter' });
+      const titlu = h('span', { class: 'ap-cpp-con-titlu' }, caleExe(f));
+      const bMax = h('button', { type: 'button', class: 'ap-cpp-con-b', title: 'Maximize', 'aria-label': 'Maximizează' }, '□');
+      const bMin = h('button', { type: 'button', class: 'ap-cpp-con-b', title: 'Minimize', 'aria-label': 'Minimizează' }, '—');
+      const bX = h('button', { type: 'button', class: 'ap-cpp-con-b x', title: 'Close', 'aria-label': 'Închide consola' }, '✕');
+      const bara = h('div', { class: 'ap-cpp-con-bara' }, ic('consola'), titlu, bMin, bMax, bX);
+      const el = h('div', { class: 'ap-cpp-con', role: 'dialog', 'aria-label': `Consola: ${caleExe(f)}` }, bara, h('div', { class: 'ap-cpp-con-corp' }, ecran, inp));
+      const c = { f, cod, intrare: f.intrare || '', interactive: [], t0: Date.now(), gata: false, dbg: cuDepanare, stare: 'ruleaza', el, inp, out, err, fin, tastat, ecran, raportate: new Set(),
+        avComp: new Set((CPP.verifica(cod).avertizari || []).map((w) => `${w.rand}|${w.mesaj}`)) };
+      con = c;
+      app.append(el);
+      // poziția: peste editor, ușor deplasată (ca o fereastră nouă)
+      const ra = app.getBoundingClientRect();
+      // la depanare, consola e mai mică și stă jos, în dreapta, ca să se vadă săgeata galbenă din editor
+      const w = cuDepanare ? Math.min(500, ra.width - 24) : Math.min(680, ra.width - 24), hh = cuDepanare ? Math.min(210, Math.round(ra.height * 0.32)) : Math.min(360, ra.height - 120);
+      el.style.width = `${w}px`; el.style.height = `${hh}px`;
+      el.style.left = `${cuDepanare ? Math.max(8, ra.width - w - 14) : Math.max(8, Math.min(ra.width - w - 8, (ra.width - w) / 2 + 60))}px`;
+      el.style.top = `${cuDepanare ? Math.max(8, ra.height - hh - 34) : Math.max(8, Math.min(ra.height - hh - 30, 96))}px`;
+      requestAnimationFrame(() => el.classList.add('vizibil'));
+      // mutarea ferestrei de bara de titlu
+      bara.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('button') || el.classList.contains('max')) return;
+        e.preventDefault(); bara.setPointerCapture(e.pointerId);
+        const x0 = e.clientX - el.offsetLeft, y0 = e.clientY - el.offsetTop;
+        const mut = (ev) => { el.style.left = `${Math.max(-el.offsetWidth + 80, Math.min(app.clientWidth - 60, ev.clientX - x0))}px`; el.style.top = `${Math.max(0, Math.min(app.clientHeight - 30, ev.clientY - y0))}px`; };
+        const gata = () => { bara.removeEventListener('pointermove', mut); bara.removeEventListener('pointerup', gata); };
+        bara.addEventListener('pointermove', mut); bara.addEventListener('pointerup', gata);
+      });
+      bara.addEventListener('dblclick', () => el.classList.toggle('max'));
+      bMax.addEventListener('click', () => { el.classList.toggle('max'); focusConsola(); });
+      bMin.addEventListener('click', () => { el.classList.toggle('min'); });
+      bX.addEventListener('click', () => inchideConsola(true));
+      el.addEventListener('pointerdown', () => { el.classList.add('activ'); });
+      ecran.addEventListener('click', () => focusConsola());
+      inp.addEventListener('focus', () => { c.areFocus = true; el.classList.add('focus'); });
+      inp.addEventListener('blur', () => { c.areFocus = false; el.classList.remove('focus'); });
+      inp.addEventListener('input', () => { if (c.stare === 'asteapta') { tastat.textContent = inp.value; ecran.scrollTop = ecran.scrollHeight; } else inp.value = ''; });
+      inp.addEventListener('keydown', (e) => {
+        if (/^F\d+$/.test(e.key)) return; // scurtăturile (F9, F7…) merg și din consolă
+        if (c.gata) { if (!['Shift', 'Control', 'Alt', 'Meta', 'CapsLock'].includes(e.key)) { e.preventDefault(); inchideConsola(false); } return; }
+        if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C') && !inp.value.slice(inp.selectionStart, inp.selectionEnd)) { e.preventDefault(); e.stopPropagation(); ctrlC(); return; }
+        if (e.key === 'Enter') {
+          e.preventDefault(); e.stopPropagation();
+          if (c.stare !== 'asteapta') return;
+          c.interactive.push(inp.value); inp.value = ''; tastat.textContent = '';
+          pasConsola();
+        }
+        e.stopPropagation();
+      });
+      focusConsola();
+      actualizeazaUnelte();
+      if (!cuDepanare) pasConsola();
+      return c;
+    }
+    function focusConsola() { if (con) con.inp.focus({ preventScroll: true }); }
+    function scrieEcran(text, final = '', eroare = '') {
+      const c = con; if (!c) return;
+      c.out.textContent = text; c.err.textContent = eroare; c.fin.textContent = final;
+      c.tastat.textContent = c.stare === 'asteapta' ? c.inp.value : '';
+      c.ecran.scrollTop = c.ecran.scrollHeight;
+    }
+    function ctrlC() {
+      const c = con; if (!c || c.gata) return;
       idRulare++;
       if (asteptare) { clearTimeout(asteptare.ceas); asteptare = null; }
       opresteWorker();
-      gataRulare();
-      consola.querySelector('.ap-cpp-cere')?.remove();
-      consola.append(h('div', { class: 'ap-cpp-msg err' }, h('b', {}, 'Program oprit. '), 'L-ai oprit tu, cu butonul Oprește.'));
-      if (ultimaRulare) ultimaRulare.text += '\n[Program oprit]';
+      c.out.textContent += `${c.inp.value}^C`;
+      termina(c, -1073741510);
+      if (c.dbg) { logDbgScrie('Program received signal SIGINT, Interrupt.'); incheieDepanare(); }
     }
-    function gataRulare() { ruleaza = false; btnStop.hidden = true; btnRun.disabled = false; app.classList.remove('ruleaza'); }
-
-    async function ruleazaProgram(interactive = []) {
-      if (ruleaza && !interactive.length) return;
-      asteaptaDate = false;
-      if (tSalv) salveaza();
+    function inchideConsola(opreste = true) {
+      const c = con; if (!c) return;
+      if (!c.gata && opreste) {
+        idRulare++;
+        if (asteptare) { clearTimeout(asteptare.ceas); asteptare = null; }
+        opresteWorker();
+        logB(`Process terminated with status -1073741510 (${durata(Date.now() - c.t0)})`, 'err');
+        if (ultimaRulare) ultimaRulare.text += '\n[Program oprit]';
+      }
+      con = null;
+      c.el.classList.remove('vizibil'); c.el.classList.add('inchis');
+      setTimeout(() => c.el.remove(), 120);
+      if (c.dbg && dbg) { logDbgScrie('Debugger finished with status 0'); incheieDepanare(); }
+      actualizeazaUnelte();
+      if (activ !== 'start' && !dlgDeschise) ta.focus({ preventScroll: true });
+    }
+    async function pasConsola() {
+      const c = con; if (!c) return;
       const id = ++idRulare;
-      ruleaza = true; btnRun.disabled = true; app.classList.add('ruleaza');
-      const tIncet = setTimeout(() => { if (id === idRulare && ruleaza) btnStop.hidden = false; }, 250);
-      if (!interactive.length) { stMesaj.textContent = 'Se compilează și rulează…'; stMesaj.className = 'ap-cpp-stmesaj'; }
-      const cod = ta.value, intrare = intrareTa.value;
-      const rez = await executa(cod, intrare, interactive);
-      clearTimeout(tIncet);
-      if (id !== idRulare) return; // a fost oprit între timp
-      gataRulare();
-      afiseaza(rez, interactive);
+      c.stare = 'ruleaza'; c.el.classList.remove('asteapta');
+      actualizeazaUnelte();
+      if (!c.dbg) stareStatus('Running...');
+      const tLent = setTimeout(() => { if (id === idRulare && con === c) c.el.classList.add('ocupat'); }, 300);
+      const r = await executa(c.cod, c.intrare, c.interactive, c.dbg && dbg ? dbg.cerere : null);
+      clearTimeout(tLent);
+      if (id !== idRulare || con !== c) return;
+      c.el.classList.remove('ocupat');
+      if (c.dbg) rezultatDepanare(r); else afiseazaRezultat(r);
     }
-
-    function afiseaza(r, interactive) {
-      stergeMarcaje();
-      umple(consola);
-      const cap = h('div', { class: 'ap-cpp-start' }, `▶ ${F.titlu}`);
-      consola.append(cap);
-      let text = '';
-      const out = h('pre', { class: 'ap-cpp-out' });
-      const avert = [];
+    function textDin(r) { let t = ''; for (const s of r.iesire || []) if (s.k === 'o' || s.k === 'i') t += s.s; return t; }
+    function avertizariRulare(r, c) {
       for (const s of r.iesire || []) {
-        if (s.k === 'w') { avert.push(s); if (s.rand) erori.set(s.rand, erori.get(s.rand) || 'atentie'); continue; }
-        out.append(s.k === 'i' ? h('span', { class: 'in' }, s.s) : s.s);
-        text += s.s;
+        if (s.k !== 'w') continue;
+        const m = /^Atenție \(rândul (\d+)\): ([\s\S]*)$/.exec(s.s);
+        const cheie = m ? `${m[1]}|${m[2]}` : s.s;
+        if (c.avComp.has(cheie) || c.raportate.has(cheie)) continue;
+        c.raportate.add(cheie);
+        const rand = m ? +m[1] : null;
+        mesaj(caleSursa(c.f), rand, `warning: ${m ? m[2] : s.s}`, 'warn', c.f.id);
+        logB(`${caleSursa(c.f)}:${rand || 1}: warning: ${m ? m[2] : s.s}`, 'warn');
+        if (rand) { const er = sf(c.f.id).erori; if (!er.has(rand)) er.set(rand, 'atentie'); }
       }
-      if (avert.length) consola.append(h('div', { class: 'ap-cpp-avert' }, avert.map((s) => h('div', {}, '⚠ ', linkRand(s.rand), ': ', s.s.replace(/^Atenție \(rândul \d+\): /, '')))));
-      if (r.stare === 'compilare') {
-        const e = r.eroare;
-        if (e.rand) erori.set(e.rand, 'eroare');
-        consola.append(h('div', { class: 'ap-cpp-msg err' }, h('b', {}, 'Eroare de compilare'), e.rand ? [' – ', linkRand(e.rand)] : null, h('div', {}, e.mesaj)),
-          h('p', { class: 'ap-cpp-indiciu' }, 'Programul nu a pornit. Corectează greșeala (uită-te și la rândul de deasupra) și rulează din nou.'));
-        text = `Eroare de compilare${e.rand ? ` – rândul ${e.rand}` : ''}: ${e.mesaj}`;
-        stMesaj.textContent = `Eroare de compilare${e.rand ? ` la rândul ${e.rand}` : ''}`; stMesaj.className = 'ap-cpp-stmesaj err';
-        redaMarcaje();
-        ultimaRulare = { text };
-        return;
-      }
-      consola.append(out);
+      if (c.f === F) { redaGutter(); redaMarcaje(); }
+    }
+    function afiseazaRezultat(r) {
+      const c = con; if (!c) return;
+      const text = textDin(r);
+      avertizariRulare(r, c);
       if (r.stare === 'intrare') {
-        // programul așteaptă date: le scrii în consolă
-        const inp = h('input', { type: 'text', class: 'ap-cpp-tastare', spellcheck: 'false', autocomplete: 'off', 'aria-label': 'Scrie datele cerute de program și apasă Enter' });
-        out.append(inp);
-        consola.append(h('div', { class: 'ap-cpp-cere' }, '⌨ Programul așteaptă date (cin >>): scrie valoarea și apasă Enter.'));
-        inp.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') { e.preventDefault(); inp.disabled = true; ruleazaProgram([...interactive, inp.value]); }
-          else if (e.key === 'Escape') opresteRularea();
-        });
-        btnStop.hidden = false; asteaptaDate = true;
-        stMesaj.textContent = 'Programul așteaptă date de intrare…'; stMesaj.className = 'ap-cpp-stmesaj';
-        inp.focus({ preventScroll: true });
-        consola.scrollTop = consola.scrollHeight;
+        c.stare = 'asteapta'; c.el.classList.add('asteapta');
+        scrieEcran(text);
         ultimaRulare = { text };
+        stareStatus('Programul așteaptă date: scrie-le în consolă și apasă Enter.');
+        focusConsola();
+        actualizeazaUnelte();
         return;
       }
+      if (r.stare === 'compilare') { // nu ar trebui (s-a făcut Build), dar oricum
+        scrieEcran(text, '', `\nEroare: ${r.eroare.mesaj}\n`);
+        termina(c, 1, ''); return;
+      }
+      let cod = 0, eroare = '';
       if (r.stare === 'eroare') {
         const e = r.eroare;
-        if (e.rand) erori.set(e.rand, 'eroare');
-        consola.append(h('div', { class: 'ap-cpp-msg err' }, h('b', {}, 'Eroare la rulare'), e.rand ? [' – ', linkRand(e.rand)] : null, h('div', {}, e.mesaj)));
-        text += `\n[Eroare la rulare${e.rand ? ` – rândul ${e.rand}` : ''}: ${e.mesaj}]`;
-        stMesaj.textContent = 'Programul s-a oprit cu o eroare'; stMesaj.className = 'ap-cpp-stmesaj err';
+        cod = /împărțire la zero|restul împărțirii/.test(e.mesaj) ? -1073741676 : /prea multe apeluri/.test(e.mesaj) ? -1073741571 : /oprit/.test(e.mesaj) ? -1073741510 : -1073741819;
+        eroare = `\n*** Eroare la rulare${e.rand ? ` (rândul ${e.rand})` : ''}: ${e.mesaj}\n`;
+        if (e.rand) { sf(c.f.id).erori.set(e.rand, 'eroare'); if (c.f === F) { redaGutter(); redaMarcaje(); } }
+        mesaj(caleSursa(c.f), e.rand, `Eroare la rulare: ${e.mesaj}`, 'err', c.f.id);
+        logB(`${caleSursa(c.f)}:${e.rand || 1}: Eroare la rulare: ${e.mesaj}`, 'err');
+        arataLog('Build messages');
+        ultimaRulare = { text: `${text}\n[Eroare la rulare${e.rand ? ` – rândul ${e.rand}` : ''}: ${e.mesaj}]` };
+        stareStatus('Programul s-a oprit cu o eroare la rulare.', 'err');
       } else {
-        if (r.intrareInsuf) consola.append(h('div', { class: 'ap-cpp-avert' }, '⚠ Programul a încercat să citească mai multe date decât ai scris în caseta Date de intrare (variabilele necitite au primit 0).'));
-        const sec = (r.timp / 1000).toLocaleString('ro-RO', { minimumFractionDigits: 3, maximumFractionDigits: 3 });
-        consola.append(h('div', { class: 'ap-cpp-msg ok' }, `Program încheiat: main a întors ${r.cod} · timp ${sec} s`));
-        stMesaj.textContent = 'Programul a rulat'; stMesaj.className = 'ap-cpp-stmesaj ok';
+        cod = typeof r.cod === 'bigint' ? Number(BigInt.asIntN(32, r.cod)) : Number(r.cod) | 0;
+        if (r.intrareInsuf) { mesaj('', '', 'warning: programul a încercat să citească mai multe date decât ai scris în fila „Date de intrare” (variabilele necitite au primit 0).', 'warn'); arataLog('Build messages'); }
+        ultimaRulare = { text };
+        stareStatus(`Process returned ${cod}`, cod ? '' : 'ok');
       }
-      redaMarcaje();
-      consola.scrollTop = consola.scrollHeight;
-      ultimaRulare = { text };
+      scrieEcran(text, '', eroare);
+      termina(c, cod, eroare);
     }
-    consola.addEventListener('click', (e) => { if (e.target === consola || e.target.closest('.ap-cpp-out')) consola.querySelector('.ap-cpp-tastare:not(:disabled)')?.focus({ preventScroll: true }); });
+    function termina(c, cod) {
+      const sec = ((Date.now() - c.t0) / 1000).toFixed(3);
+      c.gata = true; c.stare = 'gata'; c.el.classList.remove('asteapta', 'ocupat'); c.el.classList.add('gata');
+      c.fin.textContent = `\nProcess returned ${cod} (0x${(cod >>> 0).toString(16).toUpperCase()})   execution time : ${sec} s\nPress any key to continue.\n`;
+      c.tastat.textContent = '';
+      c.ecran.scrollTop = c.ecran.scrollHeight;
+      logB(`Process terminated with status ${cod} (${durata(Date.now() - c.t0)})`, cod ? 'err' : '');
+      logB('');
+      actualizeazaUnelte();
+      focusConsola();
+    }
+
+    // =====================================================================
+    // DEPANATORUL (Debug): puncte de oprire, pas cu pas, Watches
+    // =====================================================================
+    async function depaneaza(mod) {
+      if (!F || activ === 'start') return;
+      if (con && (con.stare === 'ruleaza' || inBuild) && dbg) return;
+      if (!dbg) {
+        if (mod === 'out') return;
+        if (F.fisier) { await intreaba('Information', 'Depanatorul funcționează doar pentru programele create ca proiect (File → New → Project → Console application), ca în Code::Blocks.\nCreează un proiect și copiază codul în main.cpp.', ['OK']); return; }
+        const f = F;
+        if (ruleaza()) inchideConsola(true);
+        if (!(await build())) return;
+        dbg = { id: f.id, f, cod: exe.get(f.id).cod, pauza: null, ant: null, cerere: null, pid: 1000 + Math.floor(Math.random() * 9000) };
+        umple(logDbg); arataLog('Debugger');
+        logDbgScrie('Building to ensure sources are up-to-date');
+        logDbgScrie(`Selecting target: ${pref.tinta}`);
+        logDbgScrie(`Adding source dir: ${caleProiect(f)}\\`);
+        logDbgScrie(`Changing directory to: ${caleProiect(f)}/.`);
+        logDbgScrie(`Starting debugger: C:\\Program Files\\CodeBlocks\\MINGW\\bin\\gdb.exe -nx -fullname -quiet  -args ${exeRel(f)}`);
+        logDbgScrie('done');
+        logDbgScrie('Setting breakpoints');
+        logDbgScrie('Debugger name and version: GNU gdb (GDB) 8.1');
+        if (pref.tinta === 'Release') logDbgScrie('Atenție: ținta Release nu are informații de depanare (-g); în simulator depanatorul merge oricum.', 'warn');
+        for (const b of bps(f).slice().sort((a, b2) => a - b2)) logDbgScrie(`Breakpoint ${bps(f).indexOf(b) + 1} at ${numeSursa(f)}: line ${b}.`);
+        logDbgScrie(`Child process PID: ${dbg.pid}`);
+        arataWatches(true);
+        pornesteConsola(f, dbg.cod, true);
+        dbg.cerere = { mod, dupa: 0, ad: 0, rand: 0, linie: mod === 'cursor' ? randCursor() : 0, bp: bps(f).slice() };
+      } else {
+        if (con && con.stare === 'asteapta') { toast('Programul așteaptă date: scrie-le în consolă și apasă Enter.'); focusConsola(); return; }
+        const p = dbg.pauza;
+        if (!con) { opresteDepanarea(); return; }
+        dbg.cerere = { mod, dupa: p ? p.ev : 0, ad: p ? p.ad : 0, rand: p ? p.rand : 0, linie: mod === 'cursor' && activ === dbg.id ? randCursor() : 0, bp: bps(dbg.f).slice() };
+        dbg.ant = p; dbg.pauza = null;
+        redaGutter(); redaMarcaje();
+        if (mod === 'bp') logDbgScrie('Continuing...');
+      }
+      stareStatus('Debugger running...');
+      actualizeazaUnelte();
+      await pasConsola();
+    }
+    function rezultatDepanare(r) {
+      const c = con; if (!c || !dbg) return;
+      const text = textDin(r);
+      avertizariRulare(r, c);
+      if (r.stare === 'intrare') {
+        c.stare = 'asteapta'; c.el.classList.add('asteapta');
+        scrieEcran(text);
+        stareStatus('Programul așteaptă date: scrie-le în consolă și apasă Enter.');
+        redaWatches(); focusConsola(); actualizeazaUnelte();
+        return;
+      }
+      if (r.stare === 'pauza') {
+        c.stare = 'pauza';
+        dbg.pauza = r.pauza;
+        scrieEcran(text);
+        if (activ !== dbg.id) deschideFila(dbg.id);
+        redaGutter(); redaMarcaje(); arataRand(r.pauza.rand);
+        logDbgScrie(`At ${caleSursa(dbg.f)}:${r.pauza.rand}`);
+        redaWatches();
+        stareStatus(`Debugger: oprit la rândul ${r.pauza.rand} (F7 – rândul următor, F8 – continuă)`);
+        actualizeazaUnelte();
+        ta.focus({ preventScroll: true });
+        return;
+      }
+      afiseazaRezultat(r);
+      if (r.stare === 'eroare') logDbgScrie(/zero/.test(r.eroare?.mesaj || '') ? 'Program received signal SIGFPE, Arithmetic exception.' : 'Program received signal SIGSEGV, Segmentation fault.', 'err');
+      else { const cod = Number(r.cod) | 0; logDbgScrie(`[Inferior 1 (process ${dbg.pid}) exited ${cod ? `with code ${String(cod >>> 0).padStart(2, '0')}` : 'normally'}]`); }
+      logDbgScrie('Debugger finished with status 0');
+      incheieDepanare();
+    }
+    function incheieDepanare() {
+      if (!dbg) return;
+      dbg = null;
+      redaGutter(); redaMarcaje(); redaWatches(); actualizeazaUnelte();
+      stareStatus('Debugger finished.');
+    }
+    function opresteDepanarea() {
+      if (!dbg) return;
+      const c = con;
+      if (c && c.dbg) inchideConsola(true); else { logDbgScrie('Debugger finished with status 0'); incheieDepanare(); }
+    }
+    function arataWatches(da) { watches.hidden = !da; aplicaAspect(); redaWatches(); sincronizeaza(); }
+    function listaBp() {
+      const toate = [...db.values()].flatMap((f) => bps(f).map((r) => ({ f, r })));
+      const d = fereastra('Breakpoints', toate.length ? h('table', { class: 'ap-cpp-tabel' }, h('thead', {}, h('tr', {}, h('th', {}, 'Type'), h('th', {}, 'Filename/Address'), h('th', {}, 'Line'))),
+        h('tbody', {}, toate.map(({ f, r }) => { const tr = h('tr', { tabindex: '0' }, h('td', {}, 'Code'), h('td', {}, caleSursa(f)), h('td', {}, String(r))); tr.addEventListener('dblclick', () => { d.inchide('ok'); deschideFila(f.id); mergiLaRand(r, false); }); return tr; })))
+        : h('p', { class: 'ap-cpp-gol' }, 'Nu ai niciun punct de oprire. Clic în marginea cu numerele rândurilor sau F5.'), { cls: 'mic', butoane: [buton('Remove all', () => { for (const f of db.values()) if (f.bp?.length) { f.bp = []; salveazaInreg(f); } redaGutter(); d.inchide('ok'); }), buton('Close', () => d.inchide(''), 'impl')] });
+    }
+
+    // ----- fereastra Watches -----
+    const extinse = new Set(['g:arg', 'g:local', 'g:global']);
+    const tabStr = (v, dims, k0 = 0, nr = null) => {
+      const n = nr ?? dims[dims.length - 1];
+      const el = v.slice(k0, k0 + Math.min(n, 10));
+      return `{${el.join(', ')}${n > 10 ? '...' : ''}}`;
+    };
+    function valoareTablou(v) {
+      if (!v.tab) return v.val;
+      if (v.dims.length === 1) return tabStr(v.tab, v.dims);
+      const [n, mm] = v.dims; const rs = [];
+      for (let i = 0; i < Math.min(n, 4); i++) rs.push(tabStr(v.tab, v.dims, i * mm, mm));
+      return `{${rs.join(', ')}${n > 4 ? '...' : ''}}`;
+    }
+    function evalWatch(expr, vars) {
+      const toks = expr.match(/[A-Za-z_]\w*|\d+(?:\.\d+)?|\S/g) || [];
+      let p = 0;
+      const gaseste = (n) => { for (let i = vars.length - 1; i >= 0; i--) if (vars[i].nume === n) return vars[i]; return null; };
+      const numar = (s) => { if (s === 'true') return 1; if (s === 'false') return 0; if (s === '?') throw 'variabila nu are încă o valoare'; return parseFloat(s); };
+      function element(x) {
+        const v = x.v;
+        if (!x.idx.length) { if (v.tab) throw `${v.nume} este un tablou: scrie ${v.nume}[i]`; return { num: numar(v.val), real: /double|float/.test(v.tip) }; }
+        if (!v.tab) throw `${v.nume} nu este un tablou`;
+        if (x.idx.length !== v.dims.length) throw `scrie toți indicii: ${v.nume}${'[i]'.repeat(v.dims.length)}`;
+        let k = 0; x.idx.forEach((i, j) => { if (i < 0 || i >= v.dims[j]) throw `Cannot access memory: indicele ${i} este în afara tabloului`; k = k * v.dims[j] + i; });
+        if (k >= v.tab.length) throw 'tablou prea mare pentru afișare';
+        return { num: numar(v.tab[k]), real: /double|float/.test(v.tip) };
+      }
+      const val = (x) => (x.v ? element(x) : x);
+      function prim() {
+        const t = toks[p++];
+        if (t === undefined) throw 'expresie incompletă';
+        if (t === '(') { const v = sum(); if (toks[p++] !== ')') throw "lipsește ')'"; return v; }
+        if (t === '-') { const v = val(prim()); return { num: -v.num, real: v.real }; }
+        if (/^\d/.test(t)) return { num: parseFloat(t), real: t.includes('.') };
+        if (/^[A-Za-z_]/.test(t)) {
+          const v = gaseste(t); if (!v) throw `No symbol "${t}" in current context.`;
+          const x = { v, idx: [] };
+          while (toks[p] === '[') { p++; const i = val(sum()); if (toks[p++] !== ']') throw "lipsește ']'"; x.idx.push(Math.trunc(i.num)); }
+          return x;
+        }
+        throw `A syntax error in expression, near \`${toks.slice(p - 1).join('')}'.`;
+      }
+      function mul() {
+        let a = prim();
+        while (['*', '/', '%'].includes(toks[p])) {
+          const o = toks[p++]; const x = val(a), y = val(prim()); const real = x.real || y.real;
+          if ((o === '/' || o === '%') && y.num === 0) throw 'Division by zero';
+          a = { num: o === '*' ? x.num * y.num : o === '/' ? (real ? x.num / y.num : Math.trunc(x.num / y.num)) : x.num % y.num, real };
+        }
+        return a;
+      }
+      function sum() {
+        let a = mul();
+        while (['+', '-'].includes(toks[p])) { const o = toks[p++]; const x = val(a), y = val(mul()); a = { num: o === '+' ? x.num + y.num : x.num - y.num, real: x.real || y.real }; }
+        return a;
+      }
+      try {
+        const r = sum();
+        if (p < toks.length) throw `A syntax error in expression, near \`${toks.slice(p).join('')}'.`;
+        if (r.v) {
+          const v = r.v;
+          if (!v.tab) return { val: v.val, tip: v.tip };
+          const baza = v.tip.replace(/\s*\[.*$/, '');
+          if (r.idx.length === v.dims.length) { element(r); let k = 0; r.idx.forEach((i, j) => { k = k * v.dims[j] + i; }); return { val: v.tab[k], tip: baza }; }
+          if (!r.idx.length) return { val: valoareTablou(v), tip: v.tip, v };
+          const i = r.idx[0]; if (i < 0 || i >= v.dims[0]) throw `Cannot access memory: indicele ${i} este în afara tabloului`;
+          return { val: tabStr(v.tab, v.dims, i * v.dims[1], v.dims[1]), tip: `${baza} [${v.dims[1]}]` };
+        }
+        return { val: r.real ? String(r.num) : String(Math.trunc(r.num)), tip: r.real ? 'double' : 'int' };
+      } catch (e) { return { val: typeof e === 'string' ? e : 'eroare', tip: '', err: true }; }
+    }
+    function redaWatches() {
+      if (watches.hidden) return;
+      const randuri = [];
+      const rand = (nivel, cheie, nume, val, tip, { schimbat = false, copii = null, cls = '', laSterge = null } = {}) => {
+        const desc = extinse.has(cheie);
+        const r = h('div', { class: `ap-cpp-w-rand ${cls}${schimbat ? ' sch' : ''}`, tabindex: '0', title: `${nume} = ${val}` },
+          h('span', { class: 'ap-cpp-w-n' }, h('span', { class: `ap-cpp-semn${copii ? (desc ? ' minus' : ' plus') : ''}` }), nume),
+          h('span', { class: 'ap-cpp-w-v' }, val), h('span', { class: 'ap-cpp-w-t' }, tip));
+        r.firstChild.style.paddingLeft = `${4 + nivel * 13}px`;
+        if (copii) r.addEventListener('click', () => { if (desc) extinse.delete(cheie); else extinse.add(cheie); redaWatches(); });
+        if (laSterge) {
+          r.addEventListener('keydown', (e) => { if (e.key === 'Delete') laSterge(); });
+          r.addEventListener('contextmenu', (e) => meniuContext([{ t: 'Delete watch', f: laSterge }, { t: 'Delete all watches', f: () => { pref.watches = []; salvPref(); redaWatches(); } }], e));
+        }
+        randuri.push(r);
+        if (copii && desc) copii();
+      };
+      const p = dbg?.pauza;
+      const ant = dbg?.ant ? new Map(dbg.ant.vars.map((v) => [`${v.grup}:${v.nume}`, v])) : new Map();
+      const tablou = (nivel, cheie, v, va) => {
+        if (v.dims.length === 1) {
+          for (let i = 0; i < Math.min(v.dims[0], v.tab.length); i++) rand(nivel, `${cheie}[${i}]`, `[${i}]`, v.tab[i], '', { schimbat: !!va?.tab && va.tab[i] !== v.tab[i] });
+        } else {
+          const [n, mm] = v.dims;
+          for (let i = 0; i < n && i * mm < v.tab.length; i++) {
+            const sch = !!va?.tab && v.tab.slice(i * mm, (i + 1) * mm).some((x, j) => va.tab[i * mm + j] !== x);
+            rand(nivel, `${cheie}[${i}]`, `[${i}]`, tabStr(v.tab, v.dims, i * mm, mm), '', { schimbat: sch, copii: () => { for (let j = 0; j < mm && i * mm + j < v.tab.length; j++) rand(nivel + 2, `${cheie}[${i}][${j}]`, `[${j}]`, v.tab[i * mm + j], '', { schimbat: !!va?.tab && va.tab[i * mm + j] !== v.tab[i * mm + j] }); } });
+          }
+        }
+      };
+      if (p) {
+        for (const [g, nume] of [['arg', 'Function arguments'], ['local', 'Locals'], ['global', 'Globals']]) {
+          const vs = p.vars.filter((v) => v.grup === g);
+          if (!vs.length && g !== 'local') continue;
+          rand(0, `g:${g}`, nume, '', '', { cls: 'grup', copii: () => {
+            if (!vs.length) rand(1, `g:${g}:gol`, 'No locals.', '', '', { cls: 'gri' });
+            for (const v of vs) {
+              const va = ant.get(`${v.grup}:${v.nume}`);
+              const sch = !!va && (v.tab ? (va.tab || []).join() !== v.tab.join() : va.val !== v.val);
+              rand(1, `${g}:${v.nume}`, v.nume, valoareTablou(v), v.tip, { schimbat: sch, copii: v.tab ? () => tablou(2, `${g}:${v.nume}`, v, va) : null });
+            }
+          } });
+        }
+      } else rand(0, 'g:x', dbg ? 'Programul rulează…' : 'Pornește depanatorul (F8 sau F7) ca să vezi valorile.', '', '', { cls: 'gri' });
+      pref.watches.forEach((w, k) => {
+        const r = p ? evalWatch(w, p.vars) : { val: '', tip: '' };
+        const ra = dbg?.ant && p ? evalWatch(w, dbg.ant.vars) : null;
+        const sterge = () => { pref.watches.splice(k, 1); salvPref(); redaWatches(); };
+        rand(0, `u:${w}`, w, r.val, r.tip, { cls: r.err ? 'err' : 'user', schimbat: !!ra && !ra.err && ra.val !== r.val, laSterge: sterge, copii: r.v ? () => tablou(1, `u:${w}`, r.v, null) : null });
+      });
+      const nou = h('input', { type: 'text', class: 'ap-cpp-w-nou', placeholder: 'Adaugă watch (ex.: s, v[i], a+b)…', spellcheck: 'false', 'aria-label': 'Adaugă o expresie în Watches' });
+      nou.addEventListener('keydown', (e) => { e.stopPropagation(); if (e.key === 'Enter' && nou.value.trim()) { pref.watches.push(nou.value.trim().slice(0, 60)); salvPref(); redaWatches(); watchCorp.querySelector('.ap-cpp-w-nou')?.focus(); } });
+      umple(watchCorp, randuri, nou);
+      // Call stack
+      umple(stivaCorp, p ? h('table', { class: 'ap-cpp-tabel mic' }, h('thead', {}, h('tr', {}, h('th', {}, 'Nr'), h('th', {}, 'Function'), h('th', {}, 'File'), h('th', {}, 'Line'))),
+        h('tbody', {}, p.stiva.map((s, i) => { const tr = h('tr', { tabindex: '0', class: i === 0 ? 'sel' : '' }, h('td', {}, String(i)), h('td', {}, `${s.nume}()`), h('td', {}, caleSursa(dbg.f)), h('td', {}, String(s.rand))); tr.addEventListener('click', () => mergiLaRand(s.rand, false)); return tr; })))
+        : h('p', { class: 'ap-cpp-gol' }, ''));
+    }
+
+    // =====================================================================
+    // SCURTĂTURILE DE LA TASTATURĂ (ca în Code::Blocks)
+    // =====================================================================
+    const TASTE = {
+      '-F9': () => buildRun(), 'C-Enter': () => buildRun(), 'C-F9': () => build(), 'CS-F9': () => build(), 'C-F10': () => run(), 'C-F11': () => build({ rebuild: true }),
+      '-F8': () => depaneaza('bp'), 'C-F7': () => depaneaza('bp'), 'S-F8': () => opresteDepanarea(), '-F4': () => depaneaza('cursor'), '-F7': () => depaneaza('next'), 'S-F7': () => depaneaza('into'), 'CS-F7': () => depaneaza('out'), 'A-F7': () => depaneaza('next'),
+      '-F5': () => comutaBp(randCursor()),
+      'C-s': () => salveazaExplicit().then((ok) => ok && stareStatus('Saved.', 'ok')), 'CS-s': () => salveazaTot(), 'C-o': () => dialogDeschide(), 'CS-n': () => fisierGol(),
+      'C-f': () => dialogCauta(false), '-F3': () => cautaUrmator(1), 'S-F3': () => cautaUrmator(-1), 'C-r': () => dialogCauta(true), 'C-g': () => dialogRand(), 'CS-g': () => dialogFunctie(),
+      'CS-c': () => comenteaza(true), 'CS-x': () => comenteaza(false), 'C-/': () => comenteaza(null), 'C-d': () => dubleazaRand(), 'C- ': () => completare(true),
+      '-F2': () => comuta('logs'), 'S-F2': () => comuta('mgmt'), 'C-=': () => zoom(1), 'C-+': () => zoom(1), 'CS-+': () => zoom(1), 'CS-=': () => zoom(1), 'C--': () => zoom(-1), 'C-0': () => zoom(0),
+    };
+    const EDITOR = new Set(['CS-c', 'CS-x', 'C-/', 'C-d', 'C- ', 'C-f', 'C-r', 'C-g', 'CS-g', '-F3', 'S-F3']);
+    function laTasta(e) {
+      if (!app.isConnected) { document.removeEventListener('keydown', laTasta, true); return; }
+      if (e.defaultPrevented || dlgDeschise || e.target.closest?.('dialog') || e.target.closest?.('.ap-cpp-dd')) return;
+      if (e.key === 'Escape' && meniuDeschis) { inchideMeniuri(); return; }
+      const ctrl = e.ctrlKey || e.metaKey;
+      const k = `${ctrl ? 'C' : ''}${e.shiftKey ? 'S' : ''}${e.altKey ? 'A' : ''}-${e.key.length === 1 ? e.key.toLowerCase() : e.key}`;
+      const f = TASTE[k];
+      if (!f) return;
+      if (e.target.closest?.('.ap-cpp-con') && !/F\d/.test(e.key)) return;
+      if (EDITOR.has(k) && e.target !== ta && e.target !== document.body && !app.contains(e.target)) return;
+      if (EDITOR.has(k) && (e.target === intrareTa || e.target.classList?.contains('ap-cpp-w-nou'))) return;
+      e.preventDefault(); e.stopPropagation();
+      inchideMeniuri();
+      f();
+    }
+    document.addEventListener('keydown', laTasta, true); // faza de captură: merg și din casete, ca în Code::Blocks
+    app.addEventListener('click', (e) => { if (con && !e.target.closest('.ap-cpp-con')) con.el.classList.remove('activ'); });
+
+    // ----- la ieșirea din aplicație -----
+    const laIesire = () => { if (tSalv && F) { clearTimeout(tSalv); tSalv = null; scrieInF(); F.actualizat = Date.now(); salveazaInreg(F); } };
+    window.addEventListener('hashchange', function x() { laIesire(); idRulare++; if (asteptare) { clearTimeout(asteptare.ceas); asteptare = null; } opresteWorker(); window.removeEventListener('hashchange', x); });
+    window.addEventListener('beforeunload', laIesire);
 
     // ----- pornire -----
-    app.style.setProperty('--ap-fs', `${pref.fs || 15}px`);
-    await deschide(F);
-    if (F.nou) { const poz = SABLON.indexOf('    \n') + 4; ta.setSelectionRange(poz, poz); }
+    aplicaAspect();
+    zoom(null);
+    arataLog('Build log');
+    logCbScrie('Code::Blocks 20.03 – simulator edudigi');
+    logCbScrie(`Using ${DIR} as workspace folder`);
+    for (const id of pref.ws) { const f = db.get(id); if (f) logCbScrie(`Opening ${caleProiect(f)}\\${numeProj(f)}.cbp`); }
+    logCbScrie('Done.');
+    textVechi = F.cod || '';
+    activeaza(curId);
+    textVechi = ta.value;
+    if (F.nou) { const poz = SABLON.indexOf('    \n') + 4; ta.setSelectionRange(poz, poz); sf(F.id).mod = false; }
     ta.focus({ preventScroll: true });
     pozitie();
+    if (!pref.logH) { logs.style.height = `${Math.max(110, Math.min(190, Math.round(app.clientHeight * 0.26)))}px`; }
   } });
 })();
