@@ -2222,290 +2222,690 @@ body:has(.lab-ecran) { overflow: hidden; }
 /* Sfârșit: Aplicația Desen */
 
 /* Aplicația Poștă (Poștă electronică – simulator) */
+/* Aspect Gmail (implicit), cu variantele Outlook și temă întunecată prin variabile. */
 .lab-ecran.ap-posta-ecran { flex-direction: column; }
-.ap-posta { --ap-albastru: #1F5FD1; --ap-sel: #E8F0FE; --ap-hover: #F4F1EC; position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; background: #F7F4F0; color: var(--charcoal); font-size: 15px; line-height: 1.45; }
-.ap-posta button { font: inherit; }
-.ap-posta button:not(.btn) { color: inherit; }
+.ap-posta {
+  --ap-bg: #F6F8FC; --ap-panel: #fff; --ap-ink: #1F1F1F; --ap-muted: #5E5E5E; --ap-line: #E3E3E3; --ap-line2: #747775;
+  --ap-hover: rgba(68, 71, 70, .08); --ap-read: #F2F6FC; --ap-unread: #fff; --ap-bifat: #C2DBFF; --ap-nav-act: #D3E3FD;
+  --ap-blue: #0B57D0; --ap-compose: #C2E7FF; --ap-search: #E9EEF6; --ap-cap: #F2F6FC; --ap-star: #F4B400; --ap-imp: #F2B600; --ap-red: #D93025;
+  --ap-shadow: 0 1px 2px rgba(60, 64, 67, .3), 0 2px 6px 2px rgba(60, 64, 67, .15);
+  position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden;
+  background: var(--ap-bg); color: var(--ap-ink); font: 400 14px/1.4 Roboto, 'Google Sans', Arial, 'Helvetica Neue', sans-serif;
+}
+.ap-posta [hidden] { display: none !important; }
+.ap-posta button, .ap-posta input, .ap-posta select, .ap-posta textarea { font: inherit; color: inherit; }
+.ap-posta button { cursor: pointer; }
+.ap-posta button:disabled { cursor: default; }
+.ap-posta :focus-visible { outline: 2px solid var(--ap-blue); outline-offset: 1px; }
 .ap-posta-ico { display: inline-flex; width: 20px; height: 20px; flex: none; }
 .ap-posta-ico svg { width: 100%; height: 100%; }
-.ap-posta-ico.mic { width: 15px; height: 15px; color: var(--muted); }
-.ap-posta-ico.urias { width: 72px; height: 72px; color: #D8CFC4; }
-.ap-posta-mic { font-size: .84rem; color: var(--muted); }
-.ap-posta-eroare { color: var(--red-dark); font-size: .88rem; font-weight: 600; margin: 4px 0 0; min-height: 0; }
+.ap-posta-ico.mic { width: 16px; height: 16px; color: var(--ap-muted); }
+.ap-posta-ico.urias { width: 80px; height: 80px; color: var(--ap-line); }
+.ap-posta-mic { font-size: 12px; color: var(--ap-muted); }
+.ap-posta-eroare { color: #B3261E; font-size: 13px; margin: 4px 0 0; }
 .ap-posta-eroare:empty { display: none; }
-.ap-posta-inapoi { flex: none; padding: 7px 12px; border-radius: 8px; background: var(--charcoal); color: #fff; font-weight: 700; font-size: .85rem; text-decoration: none; white-space: nowrap; }
-.ap-posta-inapoi:hover { background: var(--red); }
-.ap-posta-x { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; flex: none; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; color: var(--muted); }
-.ap-posta-x:hover { background: rgba(23, 20, 22, .08); color: var(--charcoal); }
-.ap-posta-x .ap-posta-ico { width: 18px; height: 18px; }
-.ap-posta-x.mic { width: 24px; height: 24px; }
-.ap-posta-x.mic .ap-posta-ico { width: 14px; height: 14px; }
-.ap-posta-link { padding: 0; border: 0; background: none; color: var(--ap-albastru); font-weight: 600; cursor: pointer; font-size: .85rem; }
-.ap-posta-link:hover { text-decoration: underline; }
-.ap-posta-adresa { color: var(--muted); font-size: .86rem; font-weight: 500; word-break: break-all; }
-
-/* Bara de sus */
-.ap-posta-sus { display: flex; align-items: center; gap: 12px; padding: 8px 14px; background: #fff; border-bottom: 1px solid var(--line); }
-.ap-posta-logo { display: flex; align-items: center; gap: 8px; flex: none; }
-.ap-posta-logo .ap-posta-ico { width: 30px; height: 30px; padding: 5px; border-radius: 8px; background: var(--red); color: #fff; }
-.ap-posta-logo b { font-size: 1.1rem; }
-.ap-posta-logo > span:last-child { font-size: .78rem; color: var(--muted); max-width: 120px; line-height: 1.2; }
-.ap-posta-logo.mare { justify-content: center; }
-.ap-posta-logo.mare .ap-posta-ico { width: 44px; height: 44px; padding: 8px; }
-.ap-posta-logo.mare b { font-size: 1.5rem; }
-.ap-posta-cauta { flex: 1; min-width: 0; max-width: 640px; display: flex; align-items: center; gap: 8px; padding: 4px 6px 4px 14px; border-radius: 24px; background: #EFEAE3; }
-.ap-posta-cauta:focus-within { background: #fff; box-shadow: 0 1px 4px rgba(23, 20, 22, .2); }
-.ap-posta-cauta input { flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; padding: 6px 0; outline: none; }
-.ap-posta-cauta input::-webkit-search-cancel-button { display: none; }
-.ap-posta-btn-sus { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 20px; background: #fff; cursor: pointer; font-weight: 600; font-size: .88rem; white-space: nowrap; }
-.ap-posta-btn-sus:hover { background: var(--ap-hover); }
-.ap-posta-btn-sus b { padding: 1px 7px; border-radius: 10px; background: var(--t-tic); color: var(--blue-ink); font-size: .8rem; }
-.ap-posta-btn-sus b.gata { background: #DDF3E4; color: #1E7145; }
-.ap-posta-cont { padding: 0; border: 0; background: none; cursor: pointer; border-radius: 50%; }
-.ap-posta-cont:focus-visible, .ap-posta button:focus-visible, .ap-posta-mesaj:focus-visible { outline: 2px solid var(--ap-albastru); outline-offset: 1px; }
-.ap-posta-avatar { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex: none; border-radius: 50%; color: #fff; font-weight: 700; background: #6B6460; }
-.ap-posta-avatar.c0 { background: #C8133A; } .ap-posta-avatar.c1 { background: #1F5FD1; } .ap-posta-avatar.c2 { background: #0E7F96; } .ap-posta-avatar.c3 { background: #7A3FB8; }
-.ap-posta-avatar.c4 { background: #1E7145; } .ap-posta-avatar.c5 { background: #E2711D; } .ap-posta-avatar.c6 { background: #5B4B8A; } .ap-posta-avatar.c7 { background: #A8326E; }
-
-/* Cele trei panouri */
-.ap-posta-corp { position: relative; flex: 1; min-height: 0; display: grid; grid-template-columns: 210px minmax(280px, 380px) minmax(0, 1fr); }
-.ap-posta-dosare { padding: 12px 8px; overflow-y: auto; }
-.ap-posta-scrie { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 14px 4px; padding: 14px 22px; border: 0; border-radius: 16px; background: #FFE1E8; color: var(--red-dark) !important; font-weight: 700 !important; cursor: pointer; box-shadow: 0 1px 3px rgba(23, 20, 22, .15); }
-.ap-posta-scrie:hover { box-shadow: 0 3px 8px rgba(23, 20, 22, .2); }
-.ap-posta-dosare ul { list-style: none; margin: 0; padding: 0; }
-.ap-posta-dosare li { display: flex; align-items: center; }
-.ap-posta-dosar { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; padding: 7px 12px; border: 0; border-radius: 0 18px 18px 0; background: none; cursor: pointer; text-align: left; font-size: .92rem; }
-.ap-posta-dosar span:not(.ap-posta-ico) { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ap-posta-dosar b { font-size: .8rem; }
-.ap-posta-dosar:hover { background: var(--ap-hover); }
-.ap-posta-dosar[aria-current="true"] { background: #FDE0E6; color: var(--red-dark); font-weight: 700; }
-.ap-posta-dosar-nou { display: flex; align-items: center; gap: 10px; margin-top: 6px; padding: 7px 12px; border: 0; background: none; color: var(--muted) !important; cursor: pointer; font-size: .88rem; }
-.ap-posta-dosar-nou:hover { color: var(--charcoal) !important; }
-.ap-posta-lista, .ap-posta-citire { padding: 0; min-height: 0; overflow-y: auto; background: #fff; }
-.ap-posta-lista { border-radius: 14px 0 0 0; border-right: 1px solid var(--line); margin-top: 8px; }
-.ap-posta-citire { margin-top: 8px; position: relative; }
-.ap-posta-lista-cap { display: flex; align-items: center; gap: 10px; padding: 12px 14px 4px; }
-.ap-posta-lista-cap h2 { margin: 0; font-size: 1.05rem; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ap-posta-unelte { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; padding: 4px 10px; border-bottom: 1px solid var(--line); min-height: 44px; }
-.ap-posta-unelte.citire { position: sticky; top: 0; z-index: 2; background: #fff; }
-.ap-posta-unealta { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border: 0; border-radius: 8px; background: none; cursor: pointer; font-size: .84rem; font-weight: 600; color: #3E3A38 !important; }
-.ap-posta-unealta:hover { background: var(--ap-hover); }
-.ap-posta-unealta .ap-posta-ico { width: 18px; height: 18px; }
-.ap-posta-unealta.on .ap-posta-ico { color: #E2A100; }
-.ap-posta-unealta.on svg { fill: #F6C026; }
-.ap-posta-muta { padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; font: inherit; font-size: .84rem; cursor: pointer; }
-.ap-posta-nota { margin: 0; padding: 8px 14px; background: #FFF7E0; font-size: .84rem; color: #6B5300; }
-.ap-posta-mesaje { list-style: none; margin: 0; padding: 0; }
-.ap-posta-mesaj { display: flex; align-items: flex-start; gap: 6px; padding: 9px 12px 9px 10px; border-bottom: 1px solid #F1ECE5; cursor: pointer; background: #FBFAF8; }
-.ap-posta-mesaj input { margin: 4px 2px 0; cursor: pointer; }
-.ap-posta-mesaj:hover { box-shadow: inset 0 0 0 1px #E2D9CD; background: #fff; }
-.ap-posta-mesaj.necitit { background: #fff; }
-.ap-posta-mesaj.necitit .cine, .ap-posta-mesaj.necitit .subiect, .ap-posta-mesaj.necitit time { font-weight: 800; color: var(--charcoal); }
-.ap-posta-mesaj.sel { background: var(--ap-sel); box-shadow: inset 3px 0 0 var(--ap-albastru); }
-.ap-posta-mesaj-text { flex: 1; min-width: 0; }
-.ap-posta-mesaj .r1 { display: flex; align-items: center; gap: 6px; }
-.ap-posta-mesaj .cine { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .92rem; }
-.ap-posta-mesaj .cine em { color: var(--red-dark); font-style: normal; font-weight: 700; }
-.ap-posta-mesaj time { flex: none; font-size: .78rem; color: var(--muted); }
-.ap-posta-mesaj .r2 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .86rem; }
-.ap-posta-mesaj .fragment { color: var(--muted); }
-.ap-posta-stea { padding: 2px; border: 0; background: none; cursor: pointer; color: #B9AFA3 !important; }
-.ap-posta-stea .ap-posta-ico { width: 18px; height: 18px; }
-.ap-posta-stea.on { color: #E2A100 !important; }
-.ap-posta-stea.on svg { fill: #F6C026; }
-.ap-posta-eticheta { display: inline-block; margin: 0 6px 0 0; padding: 0 7px; border-radius: 5px; background: #EFEAE3; color: #5A534F; font-size: .74rem; font-weight: 700; vertical-align: middle; }
-.ap-posta-articol h2 .ap-posta-eticheta { margin-left: 10px; }
-.ap-posta-gol { padding: 40px 20px; text-align: center; color: var(--muted); }
-.ap-posta-gol.mare { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100%; }
-.ap-posta-gol.mare p { max-width: 420px; margin: 6px 0; }
-
-/* Citirea mesajului */
-.ap-posta-articol { padding: 14px 24px 30px; max-width: 900px; }
-.ap-posta-articol h2 { margin: 4px 0 14px; font-size: 1.3rem; line-height: 1.3; }
-.ap-posta-antet { display: flex; align-items: flex-start; gap: 12px; }
-.ap-posta-de { flex: 1; min-width: 0; }
-.ap-posta-de .ap-posta-link { margin-left: 6px; }
-.ap-posta-antet > time { flex: none; text-align: right; }
-.ap-posta-detalii { margin: 10px 0 0 48px; border-collapse: collapse; font-size: .86rem; }
-.ap-posta-detalii th { padding: 2px 10px 2px 0; text-align: right; color: var(--muted); font-weight: 600; vertical-align: top; white-space: nowrap; }
-.ap-posta-detalii td { padding: 2px 0; word-break: break-word; }
-.ap-posta-dialog .ap-posta-detalii { margin: 0; }
-.ap-posta-text { margin: 18px 0 0 48px; overflow-wrap: anywhere; }
-.ap-posta-text p { margin: 0 0 .8em; }
-.ap-posta-text a { color: var(--ap-albastru); }
-.ap-posta-text blockquote, .ap-posta-editor blockquote { margin: 6px 0; padding-left: 12px; border-left: 3px solid var(--line); color: #5A534F; }
-.ap-posta-atasamente { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0 0 48px; padding-top: 12px; border-top: 1px solid var(--line); }
-.ap-posta-atasamente > p { flex-basis: 100%; margin: 0; }
-.ap-posta-atasamente.compune { margin: 0; padding: 6px 12px; border-top: 0; }
-.ap-posta-atasamente.compune:empty { display: none; }
-.ap-posta-atasamente .avert { color: #A35A00; font-weight: 700; }
-.ap-posta-cip { display: inline-flex; align-items: center; max-width: 100%; border: 1px solid var(--line); border-radius: 8px; background: #FBFAF8; }
-.ap-posta-cip .nume { display: inline-flex; align-items: center; gap: 7px; min-width: 0; padding: 7px 10px; border: 0; background: none; cursor: pointer; font-size: .86rem; }
-.ap-posta-cip .nume span:not(.ap-posta-ico) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
-.ap-posta-cip small { color: var(--muted); white-space: nowrap; }
-.ap-posta-cip.t-pdf .ap-posta-ico { color: #C8133A; } .ap-posta-cip.t-img .ap-posta-ico { color: #1E7145; } .ap-posta-cip.t-doc .ap-posta-ico { color: #2B579A; }
-.ap-posta-cip.t-ppt .ap-posta-ico { color: #D24726; } .ap-posta-cip.t-zip .ap-posta-ico { color: #7A3FB8; }
-.ap-posta-cip.t-exe { border-color: #F5A9B9; background: #FFF1F4; }
-.ap-posta-cip.t-exe .ap-posta-ico { color: var(--red-dark); }
-.ap-posta-actiuni { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 0 48px; }
-.ap-posta-act { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; border: 1px solid #CFC5B9; border-radius: 20px; background: #fff; cursor: pointer; font-weight: 600; font-size: .9rem; }
-.ap-posta-act:hover { background: var(--ap-hover); }
-.ap-posta-act .ap-posta-ico { width: 18px; height: 18px; }
-.ap-posta-avert { display: flex; gap: 10px; margin: 0 0 14px; padding: 10px 14px; border-radius: 10px; background: #FFF1F4; border: 1px solid #F5A9B9; font-size: .88rem; }
-.ap-posta-avert > .ap-posta-ico { color: var(--red-dark); }
-.ap-posta-avert ul { margin: 4px 0 0; padding-left: 18px; }
-.ap-posta-statuslink { position: absolute; left: 0; bottom: 0; z-index: 5; max-width: 60%; padding: 3px 10px; border: 1px solid var(--line); border-radius: 0 6px 0 0; background: #F4F1EC; font-size: .78rem; color: #3E3A38; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; pointer-events: none; opacity: 0; }
-.ap-posta-statuslink.vizibil { opacity: 1; }
-.doar-ingust { display: none !important; }
-
-/* Fereastra Mesaj nou */
-.ap-posta-compune { position: absolute; right: 18px; bottom: 0; z-index: 20; width: min(580px, calc(100% - 24px)); height: min(560px, calc(100% - 20px)); display: flex; flex-direction: column; background: #fff; border-radius: 12px 12px 0 0; box-shadow: 0 8px 30px rgba(23, 20, 22, .3); }
-.ap-posta-compune.mare { inset: 16px 5% 16px; width: auto; height: auto; border-radius: 12px; }
-.ap-posta-compune-cap { display: flex; align-items: center; gap: 2px; padding: 4px 6px 4px 14px; border-radius: 12px 12px 0 0; background: #F2EDE7; font-weight: 700; font-size: .9rem; }
-.ap-posta-compune-cap > span { flex: 1; }
-.ap-posta-compune-corp { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow-y: auto; }
-.ap-posta-rand { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin: 0 12px; padding: 4px 0; border-bottom: 1px solid #EFEAE3; }
-.ap-posta-rand[hidden] { display: none; }
-.ap-posta-rand.de { font-size: .88rem; }
-.ap-posta-rand > input { flex: 1; min-width: 0; border: 0; padding: 6px 0; font: inherit; outline: none; }
-.ap-posta-eticheta-camp { flex: none; min-width: 52px; padding: 4px 6px; border: 0; border-radius: 6px; background: none; color: var(--muted) !important; font-size: .88rem; text-align: left; }
-button.ap-posta-eticheta-camp { cursor: pointer; text-decoration: underline dotted; }
-button.ap-posta-eticheta-camp:hover { background: var(--ap-hover); }
-.ap-posta-intrare { position: relative; flex: 1; min-width: 160px; }
-.ap-posta-intrare input { width: 100%; border: 0; padding: 6px 0; font: inherit; outline: none; background: transparent; }
-.ap-posta-intrare input.gresit { color: var(--red-dark); text-decoration: underline wavy var(--red); }
-.ap-posta-rand > .ap-posta-eroare { flex-basis: 100%; padding-left: 60px; margin: 0; }
-.ap-posta-cc-btn { display: flex; gap: 10px; }
-.ap-posta-cc-btn [hidden] { display: none; }
-.ap-posta-sugestii { position: absolute; left: 0; top: 100%; z-index: 30; min-width: 280px; margin: 0; padding: 4px 0; list-style: none; background: #fff; border-radius: 8px; box-shadow: 0 6px 20px rgba(23, 20, 22, .2); }
-.ap-posta-sugestii:empty { display: none; }
-.ap-posta-sugestii li, .ap-posta-agenda-mini button, .ap-posta-agenda li { display: flex; align-items: center; gap: 10px; padding: 6px 12px; cursor: pointer; }
-.ap-posta-sugestii li.activ, .ap-posta-sugestii li:hover { background: var(--ap-sel); }
-.ap-posta-sugestii .ap-posta-avatar, .ap-posta-agenda-mini .ap-posta-avatar { width: 30px; height: 30px; font-size: .85rem; }
-.ap-posta-sugestii div, .ap-posta-agenda-mini div, .ap-posta-agenda li > div { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; text-align: left; }
-.ap-posta-sugestii span, .ap-posta-agenda-mini span, .ap-posta-agenda li > div span { font-size: .8rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
-.ap-posta-editor { flex: 1; min-height: 140px; padding: 12px; outline: none; overflow-wrap: anywhere; }
-.ap-posta-editor p { margin: 0; }
-.ap-posta-editor ul, .ap-posta-editor ol { margin: 4px 0; }
-.ap-posta-compune-subsol { position: relative; display: flex; align-items: center; gap: 4px; padding: 8px 12px; border-top: 1px solid #EFEAE3; }
-.ap-posta-compune-subsol .btn { margin-right: 8px; border-radius: 18px; }
-.ap-posta-compune-subsol .btn .ap-posta-ico { width: 16px; height: 16px; }
 .ap-posta-umple { flex: 1; }
-.ap-posta-fmt { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; padding: 0; border: 0; border-radius: 6px; background: none; cursor: pointer; font-size: 1rem; }
-.ap-posta-fmt:hover { background: var(--ap-hover); }
-.ap-posta-fmt[aria-pressed="true"] { background: var(--ap-sel); color: var(--ap-albastru) !important; }
-.ap-posta-fmt .ap-posta-ico { width: 18px; height: 18px; }
-.ap-posta-meniu-atas, .ap-posta-meniu { position: absolute; z-index: 40; min-width: 260px; padding: 6px 0; background: #fff; border-radius: 10px; box-shadow: 0 8px 26px rgba(23, 20, 22, .25); }
-.ap-posta-meniu-atas { left: 120px; bottom: 48px; max-height: 340px; overflow-y: auto; }
-.ap-posta-meniu-atas p { margin: 6px 14px 2px; }
-.ap-posta-meniu-atas button, .ap-posta-meniu button { display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 14px; border: 0; background: none; cursor: pointer; text-align: left; font-size: .88rem; }
-.ap-posta-meniu-atas button span:not(.ap-posta-ico) { flex: 1; }
-.ap-posta-meniu-atas small { color: var(--muted); }
-.ap-posta-meniu-atas button:hover, .ap-posta-meniu button:hover { background: var(--ap-hover); }
-.ap-posta-meniu { right: 12px; top: 54px; }
-.ap-posta-meniu button.pericol { color: var(--red-dark) !important; }
-.ap-posta-meniu-cap { display: flex; align-items: center; gap: 10px; padding: 8px 14px 10px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
-.ap-posta-meniu-cap div { display: flex; flex-direction: column; line-height: 1.3; }
-.ap-posta-meniu-cap span { font-size: .82rem; color: var(--muted); }
+.ap-posta-sep { width: 1px; height: 20px; margin: 0 6px; background: var(--ap-line); flex: none; }
+.ap-posta-link { padding: 0; border: 0; background: none; color: var(--ap-blue); font-weight: 500; }
+.ap-posta-link:hover { text-decoration: underline; }
+.ap-posta-link.mic { font-size: 12px; margin-left: 8px; }
+.ap-posta-adresa { color: var(--ap-muted); font-size: 12px; word-break: break-all; }
+.ap-posta-inapoi { flex: none; padding: 6px 12px; border-radius: 16px; background: #1F1F1F; color: #fff; font: 600 12px/1.4 var(--font); text-decoration: none; white-space: nowrap; }
+.ap-posta-inapoi:hover { background: var(--red); }
+/* Butoane cu pictogramă rotunde */
+.ap-posta-ib { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; flex: none; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #444746; }
+.ap-posta-ib:hover:not(:disabled) { background: var(--ap-hover); }
+.ap-posta-ib:active:not(:disabled) { background: rgba(68, 71, 70, .16); }
+.ap-posta-ib:disabled { opacity: .38; }
+.ap-posta-ib.mic { width: 20px; height: 24px; border-radius: 4px; }
+.ap-posta-ib.mic .ap-posta-ico { width: 18px; height: 18px; }
+/* Butoane text (dialoguri) */
+.ap-posta-b { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 36px; padding: 0 16px; border: 0; border-radius: 18px; background: none; color: var(--ap-blue); font-weight: 500 !important; }
+.ap-posta-b:hover { background: rgba(11, 87, 208, .08); }
+.ap-posta-b.plin { background: var(--ap-blue); color: #fff; padding: 0 24px; }
+.ap-posta-b.plin:hover { background: #0842A0; box-shadow: var(--ap-shadow); }
+.ap-posta-b.contur { border: 1px solid var(--ap-line2); color: var(--ap-blue); }
+.ap-posta-b.lat { width: 100%; }
+.ap-posta-b.pericol { color: var(--ap-red); }
+.ap-posta-b .ap-posta-ico { width: 18px; height: 18px; }
+.ap-posta-btn-text { height: 32px; padding: 0 12px; border: 0; border-radius: 16px; background: none; font-weight: 500; color: var(--ap-ink); white-space: nowrap; }
+.ap-posta-btn-text:hover { background: var(--ap-hover); }
 
-/* Panouri laterale (Misiuni, Agendă) */
-.ap-posta-panou { position: absolute; top: 0; right: 0; bottom: 0; z-index: 25; width: min(400px, 100%); display: flex; flex-direction: column; background: #fff; box-shadow: -8px 0 30px rgba(23, 20, 22, .2); }
-.ap-posta-panou-cap { display: flex; align-items: center; padding: 10px 10px 10px 18px; border-bottom: 1px solid var(--line); }
-.ap-posta-panou-cap h2 { flex: 1; margin: 0; font-size: 1.1rem; }
-.ap-posta-panou-corp { flex: 1; overflow-y: auto; padding: 12px 18px 20px; }
-.ap-posta-progres { height: 8px; margin: 8px 0 14px; border-radius: 4px; background: #EFEAE3; overflow: hidden; }
-.ap-posta-progres span { display: block; height: 100%; width: 0; background: #1E7145; transition: width .3s; }
-.ap-posta-misiuni { list-style: none; margin: 0; padding: 0; counter-reset: m; }
-.ap-posta-misiuni li { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #F1ECE5; }
-.ap-posta-misiuni .bifa { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: none; border: 2px solid #CFC5B9; border-radius: 6px; color: #fff; }
-.ap-posta-misiuni li.gata .bifa { background: #1E7145; border-color: #1E7145; }
+/* Avatare rotunde cu inițiale colorate */
+.ap-posta-avatar { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; flex: none; border-radius: 50%; color: #fff; font-weight: 500; font-size: 15px; background: #5F6368; user-select: none; }
+.ap-posta-avatar.mare { width: 40px; height: 40px; font-size: 18px; }
+.ap-posta-avatar.mic { width: 24px; height: 24px; font-size: 11px; }
+.ap-posta-avatar.urias { width: 72px; height: 72px; font-size: 32px; }
+.ap-posta-avatar.c0 { background: #E8453C; } .ap-posta-avatar.c1 { background: #1A73E8; } .ap-posta-avatar.c2 { background: #12A4AF; } .ap-posta-avatar.c3 { background: #9334E6; }
+.ap-posta-avatar.c4 { background: #188038; } .ap-posta-avatar.c5 { background: #E8710A; } .ap-posta-avatar.c6 { background: #5C6BC0; } .ap-posta-avatar.c7 { background: #C2185B; }
+
+/* Antetul: meniu, logo, căutare rotunjită, butoane */
+.ap-posta-sus { position: relative; z-index: 20; display: flex; align-items: center; gap: 4px; height: 64px; padding: 8px 12px 8px 8px; flex: none; }
+.ap-posta-logo { display: flex; align-items: center; gap: 6px; flex: none; width: 168px; padding-left: 4px; }
+.ap-posta-logo-ico { display: inline-flex; width: 40px; height: 30px; }
+.ap-posta-logo-ico svg { width: 100%; height: 100%; }
+.ap-posta-logo b { font: 400 22px/1 'Google Sans', 'Product Sans', Roboto, Arial, sans-serif; color: #444746; letter-spacing: -.3px; }
+.ap-posta-logo.mare { justify-content: center; width: auto; }
+.ap-posta-logo.mare .ap-posta-logo-ico { width: 56px; height: 42px; }
+.ap-posta-logo.mare b { font-size: 28px; }
+.ap-posta-cauta { position: relative; flex: 1; min-width: 0; max-width: 720px; display: flex; align-items: center; height: 48px; padding: 0 4px; border-radius: 24px; background: var(--ap-search); }
+.ap-posta-cauta:focus-within { background: var(--ap-panel); box-shadow: var(--ap-shadow); }
+.ap-posta-cauta input { flex: 1; min-width: 0; height: 100%; border: 0; background: transparent; font-size: 16px; outline: none; }
+.ap-posta-cauta input::placeholder { color: #444746; }
+.ap-posta-cauta .x-cautare { visibility: hidden; }
+.ap-posta-cauta:focus-within .x-cautare { visibility: visible; }
+.ap-posta-sug-cautare { position: absolute; top: calc(100% + 2px); left: 0; right: 0; z-index: 60; max-height: 420px; overflow-y: auto; padding: 8px 0; border-radius: 8px; background: var(--ap-panel); box-shadow: var(--ap-shadow); }
+.ap-posta-sug-titlu { padding: 4px 20px 6px; font-size: 12px; color: var(--ap-muted); }
+.ap-posta-sug { display: flex; align-items: center; gap: 14px; width: 100%; padding: 7px 20px; border: 0; background: none; text-align: left; }
+.ap-posta-sug:hover, .ap-posta-sug:focus { background: var(--ap-hover); outline: none; }
+.ap-posta-sug .t { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-posta-sug small, .ap-posta-sug .cand { color: var(--ap-muted); font-size: 12px; }
+.ap-posta-sug > .ap-posta-ico { color: var(--ap-muted); }
+.ap-posta-sug code { min-width: 112px; padding: 2px 8px; border-radius: 4px; background: var(--ap-search); font: 500 13px/1.4 var(--mono); color: var(--ap-blue); }
+.ap-posta-sus-dreapta { display: flex; align-items: center; gap: 2px; margin-left: auto; padding-left: 8px; }
+.ap-posta-btn-misiuni { display: inline-flex; align-items: center; gap: 6px; height: 36px; margin-right: 6px; padding: 0 12px; border: 1px solid var(--ap-line2); border-radius: 18px; background: var(--ap-panel); font-weight: 500; white-space: nowrap; }
+.ap-posta-btn-misiuni:hover { background: var(--ap-hover); }
+.ap-posta-btn-misiuni .ap-posta-ico { width: 18px; height: 18px; color: var(--red); }
+.ap-posta-btn-misiuni b { padding: 1px 7px; border-radius: 10px; background: #E8F0FE; color: var(--ap-blue); font-size: 12px; }
+.ap-posta-btn-misiuni b.gata { background: #C4EED0; color: #0D652D; }
+.ap-posta-cont { display: inline-flex; padding: 4px; margin-left: 4px; border: 0; border-radius: 50%; background: none; }
+.ap-posta-cont:hover { background: var(--ap-hover); }
+.ap-posta-banda:empty, .ap-posta-ribbon:empty { display: none; }
+.ap-posta-banda-vac { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; margin: 0 72px 8px 256px; padding: 8px 16px; border-radius: 8px; background: #FEF7E0; color: #3C2F00; font-size: 13px; }
+
+/* Corpul: navigare | conținut | bara laterală */
+.ap-posta-corp { position: relative; flex: 1; min-height: 0; display: grid; grid-template-columns: 256px minmax(0, 1fr) 56px; }
+.ap-posta-corp.nav-mic { grid-template-columns: 72px minmax(0, 1fr) 56px; }
+.ap-posta-nav { min-height: 0; overflow-y: auto; overflow-x: hidden; padding: 0 8px 16px 0; scrollbar-width: thin; }
+.ap-posta-scrie { display: inline-flex; align-items: center; gap: 12px; height: 56px; margin: 8px 0 16px 8px; padding: 0 24px 0 16px; border: 0; border-radius: 16px; background: var(--ap-compose); color: #001D35; font-weight: 500 !important; transition: box-shadow .15s; }
+.ap-posta-scrie:hover { box-shadow: var(--ap-shadow); }
+.ap-posta-scrie .ap-posta-ico { width: 24px; height: 24px; }
+.ap-posta-nav ul { list-style: none; margin: 0; padding: 0; }
+.ap-posta-nav li { position: relative; display: flex; align-items: center; }
+.ap-posta-dosar { flex: 1; min-width: 0; display: flex; align-items: center; gap: 18px; height: 32px; padding: 0 12px 0 26px; border: 0; border-radius: 0 16px 16px 0; background: none; text-align: left; color: var(--ap-ink); }
+.ap-posta-dosar .nume { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-posta-dosar b { font-size: 12px; font-weight: 700; }
+.ap-posta-dosar:hover { background: var(--ap-hover); }
+.ap-posta-dosar.are-necitite { font-weight: 700; }
+.ap-posta-dosar.activ { background: var(--ap-nav-act); font-weight: 700; color: #041E49; }
+.ap-posta-dosar .ap-posta-ico { color: #444746; }
+.ap-posta-dosar.activ .ap-posta-ico { color: #041E49; }
+.ap-posta-dosar.mai { color: var(--ap-ink); }
+.ap-posta-nav-titlu { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; padding: 0 4px 0 26px; font: 500 16px/1 'Google Sans', Roboto, Arial, sans-serif; }
+.ap-posta-nav li.cu-puncte .puncte { position: absolute; right: 2px; width: 28px; height: 28px; visibility: hidden; }
+.ap-posta-nav li.cu-puncte:hover .puncte, .ap-posta-nav li.cu-puncte .puncte:focus { visibility: visible; }
+.ap-posta-nav li.cu-puncte:hover b { visibility: hidden; }
+.ap-posta-spatiu { margin: 20px 0 0; padding: 0 12px 0 26px; font-size: 12px; color: var(--ap-muted); }
+.ap-posta-spatiu .bara { display: block; height: 4px; margin-bottom: 6px; border-radius: 2px; background: var(--ap-line); overflow: hidden; }
+.ap-posta-spatiu .bara span { display: block; height: 100%; background: var(--ap-blue); }
+.nav-mic .ap-posta-scrie { width: 56px; padding: 0 16px; }
+.nav-mic .ap-posta-scrie span:not(.ap-posta-ico), .nav-mic .ap-posta-dosar .nume, .nav-mic .ap-posta-dosar b, .nav-mic .ap-posta-nav-titlu span, .nav-mic .ap-posta-spatiu, .nav-mic .puncte { display: none; }
+.nav-mic .ap-posta-dosar { justify-content: center; padding: 0; margin: 0 8px; border-radius: 16px; height: 32px; }
+.nav-mic .ap-posta-nav-titlu { justify-content: center; padding: 0; }
+.ap-posta-rail { display: flex; flex-direction: column; align-items: center; gap: 8px; padding-top: 4px; }
+
+/* Zona principală (lista sau conversația) */
+.ap-posta-principal { position: relative; min-height: 0; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); margin: 0 0 16px; border-radius: 16px; background: var(--ap-panel); overflow: hidden; }
+.ap-posta-corp.impartit .ap-posta-principal { grid-template-columns: minmax(300px, 1fr) minmax(0, 1.25fr); }
+.ap-posta-corp.impartit .ap-posta-lista { border-right: 1px solid var(--ap-line); }
+.ap-posta-lista, .ap-posta-citire, .ap-posta-setari-pag { min-height: 0; margin: 0; padding: 0; overflow-y: auto; scrollbar-width: thin; }
+.ap-posta-unelte { position: sticky; top: 0; z-index: 3; display: flex; align-items: center; gap: 2px; min-height: 48px; padding: 4px 8px 4px 12px; background: var(--ap-panel); flex-wrap: wrap; }
+.ap-posta-bif-grup { display: inline-flex; align-items: center; height: 40px; padding: 0 2px 0 8px; border-radius: 4px; }
+.ap-posta-bif-grup:hover { background: var(--ap-hover); }
+.ap-posta input[type="checkbox"] { width: 18px; height: 18px; margin: 0; accent-color: var(--ap-blue); cursor: pointer; }
+.ap-posta-pag { font-size: 12px; color: var(--ap-muted); padding: 0 8px; white-space: nowrap; }
+.ap-posta-ol-titlu { padding: 4px 16px; font-size: 18px; }
+.ap-posta-nota { margin: 0; padding: 12px 16px; border-bottom: 1px solid var(--ap-line); text-align: center; font-size: 13px; color: var(--ap-muted); }
+.ap-posta-gol { padding: 48px 16px; text-align: center; color: var(--ap-muted); }
+.ap-posta-gol.mare { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100%; }
+.ap-posta-gol.mare p { max-width: 440px; margin: 6px 0; }
+
+/* File de categorii */
+.ap-posta-categorii { display: flex; border-bottom: 1px solid var(--ap-line); }
+.ap-posta-cat { position: relative; flex: 0 1 252px; min-width: 0; display: flex; align-items: center; gap: 16px; height: 56px; padding: 0 16px; border: 0; background: none; text-align: left; color: #444746; }
+.ap-posta-cat:hover { background: var(--ap-hover); }
+.ap-posta-cat::after { content: ''; position: absolute; left: 8px; right: 8px; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: transparent; }
+.ap-posta-cat.activ { color: var(--ap-blue); }
+.ap-posta-cat.activ::after { background: var(--ap-blue); }
+.ap-posta-cat.c-promotii.activ { color: #188038; } .ap-posta-cat.c-promotii.activ::after { background: #188038; }
+.ap-posta-cat.c-sociale.activ { color: #1A73E8; } .ap-posta-cat.c-sociale.activ::after { background: #1A73E8; }
+.ap-posta-cat .cat-text { display: flex; flex-direction: column; min-width: 0; }
+.ap-posta-cat .cat-nume { display: flex; align-items: center; gap: 8px; font-weight: 500; white-space: nowrap; }
+.ap-posta-cat small { font-size: 12px; color: var(--ap-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-posta-cat .noi { padding: 0 6px; border-radius: 8px; background: #188038; color: #fff; font-size: 11px; font-weight: 500; line-height: 16px; }
+.ap-posta-cat.c-sociale .noi { background: #1A73E8; }
+.ap-posta-filtre { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 4px 16px 10px; }
+.ap-posta-chip-filtru { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border: 1px solid var(--ap-line2); border-radius: 8px; background: none; font-size: 13px; font-weight: 500; }
+.ap-posta-chip-filtru .ap-posta-ico { width: 16px; height: 16px; }
+.ap-posta-chip-filtru:hover { background: var(--ap-hover); }
+.ap-posta-chip-filtru.on { border-color: transparent; background: var(--ap-nav-act); }
+
+/* Rândurile listei (stil Gmail) */
+.ap-posta-randuri { list-style: none; margin: 0; padding: 0; }
+.ap-posta-rand { position: relative; display: grid; grid-template-columns: auto 196px minmax(0, 1fr) auto; align-items: start; padding: 0 16px 0 8px; border-bottom: 1px solid rgba(100, 121, 143, .12); background: var(--ap-read); cursor: pointer; }
+.ap-posta-rand > div { padding-block: 10px; line-height: 20px; }
+.ap-posta-rand.necitit { background: var(--ap-unread); }
+.ap-posta-rand.necitit .cine-t, .ap-posta-rand.necitit .subiect, .ap-posta-rand.necitit time, .ap-posta-rand.necitit .nr { font-weight: 700; color: var(--ap-ink); }
+.ap-posta-rand:hover { z-index: 1; box-shadow: inset 1px 0 0 #DADCE0, inset -1px 0 0 #DADCE0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15); }
+.ap-posta-rand.bifat { background: var(--ap-bifat); }
+.ap-posta-rand.sel { background: var(--ap-nav-act); }
+.ap-posta-rand:focus-visible { outline-offset: -2px; }
+.r-stanga { display: flex; align-items: center; gap: 2px; height: 20px; box-sizing: content-box; }
+.r-stanga input { margin: 0 8px !important; }
+.ap-posta-stea, .ap-posta-imp { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin: -2px 0; padding: 0; border: 0; border-radius: 50%; background: none; color: #A6A6A6 !important; }
+.ap-posta-stea:hover, .ap-posta-imp:hover { color: #444746 !important; background: var(--ap-hover); }
+.ap-posta-stea .ap-posta-ico, .ap-posta-imp .ap-posta-ico { width: 18px; height: 18px; }
+.ap-posta-stea.on { color: var(--ap-star) !important; }
+.ap-posta-stea.on svg { fill: var(--ap-star); }
+.ap-posta-imp.on { color: var(--ap-imp) !important; }
+.ap-posta-imp.on svg { fill: var(--ap-imp); }
+.r-cine { display: flex; align-items: baseline; gap: 4px; min-width: 0; padding-left: 8px; padding-right: 16px; }
+.r-cine .cine-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ap-ink); }
+.ap-posta-rand .nr { flex: none; font-size: 12px; color: var(--ap-muted); }
+.ap-posta-rand .ciorna { color: #C5221F; }
+.r-mijloc { min-width: 0; }
+.r-linie { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ap-ink); }
+.r-linie .fragment, .ap-posta-rand .fragment { color: var(--ap-muted); }
+.r-atas { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 2px; }
+.ap-posta-atas-mic { display: inline-flex; align-items: center; gap: 8px; max-width: 190px; height: 32px; padding: 0 12px 0 8px; border: 1px solid var(--ap-line); border-radius: 16px; background: var(--ap-panel); font-size: 13px; font-weight: 500; }
+.ap-posta-atas-mic span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-posta-atas-mic:hover { background: var(--ap-hover); }
+.r-dreapta { position: relative; display: flex; align-items: center; justify-content: flex-end; gap: 6px; min-width: 64px; padding-left: 12px; }
+.r-dreapta time, .ap-posta-rand time { font-size: 12px; color: var(--ap-muted); white-space: nowrap; }
+.ap-posta-hover { display: none; align-items: center; }
+.ap-posta-hover .ap-posta-ib { width: 36px; height: 36px; margin: -8px 0; }
+.ap-posta-rand:hover .ap-posta-hover { display: flex; }
+.ap-posta-rand:not(.ol):hover .r-dreapta time { display: none; }
+.dens-compacta .ap-posta-rand > div { padding-block: 6px; }
+.dens-confortabila .ap-posta-rand > div { padding-block: 10px; }
+/* Etichete (chip-uri) */
+.ap-posta-et { display: inline-flex; align-items: center; gap: 2px; height: 18px; margin-right: 6px; padding: 0 6px; border-radius: 4px; background: #DDE3EA; color: #202124; font-size: 12px; font-weight: 500; vertical-align: 1px; line-height: 18px; }
+.ap-posta-et.mare { height: 22px; padding: 0 4px 0 8px; font-size: 12px; }
+.ap-posta-et button { display: inline-flex; width: 18px; height: 18px; padding: 2px; border: 0; border-radius: 50%; background: none; opacity: .6; }
+.ap-posta-et button:hover { opacity: 1; background: rgba(0, 0, 0, .1); }
+.ap-posta-et button .ap-posta-ico { width: 14px; height: 14px; }
+.ap-posta-tipf { display: inline-flex; width: 18px; height: 18px; flex: none; }
+.ap-posta-tipf svg { width: 100%; height: 100%; }
+
+/* Conversația (fir de discuție) */
+.ap-posta-unelte.citire { border-bottom: 0; }
+.ap-posta-fir { padding: 12px 24px 32px 16px; }
+.ap-posta-fir-cap { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 8px 0 12px 56px; }
+.ap-posta-fir-cap h2 { margin: 0; font: 400 22px/1.3 'Google Sans', Roboto, Arial, sans-serif; color: var(--ap-ink); overflow-wrap: anywhere; }
+.ap-posta-msg { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--ap-line); }
+.ap-posta-msg:last-of-type { border-bottom: 0; }
+.ap-posta-msg-cap { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 0 8px; cursor: pointer; }
+.ap-posta-msg-cap .cine { flex: 1 1 220px; min-width: 0; }
+.ap-posta-msg-cap .ap-posta-adresa { word-break: normal; overflow-wrap: anywhere; }
+.ap-posta-msg-cap .linie1 b { font-weight: 700; }
+.ap-posta-msg-cap .dreapta { display: flex; align-items: center; gap: 0; flex: none; margin: -8px 0 0 auto; }
+.ap-posta-msg-cap .dreapta time { margin-right: 8px; font-size: 12px; color: var(--ap-muted); white-space: nowrap; }
+.ap-posta-msg-cap .dreapta .ap-posta-stea { width: 40px; height: 40px; margin: 0; }
+.ap-posta-catre { display: inline-flex; align-items: center; gap: 2px; padding: 0; text-align: left; border: 0; background: none; font-size: 12px; color: var(--ap-muted) !important; }
+.ap-posta-catre:hover { color: var(--ap-ink) !important; }
+.ap-posta-text { margin-top: 12px; font-size: 14px; line-height: 1.55; overflow-wrap: anywhere; }
+.ap-posta-text p { margin: 0 0 .7em; }
+.ap-posta-text a { color: #1A0DAB; }
+.ap-posta-text blockquote, .ap-posta-editor blockquote { margin: 0 0 0 .8ex; padding-left: 1ex; border-left: 1px solid #CCC; color: var(--ap-muted); }
+.ap-posta-msg.restrans { grid-template-columns: 40px auto minmax(0, 1fr) auto auto; align-items: center; gap: 12px; padding: 10px 0; cursor: pointer; }
+.ap-posta-msg.restrans:hover { background: var(--ap-read); }
+.ap-posta-msg.restrans .nume { white-space: nowrap; }
+.ap-posta-msg.restrans .fragment { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ap-muted); }
+.ap-posta-msg.restrans time { font-size: 12px; color: var(--ap-muted); }
+.ap-posta-mai-vechi { position: relative; display: flex; align-items: center; gap: 12px; width: 100%; height: 28px; margin: 4px 0; padding: 0; border: 0; background: none; color: var(--ap-blue); font-size: 13px; }
+.ap-posta-mai-vechi::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; border-top: 1px solid var(--ap-line); }
+.ap-posta-mai-vechi span { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--ap-line); border-radius: 50%; background: var(--ap-panel); color: var(--ap-ink); font-weight: 500; }
+.ap-posta-detalii { border-collapse: collapse; font-size: 13px; }
+.ap-posta-detalii th { padding: 3px 12px 3px 0; text-align: right; font-weight: 400; color: var(--ap-muted); vertical-align: top; white-space: nowrap; }
+.ap-posta-detalii td { padding: 3px 0; overflow-wrap: anywhere; }
+.ap-posta-meniu.detalii { padding: 12px 16px; max-width: 460px; }
+.ap-posta-detalii.taste kbd { display: inline-block; min-width: 24px; padding: 1px 6px; border: 1px solid var(--ap-line); border-bottom-width: 2px; border-radius: 4px; background: var(--ap-read); font: 600 12px/1.5 var(--mono); text-align: center; }
+.ap-posta-original { max-height: 50vh; overflow: auto; margin: 0; padding: 12px; border-radius: 6px; background: var(--ap-read); font: 12px/1.5 var(--mono); white-space: pre-wrap; }
+
+/* Bannere de avertizare (phishing / spam) */
+.ap-posta-avert { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 12px; margin: 0 0 12px 56px; padding: 14px 16px; border-radius: 8px; font-size: 14px; }
+.ap-posta-avert > .ap-posta-ico { width: 24px; height: 24px; }
+.ap-posta-avert b { display: block; margin-bottom: 2px; font-size: 15px; font-weight: 500; }
+.ap-posta-avert p { margin: 0; }
+.ap-posta-avert ul { margin: 6px 0 0; padding-left: 20px; }
+.ap-posta-avert summary { margin-top: 6px; color: var(--ap-blue); cursor: pointer; font-weight: 500; }
+.ap-posta-avert .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.ap-posta-avert.rosu { background: #FCE8E6; color: #410E0B; }
+.ap-posta-avert.rosu > .ap-posta-ico { color: #D93025; }
+.ap-posta-avert.galben { background: #FEF7E0; color: #3C2F00; }
+.ap-posta-avert.galben > .ap-posta-ico { color: #E37400; }
+.ap-posta-avert.gri { background: var(--ap-read); }
+.ap-posta-avert.gri > .ap-posta-ico { color: var(--ap-muted); }
+
+/* Atașamente ca în Gmail: carduri cu previzualizare */
+.ap-posta-atasamente { margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--ap-line); }
+.ap-posta-atas-cap { display: flex; align-items: center; gap: 4px; margin-bottom: 10px; font-size: 13px; color: var(--ap-muted); }
+.ap-posta-atas-cap b { color: var(--ap-ink); font-weight: 500; }
+.ap-posta-carduri { display: flex; flex-wrap: wrap; gap: 12px; }
+.ap-posta-card-atas { position: relative; width: 180px; height: 120px; border: 1px solid var(--ap-line); border-radius: 8px; overflow: hidden; background: #F1F3F4; cursor: pointer; }
+.ap-posta-card-atas .previz { display: flex; align-items: flex-start; justify-content: center; height: 86px; overflow: hidden; }
+.ap-posta-card-atas .previz img { width: 100%; height: 100%; object-fit: cover; }
+.ap-posta-card-atas .mare-ico { display: flex; align-items: center; height: 100%; }
+.ap-posta-card-atas .mare-ico .ap-posta-tipf { width: 40px; height: 40px; }
+.ap-posta-card-atas .foaie-mica { display: flex; flex-direction: column; gap: 2px; width: 124px; margin-top: 10px; padding: 8px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .2); color: #333; font-size: 5px; line-height: 1.3; overflow: hidden; }
+.ap-posta-card-atas .foaie-mica b { font-size: 6.5px; margin-bottom: 2px; }
+.ap-posta-card-atas .jos { display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 10px; border-top: 1px solid var(--ap-line); background: var(--ap-panel); }
+.ap-posta-card-atas .jos .nume { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; font-weight: 500; }
+.ap-posta-card-atas .acoperire { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 10px; background: rgba(32, 33, 36, .72); color: #fff; opacity: 0; transition: opacity .15s; }
+.ap-posta-card-atas:hover .acoperire, .ap-posta-card-atas:focus-visible .acoperire { opacity: 1; }
+.ap-posta-card-atas .sus-nume { display: flex; flex-direction: column; min-width: 0; }
+.ap-posta-card-atas .sus-nume b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; font-size: 13px; }
+.ap-posta-card-atas .sus-nume small { font-size: 11px; opacity: .85; }
+.ap-posta-card-atas .btns { display: flex; justify-content: flex-end; }
+.ap-posta-card-atas .btns .ap-posta-ib { width: 32px; height: 32px; color: #fff; background: rgba(255, 255, 255, .16); border-radius: 4px; }
+
+/* Răspunsuri inteligente și butoanele de răspuns */
+.ap-posta-intelig { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0 56px; }
+.ap-posta-intelig button { height: 36px; padding: 0 16px; border: 1px solid var(--ap-line2); border-radius: 8px; background: none; color: var(--ap-blue); font-weight: 500; }
+.ap-posta-intelig button:hover { background: rgba(11, 87, 208, .06); }
+.ap-posta-actiuni { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0 0 56px; }
+.ap-posta-act { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 24px 0 16px; border: 1px solid var(--ap-line2); border-radius: 20px; background: none; font-weight: 500; }
+.ap-posta-act:hover { background: var(--ap-hover); }
+.ap-posta-statuslink { position: absolute; left: 0; bottom: 0; z-index: 99; max-width: 60%; padding: 2px 8px; border: 1px solid #C0C0C0; border-radius: 0 4px 0 0; background: #F1F3F4; color: #202124; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: none; }
+.ap-posta-statuslink.vizibil { display: block; }
+
+/* Meniuri derulante */
+.ap-posta-meniu { position: absolute; z-index: 85; min-width: 200px; max-width: 340px; max-height: 70%; overflow-y: auto; padding: 6px 0; border-radius: 4px; background: var(--ap-panel); box-shadow: 0 2px 6px 2px rgba(60, 64, 67, .15), 0 1px 2px rgba(60, 64, 67, .3); animation: ap-posta-apare .12s ease-out; }
+.ap-posta-meniu button[role="menuitem"] { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 32px; padding: 4px 16px; border: 0; background: none; text-align: left; }
+.ap-posta-meniu button[role="menuitem"]:hover:not(:disabled), .ap-posta-meniu button[role="menuitem"]:focus { background: var(--ap-hover); outline: none; }
+.ap-posta-meniu button[role="menuitem"]:disabled { opacity: .45; }
+.ap-posta-meniu button[role="menuitem"] > span:not(.ap-posta-ico):not(.ap-posta-tipf) { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-posta-meniu button[role="menuitem"] .ap-posta-ico { color: #444746; }
+.ap-posta-meniu button[role="menuitem"].pericol, .ap-posta-meniu button[role="menuitem"].pericol .ap-posta-ico { color: var(--ap-red); }
+.ap-posta-meniu small { margin-left: auto; padding-left: 16px; color: var(--ap-muted); font-size: 12px; white-space: nowrap; }
+.ap-posta-meniu hr { margin: 6px 0; border: 0; border-top: 1px solid var(--ap-line); }
+.ap-posta-meniu-titlu { padding: 6px 16px; font-size: 14px; color: var(--ap-ink); font-weight: 500; }
+.ap-posta-meniu .gol { padding: 4px 16px; margin: 0; }
+.ap-posta-meniu.cu-cautare { width: 260px; }
+.ap-posta-meniu.cu-cautare > input { display: block; width: calc(100% - 32px); margin: 2px 16px 6px; padding: 4px 0; border: 0; border-bottom: 1px solid var(--ap-line2); background: none; outline: none; }
+.ap-posta-meniu.cu-cautare > input:focus { border-bottom: 2px solid var(--ap-blue); }
+.ap-posta-meniu-lista { max-height: 260px; overflow-y: auto; }
+.ap-posta-meniu-lista .ap-posta-b { margin: 6px 16px 0; }
+.ap-posta-meniu-bif { display: flex; align-items: center; gap: 10px; padding: 6px 16px; cursor: pointer; }
+.ap-posta-meniu-bif:hover { background: var(--ap-hover); }
+.ap-posta .punct { display: inline-block; width: 10px; height: 10px; margin-right: 8px; border-radius: 50%; flex: none; }
+.ap-posta-meniu-bif .punct { margin-right: 0; }
+.ap-posta-meniu-sub { padding: 4px 16px 8px; font-size: 13px; color: var(--ap-muted); }
+.ap-posta-culori { display: grid; grid-template-columns: repeat(5, 24px); gap: 8px; padding: 8px 0 0; }
+.ap-posta-meniu > .ap-posta-culori { padding: 10px 16px; }
+.ap-posta-culori button { width: 24px; height: 24px; padding: 0; border: 2px solid transparent; border-radius: 50%; }
+.ap-posta-culori button.on, .ap-posta-culori button:hover { border-color: var(--ap-ink); }
+.ap-posta-meniu.amanare { min-width: 300px; }
+.ap-posta-meniu.cont { width: 320px; max-width: 92%; }
+.ap-posta-cont-card { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 12px 16px 16px; text-align: center; }
+.ap-posta-cont-card b { font: 400 20px/1.2 'Google Sans', Roboto, Arial, sans-serif; }
+.ap-posta-meniu.atas { width: 300px; }
+.ap-posta-meniu.atas button[role="menuitem"] small { padding-left: 8px; }
+.ap-posta-meniu.emoji { min-width: 0; }
+.ap-posta-emoji { display: grid; grid-template-columns: repeat(6, 36px); gap: 2px; padding: 4px 8px; }
+.ap-posta-emoji button { width: 36px; height: 36px; border: 0; border-radius: 6px; background: none; font-size: 20px; }
+.ap-posta-emoji button:hover { background: var(--ap-hover); }
+@keyframes ap-posta-apare { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+/* Tooltip ca în Gmail */
+.ap-posta-tooltip { position: absolute; z-index: 120; max-width: 280px; padding: 5px 8px; border-radius: 4px; background: #3C4043; color: #fff; font-size: 12px; font-weight: 500; line-height: 1.35; pointer-events: none; white-space: pre-line; box-shadow: 0 1px 3px rgba(0, 0, 0, .2); }
+
+/* Fereastra „Mesaj nou” (jos, în dreapta) */
+.ap-posta-compune { position: absolute; right: 72px; bottom: 0; z-index: 50; display: flex; flex-direction: column; width: 540px; height: min(580px, calc(100% - 72px)); max-width: calc(100% - 24px); border-radius: 8px 8px 0 0; background: var(--ap-panel); box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2); animation: ap-posta-urca .18s ease-out; }
+@keyframes ap-posta-urca { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.ap-posta-compune.min { width: 280px; height: 40px; }
+.ap-posta-compune.min .ap-posta-compune-corp, .ap-posta-compune.min .ap-posta-compune-subsol { display: none; }
+.ap-posta-compune.mare { top: 4%; bottom: 4%; left: 8%; right: 8%; width: auto; height: auto; max-width: none; border-radius: 8px; z-index: 56; }
+.ap-posta-compune-fundal { position: absolute; inset: 0; z-index: 55; background: rgba(0, 0, 0, .5); }
+.ap-posta-compune-cap { display: flex; align-items: center; gap: 2px; height: 40px; flex: none; padding: 0 6px 0 16px; border-radius: 8px 8px 0 0; background: var(--ap-cap); cursor: pointer; font-weight: 500; }
+.ap-posta-compune-cap .titlu { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-posta-compune-cap .cap-btn { width: 28px; height: 28px; border-radius: 4px; }
+.ap-posta-compune-cap .cap-btn .ap-posta-ico { width: 18px; height: 18px; }
+.ap-posta-compune-corp { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 0 16px; }
+.ap-posta-rand-c { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 40px; border-bottom: 1px solid var(--ap-line); flex: none; }
+.ap-posta-rand-c.subiect input { flex: 1; height: 38px; border: 0; background: none; outline: none; }
+.ap-posta-eticheta-camp { flex: none; padding: 0 2px 0 0; border: 0; background: none; color: var(--ap-muted) !important; }
+button.ap-posta-eticheta-camp:hover { text-decoration: underline; color: var(--ap-ink) !important; }
+.ap-posta-intrare { position: relative; flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; padding: 5px 0; }
+.ap-posta-intrare > input { flex: 1; min-width: 120px; height: 28px; border: 0; background: none; outline: none; }
+.ap-posta-chips { display: contents; }
+.ap-posta-chip { display: inline-flex; align-items: center; gap: 6px; max-width: 280px; height: 26px; padding: 0 2px 0 0; border: 1px solid var(--ap-line); border-radius: 13px; background: var(--ap-panel); font-size: 13px; }
+.ap-posta-chip > span:not(.ap-posta-avatar) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-posta-chip .ap-posta-avatar { width: 24px; height: 24px; }
+.ap-posta-chip button { display: inline-flex; width: 20px; height: 20px; padding: 3px; border: 0; border-radius: 50%; background: none; color: var(--ap-muted); }
+.ap-posta-chip button:hover { background: var(--ap-hover); color: var(--ap-ink); }
+.ap-posta-chip button .ap-posta-ico { width: 14px; height: 14px; }
+.ap-posta-chip.gresit { border-color: #F2B8B5; background: #FCE8E6; color: #B3261E; }
+.ap-posta-cc-btn { display: flex; gap: 10px; flex: none; }
+.ap-posta-cc-btn .ap-posta-link { color: var(--ap-ink); font-weight: 400; }
+.ap-posta-rand-c .ap-posta-eroare { flex-basis: 100%; margin: 0 0 6px; }
+.ap-posta-sugestii { position: absolute; top: 100%; left: 0; z-index: 8; min-width: 320px; max-width: 100%; margin: 0; padding: 6px 0; list-style: none; border-radius: 8px; background: var(--ap-panel); box-shadow: var(--ap-shadow); }
+.ap-posta-sugestii:empty { display: none; }
+.ap-posta-sugestii li, .ap-posta-agenda-mini button, .ap-posta-agenda li { display: flex; align-items: center; gap: 12px; padding: 6px 14px; cursor: pointer; }
+.ap-posta-sugestii li.activ, .ap-posta-sugestii li:hover { background: var(--ap-hover); }
+.ap-posta-sugestii div, .ap-posta-agenda-mini div, .ap-posta-agenda li > div { display: flex; flex-direction: column; min-width: 0; line-height: 1.3; text-align: left; }
+.ap-posta-sugestii b, .ap-posta-agenda-mini b, .ap-posta-agenda b { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-posta-sugestii span, .ap-posta-agenda-mini span, .ap-posta-agenda li > div span { font-size: 12px; color: var(--ap-muted); overflow: hidden; text-overflow: ellipsis; }
+.ap-posta-editor-zona { flex: 1; min-height: 0; overflow-y: auto; padding: 10px 0; }
+.ap-posta-editor:focus-visible, .ap-posta-rand-c input:focus-visible, .ap-posta-cauta input:focus-visible { outline: none; }
+.ap-posta-editor { min-height: 120px; outline: none; line-height: 1.5; overflow-wrap: anywhere; }
+.ap-posta-editor p { margin: 0; }
+.ap-posta-editor a { color: #1A0DAB; }
+.ap-posta-semn, .ap-posta-citat { color: var(--ap-muted); }
+.ap-posta-citat p { margin: 0 0 4px; }
+.ap-posta-bara-format { display: flex; flex-wrap: wrap; align-items: center; gap: 1px; flex: none; margin: 4px 0 2px; padding: 3px 4px; border-radius: 6px; background: var(--ap-panel); box-shadow: 0 1px 3px rgba(60, 64, 67, .3); }
+.ap-posta-sel-fmt { height: 28px; padding: 0 4px; border: 0; border-radius: 4px; background: none; cursor: pointer; }
+.ap-posta-sel-fmt:hover { background: var(--ap-hover); }
+.ap-posta-fmt { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; flex: none; padding: 0; border: 0; border-radius: 50%; background: none; color: #444746; }
+.ap-posta-bara-format .ap-posta-fmt { width: 28px; height: 28px; border-radius: 4px; }
+.ap-posta-fmt:hover { background: var(--ap-hover); }
+.ap-posta-fmt[aria-pressed="true"] { background: var(--ap-nav-act); }
+.ap-posta-fmt .ap-posta-ico { width: 20px; height: 20px; }
+.ap-posta-fmt b, .ap-posta-fmt i, .ap-posta-fmt u { font-size: 16px; font-family: Georgia, serif; }
+.ap-posta-fmt .aa { font: 700 17px/1 Georgia, serif; text-decoration: underline; }
+.ap-posta-fmt .aa small { font-size: 12px; }
+.ap-posta-atas-compune:empty { display: none; }
+.ap-posta-atas-compune { flex: none; max-height: 96px; overflow-y: auto; margin-top: 4px; }
+.ap-posta-atas-rand { position: relative; display: flex; align-items: center; gap: 8px; max-width: 440px; margin: 4px 0; padding: 4px 4px 4px 8px; background: var(--ap-read); font-size: 13px; }
+.ap-posta-atas-rand .nume { font-weight: 700; color: #1A0DAB; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-posta-atas-rand small { flex: 1; color: var(--ap-muted); font-weight: 700; }
+.ap-posta-atas-rand .ap-posta-ib { width: 28px; height: 28px; }
+.ap-posta-atas-rand .progres { display: none; width: 80px; height: 4px; border-radius: 2px; background: var(--ap-line); overflow: hidden; }
+.ap-posta-atas-rand.incarca .progres { display: block; }
+.ap-posta-atas-rand.incarca .progres i { display: block; height: 100%; background: var(--ap-blue); animation: ap-posta-incarca .9s linear forwards; }
+@keyframes ap-posta-incarca { from { width: 0; } to { width: 100%; } }
+.ap-posta-atas-compune .avert { color: #B06000; font-weight: 700; }
+.ap-posta-compune-subsol { display: flex; align-items: center; gap: 2px; flex: none; padding: 10px 12px 12px 16px; }
+.ap-posta-trimite-grup { display: flex; margin-right: 8px; }
+.ap-posta-trimite { height: 36px; padding: 0 16px 0 22px; border: 0; border-radius: 18px 0 0 18px; background: var(--ap-blue); color: #fff !important; font-weight: 500; }
+.ap-posta-trimite:hover { background: #0842A0; box-shadow: 0 1px 3px rgba(0, 0, 0, .3); }
+.ap-posta-trimite.sageata { display: inline-flex; align-items: center; padding: 0 8px 0 6px; border-left: 1px solid rgba(255, 255, 255, .35); border-radius: 0 18px 18px 0; }
+.ap-posta-trimite.sageata .ap-posta-ico { width: 18px; height: 18px; }
+.ap-posta-stare-ciorna { margin-right: 6px; font-size: 12px; color: var(--ap-muted); white-space: nowrap; }
+
+/* Vizualizatorul de atașamente (PDF / imagine) */
+.ap-posta-viz { position: absolute; inset: 0; z-index: 95; display: grid; grid-template-rows: 64px minmax(0, 1fr); background: rgba(0, 0, 0, .86); color: #fff; outline: none; animation: ap-posta-apare .15s ease-out; }
+.ap-posta-viz-sus { display: flex; align-items: center; gap: 10px; padding: 0 12px; background: linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, 0)); }
+.ap-posta-viz-sus .ap-posta-ib, .ap-posta-viz .viz-nav, .ap-posta-viz-zoom .ap-posta-ib { color: #fff; }
+.ap-posta-viz-sus .ap-posta-ib:hover, .ap-posta-viz-zoom .ap-posta-ib:hover { background: rgba(255, 255, 255, .14); }
+.ap-posta-viz-sus .ap-posta-tipf { width: 22px; height: 22px; }
+.ap-posta-viz-sus .nume { font-size: 16px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-posta-viz-zona { min-height: 0; overflow: auto; display: flex; justify-content: center; align-items: flex-start; padding: 8px 16px 80px; }
+.ap-posta-viz-continut { display: flex; flex-direction: column; align-items: center; gap: 16px; transform-origin: top center; transition: transform .15s; }
+.ap-posta-viz-pagina { width: min(620px, 86vw); min-height: 760px; padding: 56px 64px; background: #fff; color: #222; font: 15px/1.6 Arial, sans-serif; box-shadow: 0 2px 12px rgba(0, 0, 0, .5); display: flex; flex-direction: column; }
+.ap-posta-viz-pagina h1 { margin: 0 0 4px; font-size: 22px; color: #1A3E72; }
+.ap-posta-viz-pagina .sub { margin: 0 0 20px; color: #666; font-size: 13px; border-bottom: 2px solid #1A3E72; padding-bottom: 8px; }
+.ap-posta-viz-pagina p { margin: 0 0 8px; white-space: pre-wrap; }
+.ap-posta-viz-pagina footer { margin-top: auto; padding-top: 24px; text-align: center; font-size: 11px; color: #999; }
+.ap-posta-viz-img { width: auto; height: auto; max-width: min(900px, 86vw); max-height: calc(100vh - 150px); object-fit: contain; box-shadow: 0 2px 12px rgba(0, 0, 0, .5); background: #fff; }
+.ap-posta-viz-fara { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 12vh; padding: 32px 40px; border-radius: 8px; background: #303134; text-align: center; }
+.ap-posta-viz-fara .ap-posta-tipf { width: 56px; height: 56px; }
+.ap-posta-viz-fara p { margin: 0; }
+.ap-posta-viz-fara .ap-posta-mic { color: #BDC1C6; }
+.ap-posta-viz .viz-nav { position: absolute; top: 50%; width: 48px; height: 48px; margin-top: -24px; background: rgba(0, 0, 0, .55); }
+.ap-posta-viz .viz-nav.st { left: 16px; } .ap-posta-viz .viz-nav.dr { right: 16px; }
+.ap-posta-viz-zoom { position: absolute; left: 50%; bottom: 20px; display: flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: 24px; background: rgba(32, 33, 36, .92); transform: translateX(-50%); font-size: 13px; }
+
+/* Panouri laterale (misiuni, agendă, setări rapide) */
+.ap-posta-panou { position: absolute; top: 0; right: 56px; bottom: 16px; z-index: 30; width: min(360px, calc(100% - 64px)); display: flex; flex-direction: column; border-radius: 16px; background: var(--ap-panel); box-shadow: 0 4px 24px rgba(60, 64, 67, .28); animation: ap-posta-apare .15s ease-out; }
+.ap-posta-panou-cap { display: flex; align-items: center; padding: 8px 8px 8px 20px; }
+.ap-posta-panou-cap h2 { flex: 1; margin: 0; font: 400 18px/1.3 'Google Sans', Roboto, Arial, sans-serif; }
+.ap-posta-panou-corp { flex: 1; overflow-y: auto; padding: 4px 20px 20px; }
+.ap-posta-panou h3 { margin: 18px 0 6px; font-size: 14px; font-weight: 500; }
+.ap-posta-radio { display: flex; align-items: center; gap: 10px; padding: 5px 0; cursor: pointer; }
+.ap-posta-radio input { width: 18px; height: 18px; margin: 0; accent-color: var(--ap-blue); flex: none; }
+.ap-posta-radio > span:not(.prev-dens) { flex: 1; }
+.prev-dens { display: flex; flex-direction: column; gap: 3px; width: 64px; padding: 4px; border: 1px solid var(--ap-line); border-radius: 4px; }
+.prev-dens i { display: block; height: 6px; border-radius: 1px; background: var(--ap-line); }
+.prev-dens.d-p i { height: 8px; } .prev-dens.d-k { gap: 1px; } .prev-dens.d-k i { height: 4px; }
+.ap-posta-progres { height: 8px; margin: 8px 0 14px; border-radius: 4px; background: var(--ap-line); overflow: hidden; }
+.ap-posta-progres span { display: block; height: 100%; width: 0; background: #188038; transition: width .3s; }
+.ap-posta-misiuni { list-style: none; margin: 0; padding: 0; }
+.ap-posta-misiuni li { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--ap-line); }
+.ap-posta-misiuni .bifa { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex: none; border: 2px solid #9AA0A6; border-radius: 4px; color: #fff; }
+.ap-posta-misiuni li.gata .bifa { background: #188038; border-color: #188038; }
 .ap-posta-misiuni .bifa .ap-posta-ico { width: 16px; height: 16px; }
-.ap-posta-misiuni b { display: block; font-size: .92rem; }
-.ap-posta-misiuni p { margin: 3px 0 0; font-size: .84rem; color: var(--muted); }
-.ap-posta-misiuni li.gata p { color: #1E5E3A; }
-.ap-posta-agenda-cap { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
-.ap-posta-agenda-cap input { flex: 1; min-width: 0; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; font: inherit; }
-.ap-posta-agenda h3 { margin: 14px 0 4px; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.ap-posta-misiuni b { display: block; font-size: 14px; font-weight: 500; }
+.ap-posta-misiuni p { margin: 3px 0 0; font-size: 13px; color: var(--ap-muted); }
+.ap-posta-misiuni li.gata p { color: #137333; }
+.ap-posta-agenda-cap { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; }
+.ap-posta-agenda-cap input, .ap-posta-dialog input[type="search"] { flex: 1; min-width: 0; height: 40px; padding: 0 14px; border: 0; border-radius: 20px; background: var(--ap-search); outline: none; }
+.ap-posta-agenda h3 { margin: 14px 0 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ap-muted); }
 .ap-posta-agenda ul, .ap-posta-agenda-mini { list-style: none; margin: 0; padding: 0; }
-.ap-posta-agenda li { padding: 6px 0; cursor: default; }
+.ap-posta-agenda li { padding: 4px 0; cursor: default; }
 .ap-posta-agenda li > div { flex: 1; }
-.ap-posta-agenda li .ap-posta-unealta span:not(.ap-posta-ico) { display: none; }
-.ap-posta-agenda-mini { max-height: 50vh; overflow-y: auto; margin: 0 -8px; }
+.ap-posta-agenda li .ap-posta-ib { width: 32px; height: 32px; }
+.ap-posta-agenda-mini { max-height: 46vh; overflow-y: auto; margin: 8px -8px 0; }
 .ap-posta-agenda-mini button { width: 100%; border: 0; background: none; border-radius: 8px; }
-.ap-posta-agenda-mini button:hover { background: var(--ap-sel); }
+.ap-posta-agenda-mini button:hover { background: var(--ap-hover); }
+
+/* Pagina Setări */
+.ap-posta-set-cap { display: flex; align-items: center; gap: 8px; padding: 8px 16px; }
+.ap-posta-set-cap h2 { margin: 0; font: 400 22px/1.3 'Google Sans', Roboto, Arial, sans-serif; }
+.ap-posta-set-file { display: flex; gap: 4px; padding: 0 16px; border-bottom: 1px solid var(--ap-line); }
+.ap-posta-set-file button { padding: 12px 16px; border: 0; border-bottom: 3px solid transparent; background: none; font-weight: 500; color: var(--ap-muted); }
+.ap-posta-set-file button.activ { color: var(--ap-blue); border-bottom-color: var(--ap-blue); }
+.ap-posta-set-rand { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 8px 24px; padding: 16px 24px; border-bottom: 1px solid var(--ap-line); }
+.ap-posta-set-rand .eticheta b { display: block; font-weight: 500; }
+.ap-posta-set-rand .eticheta small { display: block; margin-top: 2px; font-size: 12px; color: var(--ap-muted); }
+.ap-posta-set-rand select { height: 30px; padding: 0 6px; border: 1px solid var(--ap-line2); border-radius: 4px; background: var(--ap-panel); }
+.ap-posta-set-rand textarea, .ap-posta-set-rand input[type="text"] { width: 100%; max-width: 520px; padding: 8px 10px; border: 1px solid var(--ap-line2); border-radius: 4px; background: var(--ap-panel); }
+.ap-posta-sem { max-width: 520px; }
+.ap-posta-sem-editor { min-height: 90px; padding: 10px; border: 1px solid var(--ap-line2); border-radius: 4px; outline: none; white-space: pre-wrap; }
+.ap-posta-sem-editor:focus { border-color: var(--ap-blue); box-shadow: 0 0 0 1px var(--ap-blue); }
+.ap-posta-sem-editor[data-gol]:empty::before { content: attr(data-gol); color: var(--ap-muted); }
+.ap-posta-set-btn { display: flex; gap: 12px; padding: 24px; }
+.ap-posta-set-tabel { width: calc(100% - 48px); margin: 16px 24px; border-collapse: collapse; }
+.ap-posta-set-tabel th { padding: 8px; text-align: left; font-weight: 500; font-size: 13px; color: var(--ap-muted); border-bottom: 1px solid var(--ap-line); }
+.ap-posta-set-tabel td { padding: 8px; border-bottom: 1px solid var(--ap-line); }
+.ap-posta-set-corp > .ap-posta-b { margin: 0 24px 24px; }
 
 /* Dialoguri și notificări */
-.ap-posta-modal { position: absolute; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(23, 20, 22, .4); }
-.ap-posta-dialog { width: min(480px, 100%); max-height: 100%; overflow-y: auto; padding: 20px 22px 16px; border-radius: 14px; background: #fff; box-shadow: 0 12px 40px rgba(23, 20, 22, .35); }
-.ap-posta-dialog h2 { margin: 0 0 10px; font-size: 1.15rem; }
-.ap-posta-dialog p { margin: 0 0 10px; }
-.ap-posta-dialog ul { margin: 0 0 10px; padding-left: 20px; }
-.ap-posta-dialog li { margin-bottom: 4px; }
-.ap-posta-dialog code { word-break: break-all; padding: 2px 6px; border-radius: 4px; background: #FFF1F4; color: var(--red-dark); }
-.ap-posta-dialog kbd { padding: 1px 6px; border: 1px solid #CFC5B9; border-bottom-width: 2px; border-radius: 4px; font: inherit; font-size: .82rem; background: #FBFAF8; }
-.ap-posta-dialog-btn { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-.ap-posta-b { padding: 8px 16px; border: 1px solid #CFC5B9; border-radius: 8px; background: #fff; cursor: pointer; font-weight: 700 !important; }
-.ap-posta-b:hover { background: var(--ap-hover); }
-.ap-posta-b.principal { background: var(--ap-albastru); border-color: var(--ap-albastru); color: #fff !important; }
-.ap-posta-b.principal:hover { background: #174CA8; }
-.ap-posta-b.pericol { background: var(--red-dark); border-color: var(--red-dark); color: #fff !important; }
-.ap-posta-camp-dialog { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; font-weight: 600; font-size: .88rem; }
-.ap-posta-camp-dialog input, .ap-posta-camp-dialog select { padding: 9px 10px; border: 1px solid #CFC5B9; border-radius: 8px; font: inherit; font-weight: 500; }
-.ap-posta-toasturi { position: absolute; left: 50%; top: 66px; z-index: 60; display: flex; flex-direction: column; align-items: center; gap: 8px; transform: translateX(-50%); width: max-content; max-width: min(620px, calc(100% - 32px)); pointer-events: none; }
-.ap-posta-toast { display: flex; align-items: center; gap: 10px; padding: 9px 8px 9px 16px; border-radius: 10px; background: #2B2729; color: #fff; font-size: .88rem; box-shadow: 0 6px 20px rgba(23, 20, 22, .3); pointer-events: auto; }
-.ap-posta-toast.ok { background: #1E7145; }
-.ap-posta-toast.err { background: #A3102F; }
-.ap-posta-toast.avert { background: #8A5300; }
-.ap-posta-toast.nou { background: #1F4FA8; }
-.ap-posta-toast button:not(.ap-posta-x) { padding: 4px 8px; border: 0; border-radius: 6px; background: rgba(255, 255, 255, .15); color: #fff !important; font-weight: 700 !important; cursor: pointer; white-space: nowrap; }
-.ap-posta-toast .ap-posta-x { color: rgba(255, 255, 255, .8); }
+.ap-posta-modal { position: absolute; inset: 0; z-index: 100; display: grid; place-items: center; padding: 16px; background: rgba(32, 33, 36, .45); animation: ap-posta-apare .12s ease-out; }
+.ap-posta-dialog { width: min(480px, 100%); max-height: calc(100% - 16px); overflow-y: auto; padding: 24px 24px 16px; border-radius: 8px; background: var(--ap-panel); box-shadow: 0 4px 24px rgba(0, 0, 0, .3); }
+.ap-posta-dialog h2 { margin: 0 0 14px; font: 400 22px/1.3 'Google Sans', Roboto, Arial, sans-serif; }
+.ap-posta-dialog-corp { color: var(--ap-muted); }
+.ap-posta-dialog-corp p { margin: 0 0 10px; }
+.ap-posta-dialog-corp ul { margin: 0 0 10px; padding-left: 20px; }
+.ap-posta-dialog-corp code { padding: 2px 6px; border-radius: 4px; background: var(--ap-read); color: var(--ap-red); word-break: break-all; }
+.ap-posta-dialog-btn { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.ap-posta-camp-dialog { display: flex; flex-direction: column; gap: 6px; margin: 0 0 14px; font-size: 14px; color: var(--ap-ink); }
+.ap-posta-camp-dialog input, .ap-posta-camp-dialog select, .ap-posta-camp-dialog textarea { padding: 8px 4px; border: 0; border-bottom: 1px solid var(--ap-line2); background: none; outline: none; }
+.ap-posta-camp-dialog input:focus, .ap-posta-camp-dialog textarea:focus { border-bottom: 2px solid var(--ap-blue); }
+.ap-posta-set-rand .ap-posta-camp-dialog { max-width: 520px; margin: 10px 0; }
+.ap-posta-toasturi { position: absolute; left: 24px; bottom: 24px; z-index: 110; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; pointer-events: none; }
+.ap-posta-toast { display: flex; align-items: center; gap: 4px; min-width: 288px; max-width: min(568px, calc(100vw - 48px)); padding: 6px 6px 6px 16px; border-radius: 4px; background: #303030; color: #F2F2F2; font-size: 14px; box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14); pointer-events: auto; animation: ap-posta-urca .2s ease-out; }
+.ap-posta-toast > span { flex: 1; padding: 8px 8px 8px 0; }
+.ap-posta-toast .act { flex: none; padding: 8px 10px; border: 0; border-radius: 4px; background: none; color: #A8C7FA !important; font-weight: 500; white-space: nowrap; }
+.ap-posta-toast .act:hover { background: rgba(255, 255, 255, .1); }
+.ap-posta-toast .x { display: inline-flex; padding: 6px; border: 0; border-radius: 50%; background: none; color: #C4C7C5 !important; }
+.ap-posta-toast .x:hover { background: rgba(255, 255, 255, .1); }
+.ap-posta-toast .x .ap-posta-ico { width: 18px; height: 18px; }
+.ap-posta-toast.ok { box-shadow: inset 4px 0 0 #6DD58C, 0 6px 10px rgba(0, 0, 0, .2); }
+.ap-posta-toast.err { box-shadow: inset 4px 0 0 #F2B8B5, 0 6px 10px rgba(0, 0, 0, .2); }
+.ap-posta-toast.avert { box-shadow: inset 4px 0 0 #FDD663, 0 6px 10px rgba(0, 0, 0, .2); }
+.ap-posta-toast.nou { box-shadow: inset 4px 0 0 #A8C7FA, 0 6px 10px rgba(0, 0, 0, .2); }
 
-/* Prima pornire */
-.ap-posta-bunvenit { flex: 1; overflow-y: auto; padding: 16px; background: linear-gradient(160deg, #FFF7EE, #E2F6FA); }
-.ap-posta-card { display: flex; flex-direction: column; gap: 10px; max-width: 460px; margin: 20px auto; padding: 26px 28px; border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); }
-.ap-posta-card h1 { margin: 0; font-size: 1.4rem; text-align: center; }
-.ap-posta-card p { margin: 0; }
-.ap-posta-card label { display: flex; flex-direction: column; gap: 4px; font-weight: 700; font-size: .9rem; }
-.ap-posta-card input { padding: 10px 12px; border: 1px solid #CFC5B9; border-radius: 8px; font: inherit; font-weight: 500; }
-.ap-posta-adresa-camp { display: flex; align-items: center; border: 1px solid #CFC5B9; border-radius: 8px; overflow: hidden; }
-.ap-posta-adresa-camp input { flex: 1; min-width: 0; border: 0; border-radius: 0; }
-.ap-posta-adresa-camp span { padding: 10px 12px; background: #F4F1EC; color: var(--muted); font-weight: 600; }
-.ap-posta-card .btn { justify-content: center; margin-top: 6px; }
+/* Prima pornire și ecranul „Alege un cont” */
+.ap-posta-bunvenit { flex: 1; overflow-y: auto; padding: 16px; background: var(--ap-bg); }
+.ap-posta-card { display: flex; flex-direction: column; gap: 14px; max-width: 450px; margin: 24px auto; padding: 40px 40px 32px; border: 1px solid #DADCE0; border-radius: 8px; background: var(--ap-panel); }
+.ap-posta-card h1 { margin: 0; font: 400 24px/1.3 'Google Sans', Roboto, Arial, sans-serif; text-align: center; }
+.ap-posta-card > p { margin: 0; }
+.ap-posta-camp-contur { position: relative; }
+.ap-posta-camp-contur input { width: 100%; height: 54px; padding: 16px 15px 0; border: 1px solid var(--ap-line2); border-radius: 4px; background: none; font-size: 16px; outline: none; }
+.ap-posta-camp-contur input:focus { border: 2px solid var(--ap-blue); padding-left: 14px; }
+.ap-posta-camp-contur label { display: block; margin: 0; line-height: 20px; font-weight: 400; position: absolute; left: 12px; top: 16px; padding: 0 4px; background: var(--ap-panel); color: var(--ap-muted); font-size: 16px; pointer-events: none; transition: all .15s; }
+.ap-posta-camp-contur input:focus + label, .ap-posta-camp-contur input:not(:placeholder-shown) + label { top: -10px; font-size: 12px; color: var(--ap-blue); }
+.ap-posta-camp-contur input:not(:focus):not(:placeholder-shown) + label { color: var(--ap-muted); }
+.ap-posta-camp-contur input#ap-posta-f3 { padding-right: 110px; }
+.ap-posta-camp-contur .sufix { position: absolute; right: 14px; top: 22px; color: var(--ap-muted); }
+.ap-posta-card-btn { display: flex; justify-content: flex-end; }
+.ap-posta-cont-ales { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 16px; border: 1px solid #DADCE0; border-radius: 8px; background: none; text-align: left; }
+.ap-posta-cont-ales:hover { background: var(--ap-hover); }
+.ap-posta-cont-ales > span:not(.ap-posta-avatar) { display: flex; flex-direction: column; min-width: 0; }
+.ap-posta-cont-ales small { color: var(--ap-muted); }
+.ap-posta-cont-ales em { margin-left: auto; font-style: normal; font-size: 12px; color: var(--ap-muted); }
 
-/* Ecrane mai mici (Chromebook 1024 px, tabletă, telefon) */
+/* Aspect Outlook (comutator în Setări) */
+.ap-posta.aspect-outlook { --ap-bg: #F0F0F0; --ap-nav-act: #EBF3FC; --ap-blue: #0F6CBD; --ap-read: #fff; --ap-unread: #fff; --ap-bifat: #EBF3FC; --ap-search: #fff; --ap-cap: #F5F5F5; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
+.aspect-outlook .ap-posta-sus { height: 48px; padding: 0 12px 0 8px; background: #0F6CBD; color: #fff; }
+.aspect-outlook .ap-posta-sus .ap-posta-ib { color: #fff; }
+.aspect-outlook .ap-posta-sus .ap-posta-ib:hover { background: rgba(255, 255, 255, .15); }
+.aspect-outlook .ap-posta-logo b { color: #fff; font: 600 16px/1 'Segoe UI', Roboto, Arial, sans-serif; }
+.aspect-outlook .ap-posta-logo-ico { width: 30px; height: 22px; }
+.aspect-outlook .ap-posta-cauta { height: 32px; max-width: 480px; margin: 0 auto; border-radius: 4px; color: #242424; }
+.aspect-outlook .ap-posta-cauta input { font-size: 14px; }
+.aspect-outlook .ap-posta-cauta .ap-posta-ib { width: 30px; height: 30px; color: #0F6CBD; }
+.aspect-outlook .ap-posta-cauta .optiuni { display: none; }
+.aspect-outlook .ap-posta-sus-dreapta { margin-left: 0; }
+.aspect-outlook .ap-posta-btn-misiuni { height: 30px; border-color: rgba(255, 255, 255, .6); background: transparent; color: #fff; }
+.aspect-outlook .ap-posta-btn-misiuni .ap-posta-ico { color: #fff; }
+.aspect-outlook .ap-posta-hamburger { color: #fff; }
+.aspect-outlook .ap-posta-ribbon { padding: 4px 12px 0; }
+.ap-posta-ribbon-file { display: flex; gap: 22px; padding: 2px 8px; font-size: 14px; }
+.ap-posta-ribbon-file span { padding: 4px 0; border-bottom: 2px solid transparent; color: #424242; }
+.ap-posta-ribbon-file span.activ { border-bottom-color: #0F6CBD; font-weight: 600; color: #242424; }
+.ap-posta-ribbon-cmd { display: flex; align-items: center; gap: 2px; margin: 4px 0 8px; padding: 4px 8px; border-radius: 8px; background: #fff; box-shadow: 0 1px 2px rgba(0, 0, 0, .12); overflow-x: auto; scrollbar-width: thin; }
+.ap-posta-cmd { display: inline-flex; align-items: center; gap: 6px; height: 32px; flex: none; padding: 0 8px; border: 0; border-radius: 4px; background: none; color: #242424; font-size: 14px; white-space: nowrap; }
+.ap-posta-cmd .ap-posta-ico { width: 18px; height: 18px; color: #0F6CBD; }
+.ap-posta-cmd:hover:not(:disabled) { background: #F5F5F5; }
+.ap-posta-cmd:disabled { opacity: .4; }
+.ap-posta-cmd.nou { padding: 0 12px; background: #0F6CBD; color: #fff; font-weight: 600; }
+.ap-posta-cmd.nou .ap-posta-ico { color: #fff; }
+.ap-posta-cmd.nou:hover { background: #115EA3 !important; }
+.ap-posta-ribbon-cmd .sep { width: 1px; height: 20px; margin: 0 4px; background: #E0E0E0; flex: none; }
+.aspect-outlook .ap-posta-scrie { display: none; }
+.aspect-outlook .ap-posta-corp { grid-template-columns: 228px minmax(0, 1fr) 48px; }
+.aspect-outlook .ap-posta-nav { padding-top: 4px; }
+.aspect-outlook .ap-posta-nav-titlu { margin-top: 4px; padding: 6px 12px; font: 600 14px/1.3 'Segoe UI', Roboto, Arial, sans-serif; justify-content: flex-start; gap: 4px; }
+.aspect-outlook .ap-posta-nav-etichete .ap-posta-nav-titlu { justify-content: space-between; }
+.aspect-outlook .ap-posta-dosar { margin: 1px 4px 1px 8px; padding-left: 28px; border-radius: 4px; height: 32px; }
+.aspect-outlook .ap-posta-dosar.activ { background: #E1EFFA; color: #242424; font-weight: 600; box-shadow: inset 3px 0 0 #0F6CBD; }
+.aspect-outlook .ap-posta-dosar .ap-posta-ico, .aspect-outlook .ap-posta-dosar.activ .ap-posta-ico { color: #0F6CBD; }
+.aspect-outlook .ap-posta-dosar b { color: #0F6CBD; }
+.aspect-outlook .ap-posta-principal { margin: 0 0 8px; border-radius: 8px; }
+.aspect-outlook .ap-posta-corp.impartit .ap-posta-principal { grid-template-columns: minmax(300px, 380px) minmax(0, 1fr); }
+.aspect-outlook .ap-posta-categorii { border-bottom: 1px solid #E0E0E0; padding: 0 8px; }
+.aspect-outlook .ap-posta-cat { flex: none; height: 36px; padding: 0 12px; }
+.aspect-outlook .ap-posta-cat::after { left: 12px; right: 12px; height: 2px; }
+.aspect-outlook .ap-posta-cat.activ { color: #242424; font-weight: 600; }
+.aspect-outlook .ap-posta-cat.activ::after { background: #0F6CBD; }
+.aspect-outlook .ap-posta-unelte { min-height: 40px; }
+.ap-posta-rand.ol { grid-template-columns: 40px minmax(0, 1fr) auto; gap: 10px; padding: 8px 10px 8px 12px; border-bottom: 1px solid #EDEBE9; box-shadow: inset 3px 0 0 transparent; }
+.ap-posta-rand.ol > div { padding-block: 0; line-height: 1.35; }
+.ap-posta-rand.ol:hover { background: #F5F5F5; box-shadow: none; }
+.ap-posta-rand.ol.necitit { box-shadow: inset 3px 0 0 #0F6CBD; }
+.ap-posta-rand.ol.necitit .subiect { color: #0F6CBD; font-weight: 600; }
+.ap-posta-rand.ol.sel { background: #CFE4FA; }
+.ap-posta-rand.ol .ol-av { position: relative; padding-top: 2px; }
+.ap-posta-rand.ol .ol-av input { position: absolute; inset: 9px; opacity: 0; }
+.ap-posta-rand.ol:hover .ol-av input, .ap-posta-rand.ol.bifat .ol-av input { opacity: 1; }
+.ap-posta-rand.ol:hover .ol-av .ap-posta-avatar, .ap-posta-rand.ol.bifat .ol-av .ap-posta-avatar { opacity: 0; }
+.ap-posta-rand.ol .ol-text { min-width: 0; }
+.ap-posta-rand.ol .ol-r1, .ap-posta-rand.ol .ol-r2 { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.ap-posta-rand.ol .cine, .ap-posta-rand.ol .subiect { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-posta-rand.ol .ol-r3 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+.ap-posta-rand.ol .ap-posta-hover .ap-posta-ib { width: 28px; height: 28px; margin: -4px 0; }
+.ap-posta-rand.ol .ap-posta-hover .ap-posta-ico { width: 16px; height: 16px; }
+.ap-posta-rand.ol .ap-posta-stea { align-self: start; }
+.ap-posta-rand.ol .ap-posta-stea.on { color: #C50F1F !important; }
+.ap-posta-rand.ol .ap-posta-stea.on svg { fill: #C50F1F; }
+.aspect-outlook .ap-posta-fir { padding: 12px 20px 24px; }
+.aspect-outlook .ap-posta-fir-cap { padding-left: 0; }
+.aspect-outlook .ap-posta-fir-cap h2 { font: 600 20px/1.3 'Segoe UI', Roboto, Arial, sans-serif; }
+.aspect-outlook .ap-posta-msg { padding: 14px 16px; margin-bottom: 10px; border: 1px solid #E0E0E0; border-radius: 8px; box-shadow: 0 1px 2px rgba(0, 0, 0, .06); }
+.aspect-outlook .ap-posta-avert, .aspect-outlook .ap-posta-intelig, .aspect-outlook .ap-posta-actiuni { margin-left: 0; }
+.aspect-outlook .ap-posta-act, .aspect-outlook .ap-posta-intelig button { border-radius: 4px; border-color: #D1D1D1; }
+.aspect-outlook .ap-posta-trimite { border-radius: 4px 0 0 4px; }
+.aspect-outlook .ap-posta-trimite.sageata { border-radius: 0 4px 4px 0; }
+.aspect-outlook .ap-posta-compune-cap { background: #0F6CBD; color: #fff; }
+.aspect-outlook .ap-posta-compune-cap .ap-posta-ib { color: #fff; }
+.aspect-outlook .ap-posta-rail { padding-top: 0; }
+.aspect-outlook .ap-posta-panou { right: 48px; border-radius: 8px; }
+.aspect-outlook .ap-posta-banda-vac { margin-left: 228px; }
+
+/* Tema întunecată */
+.ap-posta.tema-intunecata { --ap-bg: #1B1B1B; --ap-panel: #232323; --ap-ink: #E3E3E3; --ap-muted: #A8A8A8; --ap-line: #3C3C3C; --ap-line2: #8E918F;
+  --ap-hover: rgba(255, 255, 255, .08); --ap-read: #232323; --ap-unread: #2D2D2D; --ap-bifat: #2B3A55; --ap-nav-act: #004A77; --ap-blue: #A8C7FA;
+  --ap-compose: #004A77; --ap-search: #2E2E2E; --ap-cap: #2E2E2E; }
+.tema-intunecata .ap-posta-logo b, .tema-intunecata .ap-posta-ib, .tema-intunecata .ap-posta-cauta input::placeholder, .tema-intunecata .ap-posta-dosar .ap-posta-ico, .tema-intunecata .ap-posta-fmt, .tema-intunecata .ap-posta-cat { color: #C4C7C5; }
+.tema-intunecata .ap-posta-dosar.activ, .tema-intunecata .ap-posta-dosar.activ .ap-posta-ico, .tema-intunecata .ap-posta-scrie { color: #C2E7FF; }
+.tema-intunecata .ap-posta-b.plin, .tema-intunecata .ap-posta-trimite { background: #A8C7FA; color: #062E6F !important; }
+.tema-intunecata .ap-posta-rand:hover { box-shadow: inset 1px 0 0 #444, inset -1px 0 0 #444, 0 1px 3px rgba(0, 0, 0, .6); }
+.tema-intunecata .ap-posta-text a, .tema-intunecata .ap-posta-editor a, .tema-intunecata .ap-posta-atas-rand .nume { color: #8AB4F8; }
+.tema-intunecata .ap-posta-et:not(.col) { background: #3C4043; color: #E8EAED; }
+.tema-intunecata .ap-posta-avert.rosu { background: #5C2B29; color: #F9DEDC; }
+.tema-intunecata .ap-posta-avert.galben, .tema-intunecata .ap-posta-banda-vac { background: #4A3C10; color: #FDE293; }
+.tema-intunecata .ap-posta-card-atas { background: #303134; }
+.tema-intunecata .ap-posta-btn-misiuni b { background: #0B3D91; color: #D3E3FD; }
+.tema-intunecata .ap-posta-card, .tema-intunecata .ap-posta-cont-ales { border-color: var(--ap-line); }
+.tema-intunecata.aspect-outlook .ap-posta-ribbon-cmd, .tema-intunecata .ap-posta-rand.ol:hover { background: #2D2D2D; }
+.tema-intunecata .ap-posta-cmd, .tema-intunecata .ap-posta-ribbon-file span { color: #E3E3E3; }
+.tema-intunecata .ap-posta-rand.ol.sel, .tema-intunecata .aspect-outlook .ap-posta-dosar.activ { background: #0E3A5E; }
+.tema-intunecata .ap-posta-rand.ol { border-bottom-color: var(--ap-line); }
+
+/* Ecrane mici (Chromebook 1024×600, tabletă, telefon) */
 @media (max-width: 1100px) {
-  .ap-posta-corp { grid-template-columns: 196px minmax(250px, 310px) minmax(0, 1fr); }
-  .ap-posta-logo > span:last-child { display: none; }
-  .ap-posta-btn-sus span:not(.ap-posta-ico) { display: none; }
-  .ap-posta-unealta span:not(.ap-posta-ico) { display: none; }
-  .ap-posta-unelte.citire .ap-posta-unealta { padding: 7px; }
-  .ap-posta-articol { padding: 12px 18px 24px; }
-  .ap-posta-text, .ap-posta-atasamente, .ap-posta-actiuni, .ap-posta-detalii { margin-left: 0; }
+  .ap-posta-corp { grid-template-columns: 220px minmax(0, 1fr) 52px; }
+  .ap-posta-logo { width: auto; padding-right: 12px; }
+  .ap-posta-rand { grid-template-columns: auto 160px minmax(0, 1fr) auto; }
+  .ap-posta-compune { right: 64px; width: 500px; }
+  .ap-posta-banda-vac { margin-left: 220px; }
+  .ap-posta-corp.impartit .ap-posta-rand { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .ap-posta-corp.impartit .r-mijloc { grid-column: 2 / 4; padding-top: 0 !important; }
+  .ap-posta-corp.impartit .r-dreapta { grid-row: 1; grid-column: 3; }
+  .ap-posta-corp.impartit .r-cine { padding-bottom: 0 !important; }
 }
-@media (max-width: 820px) {
-  .ap-posta-sus { flex-wrap: wrap; }
-  .ap-posta-cauta { order: 5; flex-basis: 100%; max-width: none; }
-  .ap-posta-logo { flex: 1; }
-  .ap-posta-corp { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
-  .ap-posta-dosare { display: flex; align-items: center; gap: 6px; padding: 6px 8px; overflow-x: auto; overflow-y: hidden; }
-  .ap-posta-dosare ul { display: flex; gap: 4px; }
-  .ap-posta-scrie { margin: 0; padding: 9px 14px; }
-  .ap-posta-dosar { border-radius: 16px; padding: 6px 10px; white-space: nowrap; }
-  .ap-posta-dosar span:not(.ap-posta-ico) { overflow: visible; }
-  .ap-posta-dosar-nou { margin: 0; white-space: nowrap; }
-  .ap-posta-lista, .ap-posta-citire { margin-top: 0; border-radius: 0; border-right: 0; }
-  .ap-posta-corp .ap-posta-citire { display: none; }
-  .ap-posta-corp.citeste .ap-posta-lista { display: none; }
-  .ap-posta-corp.citeste .ap-posta-citire { display: block; }
-  .doar-ingust { display: inline-flex !important; }
-  .ap-posta-compune { right: 0; width: 100%; height: 100%; border-radius: 0; }
-  .ap-posta-antet > time { display: none; }
-  .ap-posta-toasturi { top: auto; bottom: 64px; }
-}
-@media (max-width: 480px) {
-  .ap-posta-sus { gap: 8px; padding: 8px 10px; }
+@media (max-width: 900px) {
+  .ap-posta-btn-misiuni span:not(.ap-posta-ico) { display: none; }
   .ap-posta-logo b { display: none; }
-  .ap-posta-toasturi { left: 8px; right: 8px; max-width: none; width: auto; transform: none; }
+  .ap-posta-rand { grid-template-columns: auto 120px minmax(0, 1fr) auto; }
+  .ap-posta-cat { gap: 8px; padding: 0 10px; }
+  .ap-posta-cat > .ap-posta-ico { display: none; }
+  .ap-posta-set-rand { grid-template-columns: 1fr; }
+}
+@media (max-height: 640px) {
+  .ap-posta-sus { height: 56px; }
+  .ap-posta-scrie { height: 48px; margin: 4px 0 8px 8px; }
+  .ap-posta-compune { height: calc(100% - 12px); }
+  .ap-posta-viz-pagina { min-height: 560px; }
+}
+@media (max-width: 760px) {
+  .ap-posta-corp, .ap-posta-corp.nav-mic, .aspect-outlook .ap-posta-corp { grid-template-columns: minmax(0, 1fr); }
+  .ap-posta-nav { position: absolute; top: 0; left: 0; bottom: 0; z-index: 45; width: 260px; padding-top: 8px; background: var(--ap-bg); box-shadow: 4px 0 16px rgba(0, 0, 0, .25); transform: translateX(-105%); transition: transform .2s; }
+  .ap-posta-corp.nav-deschis .ap-posta-nav { transform: none; }
+  .ap-posta-rail { display: none; }
+  .ap-posta-principal { margin: 0; border-radius: 0; }
+  .ap-posta-corp.impartit .ap-posta-principal, .aspect-outlook .ap-posta-corp.impartit .ap-posta-principal { grid-template-columns: minmax(0, 1fr); }
+  .ap-posta-corp.impartit.vede-fir .ap-posta-lista { display: none; }
+  .ap-posta-corp.impartit:not(.vede-fir) .ap-posta-citire { display: none; }
+  .ap-posta-inapoi { padding: 6px 8px; }
+  .ap-posta-cauta { height: 44px; }
+  .ap-posta-cauta .optiuni, .ap-posta-sus-dreapta > .ap-posta-ib { display: none; }
+  .ap-posta-sus-dreapta > .ap-posta-ib:nth-of-type(3) { display: inline-flex; }
+  .ap-posta-logo { display: none; }
+  .ap-posta-btn-misiuni { margin-right: 0; padding: 0 9px; border: 0; }
+  .ap-posta-btn-misiuni b { display: none; }
+  .ap-posta-sus { gap: 2px; padding-right: 6px; }
+  .ap-posta-cauta .lupa { width: 36px; }
+  .ap-posta-rand, .ap-posta-corp.impartit .ap-posta-rand { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .ap-posta-rand .r-mijloc { grid-column: 2 / 4; padding-top: 0 !important; }
+  .ap-posta-rand .r-dreapta { grid-row: 1; grid-column: 3; }
+  .ap-posta-rand .r-cine { padding-bottom: 0 !important; }
+  .ap-posta-imp { display: none !important; }
+  .ap-posta-compune, .ap-posta-compune.mare { inset: 0; width: auto; height: auto; max-width: none; border-radius: 0; }
+  .ap-posta-panou { right: 0; bottom: 0; width: 100%; border-radius: 0; }
+  .ap-posta-fir { padding: 8px 12px 24px; }
+  .ap-posta-fir-cap, .ap-posta-avert, .ap-posta-intelig, .ap-posta-actiuni { padding-left: 0; margin-left: 0; }
+  .ap-posta-msg { grid-template-columns: 32px minmax(0, 1fr); gap: 10px; }
+  .ap-posta-msg .ap-posta-avatar.mare { width: 32px; height: 32px; font-size: 15px; }
+  .ap-posta-msg-cap { flex-wrap: wrap; }
+  .ap-posta-banda-vac, .aspect-outlook .ap-posta-banda-vac { margin: 0 8px 8px; }
+  .ap-posta-toasturi { left: 8px; right: 8px; bottom: 8px; }
+  .ap-posta-toast { min-width: 0; width: 100%; }
+  .ap-posta-categorii { overflow-x: auto; }
+  .ap-posta-cat { flex: none; }
+  .ap-posta-card { padding: 28px 20px; }
 }
 /* Sfârșit: Aplicația Poștă */
 
@@ -2814,6 +3214,7 @@ button.ap-posta-eticheta-camp:hover { background: var(--ap-hover); }
   .ap-cpp-wiz-img { display: none; }
 }
 /* Sfârșit: Aplicația Editor C++ */
+.app-card.c9 .app-ico { background: #F59E0B; }
 
 /* Aplicația Animatie (Studio de animație: cadru cu cadru + personaje și cronologie) */
 .lab-ecran.ap-animatie-ecran { flex-direction: column; }
