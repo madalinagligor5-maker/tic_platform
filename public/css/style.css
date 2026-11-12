@@ -2814,3 +2814,303 @@ button.ap-posta-eticheta-camp:hover { background: var(--ap-hover); }
   .ap-cpp-wiz-img { display: none; }
 }
 /* Sfârșit: Aplicația Editor C++ */
+
+/* Aplicația Animatie (Studio de animație: cadru cu cadru + personaje și cronologie) */
+.lab-ecran.ap-animatie-ecran { flex-direction: column; }
+.ap-animatie { --an-albastru: #1f6fd1; --an-sel: #e3effd; --an-fundal: #eef0f4; position: relative; flex: 1; display: flex; flex-direction: column; min-width: 0; min-height: 0; background: var(--an-fundal); font: 500 13px/1.3 var(--font); color: var(--charcoal); user-select: none; -webkit-user-select: none; }
+.ap-animatie button, .ap-animatie select, .ap-animatie input, .ap-animatie textarea { font: inherit; color: inherit; }
+.ap-animatie :focus-visible { outline: 2px solid var(--blue-ink); outline-offset: 1px; }
+.ap-animatie-spatiu { flex: 1; }
+.ap-animatie-ico { display: inline-flex; width: 18px; height: 18px; flex: none; }
+.ap-animatie-ico.mare { width: 26px; height: 26px; }
+.ap-animatie-ico svg { width: 100%; height: 100%; }
+/* Bara de titlu */
+.ap-animatie-bara { display: flex; align-items: center; gap: 6px; padding: 4px 10px; min-height: 44px; background: var(--charcoal); color: #fff; flex: none; }
+.ap-animatie-inapoi { color: #fff; text-decoration: none; font-weight: 700; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
+.ap-animatie-inapoi:hover, .ap-animatie-inapoi:focus-visible { background: rgba(255, 255, 255, .14); }
+.ap-animatie-sigla { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--red), #ff8a3d); color: #fff; flex: none; }
+.ap-animatie-numeapp { font-size: 14px; white-space: nowrap; margin-right: 4px; }
+.ap-animatie-moduri { display: inline-flex; padding: 3px; gap: 2px; background: rgba(255, 255, 255, .1); border-radius: 10px; }
+.ap-animatie-mod { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border: 0; border-radius: 8px; background: none; color: #e9e2db !important; cursor: pointer; font-weight: 600 !important; white-space: nowrap; }
+.ap-animatie-mod:hover { background: rgba(255, 255, 255, .12); }
+.ap-animatie-mod[aria-pressed="true"] { background: #fff; color: var(--charcoal) !important; }
+.ap-animatie-nume { margin-left: 6px; padding: 5px 8px; border: 1px solid transparent; border-radius: 8px; background: none; color: #e9e2db !important; font-weight: 600 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; max-width: 240px; cursor: text; }
+.ap-animatie-nume:hover { border-color: rgba(255, 255, 255, .3); }
+.ap-animatie-tb { display: inline-grid; place-items: center; width: 34px; height: 34px; border: 0; border-radius: 8px; background: none; color: #fff !important; cursor: pointer; flex: none; }
+.ap-animatie-tb:hover:not(:disabled) { background: rgba(255, 255, 255, .16); }
+.ap-animatie-tb:disabled { opacity: .35; cursor: default; }
+.ap-animatie-salv, .ap-animatie-previz-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid rgba(255, 255, 255, .3); border-radius: 8px; background: none; color: #fff !important; cursor: pointer; font-weight: 700 !important; white-space: nowrap; flex: none; }
+.ap-animatie-salv:hover { background: rgba(255, 255, 255, .14); }
+.ap-animatie-previz-btn { background: var(--red); border-color: var(--red); }
+.ap-animatie-previz-btn:hover { background: var(--red-dark); }
+/* File și panglică */
+.ap-animatie-file { display: flex; gap: 2px; padding: 4px 8px 0; background: #fff; flex: none; overflow-x: auto; scrollbar-width: none; }
+.ap-animatie-fila { padding: 6px 14px 7px; border: 0; border-radius: 8px 8px 0 0; background: none; cursor: pointer; font-weight: 600 !important; white-space: nowrap; color: var(--muted) !important; }
+.ap-animatie-fila:hover { background: var(--warm); color: var(--charcoal) !important; }
+.ap-animatie-fila[aria-selected="true"] { background: var(--warm); color: var(--red-dark) !important; box-shadow: inset 0 -3px 0 var(--red); }
+.ap-animatie-fila.fisier { background: var(--red); color: #fff !important; margin-right: 6px; }
+.ap-animatie-fila.fisier:hover, .ap-animatie-fila.fisier[aria-expanded="true"] { background: var(--red-dark); }
+.ap-animatie-panglica { display: flex; align-items: stretch; padding: 4px 6px 0; min-height: 84px; background: var(--warm); border-bottom: 1px solid var(--line); overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; flex: none; }
+.ap-animatie-grup { display: flex; flex-direction: column; flex: none; padding: 0 8px; border-right: 1px solid var(--line); }
+.ap-animatie-grup:last-child { border-right: 0; }
+.ap-animatie-grup-c { flex: 1; display: flex; align-items: center; gap: 3px; }
+.ap-animatie-grup-e { text-align: center; font-size: 11px; color: var(--muted); padding: 2px 0 3px; white-space: nowrap; }
+.ap-animatie-mare { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 56px; height: 62px; padding: 4px 6px; border: 1px solid transparent; border-radius: 10px; background: none; cursor: pointer; font-size: 11.5px !important; white-space: nowrap; }
+.ap-animatie-mare span:not(.ap-animatie-ico) { max-width: 76px; white-space: normal; text-align: center; line-height: 1.15; }
+.ap-animatie-mic { display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 2px 8px; border: 1px solid transparent; border-radius: 6px; background: none; cursor: pointer; white-space: nowrap; font-size: 12px !important; }
+.ap-animatie-mare:hover:not(:disabled), .ap-animatie-mic:hover:not(:disabled), .ap-animatie-mare[aria-expanded="true"] { background: #fff; border-color: var(--line); }
+.ap-animatie-mare[aria-pressed="true"], .ap-animatie-mic[aria-pressed="true"] { background: var(--an-sel); border-color: var(--an-albastru); color: var(--an-albastru); }
+.ap-animatie-mare:disabled, .ap-animatie-mic:disabled { opacity: .4; cursor: default; }
+.ap-animatie-stiva { display: flex; flex-direction: column; gap: 1px; align-items: flex-start; justify-content: center; }
+.ap-animatie-paleta { display: grid; grid-template-columns: repeat(10, 20px); gap: 3px; }
+.ap-animatie-culoare { width: 20px; height: 20px; padding: 0; border: 1px solid rgba(0, 0, 0, .25); border-radius: 50%; cursor: pointer; }
+.ap-animatie-culoare[aria-pressed="true"] { outline: 2px solid var(--an-albastru); outline-offset: 2px; }
+.ap-animatie-curenta { width: 34px; height: 34px; border-radius: 10px; border: 2px solid #fff; box-shadow: 0 0 0 1px var(--line); flex: none; }
+.ap-animatie-alege { width: 30px; height: 30px; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: #fff; cursor: pointer; }
+.ap-animatie-alege.mare { width: 46px; height: 34px; }
+.ap-animatie-grosimi { display: flex; align-items: center; gap: 2px; }
+.ap-animatie-gros { display: grid; place-items: center; width: 27px; height: 40px; border: 1px solid transparent; border-radius: 8px; background: none; cursor: pointer; padding: 0; }
+.ap-animatie-gros i { display: block; border-radius: 50%; background: var(--charcoal); }
+.ap-animatie-gros:hover { background: #fff; border-color: var(--line); }
+.ap-animatie-gros[aria-pressed="true"] { background: var(--an-sel); border-color: var(--an-albastru); }
+.ap-animatie-rand { display: flex; align-items: baseline; gap: 8px; }
+.ap-animatie-mic-info { font-size: 11px; color: var(--muted); white-space: nowrap; }
+.ap-animatie-fps-pg { width: 170px; accent-color: var(--red); }
+.ap-animatie-et-col { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11.5px; }
+.ap-animatie-et-mic { display: flex; align-items: center; gap: 6px; font-size: 12px; padding: 0 8px; }
+.ap-animatie-et-mic input { width: 90px; }
+.ap-animatie .cat-intrare:hover, .ap-animatie .cat-miscare:hover, .ap-animatie .cat-transf:hover, .ap-animatie .cat-iesire:hover, .ap-animatie .cat-sunet:hover { border-color: currentColor; }
+/* Corpul */
+.ap-animatie-corp { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.ap-animatie-zona { position: relative; flex: 1; min-height: 0; min-width: 0; display: grid; place-items: center; overflow: hidden; background: radial-gradient(circle at 50% 40%, #f7f8fb, #e2e5ec); }
+.ap-animatie-pagina { position: relative; width: 640px; height: 360px; background: #fff; box-shadow: 0 2px 12px rgba(23, 20, 22, .18); border-radius: 4px; overflow: hidden; touch-action: none; }
+.ap-animatie-pagina canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ap-animatie-ov { cursor: crosshair; touch-action: none; }
+.ap-animatie-pagina[data-unealta="mutare"] .ap-animatie-ov { cursor: move; }
+.ap-animatie-pagina[data-unealta="umplere"] .ap-animatie-ov { cursor: cell; }
+.ap-animatie-pagina[data-unealta="radiera"] .ap-animatie-ov { cursor: none; }
+.ap-animatie-pagina.scena canvas { touch-action: none; }
+.ap-animatie-pagina.inreg { box-shadow: 0 0 0 3px var(--red), 0 2px 12px rgba(23, 20, 22, .18); }
+.ap-animatie-pagina.inreg canvas { cursor: crosshair; }
+/* Banda de cadre */
+.ap-animatie-banda { display: flex; align-items: stretch; gap: 8px; height: 104px; padding: 8px; background: #2b2730; color: #fff; flex: none; }
+.ap-animatie-banda-cmd { display: flex; flex-direction: column; justify-content: center; gap: 6px; flex: none; }
+.ap-animatie-banda-cmd.col { gap: 4px; }
+.ap-animatie-play { display: inline-flex; align-items: center; justify-content: center; gap: 6px; width: 112px; height: 40px; border: 0; border-radius: 10px; background: var(--red); color: #fff !important; cursor: pointer; font-weight: 700 !important; }
+.ap-animatie-play:hover { background: var(--red-dark); }
+.ap-animatie-play[aria-pressed="true"] { background: #fff; color: var(--red-dark) !important; }
+.ap-animatie-fps { display: flex; flex-direction: column; gap: 2px; font-size: 12px; }
+.ap-animatie-fps input { width: 112px; accent-color: var(--red); }
+.ap-animatie-cadre { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; overflow-x: auto; overflow-y: hidden; padding: 2px 4px; scrollbar-width: thin; scrollbar-color: #6b6470 transparent; }
+.ap-animatie-cadru { position: relative; flex: none; width: 132px; height: 80px; padding: 2px; border-radius: 8px; background: #3d3842; cursor: pointer; touch-action: pan-x; }
+.ap-animatie-cadru canvas { display: block; width: 128px; height: 72px; border-radius: 5px; background: #fff; pointer-events: none; }
+.ap-animatie-cadru .nr { position: absolute; left: 6px; bottom: 6px; min-width: 20px; padding: 1px 5px; border-radius: 6px; background: rgba(23, 20, 22, .78); color: #fff; font-size: 11px; font-weight: 700; text-align: center; pointer-events: none; }
+.ap-animatie-cadru[aria-selected="true"] { background: var(--red); box-shadow: 0 0 0 2px #fff; }
+.ap-animatie-cadru-x { position: absolute; top: 4px; right: 4px; display: none; place-items: center; width: 22px; height: 22px; padding: 3px; border: 0; border-radius: 50%; background: rgba(23, 20, 22, .75); color: #fff !important; cursor: pointer; }
+.ap-animatie-cadru:hover .ap-animatie-cadru-x, .ap-animatie-cadru[aria-selected="true"] .ap-animatie-cadru-x { display: grid; }
+.ap-animatie-cadru.trase, .ap-animatie-scena-el.trase, .ap-animatie-ef.trase { opacity: .45; }
+.ap-animatie-cadru.inainte { box-shadow: -5px 0 0 var(--blue); }
+.ap-animatie-cadru.dupa { box-shadow: 5px 0 0 var(--blue); }
+.ap-animatie-adauga { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; border: 2px dashed rgba(255, 255, 255, .45); border-radius: 10px; background: none; color: #fff !important; cursor: pointer; font-weight: 700 !important; white-space: nowrap; }
+.ap-animatie-adauga.dup { height: 34px; border-style: solid; border-width: 1px; font-weight: 600 !important; }
+.ap-animatie-adauga:hover { background: rgba(255, 255, 255, .12); }
+.ap-animatie-adauga.mic { height: 34px; margin: 6px; justify-content: center; border-color: var(--line); color: var(--charcoal) !important; background: #fff; }
+.ap-animatie-adauga.mic:hover { border-color: var(--an-albastru); color: var(--an-albastru) !important; }
+/* Testare și depanare */
+.ap-animatie-testare { position: absolute; left: 10px; right: 10px; bottom: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; padding: 6px 10px; border-radius: 12px; background: rgba(255, 255, 255, .96); box-shadow: 0 4px 18px rgba(23, 20, 22, .2); z-index: 3; }
+.ap-animatie-testare[hidden] { display: none; }
+.ap-animatie-testare .tit { display: inline-flex; align-items: center; gap: 6px; color: #7c4ddb; margin-right: 4px; }
+.ap-animatie-testare .info { flex: 1; min-width: 160px; font-size: 12px; }
+.ap-animatie-testare select { padding: 3px 4px; border: 1px solid var(--line); border-radius: 6px; background: #fff; font-size: 12px; }
+.ap-animatie-testare .avert, .ap-animatie-testare .ok { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; }
+.ap-animatie-testare .avert { color: #b45309; }
+.ap-animatie-testare .ok { color: var(--teal); }
+/* Modul cu personaje */
+.ap-animatie-mijloc { flex: 1; min-height: 0; display: flex; }
+.ap-animatie-col-scene { width: 124px; flex: none; display: flex; flex-direction: column; background: #fff; border-right: 1px solid var(--line); }
+.ap-animatie-col-cap { display: flex; align-items: baseline; justify-content: space-between; gap: 4px; padding: 8px 8px 4px; }
+.ap-animatie-col-cap .pv { font-size: 10.5px; color: var(--muted); text-align: right; }
+.ap-animatie-scene-lista { flex: 1; overflow-y: auto; padding: 2px 8px; display: flex; flex-direction: column; gap: 8px; scrollbar-width: thin; }
+.ap-animatie-scena-el { flex: none; padding: 3px; border-radius: 8px; border: 2px solid transparent; cursor: pointer; touch-action: pan-y; }
+.ap-animatie-scena-el canvas { display: block; width: 100%; aspect-ratio: 16 / 9; height: auto; border-radius: 4px; box-shadow: 0 0 0 1px var(--line); pointer-events: none; }
+.ap-animatie-scena-el .nume { display: block; padding: 3px 1px 0; font-size: 11.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none; }
+.ap-animatie-scena-el:hover { background: var(--warm); }
+.ap-animatie-scena-el[aria-selected="true"] { border-color: var(--red); background: #fff5f7; }
+.ap-animatie-scena-el.inainte { box-shadow: 0 -4px 0 var(--blue); }
+.ap-animatie-scena-el.dupa { box-shadow: 0 4px 0 var(--blue); }
+.ap-animatie-banner { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; max-width: calc(100% - 20px); padding: 6px 8px 6px 12px; border-radius: 999px; background: var(--charcoal); color: #fff; font-weight: 600; font-size: 12.5px; z-index: 3; box-shadow: 0 4px 16px rgba(0, 0, 0, .25); }
+.ap-animatie-banner[hidden] { display: none; }
+.ap-animatie-banner .rec { width: 12px; height: 12px; border-radius: 50%; background: var(--red); animation: ap-animatie-puls 1s infinite; flex: none; }
+@keyframes ap-animatie-puls { 50% { opacity: .3; } }
+.ap-animatie-panou { width: 262px; flex: none; display: flex; flex-direction: column; background: #fff; border-left: 1px solid var(--line); min-height: 0; }
+.ap-animatie-panou-tab { display: flex; border-bottom: 1px solid var(--line); flex: none; }
+.ap-animatie-panou-tab button { flex: 1; padding: 8px 4px; border: 0; background: none; cursor: pointer; font-weight: 600 !important; color: var(--muted) !important; }
+.ap-animatie-panou-tab button[aria-selected="true"] { color: var(--charcoal) !important; box-shadow: inset 0 -3px 0 var(--red); }
+.ap-animatie-panou-corp { flex: 1; overflow-y: auto; padding: 8px 10px 12px; scrollbar-width: thin; user-select: text; -webkit-user-select: text; }
+.ap-animatie-panou-cap { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.ap-animatie-efecte { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; user-select: none; }
+.ap-animatie-ef { display: flex; align-items: center; gap: 5px; padding: 5px 6px; border: 1px solid transparent; border-radius: 8px; cursor: pointer; touch-action: pan-y; font-size: 12px; }
+.ap-animatie-ef:hover { background: var(--warm); }
+.ap-animatie-ef.al-sel { background: #f6f3ff; }
+.ap-animatie-ef[aria-selected="true"] { background: var(--an-sel); border-color: var(--an-albastru); }
+.ap-animatie-ef.inainte { box-shadow: 0 -3px 0 var(--blue); }
+.ap-animatie-ef.dupa { box-shadow: 0 3px 0 var(--blue); }
+.ap-animatie-ef .nr { min-width: 18px; font-weight: 700; color: var(--muted); text-align: right; }
+.ap-animatie-ef .start { color: var(--muted); display: inline-flex; }
+.ap-animatie-ef .start .ap-animatie-ico, .ap-animatie-ef .cat .ap-animatie-ico { width: 15px; height: 15px; }
+.ap-animatie-ef .cat { display: inline-flex; }
+.ap-animatie-ef .txt { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ap-animatie-ef .dur { color: var(--muted); font-size: 11px; white-space: nowrap; }
+.ap-animatie-gol { color: var(--muted); font-size: 12px; line-height: 1.45; margin: 6px 0; }
+.ap-animatie-temp { margin-top: 6px; padding: 8px; border-radius: 10px; background: var(--warm); border: 1px solid var(--line); }
+.ap-animatie-temp-cap { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-size: 12.5px; }
+.ap-animatie-temp-cap small { color: var(--muted); font-weight: 500; }
+.ap-animatie-temp-tit { display: flex; align-items: center; gap: 5px; margin: 6px 0 4px; font-weight: 700; font-size: 12px; color: var(--blue-ink); }
+.ap-animatie-prop { display: flex; flex-direction: column; gap: 3px; margin: 0 0 8px; font-size: 12px; }
+.ap-animatie-prop .et { font-weight: 600; color: var(--muted); font-size: 11.5px; }
+.ap-animatie-prop input[type="text"], .ap-animatie-prop input[type="number"], .ap-animatie-prop select, .ap-animatie-prop textarea { width: 100%; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; font-size: 13px; }
+.ap-animatie-prop textarea { resize: vertical; line-height: 1.4; }
+.ap-animatie-prop input[type="color"] { width: 64px; height: 30px; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.ap-animatie-prop input[type="range"] { width: 100%; accent-color: var(--an-albastru); }
+.ap-animatie-temp .ap-animatie-prop { display: grid; grid-template-columns: 96px 1fr auto; align-items: center; gap: 6px; margin-bottom: 6px; }
+.ap-animatie-rand-but { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+.ap-animatie-obj-cap { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.ap-animatie-obj-cap canvas { width: 40px; height: 40px; }
+.ap-animatie-indiciu { display: flex; gap: 6px; margin: -2px 0 10px; padding: 6px 8px; border-radius: 8px; background: var(--t-tic); color: var(--blue-ink); font-size: 12px; }
+.ap-animatie-decor-rand { display: flex; align-items: center; gap: 8px; }
+.ap-animatie-decor-rand canvas { width: 96px; height: 54px; border-radius: 6px; box-shadow: 0 0 0 1px var(--line); }
+/* Cronologia */
+.ap-animatie-crono { height: 150px; flex: none; display: flex; flex-direction: column; background: #fff; border-top: 1px solid var(--line); }
+.ap-animatie-crono-cap { display: flex; align-items: center; gap: 6px; padding: 3px 8px; border-bottom: 1px solid var(--line); flex: none; }
+.ap-animatie-crono-cap strong { display: inline-flex; align-items: center; gap: 5px; margin-right: 4px; }
+.ap-animatie-crono-cap .timp { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 12px; }
+.ap-animatie-crono-scroll { flex: 1; overflow: auto; scrollbar-width: thin; }
+.ap-animatie-crono-in { position: relative; min-width: 100%; }
+.ap-animatie-crono-in .rand { display: flex; height: 26px; border-bottom: 1px solid #f1ece6; }
+.ap-animatie-crono-in .rand.sel { background: var(--an-sel); }
+.ap-animatie-crono-in .rand.rigla { position: sticky; top: 0; z-index: 2; height: 24px; background: #faf8f5; cursor: col-resize; }
+.ap-animatie-crono-in .et { position: sticky; left: 0; z-index: 1; width: 172px; flex: none; display: flex; align-items: center; gap: 5px; padding: 0 8px; background: inherit; background-color: #fff; border-right: 1px solid var(--line); font-size: 11.5px; cursor: pointer; }
+.ap-animatie-crono-in .rand.sel .et { background-color: var(--an-sel); }
+.ap-animatie-crono-in .rigla .et { background-color: #faf8f5; font-weight: 700; color: var(--muted); cursor: default; }
+.ap-animatie-crono-in .et .nr { font-weight: 700; color: var(--muted); min-width: 14px; }
+.ap-animatie-crono-in .et .ap-animatie-ico { width: 14px; height: 14px; color: var(--muted); }
+.ap-animatie-crono-in .et .txt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ap-animatie-crono-in .pista { position: relative; flex: none; }
+.ap-animatie-crono-in .rand.gol .pista { padding: 4px 10px; color: var(--muted); font-size: 12px; white-space: nowrap; }
+.ap-animatie-crono-in .tick { position: absolute; bottom: 0; height: 6px; border-left: 1px solid #c9c0b5; font-size: 10px; color: var(--muted); }
+.ap-animatie-crono-in .tick.mare { height: 22px; padding-left: 3px; line-height: 14px; }
+.ap-animatie-crono-in .clic { position: absolute; top: 2px; margin-left: -8px; color: #7c4ddb; }
+.ap-animatie-crono-in .clic .ap-animatie-ico { width: 15px; height: 15px; }
+.ap-animatie-crono-in .final { position: absolute; top: 0; bottom: 0; border-left: 2px dashed var(--red); }
+.ap-animatie-crono-in .bara { position: absolute; top: 4px; height: 18px; border-radius: 6px; color: #fff; font-size: 10.5px; font-weight: 700; line-height: 18px; padding: 0 10px 0 6px; overflow: hidden; white-space: nowrap; cursor: grab; touch-action: none; box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .15); }
+.ap-animatie-crono-in .rand.sel .bara { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--an-albastru); }
+.ap-animatie-crono-in .bara span { pointer-events: none; }
+.ap-animatie-crono-in .bara .capat { position: absolute; right: 0; top: 0; bottom: 0; width: 8px; background: rgba(255, 255, 255, .35); cursor: ew-resize; }
+.ap-animatie-crono-in .intarziere { position: absolute; top: 12px; height: 2px; border-top: 2px dotted #9b938a; }
+.ap-animatie-crono-in .cap-red { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--red); z-index: 3; pointer-events: none; }
+.ap-animatie-crono-in .cap-red::before { content: ''; position: absolute; top: 0; left: -5px; border: 6px solid transparent; border-top-color: var(--red); }
+/* Bara de stare */
+.ap-animatie-stare { display: flex; align-items: center; gap: 10px; padding: 3px 12px; min-height: 24px; background: #fff; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); flex: none; white-space: nowrap; overflow: hidden; }
+.ap-animatie-stare-st, .ap-animatie-stare-dr { overflow: hidden; text-overflow: ellipsis; }
+/* Meniuri, dialoguri, notificări */
+.ap-animatie-meniu { position: absolute; z-index: 30; min-width: 220px; overflow-y: auto; padding: 6px; border: 1px solid var(--line); border-radius: 12px; background: #fff; box-shadow: 0 10px 30px rgba(23, 20, 22, .18); }
+.ap-animatie-meniu-art { display: flex; align-items: center; gap: 10px; width: 100%; padding: 7px 10px; border: 0; border-radius: 8px; background: none; cursor: pointer; text-align: left; white-space: nowrap; }
+.ap-animatie-meniu-art:hover:not(:disabled), .ap-animatie-meniu-art:focus-visible { background: var(--warm); }
+.ap-animatie-meniu-art .txt { flex: 1; }
+.ap-animatie-meniu-art kbd { font: 11px var(--font); color: var(--muted); }
+.ap-animatie-meniu-sep { height: 1px; margin: 5px 4px; background: var(--line); }
+.ap-animatie-meniu-titlu { padding: 4px 10px 6px; font-size: 11.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+.ap-animatie-galerie { display: grid; grid-template-columns: repeat(5, 88px); gap: 4px; }
+.ap-animatie-galerie.decor { grid-template-columns: repeat(4, 116px); }
+.ap-animatie-gal-el { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 5px 3px; border: 1px solid transparent; border-radius: 10px; background: none; cursor: pointer; font-size: 11.5px; text-align: center; }
+.ap-animatie-gal-el:hover, .ap-animatie-gal-el:focus-visible { background: var(--warm); border-color: var(--line); }
+.ap-animatie-gal-el.activ { border-color: var(--red); }
+.ap-animatie-gal-el .ap-animatie-mini { width: 60px; height: 60px; }
+.ap-animatie-galerie.decor .ap-animatie-mini { width: 106px; height: 60px; border-radius: 6px; box-shadow: 0 0 0 1px var(--line); }
+.ap-animatie-gal-el input[type="color"] { width: 106px; height: 60px; padding: 0; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; }
+.ap-animatie-toasturi { position: absolute; left: 50%; top: 136px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 40; pointer-events: none; width: max-content; max-width: 90%; }
+.ap-animatie-toast { padding: 8px 14px; border-radius: 10px; background: var(--charcoal); color: #fff; font-weight: 600; font-size: 12.5px; box-shadow: 0 6px 20px rgba(0, 0, 0, .25); transition: opacity .35s, transform .35s; }
+.ap-animatie-toast.pleaca { opacity: 0; transform: translateY(-8px); }
+.ap-animatie-fundal { position: absolute; inset: 0; z-index: 50; display: grid; place-items: center; padding: 12px; background: rgba(23, 20, 22, .45); }
+.ap-animatie-dialog { width: min(440px, 100%); max-height: 100%; display: flex; flex-direction: column; border-radius: 16px; background: #fff; box-shadow: 0 20px 60px rgba(0, 0, 0, .3); user-select: text; -webkit-user-select: text; }
+.ap-animatie-dialog.lat { width: min(680px, 100%); }
+.ap-animatie-dialog-cap { display: flex; align-items: center; gap: 8px; padding: 12px 12px 8px 18px; }
+.ap-animatie-dialog-cap h2 { flex: 1; margin: 0; font-size: 17px; }
+.ap-animatie-dialog-corp { padding: 4px 18px 10px; overflow-y: auto; }
+.ap-animatie-dialog-corp p { margin: 0 0 10px; }
+.ap-animatie-dialog-but { display: flex; justify-content: flex-end; gap: 8px; padding: 10px 18px 16px; }
+.ap-animatie-x { display: inline-grid; place-items: center; width: 32px; height: 32px; padding: 6px; border: 0; border-radius: 50%; background: none; cursor: pointer; color: var(--muted) !important; flex: none; }
+.ap-animatie-x:hover { background: var(--warm); color: var(--charcoal) !important; }
+.ap-animatie-btn { padding: 8px 16px; border: 1px solid var(--line); border-radius: 10px; background: #fff; cursor: pointer; font-weight: 700 !important; white-space: nowrap; }
+.ap-animatie-btn:hover:not(:disabled) { border-color: var(--charcoal); }
+.ap-animatie-btn:disabled { opacity: .5; cursor: default; }
+.ap-animatie-btn.principal { background: var(--red); border-color: var(--red); color: #fff !important; }
+.ap-animatie-btn.principal:hover:not(:disabled) { background: var(--red-dark); }
+.ap-animatie-btn.mic { padding: 4px 9px; border-radius: 8px; font-size: 12px; font-weight: 600 !important; }
+.ap-animatie-btn.pericol { color: var(--red-dark) !important; }
+.ap-animatie-banner .ap-animatie-btn { color: var(--charcoal) !important; }
+.ap-animatie-et { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
+.ap-animatie-camp { padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; font-size: 15px; }
+.ap-animatie-dialog .ap-animatie-prop { flex-direction: row; align-items: center; justify-content: space-between; }
+.ap-animatie-dialog .ap-animatie-prop select { width: auto; }
+.ap-animatie-probleme { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.ap-animatie-probleme li { display: flex; gap: 8px; align-items: flex-start; padding: 8px 10px; border-radius: 10px; background: var(--warm); }
+.ap-animatie-probleme li.atentie { background: #fff4e0; color: #8a4b00; }
+.ap-animatie-probleme li.info { background: var(--t-tic); color: var(--blue-ink); }
+.ap-animatie-probleme button { border: 0; background: none; padding: 0; text-align: left; cursor: pointer; font-size: 13px; }
+.ap-animatie-probleme button:hover { text-decoration: underline; }
+.ap-animatie-bravo { display: flex; align-items: center; gap: 8px; padding: 12px; border-radius: 12px; background: var(--t-aplicatii); color: #0b6b65; font-weight: 700; }
+.ap-animatie-povesti { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.ap-animatie-poveste { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 12px; border: 2px solid var(--line); border-radius: 14px; background: #fff; cursor: pointer; text-align: left; }
+.ap-animatie-poveste:hover, .ap-animatie-poveste:focus-visible { border-color: var(--red); background: #fff8f9; }
+.ap-animatie-poveste strong { font-size: 14px; }
+.ap-animatie-poveste small { color: var(--muted); font-style: italic; }
+.ap-animatie-poveste ol { margin: 6px 0 0; padding-left: 18px; font-size: 12px; color: var(--muted); }
+.ap-animatie-proiecte { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+.ap-animatie-proiect { position: relative; }
+.ap-animatie-proiect .deschide { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; padding: 6px; border: 1px solid var(--line); border-radius: 12px; background: #fff; cursor: pointer; text-align: left; }
+.ap-animatie-proiect .deschide:hover { border-color: var(--red); }
+.ap-animatie-proiect img, .ap-animatie-proiect .fara { width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; background: var(--warm); object-fit: cover; margin-bottom: 4px; }
+.ap-animatie-proiect small { color: var(--muted); font-size: 11.5px; }
+.ap-animatie-proiect .ap-animatie-x { position: absolute; top: 10px; right: 10px; background: rgba(255, 255, 255, .9); }
+.ap-animatie-progres { height: 10px; margin: 10px 0 6px; border-radius: 99px; background: var(--beige); overflow: hidden; }
+.ap-animatie-progres i { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--red), #ff8a3d); transition: width .15s; }
+.ap-animatie-rezultat img { max-width: 100%; max-height: 220px; margin: 6px auto 0; border-radius: 8px; box-shadow: 0 0 0 1px var(--line); }
+.ap-animatie-export-prev { display: grid; place-items: center; margin: 8px 0; }
+.ap-animatie-export-cv { width: 100%; max-width: 400px; height: auto; border-radius: 8px; box-shadow: 0 0 0 1px var(--line); background: #fff; }
+/* Previzualizare pe tot ecranul */
+.ap-animatie-previz { position: absolute; inset: 0; z-index: 60; display: flex; flex-direction: column; background: #111; color: #fff; }
+.ap-animatie-previz-scena { position: relative; flex: 1; min-height: 0; display: grid; place-items: center; }
+.ap-animatie-previz-cv { display: block; background: #fff; cursor: pointer; }
+.ap-animatie-previz-clic { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: rgba(124, 77, 219, .92); font-weight: 700; animation: ap-animatie-puls 1.4s infinite; pointer-events: none; }
+.ap-animatie-previz-clic[hidden], .ap-animatie-previz-final[hidden] { display: none; }
+.ap-animatie-previz-final { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: rgba(0, 0, 0, .55); }
+.ap-animatie-previz-final strong { font-size: 34px; }
+.ap-animatie-previz-final div { display: flex; gap: 10px; }
+.ap-animatie-previz-cmd { display: flex; align-items: center; gap: 6px; height: 56px; padding: 0 12px; background: #1c1a1f; flex: none; }
+.ap-animatie-previz-cmd button { display: inline-flex; align-items: center; gap: 6px; height: 40px; min-width: 40px; justify-content: center; padding: 0 10px; border: 0; border-radius: 10px; background: rgba(255, 255, 255, .1); color: #fff !important; cursor: pointer; font-weight: 700 !important; }
+.ap-animatie-previz-cmd button:hover { background: rgba(255, 255, 255, .2); }
+.ap-animatie-previz-cmd .info { margin-left: 8px; color: #cfc7d6; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* Ecrane mici (Chromebook 1024 × 600, tabletă) */
+@media (max-width: 1180px) {
+  .ap-animatie-numeapp { display: none; }
+  .ap-animatie-nume { max-width: 150px; }
+}
+@media (max-width: 1060px) {
+  .ap-animatie-mod .lung { display: none; }
+  .ap-animatie-panou { width: 236px; }
+  .ap-animatie-col-scene { width: 108px; }
+}
+@media (max-height: 640px) {
+  .ap-animatie-bara { min-height: 40px; padding-top: 2px; padding-bottom: 2px; }
+  .ap-animatie-panglica { min-height: 80px; }
+  .ap-animatie-mare { height: 56px; }
+  .ap-animatie-crono { height: 128px; }
+  .ap-animatie-banda { height: 98px; }
+}
+@media (max-width: 760px) {
+  .ap-animatie-salv .lung, .ap-animatie-previz-btn .lung { display: none; }
+  .ap-animatie-col-scene { display: none; }
+  .ap-animatie-panou { width: 200px; }
+}
+/* Sfârșit: Aplicația Animatie */
