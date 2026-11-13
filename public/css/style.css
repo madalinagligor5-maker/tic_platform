@@ -3517,3 +3517,455 @@ button.ap-posta-eticheta-camp:hover { text-decoration: underline; color: var(--a
 /* Sfârșit: Aplicația Animatie */
 .app-card.c10 .app-ico { background: #FFAB19; }
 .app-card.c11 .app-ico { background: #3776AB; }
+
+/* Aplicația Blocuri (Programare cu blocuri: editor ca Scratch 3 / Blockly) */
+.lab-ecran.ap-blocuri-ecran { flex-direction: column; }
+.ap-blocuri { --bl-mov: #855CD6; --bl-linie: #D9DEE6; --bl-gri: #575E75; position: relative; flex: 1; display: flex; flex-direction: column; min-width: 0; min-height: 0; overflow: hidden; background: #E9EEF2; font: 500 13px/1.3 var(--font); color: var(--charcoal); user-select: none; -webkit-user-select: none; }
+.ap-blocuri [hidden] { display: none !important; }
+.ap-blocuri button, .ap-blocuri select, .ap-blocuri input, .ap-blocuri textarea { font: inherit; color: inherit; }
+.ap-blocuri :focus-visible { outline: 2px solid var(--blue-ink); outline-offset: 1px; }
+.ap-blocuri-spatiu { flex: 1; }
+.ap-blocuri-ico { flex: none; }
+/* Bara de sus */
+.ap-blocuri-bara { display: flex; align-items: center; gap: 4px; padding: 4px 10px; min-height: 44px; background: var(--bl-mov); color: #fff; flex: none; }
+.ap-blocuri-inapoi { color: #fff; text-decoration: none; font-weight: 700; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
+.ap-blocuri-inapoi:hover, .ap-blocuri-inapoi:focus-visible { background: rgba(255, 255, 255, .16); }
+.ap-blocuri-sigla { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; background: #fff; flex: none; }
+.ap-blocuri-numeapp { font-size: 14px; white-space: nowrap; margin: 0 6px 0 4px; }
+.ap-blocuri-meniubtn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 10px; border: 0; border-radius: 8px; background: none; color: #fff !important; font-weight: 700 !important; cursor: pointer; white-space: nowrap; }
+.ap-blocuri-meniubtn:hover, .ap-blocuri-meniubtn:focus-visible { background: rgba(255, 255, 255, .16); }
+.ap-blocuri-nume { margin-left: 6px; padding: 5px 10px; border: 1px solid rgba(255, 255, 255, .35); border-radius: 8px; background: rgba(255, 255, 255, .1); color: #fff !important; font-weight: 600 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; max-width: 220px; cursor: text; }
+.ap-blocuri-tb { display: inline-grid; place-items: center; width: 34px; height: 34px; border: 0; border-radius: 8px; background: none; color: #fff !important; cursor: pointer; flex: none; }
+.ap-blocuri-tb:hover:not(:disabled) { background: rgba(255, 255, 255, .16); }
+.ap-blocuri-tb:disabled { opacity: .4; cursor: default; }
+.ap-blocuri-salv { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 0; border-radius: 8px; background: #FFAB19; color: #fff !important; font-weight: 800 !important; cursor: pointer; white-space: nowrap; flex: none; }
+.ap-blocuri-salv:hover { background: #EC9C13; }
+/* Provocarea curentă */
+.ap-blocuri-prov { display: flex; align-items: flex-start; gap: 8px 14px; padding: 8px 12px; background: #FFF6DA; border-bottom: 1px solid #F2D78A; flex: none; flex-wrap: wrap; }
+.ap-blocuri-prov-st { display: flex; gap: 10px; align-items: flex-start; flex: 1 1 320px; min-width: 0; }
+.ap-blocuri-prov-st .ap-blocuri-ico { color: #CF8B17; margin-top: 2px; }
+.ap-blocuri-prov-st p { margin: 2px 0 0; color: #5B4A1A; }
+.ap-blocuri-prov-rez { list-style: none; margin: 0; padding: 0; flex: 1 1 260px; font-size: 12.5px; font-weight: 600; }
+.ap-blocuri-prov-rez .da { color: #1B7A2E; }
+.ap-blocuri-prov-rez .nu { color: #B3261E; }
+.ap-blocuri-prov-btn { display: flex; gap: 6px; align-items: center; }
+.ap-blocuri-prov-btn button { padding: 6px 12px; border: 1px solid #E5C76B; border-radius: 999px; background: #fff; font-weight: 700; cursor: pointer; }
+.ap-blocuri-prov-btn button.principal { background: #0FBD8C; border-color: #0FBD8C; color: #fff; }
+.ap-blocuri-prov-btn button:disabled { opacity: .6; cursor: progress; }
+/* Corpul */
+.ap-blocuri-corp { flex: 1; display: flex; min-height: 0; }
+.ap-blocuri-stanga { flex: 1; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.ap-blocuri-file { display: flex; gap: 2px; padding: 5px 8px 0; flex: none; }
+.ap-blocuri-file button { padding: 6px 18px 7px; border: 1px solid transparent; border-bottom: 0; border-radius: 9px 9px 0 0; background: #DCE2EA; color: var(--bl-gri); font-weight: 700; cursor: pointer; }
+.ap-blocuri-file button:hover { background: #E8EDF3; }
+.ap-blocuri-file button[aria-selected="true"] { background: #fff; border-color: var(--bl-linie); color: var(--bl-mov); }
+.ap-blocuri-lucru, .ap-blocuri-costume, .ap-blocuri-sunete { flex: 1; display: flex; min-height: 0; background: #fff; border-top: 1px solid var(--bl-linie); margin-top: -1px; }
+/* Categorii și paletă */
+.ap-blocuri-pzona { position: relative; display: flex; flex: none; border-right: 1px solid var(--bl-linie); }
+.ap-blocuri-cat { width: 68px; display: flex; flex-direction: column; overflow-y: auto; scrollbar-width: none; background: #fff; border-right: 1px solid #E6E9EF; }
+.ap-blocuri-cat button { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 2px; border: 0; background: none; font-size: 9.5px; letter-spacing: -.1px; font-weight: 600; line-height: 1.1; color: var(--bl-gri); cursor: pointer; text-align: center; }
+.ap-blocuri-cat button:hover { background: #F2F5F9; }
+.ap-blocuri-cat button.activ { background: #E9F1FC; }
+.ap-blocuri-cat .cerc { width: 20px; height: 20px; border-radius: 50%; border: 1px solid; flex: none; }
+.ap-blocuri-paleta { width: 240px; overflow-y: auto; overflow-x: hidden; padding: 2px 8px 0 10px; background: #F9F9F9; touch-action: pan-y; scrollbar-width: thin; }
+.ap-blocuri-psect { margin: 0; padding: 0; border: 0; background: none; }
+.ap-blocuri-psect h3 { margin: 12px 0 8px; font-size: 13px; color: var(--bl-gri); }
+.ap-blocuri-pitem { display: flex; align-items: center; gap: 4px; margin: 0 0 7px; }
+.ap-blocuri-pitem svg { flex: none; cursor: grab; touch-action: pan-y; overflow: visible; }
+.ap-blocuri-pbifa { width: 16px; height: 16px; margin: 0; flex: none; accent-color: #FF8C1A; }
+.ap-blocuri-pbtn { display: block; width: 100%; margin: 2px 0 10px; padding: 7px 8px; border: 1px solid #C6CBD5; border-radius: 6px; background: #fff; color: var(--bl-gri); font-weight: 700; cursor: pointer; }
+.ap-blocuri-pbtn:hover { background: #F2F5F9; }
+.ap-blocuri-pbtn.mele { border-color: #FF6680; color: #E6385A; }
+.ap-blocuri-pnota { margin: 0 0 10px; font-size: 12px; color: #7A8090; }
+.ap-blocuri-pfinal { height: 70vh; }
+.ap-blocuri-cos { position: absolute; inset: 0; display: none; place-items: center; padding: 20px; background: rgba(230, 234, 240, .88); color: var(--bl-gri); font-size: 15px; font-weight: 800; text-align: center; pointer-events: none; }
+.ap-blocuri-pzona.sterge .ap-blocuri-cos { display: grid; }
+/* Zona de scripturi */
+.ap-blocuri-ws { position: relative; flex: 1; min-width: 0; overflow: hidden; background-color: #F9F9F9; background-image: radial-gradient(#DADFE7 1px, transparent 1.2px); background-size: 24px 24px; touch-action: none; }
+.ap-blocuri-ws-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ap-blocuri-svg text { font: 600 12px "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.ap-blocuri-t { fill: #fff; }
+.ap-blocuri-tslot { fill: var(--bl-gri); }
+.ap-blocuri-bloc { cursor: grab; }
+.ap-blocuri-slot { cursor: pointer; }
+.ap-blocuri-argsrc { cursor: grab; }
+.ap-blocuri-bloc.curent > .ap-blocuri-forma { stroke: #FFB400; stroke-width: 4; }
+.ap-blocuri-ws.trage .ap-blocuri-bloc { cursor: grabbing; }
+.ap-blocuri-trage { position: fixed; inset: 0; z-index: 90; pointer-events: none; }
+.ap-blocuri-trage-svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .3)); }
+.ap-blocuri-wsgol { position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%); display: grid; gap: 6px; max-width: 300px; text-align: center; color: #9AA0AE; pointer-events: none; }
+.ap-blocuri-wsgol strong { font-size: 16px; color: #8A90A0; }
+.ap-blocuri-zoom { position: absolute; right: 12px; bottom: 12px; display: flex; flex-direction: column; gap: 6px; }
+.ap-blocuri-zoom button { width: 36px; height: 36px; border: 1px solid var(--bl-linie); border-radius: 50%; background: #fff; color: var(--bl-gri); font-size: 18px; font-weight: 800; line-height: 1; cursor: pointer; box-shadow: 0 1px 3px rgba(0, 0, 0, .1); }
+.ap-blocuri-zoom button:hover { background: #F2F5F9; }
+.ap-blocuri-btncod { position: absolute; right: 12px; top: 10px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--bl-linie); border-radius: 999px; background: #fff; color: var(--bl-gri) !important; font-weight: 800 !important; cursor: pointer; box-shadow: 0 1px 3px rgba(0, 0, 0, .1); }
+.ap-blocuri-btncod[aria-pressed="true"] { background: #1E2433; border-color: #1E2433; color: #fff !important; }
+.ap-blocuri-codpanou { position: absolute; top: 0; right: 0; bottom: 0; z-index: 3; width: min(440px, 78%); display: flex; flex-direction: column; background: #1E2433; color: #E6EAF2; box-shadow: -6px 0 18px rgba(0, 0, 0, .2); }
+.ap-blocuri-codcap { display: flex; align-items: center; gap: 6px; padding: 8px 8px 6px 10px; }
+.ap-blocuri-codfile { display: inline-flex; padding: 3px; gap: 2px; background: rgba(255, 255, 255, .08); border-radius: 9px; margin-right: auto; }
+.ap-blocuri-codfile button { padding: 4px 10px; border: 0; border-radius: 7px; background: none; color: #C9D1E0 !important; font-weight: 700 !important; cursor: pointer; }
+.ap-blocuri-codfile button[aria-selected="true"] { background: #fff; color: #1E2433 !important; }
+.ap-blocuri-codpanou .ap-blocuri-mic { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .25); color: #fff !important; }
+.ap-blocuri-codsub { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 0 12px 6px; font-size: 11.5px; color: #9AA4B8; }
+.ap-blocuri-codsub > span:first-of-type { color: #fff; font-weight: 700; }
+.ap-blocuri-codsub label { display: inline-flex; gap: 4px; align-items: center; cursor: pointer; }
+.ap-blocuri-codsub .ro { margin-left: auto; padding: 1px 6px; border: 1px solid rgba(255, 255, 255, .2); border-radius: 4px; }
+.ap-blocuri-codpre { flex: 1; margin: 0; padding: 10px 14px 16px; overflow: auto; font: 12.5px/1.55 var(--mono); white-space: pre; tab-size: 4; background: #161B27; user-select: text; -webkit-user-select: text; }
+/* Comentarii */
+.ap-blocuri-fo { overflow: visible; }
+.ap-blocuri-com { width: 100%; height: 100%; display: flex; flex-direction: column; overflow: hidden; background: #FEF49C; border: 1px solid #E6D96A; border-radius: 6px; box-shadow: 0 2px 6px rgba(0, 0, 0, .15); }
+.ap-blocuri-com-cap { display: flex; align-items: center; gap: 4px; height: 28px; flex: none; padding: 0 2px; background: #F9E87C; cursor: move; touch-action: none; }
+.ap-blocuri-com-titlu { flex: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 12px; font-weight: 600; color: #6B5D10; }
+.ap-blocuri-com-btn { width: 24px; height: 24px; border: 0; border-radius: 4px; background: none; color: #6B5D10 !important; font-weight: 800 !important; cursor: pointer; }
+.ap-blocuri-com-btn:hover { background: rgba(0, 0, 0, .08); }
+.ap-blocuri-com-text { flex: 1; width: 100%; border: 0; resize: none; padding: 6px 8px; background: transparent; font: 500 13px/1.35 var(--font) !important; color: #3D3509 !important; outline: none; user-select: text; -webkit-user-select: text; }
+/* Câmpuri editate, valori, meniuri */
+.ap-blocuri-edcamp { position: absolute; z-index: 96; padding: 0 9px; border: 2px solid var(--bl-mov); outline: none; background: #fff; color: var(--bl-gri) !important; font-weight: 600 !important; text-align: center; user-select: text; -webkit-user-select: text; box-shadow: 0 0 0 4px rgba(133, 92, 214, .2); }
+.ap-blocuri-valoare { position: absolute; z-index: 95; padding: 4px 12px; background: #fff; border: 1px solid #C6CBD5; border-radius: 14px; font-weight: 700; color: var(--bl-gri); box-shadow: 0 4px 12px rgba(0, 0, 0, .15); pointer-events: none; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-blocuri-meniu { position: absolute; z-index: 100; min-width: 170px; max-height: 60vh; overflow-y: auto; display: flex; flex-direction: column; padding: 4px; background: #fff; border: 1px solid var(--bl-linie); border-radius: 8px; box-shadow: 0 8px 24px rgba(0, 0, 0, .18); }
+.ap-blocuri-meniu button { padding: 7px 12px 7px 26px; border: 0; border-radius: 5px; background: none; text-align: left; font-weight: 600; white-space: nowrap; cursor: pointer; position: relative; }
+.ap-blocuri-meniu button:hover, .ap-blocuri-meniu button:focus-visible { background: #EEF0FF; outline: none; }
+.ap-blocuri-meniu button.bifat::before { content: '✓'; position: absolute; left: 9px; color: var(--bl-mov); }
+.ap-blocuri-meniu button:disabled { opacity: .45; cursor: default; background: none; }
+.ap-blocuri-meniu-sep { height: 1px; margin: 4px 2px; background: #E6E9EF; }
+.ap-blocuri-culori { width: 226px; gap: 8px; padding: 10px; }
+.ap-blocuri-culori-grila { display: grid; grid-template-columns: repeat(8, 1fr); gap: 5px; }
+.ap-blocuri-culori-grila button { width: 22px; height: 22px; padding: 0; border: 1px solid rgba(0, 0, 0, .2); border-radius: 50%; }
+.ap-blocuri-culori-grila button.bifat { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--bl-mov); }
+.ap-blocuri-culori-grila button.bifat::before { content: none; }
+.ap-blocuri-culori-alta { display: flex; align-items: center; justify-content: space-between; font-weight: 600; }
+.ap-blocuri-culori-alta input { width: 44px; height: 28px; padding: 0; border: 1px solid #C6CBD5; border-radius: 6px; background: none; }
+.ap-blocuri-meniu .ap-blocuri-pipeta { padding: 7px 10px; border: 1px solid #C6CBD5; border-radius: 6px; text-align: center; }
+/* Coloana din dreapta: scena și personajele */
+.ap-blocuri-dreapta { flex: none; display: flex; flex-direction: column; min-height: 0; max-width: 60%; }
+.ap-blocuri-scenacol { display: flex; flex-direction: column; padding: 6px 8px 0; }
+.ap-blocuri-scenabara { display: flex; align-items: center; gap: 4px; margin-bottom: 5px; }
+.ap-blocuri-steag, .ap-blocuri-stop { display: inline-grid; place-items: center; width: 38px; height: 32px; border: 0; border-radius: 6px; background: none; cursor: pointer; }
+.ap-blocuri-steag:hover, .ap-blocuri-stop:hover { background: rgba(0, 0, 0, .06); }
+.ap-blocuri-steag.activ { background: #D9F2DC; }
+.ap-blocuri-viteza { max-width: 132px; padding: 4px 6px; border: 1px solid #C6CBD5; border-radius: 6px; background: #fff; font-size: 12px; font-weight: 600; }
+.ap-blocuri-pasbtn { display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px; border: 0; border-radius: 6px; background: #FFAB19; color: #fff !important; font-weight: 800 !important; cursor: pointer; }
+.ap-blocuri-tb2 { display: inline-grid; place-items: center; width: 30px; height: 30px; border: 1px solid transparent; border-radius: 6px; background: none; color: var(--bl-gri) !important; cursor: pointer; }
+.ap-blocuri-tb2:hover { background: rgba(0, 0, 0, .06); }
+.ap-blocuri-tb2[aria-pressed="true"] { background: #fff; border-color: var(--bl-linie); color: var(--bl-mov) !important; }
+.ap-blocuri-scena { position: relative; overflow: hidden; background: #fff; border: 1px solid var(--bl-linie); border-radius: 8px; touch-action: none; flex: none; }
+.ap-blocuri-scena.pipeta { cursor: crosshair; box-shadow: 0 0 0 3px #FFAB19; }
+.ap-blocuri-canvas { display: block; width: 100%; height: 100%; }
+.ap-blocuri-strat { position: absolute; left: 0; top: 0; width: 480px; height: 360px; transform-origin: 0 0; pointer-events: none; }
+.ap-blocuri-monitoare { position: absolute; inset: 0; }
+.ap-blocuri-mon { position: absolute; display: flex; align-items: center; gap: 6px; padding: 2px 3px 2px 7px; background: #E6F0FF; border: 1px solid #C4D4EA; border-radius: 4px; font: 700 11px/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif; color: var(--bl-gri); white-space: nowrap; pointer-events: auto; cursor: grab; touch-action: none; }
+.ap-blocuri-mon-v { min-width: 36px; padding: 1px 6px; border-radius: 4px; background: #FF8C1A; color: #fff; text-align: center; }
+.ap-blocuri-mon.lista { flex-direction: column; align-items: stretch; gap: 2px; width: 120px; padding: 3px; }
+.ap-blocuri-mon-t { text-align: center; }
+.ap-blocuri-mon-ol { margin: 0; padding: 2px 2px 2px 22px; max-height: 120px; overflow-y: auto; background: #fff; border-radius: 3px; font-size: 10px; }
+.ap-blocuri-mon-ol li { margin: 1px 0; }
+.ap-blocuri-mon-ol span { display: block; padding: 1px 4px; border-radius: 3px; background: #FF661A; color: #fff; overflow: hidden; text-overflow: ellipsis; }
+.ap-blocuri-mon-l { font-size: 10px; text-align: center; font-weight: 600; }
+.ap-blocuri-intreb { position: absolute; left: 10px; right: 10px; bottom: 10px; padding: 8px; background: #fff; border: 2px solid var(--bl-linie); border-radius: 10px; pointer-events: auto; font: 600 13px/1.3 "Helvetica Neue", Helvetica, Arial, sans-serif; color: var(--bl-gri); }
+.ap-blocuri-intreb-t { margin: 0 4px 6px; }
+.ap-blocuri-intreb-r { display: flex; gap: 6px; }
+.ap-blocuri-intreb-inp { flex: 1; min-width: 0; padding: 5px 12px; border: 1px solid #C6CBD5; border-radius: 16px; outline: none; user-select: text; -webkit-user-select: text; }
+.ap-blocuri-intreb-inp:focus { border-color: var(--bl-mov); }
+.ap-blocuri-intreb-r button { width: 30px; height: 30px; border: 0; border-radius: 50%; background: var(--bl-mov); color: #fff !important; font-weight: 800 !important; cursor: pointer; }
+.ap-blocuri-coord { padding: 2px 2px 4px; font: 600 11px var(--mono); color: #6B7280; text-align: right; }
+.ap-blocuri-pers { flex: 1; min-height: 0; display: flex; flex-direction: column; margin: 0 8px 8px; overflow: hidden; background: #fff; border: 1px solid var(--bl-linie); border-radius: 8px; }
+.ap-blocuri-prop { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; padding: 6px 8px; border-bottom: 1px solid #E6E9EF; flex: none; }
+.ap-blocuri-prop-scena { padding: 3px 2px; color: var(--bl-gri); }
+.ap-blocuri-plab { display: inline-flex; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 700; color: var(--bl-gri); }
+.ap-blocuri-pcamp { padding: 3px 7px; border: 1px solid #D0D5DD; border-radius: 12px; font-size: 12px; background: #fff; user-select: text; -webkit-user-select: text; }
+.ap-blocuri-pcamp::-webkit-inner-spin-button { display: none; }
+.ap-blocuri-pcamp { -moz-appearance: textfield; appearance: textfield; }
+.ap-blocuri-viz { display: inline-flex; border: 1px solid #D0D5DD; border-radius: 6px; overflow: hidden; }
+.ap-blocuri-viz button { display: inline-grid; place-items: center; width: 28px; height: 24px; border: 0; background: #fff; color: var(--bl-gri) !important; cursor: pointer; }
+.ap-blocuri-viz button[aria-pressed="true"] { background: var(--bl-mov); color: #fff !important; }
+.ap-blocuri-pers-corp { flex: 1; display: flex; min-height: 0; }
+.ap-blocuri-tiles { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 8px; align-content: start; padding: 10px 8px; overflow-y: auto; background: #F5F7FA; }
+.ap-blocuri-tile-w { position: relative; }
+.ap-blocuri-tile { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 4px 3px; border: 2px solid var(--bl-linie); border-radius: 8px; background: #fff; font-size: 11px; font-weight: 700; color: var(--bl-gri); cursor: pointer; overflow: hidden; }
+.ap-blocuri-tile:hover { border-color: #B9A6EA; }
+.ap-blocuri-tile img { width: 46px; height: 46px; object-fit: contain; pointer-events: none; }
+.ap-blocuri-tile span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-blocuri-tile small { font-size: 10px; font-weight: 500; color: #7A8090; }
+.ap-blocuri-tile.sel { border-color: var(--bl-mov); background: #F3EEFF; }
+.ap-blocuri-tile.adauga { min-height: 72px; justify-content: center; border-style: dashed; color: var(--bl-mov); }
+.ap-blocuri-tile-x { position: absolute; top: -7px; right: -7px; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--bl-mov); color: #fff; font-weight: 800; cursor: pointer; }
+.ap-blocuri-scenatile { width: 92px; flex: none; display: flex; flex-direction: column; gap: 6px; padding: 10px 6px; border-left: 1px solid #E6E9EF; }
+.ap-blocuri-tile.scena img { width: 72px; height: 54px; border-radius: 4px; border: 1px solid #E6E9EF; }
+.ap-blocuri-mic { display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 5px 10px; border: 1px solid #C6CBD5; border-radius: 999px; background: #fff; color: var(--bl-gri) !important; font-size: 12px; font-weight: 700 !important; cursor: pointer; white-space: nowrap; }
+.ap-blocuri-mic:hover { background: #F2F5F9; }
+/* Ecran complet */
+.ap-blocuri.ecran-complet .ap-blocuri-scenacol { position: fixed; inset: 0; z-index: 80; align-items: center; justify-content: center; padding: 8px; background: #F2F4F8; }
+.ap-blocuri.ecran-complet .ap-blocuri-scenabara { width: min(100%, 960px); }
+.ap-blocuri.ecran-complet .ap-blocuri-coord { display: none; }
+/* Filele Costume și Sunete */
+.ap-blocuri-clista { width: 150px; flex: none; display: flex; flex-direction: column; gap: 8px; padding: 10px 8px; overflow-y: auto; background: #F5F7FA; border-right: 1px solid #E6E9EF; }
+.ap-blocuri-citem-w { position: relative; }
+.ap-blocuri-citem { position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px; border: 2px solid var(--bl-linie); border-radius: 8px; background: #fff; cursor: pointer; font-size: 11.5px; font-weight: 700; color: var(--bl-gri); }
+.ap-blocuri-citem img { width: 72px; height: 60px; object-fit: contain; }
+.ap-blocuri-citem .nr { position: absolute; left: 6px; top: 4px; font-size: 11px; color: #9AA0AE; }
+.ap-blocuri-citem .nm { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-blocuri-citem.sel { border-color: var(--bl-mov); background: #F3EEFF; }
+.ap-blocuri-citem-x { position: absolute; top: -6px; right: -6px; width: 22px; height: 22px; padding: 0; border: 0; border-radius: 50%; background: var(--bl-mov); color: #fff !important; font-weight: 800 !important; cursor: pointer; }
+.ap-blocuri-sitem .ap-blocuri-citem-x { position: static; flex: none; }
+.ap-blocuri-cdetalii { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px; overflow: auto; }
+.ap-blocuri-cdetalii .ap-blocuri-camp { max-width: 260px; }
+.ap-blocuri-cmare { max-width: min(100%, 480px); max-height: 60%; object-fit: contain; border: 1px solid #E6E9EF; border-radius: 8px; background: #fff; }
+.ap-blocuri-sunete-col { flex: 1; padding: 16px; overflow: auto; }
+.ap-blocuri-slista { display: grid; gap: 6px; max-width: 440px; margin-bottom: 12px; }
+.ap-blocuri-sitem { display: flex; align-items: center; gap: 10px; padding: 6px 10px; border: 1px solid #E6E9EF; border-radius: 8px; background: #fff; font-weight: 700; }
+.ap-blocuri-sitem > span { flex: 1; }
+.ap-blocuri-play { display: inline-grid; place-items: center; width: 30px; height: 30px; border: 0; border-radius: 50%; background: #CF63CF; color: #fff !important; cursor: pointer; flex: none; }
+.ap-blocuri-sunete .ap-blocuri-pbtn, .ap-blocuri-clista .ap-blocuri-pbtn { margin: 0; }
+/* Dialoguri */
+.ap-blocuri-fundal { position: absolute; inset: 0; z-index: 110; display: grid; place-items: center; padding: 12px; background: rgba(30, 36, 51, .45); }
+.ap-blocuri-dialog { width: min(440px, 100%); max-height: calc(100% - 8px); display: flex; flex-direction: column; overflow: hidden; background: #fff; border-radius: 12px; box-shadow: 0 16px 40px rgba(0, 0, 0, .3); }
+.ap-blocuri-dialog.lat { width: min(760px, 100%); }
+.ap-blocuri-dialog.ap-blocuri-dialog-bloc { width: min(600px, 100%); }
+.ap-blocuri-dialog-titlu { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px 10px 16px; background: var(--bl-mov); color: #fff; font-size: 15px; font-weight: 800; }
+.ap-blocuri-x { width: 30px; height: 30px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .18); color: #fff !important; font-size: 18px; font-weight: 700; line-height: 1; cursor: pointer; flex: none; }
+.ap-blocuri-x:hover { background: rgba(255, 255, 255, .3); }
+.ap-blocuri-dialog-corp { padding: 14px 16px; overflow: auto; }
+.ap-blocuri-dialog-corp p { margin: 0 0 8px; }
+.ap-blocuri-dialog-jos { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; padding: 10px 16px 14px; border-top: 1px solid #EEF0F4; }
+.ap-blocuri-dialog-jos button, .ap-blocuri-dfis button { padding: 8px 18px; border: 1px solid #D0D5DD; border-radius: 999px; background: #fff; font-weight: 700; cursor: pointer; }
+.ap-blocuri-dialog-jos button.principal, .ap-blocuri-dfis button.principal { background: var(--bl-mov); border-color: var(--bl-mov); color: #fff; }
+.ap-blocuri-dialog-jos button.pericol, .ap-blocuri-dfis button.pericol { background: #fff; border-color: #E53935; color: #C62828; }
+.ap-blocuri-dialog-jos button.pericol:last-child { background: #E53935; color: #fff; }
+.ap-blocuri-et { display: block; font-weight: 700; color: var(--bl-gri); }
+.ap-blocuri-camp { display: block; width: 100%; margin-top: 5px; padding: 8px 10px; border: 1px solid #C6CBD5; border-radius: 8px; font-size: 14px; background: #fff; user-select: text; -webkit-user-select: text; }
+.ap-blocuri-camp:focus { outline: none; border-color: var(--bl-mov); box-shadow: 0 0 0 3px rgba(133, 92, 214, .2); }
+.ap-blocuri-radio { margin-top: 10px; display: grid; gap: 6px; font-weight: 600; }
+.ap-blocuri-nota { margin: 8px 0; font-size: 12.5px; color: var(--muted); }
+/* „Creează un bloc” */
+.ap-blocuri-proto-zona { display: grid; place-items: center; min-height: 116px; padding: 18px 12px; overflow-x: auto; background: #F5F7FA; border-radius: 8px; }
+.ap-blocuri-proto { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; min-height: 52px; padding: 12px 14px; background: #FF6680; border: 1px solid #FF3355; border-radius: 6px; }
+.ap-blocuri-proto-buc { position: relative; display: inline-flex; }
+.ap-blocuri-proto input { height: 30px; min-width: 30px; padding: 0 8px; border: 0; outline: none; color: #fff !important; font: 600 12px "Helvetica Neue", Helvetica, Arial, sans-serif !important; text-align: center; user-select: text; -webkit-user-select: text; }
+.ap-blocuri-proto-et { background: rgba(255, 255, 255, .12); border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .55); }
+.ap-blocuri-proto-et::placeholder { color: rgba(255, 255, 255, .85); }
+.ap-blocuri-proto-arg { background: #FF4D6A; border-radius: 999px; box-shadow: inset 0 0 0 2px #fff; }
+.ap-blocuri-proto-bool { background: #FF4D6A; clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%); padding: 0 16px !important; }
+.ap-blocuri-proto input:focus { box-shadow: inset 0 0 0 2px #FFF200; }
+.ap-blocuri-proto-x { position: absolute; top: -10px; right: -10px; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 50%; background: #fff; color: #FF3355 !important; font-size: 14px; font-weight: 800 !important; line-height: 1; cursor: pointer; box-shadow: 0 1px 3px rgba(0, 0, 0, .3); }
+.ap-blocuri-proto-butoane { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+.ap-blocuri-proto-butoane button { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 6px; border: 1px solid var(--bl-linie); border-radius: 8px; background: #fff; font-size: 12px; font-weight: 700; color: var(--bl-gri); cursor: pointer; }
+.ap-blocuri-proto-butoane button:hover { border-color: #FF6680; background: #FFF5F7; }
+.ap-blocuri-proto-butoane small { font-weight: 500; color: var(--muted); }
+.ap-blocuri-proto-ic { display: block; width: 46px; height: 22px; margin-bottom: 2px; border-radius: 999px; background: #FF6680; }
+.ap-blocuri-proto-ic.bool { border-radius: 0; clip-path: polygon(11px 0, calc(100% - 11px) 0, 100% 50%, calc(100% - 11px) 100%, 11px 100%, 0 50%); }
+.ap-blocuri-proto-ic.et { width: auto; height: 22px; background: none; color: #FF3355; font-weight: 800; }
+.ap-blocuri-bifa { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-weight: 700; color: var(--bl-gri); cursor: pointer; }
+/* Biblioteci, proiecte, provocări */
+.ap-blocuri-bib { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 10px; }
+.ap-blocuri-bib-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; border: 2px solid var(--bl-linie); border-radius: 10px; background: #fff; font-weight: 700; color: var(--bl-gri); cursor: pointer; }
+.ap-blocuri-bib-item:hover, .ap-blocuri-bib-item:focus-visible { border-color: var(--bl-mov); background: #F3EEFF; }
+.ap-blocuri-bib-item img { width: 80px; height: 64px; object-fit: contain; }
+.ap-blocuri-dfis { display: flex; align-items: center; gap: 10px; padding: 8px; margin-bottom: 8px; border: 1px solid #E6E9EF; border-radius: 8px; }
+.ap-blocuri-dfis img, .ap-blocuri-dfis-gol { width: 80px; height: 60px; flex: none; border-radius: 4px; background: #F5F7FA; border: 1px solid #E6E9EF; }
+.ap-blocuri-dfis-info { flex: 1; min-width: 0; display: grid; }
+.ap-blocuri-dfis-info strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ap-blocuri-dfis-info small { color: var(--muted); }
+.ap-blocuri-provlista { display: grid; gap: 8px; }
+.ap-blocuri-provitem { display: flex; align-items: flex-start; gap: 12px; width: 100%; padding: 10px 12px; border: 1px solid var(--bl-linie); border-radius: 10px; background: #fff; text-align: left; cursor: pointer; }
+.ap-blocuri-provitem:hover { border-color: #FFAB19; background: #FFFBF0; }
+.ap-blocuri-provitem .nr { display: grid; place-items: center; width: 28px; height: 28px; flex: none; border-radius: 50%; background: #FFAB19; color: #fff; font-weight: 800; }
+.ap-blocuri-provitem.gata .nr { background: #0FBD8C; }
+.ap-blocuri-provitem .tx { display: grid; gap: 2px; }
+.ap-blocuri-provitem small { color: var(--muted); font-size: 12px; }
+/* Mesaje */
+.ap-blocuri-toast { position: absolute; left: 50%; bottom: 18px; z-index: 120; display: grid; justify-items: center; gap: 6px; transform: translateX(-50%); pointer-events: none; width: min(560px, 92%); }
+.ap-blocuri-toast-msg { padding: 8px 16px; border-radius: 12px; background: #1E2433; color: #fff; font-weight: 600; text-align: center; box-shadow: 0 6px 18px rgba(0, 0, 0, .25); transition: opacity .4s, transform .4s; }
+.ap-blocuri-toast-msg.ok { background: #0B8E69; }
+.ap-blocuri-toast-msg.avert { background: #CF8B17; }
+.ap-blocuri-toast-msg.eroare { background: #C62828; }
+.ap-blocuri-toast-msg.pleaca { opacity: 0; transform: translateY(8px); }
+@media (max-width: 1180px) {
+  .ap-blocuri-paleta { width: 212px; }
+  .ap-blocuri-cat { width: 58px; }
+  .ap-blocuri-numeapp { display: none; }
+}
+@media (max-width: 920px) {
+  .ap-blocuri-salv .lung, .ap-blocuri-meniubtn .ap-blocuri-ico + span { display: none; }
+  .ap-blocuri-paleta { width: 180px; }
+  .ap-blocuri-cat { width: 50px; }
+  .ap-blocuri-cat button span:not(.cerc) { font-size: 9px; }
+  .ap-blocuri-nume { max-width: 120px; }
+  .ap-blocuri-scenatile { width: 80px; }
+  .ap-blocuri-proto-butoane { grid-template-columns: 1fr; }
+}
+@media (max-height: 640px) {
+  .ap-blocuri-bara { min-height: 40px; padding-block: 2px; }
+  .ap-blocuri-file button { padding-block: 4px 5px; }
+  .ap-blocuri-prop { gap: 3px 6px; padding: 4px 6px; }
+  .ap-blocuri-tiles { padding: 8px 6px; gap: 6px; }
+}
+/* Sfârșit: Aplicația Blocuri */
+
+/* Aplicația Python (Editor Python, ca Thonny) */
+.ap-python { --ap-fs: 15px; --ap-lh: calc(var(--ap-fs) * 1.5); --py-bg: #eef0f3; --py-bord: #c9cdd3; --py-bord2: #a9afb7; --py-sel: #d6e6fb; --py-cod: Consolas, 'DejaVu Sans Mono', 'Liberation Mono', Menlo, var(--mono), monospace;
+  flex: 1; min-width: 0; display: flex; flex-direction: column; position: relative; background: var(--py-bg); color: #1d1d1f; font: 13px/1.35 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif; outline: none; overflow: hidden; }
+.ap-python button, .ap-python input { font: inherit; color: inherit; }
+.ap-python [hidden] { display: none !important; }
+.ap-python-spatiu { flex: 1; }
+.ap-python-ic { display: inline-flex; width: 16px; height: 16px; flex: none; }
+.ap-python-ic svg, .ap-python-ic24 svg { width: 100%; height: 100%; }
+.ap-python-ic24 { display: inline-flex; width: 24px; height: 24px; }
+/* bara de titlu și meniul */
+.ap-python-titlu { display: flex; align-items: center; gap: 8px; min-height: 34px; padding: 0 0 0 8px; background: #fff; border-bottom: 1px solid var(--py-bord); }
+.ap-python-inapoi { padding: 4px 10px; border-radius: 6px; color: var(--red-dark); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.ap-python-inapoi:hover { background: var(--warm); }
+.ap-python-sigla { display: inline-flex; width: 18px; height: 18px; flex: none; }
+.ap-python-sigla svg { width: 100%; height: 100%; }
+.ap-python-titlutext { white-space: pre; overflow: hidden; text-overflow: ellipsis; min-width: 0; color: #333; }
+.ap-python-fbtn { width: 44px; height: 34px; display: grid; place-items: center; border: 0; background: none; color: #333; text-decoration: none; cursor: pointer; font-size: 15px; }
+.ap-python-fbtn:hover { background: #e5e5e5; }
+.ap-python-fbtn.x:hover { background: #e81123; color: #fff; }
+.ap-python-meniu { display: flex; background: #fff; padding: 0 4px; border-bottom: 1px solid #e3e5e8; }
+.ap-python-meniu > button { border: 0; background: none; padding: 4px 9px; border-radius: 3px; cursor: pointer; }
+.ap-python-meniu > button:hover, .ap-python-meniu > button.deschis { background: var(--py-sel); }
+.ap-python-lista { position: absolute; z-index: 40; min-width: 250px; padding: 4px 0; background: #fff; border: 1px solid var(--py-bord2); box-shadow: 2px 3px 10px rgba(0, 0, 0, .18); }
+.ap-python-lista button { display: flex; width: 100%; align-items: center; gap: 4px; border: 0; background: none; padding: 5px 14px 5px 4px; text-align: left; cursor: pointer; }
+.ap-python-lista button:hover:not([disabled]), .ap-python-lista button:focus-visible { background: var(--py-sel); outline: none; }
+.ap-python-lista button[disabled] { color: #a2a2a2; cursor: default; }
+.ap-python-lista .bif { width: 18px; text-align: center; }
+.ap-python-lista .et { flex: 1; }
+.ap-python-lista .sc { color: #6b6b6b; padding-left: 24px; font-size: 12px; }
+.ap-python-lista .sep { height: 1px; margin: 4px 8px; background: #dcdcdc; }
+/* bara de unelte (pictograme mari, ca în Thonny) */
+.ap-python-tb { display: flex; align-items: center; gap: 2px; padding: 4px 6px; background: var(--py-bg); border-bottom: 1px solid var(--py-bord); overflow-x: auto; scrollbar-width: none; }
+.ap-python-tbb { width: 36px; height: 34px; display: grid; place-items: center; border: 1px solid transparent; border-radius: 4px; background: none; cursor: pointer; flex: none; }
+.ap-python-tbb:hover:not([disabled]) { background: #fff; border-color: var(--py-bord); }
+.ap-python-tbb:active:not([disabled]) { background: var(--py-sel); }
+.ap-python-tbb[disabled] { opacity: .35; filter: grayscale(1); cursor: default; }
+.ap-python-tbb:focus-visible, .ap-python-tbtext:focus-visible { outline: 2px solid #2f6fc2; outline-offset: -1px; }
+.ap-python-tbsep { width: 1px; height: 24px; margin: 0 5px; background: var(--py-bord); flex: none; }
+.ap-python-tbtext { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border: 1px solid var(--py-bord); border-radius: 4px; background: #fff; cursor: pointer; flex: none; }
+.ap-python-tbtext:hover { background: var(--py-sel); }
+.ap-python.ruleaza .ap-python-tbb[title^="Oprește"] { background: #fde3e1; border-color: #f1a49f; }
+/* corpul: editor + Shell în stânga, Variabile în dreapta */
+.ap-python-corp { flex: 1; min-height: 0; display: flex; }
+.ap-python-stanga { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.ap-python-editor { flex: 1; min-height: 80px; display: flex; flex-direction: column; background: #fff; border-right: 1px solid var(--py-bord); }
+.ap-python-file { display: flex; gap: 2px; padding: 4px 4px 0; background: var(--py-bg); border-bottom: 1px solid var(--py-bord); overflow-x: auto; scrollbar-width: thin; flex: none; }
+.ap-python-fila { display: flex; align-items: center; gap: 4px; padding: 3px 4px 3px 10px; border: 1px solid var(--py-bord); border-bottom: 0; border-radius: 4px 4px 0 0; background: #e0e3e8; cursor: pointer; white-space: nowrap; margin-bottom: -1px; }
+.ap-python-fila.activa { background: #fff; padding-bottom: 4px; }
+.ap-python-fila .x { width: 18px; height: 18px; border: 0; border-radius: 3px; background: none; font-size: 11px; color: #666; cursor: pointer; display: grid; place-items: center; }
+.ap-python-fila .x:hover { background: #d43b3b; color: #fff; }
+.ap-python-edzona { flex: 1; min-height: 0; position: relative; display: flex; font: var(--ap-fs)/var(--ap-lh) var(--py-cod); }
+.ap-python-gutter { width: calc(var(--ap-fs) * 2.9); flex: none; overflow: hidden; background: #f3f4f6; border-right: 1px solid #e3e5e8; color: #999; text-align: right; cursor: pointer; user-select: none; }
+.ap-python-nr { padding: 4px 8px 40px 0; will-change: transform; }
+.ap-python-nr > div { height: var(--ap-lh); position: relative; }
+.ap-python-nr > .bp::before { content: ''; position: absolute; left: 4px; top: 50%; width: calc(var(--ap-fs) * .6); height: calc(var(--ap-fs) * .6); margin-top: calc(var(--ap-fs) * -.3); border-radius: 50%; background: #d93a32; }
+.ap-python-nr > .cur { color: #000; font-weight: 700; background: #fff59a; }
+.ap-python-nr > .er { color: #c00; font-weight: 700; }
+.ap-python-scena { position: relative; flex: 1; min-width: 0; overflow: hidden; }
+.ap-python-cod, .ap-python-ta { margin: 0; padding: 4px 6px 40px; font: inherit; white-space: pre; tab-size: 4; letter-spacing: 0; }
+.ap-python-cod { position: absolute; left: 0; top: 0; min-width: 100%; color: #000; pointer-events: none; will-change: transform; }
+.ap-python-ta { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; outline: none; resize: none; background: transparent; color: transparent; caret-color: #000; overflow: auto; }
+.ap-python-ta::selection { background: rgba(80, 140, 230, .3); color: transparent; }
+.ap-python-masura { position: absolute; visibility: hidden; white-space: pre; font: inherit; }
+.ap-python-marc { position: absolute; left: 0; top: 0; right: 0; height: 0; pointer-events: none; will-change: transform; }
+.ap-python-marc > div { position: absolute; left: 0; right: -4000px; height: var(--ap-lh); }
+.ap-python-marc > .dbg { background: #fff59a; box-shadow: inset 3px 0 #e0b400; }
+.ap-python-marc > .er { background: #ffe1df; box-shadow: inset 3px 0 #d93a32; }
+.ap-python-marc > .pp { right: auto; background: #d9dde3; border-radius: 2px; }
+.ap-python-cod .k { color: #7f0055; font-weight: 700; }
+.ap-python-cod .b { color: #6f1fa8; }
+.ap-python-cod .s { color: #00700f; }
+.ap-python-cod .n { color: #b04600; }
+.ap-python-cod .c { color: #848484; font-style: italic; }
+.ap-python-cod .d { color: #0b3fa8; font-weight: 700; }
+.ap-python-caut { position: absolute; top: 6px; right: 18px; z-index: 5; display: flex; gap: 4px; align-items: center; padding: 5px; background: #fff; border: 1px solid var(--py-bord2); border-radius: 5px; box-shadow: 0 2px 8px rgba(0, 0, 0, .15); font: 13px 'Segoe UI', system-ui, sans-serif; }
+.ap-python-caut input { width: 130px; padding: 3px 6px; border: 1px solid var(--py-bord2); border-radius: 3px; }
+.ap-python-caut button { padding: 3px 7px; border: 1px solid var(--py-bord); border-radius: 3px; background: #f4f5f7; cursor: pointer; }
+.ap-python-caut button:hover { background: var(--py-sel); }
+/* panourile Shell și Variabile */
+.ap-python-panou { display: flex; flex-direction: column; min-height: 0; margin: 0; padding: 0; background: #fff; }
+.ap-python-pshell { height: 34%; min-height: 70px; flex: none; border-right: 1px solid var(--py-bord); }
+.ap-python-pvars { width: 290px; min-width: 160px; flex: none; }
+.ap-python-panou-cap { display: flex; align-items: center; gap: 6px; padding: 3px 4px 3px 10px; background: var(--py-bg); border-bottom: 1px solid var(--py-bord); font-weight: 600; flex: none; }
+.ap-python-mic { padding: 2px 8px; border: 1px solid var(--py-bord); border-radius: 3px; background: #fff; font-size: 12px !important; font-weight: 400; cursor: pointer; }
+.ap-python-mic:hover { background: var(--py-sel); }
+.ap-python-mic.x { border: 0; background: none; }
+.ap-python-mic.r:hover { background: #fde3e1; border-color: #f1a49f; }
+.ap-python-split { flex: none; background: var(--py-bg); position: relative; z-index: 2; touch-action: none; }
+.ap-python-split.h { height: 6px; cursor: row-resize; border-top: 1px solid var(--py-bord); }
+.ap-python-split.v { width: 6px; cursor: col-resize; }
+.ap-python-split:hover, .ap-python-split.trage { background: #bcd3f2; }
+.ap-python-sh { flex: 1; min-height: 0; overflow: auto; padding: 4px 8px 16px; font: var(--ap-fs)/var(--ap-lh) var(--py-cod); white-space: pre-wrap; overflow-wrap: anywhere; cursor: text; }
+.ap-python-sh-o { color: #000; }
+.ap-python-sh-e { color: #c8001a; }
+.ap-python-sh-ex { display: block; margin: 4px 0 4px; padding: 5px 9px; border-left: 4px solid #f29a1f; border-radius: 3px; background: #fff4e0; color: #4a3200; font-family: 'Segoe UI', system-ui, sans-serif; font-size: calc(var(--ap-fs) * .92); line-height: 1.45; white-space: pre-wrap; }
+.ap-python-sh-p { color: #8a1fa8; font-weight: 700; }
+.ap-python-sh-u { color: #000; }
+.ap-python-sh-cmd { color: #000; font-weight: 700; }
+.ap-python-sh-in { outline: none; color: #0b3fa8; caret-color: #000; min-width: 4px; display: inline; white-space: pre-wrap; }
+span.ap-python-sh-in[data-k="in"], .ap-python-sh-in + .x { color: #0b3fa8; }
+.ap-python-sh [data-k="in"] { color: #0b3fa8; }
+.ap-python-sh-info { color: #757575; }
+.ap-python-vars-corp { flex: 1; min-height: 0; overflow: auto; }
+.ap-python-vt { width: 100%; border-collapse: collapse; font: calc(var(--ap-fs) * .9)/1.4 var(--py-cod); }
+.ap-python-vt th { position: sticky; top: 0; background: #f6f7f9; text-align: left; font: 600 12px 'Segoe UI', system-ui, sans-serif; padding: 3px 8px; border-bottom: 1px solid #e3e5e8; }
+.ap-python-vt td { padding: 2px 8px; border-bottom: 1px solid #f0f1f3; vertical-align: top; }
+.ap-python-vt td.n { width: 38%; color: #0b3fa8; overflow-wrap: anywhere; }
+.ap-python-vt td.v { overflow-wrap: anywhere; white-space: pre-wrap; }
+.ap-python-vt tr.schimbat td { background: #fff59a; }
+.ap-python-vt tr.cap th { position: static; background: #e9eef6; color: #333; }
+.ap-python-gol { margin: 12px; color: #6b6b6b; font-size: 13px; line-height: 1.5; }
+.ap-python-status { display: flex; gap: 10px; align-items: center; min-height: 24px; padding: 0 10px; background: var(--py-bg); border-top: 1px solid var(--py-bord); color: #444; font-size: 12px; white-space: nowrap; overflow: hidden; }
+.ap-python-st-msg { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.ap-python-st-sep { padding-left: 10px; border-left: 1px solid var(--py-bord); }
+/* fereastra țestoasei */
+.ap-python-tw { position: absolute; z-index: 20; display: flex; flex-direction: column; min-width: 220px; min-height: 160px; background: #f0f0f0; border: 1px solid #8a8f96; box-shadow: 0 8px 28px rgba(0, 0, 0, .28); resize: both; overflow: hidden; }
+.ap-python-tw-cap { display: flex; align-items: center; gap: 6px; height: 30px; padding-left: 8px; background: #fff; border-bottom: 1px solid #d0d0d0; cursor: move; user-select: none; touch-action: none; flex: none; }
+.ap-python-tw-b { width: 40px; height: 30px; border: 0; background: none; cursor: pointer; font-size: 14px; }
+.ap-python-tw-b:hover { background: #e5e5e5; }
+.ap-python-tw-b.x:hover { background: #e81123; color: #fff; }
+.ap-python-tw-zona { flex: 1; min-height: 0; position: relative; }
+.ap-python-tw-c { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+/* dialoguri */
+.ap-python-dlg-fundal { position: absolute; inset: 0; z-index: 50; display: grid; place-items: center; background: rgba(20, 24, 30, .28); }
+.ap-python-dlg { max-height: calc(100% - 24px); display: flex; flex-direction: column; background: #fff; border: 1px solid #8a8f96; border-radius: 6px; box-shadow: 0 12px 40px rgba(0, 0, 0, .3); overflow: hidden; }
+.ap-python-dlg-titlu { display: flex; align-items: center; justify-content: space-between; padding: 0 0 0 12px; min-height: 34px; background: var(--py-bg); border-bottom: 1px solid var(--py-bord); font-weight: 600; }
+.ap-python-dlg-x { width: 42px; height: 34px; border: 0; background: none; cursor: pointer; }
+.ap-python-dlg-x:hover { background: #e81123; color: #fff; }
+.ap-python-dlg-corp { padding: 14px 16px; overflow: auto; }
+.ap-python-dlg-text { margin: 0 0 10px; line-height: 1.5; }
+.ap-python-dlg-lbl { display: flex; flex-direction: column; gap: 6px; }
+.ap-python-dlg-inp { padding: 6px 8px; border: 1px solid var(--py-bord2); border-radius: 4px; font: 14px var(--py-cod) !important; }
+.ap-python-dlg-inp:focus { outline: 2px solid #2f6fc2; outline-offset: -1px; }
+.ap-python-dlg-er { color: #c00; min-height: 1em; font-size: 12px; }
+.ap-python-dlg-btn { display: flex; justify-content: flex-end; gap: 8px; padding: 10px 16px; background: var(--py-bg); border-top: 1px solid var(--py-bord); }
+.ap-python-dlg-btn button { min-width: 88px; padding: 5px 14px; border: 1px solid var(--py-bord2); border-radius: 4px; background: #fff; cursor: pointer; }
+.ap-python-dlg-btn button:hover { background: var(--py-sel); }
+.ap-python-dlg-btn button.prim { background: #2f6fc2; border-color: #22579e; color: #fff; }
+.ap-python-dlg-btn button.prim:hover { background: #255fae; }
+.ap-python-lstf { max-height: 320px; overflow: auto; border: 1px solid var(--py-bord); border-radius: 4px; }
+.ap-python-lstf-r { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-bottom: 1px solid #eef0f2; cursor: pointer; }
+.ap-python-lstf-r:hover { background: #f3f7fd; }
+.ap-python-lstf-r.ales { background: var(--py-sel); }
+.ap-python-lstf-r .n { flex: 1; font-family: var(--py-cod); overflow: hidden; text-overflow: ellipsis; }
+.ap-python-lstf-r .d { color: #777; font-size: 12px; }
+.ap-python-link { margin-top: 10px; border: 0; background: none; color: #1a5fb4; text-decoration: underline; cursor: pointer; padding: 0; }
+.ap-python-ex { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+.ap-python-ex-b { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; padding: 9px 10px; border: 1px solid var(--py-bord); border-radius: 6px; background: #fff; text-align: left; cursor: pointer; }
+.ap-python-ex-b:hover { background: #f3f7fd; border-color: #8fb3e6; }
+.ap-python-ex-b span { color: #666; font-size: 12px; }
+.ap-python-ajutor p { margin: 0 0 9px; line-height: 1.5; }
+.ap-python-taste { border-collapse: collapse; margin: 6px 0 10px; }
+.ap-python-taste td { padding: 3px 10px 3px 0; }
+.ap-python-taste kbd { padding: 1px 6px; border: 1px solid #c6c9ce; border-bottom-width: 2px; border-radius: 4px; background: #f7f7f8; font: 12px var(--py-cod); white-space: nowrap; }
+.ap-python-toast { position: absolute; left: 50%; bottom: 36px; transform: translateX(-50%); z-index: 60; padding: 8px 14px; border-radius: 6px; background: #2b2f36; color: #fff; box-shadow: 0 4px 16px rgba(0, 0, 0, .25); transition: opacity .5s; max-width: 90%; }
+.ap-python-toast.err { background: #b3261e; }
+.ap-python-toast.gone { opacity: 0; }
+@media (max-width: 900px) {
+  .ap-python-pvars { width: 220px; }
+  .ap-python-tbb { width: 32px; height: 32px; }
+  .ap-python-tbsep { margin: 0 2px; }
+}
+@media (max-width: 640px) {
+  .ap-python-titlutext { display: none; }
+  .ap-python-tbtext span:last-child { display: none; }
+  .ap-python-pvars, .ap-python-split.v { display: none; }
+}
+/* Sfârșit: Aplicația Python */
