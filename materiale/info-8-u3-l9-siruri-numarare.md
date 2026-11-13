@@ -114,6 +114,67 @@ Observă că aici contoarele sunt cu **if-uri separate**, nu cu else if: o notă
 
 ![Pentru notele 10 7 4 9 10 8 3 6, fiecare contor crește cu 1 doar când condiția lui e adevărată: zece = 2, sub5 = 2, peste8 = 4 (50%).](fisiere/imagini/info-8-u3-l9-siruri-numarare.svg)
 
+## Același program în Python
+
+Statistica unui test, în **Python**:
+
+```python
+n = int(input())
+zece = 0
+sub5 = 0
+peste8 = 0
+for i in range(1, n + 1):
+    nota = int(input())
+    if nota == 10:
+        zece += 1
+    if nota < 5:
+        sub5 += 1
+    if nota >= 8:
+        peste8 += 1
+print("Note de 10:", zece)
+print("Note sub 5:", sub5)
+print(f"Cel putin 8: {peste8 * 100 / n:.1f}%")
+```
+
+Mai multe contoare, cu `if … elif … else`:
+
+```python
+n = int(input())
+poz = 0
+neg = 0
+zero = 0
+for i in range(1, n + 1):
+    x = int(input())
+    if x > 0:
+        poz += 1
+    elif x < 0:
+        neg += 1
+    else:
+        zero += 1
+print(poz, neg, zero)
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `int k = 0;` | `k = 0` | contorul pornește tot de la 0 |
+| `k++;` | `k += 1` | |
+| `k * 100.0 / n` | `k * 100 / n` | în Python, `/` dă oricum rezultat real, deci nu mai e nevoie de `100.0` |
+| `fixed << setprecision(1)` | `f"{x:.1f}"` | |
+| `else if` | `elif` | |
+
+Dacă elementele sunt într-o listă, Python are și o scurtătură pentru numărarea unei valori: `note.count(10)` dă de câte ori apare 10 în lista `note`.
+
+```quiz
+# Python
+În Python, k = 3 și n = 8. Ce afișează print(k * 100 / n)?
+- 37
+* 37.5
+- 0
+Explicație: În Python, / face împărțire reală, chiar dacă numerele sunt întregi.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

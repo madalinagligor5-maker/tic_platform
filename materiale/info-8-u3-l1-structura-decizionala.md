@@ -95,6 +95,62 @@ else
 
 2024 → bisect; 1900 → nebisect; 2000 → bisect.
 
+## Același program în Python
+
+Trei numere în ordine crescătoare, în **Python**. Interschimbarea se poate face fără `aux`, cu `a, b = b, a`:
+
+```python
+a = int(input())
+b = int(input())
+c = int(input())
+if a > b:
+    a, b = b, a
+if b > c:
+    b, c = c, b
+if a > b:
+    a, b = b, a
+print(a, b, c)
+```
+
+Anul bisect, cu operatorii logici scriși în cuvinte:
+
+```python
+an = int(input())
+if (an % 4 == 0 and an % 100 != 0) or an % 400 == 0:
+    print("bisect")
+else:
+    print("nebisect")
+```
+
+| Pseudocod | C++ | Python |
+|---|---|---|
+| `dacă c atunci A altfel B` | `if (c) A; else B;` | `if c:` / `else:` (ramurile indentate) |
+| `altfel dacă` | `else if` | `elif` |
+| `și`, `not` | `&&`, `!` | `and`, `not` |
+| `sau` | două bare verticale | `or` |
+| `=`, `≠` (comparare) | `==`, `!=` | `==`, `!=` |
+| interschimbare cu `aux` | `aux = a; a = b; b = aux;` | `a, b = b, a` |
+| `x ∈ [1, 10]` | `x >= 1 && x <= 10` | `1 <= x <= 10` (merge ca la matematică) |
+| – | `switch` | nu există; se scrie cu `if … elif … else` |
+
+Greșeala `if (a = b)` din C++ nu poate apărea în Python: `if a = b:` dă eroare de sintaxă, deci ești obligat să scrii `==`.
+
+```quiz
+# Python
+Care este condiția Python pentru „n are două cifre”?
+* 10 <= n <= 99
+- n >= 10 && n <= 99
+- n >= 10 or n <= 99
+Explicație: În Python poți scrie intervalul ca la matematică; varianta cu && nu e Python, iar cea cu or este adevărată pentru orice n.
+
+Ce face în Python instrucțiunea a, b = b, a?
+- copiază a în b
+* interschimbă valorile lui a și b
+- dă eroare
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```categorii

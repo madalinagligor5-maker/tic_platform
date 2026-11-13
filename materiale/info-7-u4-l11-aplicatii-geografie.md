@@ -107,6 +107,69 @@ cout << ani << " ani";
 
 Afișează **10 ani**.
 
+## Același program în Python
+
+Temperaturile unei săptămâni, în **Python** (fiecare temperatură se scrie pe rândul ei):
+
+```python
+t = float(input())
+s = t
+maxim = t
+minim = t
+for zi in range(2, 8):
+    t = float(input())
+    s = s + t
+    if t > maxim:
+        maxim = t
+    if t < minim:
+        minim = t
+print(f"Media: {s / 7:.1f}")
+print(f"Maxima: {maxim:.1f}")
+print(f"Minima: {minim:.1f}")
+print(f"Amplitudinea: {maxim - minim:.1f}")
+```
+
+Creșterea populației (while):
+
+```python
+p = 50000
+ani = 0
+while p <= 60000:
+    p = p * 1.02
+    ani = ani + 1
+print(ani, "ani")
+```
+
+Dacă păstrezi toate temperaturile într-o **listă** (în C++ ar fi un **tablou**), Python le poate prelucra direct cu `sum`, `max`, `min` și `len`:
+
+```python
+temperaturi = [12, 15, 9, 18, 20, 14, 10]
+print(f"Media: {sum(temperaturi) / len(temperaturi):.1f}")
+print("Maxima:", max(temperaturi))
+print("Minima:", min(temperaturi))
+print("Amplitudinea:", max(temperaturi) - min(temperaturi))
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `double t; cin >> t;` | `t = float(input())` | |
+| `maxim = minim = t;` | `maxim = t` și `minim = t` | |
+| `for (int zi = 2; zi <= 7; zi++)` | `for zi in range(2, 8):` | `range` se oprește înainte de 8 |
+| `fixed << setprecision(1)` | `f"{x:.1f}"` | o zecimală |
+| `while (p <= 60000) { … }` | `while p <= 60000:` | |
+| tablou: `int t[7] = {12, 15, …};` | listă: `t = [12, 15, …]` | lista se scrie între paranteze drepte; `len(t)` = câte elemente are |
+
+```quiz
+# Python
+Lista este t = [12, 15, 9]. Ce afișează print(max(t) - min(t))?
+- 3
+* 6
+- 15
+Explicație: max(t) este 15, min(t) este 9, iar diferența (amplitudinea) este 6.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

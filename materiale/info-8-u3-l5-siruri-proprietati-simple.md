@@ -96,6 +96,56 @@ for (int i = 0; i < n; i++)
 
 Pentru n = 5, ambele afișează **3 13 23 33 43**.
 
+## Același program în Python
+
+Cele două metode, în **Python**. Metoda 1 (parcurgi și alegi) pentru multiplii lui 7 până la 50:
+
+```python
+for i in range(1, 51):
+    if i % 7 == 0:
+        print(i, end=" ")       # 7 14 21 28 35 42 49
+```
+
+Primele n numere care se termină în 3, cu ambele metode:
+
+```python
+n = int(input())
+gasite = 0
+x = 1
+while gasite < n:              # metoda 1
+    if x % 10 == 3:
+        print(x, end=" ")
+        gasite += 1
+    x += 1
+print()
+for i in range(0, n):          # metoda 2: 10 · i + 3
+    print(10 * i + 3, end=" ")
+```
+
+La metoda 2, `range` primește și un **pas**: „din 5 în 5, de la 3, până la 100” se scrie `for x in range(3, 101, 5):`.
+
+| Șir | C++ | Python |
+|---|---|---|
+| 2 4 6 8 … (primii n) | `for (i = 1; i <= n; i++) cout << 2 * i;` | `for i in range(1, n + 1): print(2 * i)` |
+| multiplii lui k (primii n) | `for (i = 1; i <= n; i++) cout << k * i;` | `for i in range(1, n + 1): print(k * i)` |
+| 1 4 9 16 … | `cout << i * i;` | `print(i * i)` sau `print(i ** 2)` |
+| din 5 în 5, de la 3 | `for (x = 3; x <= 100; x = x + 5)` | `for x in range(3, 101, 5):` |
+| pare mai mici decât n | `for (x = 2; x < n; x = x + 2)` | `for x in range(2, n, 2):` |
+| afișare pe același rând | `cout << x << " ";` | `print(x, end=" ")` |
+
+În Python, `**` înseamnă ridicare la putere: `i ** 2` este `i · i`.
+
+```quiz
+# Python
+Ce numere afișează for x in range(3, 20, 5): print(x, end=" ")?
+- 3 8 13 18 23
+* 3 8 13 18
+- 5 10 15
+Explicație: Pornește de la 3, crește din 5 în 5 și se oprește înainte de 20.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```categorii

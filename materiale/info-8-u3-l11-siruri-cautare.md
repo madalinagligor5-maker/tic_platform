@@ -134,6 +134,67 @@ Pentru n = 7, v = 4 și șirul `3 4 8 4 1 4 9`: **3 aparitii, prima pe pozitia 2
 
 ![Căutarea valorii 4 în șirul 3 4 8 4 1 4 9: compari pe rând fiecare element; prima apariție e pe poziția 2, ultima pe poziția 6, în total 3.](fisiere/imagini/info-8-u3-l11-siruri-cautare.svg)
 
+## Același program în Python
+
+Unde apare numărul norocos? În **Python**:
+
+```python
+n = int(input())
+v = int(input())
+k = 0
+prima = 0
+ultima = 0
+for i in range(1, n + 1):
+    x = int(input())
+    if x == v:
+        k += 1
+        if prima == 0:
+            prima = i
+        ultima = i
+if k == 0:
+    print("Nu apare")
+else:
+    print(f"{k} aparitii, prima pe pozitia {prima}, ultima pe pozitia {ultima}")
+```
+
+Oprirea căutării imediat ce găsim valoarea (cu `while` și o condiție compusă):
+
+```python
+n = int(input())
+v = int(input())
+i = 1
+gasit = False
+while i <= n and not gasit:
+    x = int(input())
+    if x == v:
+        gasit = True
+    else:
+        i += 1
+if gasit:
+    print("Gasit pe pozitia", i)
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `int gasit = 0;` … `gasit = 1;` | `gasit = False` … `gasit = True` | |
+| `while (i <= n && gasit == 0)` | `while i <= n and not gasit:` | |
+| `if (x == v && poz == 0)` | `if x == v and poz == 0:` | |
+| `if (gasit) …` | `if gasit:` | |
+| `cout << k << " aparitii, prima pe pozitia " << prima;` | `print(f"{k} aparitii, prima pe pozitia {prima}")` | cu f-string controlezi exact spațiile; `print(a, b)` pune mereu un spațiu între valori |
+
+Când elementele sunt într-o **listă**, Python are scurtături: `v in sir` (adevărat dacă v apare în listă), `sir.count(v)` (de câte ori apare) și `sir.index(v)` (poziția primei apariții, numărată de la 0). Sunt utile, dar în spatele lor se face tot o **căutare secvențială**.
+
+```quiz
+# Python
+Lista este sir = [3, 4, 8, 4]. Ce afișează print(4 in sir, sir.count(4))?
+- True 1
+* True 2
+- 2 True
+Explicație: 4 apare în listă (True), de două ori.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

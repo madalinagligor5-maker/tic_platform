@@ -113,6 +113,68 @@ Pentru `5` și `12 15 15 9 11`: Ziua 2: **3**, Ziua 3: **0**, Ziua 4: **-6**, Zi
 
 ![Cele două moduri de citire a unui șir (cu n dat sau până la santinela 0) și diferențele de temperatură calculate cu elementul anterior ant.](fisiere/imagini/info-8-u3-l7-siruri-citire-parcurgere.svg)
 
+## Același program în Python
+
+Jurnalul temperaturilor, în **Python** (fiecare valoare se scrie pe rândul ei):
+
+```python
+n = int(input())
+ant = int(input())
+for zi in range(2, n + 1):
+    t = int(input())
+    print(f"Ziua {zi}: {t - ant}")
+    ant = t
+```
+
+Citirea până la valoarea-santinelă 0 (aici afișăm dublul fiecărui element):
+
+```python
+x = int(input())
+while x != 0:
+    print(2 * x, end=" ")
+    x = int(input())
+```
+
+În Python e foarte ușor să păstrezi **toate** elementele într-o **listă** (ce vei numi la liceu, în C++, **tablou**). Lista pornește goală, `[]`, și primește elemente cu `append`:
+
+```python
+n = int(input())
+sir = []
+for i in range(1, n + 1):
+    x = int(input())
+    sir.append(x)            # adaugă x la sfârșitul listei
+print("Elementele:", sir)
+for i in range(1, len(sir)):
+    print(f"Ziua {i + 1}: {sir[i] - sir[i - 1]}")
+```
+
+Atenție: în listă, pozițiile se numără de la **0**: primul element este `sir[0]`, al doilea `sir[1]`.
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `cin >> n >> ant;` | `n = int(input())` și `ant = int(input())` | câte un număr pe rând |
+| `cout << "Ziua " << zi << ": " << t - ant << endl;` | `print(f"Ziua {zi}: {t - ant}")` | f-string: expresiile stau între acolade |
+| `while (x != 0) { …; cin >> x; }` | `while x != 0:` … `x = int(input())` | citești înainte de buclă și la sfârșitul ei, la fel |
+| tablou: `int v[100];` | listă: `sir = []`, `sir.append(x)` | lista își mărește singură lungimea |
+| `v[i]` | `sir[i]` | pozițiile încep de la 0 |
+| numărul de elemente: `n` | `len(sir)` | |
+
+```quiz
+# Python
+Lista este sir = [12, 15, 9]. Ce afișează print(sir[1])?
+- 12
+* 15
+- 9
+Explicație: Pozițiile din listă încep de la 0, deci sir[1] este al doilea element.
+
+Ce face sir.append(7)?
+* adaugă 7 la sfârșitul listei
+- înlocuiește primul element cu 7
+- afișează 7
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```categorii

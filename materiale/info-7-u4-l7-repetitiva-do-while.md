@@ -117,6 +117,74 @@ int main()
 
 Strategia cea mai bună (dacă știi că numărul este între 1 și 100): începi de la mijloc (50), apoi înjumătățești intervalul de fiecare dată.
 
+## Același program în Python
+
+**Python nu are do … while.** Ca să execuți pașii **cel puțin o dată**, scrii o buclă `while True:` (care s-ar repeta la nesfârșit) și o oprești cu **`break`** când condiția de continuare devine falsă. Pune `if … : break` la **sfârșitul** buclei, exact unde era `while (conditie);` în C++, dar cu condiția **negată**: „cât timp n != 0” devine „oprește-te dacă n == 0”.
+
+Numărul de cifre (merge corect și pentru 0):
+
+```python
+n = int(input())
+nr = 0
+while True:
+    nr = nr + 1
+    n = n // 10
+    if n == 0:        # în C++: while (n != 0);
+        break
+print(nr)
+```
+
+Validarea notei:
+
+```python
+while True:
+    nota = int(input("Nota (1-10): "))
+    if nota >= 1 and nota <= 10:   # nota e bună: ieșim din buclă
+        break
+```
+
+Jocul „Ghicește numărul”:
+
+```python
+secret = 37
+incercari = 0
+while True:
+    x = int(input("Numarul tau: "))
+    incercari = incercari + 1
+    if x < secret:
+        print("Prea mic")
+    elif x > secret:
+        print("Prea mare")
+    if x == secret:
+        break
+print("Ai ghicit din", incercari, "incercari!")
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `do { … } while (conditie);` | `while True:` … `if not conditie: break` | `break` oprește imediat bucla |
+| se continuă cât timp nota e greșită (`nota < 1` sau `nota > 10`) | `if nota >= 1 and nota <= 10: break` | condiția de **oprire** este negația condiției de continuare |
+| `while (x != secret);` | `if x == secret: break` | |
+| `cout << "Nota: "; cin >> nota;` | `nota = int(input("Nota: "))` | |
+| `else if` | `elif` | |
+
+```quiz
+# Python
+Cum scrii în Python o buclă care se execută cel puțin o dată, ca do … while?
+- do: … while condiție
+* while True: … și, la final, if condiția de oprire: break
+- for True: … break
+Explicație: Python nu are do … while; folosești while True și ieși din buclă cu break.
+
+În C++ bucla este do { … } while (n != 0);. Ce scrii la sfârșitul buclei while True din Python?
+- if n != 0: break
+* if n == 0: break
+- break n == 0
+Explicație: Bucla trebuie să se oprească atunci când condiția de continuare (n != 0) devine falsă, adică atunci când n == 0.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

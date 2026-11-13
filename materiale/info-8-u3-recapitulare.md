@@ -57,6 +57,74 @@ A: Un robot autonom repetă ciclul percepe – decide – acționează.
 A: Produsul unui șir care conține 0 este 0.
 ```
 
+## Același program în Python
+
+Algoritmii cu șiruri de valori arată la fel și în **Python**. Un singur program care, într-o singură parcurgere, numără elementele pare, află maximul cu prima lui poziție și calculează media (exact cazurile din quiz):
+
+```python
+n = int(input())
+x = int(input())
+pare = 0
+if x % 2 == 0:
+    pare = 1
+maxim = x
+poz = 1
+s = x
+for i in range(2, n + 1):
+    x = int(input())
+    if x % 2 == 0:
+        pare += 1
+    if x > maxim:
+        maxim = x
+        poz = i
+    s = s + x
+print("Pare:", pare)
+print("Maxim:", maxim, "pe pozitia", poz)
+print(f"Media: {s / n:.2f}")
+```
+
+Același lucru, cu elementele păstrate într-o **listă**:
+
+```python
+sir = [4, 11, 7, 11]
+pare = 0
+for x in sir:                      # x ia pe rând fiecare element
+    if x % 2 == 0:
+        pare += 1
+print("Pare:", pare)
+print("Maxim:", max(sir), "pe pozitia", sir.index(max(sir)) + 1)
+print(f"Media: {sum(sir) / len(sir):.2f}")
+```
+
+| Algoritm | C++ | Python |
+|---|---|---|
+| citirea unui element | `cin >> x;` | `x = int(input())` |
+| parcurgere cu n dat | `for (int i = 1; i <= n; i++)` | `for i in range(1, n + 1):` |
+| parcurgerea unei liste | `for (int i = 0; i < n; i++) … v[i]` | `for x in sir:` |
+| numărare | `if (c) k++;` | `if c: k += 1` |
+| toate elementele | `ok = 1;` … `ok = 0;` | `ok = True` … `ok = False` |
+| căutare | `gasit = 0;` … `gasit = 1;` | `gasit = False` … `gasit = True` (sau `v in sir`) |
+| maxim, minim | `if (x > maxim) maxim = x;` | la fel, sau `max(sir)`, `min(sir)` |
+| sumă, produs | `s = 0; p = 1;` (`long long`) | `s = 0`, `p = 1` (fără limită), sau `sum(sir)` |
+| media | `(double)s / n` | `s / n` |
+| repetă … până când | `do { … } while (c);` | `while True:` … `if not c: break` |
+
+```quiz
+# Python
+Ce afișează: sir = [5, 2, 8, 3, 6, 1], apoi print(sum(sir) / len(sir))?
+- 4
+* 4.166666666666667
+- 25
+Explicație: Suma este 25, lungimea 6; în Python, / dă rezultat real.
+
+Ce face bucla for x in sir: din Python?
+* ia pe rând fiecare element al listei sir
+- citește n numere de la tastatură
+- afișează lista
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Exersează
 
 1. Citește n numere și afișează câte sunt palindroame și care este cel mai mare palindrom.

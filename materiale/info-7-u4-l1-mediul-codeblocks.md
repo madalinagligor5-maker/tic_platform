@@ -124,6 +124,50 @@ int main()
 3. Apeși **F9**. Consola afișează trei rânduri (`endl` trece la rând nou).
 4. Ștergi intenționat un `;` și apeși F9: citești eroarea, apoi o corectezi.
 
+## Același program în Python
+
+**Python** este un alt limbaj de programare, foarte folosit în școli și de programatori. Ideea rămâne aceeași: scrii un algoritm într-un limbaj pe care calculatorul îl poate executa. Diferența: un program Python (fișier `.py`) **nu** se transformă întâi într-un `.exe`; un program numit **interpretor** îl citește și îl execută direct. Mediile pentru începători sunt **Thonny** sau **IDLE**.
+
+Primul program, în Python:
+
+```python
+print("Salut, clasa a VII-a!")
+```
+
+Programul „Carte de vizită”:
+
+```python
+print("Nume: Popescu Ana")
+print("Clasa: a VII-a B")
+print("Hobby: robotica")
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `#include <iostream>`, `using namespace std;`, `int main() { … return 0; }` | nu se scriu | programul Python începe direct cu prima instrucțiune |
+| `cout << "Salut";` | `print("Salut")` | textul de afișat stă între paranteze |
+| `;` la sfârșitul instrucțiunii | fără `;` | fiecare instrucțiune stă pe rândul ei |
+| `endl` | nu e nevoie | `print` trece singur la rând nou după ce afișează |
+| `// comentariu` | `# comentariu` | comentariul începe cu `#` |
+| compilator → `.exe` → rulare | interpretor: rulezi direct fișierul `.py` | dacă ai greșit, Python afișează eroarea (de exemplu `SyntaxError`) și **numărul rândului** |
+
+```quiz
+# Python
+Care instrucțiune afișează mesajul Salut în Python?
+- cout << "Salut";
+* print("Salut")
+- print "Salut";
+Explicație: În Python se folosește print, cu textul între paranteze și fără punct și virgulă.
+
+Câte rânduri afișează trei instrucțiuni print, scrise una după alta?
+- unul singur
+* trei
+- niciunul, lipsește endl
+Explicație: Fiecare print trece singur la rând nou.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```ordonare

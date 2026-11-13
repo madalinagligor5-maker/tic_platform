@@ -107,6 +107,67 @@ if (ro < 1000) cout << "Pluteste";
 else cout << "Se scufunda";
 ```
 
+## Același program în Python
+
+Problemele de fizică folosesc **numere reale**, așa că în **Python** citești cu `float(input())`. Viteza medie:
+
+```python
+d = float(input("Distanta (km): "))
+t = float(input("Timpul (minute): "))
+v = d / (t / 60)                 # timpul transformat în ore
+print(f"v = {v:.2f} km/h")
+print(f"v = {v / 3.6:.2f} m/s")
+```
+
+Greutatea pe planete:
+
+```python
+m = float(input())
+print(f"Pamant: {m * 9.8:g} N")
+print(f"Luna: {m * 1.6:g} N")
+print(f"Marte: {m * 3.7:g} N")
+print(f"Jupiter: {m * 24.8:g} N")
+```
+
+Ce plutește?
+
+```python
+m = float(input())
+V = float(input())
+ro = m / V
+if ro < 1000:
+    print("Pluteste")
+else:
+    print("Se scufunda")
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `double d; cin >> d;` | `d = float(input())` | `float` = număr real; se scrie tot cu punct: `3.6` |
+| `7 / 2` (întregi) dă 3 | `7 / 2` dă 3.5 | în Python `/` dă mereu rezultat real; câtul întreg se scrie `7 // 2` |
+| `fixed << setprecision(2)` | `f"{v:.2f}"` | `:.2f` = două zecimale |
+| `cout << m * 9.8;` (afișează 490) | `f"{m * 9.8:g}"` | `print(m * 9.8)` ar afișa `490.00000000000006`; `:g` rotunjește ca în C++ |
+| `if (…) …; else …;` | `if …:` / `else:` | |
+
+**Textul formatat (f-string).** Un text care începe cu `f` poate conține expresii între acolade: `f"v = {v:.2f} km/h"` pune în locul acoladelor valoarea lui `v`, cu două zecimale.
+
+```quiz
+# Python
+Ce afișează în Python: print(f"{20 / 3:.2f}")?
+- 6
+- 6.6666
+* 6.67
+Explicație: :.2f afișează numărul cu două zecimale, rotunjit.
+
+Ce dă în Python expresia 7 / 2?
+- 3
+* 3.5
+- eroare
+Explicație: În Python, / face mereu împărțire reală.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

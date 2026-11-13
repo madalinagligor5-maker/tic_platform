@@ -101,6 +101,57 @@ Pentru `6` și `4 7 9 13 1 2`: afișează **7 (pozitia 2)**, **13 (pozitia 4)**,
 
 ![Fiecare element al șirului 4 7 9 13 1 2 este verificat: se afișează doar cele cu exact 2 divizori (7, 13 și 2), împreună cu pozițiile lor.](fisiere/imagini/info-8-u3-l8-siruri-verificare-proprietati.svg)
 
+## Același program în Python
+
+Numerele prime din șir, cu poziția lor, în **Python**. Bucla care numără divizorii este **indentată** în bucla care citește elementele:
+
+```python
+n = int(input())
+for i in range(1, n + 1):
+    x = int(input())
+    nrDiv = 0                      # se reinițializează pentru fiecare x
+    for d in range(1, x + 1):
+        if x % d == 0:
+            nrDiv += 1
+    if nrDiv == 2:
+        print(x, f"(pozitia {i})")
+```
+
+Elementele palindrom (calculul se face pe o **copie** a lui x):
+
+```python
+n = int(input())
+for i in range(1, n + 1):
+    x = int(input())
+    c = x                          # copia lui x
+    ogl = 0
+    while c > 0:
+        ogl = ogl * 10 + c % 10
+        c = c // 10
+    if ogl == x:
+        print(x, end=" ")
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `int nrDiv = 0;` în interiorul buclei | `nrDiv = 0` indentat în buclă | se reinițializează pentru fiecare element |
+| `for` în `for` | `for` indentat în `for` | |
+| `c = c / 10;` | `c = c // 10` | |
+| `x >= 10 && x <= 99` | `10 <= x <= 99` | |
+| `x % 2 == ant % 2` | `x % 2 == ant % 2` | la fel |
+| `cout << x << " (pozitia " << i << ")";` | `print(x, f"(pozitia {i})")` | |
+
+```quiz
+# Python
+Ce condiție Python verifică dacă x are ultima cifră 5 și este mai mic decât 100?
+* x % 10 == 5 and x < 100
+- x % 10 == 5 && x < 100
+- x // 10 == 5 and x < 100
+Explicație: Ultima cifră se obține cu % 10, iar „și” se scrie and.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```categorii

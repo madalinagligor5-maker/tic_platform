@@ -108,6 +108,73 @@ int main()
 
 Pentru n = 8: **1 2 4 5 10 11 22 23**.
 
+## Același program în Python
+
+Șirul lui Fibonacci, în **Python**. Mutarea „a ← b, b ← c” se poate scrie și pe un singur rând: `a, b = b, a + b`.
+
+```python
+n = int(input())
+a = 1
+b = 1
+print(a, b, end=" ")
+for i in range(3, n + 1):
+    c = a + b
+    print(c, end=" ")
+    a = b
+    b = c
+```
+
+Șirul lui Collatz (nu știi câți termeni vor fi, deci `while`):
+
+```python
+n = int(input())
+while n != 1:
+    print(n, end=" ")
+    if n % 2 == 0:
+        n = n // 2
+    else:
+        n = 3 * n + 1
+print(1)
+```
+
+Regula care alternează:
+
+```python
+n = int(input())
+t = 1
+for i in range(1, n + 1):
+    print(t, end=" ")
+    if i % 2 == 1:
+        t = t + 1      # după pozițiile impare adunăm 1
+    else:
+        t = t * 2      # după cele pare înmulțim cu 2
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `long long t;` (progresia geometrică) | `t = 1` | întregii din Python nu au limită: `2 ** 100` se calculează exact |
+| `n = n / 2;` | `n = n // 2` | cu `/` ai obține un număr real (`3.0`) |
+| `c = a + b; a = b; b = c;` | `a, b = b, a + b` | ambele valori din dreapta se calculează înainte de atribuire |
+| `cout << t << " ";` | `print(t, end=" ")` | |
+| `for (int i = 3; i <= n; i++)` | `for i in range(3, n + 1):` | |
+
+```quiz
+# Python
+Ce afișează: a = 1 și b = 1, apoi de trei ori a, b = b, a + b, apoi print(b)?
+- 3
+* 5
+- 8
+Explicație: (a, b) devine (1, 2), apoi (2, 3), apoi (3, 5); b = 5.
+
+Ce dă în Python 10 / 2?
+- 5
+* 5.0
+- eroare
+Explicație: / dă mereu un număr real; pentru Collatz folosești n // 2.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```categorii

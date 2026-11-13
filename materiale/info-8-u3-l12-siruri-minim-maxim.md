@@ -126,6 +126,74 @@ Pentru `6` și `72 85 64 91 88 91`: cel mai bun **91 (concursul 4)**, cel mai sl
 
 ![Punctajele 72 85 64 91 88 91: maximul și minimul pornesc de la primul element și se schimbă doar când apare un „campion” nou.](fisiere/imagini/info-8-u3-l12-siruri-minim-maxim.svg)
 
+## Același program în Python
+
+Recordurile unui sportiv, în **Python**:
+
+```python
+n = int(input())
+x = int(input())
+maxim = x
+minim = x
+pozMax = 1
+for i in range(2, n + 1):
+    x = int(input())
+    if x > maxim:
+        maxim = x
+        pozMax = i
+    if x < minim:
+        minim = x
+print(f"Cel mai bun: {maxim} (concursul {pozMax})")
+print("Cel mai slab:", minim)
+print("Diferenta:", maxim - minim)
+```
+
+Maximul elementelor pare (cu indicatorul `gasit`):
+
+```python
+n = int(input())
+gasit = False
+maxPar = 0
+for i in range(1, n + 1):
+    x = int(input())
+    if x % 2 == 0:
+        if not gasit or x > maxPar:
+            maxPar = x
+        gasit = True
+if gasit:
+    print(maxPar)
+else:
+    print("Nu exista numere pare")
+```
+
+Când punctajele sunt într-o **listă**, Python le găsește direct cu `max` și `min`; `index` dă poziția primei apariții, numărată de la 0:
+
+```python
+punctaje = [72, 85, 64, 91, 88, 91]
+print("Cel mai bun:", max(punctaje))
+print("Cel mai slab:", min(punctaje))
+print("Concursul:", punctaje.index(max(punctaje)) + 1)
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `cin >> n >> x; maxim = x;` | `n = int(input())`, `x = int(input())`, `maxim = x` | pornești tot de la primul element |
+| `if (x > maxim) { maxim = x; poz = i; }` | `if x > maxim:` + două rânduri indentate | |
+| `maxim = minim = x;` | `maxim = x` și `minim = x` | |
+| `gasit == 0` sau `x > maxPar` (în C++, „sau” are două bare verticale) | `not gasit or x > maxPar` | |
+| maximul unui tablou: cu `for` | `max(lista)`, `min(lista)` | funcțiile fac, în spate, același algoritm |
+
+```quiz
+# Python
+Lista este t = [-5, -2, -8]. Ce afișează print(max(t))?
+- 0
+* -2
+- -8
+Explicație: Cel mai mare dintre -5, -2 și -8 este -2.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

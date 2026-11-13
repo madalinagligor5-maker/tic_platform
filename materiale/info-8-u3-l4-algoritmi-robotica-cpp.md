@@ -119,6 +119,90 @@ for (int i = 1; i <= n; i++)
 cout << x << " " << y << " " << ignorate;
 ```
 
+## Același program în Python
+
+Unde ajunge robotul? În **Python** nu există `switch`, așa că fiecare comandă se tratează cu `if … elif`:
+
+```python
+n = int(input())
+x = 0
+y = 0
+nord = 0
+for i in range(1, n + 1):
+    c = int(input())
+    if c == 1:
+        y += 1
+        nord += 1
+    elif c == 2:
+        x += 1
+    elif c == 3:
+        y -= 1
+    elif c == 4:
+        x -= 1
+print(f"Pozitia finala: ({x}, {y})")
+print("Pasi spre nord:", nord)
+```
+
+Robotul cu rotiri și margini:
+
+```python
+n = int(input())
+x = 0
+y = 0
+dir = 0
+ignorate = 0
+for i in range(1, n + 1):
+    c = int(input())
+    if c == 1:
+        dir = (dir + 1) % 4
+    elif c == 2:
+        dir = (dir + 3) % 4
+    else:
+        nx = x
+        ny = y
+        if dir == 0:
+            ny += 1
+        elif dir == 1:
+            nx += 1
+        elif dir == 2:
+            ny -= 1
+        else:
+            nx -= 1
+        if 0 <= nx <= 9 and 0 <= ny <= 9:
+            x = nx
+            y = ny
+        else:
+            ignorate += 1
+print(x, y, ignorate)
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `switch (c) { case 1: …; break; … }` | `if c == 1: … elif c == 2: …` | fără `break` |
+| `y++;`, `x--;` | `y += 1`, `x -= 1` | |
+| `cout << "(" << x << ", " << y << ")";` | `print(f"({x}, {y})")` | în f-string, valorile se pun între acolade |
+| `nx >= 0 && nx <= 9` | `0 <= nx <= 9` | |
+| `int nx = x, ny = y;` (variabile în bloc) | `nx = x` și `ny = y` | variabilele nu se declară |
+| `(dir + 1) % 4` | `(dir + 1) % 4` | la fel |
+
+Comenzile se scriu câte una pe rând. Dacă vrei să le scrii pe același rând (`1 1 2 2 2 3`), le citești dintr-o dată într-o **listă**: `comenzi = list(map(int, input().split()))`, apoi le parcurgi cu `for c in comenzi:`.
+
+```quiz
+# Python
+Cu ce înlocuiești în Python instrucțiunea switch din C++?
+- cu switch … case, la fel
+* cu un lanț if … elif … else
+- cu o buclă while
+Explicație: Python nu are switch; fiecare case devine o ramură elif.
+
+Ce valoare are dir după dir = (dir + 1) % 4, dacă dir era 3 (vest)?
+- 4
+* 0
+- 3
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

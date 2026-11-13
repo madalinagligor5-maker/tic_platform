@@ -110,6 +110,64 @@ scrie „Patrulare terminată”
 
 Se folosesc: o **variabilă-contor**, o **structură repetitivă** cu condiție și o **așteptare** după un senzor.
 
+## Același program în Python
+
+Algoritmii de mai sus se pot programa în VEXcode VR, unde editorul de text folosește **Python**. Fără robot, putem **simula** robotul de pază: în loc să citim senzorul, introducem de la tastatură distanțele măsurate, una pe rând. Iată simularea în C++ și în Python, una lângă alta.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int ture = 0, d;
+    while (ture < 4)                  // repetă până când ture = 4
+    {
+        cin >> d;                     // distanța din față, în mm
+        if (d < 80)
+        {
+            cout << "Perete! Rotire 180" << endl;
+            ture++;
+        }
+    }
+    cout << "Patrulare terminata";
+    return 0;
+}
+```
+
+```python
+ture = 0
+while ture < 4:                  # repetă până când ture = 4
+    d = int(input())             # distanța din față, în mm
+    if d < 80:
+        print("Perete! Rotire 180")
+        ture = ture + 1
+print("Patrulare terminata")
+```
+
+Pentru distanțele `500 300 70 400 60 75 900 50`, ambele afișează de patru ori „Perete! Rotire 180”, apoi „Patrulare terminata”.
+
+| Pseudocod | C++ | Python |
+|---|---|---|
+| `repetă la nesfârșit` | `while (true) { … }` | `while True:` |
+| `repetă până când ture = 4` | `while (ture < 4) { … }` | `while ture < 4:` |
+| `dacă … atunci … altfel` | `if (…) { … } else { … }` | `if …:` / `else:` |
+| `ture ← ture + 1` | `ture++;` | `ture = ture + 1` |
+| `scrie „…”` | `cout << "…";` | `print("…")` |
+
+În VEXcode VR, comenzile robotului au în Python nume ca `drivetrain.drive(FORWARD)`, `drivetrain.stop()`, `drivetrain.turn_for(RIGHT, 180, DEGREES)` și `front_distance.get_distance(MM)`.
+
+```quiz
+# Python
+„repetă la nesfârșit” se scrie în Python:
+- while 1 == 1 do
+* while True:
+- repeat:
+Explicație: while True: repetă blocul indentat până când îl oprești (de exemplu cu break).
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```ordonare

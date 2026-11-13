@@ -105,6 +105,51 @@ repetă până când robotul ajunge la ieșire
 
 Pornești, privești monitorul senzorului și ajustezi distanțele dacă robotul se lovește.
 
+## Același program în Python
+
+În **VEXcode VR**, editorul de text folosește chiar **Python**. Programul care ocolește obstacolele, scris mai sus în C++, arată așa (îl pui în funcția `main` a proiectului):
+
+```python
+while True:                                    # repetă la nesfârșit
+    if front_distance.get_distance(MM) < 100:  # obstacol aproape?
+        drivetrain.stop()
+        drivetrain.turn_for(RIGHT, 90, DEGREES)
+    else:
+        drivetrain.drive(FORWARD)
+    wait(5, MSEC)                              # o mică pauză între citiri
+```
+
+Fără robot, poți **simula** decizia în orice editor Python: introduci de la tastatură n valori citite de senzorul de distanță, iar programul afișează ce face robotul la fiecare citire.
+
+```python
+n = int(input())
+for i in range(1, n + 1):
+    distanta = int(input())
+    if distanta < 100:
+        print("Citirea", i, "- stop, rotire dreapta 90")
+    else:
+        print("Citirea", i, "- inainte")
+```
+
+| C++ (VEXcode V5) | Python (VEXcode VR) | Ce reții |
+|---|---|---|
+| `while (true) { … }` | `while True:` | `True` cu literă mare |
+| `FrontDistance.objectDistance(mm)` | `front_distance.get_distance(MM)` | numele comenzilor diferă puțin între medii |
+| `Drivetrain.stop();` | `drivetrain.stop()` | fără `;` |
+| `Drivetrain.turnFor(right, 90, degrees);` | `drivetrain.turn_for(RIGHT, 90, DEGREES)` | |
+| `if (…) { … } else …;` | `if …:` / `else:` | blocurile se arată prin indentare |
+
+```quiz
+# Python
+Cum se scrie în Python bucla C++ while (true), care se repetă la nesfârșit?
+- while true:
+* while True:
+- loop:
+Explicație: În Python, valorile logice se scriu cu literă mare: True și False.
+```
+
+Încearcă programul de simulare în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```categorii

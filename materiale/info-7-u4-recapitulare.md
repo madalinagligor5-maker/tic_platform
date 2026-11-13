@@ -56,6 +56,68 @@ A: Pentru a interschimba două variabile ai nevoie de o variabilă auxiliară.
 F: if (x = 3) verifică dacă x este egal cu 3. | Comparația se scrie cu ==.
 ```
 
+## Același program în Python
+
+Tot ce ai învățat în C++ se poate scrie și în **Python**. Pe scurt:
+
+| C++ | Python |
+|---|---|
+| `int n; cin >> n;` | `n = int(input())` |
+| `double x; cin >> x;` | `x = float(input())` |
+| `cout << "S = " << s << endl;` | `print("S =", s)` |
+| `cout << x << " ";` | `print(x, end=" ")` |
+| `;` la final și `{ … }` pentru blocuri | fără `;`; blocul = rânduri **indentate** după `:` |
+| `a / b` (întregi), `a % b` | `a // b`, `a % b` (`a / b` dă mereu rezultat real) |
+| `&&`, `!` | `and`, `not` (iar „sau” se scrie `or`) |
+| `if (c) { … } else if (d) { … } else { … }` | `if c:` / `elif d:` / `else:` |
+| `while (c) { … }` | `while c:` |
+| `do { … } while (c);` | `while True:` … `if not c: break` |
+| `for (int i = 1; i <= n; i++)` | `for i in range(1, n + 1):` |
+| `x++;` | `x += 1` |
+| `fixed << setprecision(2) << x` | `f"{x:.2f}"` |
+| tablou | listă: `[3, 8, 5]` |
+
+Programele din această recapitulare, în Python. Suma numerelor pare de la 1 la n (de la autoevaluare):
+
+```python
+n = int(input())
+s = 0
+for i in range(2, n + 1, 2):
+    s = s + i
+print(s)
+```
+
+Cifrele unui număr, de la ultima la prima (`while (n > 0) { cout << n % 10; n = n / 10; }`):
+
+```python
+n = int(input())
+while n > 0:
+    print(n % 10, end="")
+    n = n // 10
+```
+
+Bucla do … while din quiz (`int n = 0; do { n = n + 3; } while (n < 10); cout << n;`):
+
+```python
+n = 0
+while True:
+    n = n + 3
+    if n >= 10:
+        break
+print(n)
+```
+
+```completare
+# Completează traducerea în Python.
+cin >> n; devine n = [int](input())
+
+for (int i = 1; i <= n; i++) devine for i in [range](1, n + 1):
+
+a && b devine a [and] b
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Exersează
 
 1. Citește un număr natural n și afișează: câte cifre are, suma cifrelor și dacă este palindrom.

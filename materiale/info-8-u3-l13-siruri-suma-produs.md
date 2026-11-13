@@ -122,6 +122,78 @@ Pentru `6` și `8 4 10 7 3 10`: suma **42**, media notelor de trecere (8, 10, 7,
 
 ![Evoluția sumei (de la 0), a sumei și numărului notelor de trecere și a produsului notelor de 10 (de la 1); media notelor de trecere este 8.75.](fisiere/imagini/info-8-u3-l13-siruri-suma-produs.svg)
 
+## Același program în Python
+
+Media notelor de trecere, în **Python**:
+
+```python
+n = int(input())
+s = 0
+s5 = 0
+k5 = 0
+p10 = 1
+for i in range(1, n + 1):
+    nota = int(input())
+    s = s + nota
+    if nota >= 5:
+        s5 = s5 + nota
+        k5 += 1
+    if nota == 10:
+        p10 = p10 * nota
+print("Suma:", s)
+if k5 > 0:
+    print(f"Media notelor de trecere: {s5 / k5:.2f}")
+else:
+    print("Nicio nota de trecere")
+print("Produsul notelor de 10:", p10)
+```
+
+Suma alternantă x1 - x2 + x3 - x4 + …:
+
+```python
+n = int(input())
+s = 0
+for i in range(1, n + 1):
+    x = int(input())
+    if i % 2 == 1:
+        s = s + x
+    else:
+        s = s - x
+print(s)
+```
+
+Cu o **listă**, suma se obține direct cu `sum`, iar media cu `sum(...) / len(...)`:
+
+```python
+note = [8, 4, 10, 7, 3, 10]
+print("Suma:", sum(note))
+print(f"Media: {sum(note) / len(note):.2f}")
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `long long p = 1;` | `p = 1` | întregii din Python nu au limită, deci nu apare depășirea (*overflow*) |
+| `(double)s / n` sau `s * 1.0 / n` | `s / n` | în Python `/` dă direct rezultat real |
+| `fixed << setprecision(2) << m` | `f"{m:.2f}"` | |
+| `s += x;` | `s += x` | la fel, dar fără `;` |
+| suma unui tablou: cu `for` | `sum(lista)` | |
+
+```quiz
+# Python
+De ce, în Python, nu mai scrii (double)s / k ca să obții media cu zecimale?
+* pentru că / dă mereu un rezultat real în Python
+- pentru că Python rotunjește media la întreg
+- pentru că în Python nu se poate calcula media
+Explicație: În Python, 35 / 4 este 8.75; câtul întreg s-ar scrie 35 // 4.
+
+Ce afișează print(sum([3, 2, 5]))?
+- 30
+* 10
+- 3
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

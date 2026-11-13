@@ -123,6 +123,80 @@ int main()
 | 0 | 0 | Orice numar este solutie |
 | 0 | 5 | Nu exista solutie |
 
+## Același program în Python
+
+În **Python**, lanțul `else if` se scrie pe scurt **`elif`**. Calificativul după notă:
+
+```python
+nota = int(input())
+if nota >= 9:
+    print("Foarte bine")
+elif nota >= 7:
+    print("Bine")
+elif nota >= 5:
+    print("Suficient")
+else:
+    print("Insuficient")
+```
+
+Python nu are `switch`; scrii aceleași cazuri cu `if … elif … else`:
+
+```python
+zi = int(input())
+if zi == 1:
+    print("Luni")
+elif zi == 2:
+    print("Marti")
+elif zi == 3:
+    print("Miercuri")
+elif zi == 6 or zi == 7:
+    print("Weekend")
+else:
+    print("Alta zi")
+```
+
+Ecuația a · x + b = 0, cu numere reale:
+
+```python
+a = float(input())
+b = float(input())
+if a != 0:
+    x = -b / a
+    if x == 0:
+        x = 0      # pentru b = 0, ca să nu afișeze „-0”
+    print(f"x = {x:g}")
+elif b == 0:
+    print("Orice numar este solutie")
+else:
+    print("Nu exista solutie")
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `else if (…)` | `elif …:` | |
+| `if` în `if` (decizii imbricate) | `if` indentat în alt `if` | fiecare nivel se mută cu încă 4 spații spre dreapta |
+| `switch (zi) { case 1: … break; … default: … }` | `if zi == 1: … elif … else:` | nu există `break` între cazuri |
+| `case 6: case 7:` | `elif zi == 6 or zi == 7:` | |
+| `double a; cin >> a;` | `a = float(input())` | `float` = număr real |
+| `cout << x;` (pentru x = 3.0 afișează 3) | `print(f"x = {x:g}")` | `print(x)` ar afișa `3.0`; cu `:g` afișarea arată ca în C++ |
+
+```quiz
+# Python
+Cum se scrie în Python „else if” din C++?
+- else if
+* elif
+- elseif
+Explicație: În Python, ramurile intermediare ale lanțului se scriu cu elif.
+
+Ce afișează programul Python cu calificativul pentru nota = 7?
+- Foarte bine
+* Bine
+- Bine și Suficient
+Explicație: Se execută doar prima ramură cu condiția adevărată: nota >= 7.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

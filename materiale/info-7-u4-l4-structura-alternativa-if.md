@@ -113,6 +113,60 @@ cout << "Maximul este " << maxim;
 
 Pentru 12 și 31 afișează **Maximul este 31**.
 
+## Același program în Python
+
+În **Python**, `if` nu mai are paranteze și acolade: după condiție pui **două puncte** `:`, iar instrucțiunile care depind de ea se scriu **mai la dreapta** (indentate cu 4 spații). Indentarea nu mai e doar pentru ochi: ea arată ce aparține de `if` și ce aparține de `else`.
+
+Par sau impar:
+
+```python
+n = int(input("n = "))
+if n % 2 == 0:
+    print(n, "este par")
+else:
+    print(n, "este impar")
+```
+
+Maximul a două numere:
+
+```python
+a = int(input())
+b = int(input())
+if a > b:
+    maxim = a
+else:
+    maxim = b
+print("Maximul este", maxim)
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `if (n % 2 == 0)` | `if n % 2 == 0:` | fără paranteze obligatorii; la final, `:` |
+| `else` | `else:` | și după `else` pui `:` |
+| `{ … }` (bloc) | rânduri indentate la fel | toate instrucțiunile indentate sub `if` fac parte din ramură |
+| `cin >> n;` | `n = int(input())` | |
+| `cout << n << " este par";` | `print(n, "este par")` | |
+| `x >= 10 && x <= 99` | `x >= 10 and x <= 99` | se poate scrie și ca la matematică: `10 <= x <= 99` |
+
+Operatorul „sau” se scrie `or`: `zi == 6 or zi == 7`. Dacă indentarea e greșită, Python afișează eroarea `IndentationError`.
+
+```quiz
+# Python
+Care este începutul corect al unui if în Python, care verifică dacă n este pozitiv?
+* if n > 0:
+- if (n > 0)
+- if n > 0 then
+Explicație: În Python, rândul cu if se termină cu două puncte, iar parantezele nu sunt obligatorii.
+
+Ce arată, în Python, care instrucțiuni aparțin de ramura unui if?
+- acoladele
+* indentarea (rândurile mutate mai la dreapta)
+- punctul și virgula
+Explicație: Python nu folosește acolade; blocul este format din rândurile indentate la fel sub if.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

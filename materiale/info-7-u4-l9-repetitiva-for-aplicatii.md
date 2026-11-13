@@ -134,6 +134,73 @@ int main()
 
 Pentru n = 8: `1 1 2 3 5 8 13 21`. Șirul apare în natură: la petalele florilor, la semințele de floarea-soarelui, la cochiliile melcilor.
 
+## Același program în Python
+
+Aceleași aplicații, în **Python**. Verificarea dacă un număr este prim:
+
+```python
+n = int(input())
+nrDiv = 0
+for d in range(1, n + 1):
+    if n % d == 0:
+        nrDiv = nrDiv + 1
+if nrDiv == 2:
+    print("prim")
+else:
+    print("nu este prim")
+```
+
+Triunghiul de steluțe (for în for). Al doilea `for` este indentat în primul:
+
+```python
+for i in range(1, 5):
+    for j in range(1, i + 1):
+        print("*", end="")
+    print()          # trece la rând nou, ca endl
+```
+
+Șirul lui Fibonacci:
+
+```python
+n = int(input())
+a = 1
+b = 1
+print(a, b, end=" ")
+for i in range(3, n + 1):
+    c = a + b
+    print(c, end=" ")
+    a = b
+    b = c
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `for (int d = 1; d <= n; d++)` | `for d in range(1, n + 1):` | |
+| `if (n % d == 0) nrDiv++;` | `if n % d == 0:` + `nrDiv += 1` (indentat) | |
+| `cout << c << " ";` | `print(c, end=" ")` | `end=" "` pune un spațiu în loc de rând nou |
+| `cout << "*";` | `print("*", end="")` | `end=""` nu adaugă nimic după steluță |
+| `cout << endl;` | `print()` | un `print` gol trece la rând nou |
+| `for` în `for` | `for` indentat în alt `for` | bucla interioară are încă 4 spații în față |
+| `cin >> n >> x; maxim = x;` | `n = int(input())`, `x = int(input())`, `maxim = x` | pentru minim/maxim, ideea e aceeași |
+
+Un truc Python: `print("*" * 3)` afișează `***` (textul repetat de 3 ori).
+
+```quiz
+# Python
+Ce afișează în Python: for i in range(1, 4): print(i, end=" ")
+- 1 2 3 4
+* 1 2 3
+- 1, 2, 3
+Explicație: range(1, 4) se oprește înainte de 4, iar end=" " pune un spațiu între valori, pe același rând.
+
+Ce valori ia d în for d in range(1, n + 1), pentru n = 6?
+- 0, 1, 2, 3, 4, 5
+- 1, 2, 3, 4, 5
+* 1, 2, 3, 4, 5, 6
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

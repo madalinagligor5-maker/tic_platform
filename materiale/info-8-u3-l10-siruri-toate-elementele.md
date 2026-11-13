@@ -114,6 +114,68 @@ Pentru `5` și `7 9 4 10 3`: **Note sub 5: 2**. Pentru `3` și `6 8 5`: **Promov
 
 ![Variabila ok pornește de la 1 și devine 0 la primul contraexemplu (nota 4), apoi rămâne 0; comparație între „toate” și „cel puțin unul”.](fisiere/imagini/info-8-u3-l10-siruri-toate-elementele.svg)
 
+## Același program în Python
+
+În **Python**, variabila-indicator se scrie de obicei cu valorile logice **`True`** și **`False`** (ca `bool` din C++). Toate notele sunt de trecere?
+
+```python
+n = int(input())
+ok = True              # presupunem că toate sunt de trecere
+sub5 = 0
+for i in range(1, n + 1):
+    nota = int(input())
+    if nota < 5:       # contraexemplu
+        ok = False
+        sub5 += 1
+if ok:
+    print("Promovat la toate")
+else:
+    print("Note sub 5:", sub5)
+```
+
+Șirul este strict crescător?
+
+```python
+n = int(input())
+ant = int(input())
+ok = True
+for i in range(2, n + 1):
+    x = int(input())
+    if x <= ant:
+        ok = False
+    ant = x
+if ok:
+    print("DA")
+else:
+    print("NU")
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `int ok = 1;` sau `bool ok = true;` | `ok = True` | `True` și `False` se scriu cu literă mare |
+| `ok = 0;` | `ok = False` | |
+| `if (ok == 1)` sau `if (ok)` | `if ok:` | |
+| `if (!ok)` | `if not ok:` | |
+| `x % 2 != 0` | `x % 2 != 0` | la fel |
+
+Dacă elementele sunt într-o listă, Python are și funcția `all`, care răspunde direct la întrebarea „toate?”: `all(nota >= 5 for nota in note)`. La școală însă e important să știi algoritmul cu `ok`, care merge în orice limbaj.
+
+```quiz
+# Python
+Cum scrii în Python „presupunem că proprietatea e adevărată”?
+- ok = true
+* ok = True
+- bool ok = True
+Explicație: În Python nu declari tipul, iar valoarea logică se scrie True, cu literă mare.
+
+Ce înseamnă în Python if not ok:?
+- dacă ok este adevărat
+* dacă ok este fals
+- dacă ok nu există
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

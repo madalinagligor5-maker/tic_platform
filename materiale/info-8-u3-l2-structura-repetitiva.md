@@ -91,6 +91,69 @@ Pentru 84 și 36:
 
 **cmmdc = 12**. Varianta cu împărțiri face mult mai puțini pași decât cea cu scăderi.
 
+## Același program în Python
+
+Cel mai mare divizor comun (Euclid prin împărțiri), în **Python**:
+
+```python
+a = int(input())
+b = int(input())
+while b != 0:
+    r = a % b
+    a = b
+    b = r
+print("cmmdc =", a)
+```
+
+Transformarea for ↔ while arată la fel și în Python:
+
+```python
+n = int(input())
+for i in range(1, n + 1):
+    print(i, end=" ")
+print()
+i = 1
+while i <= n:
+    print(i, end=" ")
+    i = i + 1
+```
+
+Python **nu are do … while**. O buclă care trebuie executată cel puțin o dată (de exemplu, validarea datelor) se scrie cu `while True:` și `break`:
+
+```python
+while True:
+    n = int(input("n (intre 1 si 100): "))
+    if n >= 1 and n <= 100:
+        break
+print("Ai ales", n)
+```
+
+| Pseudocod | C++ | Python |
+|---|---|---|
+| `cât timp c execută` | `while (c) { … }` | `while c:` |
+| `execută … cât timp c` | `do { … } while (c);` | `while True:` … `if not c: break` |
+| `pentru i ← a, b execută` | `for (i = a; i <= b; i++) { … }` | `for i in range(a, b + 1):` |
+| `pentru i ← b, a, -1` | `for (i = b; i >= a; i--)` | `for i in range(b, a - 1, -1):` |
+| `n div 10`, `n mod 10` | `n / 10`, `n % 10` | `n // 10`, `n % 10` |
+
+Bucla `for` din Python este, de fapt, o **parcurgere** a valorilor date de `range`; de aceea o folosești când știi dinainte numărul de pași.
+
+```quiz
+# Python
+Care buclă Python face exact pașii lui for (i = 5; i >= 1; i--)?
+- for i in range(5, 1, -1):
+* for i in range(5, 0, -1):
+- for i in range(1, 5):
+Explicație: range se oprește înainte de a doua valoare; ca să ajungă la 1 mergând înapoi, scrii 0.
+
+Ce instrucțiune oprește imediat o buclă while True în Python?
+- stop
+- exit while
+* break
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```categorii

@@ -154,6 +154,69 @@ int main()
 
 Pentru 24 și 18: (24, 18) → (6, 18) → (6, 12) → (6, 6). **cmmdc = 6**. Programul presupune că a și b sunt nenule.
 
+## Același program în Python
+
+**while** există și în **Python** și funcționează la fel: condiția se verifică **înainte** de fiecare iterație. Corpul buclei este format din rândurile **indentate** sub `while …:`.
+
+Suma și numărul cifrelor:
+
+```python
+n = int(input())
+s = 0
+nr = 0
+while n != 0:
+    s = s + n % 10     # adun ultima cifră
+    nr = nr + 1        # număr cifra
+    n = n // 10        # tai ultima cifră
+print("Suma cifrelor:", s)
+print("Numar de cifre:", nr)
+```
+
+Citire până la 0:
+
+```python
+x = int(input())
+s = 0
+while x != 0:
+    s = s + x
+    x = int(input())
+print(s)
+```
+
+Cel mai mare divizor comun (Euclid prin scăderi):
+
+```python
+a = int(input())
+b = int(input())
+while a != b:
+    if a > b:
+        a = a - b
+    else:
+        b = b - a
+print("cmmdc =", a)
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `while (n != 0) { … }` | `while n != 0:` + rânduri indentate | fără paranteze și acolade |
+| `n = n / 10;` | `n = n // 10` | cu `/`, Python ar da `372.5`, iar rezultatul ar fi greșit |
+| `nr++;` | `nr = nr + 1` sau `nr += 1` | Python nu are `++` |
+| `int s = 0, nr = 0;` | `s = 0` și `nr = 0` | fără tip; fiecare variabilă primește o valoare înainte de folosire |
+| `cin >> x;` (în buclă) | `x = int(input())` | fiecare număr se scrie pe rândul lui |
+
+Bucla infinită apare și în Python; o oprești cu **Ctrl + C** sau cu butonul **Stop** al editorului.
+
+```quiz
+# Python
+De ce, în Python, tai ultima cifră cu n = n // 10 și nu cu n = n / 10?
+- // e mai rapid, dar rezultatul e același
+* / dă un număr real (3725 / 10 = 372.5), iar // dă câtul întreg (372)
+- / nu există în Python
+Explicație: În Python, / face mereu împărțire reală; câtul întreg se obține cu //.
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

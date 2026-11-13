@@ -137,6 +137,58 @@ cout << s;
 
 Pentru 472: 4 + 7 + 2 = **13**.
 
+## Același program în Python
+
+Structura liniară arată la fel și în **Python**: citire → calcul → afișare. Dreptunghiul din exemplul rezolvat:
+
+```python
+L = int(input("Lungimea: "))
+l = int(input("Latimea: "))
+P = 2 * (L + l)
+A = L * l
+print("Perimetrul =", P)
+print("Aria =", A)
+```
+
+Suma cifrelor unui număr de trei cifre:
+
+```python
+n = int(input())
+s = n // 100 + n // 10 % 10 + n % 10
+print(s)
+```
+
+Interschimbarea: merge și cu `aux`, ca în C++, dar Python are și o scriere scurtă, `a, b = b, a`:
+
+```python
+a = int(input())
+b = int(input())
+a, b = b, a        # la fel ca: aux = a; a = b; b = aux
+print(a, b)
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `int a; cin >> a;` | `a = int(input())` | `input()` citește un **rând** ca text; `int(...)` îl transformă în număr întreg (pentru numere reale: `float(...)`) |
+| `cout << "Latura: "; cin >> a;` | `a = int(input("Latura: "))` | mesajul pentru utilizator se scrie direct în `input` |
+| `cout << "Aria = " << A << endl;` | `print("Aria =", A)` | `print` pune singur un spațiu între valori și trece la rând nou |
+| `cout << a << " " << b;` | `print(a, b)` | |
+| `cin >> a >> b;` (pe același rând) | `a, b = map(int, input().split())` | sau scrii fiecare număr pe rândul lui, cu câte un `int(input())` |
+| `x++;`, `s += 5;` | `x += 1`, `s += 5` | Python nu are `++` |
+| `aux = a; a = b; b = aux;` | `a, b = b, a` | |
+| `a / b`, `a % b` (întregi) | `a // b`, `a % b` | |
+
+```completare
+# Completează programul Python care citește latura unui pătrat și afișează aria.
+latura = [int](input())
+
+aria = latura * latura
+
+[print](aria)
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```ordonare

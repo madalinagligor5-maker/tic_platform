@@ -128,6 +128,57 @@ int main()
 
 Pentru n = 4 și notele 9 10 8 7, afișează **8.50**. `fixed << setprecision(2)` (din biblioteca `iomanip`) afișează două zecimale.
 
+## Același program în Python
+
+În **Python**, `for` parcurge valorile date de **`range`**: `for i in range(1, n + 1):` înseamnă „i ia pe rând valorile 1, 2, …, n”. Atenție: `range(a, b)` se oprește **înainte** de b, de aceea scriem `n + 1`.
+
+Suma și factorialul:
+
+```python
+n = int(input())
+s = 0
+p = 1
+for i in range(1, n + 1):
+    s = s + i      # suma 1 + 2 + … + n
+    p = p * i      # produsul 1 · 2 · … · n
+print(s, p)
+```
+
+În Python nu ai nevoie de `long long`: numerele întregi pot fi oricât de mari (încearcă 30!).
+
+Media notelor, cu două zecimale:
+
+```python
+n = int(input())
+s = 0
+for i in range(1, n + 1):
+    nota = float(input())
+    s = s + nota
+print(f"{s / n:.2f}")
+```
+
+| C++ | Python |
+|---|---|
+| `for (int i = 1; i <= n; i++)` | `for i in range(1, n + 1):` |
+| `for (i = 1; i <= 10; i++)` | `for i in range(1, 11):` |
+| `for (i = 10; i >= 1; i--)` | `for i in range(10, 0, -1):` |
+| `for (i = 2; i <= 20; i = i + 2)` | `for i in range(2, 21, 2):` |
+| `for (i = 0; i <= 100; i = i + 25)` | `for i in range(0, 101, 25):` |
+| `cout << i << " ";` | `print(i, end=" ")` (cu `end=" "`, nu trece la rând nou) |
+| `long long p = 1;` | `p = 1` (întregii nu au limită) |
+| `cout << fixed << setprecision(2) << x;` | `print(f"{x:.2f}")` |
+
+`range(start, stop, pas)`: pornește de la `start`, merge cu `pas` și se oprește **înainte** de `stop`. Dacă lipsește `start`, se pornește de la 0: `range(5)` dă 0, 1, 2, 3, 4.
+
+```completare
+# Completează traducerea în Python.
+Bucla C++ for (i = 1; i <= 10; i++) se scrie în Python: for i in [range](1, [11]):
+
+Bucla C++ for (i = 10; i >= 1; i--) se scrie în Python: for i in range(10, [0], [-1]):
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```quiz

@@ -131,6 +131,64 @@ Fie `int a = 23, b = 4;`
 | `a % 2 == 1` | true | 23 este impar |
 | `a > 20 && b > 5` | false | b > 5 este fals |
 
+## Același program în Python
+
+În **Python** ideile sunt aceleași (variabile, atribuire, operatori), dar **nu declari tipul** variabilelor: Python îl stabilește singur, după valoarea pe care i-o dai. Iată exemplul rezolvat și „trucurile” cu `/` și `%`, în Python:
+
+```python
+a = 23
+b = 4
+print(a // b)          # 5, câtul întreg
+print(a % b)           # 3, restul
+print(a + b * 2)       # 31
+print((a + b) * 2)     # 54
+print(17 / 5)          # 3.4: / dă mereu un număr real
+```
+
+```python
+n = 472
+print(n % 10)          # ultima cifră: 2
+print(n // 10)         # fără ultima cifră: 47
+print(n // 100)        # prima cifră: 4
+print(n // 10 % 10)    # cifra din mijloc: 7
+```
+
+| C++ | Python | Ce reții |
+|---|---|---|
+| `int a = 23;` | `a = 23` | fără declararea tipului și fără `;` |
+| `int`, `double`, `char`, `bool` | `int`, `float`, `str`, `bool` | tipul îl alege Python; un caracter este un text de lungime 1 (`"A"`) |
+| `long long` | `int` | în Python numerele întregi nu au limită, deci nu apare depășirea (*overflow*) |
+| `const double PI = 3.14159;` | `PI = 3.14159` | nu există `const`; prin convenție, constantele se scriu cu MAJUSCULE |
+| `a / b` (ambele `int`) | `a // b` | în Python `/` dă **mereu** rezultat real: `17 / 5` este `3.4` |
+| `a % b` | `a % b` | la fel, pentru numere pozitive |
+| `&&` (și), `!` (negație) | `and`, `not` | `x >= 1 and x <= 10`; „sau” (în C++, două bare verticale) se scrie `or` |
+| `true`, `false` | `True`, `False` | cu literă mare; `print(5 > 3)` afișează `True`, nu `1` |
+| `// comentariu` | `# comentariu` | |
+
+Atenție: pentru numere **negative**, `//` și `%` din Python dau alte rezultate decât în C++: `-7 // 2` este `-4` în Python, dar `-7 / 2` este `-3` în C++. La problemele din manual lucrăm cu numere naturale, unde rezultatele sunt la fel.
+
+```quiz
+# Python
+Ce afișează în Python instrucțiunea print(17 // 5, 17 % 5)?
+* 3 2
+- 3.4 2
+- 3 2.0
+Explicație: // dă câtul întreg (3), iar % dă restul (2).
+
+Ce afișează în Python instrucțiunea print(10 / 4)?
+- 2
+* 2.5
+- 2,5
+Explicație: În Python, / dă mereu un rezultat real; pentru câtul întreg scrii 10 // 4.
+
+Cum se scrie în Python condiția C++ x > 0 && x < 10?
+- x > 0 && x < 10
+* x > 0 and x < 10
+- x > 0 & x < 10
+```
+
+Încearcă programul în **Aplicații → Editor Python**.
+
 ## Aplicații interactive
 
 ```categorii
