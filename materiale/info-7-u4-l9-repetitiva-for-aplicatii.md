@@ -199,7 +199,9 @@ Ce valori ia d în for d in range(1, n + 1), pentru n = 6?
 * 1, 2, 3, 4, 5, 6
 ```
 
-Încearcă programul în **Aplicații → Editor Python**.
+Încearcă programul în [Aplicații → Editor Python](#/aplicatii/python).
+
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor C++](#/aplicatii/cpp) sau [Aplicații → Editor Python](#/aplicatii/python), fără să instalezi nimic.
 
 ## Aplicații interactive
 

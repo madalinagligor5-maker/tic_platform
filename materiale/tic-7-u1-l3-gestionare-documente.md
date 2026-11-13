@@ -70,6 +70,8 @@ Ai scris un referat, `Referat_apa.docx`, și vrei să-l trimiți profesorului ca
 3. Apeși **Salvare**: apare `Referat_apa.pdf`, pe care îl trimiți.
 4. Când vrei să schimbi ceva, deschizi `Referat_apa.docx`, nu PDF-ul.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Document](#/laborator/text), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```cartonase

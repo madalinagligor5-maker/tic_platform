@@ -87,6 +87,8 @@ altfel
 
 ![Numărul aleatoriu poate fi orice valoare din interval: x între 4 și 10, y între 3 și 10; cu „setează x la 5”, x devine practic o constantă.](fisiere/imagini/info-5-u6-l5-matematica-aleatoriu.svg)
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```completare

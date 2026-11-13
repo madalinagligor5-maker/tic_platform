@@ -88,6 +88,8 @@ Dacă alegi prezentarea necompletată, se deschide **Prezentare1**, încă nesal
 3. Toate diapozitivele apar ca miniaturi mari, unul lângă altul.
 4. Ca să revii la editare, alegi din nou **Normal**.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Prezentare](#/atelier), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

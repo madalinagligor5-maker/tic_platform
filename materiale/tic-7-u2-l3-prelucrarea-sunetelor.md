@@ -105,6 +105,8 @@ Toate sursele trebuie să fie **ale tale** sau **libere de drepturi**, iar la fi
 7. Pe finalul muzicii aplici **Estompare la ieșire**.
 8. Asculți tot și salvezi ca `Anunt_final.mp3`.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor audio](#/aplicatii/audio), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

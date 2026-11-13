@@ -74,6 +74,8 @@ Un fișier WAV de 1 minut are aproximativ **10 MB**, iar același sunet în MP3 
 2. MP3: 5 × 1 MB = **5 MB**, se trimite ușor.
 3. Alegi **MP3**. Păstrezi însă originalul WAV pentru prelucrări viitoare, fiindcă are calitate mai bună.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor audio](#/aplicatii/audio), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

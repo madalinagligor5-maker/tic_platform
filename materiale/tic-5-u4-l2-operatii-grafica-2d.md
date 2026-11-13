@@ -126,6 +126,8 @@ Un desen reușit nu înseamnă doar elemente frumoase, ci și **așezate bine** 
 7. Adaugi textul **„Copacii gemeni”**: Arial, 16, Aldin, negru.
 8. Salvezi în folderul `Lucru`, cu numele `Copaci_gemeni.jpg`.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Desen](#/aplicatii/desen), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```ordonare

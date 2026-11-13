@@ -124,6 +124,8 @@ cât timp (i ≤ 9) execută
 
 3. Verifici pentru i = 1: ambele variante afișează **1, 3, 5, 7, 9**.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

@@ -81,6 +81,8 @@ Google Sites păstrează **istoricul versiunilor** (meniul cu trei puncte → **
 5. Pe „Acasă” se pun **butoane** către fiecare activitate.
 6. Radu verifică legăturile pe telefon; Ioana apasă **Publicați**.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor de pagini web](#/aplicatii/html), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```ordonare

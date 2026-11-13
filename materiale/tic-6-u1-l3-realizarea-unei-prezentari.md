@@ -121,6 +121,8 @@ Când folosești materiale de pe internet sau din cărți pentru un proiect șco
 6. Pe al doilea diapozitiv pui un video și textul **Mulțumesc!**.
 7. Salvezi cu **Ctrl + S** și pornești expunerea cu **F5**.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Prezentare](#/atelier), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```ordonare

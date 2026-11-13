@@ -91,6 +91,8 @@ Când selectezi diagrama, apare butonul **+** (elemente), **pensula** (stiluri �
 5. Pe celulele cu temperaturi aplici o **scală de culori** roșu – alb – albastru: lunile reci apar cu albastru, cele calde cu roșu.
 6. Schimbi temperatura din iunie în 19: linia se modifică automat.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Registru de calcul](#/laborator/tabel), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

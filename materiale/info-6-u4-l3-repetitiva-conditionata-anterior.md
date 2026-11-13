@@ -192,6 +192,8 @@ Ce afișează algoritmul A pentru **a = 50**?
 
 Se afișează **0**, apoi **5**.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```ordonare

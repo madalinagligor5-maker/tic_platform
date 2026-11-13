@@ -144,7 +144,9 @@ Ce numere afișează for x in range(3, 20, 5): print(x, end=" ")?
 Explicație: Pornește de la 3, crește din 5 în 5 și se oprește înainte de 20.
 ```
 
-Încearcă programul în **Aplicații → Editor Python**.
+Încearcă programul în [Aplicații → Editor Python](#/aplicatii/python).
+
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor C++](#/aplicatii/cpp) sau [Aplicații → Editor Python](#/aplicatii/python), fără să instalezi nimic.
 
 ## Aplicații interactive
 

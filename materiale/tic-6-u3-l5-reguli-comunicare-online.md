@@ -83,6 +83,8 @@ Un mesaj are **antet** (Către, CC, CCI, Subiect) și **corp**. Adresele din **C
 
 Ce reguli respectă: subiect clar, adresare politicoasă, cuprins scurt, încheiere, semnătură cu nume, atașament cu nume sugestiv (`Prezentare_apa_Andrei_6B.pptx`).
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Poștă electronică](#/aplicatii/posta), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

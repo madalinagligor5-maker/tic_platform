@@ -74,6 +74,8 @@ Un document Word se salvează cu extensia **.docx**.
 2. Dacă vrei mai multe detalii (caractere, paragrafe), mergi la **Revizuire → Număr de cuvinte**.
 3. Dacă selectezi doar un paragraf, bara de stare arată câte cuvinte are selecția: `38 din 245 de cuvinte`.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Document](#/laborator/text), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

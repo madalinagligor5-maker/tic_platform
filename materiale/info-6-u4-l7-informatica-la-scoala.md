@@ -106,6 +106,8 @@ când primesc „afisezbutinapoi”
 arată
 ```
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```quiz

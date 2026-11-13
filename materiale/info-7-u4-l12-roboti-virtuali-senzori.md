@@ -148,7 +148,9 @@ Cum se scrie în Python bucla C++ while (true), care se repetă la nesfârșit?
 Explicație: În Python, valorile logice se scriu cu literă mare: True și False.
 ```
 
-Încearcă programul de simulare în **Aplicații → Editor Python**.
+Încearcă programul de simulare în [Aplicații → Editor Python](#/aplicatii/python).
+
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor C++](#/aplicatii/cpp) sau [Aplicații → Editor Python](#/aplicatii/python), fără să instalezi nimic.
 
 ## Aplicații interactive
 

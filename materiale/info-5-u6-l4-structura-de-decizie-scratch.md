@@ -96,6 +96,8 @@ Pentru stânga: x cu **–5**; pentru sus: y cu **5**; pentru jos: y cu **–5**
 | 33 | 17 | Adevărat | 33 | „Nr. maxim este 33” |
 | 34 | 34 | Adevărat | 34 | „Nr. maxim este 34” |
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```ordonare

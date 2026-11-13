@@ -3969,3 +3969,18 @@ span.ap-python-sh-in[data-k="in"], .ap-python-sh-in + .x { color: #0b3fa8; }
   .ap-python-pvars, .ap-python-split.v { display: none; }
 }
 /* Sfârșit: Aplicația Python */
+
+/* Pagini statice noi: aplicații, glosar, resurse, pentru profesori */
+.static-nav { flex-wrap: wrap; align-items: center; }
+.static-nav .btn { padding: 8px 14px; font-size: .88rem; color: #fff; }
+.static-shot { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 14px; margin: 18px 0; }
+.static-apps { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 22px 0 28px; }
+.static-app-card { display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); color: var(--ink); text-decoration: none; }
+.static-app-card:hover { box-shadow: 0 8px 22px rgba(23, 20, 22, .1); }
+.static-app-card img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+.static-res { list-style: none; padding: 0; }
+.static-res li { padding: 14px 16px; margin: 0 0 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); line-height: 1.7; }
+.glosar-litere a { display: inline-block; min-width: 30px; padding: 4px 8px; margin: 0 2px 6px 0; text-align: center; border-radius: 8px; background: var(--warm); font-weight: 800; text-decoration: none; color: var(--ink); }
+.glosar-lista { line-height: 1.8; padding-left: 20px; }
+.static-main .feature-grid { margin: 18px 0; }
+.static-main section h2 { margin-top: 1.4em; }

@@ -177,7 +177,9 @@ Bucla C++ for (i = 1; i <= 10; i++) se scrie în Python: for i in [range](1, [11
 Bucla C++ for (i = 10; i >= 1; i--) se scrie în Python: for i in range(10, [0], [-1]):
 ```
 
-Încearcă programul în **Aplicații → Editor Python**.
+Încearcă programul în [Aplicații → Editor Python](#/aplicatii/python).
+
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor C++](#/aplicatii/cpp) sau [Aplicații → Editor Python](#/aplicatii/python), fără să instalezi nimic.
 
 ## Aplicații interactive
 

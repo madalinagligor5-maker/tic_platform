@@ -91,6 +91,8 @@ Primești un e-mail de la o adresă necunoscută: „Ai câștigat o tabletă! D
 4. Le spui **părinților** sau **profesorului**.
 5. Ștergi mesajul sau îl marchezi ca **spam**.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Poștă electronică](#/aplicatii/posta), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

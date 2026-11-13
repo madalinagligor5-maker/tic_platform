@@ -18,7 +18,9 @@ function inline(s) {
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>')
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" rel="noopener">$1</a>');
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" rel="noopener">$1</a>')
+    .replace(/\[([^\]]+)\]\((#\/[\w./?=&%-]+)\)/g, '<a href="/$2">$1</a>')
+    .replace(/\[([^\]]+)\]\((fisiere\/[\w./%-]+)\)/g, '<a href="/$2">$1</a>');
 }
 
 // Markdown simplu → HTML. Blocurile interactive devin o invitație spre lecția interactivă.
@@ -129,12 +131,12 @@ function page({ site, url, title, desc, body, crumbs = [], ld = [], type = 'arti
   ${[...ld, ...bc].map(jsonld).join('\n  ')}
 </head>
 <body class="static-page">
-  <header class="site-header"><div class="wrap header-row"><a class="logo-word" href="/">edudigi</a><nav class="static-nav"><a href="/lectii/">Toate lecțiile</a><a href="/">Aplicația</a></nav></div></header>
+  <header class="site-header"><div class="wrap header-row"><a class="logo-word" href="/">edudigi</a><nav class="static-nav"><a href="/lectii/">Lecții</a><a href="/aplicatii/">Aplicații</a><a href="/glosar/">Glosar</a><a href="/resurse/">Resurse</a><a href="/pentru-profesori.html">Pentru profesori</a><a class="btn small" href="/">Deschide aplicația</a></nav></div></header>
   <main class="wrap static-main">
     ${crumbs.length ? `<nav class="crumbs" aria-label="Cale">${crumbs.map(([t, u]) => u ? `<a href="${u}">${esc(t)}</a>` : `<span>${esc(t)}</span>`).join(' / ')}</nav>` : ''}
     ${body}
   </main>
-  <footer class="site-footer"><div class="wrap footer-row"><span class="logo-word small">edudigi</span><p class="kicker">Informatică • TIC • Clasele V–VIII</p><p class="muted">Resurse gratuite pentru elevi și profesori, conform programei școlare și standardelor de evaluare. <a href="#" data-cookie-setari>Statistici (cookie-uri)</a></p></div></footer>
+  <footer class="site-footer"><div class="wrap footer-row"><span class="logo-word small">edudigi</span><p class="kicker">Informatică • TIC • Clasele V–VIII</p><p class="muted">Resurse gratuite pentru elevi și profesori, conform programei școlare și standardelor de evaluare.</p><p class="muted small"><a href="/lectii/">Lecții</a> · <a href="/aplicatii/">Aplicații</a> · <a href="/glosar/">Glosar</a> · <a href="/resurse/">Resurse</a> · <a href="/pentru-profesori.html">Pentru profesori</a> · <a href="/intrebari-frecvente.html">Întrebări frecvente</a> · <a href="#" data-cookie-setari>Statistici (cookie-uri)</a></p></div></footer>
   <script src="/js/analytics.js"></script>
 </body>
 </html>
@@ -179,6 +181,7 @@ function generate({ out, materials, bodies, discipline, tipuri, interactiv, site
       crumbs: [['Lecții', '/lectii/'], [`Clasa a ${ROMAN[cl]}-a`, `/lectii/clasa-${cl}.html`], [m.titlu]],
       body: `<article class="paper"><header class="mat-head"><p class="kicker">${esc(discipline[m.disciplina])} · ${esc(tipuri[m.tip])} · Clasa a ${ROMAN[cl]}-a${m.unitate ? ' · ' + esc(m.unitate) : ''}</p><h1>${esc(m.titlu)}</h1>${m.descriere ? `<p>${esc(m.descriere)}</p>` : ''}
         ${rez ? `<div class="static-tldr"><b>Pe scurt:</b> ${esc(rez)}</div>` : ''}
+        ${m.fisier ? `<p><a class="btn" href="/${m.fisier.url}" download>Descarcă ${esc(m.fisier.ext.toUpperCase())} (${Math.max(1, Math.round(m.fisier.marime / 1024))} KB)</a></p>` : ''}
         <p><a class="btn" href="${app}">Deschide varianta interactivă</a></p></header>
         <div class="prose">${body}</div>
         ${qa.length ? `<section class="static-faq"><h2>Întrebări și răspunsuri</h2>${qa.map((x) => `<details><summary>${esc(x.q)}</summary><p>${esc(x.a)}</p></details>`).join('')}</section>` : ''}
@@ -223,6 +226,9 @@ function generate({ out, materials, bodies, discipline, tipuri, interactiv, site
     body: `<h1>Lecții de Informatică și TIC</h1><p>${esc(despre)}</p><ul class="static-clase">${clase.map((c) => `<li><a href="/lectii/clasa-${c}.html">Clasa a ${ROMAN[c]}-a</a> <span class="muted">· ${materials.filter((m) => m.clasa.includes(c)).length} materiale</span></li>`).join('')}</ul>`,
   }));
 
+  // Pagini despre aplicații, glosar, resurse, profesori și întrebări frecvente (scripts/seo-pagini.js).
+  const extra = require('./seo-pagini').generate({ site, out, materials, bodies, tipuri, urls, H: { page, esc, plain, ROMAN, editor } });
+
   // Harta site-ului, cu imaginile lecțiilor (Google Imagini).
   const azi = new Date().toISOString().slice(0, 10);
   fs.writeFileSync(path.join(out, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' +
@@ -244,6 +250,7 @@ function generate({ out, materials, bodies, discipline, tipuri, interactiv, site
       llms.push('');
     }
   }
+  llms.splice(llms.indexOf('## Clasa a V-a'), 0, '## Aplicații, glosar și resurse', '', ...extra.llms, '');
   fs.writeFileSync(path.join(out, 'llms.txt'), llms.join('\n'));
   return urls.length;
 }

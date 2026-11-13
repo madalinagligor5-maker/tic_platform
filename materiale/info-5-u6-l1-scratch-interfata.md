@@ -104,6 +104,8 @@ Un personaj poate avea **mai multe scripturi**. Blocurile dintr-un script se exe
 
 ![Primul program: blocul din Evenimente, apoi cel din Mișcare și cel din Sunet, lipite de sus în jos; la steagul verde pisoiul ajunge la x = 150 și miaună.](fisiere/imagini/info-5-u6-l1-scratch-primul-program.svg)
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

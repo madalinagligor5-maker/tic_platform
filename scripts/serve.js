@@ -28,7 +28,8 @@ http.createServer((req, res) => {
     res.writeHead(400).end();
     return;
   }
-  const file = path.normalize(path.join(PUBLIC, rel === '/' ? 'index.html' : rel));
+  // Ca pe Vercel: un folder se servește prin index.html din el (ex. /lectii/).
+  const file = path.normalize(path.join(PUBLIC, rel === '/' ? 'index.html' : rel.endsWith('/') ? rel + 'index.html' : rel));
   if (!file.startsWith(PUBLIC + path.sep)) return res.writeHead(403).end();
   fs.readFile(file, (err, buf) => {
     if (err) return res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Negăsit');

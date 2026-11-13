@@ -83,6 +83,8 @@ Un mesaj îl deschizi cu un **clic** pe el.
 3. Apeși **Enter**: apar doar mesajele care conțin cuvântul.
 4. Ca să găsești ușor mesajele data viitoare, creezi eticheta **Muzică** și o pui pe mesaj.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Poștă electronică](#/aplicatii/posta), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

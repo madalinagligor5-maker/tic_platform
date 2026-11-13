@@ -193,7 +193,9 @@ Lista este sir = [3, 4, 8, 4]. Ce afișează print(4 in sir, sir.count(4))?
 Explicație: 4 apare în listă (True), de două ori.
 ```
 
-Încearcă programul în **Aplicații → Editor Python**.
+Încearcă programul în [Aplicații → Editor Python](#/aplicatii/python).
+
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor C++](#/aplicatii/cpp) sau [Aplicații → Editor Python](#/aplicatii/python), fără să instalezi nimic.
 
 ## Aplicații interactive
 

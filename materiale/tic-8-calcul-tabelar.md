@@ -80,6 +80,8 @@ Un registru bun se înțelege dintr-o privire, chiar și de altcineva. Respectă
 - **borduri** în jurul tabelului, ca să se vadă unde începe și unde se termină;
 - coloane destul de **late** ca să nu apară `#####`, fonturi ușor de citit, cel mult două fonturi.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Registru de calcul](#/laborator/tabel), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii
@@ -189,4 +191,4 @@ Barem: nume sugestive pentru foi; cap de tabel cu coloane clare și unități de
 
 ## Exersează liber
 
-În **Laborator → Registru** ai o foaie goală în care poți face orice tabel, apoi îl poți descărca (.xlsx sau CSV) și deschide în Excel.
+În [Aplicații → Registru de calcul](#/laborator/tabel) ai o foaie goală în care poți face orice tabel, apoi îl poți descărca (.xlsx sau CSV) și deschide în Excel.

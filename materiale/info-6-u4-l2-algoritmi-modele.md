@@ -119,6 +119,8 @@ Primele două le legăm cu operatorul logic **și**: (a + 0 = a) **și** (a > 0)
 3. Scriptul: **stilou jos**, apoi de 6 ori „mergi 50 de pași, rotește-te stânga 60°”, apoi **stilou sus**.
 4. Verifici: personajul se oprește exact în punctul de plecare.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

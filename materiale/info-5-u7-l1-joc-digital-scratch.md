@@ -161,6 +161,8 @@ Dacă ceva nu merge, cauți greșeala (de exemplu, ai scris `-10` în loc de `10
 - după încă trei stele: scor = **5** → condiția `scor = 5` este **adevărată** → pisoiul spune „Ai câștigat!”, iar jocul se oprește.
 - Condiția `cronometru > 30` nu a mai contat: 25 > 30 este **fals**, iar jocul se oprise oricum.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```ordonare

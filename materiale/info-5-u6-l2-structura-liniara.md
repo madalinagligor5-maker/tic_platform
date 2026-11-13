@@ -114,6 +114,8 @@ Este o **structură liniară**: blocurile se execută **unul după altul**.
 
 ![Traseul din exemplul rezolvat: personajul pornește de la (10, 10) și alunecă pe rând la (-100, 10), (100, 10), (100, 120) și (100, -100).](fisiere/imagini/info-5-u6-l2-structura-liniara-traseu.svg)
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```ordonare

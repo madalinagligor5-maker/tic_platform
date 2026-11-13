@@ -62,6 +62,8 @@ Pentru **sunet stereo** apar **două** forme de undă: canalul **stânga** și c
 5. Observi forma de undă: zonele înalte sunt cuvintele, cele plate pauzele.
 6. **Fișier → Salvare fișier ca → MP3**, cu numele `Mesaj_audio.mp3`.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor audio](#/aplicatii/audio), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```quiz

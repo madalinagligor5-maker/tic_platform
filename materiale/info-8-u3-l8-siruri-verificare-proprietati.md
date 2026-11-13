@@ -150,7 +150,9 @@ Ce condiție Python verifică dacă x are ultima cifră 5 și este mai mic decâ
 Explicație: Ultima cifră se obține cu % 10, iar „și” se scrie and.
 ```
 
-Încearcă programul în **Aplicații → Editor Python**.
+Încearcă programul în [Aplicații → Editor Python](#/aplicatii/python).
+
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor C++](#/aplicatii/cpp) sau [Aplicații → Editor Python](#/aplicatii/python), fără să instalezi nimic.
 
 ## Aplicații interactive
 

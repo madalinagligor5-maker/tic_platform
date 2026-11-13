@@ -175,6 +175,8 @@ Totul **fără greșeli** de ortografie sau de gramatică. Ca reper de timp: cam
 6. Adaugi o **animație** pe textul de pe al doilea diapozitiv și o verifici cu **Previzualizare**.
 7. Salvezi și pornești expunerea cu **F5**.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Prezentare](#/atelier), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

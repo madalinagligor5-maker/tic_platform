@@ -159,6 +159,8 @@ Apoi profesorul cere modificări:
 3. **Ștergi** primul paragraf: selectezi tot, de la `<p>` la `</p>`, și apeși Delete.
 4. Salvezi (Ctrl + S) și reîmprospătezi browserul (F5).
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor de pagini web](#/aplicatii/html), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

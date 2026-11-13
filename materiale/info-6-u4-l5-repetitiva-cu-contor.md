@@ -141,6 +141,8 @@ scrie S
 3. Pentru n = 8: S = 2 + 4 + 6 + 8 = **20**.
 4. În Scratch: i pornește de la 2, iar la fiecare pas „modifică i cu **2**”. Repetarea se face de **n / 2** ori.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```quiz

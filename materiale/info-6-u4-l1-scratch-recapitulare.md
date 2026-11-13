@@ -99,6 +99,8 @@ costumul următor
 
 4. Dai clic pe haină de cinci ori și verifici că după modelul 4 vine modelul 1.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

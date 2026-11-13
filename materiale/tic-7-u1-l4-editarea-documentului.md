@@ -122,6 +122,8 @@ Word subliniază cu **roșu** cuvintele scrise greșit și cu **albastru** posib
 3. Bifezi (în **Mai multe**) **Potrivire cuvânt întreg**, ca să nu schimbi alte cuvinte care conțin acele litere.
 4. Apeși **Înlocuire totală**: Word anunță că a făcut 12 înlocuiri.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Document](#/laborator/text), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```cartonase

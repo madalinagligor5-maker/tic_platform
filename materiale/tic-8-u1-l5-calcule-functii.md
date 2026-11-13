@@ -104,6 +104,8 @@ Reguli importante:
 3. Sub tabel: media clasei `=AVERAGE(E2:E4)`, cea mai mare medie `=MAX(E2:E4)`, numărul elevilor cu media cel puțin 8: `=COUNTIF(E2:E4;">=8")` → **2**.
 4. **Date → Sortare** după Media, descrescător: Ana, Carla, Bogdan.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Registru de calcul](#/laborator/tabel), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

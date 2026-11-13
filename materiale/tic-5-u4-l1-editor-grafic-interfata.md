@@ -83,6 +83,8 @@ Imaginile se salvează în **fișiere grafice**. Din Paint poți salva cu extens
 
 **Rezolvare:** în fila **Vizualizare** apeși **Mărire** până ajungi la **200%**, sau tragi de controlul de panoramare din **bara de stare**. Ca să revii, apeși **100%**.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Desen](#/aplicatii/desen), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```quiz

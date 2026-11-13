@@ -123,7 +123,7 @@ Ce face bucla for x in sir: din Python?
 - afișează lista
 ```
 
-Încearcă programul în **Aplicații → Editor Python**.
+Încearcă programul în [Aplicații → Editor Python](#/aplicatii/python).
 
 ## Exersează
 

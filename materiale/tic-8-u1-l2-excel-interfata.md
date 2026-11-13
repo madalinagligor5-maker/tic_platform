@@ -70,6 +70,8 @@ Word și PowerPoint au **bara de titlu**, **panglica** cu **file** și **bara de
 4. Selectezi A3: **caseta de nume** arată `A3`, iar **bara de formule** arată `=A1+A2`.
 5. Selectezi A1:A2: **bara de stare** arată `Medie: 25  Contor: 2  Sumă: 50`.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Registru de calcul](#/laborator/tabel), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

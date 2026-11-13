@@ -88,6 +88,8 @@ Tragi de **pătrățelul** din colțul dreapta jos al celulei active:
 5. Ai uitat o oră: clic dreapta pe rândul 5 → **Inserare**.
 6. Redenumești foaia în „Orar” și salvezi și ca **PDF**, pentru avizier.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Registru de calcul](#/laborator/tabel), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```calcul-tabelar

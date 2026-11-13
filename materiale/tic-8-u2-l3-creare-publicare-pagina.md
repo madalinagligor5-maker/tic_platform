@@ -76,6 +76,8 @@ Cum scrii codul unei astfel de pagini (corpul `body`, paragrafele `p`, imaginile
 6. Subsol: „Surse: …” și „Realizat de clasa a VIII-a A”.
 7. **Previzualizare** pe telefon, apoi **Publicați** la adresa `castelul-bran-8a`.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor de pagini web](#/aplicatii/html), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```ordonare

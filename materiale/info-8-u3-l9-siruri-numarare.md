@@ -173,7 +173,9 @@ Dacă elementele sunt într-o listă, Python are și o scurtătură pentru numă
 Explicație: În Python, / face împărțire reală, chiar dacă numerele sunt întregi.
 ```
 
-Încearcă programul în **Aplicații → Editor Python**.
+Încearcă programul în [Aplicații → Editor Python](#/aplicatii/python).
+
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor C++](#/aplicatii/cpp) sau [Aplicații → Editor Python](#/aplicatii/python), fără să instalezi nimic.
 
 ## Aplicații interactive
 

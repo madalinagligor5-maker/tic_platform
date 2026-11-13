@@ -166,7 +166,9 @@ Pentru distanțele `500 300 70 400 60 75 900 50`, ambele afișează de patru ori
 Explicație: while True: repetă blocul indentat până când îl oprești (de exemplu cu break).
 ```
 
-Încearcă programul în **Aplicații → Editor Python**.
+Încearcă programul în [Aplicații → Editor Python](#/aplicatii/python).
+
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor C++](#/aplicatii/cpp) sau [Aplicații → Editor Python](#/aplicatii/python), fără să instalezi nimic.
 
 ## Aplicații interactive
 

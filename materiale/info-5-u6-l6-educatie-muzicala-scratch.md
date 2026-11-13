@@ -84,6 +84,8 @@ Folosești aceleași blocuri, dar notele merg **descrescător**, de la 72 la 60.
 
 ![Gama Do major cântată crescător la pian (de la 60 la 72) și descrescător la saxofon (de la 72 la 60).](fisiere/imagini/info-5-u6-l6-muzica-gama.svg)
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

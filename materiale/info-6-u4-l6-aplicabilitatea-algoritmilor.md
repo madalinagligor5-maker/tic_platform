@@ -114,6 +114,8 @@ dacă (poziția x) < 200 atunci
 
 3. Testezi: copacul se oprește la marginea stabilită.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

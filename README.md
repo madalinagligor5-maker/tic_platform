@@ -255,3 +255,15 @@ Culori: roșu edudigi `#F21F4B`, charcoal `#171416`, warm white `#FFF7EE`, learn
 ## Prima versiune
 
 Prima variantă a platformei (server propriu, cu Upstash Redis pe Vercel) este păstrată pe ramura [`platforma-cu-conturi`](https://github.com/madalinagligor5-maker/tic_platform/tree/platforma-cu-conturi). Versiunea actuală o înlocuiește, cu Neon Postgres.
+
+## Pagini pentru Google și pentru asistenți AI
+
+La `npm run build`, `scripts/seo.js` și `scripts/seo-pagini.js` generează în `public/` (nu se urcă pe GitHub) pagini statice, cu date structurate schema.org, adresă canonică și hartă a site-ului (`sitemap.xml`, cu imagini), `robots.txt` și `llms.txt`:
+
+- `/lectii/…`: câte o pagină pentru fiecare lecție, clasă și unitate;
+- `/aplicatii/…`: o pagină de prezentare pentru fiecare aplicație (textele sunt în `scripts/seo-pagini.js`, capturile în `materiale/fisiere/imagini/aplicatii/`);
+- `/glosar/…`: glosar generat automat din cartonașele lecțiilor (`cartonase`), plus pagina scurtăturilor de tastatură;
+- `/resurse/`: planificări și fișe de lucru descărcabile (materiale cu `tip: resursa` sau `tip: fisa` și `fisier:`);
+- `/pentru-profesori.html` și `/intrebari-frecvente.html`.
+
+Adresa site-ului se schimbă prin variabila `SITE_URL`.

@@ -113,6 +113,8 @@ Uneori vrei ca o adresă să rămână **fixă** (de exemplu, cursul euro dintr-
 4. Pui **Toate bordurile** pe tabel și o culoare de umplere pe capul de tabel.
 5. După inserarea rândului de titlu, produsele sunt pe rândurile 3–5. Scrii cota de TVA (21%) în **F1**, apoi în E3 scrii `=D3*$F$1` și tragi în jos; adresa F1 rămâne fixă.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Registru de calcul](#/laborator/tabel), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```quiz

@@ -55,6 +55,8 @@ Se aplică **întregului paragraf** în care se află cursorul, chiar dacă nu a
 2. Alegi formatarea din bara de instrumente.
 3. Verifici rezultatul; dacă ai greșit, folosești **Anulează** (Ctrl + Z).
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Document](#/laborator/text), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```procesor-text
@@ -133,4 +135,4 @@ Ctrl + S = Salvează documentul
 
 ## Exersează liber
 
-În **Laborator → Procesor de text** ai o pagină goală în care poți scrie și formata orice document, apoi îl poți descărca și deschide în Word.
+În [Aplicații → Document](#/laborator/text) ai o pagină goală în care poți scrie și formata orice document, apoi îl poți descărca și deschide în Word.

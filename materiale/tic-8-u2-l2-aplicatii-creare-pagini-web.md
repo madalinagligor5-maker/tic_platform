@@ -72,6 +72,8 @@ Intri în Google Drive → **+ Nou → Mai multe → Google Sites** (sau sites.g
 5. Din **Pagini → +** adaugi pagina „Proiecte”: în antet apare automat meniul.
 6. Apeși **Previzualizare** și treci pe vizualizarea de **telefon**.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor de pagini web](#/aplicatii/html), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

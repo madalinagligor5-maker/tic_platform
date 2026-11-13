@@ -183,7 +183,9 @@ Explicație: Python nu are do … while; folosești while True și ieși din buc
 Explicație: Bucla trebuie să se oprească atunci când condiția de continuare (n != 0) devine falsă, adică atunci când n == 0.
 ```
 
-Încearcă programul în **Aplicații → Editor Python**.
+Încearcă programul în [Aplicații → Editor Python](#/aplicatii/python).
+
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor C++](#/aplicatii/cpp) sau [Aplicații → Editor Python](#/aplicatii/python), fără să instalezi nimic.
 
 ## Aplicații interactive
 

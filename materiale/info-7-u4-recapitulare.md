@@ -116,7 +116,7 @@ for (int i = 1; i <= n; i++) devine for i in [range](1, n + 1):
 a && b devine a [and] b
 ```
 
-Încearcă programul în **Aplicații → Editor Python**.
+Încearcă programul în [Aplicații → Editor Python](#/aplicatii/python).
 
 ## Exersează
 

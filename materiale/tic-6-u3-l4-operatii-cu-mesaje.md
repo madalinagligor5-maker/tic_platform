@@ -133,6 +133,8 @@ Nimeni nu vede adresele din **CCI**, în afară de Vlad. Dacă Ana apasă **Răs
 
 ![Ce adrese vede fiecare destinatar al lui Vlad: cei din CCI primesc mesajul, dar adresele lor rămân ascunse pentru ceilalți.](fisiere/imagini/tic-6-u3-l4-operatii-cu-mesaje-2.svg)
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Poștă electronică](#/aplicatii/posta), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

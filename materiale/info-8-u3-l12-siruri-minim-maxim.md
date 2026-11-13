@@ -192,7 +192,9 @@ Lista este t = [-5, -2, -8]. Ce afișează print(max(t))?
 Explicație: Cel mai mare dintre -5, -2 și -8 este -2.
 ```
 
-Încearcă programul în **Aplicații → Editor Python**.
+Încearcă programul în [Aplicații → Editor Python](#/aplicatii/python).
+
+> **Lucrează direct pe site:** exersează în [Aplicații → Editor C++](#/aplicatii/cpp) sau [Aplicații → Editor Python](#/aplicatii/python), fără să instalezi nimic.
 
 ## Aplicații interactive
 

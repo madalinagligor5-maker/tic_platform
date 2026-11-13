@@ -95,6 +95,8 @@ Mai sunt blocuri pentru **culoarea** și **grosimea** liniei. În „Stiloul mag
 
 ![Expresia (100 – 7 * 54) + 2 * (2 + 7 * 8) din blocuri puse unul în altul se calculează începând cu blocurile din interior: rezultatul este –162.](fisiere/imagini/info-5-u6-l3-expresie-pas-cu-pas.svg)
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Programare cu blocuri](#/aplicatii/blocuri), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

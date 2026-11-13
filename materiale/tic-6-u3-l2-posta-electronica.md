@@ -95,6 +95,8 @@ Desparte adresa `elev.popescu_6b@scoala.ro` în părți:
 3. După @ este **gazda**: `scoala.ro`. Are numele `scoala` și domeniul `ro`, despărțite prin punct.
 4. Dacă cineva scrie `Elev.Popescu_6B@scoala.ro`, mesajul ajunge **tot la tine**: literele mari și mici nu contează.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Poștă electronică](#/aplicatii/posta), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```quiz

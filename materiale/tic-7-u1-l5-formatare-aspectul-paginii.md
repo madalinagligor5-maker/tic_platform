@@ -106,6 +106,8 @@ O pagină tipărită arată îngrijit dacă respectă câteva reguli:
 6. **Inserare → Antet**: numele școlii; **Număr de pagină → Partea de jos a paginii**.
 7. Pe ultima pagină, **Bibliografia**, cu sursele folosite.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Document](#/laborator/text), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii

@@ -67,6 +67,8 @@ O prezentare electronică are două etape: **realizarea** ei și **susținerea**
 4. Oprești cronometrul la final. Te-ai încadrat în timp? Ai citit de pe diapozitive?
 5. Repeți, cu îmbunătățiri, până ești mulțumit. Așa câștigi **încredere în tine**.
 
+> **Lucrează direct pe site:** exersează în [Aplicații → Prezentare](#/atelier), fără să instalezi nimic.
+
 ## Aplicații interactive
 
 ```categorii
