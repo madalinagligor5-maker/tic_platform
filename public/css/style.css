@@ -3515,3 +3515,5 @@ button.ap-posta-eticheta-camp:hover { text-decoration: underline; color: var(--a
   .ap-animatie-panou { width: 200px; }
 }
 /* Sfârșit: Aplicația Animatie */
+.app-card.c10 .app-ico { background: #FFAB19; }
+.app-card.c11 .app-ico { background: #3776AB; }

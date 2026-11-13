@@ -9,11 +9,13 @@
 
   // Aplicațiile în care se poate lucra o sarcină (ruta lor și cum se numesc pentru elevi).
   const APLICATII = {
+    blocuri: { nume: 'Programare cu blocuri (ca Scratch)', ruta: '#/aplicatii/blocuri' },
     desen: { nume: 'Desen (editor grafic)', ruta: '#/aplicatii/desen' },
     animatie: { nume: 'Studio de animație', ruta: '#/aplicatii/animatie' },
     posta: { nume: 'Poștă electronică (simulator)', ruta: '#/aplicatii/posta' },
     audio: { nume: 'Editor audio', ruta: '#/aplicatii/audio' },
     cpp: { nume: 'Editor C++', ruta: '#/aplicatii/cpp' },
+    python: { nume: 'Editor Python', ruta: '#/aplicatii/python' },
     html: { nume: 'Editor de pagini web', ruta: '#/aplicatii/html' },
     text: { nume: 'Laborator – Document (Word)', ruta: '#/laborator/text' },
     tabel: { nume: 'Laborator – Registru (Excel)', ruta: '#/laborator/tabel' },
@@ -119,12 +121,19 @@
       corp = h('div', {}, img, h('p', {}, btn, h('span', { class: 'muted small' }, ` ${l.cadre.length} cadre · ${l.fps || 8} cadre pe secundă`)));
     } else if (l.tip === 'audio' && /^data:audio\//.test(l.date || '')) {
       corp = h('div', {}, h('audio', { controls: true, src: l.date, preload: 'metadata' }), l.durata ? h('p', { class: 'muted small' }, `Durata: ${Math.round(l.durata)} s`) : null);
+    } else if (l.tip === 'blocuri') {
+      const json = JSON.stringify(l.proiect || {}, null, 1);
+      corp = h('div', {},
+        /^data:image\/(png|jpeg);/.test(l.imagine || '') ? h('img', { class: 'lucrare-img', src: l.imagine, alt: 'Scena proiectului' }) : null,
+        h('p', {}, h('button', { class: 'chip small', type: 'button', onclick: () => descarca(`${(l.titlu || 'proiect').replace(/[^\w.-]+/g, '_')}.json`, json, 'application/json') }, 'Descarcă proiectul (.json)'),
+          h('span', { class: 'muted small' }, ' – se deschide în Aplicații → Programare cu blocuri → Fișier → Încarcă')));
     } else if (l.tip === 'cod') {
       corp = h('div', { class: 'lucrare-cod' },
         h('pre', {}, h('code', {}, l.date || '')),
         l.intrare ? h('div', {}, h('b', {}, 'Date de intrare'), h('pre', {}, l.intrare)) : null,
         h('div', {}, h('b', {}, 'Ieșire (ultima rulare)'), h('pre', {}, l.iesire || '—')),
-        h('p', {}, h('button', { class: 'chip small', type: 'button', onclick: () => descarca(`${(l.titlu || 'program').replace(/[^\w.-]+/g, '_')}.cpp`, l.date || '', 'text/plain') }, 'Descarcă .cpp')));
+        /^data:image\/(png|jpeg);/.test(l.imagine || '') ? h('img', { class: 'lucrare-img', src: l.imagine, alt: 'Desenul făcut de program' }) : null,
+        h('p', {}, h('button', { class: 'chip small', type: 'button', onclick: () => { const ext = l.limbaj === 'python' ? 'py' : 'cpp'; descarca(`${(l.titlu || 'program').replace(/[^\w.-]+/g, '_')}.${ext}`, l.date || '', 'text/plain'); } }, l.limbaj === 'python' ? 'Descarcă .py' : 'Descarcă .cpp')));
     } else if (l.tip === 'html') {
       const zona = h('div', { class: 'lucrare-html' });
       corp = h('div', {}, zona);
