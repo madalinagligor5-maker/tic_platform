@@ -17,17 +17,27 @@
     { e: '🕹️', n: 'joystick-ul', nm: 'Joystick', d: 'Joystick-ul se folosește la jocuri.' },
   ];
 
+  const QUESTII = { '🖥️': 'Care ne arată imaginile?', '⌨️': 'Cu care scriem litere?', '🖱️': 'Cu care apăsăm pe ecran?', '🖨️': 'Care scoate hârtie scrisă?', '🎧': 'Cu care ascultăm doar noi?', '🎤': 'Care prinde vocea?', '📷': 'Care ne arată în convorbirile video?', '🔊': 'Care dau sunetul mai tare?', '💻': 'Care este un calculator de cărat?', '🕹️': 'Care se folosește la jocuri?' };
   // ---------- 1. Părțile calculatorului ----------
   jocuri.push({
     id: 'parti', grup: 'citesc', nume: 'Părțile calculatorului', emoji: '🖥️', culoare: 'mj-t1',
+    niveluri: 3, niv: ['6 aparate: arată imaginea potrivită', '8 întrebări: nume și imagini', '10 întrebări: ghicește după ce face'],
     desc: 'Recunoaște monitorul, tastatura, mouse-ul și celelalte.',
     start(ctx) {
-      const seturi = alege(PARTI, 8);
-      runde(ctx, 8, (i, el, rasp) => {
+      const n = ctx.nivel, nr = [6, 8, 10][n - 1];
+      const pool = n === 1 ? PARTI.slice(0, 6) : PARTI;
+      const seturi = alege(pool, nr);
+      runde(ctx, nr, (i, el, rasp) => {
         const corect = seturi[i];
-        const altele = alege(PARTI.filter((p) => p !== corect), 2);
+        const altele = alege(pool.filter((p) => p !== corect), n === 3 ? 3 : 2);
         const optiuni = shuffle([corect, ...altele]);
-        if (i % 2 === 0) {
+        const tip = n === 1 ? 'unde' : n === 2 ? (i % 2 === 0 ? 'nume' : 'unde') : ['nume', 'unde', 'ce'][i % 3];
+        if (tip === 'ce') {
+          const intreb = QUESTII[corect.e];
+          el.append(h('div', { class: 'mj-intrebare' }, h('p', { class: 'mj-mare' }, intreb), bAscultă(intreb)));
+          el.append(grila(optiuni.map((p) => ({ c: h('span', { class: 'mj-imens', 'aria-hidden': 'true' }, p.e), ok: p === corect, eticheta: p.nm })), { corect: () => rasp.corect(corect.d), gresit: () => rasp.gresit() }));
+          vorbeste(intreb);
+        } else if (tip === 'nume') {
           const intreb = 'Cum se numește?';
           el.append(h('div', { class: 'mj-intrebare' }, h('span', { class: 'mj-imens', 'aria-hidden': 'true' }, corect.e), h('p', {}, intreb), bAscultă(intreb)));
           el.append(grila(optiuni.map((p) => ({ c: p.nm, ok: p === corect })), { corect: () => rasp.corect(corect.d), gresit: () => rasp.gresit() }, 'text'));
@@ -36,7 +46,7 @@
           el.append(h('div', { class: 'mj-intrebare' }, h('p', { class: 'mj-mare' }, intreb), bAscultă(intreb)));
           el.append(grila(optiuni.map((p) => ({ c: h('span', { class: 'mj-imens', 'aria-hidden': 'true' }, p.e), ok: p === corect, eticheta: p.nm })), { corect: () => rasp.corect(corect.d), gresit: () => rasp.gresit() }));
         }
-        vorbeste(i % 2 === 0 ? 'Cum se numește?' : `Unde este ${corect.n}?`);
+        if (tip !== 'ce') vorbeste(tip === 'nume' ? 'Cum se numește?' : `Unde este ${corect.n}?`);
       }, { auto: 1700 });
     },
   });
@@ -54,9 +64,11 @@
   ];
   jocuri.push({
     id: 'perechi', grup: 'mici', nume: 'Perechi', emoji: '🃏', culoare: 'mj-t2',
+    niveluri: 3, niv: ['4 perechi', '6 perechi', '8 perechi'],
     desc: 'Găsește perechea: aparatul și ce face el.',
     start(ctx) {
-      const alese = alege(PERECHI, 6);
+      const nrP = [4, 6, 8][ctx.nivel - 1];
+      const alese = alege(PERECHI, nrP);
       const carti = shuffle(alese.flatMap((p, k) => [{ k, e: p.a }, { k, e: p.b }]));
       let deschise = [], gasite = 0, miscari = 0, blocat = false;
       const info = h('p', { class: 'mj-mesaj', role: 'status', 'aria-live': 'polite' }, 'Întoarce două cărți și găsește perechea.');
@@ -74,7 +86,7 @@
           if (x.c.k === y.c.k) {
             x.b.classList.add('gasit'); y.b.classList.add('gasit'); gasite++; sunet('ok');
             info.className = 'mj-mesaj ok'; info.textContent = `✔ ${alese[x.c.k].t}`;
-            if (gasite === alese.length) setTimeout(() => ctx.gata(miscari <= 10 ? 3 : miscari <= 15 ? 2 : 1), 1400);
+            if (gasite === alese.length) setTimeout(() => ctx.gata(miscari <= Math.round(nrP * 1.7) ? 3 : miscari <= Math.round(nrP * 2.6) ? 2 : 1), 1400);
           } else {
             blocat = true; sunet('rau'); info.className = 'mj-mesaj'; info.textContent = 'Nu sunt o pereche. Mai încearcă!';
             const t = setTimeout(() => { x.b.classList.remove('desc'); y.b.classList.remove('desc'); blocat = false; }, 900);
@@ -90,9 +102,11 @@
   // ---------- 3. Mouse: clic, dublu clic, tragere ----------
   jocuri.push({
     id: 'mouse', grup: 'mici', nume: 'Antrenament cu mouse-ul', emoji: '🖱️', culoare: 'mj-t3',
+    niveluri: 3, niv: ['ținte mari, timp mult', 'ținte mai mici, mai repede', 'ținte mici care se mișcă'],
     desc: 'Apasă stelele, sparge baloanele și trage șoricelul la brânză.',
     start(ctx) {
-      const PASI = [{ tip: 'clic', n: 8, txt: 'Apasă pe stele cu un clic!' }, { tip: 'dublu', n: 4, txt: 'Sparge baloanele cu două clicuri repezi!' }, { tip: 'trage', n: 3, txt: 'Ține apăsat pe șoricel și trage-l la brânză!' }];
+      const NV = ctx.nivel, N = [[8, 4, 3], [12, 6, 4], [14, 8, 5]][NV - 1], TIMP = [[3200, 6500], [2400, 5000], [2000, 4200]][NV - 1];
+      const PASI = [{ tip: 'clic', n: N[0], txt: 'Apasă pe stele cu un clic!' }, { tip: 'dublu', n: N[1], txt: 'Sparge baloanele cu două clicuri repezi!' }, { tip: 'trage', n: N[2], txt: 'Ține apăsat pe șoricel și trage-l la brânză!' }];
       const total = PASI.reduce((s, p) => s + p.n, 0);
       const arena = h('div', { class: 'mj-arena' });
       const titlu = h('p', { class: 'mj-mare' });
@@ -109,8 +123,9 @@
         const cum = PASI[faza];
         titlu.textContent = cum.txt; info.textContent = '';
         if (cum.tip === 'trage') return trage();
-        const t = h('button', { type: 'button', class: `mj-tinta ${cum.tip}`, 'aria-label': cum.tip === 'clic' ? 'Stea' : 'Balon' }, cum.tip === 'clic' ? '⭐' : '🎈');
+        const t = h('button', { type: 'button', class: `mj-tinta ${cum.tip}${NV > 1 ? ' mic' : ''}`, 'aria-label': cum.tip === 'clic' ? 'Stea' : 'Balon' }, cum.tip === 'clic' ? '⭐' : '🎈');
         poz(t, rand(4, 86), rand(6, 76));
+        if (NV === 3) setTimeout(() => { t.style.transition = 'left 1.8s linear, top 1.8s linear'; poz(t, rand(4, 86), rand(6, 76)); }, 60);
         const reusit = () => { sunet('ok'); facut++; inFaza++; if (inFaza >= cum.n) { faza++; inFaza = 0; } timer = setTimeout(urmatorul, 250); };
         if (cum.tip === 'clic') t.addEventListener('click', (e) => { e.stopPropagation(); t.disabled = true; t.classList.add('spart'); reusit(); });
         else {
@@ -118,12 +133,13 @@
           t.addEventListener('dblclick', (e) => { e.stopPropagation(); t.classList.add('spart'); t.textContent = '💥'; reusit(); });
         }
         arena.append(t);
-        termen = setTimeout(() => { greseli++; sunet('rau'); info.textContent = 'Ai fost prea lent. Mai încearcă!'; timer = setTimeout(urmatorul, 500); }, cum.tip === 'clic' ? 3200 : 6500);
+        termen = setTimeout(() => { greseli++; sunet('rau'); info.textContent = 'Ai fost prea lent. Mai încearcă!'; timer = setTimeout(urmatorul, 500); }, cum.tip === 'clic' ? TIMP[0] : TIMP[1]);
       };
       const trage = () => {
         const sob = h('div', { class: 'mj-tinta sob', role: 'img', 'aria-label': 'Șoricel' }, '🐭');
         const br = h('div', { class: 'mj-tinta branza', role: 'img', 'aria-label': 'Brânză' }, '🧀');
         poz(sob, rand(3, 15), rand(15, 70)); poz(br, rand(75, 88), rand(15, 70));
+        if (NV === 3) br.classList.add('mic');
         arena.append(br, sob);
         let ia = null;
         sob.addEventListener('pointerdown', (e) => { sob.setPointerCapture(e.pointerId); ia = true; sob.classList.add('ia'); });
@@ -150,12 +166,17 @@
   // ---------- 4. Tastatura ----------
   const RANDURI = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
   const LITERE = 'AEIOUMSTRLCNPDBF'.split('');
+  const CUVINTE_LUNGI = ['CALCULATOR', 'TASTATURA', 'MONITOR', 'INTERNET', 'IMPRIMANTA', 'PROGRAM'];
   const CUVINTE = ['MAMA', 'TATA', 'CASA', 'LUNA', 'SOARE', 'PISICA', 'MINGE', 'CARTE', 'FLOARE', 'MASINA'];
   jocuri.push({
     id: 'tastatura', grup: 'mici', nume: 'Tastatura', emoji: '⌨️', culoare: 'mj-t4',
+    niveluri: 3, niv: ['6 litere', 'litere și cuvinte', 'cuvinte lungi, fără ajutor'],
     desc: 'Apasă litera potrivită, apoi scrie cuvinte.',
     start(ctx) {
-      const tinte = [...alege(LITERE, 5), ...alege(CUVINTE.filter((c) => c.length <= 4), 2), ...alege(CUVINTE.filter((c) => c.length > 4), 2)];
+      const NV = ctx.nivel;
+      const tinte = NV === 1 ? alege('AEIOUMSTRL'.split(''), 6)
+        : NV === 2 ? [...alege(LITERE, 5), ...alege(CUVINTE.filter((c) => c.length <= 4), 2), ...alege(CUVINTE.filter((c) => c.length > 4), 2)]
+          : [...alege(LITERE, 3), ...alege(CUVINTE.filter((c) => c.length <= 5), 3), ...alege(CUVINTE_LUNGI, 4)];
       runde(ctx, tinte.length, (i, el, rasp) => {
         const tinta = tinte[i];
         let poz = 0;
@@ -168,7 +189,7 @@
         const marcheaza = () => {
           for (const t of Object.values(taste)) t.classList.remove('urm');
           tiles.forEach((t, k) => { t.classList.toggle('ok', k < poz); t.classList.toggle('cur', k === poz); });
-          if (poz < tinta.length) taste[tinta[poz]]?.classList.add('urm');
+          if (NV < 3 && poz < tinta.length) taste[tinta[poz]]?.classList.add('urm');
         };
         function apasa(l) {
           if (poz >= tinta.length) return;
@@ -203,9 +224,16 @@
   ];
   jocuri.push({
     id: 'intrare-iesire', grup: 'citesc', nume: 'Intrare sau ieșire?', emoji: '🔀', culoare: 'mj-t5',
+    niveluri: 3, niv: ['6 aparate', '9 aparate', 'apare și „amândouă”'],
     desc: 'Aparatul dă ceva calculatorului sau primește de la el?',
     start(ctx) {
-      const ordine = shuffle(IO);
+      const NV = ctx.nivel;
+      const AMBELE = [
+        { e: '📱', nm: 'Ecranul tactil', ambele: true, t: 'Ecranul tactil arată imaginile și primește atingerea ta: este și de intrare, și de ieșire.' },
+        { e: '🎧', nm: 'Căștile cu microfon', ambele: true, t: 'Căștile ne dau sunetul, iar microfonul prinde vocea: sunt și de ieșire, și de intrare.' },
+        { e: '💾', nm: 'Stick-ul de memorie', ambele: true, t: 'Pe stick punem fișiere și tot de pe el le citim: este și de intrare, și de ieșire.' },
+      ];
+      const ordine = NV === 1 ? shuffle([...alege(IO.filter((x) => x.intrare), 3), ...alege(IO.filter((x) => !x.intrare), 3)]) : NV === 2 ? shuffle(IO) : shuffle([...IO, ...AMBELE]);
       runde(ctx, ordine.length, (i, el, rasp) => {
         const a = ordine[i];
         const intreb = `${a.nm}: intrare sau ieșire?`;
@@ -213,8 +241,9 @@
           h('div', { class: 'mj-intrebare' }, h('span', { class: 'mj-imens', 'aria-hidden': 'true' }, a.e), h('p', { class: 'mj-mare' }, a.nm), bAscultă(intreb)),
           h('p', { class: 'mj-ajutor' }, 'Intrare = eu dau calculatorului. Ieșire = calculatorul îmi arată mie.'),
           grila([
-            { c: h('span', {}, h('span', { class: 'mj-imens', 'aria-hidden': 'true' }, '📥'), h('br'), 'Intrare'), ok: a.intrare, eticheta: 'Intrare' },
-            { c: h('span', {}, h('span', { class: 'mj-imens', 'aria-hidden': 'true' }, '📤'), h('br'), 'Ieșire'), ok: !a.intrare, eticheta: 'Ieșire' },
+            { c: h('span', {}, h('span', { class: 'mj-imens', 'aria-hidden': 'true' }, '📥'), h('br'), 'Intrare'), ok: !a.ambele && a.intrare, eticheta: 'Intrare' },
+            { c: h('span', {}, h('span', { class: 'mj-imens', 'aria-hidden': 'true' }, '📤'), h('br'), 'Ieșire'), ok: !a.ambele && !a.intrare, eticheta: 'Ieșire' },
+            ...(NV === 3 ? [{ c: h('span', {}, h('span', { class: 'mj-imens', 'aria-hidden': 'true' }, '🔁'), h('br'), 'Amândouă'), ok: !!a.ambele, eticheta: 'Amândouă' }] : []),
           ], { corect: () => rasp.corect(a.t), gresit: () => rasp.gresit('Nu chiar. Gândește-te: cine dă și cine primește?') }, 'doua'));
         vorbeste(intreb);
       });

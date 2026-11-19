@@ -11,7 +11,12 @@
   let stare = { stele: {}, sunet: true };
   try { Object.assign(stare, JSON.parse(localStorage.getItem(CHEIE) || '{}')); } catch { /* fără stocare */ }
   const salveaza = () => { try { localStorage.setItem(CHEIE, JSON.stringify(stare)); } catch { /* ignorat */ } };
-  const steleJoc = (id) => stare.stele[id] || 0;
+  const NIV = ['🌱', '🌿', '🌳'];
+  const niveluri = (j) => j.niveluri || 1;
+  const steleNiv = (id, n) => stare.stele[`${id}:${n}`] || 0;
+  const maxJoc = (j) => niveluri(j) * 3;
+  const steleJoc = (id) => { const j = jocuri.find((x) => x.id === id); return Array.from({ length: niveluri(j || {}) }, (_, i) => steleNiv(id, i + 1)).reduce((a, b) => a + b, 0); };
+  const deblocat = (j, n) => n <= 1 || steleNiv(j.id, n - 1) >= 1;
 
   // ---------- Utilitare ----------
   const shuffle = (a) => { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
@@ -111,20 +116,21 @@
   }
 
   // ---------- Cadrul unui joc ----------
-  function deschideJoc(joc) {
+  function deschideJoc(joc, n = 1) {
     ruleazaCuratarea();
+    if (niveluri(joc) > 1) { try { history.replaceState(null, '', `#/mici/${joc.id}/${n}`); } catch { /* ignorat */ } }
     document.title = `${joc.nume} – Micii informaticieni – edudigi`;
     const bara = h('div', { class: 'mj-progres-in' });
     const zona = h('div', { class: 'mj-zona' });
     const ctx = {
-      zona,
+      zona, nivel: n,
       curata: (fn) => curata.push(fn),
       progres(i, n) { bara.style.width = `${Math.round((i / n) * 100)}%`; },
       vorbeste, sunet,
       gata(stele, mesaj) {
         ruleazaCuratarea();
         bara.style.width = '100%';
-        stare.stele[joc.id] = Math.max(steleJoc(joc.id), stele); salveaza();
+        stare.stele[`${joc.id}:${n}`] = Math.max(steleNiv(joc.id, n), stele); salveaza();
         sunet('gata');
         const txt = mesaj || (stele === 3 ? 'Excelent! Ești un adevărat informatician!' : stele === 2 ? 'Foarte bine! Mai încearcă o dată pentru toate stelele.' : 'Bravo că ai terminat! Mai joacă o dată și vei câștiga mai multe stele.');
         zona.replaceChildren(h('div', { class: 'mj-final' },
@@ -133,7 +139,9 @@
           h('p', { class: 'mj-stele-mari', 'aria-label': `${stele} din 3 stele` }, randStele(stele)),
           h('p', {}, txt),
           h('div', { class: 'mj-actiuni' },
-            h('button', { class: 'mj-btn mare', type: 'button', onclick: () => deschideJoc(joc) }, '🔁 Mai joc'),
+            h('button', { class: 'mj-btn mare', type: 'button', onclick: () => deschideJoc(joc, n) }, '🔁 Mai joc'),
+            n < niveluri(joc) && stele >= 1 ? h('button', { class: 'mj-btn mare', type: 'button', onclick: () => deschideJoc(joc, n + 1) }, `${NIV[n]} Nivelul ${n + 1} ➜`) : null,
+            niveluri(joc) > 1 ? h('a', { class: 'mj-btn mare alb', href: `#/mici/${joc.id}` }, '🪜 Niveluri') : null,
             h('a', { class: 'mj-btn mare alb', href: '#/mici' }, '🏠 Alte jocuri'))));
         vorbeste(stele === 3 ? 'Felicitări!' : 'Bravo!');
       },
@@ -142,11 +150,29 @@
       h('div', { class: 'wrap' },
         h('div', { class: 'mj-bara' },
           h('a', { class: 'mj-btn mic alb', href: '#/mici', 'aria-label': 'Înapoi la jocuri' }, '← Jocuri'),
-          h('h1', {}, h('span', { 'aria-hidden': 'true' }, `${joc.emoji} `), joc.nume),
+          h('h1', {}, h('span', { 'aria-hidden': 'true' }, `${joc.emoji} `), joc.nume, niveluri(joc) > 1 ? h('span', { class: 'mj-nivel-eticheta' }, ` ${NIV[n - 1]} ${n}`) : null),
           comutatorSunet()),
         h('div', { class: 'mj-progres', 'aria-hidden': 'true' }, bara),
         zona)));
     joc.start(ctx);
+  }
+
+  function alegeNivel(joc) {
+    ruleazaCuratarea();
+    document.title = `${joc.nume} – Micii informaticieni – edudigi`;
+    const intreb = 'Alege nivelul. Pe măsură ce câștigi stele, se deschid nivelurile următoare.';
+    show(h('div', { class: `mici mj-joc ${joc.culoare}` }, h('div', { class: 'wrap' },
+      h('div', { class: 'mj-bara' },
+        h('a', { class: 'mj-btn mic alb', href: '#/mici', 'aria-label': 'Înapoi la jocuri' }, '← Jocuri'),
+        h('h1', {}, h('span', { 'aria-hidden': 'true' }, `${joc.emoji} `), joc.nume), comutatorSunet()),
+      h('div', { class: 'mj-zona' },
+        h('div', { class: 'mj-intrebare' }, h('p', { class: 'mj-mare' }, 'Alege nivelul'), bAscultă(intreb)),
+        h('div', { class: 'mj-niveluri' }, Array.from({ length: niveluri(joc) }, (_, i) => {
+          const n = i + 1, ok = deblocat(joc, n);
+          const cont = [h('span', { class: 'mj-niv-e', 'aria-hidden': 'true' }, ok ? NIV[i] : '🔒'), h('b', {}, `Nivelul ${n}`), h('span', { class: 'mj-card-desc' }, (joc.niv || [])[i] || ''), h('span', { class: 'mj-card-stele', 'aria-label': `${steleNiv(joc.id, n)} din 3 stele` }, randStele(steleNiv(joc.id, n)))];
+          return ok ? h('a', { class: 'mj-nivel', href: `#/mici/${joc.id}/${n}` }, cont) : h('div', { class: 'mj-nivel blocat', 'aria-disabled': 'true' }, cont);
+        }))))));
+    vorbeste(intreb);
   }
 
   function comutatorSunet() {
@@ -166,7 +192,7 @@
       h('span', { class: 'mj-card-emoji', 'aria-hidden': 'true' }, j.emoji),
       h('b', {}, j.nume),
       h('span', { class: 'mj-card-desc' }, j.desc),
-      h('span', { class: 'mj-card-stele', 'aria-label': `${steleJoc(j.id)} din 3 stele` }, randStele(steleJoc(j.id)))),
+      h('span', { class: 'mj-card-stele', 'aria-label': `${steleJoc(j.id)} din ${maxJoc(j)} stele` }, niveluri(j) > 1 ? `${NIV.slice(0, niveluri(j)).join('')} ★ ${steleJoc(j.id)}/${maxJoc(j)}` : randStele(steleJoc(j.id)))),
     areVoce() ? h('button', { class: 'mj-ascult mj-card-voce', type: 'button', 'aria-label': `Ascultă: ${j.nume}`, onclick: () => vorbeste(`${j.nume}. ${j.desc}`) }, '🔊') : null);
   const grup = (titlu, sub, cod, de) => {
     const lista = jocuri.filter((j) => j.grup === cod);
@@ -184,7 +210,7 @@
             h('p', { class: 'mj-kicker' }, 'Clasele pregătitoare – a IV-a'),
             h('h1', {}, 'Micii informaticieni'),
             h('p', { class: 'mj-balon' }, 'Salut! Eu sunt Bit. Hai să aflăm împreună cum funcționează calculatorul, jucându-ne!', ' ', bAscultă('Salut! Eu sunt Bit. Hai să aflăm împreună cum funcționează calculatorul, jucându-ne!')),
-            h('p', { class: 'mj-total' }, h('span', { 'aria-hidden': 'true' }, '⭐ '), `${total} din ${jocuri.length * 3} stele`))),
+            h('p', { class: 'mj-total' }, h('span', { 'aria-hidden': 'true' }, '⭐ '), `${total} din ${jocuri.reduce((a, j) => a + maxJoc(j), 0)} stele`))),
         grup('Fără citit: imagini și voce', 'Pentru cei mici, care încă nu citesc. Fiecare joc îți spune cu voce ce ai de făcut.', 'mici', 0),
         grup('Pentru cei care citesc', 'Întrebări cu răspunsuri scrise, citite și cu voce.', 'citesc', 5),
         h('p', { class: 'mj-nota' }, 'Jocurile se joacă direct în browser, fără cont și fără reclame. Stelele rămân pe acest calculator. Pentru elevii de gimnaziu, ',
@@ -192,10 +218,13 @@
   }
 
   routes.push({
-    pattern: /^\/mici(?:\/([a-z-]+))?$/,
+    pattern: /^\/mici(?:\/([a-z-]+)(?:\/(\d))?)?$/,
     handler: async (m) => {
       const joc = m[1] && jocuri.find((j) => j.id === m[1]);
-      if (joc) deschideJoc(joc); else pagina();
+      if (!joc) return pagina();
+      const n = Number(m[2]) || 0;
+      if (niveluri(joc) > 1 && !(n >= 1 && n <= niveluri(joc) && deblocat(joc, n))) return alegeNivel(joc);
+      deschideJoc(joc, n || 1);
     },
   });
 

@@ -3,7 +3,7 @@
 // calculatorul lui Bit (desktop de jucărie), programare cu imagini, studio de muzică.
 (() => {
   if (!window.Mici) return;
-  const { h, jocuri, shuffle, steleDin, sunet, vorbeste, ton, bAscultă } = window.Mici;
+  const { h, jocuri, shuffle, alege, steleDin, sunet, vorbeste, ton, bAscultă } = window.Mici;
   const ESTE = (x, y, r) => x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
 
   // Misiune afișată doar prin imagini + voce (cu buton de reascultare)
@@ -15,15 +15,17 @@
   // ---------- A. Calculatorul lui Bit ----------
   jocuri.push({
     id: 'desktop', nume: 'Calculatorul lui Bit', emoji: '💻', culoare: 'mj-t1', grup: 'mici',
+    niveluri: 3, niv: ['foldere, poze și gunoi', 'foldere în foldere (2 straturi)', '3 straturi, folder nou și multe poze'],
     desc: 'Deschide foldere, mută pozele la locul lor și aruncă gunoiul. Cu voce și imagini.',
     start(ctx) {
+      const NV = ctx.nivel;
       const scena = h('div', { class: 'mj-desktop' });
       const box = h('div', { class: 'mj-misiune' });
       const mesaj = h('p', { class: 'mj-mesaj', role: 'status', 'aria-live': 'polite' });
       ctx.zona.replaceChildren(box, scena, mesaj);
       let m = 0, greseli = 0, timer = null;
       ctx.curata(() => clearTimeout(timer));
-      const MISIUNI = [m1, m2, m3, m4, m5];
+      const MISIUNI = NV === 1 ? [m1, m2, () => m3(false), m4, m5] : NV === 2 ? [m1, () => m6(2, 2), () => m3(false), m4, m5] : [() => m6(3, 3), () => m3(true), m4, m7, m5];
       const spune = (txt, tip) => { mesaj.className = `mj-mesaj ${tip || ''}`.trim(); mesaj.textContent = txt; };
       const rau = (txt) => { greseli++; sunet('rau'); spune(txt, 'rau'); vorbeste(txt); };
       const reusit = (txt) => { sunet('ok'); spune(`✔ ${txt}`, 'ok'); vorbeste(txt); m++; timer = setTimeout(urmatoarea, 1500); };
@@ -81,13 +83,14 @@
         scena.append(fer);
       }
       // 3. Sortează pozele în foldere
-      function m3() {
+      function m3(mare) {
         misiune(box, ['✋', '🌷', '➜', '📁🌸'], 'Trage fiecare poză în folderul care se potrivește: flori la flori, animale la animale, fructe la fructe.');
-        const grupe = [{ b: '🌸', e: ['🌷', '🌹'] }, { b: '🐾', e: ['🐶', '🐱'] }, { b: '🍎', e: ['🍎', '🍌'] }];
+        const grupe = [{ b: '🌸', e: ['🌷', '🌹', '🌻'] }, { b: '🐾', e: ['🐶', '🐱', '🐰'] }, { b: '🍎', e: ['🍎', '🍌', '🍇'] }].map((g) => ({ ...g, e: g.e.slice(0, mare ? 3 : 2) }));
         const dosare = grupe.map((g, k) => { const f = poz(folder(g.b), 14 + k * 32, 6); f.dataset.b = g.b; scena.append(f); return f; });
-        let ramase = 6;
+        let ramase = mare ? 9 : 6;
         shuffle(grupe.flatMap((g) => g.e.map((e) => ({ e, b: g.b })))).forEach((p, k) => {
-          const el = poz(h('div', { class: 'mj-ic mj-poza', role: 'img', 'aria-label': p.e }, h('span', { class: 'mj-ic-e' }, p.e)), 6 + k * 15, 62 + (k % 2) * 14);
+          const el = mare ? poz(h('div', { class: 'mj-ic mj-poza', role: 'img', 'aria-label': p.e }, h('span', { class: 'mj-ic-e' }, p.e)), 6 + (k % 5) * 18, 46 + Math.floor(k / 5) * 24)
+            : poz(h('div', { class: 'mj-ic mj-poza', role: 'img', 'aria-label': p.e }, h('span', { class: 'mj-ic-e' }, p.e)), 6 + k * 15, 62 + (k % 2) * 14);
           scena.append(el);
           trage(el, () => dosare, (t) => {
             if (!t) return false;
@@ -116,6 +119,58 @@
           });
         }
       }
+      // 6. Foldere în foldere: urmează drumul din imagine până la comoară
+      function m6(adanc, nrDecor) {
+        const badge = ['🌸', '🐾', '🍎', '⭐', '🚗', '🌙'];
+        const cale = alege(badge, adanc);
+        const pict = cale.flatMap((b, k) => [k ? '➜' : '', `📁${b}`]).filter(Boolean).concat(['➜', '🎁']);
+        misiune(box, pict, 'Deschide folderele în ordinea din imagine, ca să găsești comoara. Fiecare folder are în el alte foldere.');
+        let nivel = 0;
+        const bara = h('div', { class: 'mj-fer-bara' });
+        const continut = h('div', { class: 'mj-fer-continut' });
+        const fer = h('div', { class: 'mj-fer-mare' }, bara, continut);
+        const afiseaza = () => {
+          const cr = h('div', { class: 'mj-cale', 'aria-hidden': 'true' }, ['🖥️', ...cale.slice(0, nivel).map((b) => `› 📁${b}`)].map((x) => h('span', {}, x)));
+          const sus = h('button', { type: 'button', class: 'mj-x sus', 'aria-label': 'Înapoi, un strat mai sus', onclick: () => { if (nivel > 0) { nivel--; afiseaza(); sunet('click'); } } }, '⬆️');
+          sus.disabled = nivel === 0;
+          bara.replaceChildren(cr, sus);
+          continut.replaceChildren();
+          if (nivel === adanc) {
+            const cm = h('button', { type: 'button', class: 'mj-comoara', 'aria-label': 'Comoara' }, '🎁');
+            cm.addEventListener('click', () => { cm.classList.add('spart'); reusit('Ai găsit comoara!'); });
+            continut.append(cm); return;
+          }
+          const alt = alege(badge.filter((b) => b !== cale[nivel]), Math.min(nrDecor, badge.length - 1));
+          for (const b of shuffle([cale[nivel], ...alt.slice(0, nrDecor - 1)])) {
+            const f = folder(b, 'rel');
+            dublu(f, () => { if (b === cale[nivel]) { nivel++; sunet('ok'); afiseaza(); } else rau('Nu este folderul din imagine. Încearcă altul.'); }, 'Atinge de două ori, repede!');
+            continut.append(f);
+          }
+        };
+        afiseaza(); scena.append(fer);
+      }
+      // 7. Folder nou
+      function m7() {
+        misiune(box, ['👆', '➕📁', '➜', '✋', '🐶🐱', '➜', '📁'], 'Atinge butonul cu plus, ca să faci un folder nou. Apoi mută câinele și pisica în folderul nou.');
+        const plus = h('button', { type: 'button', class: 'mj-btn mare mj-plus', 'aria-label': 'Folder nou' }, '➕📁');
+        let nou = null, ramase = 2;
+        const fisiere = [];
+        ['🐶', '🐱'].forEach((e, k) => {
+          const el = poz(h('div', { class: 'mj-ic mj-poza', role: 'img', 'aria-label': e }, h('span', { class: 'mj-ic-e' }, e)), 30 + k * 20, 62);
+          scena.append(el); fisiere.push(el);
+          trage(el, () => (nou ? [nou] : []), (t) => {
+            if (!t) { if (!nou) rau('Mai întâi fă un folder nou, cu butonul plus.'); return false; }
+            el.remove(); nou.classList.add('plin'); sunet('ok'); ramase--;
+            if (!ramase) reusit('Ai făcut un folder nou și ai pus fișierele în el!'); else spune('✔', 'ok');
+            return true;
+          });
+        });
+        plus.addEventListener('click', () => {
+          if (nou) return; sunet('ok');
+          nou = poz(folder('✨'), 40, 10); scena.append(nou); plus.disabled = true; spune('Ai făcut un folder nou! Acum trage pozele în el.', 'ok'); vorbeste('Ai făcut un folder nou. Acum trage pozele în el.');
+        });
+        scena.append(plus);
+      }
       // 5. Pornește o aplicație
       function m5() {
         misiune(box, ['👆👆', '➜', '🎨'], 'Atinge de două ori repede pictograma, ca să pornești programul de desen.');
@@ -135,18 +190,22 @@
     ['S.A...', '.##.#.', 'A.#...', '.#..A.', '...#.H'],
   ];
   const DIR = [{ s: '⬆️', dx: 0, dy: -1, n: 'sus' }, { s: '➡️', dx: 1, dy: 0, n: 'dreapta' }, { s: '⬇️', dx: 0, dy: 1, n: 'jos' }, { s: '⬅️', dx: -1, dy: 0, n: 'stânga' }];
-  const MAX = 9;
+  const NIVELE_3 = [['S.#.A.', 'A.#.#.', '..#.#.', '.##.#A', 'A....H'], ['S..#.A', '.#.#..', '.#.A#.', '.#.#..', '.A...H'], ['SA#A..', '.##.#.', 'A..A.#', '.#.#..', '..#.AH'], ['S.#...', '..#.A.', '.A#...', '..#...', '.....H'], ['SA.#..', '.#.#A.', '.#.#..', '.#A..#', '.#.#.H']];
+  const MAX_3 = [7, 11, 11, 8, 8];
   jocuri.push({
     id: 'program', nume: 'Programează pisica', emoji: '🐱', culoare: 'mj-t6', grup: 'mici',
+    niveluri: 3, niv: ['3 hărți', '5 hărți cu ziduri', '5 hărți grele, cu puține blocuri'],
     desc: 'Pune blocuri cu săgeți și numere: pisica adună merele și ajunge acasă.',
     start(ctx) {
+      const NV = ctx.nivel;
+      const HARTI = NV === 3 ? NIVELE_3 : NV === 1 ? NIVELE.slice(0, 3) : NIVELE;
       let nivel = 0, esecuri = 0, timer = null;
       ctx.curata(() => clearTimeout(timer));
       const incarca = () => {
         clearTimeout(timer);
-        if (nivel >= NIVELE.length) return ctx.gata(esecuri <= 2 ? 3 : esecuri <= 6 ? 2 : 1);
-        ctx.progres(nivel, NIVELE.length);
-        const harta = NIVELE[nivel];
+        if (nivel >= HARTI.length) return ctx.gata(esecuri <= 2 ? 3 : esecuri <= 6 ? 2 : 1);
+        ctx.progres(nivel, HARTI.length);
+        const harta = HARTI[nivel], MAXB = NV === 3 ? MAX_3[nivel] : 9;
         let start = [0, 0], mere = new Set();
         harta.forEach((r, y) => [...r].forEach((c, x) => { if (c === 'S') start = [x, y]; if (c === 'A') mere.add(`${x},${y}`); }));
         const total = mere.size;
@@ -180,7 +239,7 @@
           nrBtns.append(b);
         }
         const sageti = h('div', { class: 'mj-sageti' }, DIR.map((d, i) => h('button', { type: 'button', class: 'mj-sageata', 'aria-label': `Adaugă pas ${d.n}`, onclick: () => {
-          if (ruleaza || program.length >= MAX) return;
+          if (ruleaza || program.length >= MAXB) return;
           program.push({ d: i, n: 1 }); sel = program.length - 1; sunet('click'); redesenez();
         } }, d.s)));
         const sterge = h('button', { type: 'button', class: 'mj-btn alb', 'aria-label': 'Șterge blocul ales', onclick: () => { if (ruleaza || sel < 0) return; program.splice(sel, 1); sel = program.length - 1; redesenez(); } }, '🗑️');
@@ -224,7 +283,7 @@
           const mai = h('button', { class: 'mj-btn mare', type: 'button', 'aria-label': 'Nivelul următor', onclick: () => { nivel++; incarca(); } }, '➜');
           jos.replaceChildren(mai); mai.focus();
         }
-        ctx.zona.replaceChildren(cerinta, h('p', { class: 'mj-ajutor' }, `Nivelul ${nivel + 1} din ${NIVELE.length}`),
+        ctx.zona.replaceChildren(cerinta, h('p', { class: 'mj-ajutor' }, `Harta ${nivel + 1} din ${HARTI.length} · cel mult ${MAXB} blocuri`),
           h('div', { class: 'mj-robot-zona' }, tabla,
             h('div', { class: 'mj-robot-comenzi' }, lant, h('p', { class: 'mj-ajutor' }, 'Alege cât de multe pași: ➜'), nrBtns, sageti, h('div', { class: 'mj-actiuni' }, sterge, reset, porneste))),
           mesaj, jos);
@@ -239,27 +298,32 @@
   const CULORI = ['#7A3FB8', '#2F6FC4', '#1E9E5A', '#F29A1F', '#F21F4B'];
   const INSTR = [['🎹', 'sine'], ['🎻', 'triangle'], ['🎺', 'square'], ['🎸', 'sawtooth']];
   const EXEMPLU = [[4], [4], [1], [1], [0], [0], [1], []];
+  const EXEMPLU_3 = [[2], [1], [0], [1], [2], [2], [2], []];
   jocuri.push({
     id: 'muzica', nume: 'Studio de muzică', emoji: '🎵', culoare: 'mj-t3', grup: 'mici',
+    niveluri: 3, niv: ['3 note, compui liber', '5 note, compui liber', 'ascultă și copiază melodia'],
     desc: 'Atinge pătrățelele colorate și compune o melodie. Apoi ascult-o!',
     start(ctx) {
-      const PASI = 8;
+      const NV = ctx.nivel, PASI = 8, R = NV === 1 ? 3 : 5, OFF = 5 - R, PROVOCARE = NV === 3;
       const sel = Array.from({ length: PASI }, () => new Set());
-      let instr = 0, tempo = 480, cant = false, pas = -1, timer = null, notePuse = 0;
+      let instr = 0, tempo = 480, cant = false, pas = -1, timer = null, notePuse = 0, incercari = 0;
+      const tinta = Array.from({ length: PASI }, (_, c) => (c < 6 ? [Math.floor(Math.random() * R)] : []));
       const cele = [];
-      const mesaj = h('p', { class: 'mj-mesaj', role: 'status', 'aria-live': 'polite' }, 'Atinge pătrățelele ca să pui note.');
+      const frecv = (r) => NOTE[r + OFF];
+      const mesaj = h('p', { class: 'mj-mesaj', role: 'status', 'aria-live': 'polite' }, PROVOCARE ? '' : 'Atinge pătrățelele ca să pui note.');
       const tabla = h('div', { class: 'mj-muzica', role: 'group', 'aria-label': 'Note muzicale' });
-      for (let r = 0; r < NOTE.length; r++) for (let c = 0; c < PASI; c++) {
+      for (let r = 0; r < R; r++) for (let c = 0; c < PASI; c++) {
         const b = h('button', { type: 'button', class: 'mj-nota', 'aria-label': `Nota ${r + 1}, pasul ${c + 1}`, 'aria-pressed': 'false' });
-        b.style.setProperty('--n', CULORI[r]);
+        b.style.setProperty('--n', CULORI[r + OFF]);
         b.addEventListener('click', () => {
           if (sel[c].has(r)) { sel[c].delete(r); b.classList.remove('on'); b.setAttribute('aria-pressed', 'false'); }
-          else { sel[c].add(r); b.classList.add('on'); b.setAttribute('aria-pressed', 'true'); ton(NOTE[r], 0.35, 0, INSTR[instr][1]); }
+          else { sel[c].add(r); b.classList.add('on'); b.setAttribute('aria-pressed', 'true'); ton(frecv(r), 0.35, 0, INSTR[instr][1]); }
           notePuse = sel.reduce((s, x) => s + x.size, 0);
         });
         tabla.append(b); cele.push(b);
       }
-      const coloana = (c) => NOTE.map((_, r) => cele[r * PASI + c]);
+      tabla.style.maxWidth = '640px';
+      const coloana = (c) => Array.from({ length: R }, (_, r) => cele[r * PASI + c]);
       const opreste = () => { clearInterval(timer); cant = false; pas = -1; cele.forEach((b) => b.classList.remove('cur')); buton.textContent = '▶'; buton.setAttribute('aria-label', 'Ascultă melodia'); };
       const ruleaza = () => {
         if (cant) return opreste();
@@ -268,8 +332,8 @@
           coloana(pas < 0 ? PASI - 1 : pas).forEach((b) => b.classList.remove('cur'));
           pas = (pas + 1) % PASI; if (pas === 0 && ++rulari > 3) return opreste();
           coloana(pas).forEach((b) => b.classList.add('cur'));
-          for (const r of sel[pas]) ton(NOTE[r], tempo / 1000 * 0.9, 0, INSTR[instr][1]);
-          if (notePuse >= 5 && !gata.isConnected) jos.replaceChildren(gata);
+          for (const r of sel[pas]) ton(frecv(r), tempo / 1000 * 0.9, 0, INSTR[instr][1]);
+          if (!PROVOCARE && notePuse >= 5 && !gata.isConnected) jos.replaceChildren(gata);
         };
         tic(); timer = setInterval(tic, tempo);
       };
@@ -277,17 +341,44 @@
       const buton = h('button', { type: 'button', class: 'mj-btn mare', 'aria-label': 'Ascultă melodia', onclick: ruleaza }, '▶');
       const gata = h('button', { type: 'button', class: 'mj-btn mare', 'aria-label': 'Am terminat melodia', onclick: () => { opreste(); ctx.gata(3, 'Ai compus o melodie! Muzica de pe calculator este făcută tot din note, pe care calculatorul le cântă în ordine.'); } }, '⭐ Gata!');
       const jos = h('div', { class: 'mj-jos' });
-      const instrBtns = INSTR.map(([e], k) => h('button', { type: 'button', class: `mj-nr${k === 0 ? ' sel' : ''}`, 'aria-label': 'Alege instrumentul', 'aria-pressed': String(k === 0), onclick: (ev) => { instr = k; for (const b of instrBtns) { b.classList.remove('sel'); b.setAttribute('aria-pressed', 'false'); } ev.currentTarget.classList.add('sel'); ev.currentTarget.setAttribute('aria-pressed', 'true'); ton(NOTE[2], 0.4, 0, INSTR[k][1]); } }, e));
+      const curataTabla = () => { sel.forEach((s) => s.clear()); cele.forEach((b) => { b.classList.remove('on', 'gresit'); b.setAttribute('aria-pressed', 'false'); }); notePuse = 0; };
+      const instrBtns = INSTR.map(([e], k) => h('button', { type: 'button', class: `mj-nr${k === 0 ? ' sel' : ''}`, 'aria-label': 'Alege instrumentul', 'aria-pressed': String(k === 0), onclick: (ev) => { instr = k; for (const b of instrBtns) { b.classList.remove('sel'); b.setAttribute('aria-pressed', 'false'); } ev.currentTarget.classList.add('sel'); ev.currentTarget.setAttribute('aria-pressed', 'true'); ton(frecv(R - 1), 0.4, 0, INSTR[k][1]); } }, e));
       const tempoBtns = [['🐢', 600], ['🐇', 260]].map(([e, t], k) => h('button', { type: 'button', class: `mj-nr${k === 0 ? ' sel' : ''}`, 'aria-label': k ? 'Repede' : 'Încet', onclick: (ev) => { tempo = t; for (const b of tempoBtns) b.classList.remove('sel'); ev.currentTarget.classList.add('sel'); if (cant) { opreste(); ruleaza(); } } }, e));
-      const exemplu = h('button', { type: 'button', class: 'mj-btn alb', 'aria-label': 'Pune o melodie de exemplu', onclick: () => {
-        opreste(); sel.forEach((s) => s.clear()); cele.forEach((b) => { b.classList.remove('on'); b.setAttribute('aria-pressed', 'false'); });
-        EXEMPLU.forEach((rows, c) => rows.forEach((r) => { sel[c].add(r); cele[r * PASI + c].classList.add('on'); cele[r * PASI + c].setAttribute('aria-pressed', 'true'); }));
-        notePuse = sel.reduce((s, x) => s + x.size, 0);
-      } }, '🎵 Exemplu');
-      const sterge = h('button', { type: 'button', class: 'mj-btn alb', 'aria-label': 'Șterge tot', onclick: () => { opreste(); sel.forEach((s) => s.clear()); cele.forEach((b) => { b.classList.remove('on'); b.setAttribute('aria-pressed', 'false'); }); notePuse = 0; } }, '🗑️');
-      const cer = h('div', { class: 'mj-misiune' }); misiune(cer, ['👆', '🟪🟦🟩', '➜', '🎵'], 'Atinge pătrățelele colorate ca să faci o melodie. Apoi apasă butonul verde și ascult-o.');
-      ctx.zona.replaceChildren(cer, tabla,
-        h('div', { class: 'mj-actiuni' }, buton, h('div', { class: 'mj-numere' }, instrBtns), h('div', { class: 'mj-numere' }, tempoBtns), exemplu, sterge), mesaj, jos);
+      const sterge = h('button', { type: 'button', class: 'mj-btn alb', 'aria-label': 'Șterge tot', onclick: () => { opreste(); curataTabla(); } }, '🗑️');
+      const cer = h('div', { class: 'mj-misiune' });
+      let comenzi;
+      if (!PROVOCARE) {
+        const exemplu = h('button', { type: 'button', class: 'mj-btn alb', 'aria-label': 'Pune o melodie de exemplu', onclick: () => {
+          opreste(); curataTabla();
+          (NV === 1 ? EXEMPLU_3 : EXEMPLU).forEach((rows, c) => rows.forEach((r) => { sel[c].add(r); cele[r * PASI + c].classList.add('on'); cele[r * PASI + c].setAttribute('aria-pressed', 'true'); }));
+          notePuse = sel.reduce((s, x) => s + x.size, 0);
+        } }, '🎵 Exemplu');
+        misiune(cer, ['👆', '🟪🟦🟩', '➜', '🎵'], 'Atinge pătrățelele colorate ca să faci o melodie. Apoi apasă butonul verde și ascult-o.');
+        comenzi = h('div', { class: 'mj-actiuni' }, buton, h('div', { class: 'mj-numere' }, instrBtns), h('div', { class: 'mj-numere' }, tempoBtns), exemplu, sterge);
+      } else {
+        // Provocare: ascultă o melodie și o copiază pe tablă
+        let ascultaTinta = null;
+        const cantaTinta = () => {
+          opreste(); let c = 0; clearInterval(ascultaTinta);
+          ascultaTinta = setInterval(() => { if (c >= PASI) return clearInterval(ascultaTinta); for (const r of tinta[c]) ton(frecv(r), 0.5, 0, 'sine'); c++; }, 520);
+        };
+        ctx.curata(() => clearInterval(ascultaTinta));
+        const asculta = h('button', { type: 'button', class: 'mj-btn mare', 'aria-label': 'Ascultă melodia de copiat', onclick: cantaTinta }, '🎧');
+        const verifica = h('button', { type: 'button', class: 'mj-btn mare', 'aria-label': 'Verifică', onclick: () => {
+          incercari++; opreste();
+          let gresite = 0;
+          for (let c = 0; c < PASI; c++) for (let r = 0; r < R; r++) {
+            const trebuie = tinta[c].includes(r), are = sel[c].has(r);
+            cele[r * PASI + c].classList.toggle('gresit', trebuie !== are); if (trebuie !== are) gresite++;
+          }
+          if (!gresite) return ctx.gata(incercari === 1 ? 3 : incercari === 2 ? 2 : 1, 'Ai copiat melodia exact! Calculatorul poate repeta sunetele la fel, de fiecare dată.');
+          sunet('rau'); mesaj.className = 'mj-mesaj rau'; mesaj.textContent = `Mai sunt ${gresite} pătrățele greșite (cu margine roșie). Ascultă din nou!`; vorbeste('Mai ascultă o dată și corectează.');
+        } }, '✔');
+        misiune(cer, ['🎧', '➜', '👆', '🟪🟦🟩'], 'Ascultă melodia cu butonul cu căști, apoi pune notele pe tablă la fel. La final apasă bifa.');
+        comenzi = h('div', { class: 'mj-actiuni' }, asculta, buton, verifica, sterge);
+        setTimeout(cantaTinta, 1800);
+      }
+      ctx.zona.replaceChildren(cer, tabla, comenzi, mesaj, jos);
     },
   });
 })();
