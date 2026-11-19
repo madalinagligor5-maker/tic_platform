@@ -187,33 +187,68 @@
   }
 
   // ---------- Pagina principală ----------
+  const BIT_SVG = `<svg viewBox="0 0 220 244" class="bit-svg" aria-hidden="true" focusable="false">
+    <ellipse cx="110" cy="236" rx="62" ry="7" fill="#2A2250" opacity=".14"/>
+    <line x1="110" y1="36" x2="110" y2="14" stroke="#5B4FCF" stroke-width="6" stroke-linecap="round"/>
+    <g class="bit-antena"><circle cx="110" cy="11" r="10" fill="#F21F4B"/><circle cx="106" cy="7" r="3" fill="#fff" opacity=".8"/></g>
+    <rect x="24" y="72" width="20" height="34" rx="9" fill="#F29A1F"/><rect x="176" y="72" width="20" height="34" rx="9" fill="#F29A1F"/>
+    <rect x="40" y="34" width="140" height="106" rx="38" fill="#3EC6E0" stroke="#1B9BB8" stroke-width="4"/>
+    <rect x="58" y="52" width="104" height="72" rx="28" fill="#1F2A5A"/>
+    <g class="bit-ochi"><circle cx="89" cy="84" r="14" fill="#fff"/><circle cx="131" cy="84" r="14" fill="#fff"/>
+      <circle cx="92" cy="86" r="7" fill="#1F2A5A"/><circle cx="134" cy="86" r="7" fill="#1F2A5A"/>
+      <circle cx="94.5" cy="83" r="2.6" fill="#fff"/><circle cx="136.5" cy="83" r="2.6" fill="#fff"/></g>
+    <path d="M92 106 Q110 124 128 106" fill="none" stroke="#FFD23F" stroke-width="5.5" stroke-linecap="round"/>
+    <circle cx="71" cy="106" r="6" fill="#F8A5C2" opacity=".85"/><circle cx="149" cy="106" r="6" fill="#F8A5C2" opacity=".85"/>
+    <rect x="96" y="138" width="28" height="12" rx="4" fill="#1B9BB8"/>
+    <rect x="60" y="148" width="100" height="76" rx="28" fill="#F21F4B"/>
+    <rect x="81" y="162" width="58" height="36" rx="13" fill="#FFF7EE"/>
+    <path d="M110 190 C96 180 98 168 105 168 C108.500 168 110 170.500 110 172 C110 170.500 111.500 168 115 168 C122 168 124 180 110 190 Z" fill="#F21F4B"/>
+    <circle cx="91" cy="210" r="4.500" fill="#FFD23F"/><circle cx="110" cy="210" r="4.500" fill="#3EC6E0"/><circle cx="129" cy="210" r="4.500" fill="#2FBF71"/>
+    <g class="bit-mana"><path d="M62 166 Q34 164 28 134" fill="none" stroke="#F29A1F" stroke-width="13" stroke-linecap="round"/><circle cx="28" cy="128" r="11" fill="#FFD23F"/></g>
+    <path d="M158 166 Q184 178 188 202" fill="none" stroke="#F29A1F" stroke-width="13" stroke-linecap="round"/><circle cx="188" cy="206" r="11" fill="#FFD23F"/>
+    <rect x="72" y="222" width="30" height="13" rx="6.500" fill="#171416"/><rect x="118" y="222" width="30" height="13" rx="6.500" fill="#171416"/>
+  </svg>`;
+  const pips = (j) => h('span', { class: 'mj-pips', role: 'img', 'aria-label': `${steleJoc(j.id)} din ${maxJoc(j)} stele` },
+    ...Array.from({ length: niveluri(j) }, (_, i) => h('span', { class: `mj-pip${steleNiv(j.id, i + 1) ? ' on' : ''}${steleNiv(j.id, i + 1) === 3 ? ' max' : ''}` }, NIV[i])),
+    h('span', { class: 'mj-pip-txt' }, `⭐ ${steleJoc(j.id)}/${maxJoc(j)}`));
   const card = (j, k) => h('div', { class: `mj-card-loc mj-c${(k % 8) + 1}` },
     h('a', { class: 'mj-card', href: `#/mici/${j.id}` },
-      h('span', { class: 'mj-card-emoji', 'aria-hidden': 'true' }, j.emoji),
-      h('b', {}, j.nume),
-      h('span', { class: 'mj-card-desc' }, j.desc),
-      h('span', { class: 'mj-card-stele', 'aria-label': `${steleJoc(j.id)} din ${maxJoc(j)} stele` }, niveluri(j) > 1 ? `${NIV.slice(0, niveluri(j)).join('')} ★ ${steleJoc(j.id)}/${maxJoc(j)}` : randStele(steleJoc(j.id)))),
+      h('span', { class: 'mj-card-top', 'aria-hidden': 'true' }, h('span', { class: 'mj-card-emoji' }, j.emoji)),
+      h('span', { class: 'mj-card-body' },
+        h('b', {}, j.nume),
+        h('span', { class: 'mj-card-desc' }, j.desc),
+        pips(j),
+        h('span', { class: 'mj-joaca' }, 'Joacă ▶'))),
     areVoce() ? h('button', { class: 'mj-ascult mj-card-voce', type: 'button', 'aria-label': `Ascultă: ${j.nume}`, onclick: () => vorbeste(`${j.nume}. ${j.desc}`) }, '🔊') : null);
-  const grup = (titlu, sub, cod, de) => {
+  const grup = (ico, titlu, sub, cod, de) => {
     const lista = jocuri.filter((j) => j.grup === cod);
-    return h('section', { class: 'mj-sectiune' }, h('h2', {}, titlu), h('p', { class: 'mj-sub' }, sub), h('div', { class: 'mj-lista' }, lista.map((j, k) => card(j, k + de))));
+    return h('section', { class: 'mj-sectiune' },
+      h('div', { class: 'mj-sect-cap' }, h('span', { class: 'mj-sect-ico', 'aria-hidden': 'true' }, ico), h('div', {}, h('h2', {}, titlu), h('p', { class: 'mj-sub' }, sub))),
+      h('div', { class: 'mj-lista' }, lista.map((j, k) => card(j, k + de))));
   };
   function pagina() {
     ruleazaCuratarea();
     document.title = 'Micii informaticieni – jocuri despre calculator, clasele 0–IV – edudigi';
-    const total = jocuri.reduce((s, j) => s + steleJoc(j.id), 0);
+    const total = jocuri.reduce((s, j) => s + steleJoc(j.id), 0), maxim = jocuri.reduce((a, j) => a + maxJoc(j), 0);
+    const bara = h('span', { class: 'mj-meter-in' });
+    bara.style.width = `${Math.max(4, Math.round((total / maxim) * 100))}%`;
+    const salut = 'Salut! Eu sunt Bit. Hai să aflăm împreună cum funcționează calculatorul, jucându-ne!';
     show(h('div', { class: 'mici mj-acasa' },
+      h('div', { class: 'mj-cer', 'aria-hidden': 'true' }, h('span', { class: 'nor n1' }, '☁️'), h('span', { class: 'nor n2' }, '☁️'), h('span', { class: 'nor n3' }, '☁️'), h('span', { class: 'ster s1' }, '⭐'), h('span', { class: 'ster s2' }, '✨'), h('span', { class: 'ster s3' }, '⭐'), h('span', { class: 'ster s4' }, '✨')),
       h('div', { class: 'wrap' },
         h('section', { class: 'mj-hero' },
-          h('div', { class: 'mj-bit', 'aria-hidden': 'true' }, '🤖'),
           h('div', { class: 'mj-hero-text' },
-            h('p', { class: 'mj-kicker' }, 'Clasele pregătitoare – a IV-a'),
-            h('h1', {}, 'Micii informaticieni'),
-            h('p', { class: 'mj-balon' }, 'Salut! Eu sunt Bit. Hai să aflăm împreună cum funcționează calculatorul, jucându-ne!', ' ', bAscultă('Salut! Eu sunt Bit. Hai să aflăm împreună cum funcționează calculatorul, jucându-ne!')),
-            h('p', { class: 'mj-total' }, h('span', { 'aria-hidden': 'true' }, '⭐ '), `${total} din ${jocuri.reduce((a, j) => a + maxJoc(j), 0)} stele`))),
-        grup('Fără citit: imagini și voce', 'Pentru cei mici, care încă nu citesc. Fiecare joc îți spune cu voce ce ai de făcut.', 'mici', 0),
-        grup('Pentru cei care citesc', 'Întrebări cu răspunsuri scrise, citite și cu voce.', 'citesc', 5),
-        h('p', { class: 'mj-nota' }, 'Jocurile se joacă direct în browser, fără cont și fără reclame. Stelele rămân pe acest calculator. Pentru elevii de gimnaziu, ',
+            h('p', { class: 'mj-kicker' }, h('span', { 'aria-hidden': 'true' }, '🎒 '), 'Clasele pregătitoare – a IV-a'),
+            h('h1', {}, 'Micii ', h('span', { class: 'mj-gradient' }, 'informaticieni')),
+            h('div', { class: 'mj-balon' }, h('p', {}, salut), bAscultă(salut)),
+            h('div', { class: 'mj-chips' }, ['🎮 12 jocuri', '🌱🌿🌳 3 niveluri', '🔊 Cu voce', '🆓 Fără cont'].map((t) => h('span', { class: 'mj-chip' }, t))),
+            h('div', { class: 'mj-meter', role: 'img', 'aria-label': `${total} din ${maxim} stele` }, h('span', { class: 'mj-meter-cap' }, `⭐ ${total} din ${maxim} stele`), h('span', { class: 'mj-meter-bara' }, bara)),
+            h('a', { class: 'mj-btn mare mj-start', href: '#mj-jocuri', onclick: (e) => { e.preventDefault(); document.getElementById('mj-jocuri')?.scrollIntoView({ behavior: 'smooth' }); } }, 'Hai să ne jucăm! ▼')),
+          h('div', { class: 'mj-hero-art', html: BIT_SVG })),
+        h('div', { id: 'mj-jocuri' },
+          grup('🎈', 'Fără citit: imagini și voce', 'Pentru cei mici, care încă nu citesc. Fiecare joc îți spune cu voce ce ai de făcut.', 'mici', 0),
+          grup('📖', 'Pentru cei care citesc', 'Întrebări cu răspunsuri scrise, citite și cu voce.', 'citesc', 5)),
+        h('p', { class: 'mj-subsol' }, 'Jocurile se joacă direct în browser, fără cont și fără reclame. Stelele rămân pe acest calculator. Pentru elevii de gimnaziu, ',
           h('a', { href: '#/' }, 'mergi la lecțiile pentru clasele V–VIII'), '.'))));
   }
 
