@@ -15,7 +15,7 @@
   const MIN = [4, 8, 12, 8, 16];
   const SAGETI = [{ s: '⬆️', dx: 0, dy: -1, n: 'sus' }, { s: '➡️', dx: 1, dy: 0, n: 'dreapta' }, { s: '⬇️', dx: 0, dy: 1, n: 'jos' }, { s: '⬅️', dx: -1, dy: 0, n: 'stânga' }];
   jocuri.push({
-    id: 'robot', nume: 'Robotelul Bit', emoji: '🤖', culoare: 'mj-t6',
+    id: 'robot', grup: 'mici', nume: 'Robotelul Bit', emoji: '🤖', culoare: 'mj-t6',
     desc: 'Scrie un program cu săgeți și du robotul la stea.',
     start(ctx) {
       let nivel = 0, esecuri = 0;
@@ -115,7 +115,7 @@
     return { seq, ras, opt: [...opt].slice(0, 4) };
   }
   jocuri.push({
-    id: 'modele', nume: 'Ce urmează?', emoji: '🧩', culoare: 'mj-t7',
+    id: 'modele', grup: 'mici', nume: 'Ce urmează?', emoji: '🧩', culoare: 'mj-t7',
     desc: 'Descoperă regula șirului și continuă-l, ca un program.',
     start(ctx) {
       const date = Array.from({ length: 9 }, (_, i) => rundaModel(i));
@@ -145,7 +145,7 @@
     { e: '📧', t: 'Deschizi un fișier trimis de cineva pe care nu-l cunoști.', ok: false, ex: 'Fișierele de la necunoscuți pot ascunde viruși. Nu le deschidem.' },
   ];
   jocuri.push({
-    id: 'siguranta', nume: 'Semaforul siguranței', emoji: '🚦', culoare: 'mj-t8',
+    id: 'siguranta', grup: 'citesc', nume: 'Semaforul siguranței', emoji: '🚦', culoare: 'mj-t8',
     desc: 'Este în siguranță sau trebuie să te oprești?',
     start(ctx) {
       const lista = alege(SIT, 8);
@@ -172,7 +172,7 @@
     { nume: 'Pom', g: ['00055000', '00555500', '05555550', '55555555', '05555550', '00033000', '00033000', '00033000'] },
   ];
   jocuri.push({
-    id: 'pixeli', nume: 'Desenează cu pixeli', emoji: '🎨', culoare: 'mj-t9',
+    id: 'pixeli', grup: 'mici', nume: 'Desenează cu pixeli', emoji: '🎨', culoare: 'mj-t9',
     desc: 'Imaginile de pe ecran sunt făcute din pătrățele. Copiază modelul!',
     start(ctx) {
       const model = MODELE[rand(0, MODELE.length - 1)];

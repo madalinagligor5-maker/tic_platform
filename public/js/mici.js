@@ -96,12 +96,12 @@
         gresit(txt) {
           if (gata) return;
           if (!gresitDeja) { gresitDeja = true; greseli++; }
-          sunet('rau'); mesaj.className = 'mj-mesaj rau'; mesaj.textContent = txt || 'Mai încearcă!';
+          sunet('rau'); mesaj.className = 'mj-mesaj rau'; mesaj.textContent = txt || 'Mai încearcă!'; vorbeste(txt || 'Mai încearcă!');
         },
         corect(expl) {
           if (gata) return;
           gata = true; sunet('ok');
-          mesaj.className = 'mj-mesaj ok'; mesaj.textContent = `✔ ${expl || 'Bravo!'}`;
+          mesaj.className = 'mj-mesaj ok'; mesaj.textContent = `✔ ${expl || 'Bravo!'}`; vorbeste(expl || 'Bravo!');
           if (optiuni.auto) timer = setTimeout(mai, optiuni.auto);
           else jos.append(h('button', { class: 'mj-btn mare', type: 'button', onclick: mai }, i + 1 >= n ? 'Gata! ➜' : 'Mai departe ➜'));
         },
@@ -161,6 +161,17 @@
   }
 
   // ---------- Pagina principală ----------
+  const card = (j, k) => h('div', { class: `mj-card-loc mj-c${(k % 8) + 1}` },
+    h('a', { class: 'mj-card', href: `#/mici/${j.id}` },
+      h('span', { class: 'mj-card-emoji', 'aria-hidden': 'true' }, j.emoji),
+      h('b', {}, j.nume),
+      h('span', { class: 'mj-card-desc' }, j.desc),
+      h('span', { class: 'mj-card-stele', 'aria-label': `${steleJoc(j.id)} din 3 stele` }, randStele(steleJoc(j.id)))),
+    areVoce() ? h('button', { class: 'mj-ascult mj-card-voce', type: 'button', 'aria-label': `Ascultă: ${j.nume}`, onclick: () => vorbeste(`${j.nume}. ${j.desc}`) }, '🔊') : null);
+  const grup = (titlu, sub, cod, de) => {
+    const lista = jocuri.filter((j) => j.grup === cod);
+    return h('section', { class: 'mj-sectiune' }, h('h2', {}, titlu), h('p', { class: 'mj-sub' }, sub), h('div', { class: 'mj-lista' }, lista.map((j, k) => card(j, k + de))));
+  };
   function pagina() {
     ruleazaCuratarea();
     document.title = 'Micii informaticieni – jocuri despre calculator, clasele 0–IV – edudigi';
@@ -172,13 +183,10 @@
           h('div', { class: 'mj-hero-text' },
             h('p', { class: 'mj-kicker' }, 'Clasele pregătitoare – a IV-a'),
             h('h1', {}, 'Micii informaticieni'),
-            h('p', { class: 'mj-balon' }, 'Salut! Eu sunt Bit. Hai să aflăm împreună cum funcționează calculatorul, jucându-ne!'),
+            h('p', { class: 'mj-balon' }, 'Salut! Eu sunt Bit. Hai să aflăm împreună cum funcționează calculatorul, jucându-ne!', ' ', bAscultă('Salut! Eu sunt Bit. Hai să aflăm împreună cum funcționează calculatorul, jucându-ne!')),
             h('p', { class: 'mj-total' }, h('span', { 'aria-hidden': 'true' }, '⭐ '), `${total} din ${jocuri.length * 3} stele`))),
-        h('div', { class: 'mj-lista' }, jocuri.map((j, k) => h('a', { class: `mj-card mj-c${(k % 8) + 1}`, href: `#/mici/${j.id}` },
-          h('span', { class: 'mj-card-emoji', 'aria-hidden': 'true' }, j.emoji),
-          h('b', {}, j.nume),
-          h('span', { class: 'mj-card-desc' }, j.desc),
-          h('span', { class: 'mj-card-stele', 'aria-label': `${steleJoc(j.id)} din 3 stele` }, randStele(steleJoc(j.id)))))),
+        grup('Fără citit: imagini și voce', 'Pentru cei mici, care încă nu citesc. Fiecare joc îți spune cu voce ce ai de făcut.', 'mici', 0),
+        grup('Pentru cei care citesc', 'Întrebări cu răspunsuri scrise, citite și cu voce.', 'citesc', 5),
         h('p', { class: 'mj-nota' }, 'Jocurile se joacă direct în browser, fără cont și fără reclame. Stelele rămân pe acest calculator. Pentru elevii de gimnaziu, ',
           h('a', { href: '#/' }, 'mergi la lecțiile pentru clasele V–VIII'), '.'))));
   }

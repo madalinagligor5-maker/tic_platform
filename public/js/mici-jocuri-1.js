@@ -19,7 +19,7 @@
 
   // ---------- 1. Părțile calculatorului ----------
   jocuri.push({
-    id: 'parti', nume: 'Părțile calculatorului', emoji: '🖥️', culoare: 'mj-t1',
+    id: 'parti', grup: 'citesc', nume: 'Părțile calculatorului', emoji: '🖥️', culoare: 'mj-t1',
     desc: 'Recunoaște monitorul, tastatura, mouse-ul și celelalte.',
     start(ctx) {
       const seturi = alege(PARTI, 8);
@@ -53,7 +53,7 @@
     { a: '🕹️', b: '🎮', t: 'Joystick-ul se folosește la jocuri.' },
   ];
   jocuri.push({
-    id: 'perechi', nume: 'Perechi', emoji: '🃏', culoare: 'mj-t2',
+    id: 'perechi', grup: 'mici', nume: 'Perechi', emoji: '🃏', culoare: 'mj-t2',
     desc: 'Găsește perechea: aparatul și ce face el.',
     start(ctx) {
       const alese = alege(PERECHI, 6);
@@ -89,7 +89,7 @@
 
   // ---------- 3. Mouse: clic, dublu clic, tragere ----------
   jocuri.push({
-    id: 'mouse', nume: 'Antrenament cu mouse-ul', emoji: '🖱️', culoare: 'mj-t3',
+    id: 'mouse', grup: 'mici', nume: 'Antrenament cu mouse-ul', emoji: '🖱️', culoare: 'mj-t3',
     desc: 'Apasă stelele, sparge baloanele și trage șoricelul la brânză.',
     start(ctx) {
       const PASI = [{ tip: 'clic', n: 8, txt: 'Apasă pe stele cu un clic!' }, { tip: 'dublu', n: 4, txt: 'Sparge baloanele cu două clicuri repezi!' }, { tip: 'trage', n: 3, txt: 'Ține apăsat pe șoricel și trage-l la brânză!' }];
@@ -152,7 +152,7 @@
   const LITERE = 'AEIOUMSTRLCNPDBF'.split('');
   const CUVINTE = ['MAMA', 'TATA', 'CASA', 'LUNA', 'SOARE', 'PISICA', 'MINGE', 'CARTE', 'FLOARE', 'MASINA'];
   jocuri.push({
-    id: 'tastatura', nume: 'Tastatura', emoji: '⌨️', culoare: 'mj-t4',
+    id: 'tastatura', grup: 'mici', nume: 'Tastatura', emoji: '⌨️', culoare: 'mj-t4',
     desc: 'Apasă litera potrivită, apoi scrie cuvinte.',
     start(ctx) {
       const tinte = [...alege(LITERE, 5), ...alege(CUVINTE.filter((c) => c.length <= 4), 2), ...alege(CUVINTE.filter((c) => c.length > 4), 2)];
@@ -202,7 +202,7 @@
     { e: '🎧', nm: 'Căștile', intrare: false, t: 'Căștile îmi dau sunetul din calculator: sunt de ieșire.' },
   ];
   jocuri.push({
-    id: 'intrare-iesire', nume: 'Intrare sau ieșire?', emoji: '🔀', culoare: 'mj-t5',
+    id: 'intrare-iesire', grup: 'citesc', nume: 'Intrare sau ieșire?', emoji: '🔀', culoare: 'mj-t5',
     desc: 'Aparatul dă ceva calculatorului sau primește de la el?',
     start(ctx) {
       const ordine = shuffle(IO);
