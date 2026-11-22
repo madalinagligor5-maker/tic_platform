@@ -326,7 +326,7 @@
           h('div', { class: 'pya-hero-act' },
             urmatoarea ? h('a', { class: 'pya-btn galben mare', href: `#/python/l/${urmatoarea.id}` }, facute ? `Continuă: ${urmatoarea.titlu} ▶` : 'Începe prima lecție ▶') : h('a', { class: 'pya-btn galben mare', href: '#/python/provocari' }, 'Ai terminat cursul! Mergi la provocări ▶'),
             h('a', { class: 'pya-btn contur mare', href: '#/aplicatii/python' }, '⌨️ Editor liber')),
-          h('div', { class: 'pya-chips' }, [`📚 ${TOATE.length} lecții`, `🏁 ${PROVOCARI.length} provocări`, '✅ Verificare automată', '🆓 Fără cont'].map((t) => h('span', { class: 'pya-chip' }, t)))),
+          h('div', { class: 'pya-chips' }, [`📚 ${TOATE.length} lecții`, `🏁 ${PROVOCARI.length} provocări`, '🎮 5 jocuri', '✅ Verificare automată', '🆓 Fără cont'].map((t) => h('span', { class: 'pya-chip' }, t)))),
         h('div', { class: 'pya-hero-art', html: SIGLA })),
       h('section', { class: 'pya-stare' }, barXP(), h('div', { class: 'pya-numere' }, h('div', {}, h('b', {}, `${facute}/${TOATE.length}`), h('span', {}, 'lecții terminate')), h('div', {}, h('b', {}, `${provFacute}/${PROVOCARI.length}`), h('span', {}, 'provocări rezolvate')))),
       h('section', { class: 'pya-sectiune' }, h('h2', {}, 'Drumul tău'),
@@ -341,6 +341,7 @@
       h('section', { class: 'pya-sectiune' }, h('h2', {}, 'Mai multe'),
         h('div', { class: 'pya-extra' },
           h('a', { class: 'pya-extra-c', href: '#/python/provocari' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '🏁'), h('b', {}, 'Provocări'), h('span', {}, `${PROVOCARI.length} probleme ca la concursuri, de la ușor la greu, cu teste ascunse.`)),
+          h('a', { class: 'pya-extra-c', href: '#/python/jocuri' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '🎮'), h('b', {}, 'Sala de jocuri'), h('span', {}, 'Robot programat în Python, ordonează liniile, găsește greșeala, Blitz și completează codul.')),
           h('a', { class: 'pya-extra-c', href: '#/python/asociere' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '🧲'), h('b', {}, 'Unește perechile'), h('span', {}, 'Asociază codul cu ce afișează și noțiunile cu explicația lor, ca la cartonașe.')),
           h('a', { class: 'pya-extra-c', href: '#/python/memorator' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '📒'), h('b', {}, 'Memorator'), h('span', {}, 'Sintaxa într-o singură pagină și erorile frecvente, explicate.')),
           h('a', { class: 'pya-extra-c', href: '#/aplicatii/python' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '⌨️'), h('b', {}, 'Editor Python'), h('span', {}, 'Un Thonny în browser: Shell, depanare pas cu pas, țestoasă (turtle).')))),
@@ -440,6 +441,8 @@
           h('tbody', {}, EROARI.map((e) => h('tr', {}, h('td', {}, h('code', {}, e.tip)), h('td', { html: inl(e.cand) }), h('td', { html: inl(e.fix) }))))))));
   }
 
+  // Funcții folosite și de jocurile din python-jocuri.js
+  window.PyAcad = { ruleaza, verifica, evid, codBloc, inl, antet, pagina, editor, P, salveaza, norm, xpMax: () => xpMax };
   routes.push({ pattern: /^\/python$/, handler: async () => acasa() });
   routes.push({ pattern: /^\/python\/l\/([a-z0-9-]+)$/, handler: async (m) => lectie(m[1]) });
   routes.push({ pattern: /^\/python\/p\/([a-z0-9-]+)$/, handler: async (m) => provocare(m[1]) });

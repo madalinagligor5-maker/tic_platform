@@ -163,3 +163,53 @@
 .pya-asoc-loc .pya-pas, .pya-pas .pya-subsol { margin-top: 18px; }
 @keyframes pya-scutura { 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
 @media (max-width: 640px) { .pya-asoc-grila { gap: 10px; } .pya-ac { padding: 8px 9px; font-size: .84rem; } .pya-ac.lft pre { font-size: .76rem; } }
+
+/* ---- Sala de jocuri Python ---- */
+.pyj-hub { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 22px; }
+.pyj-card { --c: #3776AB; display: flex; flex-direction: column; background: #fff; border-radius: 28px; overflow: hidden; text-decoration: none; color: var(--ink); box-shadow: 0 7px 0 rgba(16, 36, 59, .12), 0 16px 28px rgba(16, 36, 59, .08); transition: box-shadow .12s; }
+.pyj-card:hover { box-shadow: 0 11px 0 rgba(16, 36, 59, .12), 0 22px 32px rgba(16, 36, 59, .1); }
+.pyj-card-top { position: relative; display: grid; place-items: center; height: 120px; background: radial-gradient(circle at 18% 22%, rgba(255, 255, 255, .4) 0 15%, transparent 16%), linear-gradient(145deg, color-mix(in srgb, var(--c) 70%, #fff), var(--c)); }
+.pyj-card-top::after { content: ''; position: absolute; left: -4%; right: -4%; bottom: -1px; height: 24px; background: #fff; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+.pyj-card-e { position: relative; z-index: 1; display: grid; place-items: center; width: 82px; height: 82px; margin-bottom: 12px; font-size: 2.8rem; background: #fff; border-radius: 50%; box-shadow: 0 5px 0 rgba(0, 0, 0, .16); }
+.pyj-card-body { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 0 18px 20px; flex: 1; }
+.pyj-card-body b { font-size: 1.2rem; } .pyj-card-d { color: #4C6580; font-size: .92rem; line-height: 1.5; flex: 1; }
+.pyj-card-s { font-weight: 800; color: #B96B00; } .pyj-joaca { padding: 9px 22px; border-radius: 999px; background: var(--c); color: #fff; font-weight: 800; box-shadow: 0 4px 0 rgba(0, 0, 0, .2); }
+.pyj-niveluri { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 18px; }
+.pyj-niv { --c: #3776AB; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 20px 14px; background: #fff; border-radius: 24px; text-decoration: none; color: var(--ink); text-align: center; border-top: 8px solid var(--c); box-shadow: 0 6px 0 rgba(16, 36, 59, .1); }
+a.pyj-niv:hover { box-shadow: 0 9px 0 rgba(16, 36, 59, .12); } .pyj-niv.blocat { opacity: .55; border-top-style: dashed; box-shadow: none; }
+.pyj-niv-e { font-size: 2.6rem; line-height: 1.1; font-weight: 800; color: var(--c); } .pyj-niv b { font-size: 1.1rem; } .pyj-niv-sub { font-size: .86rem; color: #4C6580; } .pyj-niv-st { color: #F5A400; font-size: 1.2rem; letter-spacing: 3px; }
+.pyj-puncte { display: flex; gap: 8px; margin-bottom: 14px; } .pyj-punct { flex: 1; max-width: 70px; height: 12px; border-radius: 999px; background: #D5E3F1; } .pyj-punct.gata { background: var(--ok); } .pyj-punct.acum { background: var(--gal); }
+.pyj-loc { background: #fff; border-radius: 28px; padding: clamp(16px, 3vw, 28px); box-shadow: 0 6px 0 rgba(16, 36, 59, .08), 0 18px 30px rgba(16, 36, 59, .06); border-top: 8px solid var(--py); }
+.pyj-titlu { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+.pyj-dublu { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; margin-bottom: 4px; } .pyj-dublu h3 { margin-bottom: 8px; font-size: 1rem; }
+.pyj-col { display: flex; flex-direction: column; gap: 6px; min-height: 120px; padding: 10px; border-radius: 16px; background: #F3F8FD; box-shadow: inset 0 0 0 2px #D5E3F1; }
+.pyj-linie { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 10px; border-radius: 12px; background: #1B2638; border: 0; color: #E6EDF7; text-align: left; }
+.pyj-linie.dispo { cursor: pointer; width: 100%; box-shadow: 0 3px 0 #0D1625; } .pyj-linie.dispo:hover { background: #26354D; }
+.pyj-cod { flex: 1; margin: 0; padding: 4px 0; font: 500 .88rem/1.5 var(--mono); white-space: pre; overflow-x: auto; color: #E6EDF7; }
+.pyj-act { display: flex; gap: 4px; } .pyj-mic { width: 30px; height: 30px; border: 0; border-radius: 8px; background: #33445E; color: #fff; cursor: pointer; font-weight: 800; } .pyj-mic:disabled { opacity: .3; cursor: default; } .pyj-mic.x { background: #8A2C3A; }
+.pyj-gol { margin: 8px; color: #6A8199; font-style: italic; font-size: .9rem; }
+.pyj-codul { display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; background: #1B2638; box-shadow: 0 4px 0 #0D1625; margin-bottom: 14px; }
+.pyj-rand { display: flex; align-items: center; gap: 12px; padding: 5px 14px 5px 0; border: 0; background: transparent; color: #E6EDF7; cursor: pointer; text-align: left; }
+.pyj-rand:hover { background: #26354D; } .pyj-rand.gasit { background: rgba(35, 165, 90, .28); } .pyj-rand.rau { background: rgba(214, 51, 74, .4); animation: pya-scutura .35s; }
+.pyj-nr { width: 40px; text-align: right; color: #6E839B; font: 500 .86rem var(--mono); flex: none; } .pyj-rcod { font: 500 .92rem/1.6 var(--mono); white-space: pre; background: none; color: inherit; padding: 0; }
+.pyj-optiuni { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; } .pyj-optiuni[hidden], .pya-consola[hidden] { display: none; }
+.pyj-opt { padding: 12px 16px; border: 3px solid #BFD3E6; border-radius: 14px; background: #fff; cursor: pointer; text-align: left; color: var(--ink); box-shadow: 0 4px 0 #BFD3E6; }
+.pyj-opt code { font: 600 .95rem var(--mono); background: none; color: inherit; padding: 0; white-space: pre; } .pyj-opt:hover:not(:disabled) { border-color: var(--py); }
+.pyj-opt.ok { background: #D6F4E3; border-color: var(--ok); box-shadow: 0 4px 0 var(--ok); } .pyj-opt.rau { background: #FDE8EB; border-color: var(--rau); box-shadow: 0 4px 0 var(--rau); animation: pya-scutura .35s; }
+.pyj-opt.mare { text-align: center; padding: 18px 12px; } .pyj-opt.mare code { font-size: 1.15rem; }
+.pyj-opt-grila { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+.pyj-completare { margin: 12px 0; padding: 16px 18px; background: #1B2638; border-radius: 16px; color: #E6EDF7; font: 500 .96rem/2.1 var(--mono); overflow-x: auto; box-shadow: 0 4px 0 #0D1625; }
+.pyj-gol-sel { font: 700 .92rem var(--mono); padding: 3px 6px; border-radius: 8px; border: 2px solid #FFD43B; background: #FFF6CC; color: #10243B; max-width: 160px; }
+.pyj-stare { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 10px; font-weight: 800; } .pyj-stare .serie { color: #E2711D; }
+.pyj-timp { height: 14px; background: #E6EEF7; border-radius: 999px; overflow: hidden; margin-bottom: 12px; } .pyj-timp-in { height: 100%; width: 100%; background: #3E86C7; border-radius: 999px; transition: width .1s linear; } .pyj-timp-in.putin { background: var(--rau); }
+.pyj-final { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 0; text-align: center; } .pyj-final h2 { font-size: 2rem; } .pyj-final p { margin: 0; max-width: 520px; }
+.pyj-trofeu { font-size: 5rem; line-height: 1; animation: pya-sare .7s 2; } .pyj-stele-mari { font-size: 2.6rem; color: #F5A400; letter-spacing: 6px; } .pyj-scor { font-weight: 800; color: var(--py-d); font-size: 1.15rem; }
+.pyj-robot-zona { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 22px; align-items: start; }
+.pyj-harta { display: grid; gap: 3px; width: 100%; padding: 6px; background: var(--py); border-radius: 18px; box-shadow: 0 5px 0 var(--py-d); }
+.pyj-celula { position: relative; aspect-ratio: 1; display: grid; place-items: center; background: #DCEAF7; border-radius: 8px; font-size: clamp(1.1rem, 4vw, 1.9rem); } .pyj-celula.zid { background: #9FB5C9; }
+.pyj-robot { position: absolute; display: grid; place-items: center; font-size: clamp(1.3rem, 4.6vw, 2.2rem); } .pyj-dir { position: absolute; right: -2px; bottom: -4px; font-size: .5em; color: #fff; background: var(--rau); border-radius: 6px; padding: 0 3px; line-height: 1.3; }
+.pyj-robot.lovit { animation: pya-scutura .5s; } .pyj-robot.sare { animation: pya-sare .6s 3; } .stea { position: absolute; font-size: .8em; opacity: .95; } .tinta { filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .3)); }
+.pyj-concept { margin: 10px 0 0; color: #4C6580; font-weight: 700; font-size: .9rem; }
+.pyj-comenzi { margin-top: 10px; background: #fff; border-radius: 14px; padding: 8px 14px; box-shadow: inset 0 0 0 2px #D5E3F1; } .pyj-comenzi summary { cursor: pointer; font-weight: 800; } .pyj-comenzi ul { margin: 8px 0 4px; padding-left: 18px; line-height: 1.8; font-size: .92rem; }
+.pyj-iesire { margin: 8px 0 0; padding: 0; background: none; font: 500 .88rem var(--mono); color: #3F5A75; white-space: pre-wrap; }
+@media (max-width: 800px) { .pyj-robot-zona, .pyj-dublu { grid-template-columns: 1fr; } .pyj-opt-grila { grid-template-columns: 1fr; } }
