@@ -11,13 +11,13 @@
   const TOATE = MODULE.flatMap((m) => m.lectii.map((l) => ({ ...l, mod: m })));
 
   // ---------- Progres ----------
-  let P = { lectii: {}, prov: {}, xp: 0 };
+  let P = { lectii: {}, prov: {}, asoc: {}, runde: 0, xp: 0 };
   try { Object.assign(P, JSON.parse(localStorage.getItem(CHEIE) || '{}')); } catch { /* fără stocare */ }
   const salveaza = () => { try { localStorage.setItem(CHEIE, JSON.stringify(P)); } catch { /* ignorat */ } };
   const GRADE = [[0, '🥚', 'Ou de piton'], [40, '🐣', 'Pui de piton'], [120, '🐍', 'Piton începător'], [250, '🐉', 'Programator'], [450, '🏆', 'Maestru Python']];
   const grad = (xp) => [...GRADE].reverse().find((g) => xp >= g[0]);
   const urmGrad = (xp) => GRADE.find((g) => g[0] > xp);
-  const xpMax = TOATE.length * 20 + PROVOCARI.reduce((s, p) => s + 15 * p.niv, 0);
+  const xpMax = TOATE.length * 25 + PROVOCARI.reduce((s, p) => s + 15 * p.niv, 0);
   const faceLectie = (id) => !!P.lectii[id];
 
   // ---------- Text și cod ----------
@@ -190,6 +190,60 @@
     return h('div', { class: 'pya-incearca' }, ed.el, h('div', { class: 'pya-bara' }, run, stop, reset, h('span', { class: 'pya-sfat' }, 'Modifică codul și rulează din nou. Scurtătură: Ctrl + Enter')), con.el);
   }
 
+  // ---------- Asociere: unește perechile ----------
+  const CULORI_A = ['#2F6FC4', '#E2711D', '#1E9E5A', '#D6336C', '#7A3FB8', '#0E9F94'];
+  function panouAsociere(perechi, { laGata, mesajFinal }) {
+    const shuffle = (a) => { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
+    const radacina = h('div', { class: 'pya-asoc' });
+    function porneste() {
+      const stanga = shuffle(perechi.map((p, k) => ({ ...p, k }))), dreapta = shuffle(perechi.map((p, k) => ({ ...p, k })));
+      let sel = null, selD = null, perechiGasite = 0, greseli = 0, blocat = false;
+      const info = h('p', { class: 'pya-asoc-info', role: 'status', 'aria-live': 'polite' }, 'Atinge un element din stânga, apoi pe cel care i se potrivește din dreapta.');
+      const contor = h('span', { class: 'pya-asoc-contor' }, `0 / ${perechi.length} perechi`);
+      const mk = (it, parte) => {
+        const b = h('button', { type: 'button', class: `pya-ac ${parte === 's' ? 'lft' : 'rgt'}${parte === 'd' && it.cod ? ' ecran' : ''}`, 'aria-pressed': 'false' });
+        if (parte === 's') b.append(h('pre', { html: evid(it.s.replace(/\n$/, '')) })); else b.append(h('span', { class: 'pya-ac-txt' }, it.r));
+        b.dataset.k = String(it.k);
+        b.addEventListener('click', () => click(b, parte, it));
+        return b;
+      };
+      const bs = stanga.map((it) => mk(it, 's')), bd = dreapta.map((it) => mk(it, 'd'));
+      function click(b, parte, it) {
+        if (blocat || b.classList.contains('potrivit')) return;
+        const curent = parte === 's' ? sel : selD;
+        if (curent) { curent.b.classList.remove('sel'); curent.b.setAttribute('aria-pressed', 'false'); }
+        if (curent && curent.b === b) { if (parte === 's') sel = null; else selD = null; return; }
+        b.classList.add('sel'); b.setAttribute('aria-pressed', 'true');
+        if (parte === 's') sel = { b, it }; else selD = { b, it };
+        if (!(sel && selD)) return;
+        const bun = sel.it.k === selD.it.k, a = sel.b, c = selD.b;
+        sel = null; selD = null;
+        if (bun) {
+          const col = CULORI_A[perechiGasite % CULORI_A.length]; perechiGasite++;
+          for (const x of [a, c]) { x.classList.remove('sel'); x.classList.add('potrivit'); x.setAttribute('aria-pressed', 'true'); x.disabled = true; x.style.setProperty('--c', col); x.append(h('span', { class: 'pya-ac-nr', 'aria-hidden': 'true' }, String(perechiGasite))); }
+          contor.textContent = `${perechiGasite} / ${perechi.length} perechi`;
+          info.className = 'pya-asoc-info ok'; info.textContent = '✔ Perfect, se potrivesc!';
+          if (perechiGasite === perechi.length) sfarsit();
+        } else {
+          greseli++; blocat = true;
+          for (const x of [a, c]) { x.classList.add('rau'); }
+          info.className = 'pya-asoc-info rau'; info.textContent = 'Nu se potrivesc. Gândește-te ce afișează sau ce înseamnă și încearcă din nou.';
+          setTimeout(() => { for (const x of [a, c]) { x.classList.remove('rau', 'sel'); x.setAttribute('aria-pressed', 'false'); } blocat = false; }, 650);
+        }
+      }
+      function sfarsit() {
+        const stele = greseli === 0 ? 3 : greseli <= 2 ? 2 : 1;
+        info.className = 'pya-asoc-info ok';
+        info.replaceChildren(h('b', {}, `🎉 Ai unit toate perechile! ${'★'.repeat(stele)}${'☆'.repeat(3 - stele)}`), ` ${greseli ? `Ai greșit de ${greseli} ${greseli === 1 ? 'dată' : 'ori'}.` : 'Fără nicio greșeală!'} `, laGata ? laGata(stele) : null, h('button', { class: 'pya-btn alb mic', type: 'button', onclick: porneste }, '↺ Încă o dată'));
+      }
+      radacina.replaceChildren(
+        h('div', { class: 'pya-asoc-cap' }, contor, h('span', { class: 'pya-sfat' }, mesajFinal || 'Un element din stânga ↔ unul din dreapta')),
+        h('div', { class: 'pya-asoc-grila' }, h('div', { class: 'pya-asoc-col' }, bs), h('div', { class: 'pya-asoc-col' }, bd)), info);
+    }
+    porneste();
+    return radacina;
+  }
+
   // ---------- Panoul exercițiului (verificare automată) ----------
   function panouExercitiu(ex, { id, cheie, xp, laReusit, deja }) {
     const ed = editor(ex.start || '', { min: 8, laRulare: () => verif() });
@@ -287,6 +341,7 @@
       h('section', { class: 'pya-sectiune' }, h('h2', {}, 'Mai multe'),
         h('div', { class: 'pya-extra' },
           h('a', { class: 'pya-extra-c', href: '#/python/provocari' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '🏁'), h('b', {}, 'Provocări'), h('span', {}, `${PROVOCARI.length} probleme ca la concursuri, de la ușor la greu, cu teste ascunse.`)),
+          h('a', { class: 'pya-extra-c', href: '#/python/asociere' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '🧲'), h('b', {}, 'Unește perechile'), h('span', {}, 'Asociază codul cu ce afișează și noțiunile cu explicația lor, ca la cartonașe.')),
           h('a', { class: 'pya-extra-c', href: '#/python/memorator' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '📒'), h('b', {}, 'Memorator'), h('span', {}, 'Sintaxa într-o singură pagină și erorile frecvente, explicate.')),
           h('a', { class: 'pya-extra-c', href: '#/aplicatii/python' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '⌨️'), h('b', {}, 'Editor Python'), h('span', {}, 'Un Thonny în browser: Shell, depanare pas cu pas, țestoasă (turtle).')))),
       h('p', { class: 'pya-subsol' }, 'Cursul urmărește programa de Informatică din gimnaziu (clasele VII–VIII), iar exercițiile le poți face și acasă. Progresul se păstrează doar în acest browser. ', h('a', { href: '#/' }, '← Înapoi la platformă')));
@@ -313,7 +368,8 @@
       h('div', { class: 'pya-lectie-meta' }, clasa, h('span', {}, `${m.emoji} Modulul ${MODULE.indexOf(m) + 1} · ${m.titlu}`)),
       sectiune(1, 'Teorie', 'Citește cu atenție, apoi mergi la exemplu.', h('div', { class: 'pya-teorie' }, teorie(l.teorie))),
       sectiune(2, 'Încearcă singur', 'Rulează programul, apoi schimbă ceva în el și rulează din nou. Așa se învață cel mai repede.', panouIncearca(l.exemplu, l.intrariExemplu)),
-      sectiune(3, 'Exercițiu', null, h('p', { class: 'pya-cer', html: inl(l.exercitiu.cer) }), ex),
+      sectiune(3, 'Unește perechile', 'Ce afișează fiecare program? Ce înseamnă fiecare noțiune? Asociază elementele din cele două coloane.', panouAsociere(l.asociere, { laGata: () => { if (!P.asoc[l.id]) { P.asoc[l.id] = 1; P.xp += 5; salveaza(); return '+5 XP. '; } return ''; } })),
+      sectiune(4, 'Exercițiu', null, h('p', { class: 'pya-cer', html: inl(l.exercitiu.cer) }), ex),
       raspuns,
       h('nav', { class: 'pya-pn', 'aria-label': 'Lecții' }, prec ? h('a', { href: `#/python/l/${prec.id}` }, `◀ ${prec.titlu}`) : h('span'), urm ? h('a', { href: `#/python/l/${urm.id}` }, `${urm.titlu} ▶`) : h('span'))));
     pg.style.setProperty('--m', m.culoare);
@@ -353,6 +409,26 @@
       h('section', { class: 'pya-pas' }, h('div', { class: 'pya-pas-cap' }, h('span', { class: 'pya-pas-n' }, '✍'), h('div', {}, h('h2', {}, 'Programul tău'))), ex));
   }
 
+  // ---------- Joc de asociere (perechi din toate lecțiile) ----------
+  function asociere(params) {
+    document.title = 'Unește perechile – Python – edudigi';
+    const f = params?.get('m') || '';
+    const mods = f ? MODULE.filter((m) => m.id === f) : MODULE;
+    const toate = mods.flatMap((m) => m.lectii.flatMap((l) => l.asociere.map((p) => ({ ...p, lec: l.id }))));
+    const alege = () => {
+      const amestecat = [...toate].sort(() => Math.random() - 0.5), luate = [], lefts = new Set(), rights = new Set();
+      for (const p of amestecat) { if (lefts.has(p.s) || rights.has(p.r)) continue; luate.push(p); lefts.add(p.s); rights.add(p.r); if (luate.length === 6) break; }
+      return luate;
+    };
+    const loc = h('div', { class: 'pya-asoc-loc' });
+    const nou = () => loc.replaceChildren(panouAsociere(alege(), { mesajFinal: 'Perechi amestecate din lecțiile alese', laGata: () => { P.runde = (P.runde || 0) + 1; salveaza(); return `Runde terminate: ${P.runde}. `; } }));
+    nou();
+    pagina(
+      antet('Unește perechile', 'Ca la orele cu cartonașe: asociezi codul cu ce afișează și noțiunile cu explicația lor. De fiecare dată apar perechi amestecate.', [{ t: 'Unește perechile' }]),
+      h('div', { class: 'pya-filtre' }, [['Toate lecțiile', ''], ...MODULE.map((m) => [`${m.emoji} ${m.titlu}`, m.id])].map(([t, v]) => h('a', { class: `pya-chip-f${f === v ? ' act' : ''}`, href: v ? `#/python/asociere?m=${v}` : '#/python/asociere', 'aria-pressed': String(f === v) }, t))),
+      h('section', { class: 'pya-pas' }, loc, h('p', { class: 'pya-subsol' }, h('button', { class: 'pya-btn verde', type: 'button', onclick: nou }, '🎲 Alte perechi'))));
+  }
+
   // ---------- Memorator ----------
   function memorator() {
     document.title = 'Memorator Python – edudigi';
@@ -368,5 +444,6 @@
   routes.push({ pattern: /^\/python\/l\/([a-z0-9-]+)$/, handler: async (m) => lectie(m[1]) });
   routes.push({ pattern: /^\/python\/p\/([a-z0-9-]+)$/, handler: async (m) => provocare(m[1]) });
   routes.push({ pattern: /^\/python\/provocari$/, handler: async (m, params) => provocari(params) });
+  routes.push({ pattern: /^\/python\/asociere$/, handler: async (m, params) => asociere(params) });
   routes.push({ pattern: /^\/python\/memorator$/, handler: async () => memorator() });
 })();

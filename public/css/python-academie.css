@@ -142,3 +142,24 @@
 }
 @media (prefers-reduced-motion: reduce) { .pya *, .pya *::before { animation: none !important; transition: none !important; } }
 @media print { .pya { background: #fff; } .pya-hero, .pya-stare, .pya-btn { display: none; } .pya-mem-c, .pya-pas { box-shadow: none; border: 1px solid #999; break-inside: avoid; } }
+
+/* ---- Asociere: unește perechile ---- */
+.pya-asoc-cap { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+.pya-asoc-contor { padding: 6px 14px; background: var(--soft); border-radius: 999px; font-weight: 800; color: var(--py-d); }
+.pya-asoc-grila { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; }
+.pya-asoc-col { display: flex; flex-direction: column; gap: 10px; }
+.pya-ac { --c: #3776AB; position: relative; display: flex; align-items: center; min-height: 58px; padding: 10px 14px; border-radius: 16px; border: 3px solid #C9DAEA; background: #fff; text-align: left; cursor: pointer; color: var(--ink); font: 600 .95rem/1.45 var(--font); box-shadow: 0 4px 0 #C9DAEA; transition: transform .1s, box-shadow .1s, border-color .1s, background .1s; }
+.pya-ac:hover:not(:disabled) { border-color: #7FA9D1; box-shadow: 0 4px 0 #7FA9D1; }
+.pya-ac.lft { background: #1B2638; border-color: #1B2638; box-shadow: 0 4px 0 #0D1625; }
+.pya-ac.lft pre { margin: 0; font: 500 .88rem/1.5 var(--mono); color: #E6EDF7; white-space: pre; overflow-x: auto; max-width: 100%; }
+.pya-ac.rgt.ecran { background: #F3F8FD; font: 600 .95rem/1.4 var(--mono); }
+.pya-ac.sel { border-color: #FFD43B; background: #FFF6CC; box-shadow: 0 0 0 4px rgba(255, 212, 59, .45); } .pya-ac.lft.sel { background: #26354D; border-color: #FFD43B; }
+.pya-ac.rau { border-color: var(--rau); background: #FDE8EB; animation: pya-scutura .35s; } .pya-ac.lft.rau { background: #4A1E28; }
+.pya-ac.potrivit { border-color: var(--c); background: color-mix(in srgb, var(--c) 14%, #fff); box-shadow: 0 4px 0 var(--c); cursor: default; opacity: 1; }
+.pya-ac.lft.potrivit { background: #1B2638; box-shadow: 0 4px 0 var(--c); }
+.pya-ac-nr { position: absolute; top: -10px; right: -8px; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: var(--c); color: #fff; font: 800 .8rem var(--font); box-shadow: 0 2px 0 rgba(0, 0, 0, .25); }
+.pya-asoc-info { min-height: 3.2em; margin: 16px 0 0; padding: 12px 16px; background: var(--soft); border-radius: 14px; font-weight: 700; line-height: 1.5; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pya-asoc-info.ok { background: #E3F7EB; color: #157A3F; } .pya-asoc-info.rau { background: #FFF0F2; color: #A3202F; }
+.pya-asoc-loc .pya-pas, .pya-pas .pya-subsol { margin-top: 18px; }
+@keyframes pya-scutura { 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+@media (max-width: 640px) { .pya-asoc-grila { gap: 10px; } .pya-ac { padding: 8px 9px; font-size: .84rem; } .pya-ac.lft pre { font-size: .76rem; } }

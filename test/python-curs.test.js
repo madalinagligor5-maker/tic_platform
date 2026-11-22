@@ -63,3 +63,19 @@ test('fragmentele de cod din teorie și din memorator nu au erori de sintaxă (c
   }
   assert.ok(MEMORATOR.length >= 6);
 });
+
+// ---------- Asocieri: unește perechile ----------
+for (const m of MODULE) for (const l of m.lectii) {
+  test(`asocieri valide: ${m.id}/${l.id}`, () => {
+    assert.ok(l.asociere.length >= 5 && l.asociere.length <= 6, 'ai nevoie de 5–6 perechi');
+    const drepte = l.asociere.map((p) => p.r), stangi = l.asociere.map((p) => p.s);
+    assert.strictEqual(new Set(drepte).size, drepte.length, 'răspunsuri duplicate: potrivirea ar fi ambiguă');
+    assert.strictEqual(new Set(stangi).size, stangi.length);
+    for (const p of l.asociere.filter((x) => x.cod)) {
+      const r = PY.ruleazaText(p.s, p.i);
+      assert.ok(r.rez && r.rez.ok, `${JSON.stringify(p.s)}: ${r.rez && r.rez.eroare && r.rez.eroare.text}`);
+      const rezultat = norm(r.iesire) === '' ? '(nimic)' : norm(r.iesire);
+      assert.strictEqual(rezultat, p.r, `codul ${JSON.stringify(p.s)}`);
+    }
+  });
+}
