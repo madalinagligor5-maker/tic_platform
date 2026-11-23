@@ -69,24 +69,34 @@
           } else opt.laInput?.((t) => { if (!gata) worker.postMessage({ c: 'input', text: t }); });
           return;
         }
-        if (m.t === 'gata') termina({ ok: !!(m.rez && m.rez.ok), eroare: m.rez && m.rez.eroare });
+        if (m.t === 'gata') termina({ ok: !!(m.rez && m.rez.ok), eroare: m.rez && m.rez.eroare, fisiere: m.fisiere || {} });
       };
       if (opt.timp) timer = setTimeout(() => termina({ ok: false, timp: true, eroare: { text: 'Programul rulează prea mult (poate o buclă infinită?).\n', expl: '' } }), opt.timp);
-      worker.postMessage({ c: 'run', cod, fisier: 'program.py' });
+      worker.postMessage({ c: 'run', cod, fisier: 'program.py', fisiere: opt.fisiere });
     });
     return { oprire: () => { if (!gata) { gata = true; clearTimeout(timer); try { worker?.terminate(); } catch { /* ignorat */ } opt.laOprire?.(); } }, promisiune };
   }
   const norm = (s) => s.replace(/\r/g, '').split('\n').map((l) => l.replace(/\s+$/, '')).join('\n').replace(/\n+$/, '');
+  // Un test: { i, o } sau cu fișiere { f: fișiere puse la dispoziție, fo: fișiere așteptate la final } sau cu acțiuni tkinter
+  // { dupa: cod adăugat după program, o } (se compară doar rândurile „@R|…”). Cerințe de cod: ['text', mesaj] (trebuie să apară)
+  // sau ['NU:text', mesaj] (nu are voie să apară).
   async function verifica(cod, teste, cerinte) {
-    for (const [sub, mesaj] of cerinte || []) if (!cod.includes(sub)) return { ok: false, cerinta: mesaj, rez: [] };
+    for (const [sub, mesaj] of cerinte || []) {
+      if (sub.startsWith('NU:')) { if (cod.includes(sub.slice(3))) return { ok: false, cerinta: mesaj, rez: [] }; }
+      else if (!cod.includes(sub)) return { ok: false, cerinta: mesaj, rez: [] };
+    }
     const rez = [];
     for (let i = 0; i < teste.length; i++) {
       const t = teste[i];
-      const r = await ruleaza(cod, { intrari: t.i.split('\n').filter((_, j, a) => j < a.length - 1 || a[j] !== ''), timp: 4000 }).promisiune;
-      rez.push({ ok: r.ok && norm(r.iesire) === norm(t.o), i: t.i, o: t.o, primit: r.iesire, eroare: !r.ok ? r.eroare : null, vizibil: i < 2 });
+      const program = t.dupa ? `${cod}\n${t.dupa}\n` : cod;
+      const r = await ruleaza(program, { intrari: (t.i || '').split('\n').filter((_, j, a) => j < a.length - 1 || a[j] !== ''), fisiere: t.f, timp: 5000 }).promisiune;
+      const iesire = t.dupa ? r.iesire.split('\n').filter((l) => l.startsWith('@R|')).map((l) => l.slice(3)).join('\n') : r.iesire;
+      let ok = r.ok && norm(iesire) === norm(t.o || '');
+      if (ok && t.fo) for (const [k, v] of Object.entries(t.fo)) if (norm((r.fisiere || {})[k] || '') !== norm(v)) ok = false;
+      rez.push({ ok, i: t.i || '', o: t.o || '', f: t.f, fo: t.fo, dupa: t.dupa, primit: iesire, fisiere: r.fisiere, eroare: !r.ok ? r.eroare : null, vizibil: i < 2 });
       if (r.timp) break; // o buclă infinită nu mai este încercată și pe celelalte teste
     }
-    return { ok: rez.every((x) => x.ok), rez };
+    return { ok: rez.length === teste.length && rez.every((x) => x.ok), rez };
   }
 
   // ---------- Consola ----------
@@ -245,7 +255,7 @@
   }
 
   // ---------- Panoul exercițiului (verificare automată) ----------
-  function panouExercitiu(ex, { id, cheie, xp, laReusit, deja }) {
+  function panouExercitiu(ex, { id, cheie, xp, laReusit, deja, extra }) {
     const ed = editor(ex.start || '', { min: 8, laRulare: () => verif() });
     const rezultat = h('div', { class: 'pya-rezultat', role: 'status', 'aria-live': 'polite' });
     const indiciiEl = h('div', { class: 'pya-indicii' });
@@ -278,15 +288,19 @@
       const detalii = [h('b', {}, `Încă nu e bine: ${buni} din ${totalT} teste trecute.`)];
       if (gresit.eroare) { detalii.push(h('p', {}, 'Programul s-a oprit cu o eroare:'), h('pre', { class: 'pya-e' }, gresit.eroare.text)); if (gresit.eroare.expl) detalii.push(h('div', { class: 'pya-expl' }, h('b', {}, '💡 '), gresit.eroare.expl)); }
       else if (gresit.vizibil) {
-        detalii.push(h('div', { class: 'pya-comp' },
-          h('div', {}, h('b', {}, 'Date de intrare'), h('pre', {}, gresit.i.trim() === '' ? '(nu se citește nimic)' : gresit.i.replace(/\n$/, ''))),
-          h('div', {}, h('b', {}, 'Ar trebui să afișeze'), h('pre', {}, gresit.o.replace(/\n$/, ''))),
-          h('div', {}, h('b', {}, 'Programul tău a afișat'), h('pre', {}, gresit.primit.replace(/\n$/, '') || '(nimic)'))));
+        const fisString = (o) => Object.entries(o || {}).map(([k, v]) => `${k}:\n${String(v).replace(/\n$/, '')}`).join('\n\n');
+        const intrare = gresit.dupa ? `(se simulează: ${gresit.dupa.split('\n').filter((l) => !l.startsWith('import') && !l.startsWith('print')).map((l) => l.replace(/_t\./g, '').replace(/_gaseste\("(\w+)", (\d)\)/g, '$1 #$2')).join('; ')})` : gresit.f ? `Fișiere date:\n${fisString(gresit.f)}` : gresit.i.trim() === '' ? '(nu se citește nimic)' : gresit.i.replace(/\n$/, '');
+        const col = [
+          h('div', {}, h('b', {}, gresit.dupa ? 'Acțiuni simulate' : 'Date de intrare'), h('pre', {}, intrare)),
+          h('div', {}, h('b', {}, gresit.dupa ? 'Textul etichetei ar trebui să fie' : 'Ar trebui să afișeze'), h('pre', {}, gresit.o.replace(/\n$/, '') || '(nimic)')),
+          h('div', {}, h('b', {}, gresit.dupa ? 'Textul etichetei în programul tău' : 'Programul tău a afișat'), h('pre', {}, gresit.primit.replace(/\n$/, '') || '(nimic)'))];
+        if (gresit.fo) col.push(h('div', {}, h('b', {}, 'Fișiere așteptate'), h('pre', {}, fisString(gresit.fo))), h('div', {}, h('b', {}, 'Fișierele tale'), h('pre', {}, fisString(Object.fromEntries(Object.keys(gresit.fo).map((k) => [k, (gresit.fisiere || {})[k] ?? '(lipsește)']))))));
+        detalii.push(h('div', { class: 'pya-comp' }, col));
       } else detalii.push(h('p', {}, 'Programul tău nu merge pe unul dintre testele ascunse. Încearcă și valori speciale: 0, 1, numere negative sau foarte mari.'));
       rezultat.replaceChildren(...detalii);
       if (esecuri >= 2) solBtn.hidden = false;
     }
-    return h('div', { class: 'pya-exercitiu' }, ed.el, h('div', { class: 'pya-bara' }, verifBtn, indBtn, solBtn, rezet, h('span', { class: 'pya-sfat' }, 'Scurtătură: Ctrl + Enter')), rezultat, indiciiEl);
+    return h('div', { class: 'pya-exercitiu' }, ed.el, h('div', { class: 'pya-bara' }, verifBtn, indBtn, solBtn, rezet, ...(extra ? extra(ed) : []), h('span', { class: 'pya-sfat' }, 'Scurtătură: Ctrl + Enter')), rezultat, indiciiEl);
   }
 
   // ---------- Elemente comune ----------
@@ -442,7 +456,7 @@
   }
 
   // Funcții folosite și de jocurile din python-jocuri.js
-  window.PyAcad = { ruleaza, verifica, evid, codBloc, inl, antet, pagina, editor, P, salveaza, norm, xpMax: () => xpMax };
+  window.PyAcad = { ruleaza, verifica, evid, codBloc, inl, antet, pagina, editor, P, salveaza, norm, xpMax: () => xpMax, panouExercitiu, panouIncearca, teorie, consola, grad, urmGrad };
   routes.push({ pattern: /^\/python$/, handler: async () => acasa() });
   routes.push({ pattern: /^\/python\/l\/([a-z0-9-]+)$/, handler: async (m) => lectie(m[1]) });
   routes.push({ pattern: /^\/python\/p\/([a-z0-9-]+)$/, handler: async (m) => provocare(m[1]) });

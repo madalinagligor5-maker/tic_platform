@@ -44,7 +44,7 @@ for (const u of UNITATI) {
     const r = PY.ruleazaText(u.exemplu, (u.intrariExemplu || []).join('\n') + '\n');
     assert.ok(r.rez && r.rez.ok, r.rez && r.rez.eroare && r.rez.eroare.text);
   });
-  for (const k of ['rem', 'std', 'apr']) {
+  for (const k of ['rem', 'std', 'apr', 'apr_sn']) {
     const e = u.exercitii && u.exercitii[k];
     if (!e) continue;
     test(`${u.id}/${k}: soluția trece toate testele`, () => {

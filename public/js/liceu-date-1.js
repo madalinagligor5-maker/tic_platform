@@ -9,7 +9,7 @@
   L.UNITATI.push(
     // ───────────────────────────── 1. Principii de elaborare a unui program ─────────────────────────────
     {
-      id: 'principii', nr: 1, titlu: 'Principii de elaborare a unui program', domeniu: 'Strategii de rezolvare a problemelor', cs: ['1.3', '2.3', '3.3', '5.x'], emoji: '🧭',
+      id: 'principii', nr: 1, titlu: 'Principii de elaborare a unui program', domeniu: 'Strategii de rezolvare a problemelor', cs: ['1.3', '2.3', '3.3', '4.3', '5.3', '6.3'], emoji: '🧭',
       obiective: ['Enumeri și explici etapele elaborării unui program: analiză, proiectare, implementare, testare și depanare.', 'Alegi date de test valide, de limită și nevalide și urmărești evoluția variabilelor.', 'Compari două soluții după eficiență (timp și memorie) folosind ordinul de complexitate.'],
       teorie: t(
         { p: '**Gândirea computațională** înseamnă patru lucruri: **descompui** o problemă în subprobleme, **recunoști tipare** care se repetă, **abstractizezi** (păstrezi doar ce contează) și **scrii pași** (un algoritm) pe care îi poate executa un calculator.' },

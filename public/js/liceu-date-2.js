@@ -7,7 +7,7 @@
   L.UNITATI.push(
     // ───────────────────────────── 4. Introducere în programarea orientată pe obiecte ─────────────────────────────
     {
-      id: 'poo', nr: 4, titlu: 'Introducere în programarea orientată pe obiecte', domeniu: 'Memorarea datelor și organizarea codului', cs: ['1.4', '2.4', '3.4', '4.4'], emoji: '🧱',
+      id: 'poo', nr: 4, titlu: 'Introducere în programarea orientată pe obiecte', domeniu: 'Memorarea datelor și organizarea codului', cs: ['1.4', '2.4', '3.4', '4.4', '5.4', '6.4'], emoji: '🧱',
       obiective: ['Explici noțiunile de clasă, obiect, membri (date și metode) și bibliotecă.', 'Folosești clase predefinite (list, str, dict, Turtle): instanțiezi un obiect și accesezi membrii lui.', 'Scrii o clasă simplă, cu constructor și metode, și o folosești într-un program.'],
       teorie: t(
         { p: 'Până acum ai lucrat cu **valori** și **funcții**. În **programarea orientată pe obiecte (POO)** grupezi datele și operațiile care le prelucrează într-un singur lucru: un **obiect**.' },
