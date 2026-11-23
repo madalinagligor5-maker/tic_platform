@@ -85,7 +85,7 @@
       render();
     } }, 'Ieșire');
     if (!sesiune) z.replaceChildren(h('a', { class: 'chip small red', href: '#/intra' }, 'Intră în cont'));
-    else if (sesiune.rol === 'profesor') z.replaceChildren(h('a', { class: 'chip small', href: '#/profesor' }, 'Panoul profesorului'), iesire);
+    else if (sesiune.rol === 'profesor') z.replaceChildren(h('a', { class: 'chip small', href: '#/profesor' }, 'Panoul profesorului'), h('a', { class: 'chip small', href: '#/profesor/indrumar' }, 'Îndrumar'), iesire);
     else z.replaceChildren(h('a', { class: 'chip small', href: '#/sarcini' }, 'Sarcinile mele'), h('a', { class: 'chip small', href: '#/teste' }, 'Testele mele'), h('a', { class: 'chip small', href: '#/elev', title: 'Progresul meu' }, `👤 ${sesiune.nume}`), iesire);
   }
 
@@ -260,7 +260,7 @@
     if (!sesiune || sesiune.rol !== 'profesor') return void (location.hash = '#/intra');
     const clase = await api('GET', '/api/profesor/clase');
     show(h('div', { class: 'wrap list-page' },
-      h('div', { class: 'page-head' }, h('p', { class: 'kicker' }, `Prof. ${sesiune.nume}`), h('h1', {}, 'Clasele mele')),
+      h('div', { class: 'page-head' }, h('p', { class: 'kicker' }, `Prof. ${sesiune.nume}`), h('h1', {}, 'Clasele mele'), h('p', { class: 'row-actions' }, h('a', { class: 'btn', href: '#/profesor/indrumar' }, '📘 Îndrumar de predare'), h('span', { class: 'muted' }, ' scenarii de oră, soluții de predare, diferențiere, evaluare și generator de test'))),
       clase.length
         ? h('div', { class: 'mat-grid' }, clase.map((c) => h('a', { class: 'mat-card class-tile', href: `#/profesor/clasa/${c.id}` },
             h('span', { class: 'ico-box programare roman' }, ROMAN[c.clasa]),

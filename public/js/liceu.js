@@ -222,8 +222,50 @@
       h('p', { class: 'pya-subsol' }, 'Simulatorul acceptă: Tk, Frame, LabelFrame, Label, Button, Entry, Text, Listbox, Canvas, Menu, StringVar/IntVar, messagebox, bind, after și aranjarea cu pack, grid și place.'));
   }
 
+  // ---------- TIC (Tehnologia informației și a comunicațiilor), clasa a IX-a ----------
+  function criterii(u) {
+    const n = (NOTE[u.id] = NOTE[u.id] || {}); n.crit = n.crit || {};
+    return h('ul', { class: 'lic-crit' }, u.activitate.criterii.map((c, i) => {
+      const cb = h('input', { type: 'checkbox', id: `crit-${u.id}-${i}` }); cb.checked = !!n.crit[i];
+      cb.addEventListener('change', () => { n.crit[i] = cb.checked; salveazaNote(); });
+      return h('li', {}, cb, h('label', { for: `crit-${u.id}-${i}` }, c));
+    }));
+  }
+  function hubTic() {
+    document.title = 'TIC clasa a IX-a – edudigi';
+    const TIC = LI.TIC || [];
+    pagina(
+      h('section', { class: 'lic-hero' }, h('p', { class: 'pya-kicker lic' }, '💻 Liceu · TIC · clasa a IX-a'), h('h1', {}, 'Tehnologia informației și a ', h('span', { class: 'pya-galben' }, 'comunicațiilor')),
+        h('p', { class: 'pya-lead' }, 'Competențe digitale pentru liceu, pe ariile cadrului european DigComp 2.2: informare, comunicare, creare de conținut, siguranță și rezolvarea problemelor (inclusiv inteligența artificială responsabilă).')),
+      h('div', { class: 'lic-profile', role: 'tablist' }, [...PROFILE, { id: 'tic', nume: 'TIC (Tehnologia informației)', emoji: '💻', ore: null }].map((x) => { const a = h('a', { class: `lic-profil${x.id === 'tic' ? ' act' : ''}`, href: x.id === 'tic' ? '#/liceu/tic' : `#/liceu/${x.id}`, role: 'tab', 'aria-selected': String(x.id === 'tic') }, h('span', { class: 'lic-profil-e', 'aria-hidden': 'true' }, x.emoji), h('b', {}, x.nume), x.ore ? h('span', {}, `${x.ore} ${x.ore === 1 ? 'oră' : 'ore'}/săpt.`) : h('span', {}, 'competențe digitale')); if (x.culoare) a.style.setProperty('--pc', x.culoare); return a; })),
+      h('div', { class: 'pya-caseta atentie' }, h('span', { class: 'pya-caseta-i', 'aria-hidden': 'true' }, '⚠️'), h('div', {}, h('b', {}, 'Notă pentru profesori. '), 'Unitățile sunt construite pe cadrul DigComp 2.2, citat în programele de informatică din 2025, dar ', h('b', {}, 'nu reproduc programa oficială de TIC'), ' pentru clasa a IX-a (textul ei nu a fost încărcat în platformă). Aliniază-le la programa în vigoare înainte de a le folosi la clasă.')),
+      h('section', { class: 'pya-sectiune' }, h('h2', {}, 'Unitățile'), h('div', { class: 'lic-unitati' }, TIC.map((u) => h('a', { class: 'lic-unit', href: `#/liceu/tic/${u.id}` },
+        h('span', { class: 'lic-unit-nr' }, String(u.nr)), h('span', { class: 'lic-unit-e', 'aria-hidden': 'true' }, u.emoji), h('span', { class: 'lic-unit-t' }, h('b', {}, u.titlu), h('small', {}, u.digcomp)),
+        h('span', { class: 'lic-unit-p', 'aria-label': 'Quiz' }, h('i', { class: (P.liceu[`tic-${u.id}:quiz`] || 0) >= 2 ? 'on' : '' })))))));
+  }
+  function pagTic(id) {
+    const TIC = LI.TIC || [];
+    const u = TIC.find((x) => x.id === id);
+    if (!u) return hubTic();
+    const uq = { ...u, id: `tic-${u.id}` }; // spațiu de nume separat pentru progres și notițe
+    document.title = `${u.titlu} – TIC IX – edudigi`;
+    const k = TIC.findIndex((x) => x.id === id), prec = TIC[k - 1], urm = TIC[k + 1];
+    const sectiune = (n, titlu, sub, ...c) => h('section', { class: 'pya-pas' }, h('div', { class: 'pya-pas-cap' }, h('span', { class: 'pya-pas-n' }, n), h('div', {}, h('h2', {}, titlu), sub ? h('p', {}, sub) : null)), ...c);
+    show(h('div', { class: 'pya lic' }, h('div', { class: 'wrap' },
+      antet(`${u.emoji} ${u.titlu}`, null, [{ t: 'Liceu', href: '#/liceu' }, { t: 'TIC', href: '#/liceu/tic' }, { t: `Unitatea ${u.nr}` }]),
+      h('div', { class: 'lic-meta' }, h('span', { class: 'lic-chip' }, '💻 TIC · clasa a IX-a'), h('span', { class: 'lic-chip cs' }, u.digcomp), h('button', { class: 'pya-btn alb mic lic-print', type: 'button', onclick: () => window.print() }, '🖨️ Tipărește portofoliul')),
+      sectiune('🎯', 'Ce vei învăța', 'Autoevaluare: 🌱 încă nu · 🌿 aproape · 🌳 pot.', obiective(uq)),
+      sectiune(1, 'Teorie', null, h('div', { class: 'pya-teorie' }, teorie(u.teorie))),
+      sectiune(2, `Activitate practică: ${u.activitate.titlu}`, 'Lucrează pe pași, apoi bifează criteriile de succes.', h('ol', { class: 'pya-lista lic-pasi' }, u.activitate.pasi.map((x) => h('li', { html: inl(x) }))), h('div', { class: 'pya-bara' }, h('a', { class: 'pya-btn verde', href: u.activitate.aplicatie.href }, `Deschide: ${u.activitate.aplicatie.nume} ▶`)), h('h3', { class: 'lic-sub' }, 'Criterii de succes (autoevaluare)'), criterii(uq)),
+      sectiune(3, 'Verifică-te', 'Întrebări pe niveluri cognitive.', quiz(uq)),
+      sectiune(4, 'Proiect (creare)', null, h('p', { class: 'pya-cer', html: inl(u.proiect) }), h('h3', { class: 'lic-sub' }, 'Planul meu de lucru'), plan(uq)),
+      h('nav', { class: 'pya-pn', 'aria-label': 'Unități' }, prec ? h('a', { href: `#/liceu/tic/${prec.id}` }, `◀ ${prec.titlu}`) : h('span'), urm ? h('a', { href: `#/liceu/tic/${urm.id}` }, `${urm.titlu} ▶`) : h('span')))));
+  }
+
   routes.push({ pattern: /^\/liceu(?:\/(sn|mi|mil|int))?$/, handler: async (m) => hub(m[1] || profilImplicit()) });
   routes.push({ pattern: /^\/liceu\/u\/([a-z-]+)$/, handler: async (m, params) => pagUnitate(m[1], params.get('p')) });
   routes.push({ pattern: /^\/liceu\/tkinter$/, handler: async () => pagTk() });
+  routes.push({ pattern: /^\/liceu\/tic$/, handler: async () => hubTic() });
+  routes.push({ pattern: /^\/liceu\/tic\/([a-z-]+)$/, handler: async (m) => pagTic(m[1]) });
   window.LiceuUI = { hub, pagUnitate, unitatiProfil, progresUnitate, profilDe, vizibila };
 })();

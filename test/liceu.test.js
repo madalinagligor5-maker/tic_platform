@@ -78,3 +78,18 @@ for (const u of UNITATI.filter((x) => x.limbaj === 'cpp')) {
     });
   });
 }
+
+// ---------- TIC clasa a IX-a ----------
+require(path.join(dir, 'tic-date.js'));
+test('TIC IX: structura unităților', () => {
+  const { TIC } = globalThis.LICEU;
+  assert.ok(TIC.length >= 6);
+  assert.strictEqual(new Set(TIC.map((u) => u.id)).size, TIC.length);
+  for (const u of TIC) {
+    assert.ok(u.obiective.length >= 3 && u.teorie.length >= 4 && u.digcomp && u.proiect);
+    assert.ok(u.activitate.pasi.length >= 3 && u.activitate.criterii.length >= 3 && u.activitate.aplicatie.href.startsWith('#/'));
+    assert.ok(u.quiz.length >= 3);
+    for (const q of u.quiz) assert.ok(q.opt.length === 4 && q.ok >= 0 && q.ok < 4 && q.expl && q.nivel);
+    assert.ok(u.prof.scenariu.length >= 3 && u.prof.greseli.length >= 3 && u.prof.diferentiere.ces && u.prof.evaluare.length >= 2);
+  }
+});
