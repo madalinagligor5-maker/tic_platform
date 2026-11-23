@@ -3457,6 +3457,24 @@ def _after(n):
     f = _S["after"].pop(n, None)
     if f is not None:
         f()
+
+def _gaseste(tip, k):
+    n = 0
+    for i in range(1, _S["id"] + 1):
+        w = _S["w"].get(i)
+        if w is not None and w._cls == tip:
+            n = n + 1
+            if n == k:
+                return i
+    return 0
+
+def _text(i):
+    w = _S["w"].get(i)
+    if w is None:
+        return ""
+    if w._cls == "Entry" or w._cls == "Text":
+        return w._text
+    return str(w._o.get("text", ""))
 `;
     const SURSE_MODULE = { tkinter: SURSA_TKINTER };
     function modulSursa(nume, sursa) {
