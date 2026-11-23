@@ -28,6 +28,7 @@
     class PyIter { constructor(kind, it) { this.kind = kind; this.it = it; this.id = ++nrObiecte; } }
     class PyView { constructor(kind, d) { this.kind = kind; this.d = d; } }
     class PyInst { constructor(cls, d) { this.cls = cls; this.d = d; this.id = ++nrObiecte; } }
+    class PySuper { constructor(self, cls) { this.self = self; this.cls = cls; } } // super() fără argumente sau super(Clasa, self)
     class PyMetoda { constructor(self, fn) { this.self = self; this.fn = fn; } } // metodă legată a unei clase scrise de elev
     class Oprire { constructor(mesaj, rand) { this.mesaj = mesaj; this.rand = rand; } } // bucla infinită (nu poate fi prinsă cu except)
     class Iesire { constructor(cod) { this.cod = cod; } } // exit()
@@ -43,7 +44,7 @@
     // ---------- Starea rulării ----------
     let S = null;
     function stareNoua(gazda) {
-      return { gazda, G: new Map([['__name__', '__main__']]), stack: [], pasi: 0, urm: 4000, t0: Date.now(), tFlush: Date.now(), lungIesire: 0, dbg: false, module: new Map(), rnd: null, tt: null, intrari: [], suspecte: new Set() };
+      return { gazda, G: new Map([['__name__', '__main__']]), stack: [], pasi: 0, urm: 4000, t0: Date.now(), tFlush: Date.now(), lungIesire: 0, dbg: false, module: new Map(), rnd: null, tt: null, intrari: [], suspecte: new Set(), fs: new Map() };
     }
 
     // =====================================================================
@@ -252,7 +253,7 @@
             case 'def': return [instrDef()];
             case 'try': return [instrTry()];
             case 'class': return [instrClass()];
-            case 'with': greseala(tk, 'instrucțiunea with nu este disponibilă în acest editor');
+            case 'with': return [instrWith()];
             case 'elif': case 'else': case 'except': case 'finally': greseala(tk, 'invalid syntax');
             default:
           }
@@ -312,6 +313,13 @@
         let altfel = [];
         if (eKw('else')) { const te = T(); p++; altfel = bloc("'else' statement", te.line); }
         return nod('while', tk, { c, corp, altfel }, [c]);
+      }
+      function instrWith() { // with open(...) as f: … (obiectele cu __enter__/__exit__ scrise de elev nu sunt acceptate)
+        const tk = T(); p++;
+        const items = [];
+        do { const e = test(); let t = null; if (ia('as')) { t = tinta1(); verificaTinta(t, false, 'assign'); } items.push({ e, t }); } while (ia(','));
+        const corp = bloc("'with' statement", tk.line);
+        return nod('with', tk, { items, corp }, items.map((i) => i.e));
       }
       function tinte() { // lista de ținte din for (fără „in”)
         const tk = T();
@@ -743,6 +751,7 @@
               case 'aug': tg(s.t); break;
               case 'for': tg(s.t); walk(s.corp); walk(s.altfel); break;
               case 'if': case 'while': walk(s.corp); walk(s.altfel); break;
+              case 'with': for (const it of s.items) if (it.t) tg(it.t); walk(s.corp); break;
               case 'def': case 'class': loc.add(s.name); break;
               case 'import': for (const x of s.l) loc.add(x.ca || x.nume.split('.')[0]); break;
               case 'from': if (s.l) for (const x of s.l) loc.add(x.ca || x.nume); break;
@@ -836,7 +845,7 @@
       ['IndexError', 'LookupError'], ['KeyError', 'LookupError'], ['ValueError', 'Exception'], ['TypeError', 'Exception'], ['NameError', 'Exception'],
       ['UnboundLocalError', 'NameError'], ['AttributeError', 'Exception'], ['RuntimeError', 'Exception'], ['RecursionError', 'RuntimeError'], ['NotImplementedError', 'RuntimeError'],
       ['AssertionError', 'Exception'], ['ImportError', 'Exception'], ['ModuleNotFoundError', 'ImportError'], ['StopIteration', 'Exception'], ['EOFError', 'Exception'],
-      ['KeyboardInterrupt', 'BaseException'], ['SystemExit', 'BaseException'], ['UnicodeError', 'ValueError'], ['OSError', 'Exception'], ['TurtleGraphicsError', 'Exception']]) tipExc(n, TIPURI.get(b));
+      ['KeyboardInterrupt', 'BaseException'], ['SystemExit', 'BaseException'], ['UnicodeError', 'ValueError'], ['OSError', 'Exception'], ['FileNotFoundError', 'OSError'], ['FileExistsError', 'OSError'], ['UnsupportedOperation', 'OSError'], ['TurtleGraphicsError', 'Exception']]) tipExc(n, TIPURI.get(b));
     function E(tip, mesaj) {
       const o = new PyExcObj(TIPURI.get(tip), mesaj === undefined ? [] : [mesaj]);
       return o;
@@ -1152,6 +1161,7 @@
       if (v instanceof PySet) return [...v.m.values()][Symbol.iterator]();
       if (v instanceof PyIter) return v.it;
       if (v instanceof PyView) return viewList(v)[Symbol.iterator]();
+      if (v instanceof PyInst && v.f) return iterFisier(v);
       throw E('TypeError', `'${tn(v)}' object is not iterable`);
     }
     function listaDin(v) {
@@ -1593,6 +1603,7 @@
           return 0;
         }
         case 'while': return yield* execWhile(s, f);
+        case 'with': return yield* execWith(s, f);
         case 'for': return yield* execFor(s, f);
         case 'break': return BRK;
         case 'continue': return CNT;
@@ -1676,6 +1687,7 @@
       if (baze.some((b) => b.exc)) { t.exc = true; t.make = (a) => new PyExcObj(t, a); }
       const cf = { name: s.name, loc: t.d, locs: s.locs, glob: f.glob, enc: f.loc ? f : null, line: s.line, clasa: true, src: f.src, fisier: f.fisier };
       yield* execBloc(s.corp, cf);
+      for (const v of t.d.values()) if (v instanceof PyFunc) v.defClasa = t;
       f.line = s.line;
       setName(s.name, t, f);
       return 0;
@@ -1715,6 +1727,29 @@
       if (!(v instanceof PyExcObj)) throw E('TypeError', 'exceptions must derive from BaseException');
       v.tb = null;
       throw v;
+    }
+    function intraCtx(o) { if (o instanceof PyInst && o.f) return o; throw E('AttributeError', `'${tn(o)}' object has no attribute '__enter__'`); }
+    function* execWith(s, f) {
+      const obj = [];
+      try {
+        for (const it of s.items) {
+          const o = intraCtx(it.e.g ? yield* gval(it.e, f) : val(it.e, f));
+          obj.push(o);
+          if (it.t) { if (it.t.k === 'name') setName(it.t.id, o, f); else yield* atribuie(it.t, o, f); }
+        }
+        return yield* execBloc(s.corp, f);
+      } finally { for (const o of obj.reverse()) inchideFisier(o); }
+    }
+    function execWithS(s, f) {
+      const obj = [];
+      try {
+        for (const it of s.items) {
+          const o = intraCtx(it.e.g ? gvalS(it.e, f) : val(it.e, f));
+          obj.push(o);
+          if (it.t) { if (it.t.k === 'name') setName(it.t.id, o, f); else atribuieS(it.t, o, f); }
+        }
+        return execBlocS(s.corp, f);
+      } finally { for (const o of obj.reverse()) inchideFisier(o); }
     }
     function* execTry(s, f) {
       let r = 0;
@@ -1903,7 +1938,7 @@
     function* apelUtilizator(fn, args, kw) {
       if (S.stack.length >= MAX_ADANCIME) throw E('RecursionError', 'maximum recursion depth exceeded');
       const loc = legaParam(fn, args, kw);
-      const fr = { name: fn.name, loc, locs: fn.locs, nonl: fn.nonl, glob: fn.glob, enc: fn.enc, line: fn.line, src: fn.src, fisier: fn.fisier, ret: null };
+      const fr = { name: fn.name, loc, locs: fn.locs, nonl: fn.nonl, glob: fn.glob, enc: fn.enc, line: fn.line, src: fn.src, fisier: fn.fisier, ret: null, fn };
       S.stack.push(fr);
       try {
         if (fn.lambda) return yield* gval(fn.corp, fr);
@@ -1945,6 +1980,7 @@
           return 0;
         }
         case 'while': return execWhileS(s, f);
+        case 'with': return execWithS(s, f);
         case 'for': return execForS(s, f);
         case 'break': return BRK;
         case 'continue': return CNT;
@@ -2028,6 +2064,7 @@
       if (baze.some((b) => b.exc)) { t.exc = true; t.make = (a) => new PyExcObj(t, a); }
       const cf = { name: s.name, loc: t.d, locs: s.locs, glob: f.glob, enc: f.loc ? f : null, line: s.line, clasa: true, src: f.src, fisier: f.fisier };
       execBlocS(s.corp, cf);
+      for (const v of t.d.values()) if (v instanceof PyFunc) v.defClasa = t;
       f.line = s.line;
       setName(s.name, t, f);
       return 0;
@@ -2255,7 +2292,7 @@
     function apelUtilizatorS(fn, args, kw) {
       if (S.stack.length >= MAX_ADANCIME) throw E('RecursionError', 'maximum recursion depth exceeded');
       const loc = legaParam(fn, args, kw);
-      const fr = { name: fn.name, loc, locs: fn.locs, nonl: fn.nonl, glob: fn.glob, enc: fn.enc, line: fn.line, src: fn.src, fisier: fn.fisier, ret: null };
+      const fr = { name: fn.name, loc, locs: fn.locs, nonl: fn.nonl, glob: fn.glob, enc: fn.enc, line: fn.line, src: fn.src, fisier: fn.fisier, ret: null, fn };
       S.stack.push(fr);
       try {
         if (fn.lambda) return gvalS(fn.corp, fr);
@@ -2282,6 +2319,13 @@
 
     // ---------- atribute și metode ----------
     function getattr(o, name) {
+      if (o instanceof PySuper) {
+        const baza = o.cls.base;
+        const m = baza ? metodaClasa(baza, name) : undefined;
+        if (m !== undefined) return m instanceof PyFunc ? new PyMetoda(o.self, m) : m;
+        if (name === '__init__') return new PyBuiltin('__init__', () => null);
+        throw E('AttributeError', `'super' object has no attribute '${name}'`);
+      }
       if (o instanceof PyModule) {
         const v = o.d.get(name);
         if (v === undefined) throw E('AttributeError', `module '${o.name}' has no attribute '${name}'${sugAttr(name, o.d.keys())}`);
@@ -2455,7 +2499,10 @@
       const sep = kwv(kw, 'sep', null), end = kwv(kw, 'end', null);
       if (sep !== null && typeof sep !== 'string') throw E('TypeError', `sep must be None or a string, not ${tn(sep)}`);
       if (end !== null && typeof end !== 'string') throw E('TypeError', `end must be None or a string, not ${tn(end)}`);
-      scrie(args.map(str).join(sep === null ? ' ' : sep) + (end === null ? '\n' : end));
+      const text = args.map(str).join(sep === null ? ' ' : sep) + (end === null ? '\n' : end);
+      const fis = kwv(kw, 'file', null);
+      if (fis instanceof PyInst && fis.f) { scrieFisier(fis, text); return null; }
+      scrie(text);
       return null;
     }
     function* citeste(args, kw) {
@@ -2467,6 +2514,36 @@
       if (r === null || r === undefined) throw E('EOFError', 'EOF when reading a line');
       S.intrari.push(r);
       return r;
+    }
+
+    // ---------- fișiere text (sistem de fișiere virtual, în memorie: există doar cât rulează programul) ----------
+    function iterFisier(o) { const g = function* () { for (;;) { const l = citesteLinie(o); if (l === '') return; yield l; } }; return g(); }
+    function verificaFisier(o) { if (o.f.inchis) throw E('ValueError', 'I/O operation on closed file.'); }
+    function citesteLinie(o) {
+      verificaFisier(o);
+      if (!o.f.r) throw E('UnsupportedOperation', 'not readable');
+      const t = o.f.txt; if (o.f.poz >= t.length) return '';
+      let j = t.indexOf('\n', o.f.poz); j = j < 0 ? t.length : j + 1;
+      const l = t.slice(o.f.poz, j); o.f.poz = j; return l;
+    }
+    function scrieFisier(o, text) {
+      verificaFisier(o);
+      if (!o.f.w) throw E('UnsupportedOperation', 'not writable');
+      if (typeof text !== 'string') throw E('TypeError', `write() argument must be str, not ${tn(text)}`);
+      S.fs.set(o.f.nume, (S.fs.get(o.f.nume) || '') + text);
+      return text.length;
+    }
+    function inchideFisier(o) { if (o.f && !o.f.inchis) { o.f.inchis = true; o.d.set('closed', true); } }
+    function deschide(nume, mod) {
+      if (typeof nume !== 'string') throw E('TypeError', `expected str, bytes or os.PathLike object, not ${tn(nume)}`);
+      if (typeof mod !== 'string' || !/^[rwax]t?$/.test(mod)) throw E('ValueError', `invalid mode: '${mod}' (în acest editor sunt permise doar fișierele text: 'r', 'w', 'a')`);
+      const m = mod[0], f = { nume, r: m === 'r', w: m !== 'r', poz: 0, inchis: false, txt: '' };
+      if (m === 'r') { if (!S.fs.has(nume)) throw E('FileNotFoundError', `[Errno 2] No such file or directory: '${nume}'`); f.txt = S.fs.get(nume); }
+      else if (m === 'w') S.fs.set(nume, '');
+      else if (m === 'x') { if (S.fs.has(nume)) throw E('FileExistsError', `[Errno 17] File exists: '${nume}'`); S.fs.set(nume, ''); }
+      else if (!S.fs.has(nume)) S.fs.set(nume, '');
+      const o = new PyInst('TextIOWrapper', new Map([['name', nume], ['mode', mod], ['closed', false]]));
+      o.f = f; return o;
     }
 
     // ---------- funcțiile predefinite ----------
@@ -2517,6 +2594,14 @@
     }
     for (const [n, t] of TIPURI) BUILTINS.set(n, t);
     bi('print', afiseaza);
+    bi('super', (a, kw) => {
+      faraKw('super', kw); nrArg('super', a, 0, 2);
+      if (a.length === 2) return new PySuper(a[1], a[0]);
+      const fr = S.stack[S.stack.length - 1], fn = fr && fr.fn;
+      if (!fn || !fn.defClasa || !fn.params.length) throw E('RuntimeError', 'super(): no arguments');
+      return new PySuper(fr.loc.get(fn.params[0].name), fn.defClasa);
+    });
+    bi('open', (a, kw) => { faraKw('open', kw, ['mode', 'encoding', 'newline']); nrArg('open', a, 1, 3); return deschide(a[0], a.length > 1 ? a[1] : kwv(kw, 'mode', 'r')); });
     bi('input', null, citeste);
     bi('len', (a, kw) => { doarCuv('len', a, kw, 1, 1); return len(a[0]); });
     bi('abs', (a, kw) => { doarCuv('abs', a, kw, 1, 1); const v = a[0]; if (nk(v) === 1) { const x = iv(v); return x < 0 ? neg(x) : x; } if (nk(v) === 2) return fl(Math.abs(v.v)); throw E('TypeError', `bad operand type for abs(): '${tn(v)}'`); });
@@ -2700,11 +2785,20 @@
     function titlu(s) { return s.replace(/[\p{L}]+/gu, (w) => w[0].toUpperCase() + w.slice(1).toLowerCase()); }
     function gcdB(a, b) { if (a < 0n) a = -a; if (b < 0n) b = -b; while (b) [a, b] = [b, a % b]; return a; }
     const METODE_INST = {};
+    METODE_INST.TextIOWrapper = {
+      read: (o, a) => { verificaFisier(o); if (!o.f.r) throw E('UnsupportedOperation', 'not readable'); const t = o.f.txt, n = a.length && a[0] !== null ? Number(iv(a[0])) : -1; const r = n < 0 ? t.slice(o.f.poz) : t.slice(o.f.poz, o.f.poz + n); o.f.poz += r.length; return r; },
+      readline: (o) => citesteLinie(o),
+      readlines: (o) => { const r = []; for (;;) { const l = citesteLinie(o); if (l === '') break; r.push(l); } return new PyList(r); },
+      write: (o, a) => scrieFisier(o, a[0]),
+      writelines: (o, a) => { for (const x of listaDin(a[0])) scrieFisier(o, x); return null; },
+      close: (o) => { inchideFisier(o); return null; },
+      readable: (o) => !!o.f.r, writable: (o) => !!o.f.w, flush: () => null,
+    };
 
     // =====================================================================
     // MODULE: math, random, time, turtle
     // =====================================================================
-    const MODULE_STD = new Set(['math', 'random', 'time', 'turtle', 'sys']);
+    const MODULE_STD = new Set(['math', 'random', 'time', 'turtle', 'sys', 'tkinter']);
     const fnMod = (d, n, fn) => d.set(n, new PyBuiltin(n, fn));
     function domeniu(x) { if (x !== x) throw E('ValueError', 'math domain error'); return x; }
     function modulMath() {
@@ -2935,6 +3029,445 @@
       d.set('Vec2D', new PyBuiltin('Vec2D', (a) => vec(fv(a[0]), fv(a[1]))));
       return new PyModule('turtle', d);
     }
+
+    // =====================================================================
+    // tkinter (simulat): modulul este scris în Python; widget-urile se descriu prin rânduri „@T|…”, pe care pagina le
+    // desenează într-o fereastră. Evenimentele (clic pe buton, taste) revin ca apeluri tkinter._ev(...) în Shell.
+    // =====================================================================
+    const SURSA_TKINTER = String.raw`
+_S = {"id": 0, "w": {}, "cb": {}, "bind": {}, "after": {}, "var": {}, "sel": {}, "radacina": None, "na": 0}
+END = "end"
+LEFT = "left"
+RIGHT = "right"
+TOP = "top"
+BOTTOM = "bottom"
+X = "x"
+Y = "y"
+BOTH = "both"
+NONE = "none"
+N = "n"
+S = "s"
+E = "e"
+W = "w"
+NS = "ns"
+EW = "ew"
+NSEW = "nsew"
+CENTER = "center"
+WORD = "word"
+DISABLED = "disabled"
+NORMAL = "normal"
+ACTIVE = "active"
+INSERT = "insert"
+HORIZONTAL = "horizontal"
+VERTICAL = "vertical"
+
+def _esc(x):
+    t = str(x)
+    t = t.replace("\\", "\\\\")
+    t = t.replace("|", "\\p")
+    t = t.replace("\n", "\\n")
+    return t
+
+def _emit(*parti):
+    linie = "@T"
+    for p in parti:
+        linie = linie + "|" + _esc(p)
+    print(linie)
+
+class _Var:
+    def __init__(self, master=None, value=None, name=None):
+        _S["id"] = _S["id"] + 1
+        self._id = _S["id"]
+        self._legate = []
+        if value is None:
+            value = self._implicit()
+        self._v = value
+        _S["var"][self._id] = self
+    def get(self):
+        return self._v
+    def set(self, v):
+        self._v = v
+        for w in self._legate:
+            w._din_var()
+    def _din_pagina(self, text):
+        self._v = self._conv(text)
+    def _conv(self, text):
+        return text
+
+class StringVar(_Var):
+    def _implicit(self):
+        return ""
+
+class IntVar(_Var):
+    def _implicit(self):
+        return 0
+    def _conv(self, text):
+        try:
+            return int(text)
+        except ValueError:
+            return 0
+
+class DoubleVar(_Var):
+    def _implicit(self):
+        return 0.0
+    def _conv(self, text):
+        try:
+            return float(text)
+        except ValueError:
+            return 0.0
+
+class BooleanVar(_Var):
+    def _implicit(self):
+        return False
+    def _conv(self, text):
+        return text == "1"
+
+class _Event:
+    def __init__(self, widget, char, keysym, x, y):
+        self.widget = widget
+        self.char = char
+        self.keysym = keysym
+        self.x = x
+        self.y = y
+
+def _init_w(self, master, tip, kw):
+    _S["id"] = _S["id"] + 1
+    self._id = _S["id"]
+    self._o = {}
+    self._master = master
+    self._text = ""
+    self._textvar = None
+    self._items = []
+    self._cv = 0
+    _S["w"][self._id] = self
+    if master is None:
+        if _S["radacina"] is None:
+            par = 0
+        else:
+            par = _S["radacina"]._id
+    else:
+        par = master._id
+    _emit("new", self._id, tip, par)
+    for k in kw:
+        self._opt(k, kw[k])
+
+class _Misc:
+    def _opt(self, k, v):
+        if k == "command":
+            _S["cb"][self._id] = v
+            _emit("cb", self._id)
+        elif k == "textvariable":
+            self._textvar = v
+            v._legate.append(self)
+            self._din_var()
+        elif k == "menu":
+            _emit("cfg", self._id, "menu", v._id)
+        elif k == "text" and self._cls == "Text":
+            self._text = str(v)
+            _emit("val", self._id, self._text)
+        else:
+            self._o[k] = v
+            _emit("cfg", self._id, k, v)
+    def _din_var(self):
+        t = str(self._textvar.get())
+        if self._cls == "Entry":
+            self._text = t
+            _emit("val", self._id, t)
+        else:
+            self._o["text"] = t
+            _emit("cfg", self._id, "text", t)
+    def configure(self, **kw):
+        for k in kw:
+            self._opt(k, kw[k])
+    def config(self, **kw):
+        for k in kw:
+            self._opt(k, kw[k])
+    def cget(self, k):
+        return self._o.get(k)
+    def __setitem__(self, k, v):
+        self._opt(k, v)
+    def __getitem__(self, k):
+        return self._o.get(k)
+    def pack(self, **kw):
+        _emit("pack", self._id, kw.get("side", "top"), kw.get("fill", "none"), 1 if kw.get("expand") else 0, kw.get("padx", 0), kw.get("pady", 0), kw.get("anchor", "center"))
+    def grid(self, **kw):
+        _emit("grid", self._id, kw.get("row", 0), kw.get("column", 0), kw.get("rowspan", 1), kw.get("columnspan", 1), kw.get("sticky", ""), kw.get("padx", 0), kw.get("pady", 0))
+    def place(self, **kw):
+        _emit("place", self._id, kw.get("x", 0), kw.get("y", 0), kw.get("relx", 0), kw.get("rely", 0), kw.get("width", 0), kw.get("height", 0))
+    def pack_forget(self):
+        _emit("hide", self._id)
+    def grid_forget(self):
+        _emit("hide", self._id)
+    def bind(self, seq, func):
+        _S["bind"][str(self._id) + "|" + seq] = func
+        _emit("bind", self._id, seq)
+    def focus_set(self):
+        _emit("focus", self._id)
+    def focus(self):
+        _emit("focus", self._id)
+    def destroy(self):
+        _emit("destroy", self._id)
+    def after(self, ms, func):
+        _S["na"] = _S["na"] + 1
+        _S["after"][_S["na"]] = func
+        _emit("after", _S["na"], ms)
+        return _S["na"]
+    def after_cancel(self, n):
+        _emit("acancel", n)
+    def update(self):
+        return None
+    def update_idletasks(self):
+        return None
+    def columnconfigure(self, i, **kw):
+        _emit("colcfg", self._id, i, kw.get("weight", 0))
+    def rowconfigure(self, i, **kw):
+        _emit("rowcfg", self._id, i, kw.get("weight", 0))
+
+class Tk(_Misc):
+    _cls = "Tk"
+    def __init__(self, **kw):
+        _init_w(self, None, "Tk", kw)
+        _S["radacina"] = self
+    def title(self, t):
+        _emit("title", self._id, t)
+    def geometry(self, g):
+        _emit("geom", self._id, g)
+    def resizable(self, a=True, b=True):
+        return None
+    def minsize(self, a=0, b=0):
+        return None
+    def attributes(self, *a):
+        return None
+    def iconbitmap(self, *a):
+        return None
+    def mainloop(self):
+        _emit("main", self._id)
+    def quit(self):
+        _emit("quit", self._id)
+    def destroy(self):
+        _emit("quit", self._id)
+
+class Frame(_Misc):
+    _cls = "Frame"
+    def __init__(self, master=None, **kw):
+        _init_w(self, master, "Frame", kw)
+
+class LabelFrame(_Misc):
+    _cls = "LabelFrame"
+    def __init__(self, master=None, **kw):
+        _init_w(self, master, "LabelFrame", kw)
+
+class Label(_Misc):
+    _cls = "Label"
+    def __init__(self, master=None, **kw):
+        _init_w(self, master, "Label", kw)
+
+class Button(_Misc):
+    _cls = "Button"
+    def __init__(self, master=None, **kw):
+        _init_w(self, master, "Button", kw)
+    def invoke(self):
+        f = _S["cb"].get(self._id)
+        if f is not None:
+            f()
+
+class Entry(_Misc):
+    _cls = "Entry"
+    def __init__(self, master=None, **kw):
+        _init_w(self, master, "Entry", kw)
+    def get(self):
+        return self._text
+    def _poz(self, i):
+        if i == "end" or i == END:
+            return len(self._text)
+        return int(i)
+    def insert(self, i, s):
+        k = self._poz(i)
+        self._text = self._text[:k] + str(s) + self._text[k:]
+        _emit("val", self._id, self._text)
+        if self._textvar is not None:
+            self._textvar._v = self._text
+    def delete(self, a, b=None):
+        x = self._poz(a)
+        if b is None:
+            y = x + 1
+        else:
+            y = self._poz(b)
+        self._text = self._text[:x] + self._text[y:]
+        _emit("val", self._id, self._text)
+        if self._textvar is not None:
+            self._textvar._v = self._text
+
+class Text(_Misc):
+    _cls = "Text"
+    def __init__(self, master=None, **kw):
+        _init_w(self, master, "Text", kw)
+    def get(self, a="1.0", b="end"):
+        return self._text + "\n"
+    def insert(self, i, s):
+        if i == "end" or i == END:
+            self._text = self._text + str(s)
+        else:
+            self._text = str(s) + self._text
+        _emit("val", self._id, self._text)
+    def delete(self, a="1.0", b="end"):
+        self._text = ""
+        _emit("val", self._id, "")
+
+class Listbox(_Misc):
+    _cls = "Listbox"
+    def __init__(self, master=None, **kw):
+        _init_w(self, master, "Listbox", kw)
+    def _afis(self):
+        _emit("lst", self._id, "\n".join(self._items))
+    def insert(self, i, *elem):
+        for e in elem:
+            if i == "end" or i == END:
+                self._items.append(str(e))
+            else:
+                self._items.insert(int(i), str(e))
+        self._afis()
+    def delete(self, a, b=None):
+        if a == "end" or a == END:
+            a = len(self._items) - 1
+        if a == 0 and (b == "end" or b == END):
+            self._items = []
+        else:
+            x = int(a)
+            if b is None or b == x:
+                self._items.pop(x)
+            else:
+                y = len(self._items) if b == "end" or b == END else int(b) + 1
+                self._items = self._items[:x] + self._items[y:]
+        self._afis()
+    def get(self, a, b=None):
+        if b is None:
+            return self._items[int(a)]
+        y = len(self._items) if b == "end" or b == END else int(b) + 1
+        return tuple(self._items[int(a):y])
+    def size(self):
+        return len(self._items)
+    def curselection(self):
+        t = _S["sel"].get(self._id, "")
+        if t == "":
+            return ()
+        r = []
+        for x in t.split(","):
+            r.append(int(x))
+        return tuple(r)
+
+class Canvas(_Misc):
+    _cls = "Canvas"
+    def __init__(self, master=None, **kw):
+        _init_w(self, master, "Canvas", kw)
+    def _f(self, kind, coords, kw):
+        self._cv = self._cv + 1
+        c = ",".join([str(x) for x in coords])
+        _emit("cv", self._id, kind, c, kw.get("fill", ""), kw.get("outline", ""), kw.get("width", 1), kw.get("text", ""), kw.get("font", ""))
+        return self._cv
+    def create_rectangle(self, x1, y1, x2, y2, **kw):
+        return self._f("rect", [x1, y1, x2, y2], kw)
+    def create_oval(self, x1, y1, x2, y2, **kw):
+        return self._f("oval", [x1, y1, x2, y2], kw)
+    def create_line(self, *coords, **kw):
+        return self._f("line", list(coords), kw)
+    def create_text(self, x, y, **kw):
+        return self._f("text", [x, y], kw)
+    def delete(self, *a):
+        _emit("cvdel", self._id)
+
+class Menu(_Misc):
+    _cls = "Menu"
+    def __init__(self, master=None, **kw):
+        _init_w(self, master, "Menu", kw)
+        self._n = 0
+    def add_command(self, label="", command=None, **kw):
+        self._n = self._n + 1
+        _S["cb"]["m" + str(self._id) + "_" + str(self._n)] = command
+        _emit("mi", self._id, "cmd", label, self._n)
+    def add_cascade(self, label="", menu=None, **kw):
+        self._n = self._n + 1
+        _emit("mi", self._id, "casc", label, menu._id)
+    def add_separator(self):
+        self._n = self._n + 1
+        _emit("mi", self._id, "sep", "", self._n)
+
+def showinfo(title="", message="", **kw):
+    _emit("msg", "info", title, message)
+    return "ok"
+
+def showwarning(title="", message="", **kw):
+    _emit("msg", "warning", title, message)
+    return "ok"
+
+def showerror(title="", message="", **kw):
+    _emit("msg", "error", title, message)
+    return "ok"
+
+def askyesno(title="", message="", **kw):
+    _emit("msg", "question", title, message + " (în simulare se răspunde automat Da)")
+    return True
+
+def askokcancel(title="", message="", **kw):
+    _emit("msg", "question", title, message + " (în simulare se răspunde automat OK)")
+    return True
+
+def askquestion(title="", message="", **kw):
+    _emit("msg", "question", title, message + " (în simulare se răspunde automat Da)")
+    return "yes"
+
+class _MB:
+    pass
+
+messagebox = _MB()
+messagebox.showinfo = showinfo
+messagebox.showwarning = showwarning
+messagebox.showerror = showerror
+messagebox.askyesno = askyesno
+messagebox.askokcancel = askokcancel
+messagebox.askquestion = askquestion
+
+def _ev(i):
+    f = _S["cb"].get(i)
+    if f is not None:
+        f()
+
+def _evm(mid, n):
+    f = _S["cb"].get("m" + str(mid) + "_" + str(n))
+    if f is not None:
+        f()
+
+def _evb(i, seq, char, keysym, x, y):
+    f = _S["bind"].get(str(i) + "|" + seq)
+    if f is not None:
+        f(_Event(_S["w"].get(i), char, keysym, x, y))
+
+def _val(i, text):
+    w = _S["w"].get(i)
+    if w is None:
+        return None
+    w._text = text
+    if w._textvar is not None:
+        w._textvar._din_pagina(text)
+
+def _sel(i, indici):
+    _S["sel"][i] = indici
+
+def _after(n):
+    f = _S["after"].pop(n, None)
+    if f is not None:
+        f()
+`;
+    const SURSE_MODULE = { tkinter: SURSA_TKINTER };
+    function modulSursa(nume, sursa) {
+      const ast = compileaza(sursa, new Set());
+      const G = new Map([['__name__', nume]]);
+      const fr = { name: '<module>', loc: null, glob: G, line: 1, src: sursa.split('\n'), fisier: `<${nume}>` };
+      const vechi = S.stack;
+      S.stack = [...vechi, fr];
+      try { execBlocS(ast, fr); } finally { S.stack = vechi; }
+      return new PyModule(nume, G);
+    }
     function importa(nume) {
       if (S.module.has(nume)) return S.module.get(nume);
       let m;
@@ -2944,6 +3477,8 @@
         case 'time': m = modulTime(); break;
         case 'sys': { const d = new Map(); d.set('exit', BUILTINS.get('exit')); d.set('argv', new PyList([S.fisierCurent])); d.set('maxsize', 9223372036854775807n); d.set('setrecursionlimit', new PyBuiltin('setrecursionlimit', () => null)); d.set('version', '3.13.0 (edudigi)'); m = new PyModule('sys', d); break; }
         case 'turtle': m = modulTurtle(); break;
+        case 'tkinter': m = modulSursa('tkinter', SURSE_MODULE.tkinter); break;
+        case 'tkinter.messagebox': { const tk = importa('tkinter'); const d = new Map(); for (const n of ['showinfo', 'showwarning', 'showerror', 'askyesno', 'askokcancel', 'askquestion']) d.set(n, tk.d.get(n)); m = new PyModule('tkinter.messagebox', d); break; }
         default: {
           const e = E('ModuleNotFoundError', `No module named '${nume}'`);
           e.modul = nume;
@@ -3051,9 +3586,12 @@
           if (m) return `${r} – modulul ${m[1]} nu are funcția „${m[2]}”. Verifică scrierea.`;
           return `${r} – atribut necunoscut.`;
         case 'RecursionError': return `${r} – funcția se apelează pe ea însăși de prea multe ori. Verifică dacă are un caz în care se oprește (de exemplu if n == 0: return 1) și dacă ajunge la el.`;
-        case 'ModuleNotFoundError': return `${r} – modulul nu este disponibil. În acest editor poți folosi: math, random, time și turtle.`;
+        case 'ModuleNotFoundError': return `${r} – modulul nu este disponibil. În acest editor poți folosi: math, random, time, turtle și tkinter (simulat).`;
         case 'ImportError': return `${r} – numele nu există în acel modul.`;
         case 'EOFError': return `${r} – programul a cerut date (input), dar nu mai sunt date de citit.`;
+        case 'FileNotFoundError': return `${r} – fișierul nu există. În acest editor fișierele trăiesc doar cât rulează programul: creează-l întâi cu open("nume.txt", "w") sau verifică numele.`;
+        case 'FileExistsError': return `${r} – fișierul există deja.`;
+        case 'UnsupportedOperation': return `${r} – fișierul nu a fost deschis pentru această operație (citire sau scriere).`;
         case 'OverflowError': return `${r} – numărul este prea mare pentru acest calcul.`;
         case 'AssertionError': return `${r} – condiția din assert este falsă.`;
         case 'TurtleGraphicsError': return `${r} – valoare greșită pentru țestoasă (de exemplu o culoare necunoscută; folosește nume în engleză: "red", "blue" sau "#ff8800").`;
@@ -3109,6 +3647,7 @@
       S.srcCurent = cod.replace(/\r\n?/g, '\n').split('\n');
       S.fisierCurent = fisier;
       if (opt.seed != null) S.rnd = rndNou(opt.seed);
+      if (opt.fisiere) for (const [k, v] of Object.entries(opt.fisiere)) S.fs.set(k, String(v));
       let ast;
       try { ast = compileaza(cod, S.suspecte); } catch (e) {
         if (e instanceof ErSintaxa) return { ok: false, eroare: formateazaSintaxa(e, cod, fisier) };
@@ -3162,14 +3701,14 @@
       const linii = intrare.split('\n');
       if (linii.length && linii[linii.length - 1] === '') linii.pop();
       let k = 0;
-      const g = ruleaza(cod, opt.fisier || 'program.py', { gazda, seed: opt.seed });
+      const g = ruleaza(cod, opt.fisier || 'program.py', { gazda, seed: opt.seed, fisiere: opt.fisiere });
       let r = g.next();
       while (!r.done) {
         const y = r.value;
         if (y.t === 'input') r = g.next(k < linii.length ? linii[k++] : null);
         else r = g.next();
       }
-      return { iesire: out, rez: r.value };
+      return { iesire: out, rez: r.value, fisiere: Object.fromEntries(S.fs) };
     }
     return { ruleaza, comanda, variabile, sesiuneNoua, stareCurenta, ruleazaText, compileaza, lexeaza, repr, floatRepr, ErSintaxa };
   })();
@@ -3226,7 +3765,7 @@
       }
       flush();
       gen = null; cerere = null;
-      trimite({ t: 'gata', rez: r.value, vars: PY.variabile(null), intrari: PY.stareCurenta().intrari });
+      trimite({ t: 'gata', rez: r.value, vars: PY.variabile(null), intrari: PY.stareCurenta().intrari, fisiere: Object.fromEntries(PY.stareCurenta().fs || []) });
     }
     return (d) => {
       d = d || {};
@@ -3234,7 +3773,7 @@
         case 'run':
           dbgCfg = d.dbg ? { mod: 'into', ad: 1, bp: new Set(d.bp || []), abiaPornit: true } : null;
           cerere = null;
-          gen = PY.ruleaza(String(d.cod || ''), String(d.fisier || '<untitled>'), { gazda, dbg: !!d.dbg });
+          gen = PY.ruleaza(String(d.cod || ''), String(d.fisier || '<untitled>'), { gazda, dbg: !!d.dbg, fisiere: d.fisiere });
           avanseaza();
           break;
         case 'repl':
