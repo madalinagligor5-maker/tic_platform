@@ -347,7 +347,7 @@
         h('div', { class: 'pya-module' }, MODULE.map((m, k) => {
           const nrf = m.lectii.filter((l) => faceLectie(l.id)).length;
           const c = h('article', { class: `pya-modul${nrf === m.lectii.length ? ' gata' : ''}` },
-            h('div', { class: 'pya-modul-cap' }, h('span', { class: 'pya-modul-e', 'aria-hidden': 'true' }, m.emoji), h('div', {}, h('p', { class: 'pya-modul-n' }, `Modulul ${k + 1}`), h('h3', {}, m.titlu), h('p', { class: 'pya-modul-d' }, m.desc))),
+            h('div', { class: 'pya-modul-cap' }, h('span', { class: 'pya-modul-e', 'aria-hidden': 'true' }, m.emoji), h('div', {}, h('p', { class: 'pya-modul-n' }, `Modulul ${k + 1}`, m.liceu ? h('span', { class: 'pya-liceu' }, 'nivel liceu') : null), h('h3', {}, m.titlu), h('p', { class: 'pya-modul-d' }, m.desc))),
             h('ol', { class: 'pya-lectii' }, m.lectii.map((l) => h('li', {}, h('a', { class: faceLectie(l.id) ? 'gata' : '', href: `#/python/l/${l.id}` }, h('span', { class: 'pya-bulina', 'aria-hidden': 'true' }, faceLectie(l.id) ? '✓' : ''), h('span', { class: 'pya-lectie-t' }, l.titlu), h('span', { class: 'pya-timp' }, `${l.timp} min`))))),
             h('p', { class: 'pya-modul-p' }, `${nrf} din ${m.lectii.length} lecții`));
           c.style.setProperty('--m', m.culoare); return c;
@@ -355,6 +355,7 @@
       h('section', { class: 'pya-sectiune' }, h('h2', {}, 'Mai multe'),
         h('div', { class: 'pya-extra' },
           h('a', { class: 'pya-extra-c', href: '#/python/provocari' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '🏁'), h('b', {}, 'Provocări'), h('span', {}, `${PROVOCARI.length} probleme ca la concursuri, de la ușor la greu, cu teste ascunse.`)),
+          h('a', { class: 'pya-extra-c', href: '#/liceu' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '🎓'), h('b', {}, 'Informatică IX (liceu)'), h('span', {}, 'Parcurs după programa din 2025, pe profiluri: științe ale naturii, matematică-informatică, militar, intensiv. Cu tkinter, fișiere, sortări.')),
           h('a', { class: 'pya-extra-c', href: '#/python/jocuri' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '🎮'), h('b', {}, 'Sala de jocuri'), h('span', {}, 'Robot programat în Python, ordonează liniile, găsește greșeala, Blitz și completează codul.')),
           h('a', { class: 'pya-extra-c', href: '#/python/asociere' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '🧲'), h('b', {}, 'Unește perechile'), h('span', {}, 'Asociază codul cu ce afișează și noțiunile cu explicația lor, ca la cartonașe.')),
           h('a', { class: 'pya-extra-c', href: '#/python/memorator' }, h('span', { class: 'pya-extra-e', 'aria-hidden': 'true' }, '📒'), h('b', {}, 'Memorator'), h('span', {}, 'Sintaxa într-o singură pagină și erorile frecvente, explicate.')),

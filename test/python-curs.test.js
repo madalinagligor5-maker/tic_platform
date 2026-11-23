@@ -5,6 +5,7 @@ const test = require('node:test');
 const assert = require('node:assert');
 const PY = require('../public/js/aplicatii/python.js');
 const { MODULE, PROVOCARI, MEMORATOR } = require('../public/js/python-curs.js');
+require('../public/js/python-curs-2.js'); // modulele de nivel liceu se adaugă în același curs
 
 const norm = (s) => s.replace(/\r/g, '').split('\n').map((l) => l.replace(/\s+$/, '')).join('\n').replace(/\n+$/, '');
 const ruleaza = (cod, intrare) => PY.ruleazaText(cod, intrare);
@@ -36,7 +37,7 @@ for (const e of exercitii) {
     assert.ok(!toate, 'codul de pornire rezolvă deja exercițiul');
   });
   test(`soluția respectă cerințele de cod: ${e.id}`, () => {
-    for (const [sub] of e.ex.cod || []) assert.ok(e.ex.solutie.includes(sub), `soluția nu conține „${sub}”`);
+    for (const [sub] of e.ex.cod || []) { if (sub.startsWith('NU:')) assert.ok(!e.ex.solutie.includes(sub.slice(3)), `soluția conține „${sub.slice(3)}”`); else assert.ok(e.ex.solutie.includes(sub), `soluția nu conține „${sub}”`); }
   });
 }
 
