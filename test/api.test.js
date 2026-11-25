@@ -112,6 +112,42 @@ test('flux complet: profesor → clasă → elev → progres → panou', async (
   assert.strictEqual(gol.body.progres.length, 0);
 });
 
+test('conturi create de profesor: generare, etichete, intrare cu PIN, PIN-uri noi, izolare', async () => {
+  const tp = (await call('POST', '/api/profesor/inregistrare', { nume: 'Gen Eratoare', utilizator: 'genera', parola: 'parola-sigura' })).body.token;
+  const alt = (await call('POST', '/api/profesor/inregistrare', { nume: 'Alt Prof', utilizator: 'altprof', parola: 'parola-sigura' })).body.token;
+  const k = (await call('POST', '/api/profesor/clase', { nume: '6C', clasa: 6 }, tp)).body;
+
+  const auto = await call('POST', `/api/profesor/clase/${k.id}/elevi-generare`, { nr: 5 }, tp);
+  assert.strictEqual(auto.status, 200);
+  assert.strictEqual(auto.body.cod, k.cod);
+  assert.strictEqual(auto.body.conturi.length, 5);
+  assert.strictEqual(new Set(auto.body.conturi.map((c) => c.pseudonim.toLowerCase())).size, 5);
+  for (const c of auto.body.conturi) assert.match(c.pin, /^\d{4}$/);
+  const c0 = auto.body.conturi[0];
+  assert.strictEqual((await call('POST', '/api/elev/login', { cod: k.cod, pseudonim: c0.pseudonim, pin: c0.pin })).status, 200);
+
+  const lista = await call('POST', `/api/profesor/clase/${k.id}/elevi-generare`, { pseudonime: ['Ana M.', 'Bogdan', 'ana m.'] }, tp);
+  assert.deepStrictEqual(lista.body.conturi.map((c) => c.pseudonim), ['Ana M.', 'Bogdan']);
+  assert.deepStrictEqual(lista.body.omise, ['ana m.']);
+  assert.strictEqual((await call('POST', `/api/profesor/clase/${k.id}/elevi-generare`, { pseudonime: ['rău<script>'] }, tp)).status, 400);
+  assert.strictEqual((await call('POST', `/api/profesor/clase/${k.id}/elevi-generare`, { nr: 500 }, tp)).status, 400);
+
+  // Alt profesor nu poate genera în clasa lui; elevii nu au acces.
+  assert.strictEqual((await call('POST', `/api/profesor/clase/${k.id}/elevi-generare`, { nr: 1 }, alt)).status, 404);
+  assert.strictEqual((await call('POST', `/api/profesor/clase/${k.id}/elevi-pin-nou`, {}, alt)).status, 404);
+  const te = (await call('POST', '/api/elev/login', { cod: k.cod, pseudonim: c0.pseudonim, pin: c0.pin })).body.token;
+  assert.strictEqual((await call('POST', `/api/profesor/clase/${k.id}/elevi-generare`, { nr: 1 }, te)).status, 401);
+
+  // PIN-uri noi: cele vechi nu mai merg, sesiunea elevului se închide.
+  const nou = await call('POST', `/api/profesor/clase/${k.id}/elevi-pin-nou`, {}, tp);
+  assert.strictEqual(nou.body.conturi.length, 7);
+  const n0 = nou.body.conturi.find((c) => c.pseudonim === c0.pseudonim);
+  assert.strictEqual((await call('POST', '/api/elev/login', { cod: k.cod, pseudonim: c0.pseudonim, pin: n0.pin })).status, 200);
+  assert.strictEqual((await call('GET', '/api/elev/progres', undefined, te)).status, 401);
+  const doar = await call('POST', `/api/profesor/clase/${k.id}/elevi-pin-nou`, { ids: [c0.id] }, tp);
+  assert.strictEqual(doar.body.conturi.length, 1);
+});
+
 test('izolare: profesorul nu vede clasa altui profesor; elevul nu poate folosi rute de profesor', async () => {
   const a = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof A', utilizator: 'profa', parola: 'parola-sigura' })).body.token;
   const b = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof B', utilizator: 'profb', parola: 'parola-sigura' })).body.token;
