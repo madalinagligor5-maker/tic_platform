@@ -85,7 +85,7 @@
       render();
     } }, 'Ieșire');
     if (!sesiune) z.replaceChildren(h('a', { class: 'chip small red', href: '#/intra' }, 'Intră în cont'));
-    else if (sesiune.rol === 'profesor') z.replaceChildren(h('a', { class: 'chip small', href: '#/profesor' }, 'Panoul profesorului'), h('a', { class: 'chip small', href: '#/profesor/indrumar' }, 'Îndrumar'), iesire);
+    else if (sesiune.rol === 'profesor') z.replaceChildren(h('a', { class: 'chip small', href: '#/profesor' }, 'Panoul profesorului'), h('a', { class: 'chip small', href: '#/profesor/indrumar' }, 'Îndrumar'), h('a', { class: 'chip small', href: '#/profesor/resurse' }, 'Resurse'), iesire);
     else z.replaceChildren(h('a', { class: 'chip small', href: '#/sarcini' }, 'Sarcinile mele'), h('a', { class: 'chip small', href: '#/teste' }, 'Testele mele'), h('a', { class: 'chip small', href: '#/elev', title: 'Progresul meu' }, `👤 ${sesiune.nume}`), iesire);
   }
 
@@ -254,6 +254,40 @@
           }))))))));
   } });
   const stat = (val, et, cls = '') => h('div', { class: `stat ${cls}` }, h('b', {}, val), h('span', {}, et));
+
+  // ---------- Resurse pentru profesori (planificări, fișe, prezentări): doar cu cont de profesor ----------
+  async function descarcaResursa(nume, buton) {
+    buton.disabled = true;
+    try {
+      const r = await fetch(`/api/profesor/resurse/fisier/${encodeURIComponent(nume)}`, { headers: { Authorization: `Bearer ${sesiune.token}` } });
+      if (!r.ok) throw new Error('Nu am putut descărca fișierul. Intră din nou în cont.');
+      const a = h('a', { href: URL.createObjectURL(await r.blob()), download: nume });
+      document.body.append(a);
+      a.click();
+      setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    } catch (ex) { alert(ex.message); } finally { buton.disabled = false; }
+  }
+  routes.push({ pattern: /^\/profesor\/resurse$/, handler: async () => {
+    if (!sesiune || sesiune.rol !== 'profesor') return void (location.hash = '#/intra');
+    const lista = await api('GET', '/api/profesor/resurse');
+    const marime = (b) => (b > 1048576 ? `${(b / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(b / 1024))} KB`);
+    show(h('div', { class: 'wrap list-page' },
+      h('p', { class: 'crumbs' }, h('a', { href: '#/profesor' }, '← Clasele mele')),
+      h('div', { class: 'page-head' }, h('p', { class: 'kicker' }, `Prof. ${sesiune.nume}`), h('h1', {}, 'Resurse pentru profesori'),
+        h('p', { class: 'muted' }, 'Planificări calendaristice, fișe de lucru cu barem și prezentări. Se văd și se descarcă doar cu cont de profesor.')),
+      lista.length ? [5, 6, 7, 8].map((c) => {
+        const rs = lista.filter((r) => r.clasa.includes(c));
+        return rs.length ? h('section', { class: 'res-grup' }, h('h2', {}, clasaLabel([c])),
+          h('div', { class: 'res-lista' }, rs.map((r) => h('article', { class: 'res-card' },
+            h('h3', {}, r.titlu),
+            r.descriere ? h('p', { class: 'muted small' }, r.descriere) : null,
+            h('div', { class: 'row-actions' }, r.fisiere.map((f) => {
+              const b = h('button', { class: 'btn small', type: 'button' }, `⬇ ${f.eticheta} (${marime(f.marime)})`);
+              b.addEventListener('click', () => descarcaResursa(f.nume, b));
+              return b;
+            })))))) : null;
+      }) : h('div', { class: 'empty' }, h('h3', {}, 'Nicio resursă încă'))));
+  } });
 
   // ---------- Panoul profesorului: lista claselor ----------
   routes.push({ pattern: /^\/profesor$/, handler: async () => {

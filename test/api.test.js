@@ -148,6 +148,28 @@ test('conturi create de profesor: generare, etichete, intrare cu PIN, PIN-uri no
   assert.strictEqual(doar.body.conturi.length, 1);
 });
 
+test('resurse pentru profesori: doar cu cont de profesor, fără copie publică', async () => {
+  const tp = (await call('POST', '/api/profesor/inregistrare', { nume: 'Res Urse', utilizator: 'resurse', parola: 'parola-sigura' })).body.token;
+  assert.strictEqual((await call('GET', '/api/profesor/resurse')).status, 401);
+  const k = (await call('POST', '/api/profesor/clase', { nume: '5A', clasa: 5 }, tp)).body;
+  const e = (await call('POST', '/api/elev/inscriere', { cod: k.cod, pseudonim: 'Elev R', pin: '1234' })).body.token;
+  assert.strictEqual((await call('GET', '/api/profesor/resurse', undefined, e)).status, 401);
+  const lista = await call('GET', '/api/profesor/resurse', undefined, tp);
+  assert.strictEqual(lista.status, 200);
+  assert.ok(lista.body.length >= 9, 'lista de resurse');
+  const nume = lista.body[0].fisiere[0].nume;
+  const url = `/api/profesor/resurse/fisier/${encodeURIComponent(nume)}`;
+  assert.strictEqual((await fetch(base + url)).status, 401);
+  assert.strictEqual((await fetch(base + url, { headers: { Authorization: `Bearer ${e}` } })).status, 401);
+  const ok = await fetch(base + url, { headers: { Authorization: `Bearer ${tp}` } });
+  assert.strictEqual(ok.status, 200);
+  assert.ok((await ok.arrayBuffer()).byteLength > 1000);
+  assert.strictEqual((await fetch(base + '/api/profesor/resurse/fisier/..%2Fteste.json', { headers: { Authorization: `Bearer ${tp}` } })).status, 404);
+  assert.strictEqual((await fetch(base + '/api/profesor/resurse/fisier/inexistent.pdf', { headers: { Authorization: `Bearer ${tp}` } })).status, 404);
+  const fs = require('fs'), path = require('path');
+  assert.ok(!fs.existsSync(path.join(__dirname, '..', 'public', 'fisiere', 'resurse')), 'nu există copie publică');
+});
+
 test('izolare: profesorul nu vede clasa altui profesor; elevul nu poate folosi rute de profesor', async () => {
   const a = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof A', utilizator: 'profa', parola: 'parola-sigura' })).body.token;
   const b = (await call('POST', '/api/profesor/inregistrare', { nume: 'Prof B', utilizator: 'profb', parola: 'parola-sigura' })).body.token;

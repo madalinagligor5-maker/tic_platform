@@ -18,7 +18,7 @@ for (const site of ['https://edudigi.ro/', 'https://www.edudigi.ro/', 'http://ed
     const read = fixture(t, site);
     const xml = read('sitemap.xml');
     const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-    for (const u of ['/', '/lectii/', '/lectii/clasa-5.html', '/lectii/hardware.html', '/aplicatii/', '/aplicatii/cpp.html', '/resurse/', '/glosar/', '/pentru-profesori.html', '/intrebari-frecvente.html']) {
+    for (const u of ['/', '/lectii/', '/lectii/clasa-5.html', '/lectii/hardware.html', '/aplicatii/', '/aplicatii/cpp.html', '/glosar/', '/pentru-profesori.html', '/intrebari-frecvente.html']) {
       assert.ok(urls.includes(`https://www.edudigi.ro${u}`), `lipsește ${u} din sitemap`);
     }
     assert.equal(new Set(urls).size, urls.length, 'adrese duplicate în sitemap');

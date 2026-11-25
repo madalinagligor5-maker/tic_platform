@@ -3984,3 +3984,21 @@ span.ap-python-sh-in[data-k="in"], .ap-python-sh-in + .x { color: #0b3fa8; }
 .glosar-lista { line-height: 1.8; padding-left: 20px; }
 .static-main .feature-grid { margin: 18px 0; }
 .static-main section h2 { margin-top: 1.4em; }
+
+/* Antet: pe ecrane late meniul stă pe propriul rând, ca să nu se mai rupă cuvintele pe două rânduri. */
+@media (min-width: 761px) {
+  .site-header .header-row { flex-wrap: wrap; gap: 0 18px; min-height: 0; padding-top: 10px; }
+  .site-header .logo { order: 1; margin-right: auto; }
+  .site-header .search { order: 2; margin-left: 0; }
+  .site-header .cont-zone { order: 3; flex-wrap: wrap; justify-content: flex-end; }
+  .site-header .main-nav { order: 4; flex: 0 0 100%; width: 100%; margin: 8px 0 0; padding: 0; gap: 4px 26px; justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; border-top: 1px solid var(--line); }
+  .site-header .main-nav a { white-space: nowrap; padding: 11px 0 9px; }
+}
+.main-nav a { white-space: nowrap; }
+
+/* Resurse pentru profesori (în aplicație, după autentificare) */
+.res-grup { margin-top: 1.5rem; }
+.res-lista { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); }
+.res-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+.res-card h3 { margin: 0; font-size: 1rem; line-height: 1.3; }
+.res-card .row-actions { margin-top: auto; }

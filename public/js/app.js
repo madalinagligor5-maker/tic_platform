@@ -296,7 +296,7 @@
             ['Clase și progres', 'Creezi clasa, elevii intră cu un cod și un PIN (fără e-mail). Vezi ce lecții au rezolvat și rezultatele la teste.'],
             ['Laborator și Atelier', 'Procesor de text, foaie de calcul și prezentări direct în browser; elevii își salvează lucrările, tu le vezi.']]
             .map(([t, d], i) => h('div', { class: `feature f${i + 1}` }, h('b', {}, t), h('p', {}, d)))),
-        h('p', { class: 'row-actions' }, h('a', { class: 'btn', href: '#/intra' }, 'Intră în cont ca profesor'), h('a', { class: 'btn ghost', href: '/resurse/' }, 'Planificări și fișe gratuite'), h('a', { class: 'btn ghost', href: '/pentru-profesori.html' }, 'Despre funcțiile pentru profesori')))),
+        h('p', { class: 'row-actions' }, h('a', { class: 'btn', href: '#/intra' }, 'Intră în cont ca profesor'), h('a', { class: 'btn ghost', href: '/pentru-profesori.html' }, 'Despre funcțiile pentru profesori')))),
       h('section', { class: 'visual-atlas' }, h('div', { class: 'wrap' },
         h('div', { class: 'section-head' }, h('div', {}, h('p', { class: 'kicker' }, 'Învață prin imagini'), h('h2', {}, 'O idee devine mai clară când o vezi.'))),
         h('p', { class: 'atlas-intro' }, 'Planșe explicative, exemple concrete și explorări pas cu pas. Alege clasa și deschide o lecție pentru a exersa.'),

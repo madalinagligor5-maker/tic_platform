@@ -131,12 +131,12 @@ function page({ site, url, title, desc, body, crumbs = [], ld = [], type = 'arti
   ${[...ld, ...bc].map(jsonld).join('\n  ')}
 </head>
 <body class="static-page">
-  <header class="site-header"><div class="wrap header-row"><a class="logo-word" href="/">edudigi</a><nav class="static-nav"><a href="/lectii/">Lecții</a><a href="/aplicatii/">Aplicații</a><a href="/glosar/">Glosar</a><a href="/resurse/">Resurse</a><a href="/pentru-profesori.html">Pentru profesori</a><a class="btn small" href="/">Deschide aplicația</a></nav></div></header>
+  <header class="site-header"><div class="wrap header-row"><a class="logo-word" href="/">edudigi</a><nav class="static-nav"><a href="/lectii/">Lecții</a><a href="/aplicatii/">Aplicații</a><a href="/glosar/">Glosar</a><a href="/pentru-profesori.html">Pentru profesori</a><a class="btn small" href="/">Deschide aplicația</a></nav></div></header>
   <main class="wrap static-main">
     ${crumbs.length ? `<nav class="crumbs" aria-label="Cale">${crumbs.map(([t, u]) => u ? `<a href="${u}">${esc(t)}</a>` : `<span>${esc(t)}</span>`).join(' / ')}</nav>` : ''}
     ${body}
   </main>
-  <footer class="site-footer"><div class="wrap footer-row"><span class="logo-word small">edudigi</span><p class="kicker">Informatică • TIC • Clasele V–VIII</p><p class="muted">Resurse gratuite pentru elevi și profesori, conform programei școlare și standardelor de evaluare.</p><p class="muted small"><a href="/lectii/">Lecții</a> · <a href="/aplicatii/">Aplicații</a> · <a href="/glosar/">Glosar</a> · <a href="/resurse/">Resurse</a> · <a href="/pentru-profesori.html">Pentru profesori</a> · <a href="/intrebari-frecvente.html">Întrebări frecvente</a> · <a href="#" data-cookie-setari>Statistici (cookie-uri)</a></p></div></footer>
+  <footer class="site-footer"><div class="wrap footer-row"><span class="logo-word small">edudigi</span><p class="kicker">Informatică • TIC • Clasele V–VIII</p><p class="muted">Resurse gratuite pentru elevi și profesori, conform programei școlare și standardelor de evaluare.</p><p class="muted small"><a href="/lectii/">Lecții</a> · <a href="/aplicatii/">Aplicații</a> · <a href="/glosar/">Glosar</a> ·  · <a href="/pentru-profesori.html">Pentru profesori</a> · <a href="/intrebari-frecvente.html">Întrebări frecvente</a> · <a href="#" data-cookie-setari>Statistici (cookie-uri)</a></p></div></footer>
   <script src="/js/analytics.js"></script>
 </body>
 </html>

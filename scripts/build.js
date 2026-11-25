@@ -18,6 +18,7 @@ const Teste = require('../public/js/teste-core'); // înregistrează eseu
 const { extract: extractDecks } = require('../public/js/diapozitive');
 const Seo = require('./seo');
 
+const RESURSE_PROF = 'Resurse pentru profesori';
 const DISCIPLINE = { informatica: 'Informatică', tic: 'TIC' };
 const CATEGORII = { programare: 'Programare', tic: 'TIC', algoritmi: 'Algoritmi', aplicatii: 'Aplicații' };
 const TIPURI = { lectie: 'Lecție', fisa: 'Fișă de lucru', test: 'Test', prezentare: 'Prezentare', proiect: 'Proiect', resursa: 'Resursă' };
@@ -136,10 +137,10 @@ function readMaterial(dir, file) {
   };
 }
 
-function build({ src, out, teste: testeOut }) {
+function build({ src, out, teste: testeOut, resurse: resurseOut }) {
   const files = fs.existsSync(src) ? fs.readdirSync(src).filter((f) => f.endsWith('.md')).sort() : [];
   const errors = [];
-  const materials = [];
+  let materials = [];
   const bodies = {};
   const testeProfesor = {};
   for (const f of files) {
@@ -152,6 +153,10 @@ function build({ src, out, teste: testeOut }) {
   }
   if (errors.length) return { errors, materials: [] };
 
+  // „Resurse pentru profesori” nu sunt publice: nu ajung în materiale.json, în public/fisiere sau în paginile
+  // pentru Google. Sunt scrise în lib/generated și se descarcă doar printr-un cont de profesor (/api/profesor/resurse).
+  const resurseProf = materials.filter((m) => m.unitate === RESURSE_PROF);
+  materials = materials.filter((m) => m.unitate !== RESURSE_PROF);
   materials.sort((a, b) => b.data.localeCompare(a.data) || a.titlu.localeCompare(b.titlu, 'ro'));
   const dateDir = path.join(out, 'date');
   const fisDir = path.join(out, 'fisiere');
@@ -160,12 +165,26 @@ function build({ src, out, teste: testeOut }) {
   fs.mkdirSync(path.join(dateDir, 'm'), { recursive: true });
   fs.writeFileSync(path.join(dateDir, 'materiale.json'), JSON.stringify({ discipline: DISCIPLINE, categorii: CATEGORII, tipuri: TIPURI, materiale: materials }));
   for (const [id, body] of Object.entries(bodies)) if (body) fs.writeFileSync(path.join(dateDir, 'm', `${id}.md`), body);
-  if (fs.existsSync(path.join(src, 'fisiere'))) fs.cpSync(path.join(src, 'fisiere'), fisDir, { recursive: true, filter: (p) => !path.basename(p).startsWith('.') });
+  const dirResurse = path.join(src, 'fisiere', 'resurse');
+  if (fs.existsSync(path.join(src, 'fisiere'))) fs.cpSync(path.join(src, 'fisiere'), fisDir, { recursive: true, filter: (p) => !path.basename(p).startsWith('.') && p !== dirResurse });
   // Paginile statice pentru Google, harta site-ului și robots.txt.
   Seo.generate({ out, materials, bodies, discipline: DISCIPLINE, tipuri: TIPURI, interactiv: new Set([...Object.keys(ACTIVITATI), 'diapozitive']) });
   if (testeOut) {
     fs.mkdirSync(path.dirname(testeOut), { recursive: true });
     fs.writeFileSync(testeOut, JSON.stringify(testeProfesor));
+  }
+  if (resurseOut) {
+    fs.rmSync(resurseOut.dir, { recursive: true, force: true });
+    fs.mkdirSync(resurseOut.dir, { recursive: true });
+    const lista = resurseProf.sort((a, b) => a.clasa[0] - b.clasa[0] || (a.ordine ?? 0) - (b.ordine ?? 0)).map((m) => {
+      const nume = m.fisier ? [m.fisier.nume] : [];
+      const frate = (de, la) => { const n = m.fisier.nume.replace(de, la); if (n !== m.fisier.nume && fs.existsSync(path.join(dirResurse, n))) nume.push(n); };
+      if (m.fisier) { frate(/\.pdf$/, '.docx'); frate(/^fisa-de-lucru/, 'barem-fisa'); }
+      for (const n of nume) fs.copyFileSync(path.join(dirResurse, n), path.join(resurseOut.dir, n));
+      const eticheta = (n) => (/^barem/.test(n) ? 'Barem (PDF)' : { pdf: 'PDF', docx: 'Word', pptx: 'PowerPoint' }[path.extname(n).slice(1)] || 'Fișier');
+      return { id: m.id, titlu: m.titlu, clasa: m.clasa, descriere: m.descriere || '', data: m.data, fisiere: nume.map((n) => ({ nume: n, eticheta: eticheta(n), marime: fs.statSync(path.join(resurseOut.dir, n)).size })) };
+    });
+    fs.writeFileSync(resurseOut.lista, JSON.stringify(lista));
   }
   return { errors: [], materials, teste: testeProfesor };
 }
@@ -174,7 +193,7 @@ module.exports = { build, parseFrontMatter };
 
 if (require.main === module) {
   const root = path.join(__dirname, '..');
-  const { errors, materials, teste } = build({ src: path.join(root, 'materiale'), out: path.join(root, 'public'), teste: path.join(root, 'lib', 'generated', 'teste.json') });
+  const { errors, materials, teste } = build({ src: path.join(root, 'materiale'), out: path.join(root, 'public'), teste: path.join(root, 'lib', 'generated', 'teste.json'), resurse: { dir: path.join(root, 'lib', 'generated', 'resurse'), lista: path.join(root, 'lib', 'generated', 'resurse.json') } });
   if (errors.length) {
     console.error('Construirea a eșuat. De corectat:\n' + errors.map((e) => `  - ${e}`).join('\n'));
     process.exit(1);

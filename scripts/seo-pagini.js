@@ -2,7 +2,6 @@
 // Pagini statice care aduc trafic organic, generate la build (vezi scripts/seo.js):
 //   /aplicatii/            lista aplicațiilor din browser, câte o pagină pentru fiecare (/aplicatii/<id>.html)
 //   /glosar/               glosar de informatică și TIC, cu o pagină pe termen (/glosar/<termen>.html), din cartonașele lecțiilor
-//   /resurse/              planificări, fișe de lucru și bareme descărcabile
 //   /pentru-profesori.html funcțiile pentru profesori
 //   /intrebari-frecvente.html
 const fs = require('fs');
@@ -140,7 +139,7 @@ const FAQ_GENERAL = [
   ['Cum intră elevii într-un cont fără e-mail?', 'Profesorul creează o clasă și primește un cod. Elevii se înscriu cu codul clasei, un pseudonim și un PIN de 4 cifre; nu li se cere adresă de e-mail sau alte date personale.'],
   ['Cum primesc elevii o sarcină?', 'Profesorul alege o lecție și, opțional, o aplicație și un termen. Sarcina apare elevilor în „Sarcinile mele”, iar lucrarea se predă cu un clic din aplicație.'],
   ['Ce sunt testele pe unități?', 'Teste de evaluare în principal tip grilă, câte unul pentru fiecare unitate de învățare. Le lansează profesorul, se corectează automat, iar notele rămân ascunse elevilor până le publică profesorul.'],
-  ['Pot descărca planificări și fișe de lucru?', 'Da, în pagina Resurse: planificări calendaristice 2026–2027 (PDF și Word) și fișe de lucru cu barem, gratuit.'],
+  ['Pot descărca planificări și fișe de lucru?', 'Da, după ce îți faci un cont gratuit de profesor: în „Resurse pentru profesori” găsești planificări calendaristice 2026–2027 (PDF și Word), fișe de lucru cu barem și prezentări.'],
 ];
 
 const cap = (s) => { s = String(s).trim(); if (!s) return s; s = s[0].toLocaleUpperCase('ro') + s.slice(1); return /[.!?…]$/.test(s) ? s : s + '.'; };
@@ -274,26 +273,6 @@ function generate(ctx) {
   urls.push({ loc: '/glosar/', pri: '0.7' });
   llms.push(`- [Glosar de informatică și TIC](${site}/glosar/): ${lista.length} de termeni explicați, cu pagină pe termen`);
 
-  // ---------- Resurse descărcabile ----------
-  const resurse = materials.filter((m) => m.fisier && (m.tip === 'fisa' || m.tip === 'resursa')).sort((a, b) => a.clasa[0] - b.clasa[0] || (a.ordine ?? 0) - (b.ordine ?? 0));
-  const dl = (m) => {
-    const w = m.fisier.url.endsWith('.pdf') && /planificare/.test(m.fisier.nume) ? m.fisier.url.replace(/\.pdf$/, '.docx') : null;
-    const barem = /^fisa-de-lucru/.test(m.fisier.nume) ? m.fisier.url.replace('fisa-de-lucru', 'barem-fisa') : null;
-    return `<a class="btn small" href="/${m.fisier.url}" download>Descarcă PDF</a>${w ? ` <a class="btn ghost small" href="/${w}" download>Descarcă Word</a>` : ''}${barem ? ` <a class="btn ghost small" href="/${barem}" download>Barem (PDF)</a>` : ''}`;
-  };
-  scrie('resurse/index.html', page({
-    site, url: '/resurse/', title: 'Planificări, fișe de lucru și bareme la informatică și TIC, clasele V–VIII | edudigi',
-    desc: 'Resurse gratuite pentru profesori: planificări calendaristice 2026–2027 (PDF și Word) și fișe de lucru cu barem la Informatică și TIC, clasele V–VIII, conform programei.',
-    crumbs: [['Resurse']], type: 'website',
-    ld: [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Resurse pentru profesori – edudigi', url: site + '/resurse/', inLanguage: 'ro', hasPart: resurse.map((m) => ({ '@type': 'LearningResource', name: m.titlu, url: `${site}/lectii/${m.id}.html`, isAccessibleForFree: true })) }],
-    body: `<h1>Resurse gratuite pentru profesori</h1>
-      <div class="static-tldr">Planificări calendaristice pentru 2026–2027, gata de completat, și fișe de lucru cu barem, pentru Informatică și TIC la clasele V–VIII. Se descarcă gratuit, fără cont.</div>
-      ${[5, 6, 7, 8].map((c) => { const rs = resurse.filter((m) => m.clasa.includes(c)); return rs.length ? `<section class="static-unit"><h2>Clasa a ${ROMAN[c]}-a</h2><ul class="static-res">${rs.map((m) => `<li><a href="/lectii/${m.id}.html"><b>${esc(m.titlu)}</b></a><br><span class="muted small">${esc(m.descriere)}</span><br>${dl(m)}</li>`).join('')}</ul></section>` : ''; }).join('')}
-      <p>Mai mult pentru profesori: <a href="/pentru-profesori.html">teste pe unități, sarcini de lucru și clase fără e-mail</a>.</p>`,
-  }));
-  urls.push({ loc: '/resurse/', pri: '0.8' });
-  llms.push(`- [Resurse pentru profesori](${site}/resurse/): planificări calendaristice 2026–2027 (PDF/Word) și fișe de lucru cu barem`);
-
   // ---------- Pentru profesori + Întrebări frecvente ----------
   const faqProf = [
     ['Cât costă?', 'Nimic. Toate funcțiile pentru profesori sunt gratuite.'],
@@ -316,7 +295,6 @@ function generate(ctx) {
         <div class="feature f3"><b>Clase fără e-mail</b><p>Cod de clasă, pseudonim și PIN: nicio adresă de e-mail și nicio dată personală a elevilor.</p></div>
       </div>
       <h2>Ce primești</h2><ul>
-        <li><a href="/resurse/">Planificări calendaristice 2026–2027 și fișe de lucru cu barem</a>, gratuite, în PDF și Word.</li>
         <li><a href="/lectii/">Lecții pentru clasele V–VIII</a>, cu imagini, exerciții interactive și competențele specifice din Anexa 15.</li>
         <li><a href="/aplicatii/">Aplicații în browser</a> care înlocuiesc programele din manual: Paint, Scratch, Code::Blocks, Python, Gmail, WavePad, Word, Excel, PowerPoint.</li>
         <li>Panou al clasei: progresul fiecărui elev, rezultatele la teste, prezentările din Atelier, export în Excel.</li></ul>
